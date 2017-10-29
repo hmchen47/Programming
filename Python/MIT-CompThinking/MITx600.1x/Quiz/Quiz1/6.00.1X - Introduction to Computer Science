@@ -1,0 +1,397 @@
+6.00.1X - Introduction to Computer Science
+==========================================
+
+URL: https://courses.edx.org/courses/course-v1:MITx+6.00.1x_7+3T2015/courseware/19136f9d4de045fdab0ce099230f5385/af94467328b74ed38f0e901460166d70/
+
+QUIZ, FALL 2015
+
+Out September 25, 2015 at 14:00 pm UTC (2:00 pm)
+
+Due September 28, 2015 at 23:30 UTC (11:30 pm)
+
+What time is it in UTC right now?
+
+ ** there is no time limit, submit your answers before the deadline **
+
+This exam is designed to take on average roughly 3 hours of time. You can start the exam when it is convenient for you, but you must complete this examination by 23:30 pm UTC on September 28. Please look up this time in your local time zone.
+
+When you open the next page, you will have started the exam. You do not need to start now. 
+
+Note that during the exam period, the discussion forum will be shut down, to avoid any accidental discussion of exam material. It will reopen at the end of the exam period. 
+
+If you have a bug or error to report during the exam, you may email 6.00.1x-exams@mit.edu. Include your edX ID (found at the top right of any edX page, by the house icon). Only bug or error reports will be accepted; all other emails will be discarded. We try to respond to emails within 7 hours. Since the entire staff is on the Unites States east coast, we will take about that long to reply to emails sent overnight and apologize for this inconvenience.
+
+If there is an error with the exam, we will fix it and then post a message on the course updates page. Check that page often! It is the fastest way we have to announce errors and fixes.
+
+You may use as a resource anything we posted online (including the textbook), any other textbooks you may possess, and any notes you have prepared yourself. We ask you not to use the Internet to search for solutions. You may not communicate with any person about this examination while working on it. Furthermore, you may not communicate about the exam until the exam has been closed for everyone.
+
+For multiple choice problems you will be allowed exactly one submission; for coding questions you will be allowed 10 submissions, so that you may have a chance to fix any errors.
+
+Part of what we are testing on this exam is your ability to write comprehensive test suites for your own functions, which is why we limit the number of submissions allowed per coding problem. For problems that ask you to write your own code, you may use Canopy or IDLE - or an online Python interpreter such as CodeSkulptor or Python Tutor - to test your solution before pasting it into the answer box. We ask that you do not run code provided in non-coding questions in Canopy.
+
+If you want to go back and study some more before starting this exam you can do so.
+
+Good Luck!
+
+Recommendations
+---------------
+
+Below are some issues you may encounter while completing this exam, along with solutions recommended by the staff.
+
+SPINNING QUEUE ICON
+
+It is possible that when you submit your code to the grader (by hitting Check), you will get the spinning processig icon. Usually, this should only last a few seconds and you will get a reply back from the grader within those few seconds.
+
+* If the spinning queued icon lasts longer than a few seconds:
+    - Go to another problem in the course that uses code submission. For example, L2 Problem 8. Hit Check with any code there to check if the spinning Processing issue is with all problems or just one.
+    - If spinning Processing doesn't happen in another problem, then check whether you have pasted the function definition twice (nested inside the same function definition). If so, only use one function definition and click Check again.
+    - If spinning Processing doesn't happen in another problem, you might have a syntax error. The best way to check this is to paste the code you have from the box in your local IDE and run it -- any syntax error or indentation error will show up.
+    - If spinning Processing doesn't happen in another problem, then check your code for any special characters. In the past, the offending character showed up in your pasted code as a one or more '\b' (no quotes) or a non-ASCII character (\u200b for example). If you remove the character, your code should give you a grader reply.
+    - If spinning Processing doesn't happen in another problem and you have followed the previous three points, try clicking Check again.
+* If spinning Processing happens in another problem as well, the graders are probably down. If there is no recent post in the Updates and News page about the grader being down, please email the staff. Someone will update that page and look into the issue.
+
+
+PROGRAM TIMED OUT (SLOW CODE OR INFINITE LOOPS)
+
+If you see this error, you have an infinite loop in your program (or more rarely, slow code). The grader uses test cases not shown in the problem, so check your code with more test cases. Most likely, there is a path through your code that leads to an infinite loop. Good test cases use unique inputs -- try very small or very large values, or uncommon combinations of inputs.
+
+SUBMISSION CANNOT BE GRADED
+
+After pasting code from your own working environment and hitting Check, you may see this message (or a similar one inside a yellow box). Those students who use non-ascii characters are most likely to see this. After pasting, some special characters (like accented letters) were introduced. To the grader, they are a sequence of characters (\u200b for example). Go through the code in the textbox and check that all your characters are ASCII ( a-z and 0-9 but none with accents). These special characters may appear in bright red font so should be easy to spot.
+
+
+Problem 1
+---------
+
+Q1. Suppose x = "me" and y = "myself". The lines of code x = y and then y = x will swap the values of x and y, resulting in x = "myself" and y = "me".
+
+Ans: False
+
+
+Q2. Suppose x is an integer in the following code:
+    def f(x):
+        while x > 3:
+            f(x+1)
+For any value of x, all calls to f are guaranteed to never terminate.
+
+Ans: False
+
+
+Q3. A Python program may execute a line of code more than once.
+
+Ans: True
+
+
+Q4. In Python, a list can be aliased.
+
+Ans: True
+
+
+Q5. The following code will enter an infinite loop for all values of i and j.
+    while i >= 0:
+        while j >= 0:
+            print i, j
+
+Ans: False
+
+
+Q6. A Python dictionary is a mutable object.
+
+Ans: True
+
+Q7. It is always possible and feasible for a programmer to come up with test cases that run through every possible path in a program.
+
+Ans: False
+
+
+Q8. A program that contains the line x = 3'a' is syntactically incorrect.
+
+Ans: True
+
+
+Q9. Consider the following function.
+def f(x):
+    a = []
+    print id(a)
+    while x > 0:
+        a.append(x)
+        f(x-1)
+A new object of type list is created for each recursive invocation of f.
+
+Ans: True
+
+
+Q10. Any number that can be represented as a decimal fraction can be represented exactly in floating point representation in Python.
+
+Ans: False
+
+
+Problem 2
+---------
+
+Q1. Consider the statement: L = {'1':1, '2':2, '3':3}. Which is correct?
+
+A. L is a list
+B. L is a class
+C. L is immutable
+D. L contains 6 elements
+E. L has integer keys
+F. L maps strings to integers
+
+Ans: F
+
+Q2. Which of the following is true?
+A. Testing a program and debugging a program are the same thing.
+B. Testing compares program output to the expected output. Debugging is a process to study the events leading up to an error.
+C. Testing checks that there is no input on which the program crashes.
+D. Testing is typically done by putting try-except blocks around pieces of code.
+
+Ans: B
+
+Q3. In Python, which of the following can be aliased in a way that affects the behavior of the program?
+A. a string
+B. a tuple
+C. a list
+D. all the above
+E. non of teh above
+
+Ans: E
+
+Q4. Assume a break statement is executed inside a loop and that the loop is inside a function. Which of the following is correct?
+A. The program will always immediately terminate.
+B. The function will always immediately terminate.
+C. The loop will always immediately terminate.
+D. All of the above.
+E. None of the above.
+
+Ans: C
+
+Q5. Choose the item from the list of potential responses that best matches: [:]
+A. keyword
+B. mutation
+C. cloning
+D. black box testing
+
+Ans: C
+
+
+problem 3
+---------
+
+Q1. Examine the following code snippet:
+stuff  = _____
+  for thing in stuff:
+        if thing == 'iQ':
+           print "Found it"
+
+Select all the values of the variable "stuff" that will make the code print "Found it".
+A. ["iBoy", "iGirl", "iQ", "iC","iPaid","iPad"]
+B. ("iBoy", "iGirl", "iQ", "iC","iPaid","iPad")
+C. [ ( "iBoy", "iGirl", "iQ", "iC","iPaid","iPad") ]
+D. ( [ "iBoy", "iGirl", "iQ", "iC","iPaid","iPad" ], )
+E. ["iQ"]
+F. "iQ"
+
+Ans: A, B, E
+
+Q2. The following Python code is supposed to compute the square of an integer by using successive additions.
+def Square(x):
+    return SquareHelper(abs(x), abs(x))
+
+def SquareHelper(n, x):
+    if n == 0:
+        return 0
+    return SquareHelper(n-1, x) + x
+
+Not considering recursion depth limitations, what is the wrong with this implementation of procedure Square? Check all that apply.
+A. It is going to return a wrong value.
+B. The term Square is a reserved Python keyword.
+C. Function names cannot start with a capital letter.
+D. The function is never going to return anything.
+E. Python has arbitrary precision arithmetic.
+F. This function will not work for negative numbers.
+G. The call SquareHelper(abs(x), abs(x)) won't work because you can't have abs(x) as both parameters.
+H. Nothing is wrong; the code is fine as-is.
+
+Ans: H
+
+
+problem 4
+---------
+
+Q1. Write a Python function, evalQuadratic(a, b, c, x), that returns the value of the quadratic a*x^2+b*x+c.
+
+This function takes in four numbers and returns a single number.
+
+Ans:
+def evalQuadratic(a, b, c, x):
+    '''
+    a, b, c: numerical values for the coefficients of a quadratic equation
+    x: numerical value at which to evaluate the quadratic.
+    '''
+    # Your code here
+    return a * x**2 + b* x +c
+
+# print evalQuadratic(4.55, -9.18, -0.07, -2.14)
+#   40.4124
+#print  evalQuadratic(9.19, -4.61, -4.91, -0.23)
+#   -3.3635
+#print evalQuadratic(-2.66, -9.46, 8.02, 5.59)
+#   -127.9813
+#print evalQuadratic(8.1, 4.88, 1.15, 0.4)
+#   4.3980
+#print evalQuadratic(-6.35, 6.37, 0.96, 0.43)
+#   2.5250
+
+
+Q2. Write a Python function, twoQuadratics, that takes in two sets of coefficients and x-values and prints the sum of the results of evaluating two quadratic equations. It does not do anything else. That is, you should evaluate and print the result of the following equation: a1*x1^2+b1*x1+c1+a2*x2^2+b2*x2+c2
+You should use the evalQuadratic function you defined in the "Quadratic" problem of these exercises (you don't need to redefine evalQuadratic in this box; when you call evalQuadratic, our definition will be used).
+
+
+def twoQuadratics(a1, b1, c1, x1, a2, b2, c2, x2):
+    '''
+    a1, b1, c1: one set of coefficients of a quadratic equation
+    a2, b2, c2: another set of coefficients of a quadratic equation
+    x1, x2: values at which to evaluate the quadratics
+    '''
+    # Your code here 
+    print evalQuadratic(a1, b1, c1, x1) + evalQuadratic(a2, b2, c2, x2)
+
+# a1 = -1.52; b1 = -1.96; c1 = 7.11; x1 = 7.45; a2 = 5.47; b2 = -8.48; c2 = 3.95; x2 = 1.59
+#   -87.560293
+#a1 = 6.1; b1 = -1.07; c1 = -2.93; x1 = 0.25; a2 = -2.49; b2 = -1.88; c2 = 2.96; x2 = 2.73
+#   -23.546371
+#a1 = 9.99; b1 = -3.43; c1 = -2.28; x1 = -8.57; a2 = 7.63; b2 = -4.82; c2 = -1.06; x2 = 2.97
+#   812.757718
+#a1 = 7.86; b1 = 1.64; c1 = -1.42; x1 = -7.7; a2 = -5.75; b2 = -3.75; c2 = 2.11; x2 = -5.31
+#   311.866325
+#a1 = 5.26; b1 = -3.26; c1 = -2.85; x1 = 8.04; a2 = -4.18; b2 = -1.53; c2 = -3.92; x2 = 6.74
+#   106.834848
+#print twoQuadratics(a1, b1, c1, x1, a2, b2, c2, x2)
+
+
+Problem 5
+---------
+Write a Python function that creates and returns a list of prime numbers between 2 and N, inclusive, sorted in increasing order. A prime number is a number that is divisible only by 1 and itself. This function takes in an integer and returns a list of integers.
+
+def primesList(N):
+    '''
+    N: an integer
+    Returns a list of prime numbers
+    '''
+    # Your code here
+    prime = []
+    for value in range(N+1):
+        if is_prime(value):
+            prime.append(value)
+
+    return prime
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    elif n <= 3:
+        return True
+    elif n%2 == 0 or n%3 == 0:
+        return False
+    i = 5
+    while i*i <= n:
+        if n%i== 0 or n%(i+2) ==0:
+            return False
+        i += 6
+    return True
+
+
+
+Problem 6
+---------
+Write a recursive Python function, given a non-negative integer N, to count and return the number of occurrences of the digit 7 in N.
+
+For example:
+count7(717) -> 2
+count7(1237123) -> 1
+count7(8989) -> 0
+Hint: Mod (%) by 10 gives you the rightmost digit (126 % 10 is 6), while doing integer division by 10 removes the rightmost digit (126 / 10 is 12).
+
+This function has to be recursive; you may not use loops! This function takes in one integer and returns one integer.
+
+def count7(N):
+    '''
+    N: a non-negative integer
+    '''
+    # Your code here
+    if N < 10:
+        if N == 7:
+            return 1
+        else:
+            return 0
+    else:
+        if N%10 == 7:
+            return count7(N/10) + 1
+        else:
+            return count7(N/10)
+
+#print count7(0)
+#   0
+#print count7(7)
+#   1
+#print count7(77)
+#   2
+#print count7(431)
+#   0
+#print count7(5127)
+#   1
+#print count7(61275)
+#   1
+#print count7(7771089)
+#   3
+
+
+
+Problem 7
+---------
+Write a Python function that returns a list of keys in aDict that map to integer values that are unique (i.e. values appear exactly once in aDict). The list of keys you return should be sorted in increasing order. (If aDict does not contain any unique values, you should return an empty list.)
+
+This function takes in a dictionary and returns a list.
+
+def uniqueValues(aDict):
+    '''
+    aDict: a dictionary
+    '''
+    # Your code here
+
+==> see individual file
+
+Problem 8
+---------
+Write a Python function called satisfiesF that has the specification below. Then make the function call run_satisfiesF(L, satisfiesF). Your code should look like:
+
+def satisfiesF(L):
+    """
+    Assumes L is a list of strings
+    Assume function f is already defined for you and it maps a string to a Boolean
+    Mutates L such that it contains all of the strings, s, originally in L such
+            that f(s) returns True, and no other elements
+    Returns the length of L after mutation
+    """
+    # Your function implementation here
+
+run_satisfiesF(L, satisfiesF)
+
+For your own testing of satisfiesF, for example, the following test function f and test code:
+def f(s):
+    return 'a' in s
+      
+L = ['a', 'b', 'a']
+print satisfiesF(L)
+print L
+
+Should print:
+2
+['a', 'a']
+
+Paste your entire function satisfiesF, including the definition, in the box below. After you define your function, make a function call to run_satisfiesF(L, satisfiesF). Do not define f or run_satisfiesF. Do not leave any debugging print statements.
+
+For this question, you will not be able to see the test cases we run. This problem will test your ability to come up with your own test cases.
+
+==> see individual file
