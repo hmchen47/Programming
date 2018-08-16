@@ -11,11 +11,11 @@ Contents
 2. Python
 
     + Python for Everybody - UoM, Coursera
-        1.  Programming for Everybody (Python)
-        2.  Learn to Program and Analyse Daat with Python
-        3.  [Using Python to Access Web Data](./Python/UoM/3-UsingPythonToAccessWebData/README.md)
-        4.  [Using Database with Python](./Python/UoM/4.Database/README.md)
-        5.  [Capstone: Retrieving, Processing, and Visualization Data with Python](./Python/MoU/5.Capstone/README.md)
+        1. Programming for Everybody (Python)
+        2. Learn to Program and Analyse Daat with Python
+        3. [Using Python to Access Web Data](./Python/UoM/3-UsingPythonToAccessWebData/README.md)
+        4. [Using Database with Python](./Python/UoM/4.Database/README.md)
+        5. [Capstone: Retrieving, Processing, and Visualization Data with Python](./Python/MoU/5.Capstone/README.md)
     + [Learn Python the Hard Way](./Python/PythonHardway/README.md)
     + MIT w/ edX
         + [Computing Thinking - MIT6.00SC](./Python/MIT-CompThinking/MIT6.00SC/README.md)
