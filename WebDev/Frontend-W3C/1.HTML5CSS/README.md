@@ -178,6 +178,7 @@
     + [Debugging (18-25)](04.Debug.md#debugging-18-25-)
 
 
+
 ## Module 5: More HTML and CSS
 
 + [5.1 Introduction to Module 5](05.HTMLCSS.md#5-1-introduction-to-module-5)
@@ -215,6 +216,7 @@
     + [Tables exercises (1-12)](05.HTMLCSS.md#tables-exercises-1-12-)
     + [Multimedia exercises (13-20)](05.HTMLCSS.md#multimedia-exercises-13-20-)
     + [CSS exercises (21-25)](05.HTMLCSS.md#css-exercises-21-25-)
+
 
 
 ## Module 6: Basics of page layout
