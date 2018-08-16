@@ -52,3 +52,8 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# package generated files in folder #
+#####################################
+.ipynb_checkpoints/
+
