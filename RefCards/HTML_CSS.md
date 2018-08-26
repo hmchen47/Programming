@@ -171,6 +171,7 @@
 | `tabindex` | integer | Specifies whether the element represents an element that is is focusable (that is, an element which is part of the sequence of focusable elements in the document), and the relative order of the element in the sequence of focusable elements in the document.  | |
 | `title` | normal character data | Advisory information associated with the element. | [I-2.2 Attributes][014], [I-2.4 Images][029] |
 
+<<<<<<< HEAD
 
 #### [Event-handler Attributes][008]
 
@@ -230,6 +231,64 @@
 | `ontimeupdate = string` |The current playback position of the video or audio element changed either as part of normal playback, or in an especially interesting way (for example, discontinuously). |
 | `onvolumechange = string` |Either the DOM attribute volume or the DOM attribute muted on the video or audio element has been changed. |
 | `onwaiting = string` |Playback of the video or audio element has stopped because the next frame is not yet available (but UA agent expects that frame to become available in due course). |
+=======
+#### Event-handler Attributes
+
++ `onabort = string`: Load of element was aborted by the user.
++ `onblur = string`: Element lost focus.
++ `oncanplay = string`: The UA can resume playback of media data for this video or audio element, but estimates that if playback were to be started now, the video or audio could not be rendered at the current playback rate up to its end without having to stop for further buffering of content.
++ `oncanplaythrough = string`: The UA estimates that if playback were to be started now, the video or audio element could be rendered at the current playback rate all the way to its end without having to stop for further buffering
++ `onchange = string`: User committed a change to the value of element (form control).
++ `onclick = string`: User pressed pointer button down and released pointer button over element, or otherwise activated the pointer in a manner that emulates such an action.
++ `oncontextmenu = string`: User requested the context menu for element.
++ `ondblclick = string`: User clicked pointer button twice over element, or otherwise activated the pointer in a manner that simulates such an action.
++ `ondrag = string`: User is continuing to drag element.
++ `ondragend = string`: User ended dragging element.
++ `ondragenter = string`: User’s drag operation entered element.
++ `ondragleave = string`: User’s drag operation left element.
++ `ondragover = string`: User is continuing drag operation over element.
++ `ondragstart = string`: User started dragging element.
++ `ondrop = string`: User completed drop operation over element.
++ `ondurationchange = string`: The DOM attribute duration on the video or audio element has been updated.
++ `onemptied = string`: The video or audio element has returned to the uninitialized state.
++ `onended = string`: The end of the video or audio element has been reached.
++ `onerror = string`: Element failed to load properly.
++ `onfocus = string`: Element received focus.
++ `onformchange = string`: User committed a change to the value of a form control in the form to which the element belongs.
++ `onforminput = string`: User changed the value of a form control in the form to which the element belongs.
++ `oninput = string`: User changed the value of element (form control).
++ `oninvalid = string`: Element (form control) did not meet validity constraints.
++ `onkeydown = string`: User pressed down a key.
++ `onkeypress = string`: User pressed down a key that is associated with a character value.
++ `onkeyup = string`: User release a key.
++ `onload = string`: Element finished loading.
++ `onloadeddata = string`: UA can render the video or audio element at the current playback position for the first time.
++ `onloadedmetadata = string`: UA has just determined the duration and dimensions of the video or audio element.
++ `onloadstart = string`: UA has begun looking for media data in the video or audio element.
++ `onmousedown = string`: User pressed down pointer button over element.
++ `onmousemove = string`: User moved mouse.
++ `onmouseout = string`: User moved pointer off boundaries of element.
++ `onmouseover = string`: User moved pointer into boundaries of element or one of its descendant elements.
++ `onmouseup = string`: User released pointer button over element.
++ `onmousewheel = string`: User rotated wheel of mouse or other device in a manner that emulates such an action.
++ `onpause = string`: User has paused playback of the video or audio element.
++ `onplay = string`: UA has initiated playback of the video or audio element.
++ onplaying = string`: Playback of the video or audio element has started.
++ `onprogress = string`: UA is fetching media data for the video or audio element.
++ `onratechange = string`: Either the DOM attribute defaultPlaybackRate or the DOM attribute playbackRate on the video or audio element has been updated.
++ `onreadystatechange = string`: Element and all its subresources have finished loading.
++ `onscroll = string`: Element or document view was scrolled.
++ `onseeked = string`: The value of the IDL attribute seeking changed to false (a seek operation on the video or audio element ended).
++ `onseeking = string`: The value of the IDL attribute seeking changed to true, and the seek operation on the video or audio elements is taking long enough that the UA has time to fire the seeking event.
++ `onselect = string`: User selected some text.
++ `onshow = string`: User requested the element be shown as a context menu.
++ `onstalled = string`: UA is attempting to fetch media data for the video or audio element, but that data is not forthcoming.
++ `onsubmit = string`: The form element was submitted.
++ `onsuspend = string`: UA is intentionally not currently fetching media data for the video or audio element, but does not yet have the entire contents downloaded.
++ `ontimeupdate = string`: The current playback position of the video or audio element changed either as part of normal playback, or in an especially interesting way (for example, discontinuously).
++ `onvolumechange = string`: Either the DOM attribute volume or the DOM attribute muted on the video or audio element has been changed.
++ `onwaiting = string`: Playback of the video or audio element has stopped because the next frame is not yet available (but UA agent expects that frame to become available in due course).
+>>>>>>> docs: add contents for 2.4 Images
 
 
 ### Non-global Attributes
@@ -238,19 +297,35 @@
 
 | Attribute | Element | Description | Link |
 |-----------|---------|-------------|------| 
+<<<<<<< HEAD
 | `<start>` | `<ol>` | Defines the first number if other than 1. |  |
 | `<reversed>` | `<ol>` | Indicates whether the list should be displayed in a descending order instead of a ascending. | [I-2. Attributes][009] |
 | `<div>` | G | define a division or a section of the document; a block level element | [2.3 Semantic Meaning][025] | 
+=======
+| `start` | `<ol>` | Defines the first number if other than 1. |  |
+| `reversed` | `<ol>` | Indicates whether the list should be displayed in a descending order instead of a ascending. | [I-2. Attributes][009] |
+| `div` | G | define a division or a section of the document; a block level element | [2.3 Semantic Meaning][025| | 
+>>>>>>> docs: add contents for 2.4 Images
 | `<span>` | similar to `<div>` but different; an inline element | [2.3 Semantic Meaning][025| |
 | `<img>` | G | embeds an image into the document | [I-2.4 Images][026] |
 | `<src>` | `<audio>`, `<embed>`, `<iframe>`, `<img>`, `<input>`, `<script>`, `<source>`, `<track>`, `<video>` |  The URL of the embeddable content. | [I-2.4 Images][027] |
 | `<alt>` | `<applet>`, `<area>`, `<img>`, `<input>` | Alternative text in case an image can't be displayed. |  [I-2.4 Images][028] |
 | `<height>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, `<input>`, `<object>`, `<video>` | Specifies the height of elements listed here. For all other elements, use the CSS height property. | [I-2.4 Images][030] |
 | `<width>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, `<input>`, `<object>`, `<video>` | For the elements listed here, this establishes the element's width. | [I-2.4 Images][030] |
+<<<<<<< HEAD
 | `<href>` | `<a>`, `<area>`, `<base>`, `<link>` | The URL of a linked resource. | [I-2.5 Hyperlinks][032] |
 | `<target>` | `<a>`, `<area>`, `<base>`, `<form>` | specify the destination where the linked URL in href should be opened | [I-2.5 Hyperlinks][033] |
 | `<media>` | `<a>`, `<area>`, `<link>`, `<source>`, `<style>` | Specifies a hint of the media for which the linked resource was designed. | [I-2.5 Hyperlinks][034] |
 | `<download>` | `<a>`, `<area>` | Indicates that the hyperlink is to be used for downloading a resource. | [I-2.5 Hyperlinks][035] |
+=======
+
+
+
+
+
+
+
+>>>>>>> docs: add contents for 2.4 Images
 
 
 ### Table Element
@@ -1687,6 +1762,7 @@ display: inline-grid;
 [028]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-alt-attribute
 [029]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-title-attribute
 [030]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes
+<<<<<<< HEAD
 [031]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#anchor-element
 [032]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-href-attribute
 [033]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-target-attribute
@@ -1722,6 +1798,61 @@ display: inline-grid;
 [063]: https://www.w3schools.com/css/css_padding.asp
 [064]: https://www.w3schools.com/css/css_border.asp
 [065]: https://www.w3schools.com/css/css_margin.asp
+=======
+[031]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#
+[032]: 
+[033]: 
+[034]: 
+[035]: 
+[036]: 
+[037]: 
+[038]: 
+[039]: 
+[040]: 
+[041]: 
+[042]: 
+[043]: 
+[044]: 
+[045]: 
+[046]: 
+[047]: 
+[048]: 
+[049]: 
+[050]: 
+[051]: 
+[052]: 
+[053]: 
+[054]: 
+[055]: 
+[056]: 
+[057]: 
+[058]: 
+[059]: 
+[060]: 
+[061]: 
+[062]: 
+[063]: 
+[064]: 
+[065]: 
+[066]: 
+[067]: 
+[068]: 
+[069]: 
+[070]: 
+[071]: 
+[072]: 
+[073]: 
+[074]: 
+[075]: 
+[076]: 
+[077]: 
+[078]: 
+[079]: 
+
+
+
+
+>>>>>>> docs: add contents for 2.4 Images
 
 [070]: ../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-left-top-right-and-bottom-properties
 [071]: ../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#-z-index-
