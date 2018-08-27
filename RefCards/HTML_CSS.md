@@ -88,6 +88,7 @@
 
 + Always declare the language of your page in the `<html>` tag
 
+<<<<<<< HEAD
 ### HTML/Tag Syntax
 
 <a href="https://www.w3.org/community/webed/wiki/HTML/Training/Tag_syntax">
@@ -95,6 +96,8 @@
     <img src="https://www.w3.org/community/webed/wiki/images/b/bc/Option.png"  alt="An element can have attributes to refine its meaning." title="HTML elements" width="350">
 </a>
 
+=======
+>>>>>>> docs: add contents for 2.5 hyperlinks
 
 ### Tags
 
@@ -118,6 +121,12 @@
 | `<em>` | Emphasizes text; semantic tag; stress emphasis of its contents | [I-2.3 Semantic Meaning][016] |
 | `<strong>` | Important text; semantic tag; indication of how something should be | [I-2.3 Semantic Meaning][016] |
 | `<a>` | create a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL | [I-2.5 Hyperlinks][031] |
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> docs: add contents for 2.5 hyperlinks
 | `<style>` | place CSS directly into an HTML document; anywhere in an HTML document;most common place: `<head>` section | [I-3.1 Welcome]
 | `<link>` | bin `.css` file within `<head>` section | [I-3.1 Welcome]
 
@@ -313,11 +322,18 @@
 | `<height>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, `<input>`, `<object>`, `<video>` | Specifies the height of elements listed here. For all other elements, use the CSS height property. | [I-2.4 Images][030] |
 | `<width>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, `<input>`, `<object>`, `<video>` | For the elements listed here, this establishes the element's width. | [I-2.4 Images][030] |
 <<<<<<< HEAD
+<<<<<<< HEAD
 | `<href>` | `<a>`, `<area>`, `<base>`, `<link>` | The URL of a linked resource. | [I-2.5 Hyperlinks][032] |
 | `<target>` | `<a>`, `<area>`, `<base>`, `<form>` | specify the destination where the linked URL in href should be opened | [I-2.5 Hyperlinks][033] |
 | `<media>` | `<a>`, `<area>`, `<link>`, `<source>`, `<style>` | Specifies a hint of the media for which the linked resource was designed. | [I-2.5 Hyperlinks][034] |
 | `<download>` | `<a>`, `<area>` | Indicates that the hyperlink is to be used for downloading a resource. | [I-2.5 Hyperlinks][035] |
 =======
+=======
+| `<href>` | `<a>`, `<area>`, `<base>`, `<link>` | The URL of a linked resource. | [I-2.5 Hyperlinks][032] |
+| `<target>` | `<a>`, `<area>`, `<base>`, `<form>` | specify the destination where the linked URL in href should be opened | [I-2.5 Hyperlinks][033] |
+| `<media>` | `<a>`, `<area>`, `<link>`, `<source>`, `<style>` | Specifies a hint of the media for which the linked resource was designed.
+ | [I-2.5 Hyperlinks][034] |
+>>>>>>> docs: add contents for 2.5 hyperlinks
 
 
 
@@ -327,6 +343,7 @@
 
 >>>>>>> docs: add contents for 2.4 Images
 
+<<<<<<< HEAD
 
 ### Table Element
 
@@ -590,6 +607,8 @@
   </tr>
 </tbody>
 </table>
+=======
+>>>>>>> docs: add contents for 2.5 hyperlinks
 
 
 #### [Source Tag][088]
@@ -1763,10 +1782,14 @@ display: inline-grid;
 [029]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-title-attribute
 [030]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> docs: add contents for 2.5 hyperlinks
 [031]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#anchor-element
 [032]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-href-attribute
 [033]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-target-attribute
 [034]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-media-attribute
+<<<<<<< HEAD
 [035]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-download-attribute
 [036]: ../WebDev/Frontend-W3C/1.HTML5CSS/03-CSS.md#
 [037]: ../WebDev/Frontend-W3C/1.HTML5CSS/03-CSS.md#
@@ -1806,6 +1829,11 @@ display: inline-grid;
 [035]: 
 [036]: 
 [037]: 
+=======
+[035]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#
+[036]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#
+[037]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#
+>>>>>>> docs: add contents for 2.5 hyperlinks
 [038]: 
 [039]: 
 [040]: 
