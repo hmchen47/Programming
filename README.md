@@ -21,7 +21,7 @@ Contents
         + [Computing Thinking - MIT6.00SC](./Python/MIT-CompThinking/MIT6.00SC/README.md)
         + [Introduction to Computer Science and Programming Using Python - 6.00.1x](./Python/MIT-CompThinking/MIT600.1x/README.md)
         + [Introduction to Computational Thinking and Data Science - 6.00.2x](./Python/MIT-CompThinking/MIT600.2x/README.md)
-    + Jyputer Notebooks
+    + Jupyter Notebooks
         + [iPython Notebook Tutorial]
         + [Data Processing Using Python]
         + [Python 3 OO Notebook]
