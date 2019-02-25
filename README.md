@@ -50,6 +50,15 @@ Contents
 5. Exercism
 
 
+6. Reference Cards
+
+| Topic |  | Items 1 | Items 2 | Items 3 | Items 4 |
+|-------|--|---------|---------|---------|---------|
+| HTML | | [Best Practices][001] | [Tags][002] | [Semantic Elements][003] | [Non-global Attributes][007] |
+|      | | [Attributes][004] | [Core Attributes][005] | [Event-handler][006] | |
+| CSS  | | [Syntax][008] | [Selectors][009] | [Properties][010] | [Units][011] |
+
+
 
 
 ----------------------------
@@ -93,4 +102,112 @@ NB: keywords for Git Commits
     </tr>
     </tbody>
   </table>
+
+
+------------------------------------
+
+<!--
+[000]: 
+
+[012]: RefCards/HTML_CSS.md#
+[013]: RefCards/HTML_CSS.md#
+[014]: RefCards/HTML_CSS.md#
+[015]: RefCards/HTML_CSS.md#
+[016]: RefCards/HTML_CSS.md#
+[017]: RefCards/HTML_CSS.md#
+[018]: RefCards/HTML_CSS.md#
+[019]: RefCards/HTML_CSS.md#
+[020]: 
+[021]: 
+[022]: 
+[023]: 
+[024]: 
+[025]: 
+[026]: 
+[027]: 
+[028]: 
+[029]: 
+[030]: 
+[031]: 
+[032]: 
+[033]: 
+[034]: 
+[035]: 
+[036]: 
+[037]: 
+[038]: 
+[039]: 
+[040]: 
+[041]: 
+[042]: 
+[043]: 
+[044]: 
+[045]: 
+[046]: 
+[047]: 
+[048]: 
+[049]: 
+[050]: 
+[051]: 
+[052]: 
+[053]: 
+[054]: 
+[055]: 
+[056]: 
+[057]: 
+[058]: 
+[059]: 
+[060]: 
+[061]: 
+[062]: 
+[063]: 
+[064]: 
+[065]: 
+[066]: 
+[067]: 
+[068]: 
+[069]: 
+[070]: 
+[071]: 
+[072]: 
+[073]: 
+[074]: 
+[075]: 
+[076]: 
+[077]: 
+[078]: 
+[079]: 
+[080]: 
+[081]: 
+[082]: 
+[083]: 
+[084]: 
+[085]: 
+[086]: 
+[087]: 
+[088]: 
+[089]: 
+[090]: 
+[091]: 
+[092]: 
+[093]: 
+[094]: 
+[095]: 
+[096]: 
+[097]: 
+[098]: 
+[099]: 
+-->
+
+[001]: RefCards/HTML_CSS.md#best-practices
+[002]: RefCards/HTML_CSS.md#tags
+[003]: RefCards/HTML_CSS.md#semantic-elements
+[004]: RefCards/HTML_CSS.md#attributes
+[005]: RefCards/HTML_CSS.md#core-attributes
+[006]: RefCards/HTML_CSS.md#event-handler-attributes
+[007]: RefCards/HTML_CSS.md#css-syntax
+[008]: RefCards/HTML_CSS.md#css-syntax
+[009]: RefCards/HTML_CSS.md#selectors
+[010]: RefCards/HTML_CSS.md#properties
+[011]: RefCards/HTML_CSS.md#measurement-units
 
