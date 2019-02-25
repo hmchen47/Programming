@@ -171,10 +171,6 @@
 | `tabindex` | integer | Specifies whether the element represents an element that is is focusable (that is, an element which is part of the sequence of focusable elements in the document), and the relative order of the element in the sequence of focusable elements in the document.  | |
 | `title` | normal character data | Advisory information associated with the element. | [I-2.2 Attributes][014], [I-2.4 Images][029] |
 
-<<<<<<< HEAD
-
-=======
->>>>>>> docs: add RefCards for Mod03 CSS
 #### [Event-handler Attributes][008]
 
 | Attributes | Description |
