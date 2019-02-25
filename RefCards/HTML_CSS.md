@@ -171,7 +171,10 @@
 | `tabindex` | integer | Specifies whether the element represents an element that is is focusable (that is, an element which is part of the sequence of focusable elements in the document), and the relative order of the element in the sequence of focusable elements in the document.  | |
 | `title` | normal character data | Advisory information associated with the element. | [I-2.2 Attributes][014], [I-2.4 Images][029] |
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> docs: add RefCards for Mod03 CSS
 #### [Event-handler Attributes][008]
 
 | Attributes | Description |
@@ -605,6 +608,58 @@
 
 #### [The iframe Tag][090]
 
+## CSS3
+
+### CSS Syntax
+
+<a href="https://www.w3schools.com/css/css_syntax.asp">
+    <img src="https://www.w3schools.com/css/selector.gif" alt="The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon. A CSS declaration always ends with a semicolon, and declaration blocks are surrounded by curly braces." title="CSS rule-set consists of a selector and a declaration block" height="80">
+</a>
+
+### [Selectors][054]
+
+| Selector | HTML | CSS | Link |
+|----------|------|-----|------|
+| tag | `<li>` | `li {list-style_type: circle;}` | [Selector][055] |
+| id | `<p id="p18"> Ulysses </p>` | `#p18 {color: blue;}` | [Selector][056] |
+| class | `<li class="bird flying">eagle</li>` | `.bird   { color: blue; }` <br/> `.flying { text-decoration: underline; }` | [Selector][057] |
+| Comma separated |  | `blockquote,` <br/> `q,` <br/> `.speech {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `color: red;` <br/>&nbsp;&nbsp;&nbsp;&nbsp; `font-style: italic;` <br/> `}` <br/> `.speech { font-weight: bold; }` | [Selector][058] |
+| Specialized | `<li class="insect flying">wasp</li>` | `.insect.flying {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `text-decoration: underline;` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `font-weight: bold;` <br/>   `}` | [Selector][059] |
+| Descendant  | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro a { color: red; }` | [Selector][060] |
+| Direct descendant | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro > a { font-size: large; }` | [Selector][061] |
+
+
+
+
+### [Properties][038]
+
+| Property | Description | Value Options | Link |
+|----------|-------------|---------------|------|
+| `color` | text color | `blue`, `lightblue`, `darkblue`, `red`, etc. | |
+| `font-size` | size the text of a tag | `px`, `em`, `%`, `vh` | [Common Prty][039] |
+| `line-height` | height of the space | `<number>` | [Common Prty][040] |
+| `text-align` | alignment | `left`, `center`, `right`, `justify`, `justify-all` | [Common Prty][041] |
+| `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][042] |
+| `font-weight` | text bolder (or less bold) | `normal`, `bold`, `bolder`, `lighter`, `<number>` | [Common Prty][043] |
+| `font-family` | font for an element | `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [Common Prty][044] |
+| `list-style-type` | list marker, usually positioned to the left of any list item | `<ul>`: `disc`, `circle`, `square`, `none`; `<ol>`: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][051] |
+| `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][052] |
+| `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][053] |
+
+
+
+
+
+### Measurement Units
+
+| Unit | Specification | Link |
+|------|---------------|------|
+| `px` | pixel, a single dot on the screen | [Units][046] |
+| `em` | vertical dimensions, height of capital letter in the _parent_ context | [Units][047] |
+| `rem` | vertical dimensions, size relative to the _root_ | [Units][048] |
+| `%` | relative to the _parent_ dimension | [Units][049] |
+| `vh` | viewport height, percentage of the screen | [Units][050] |
+| `vw` | viewport width, percentage of the screen | [Units][050] |
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
