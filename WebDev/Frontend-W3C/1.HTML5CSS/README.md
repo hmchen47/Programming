@@ -90,7 +90,7 @@
     + [Activities - Semantic meaning and discussion](02.Attributes.md#activities---semantic-meaning)
 + 2.4 [Images](02.Attributes.md#24-images)
     + [Introduction to images](02.Attributes.md#introduction-to-images)
-    + [Attribute: alt](02.Attributes.md#the-alt-attribute)
+        + [Attribute: alt](02.Attributes.md#the-alt-attribute)
     + [Attributes: title, height & width](02.Attributes.md#attributes-title-height--width)
     + [Decorative images](02.Attributes.md#decorative-images)
     + [Using <img> tags](02.Attributes.md#using--tags)
