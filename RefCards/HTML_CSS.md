@@ -638,7 +638,7 @@
 | `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][042] |
 | `font-weight` | text bolder (or less bold) | `normal`, `bold`, `bolder`, `lighter`, `<number>` | [Common Prty][043] |
 | `font-family` | font for an element | `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [Common Prty][044] |
-| `list-style-type` | list marker, usually positioned to the left of any list item | `<ul>`: `disc`, `circle`, `square`, `none`; `<ol>`: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][051] |
+| `list-style-type` | list marker, usually positioned to the left of any list item | ul: `disc`, `circle`, `square`, `none`; <br/>ol: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][051] |
 | `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][052] |
 | `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][053] |
 
