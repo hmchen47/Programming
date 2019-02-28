@@ -625,6 +625,7 @@
 | Descendant  | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro a { color: red; }` | [Selector][060] |
 | Direct descendant | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro > a { font-size: large; }` | [Selector][061] |
 
+<br/><br/>
 
 
 
@@ -905,7 +906,6 @@
 </tbody></table>
 
 <br/>
-
 
 #### Lecture Note
 
