@@ -293,7 +293,30 @@ For my demos, I will be using the Edge Web browser. You can view your work in th
 
 ### Web editors
 
+While any text editor, like NotePad or TextEdit, can be used to create Web pages, they don't necessarily offer a lot of help towards that end. Other options offer more facilities for error checking, syntax coloring and saving some typing by filling things out for you.
 
+One caveat, you need to make sure that whatever editor you choose will save to a "plain text" format (".txt"). Some editors will save to other formats by default (.rtf, .doc, etc.) so you need to make sure you save your source code as plain text.
+
+For my demos, I will be using a software program called Visual Studio Code (VS Code). You can download it for free, and for any operating system, [here](https://code.visualstudio.com/)
+
+VS Code supports a large array of different Web technologies, but for this course we will be using it to develop our HTML and CSS. It also includes a feature called _intellisense_ which you might have used in other code editors. It will suggest code for you to use, highlight keywords and a lot of other cool features you'll see me use throughout the course.
+
+In this course, we'll also use [Codepen](http://www.codepen.io)
+
+Codepen incorporates editors and a preview service into a single Web application. This is a great service to get you started quickly as it doesn't require you to download anything and you can access the service, along with your saved projects from any Web browser.
+
+Other than these two there are plenty of different programs you can use.
+
+Here are a few possibilities:
+
++ [Notepad](https://notepad-plus-plus.org/) - on Windows PC's
++ [Visual Studio](https://msdn.microsoft.com/en-us/library/02aa8baz(v=vs.80).aspx) - on Windows PC's, many developers are already familiar with it
++ [XCode](https://developer.apple.com/xcode/) - Mac developers may be familiar with XCode
++ TextEdit - This is available on Macs, but be sure you're [saving as plain text](https://discussions.apple.com/message/5014514#5014514), not as a .rtf or .doc file.
++ [Sublime Text](http://www.sublimetext.com/) is quite popular with developers, though there can be a bit of a learning curve to use it's many features.
++ [BlueGriffon](http://bluegriffon.org/) is a WYSIWYG ("What You See Is What You Get") content editor for the World Wide Web. Powered by Gecko, the rendering engine of Firefox, it's a modern and robust solution to edit Web pages in conformance to the latest Web Standards.
++ [Atom](https://atom.io/) is another cross platform editor, created by [GitHub](https://github.com/).
++ [Vim](http://www.vim.org/) or [Emacs](https://www.gnu.org/software/emacs/) - Great editors on which the Web was built, but if you're not already familiar with these, this isn't the time to try.
 
 
 ### W3C validators
