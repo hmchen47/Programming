@@ -286,7 +286,9 @@ In case you find a broken link or a typo or any other factual problem related to
 
 ### Web browsers
 
+Not surprisingly, it would be helpful to have a browser installed so that you can see the end product of your source code: [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Chrome](https://www.google.com/chrome/browser/desktop/), [Edge](https://www.microsoft.com/en-us/windows/microsoft-edge).
 
+For my demos, I will be using the Edge Web browser. You can view your work in these Web browsers, even if you haven't uploaded your code to the internet. Simply put the local address of an html file into your chosen Web browser's address bar and it should be able to open it so you can view your work.
 
 
 ### Web editors
