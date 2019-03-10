@@ -78,7 +78,32 @@ The W3C community is passionate about creating free and open Web standards. This
 
 ### The history of CSS
 
+In the following video, you will hear from Bert Bos, the co-creator of CSS, about how he and Håkon Lie developed CSS.
 
+Before CSS, the appearance of a Web page was dictated by HTML, which had very few visual styling tools, meaning most Web pages were looking simple. For example, here is what www.msn.com looked like in 1996:
+
+<div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/db3538e67b894874ace354d59ba6bf64/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40e1a1b7b99e4541f99c4aa3338277bac2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f15f683b3186c39f5fb38a7e084e1d56/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/1-2-old_msn.PNG" style="margin: 0.1em;" alt="Image of msn.com from 1996" title="www.msn.com looked like in 1996" width="150">
+  </a></div>
+</div>
+
+Link via [Web archive](http://web.archive.org/web/19961022175327/http://msn.com/)
+
+For a fun time, warp check out an [archived version of that link above](http://web.archive.org/web/19961026005907/http://msn.com/tutorial/default.html) for anyone "new to the internet".
+
+And here is what [www.msn.com](http://www.msn.com/) (made with lots of CSS) looks like now!
+
+<div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/db3538e67b894874ace354d59ba6bf64/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40e1a1b7b99e4541f99c4aa3338277bac2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/dbbeddd8255315f712c52478e1328bdd/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/1-2_new_msn.PNG" style="margin: 0.1em;" alt="image of msn.com home page on 10/31/2016" title="www.msn.com appearance now!" width="250">
+  </a></div>
+</div>
+
+#### Video: The history of CSS, by Bert Bos, co-inventor of CSS
+
+<video src="https://edx-video.net/W3CCSS0I2016-V001700_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@c71419af1068400eaf481eee033ea084/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
 
 
 ### Definitions
