@@ -5,7 +5,6 @@
 + [Welcome to "CSS Basics"](00-CourseInfo.md#)
     + [Welcome!](00-CourseInfo.md#)
     + [Introduce yourself](00-CourseInfo.md#)
-    + [Welcome survey](00-CourseInfo.md#)
 + [Course outline, grading and certificate](00-CourseInfo.md#)
     + [Course outline](00-CourseInfo.md#)
     + [Grading policy](00-CourseInfo.md#)

@@ -31,11 +31,6 @@ __Make your first post here by introducing yourself to the edX community.__ Some
 Note that there will be plenty of other discussion forums (related to technical topics) that you will discover during the course. This 1st forum is really dedicated to say "hello!" to your fellow students ;)
 
 
-### Welcome survey
-
-
-
-
 ## Course outline, grading and certificate
 
 ### Course outline
