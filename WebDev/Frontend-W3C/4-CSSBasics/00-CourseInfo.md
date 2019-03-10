@@ -344,9 +344,15 @@ The [W3C Link Checker](http://validator.w3.org/checklink) looks for issues in li
 The [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/) provides information about various internationalization-related aspects of your page, including the HTTP headers that affect it. It will also report a number of  issues and offer advice about how to resolve them.
 
 
-
-
 ### W3C cheatsheet
+
+The [W3C cheatsheet](http://www.w3.org/2009/cheatsheet/) provides quick access to useful information from a variety of specifications published by W3C. It aims at giving in a very compact and mobile-friendly format a compilation of useful knowledge extracted from W3C specifications, completed by summaries of guidelines developed at W3C, in particular Web accessibility guidelines, the Mobile Web Best Practices, and a number of internationalization tips.
+
+Its main feature is a lookup search box, where one can start typing a keyword and get a list of matching properties/elements/attributes/functions in the above-mentioned specifications, and further details on those when selecting the one of interest.
+
+The W3C cheatsheet is no longer available as an Android app, but remains available as a [pure Web application](http://dev.w3.org/2009/cheatsheet/doc/).
+
+The cheatsheet is an open source project — see also the [developer documentation](https://dev.w3.org/2009/cheatsheet/doc/developer).
 
 
 
