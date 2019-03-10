@@ -5,7 +5,15 @@
 
 ### Welcome!
 
+This course is designed for anyone, no prerequisites required.
 
+During this course, you will learn:
++ Basic selection of CSS properties
++ Fundamental CSS selectors
++ Designing page layout through relative positioning with CSS
++ Best practices in Web design
+
+Have fun!
 
 
 ### Introduce yourself
