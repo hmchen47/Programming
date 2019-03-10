@@ -224,10 +224,15 @@ These are HTML, CSS, and JavaScript code editors that preview/showcase your code
 + [edX Student FAQ](https://www.edx.org/about/student-faq): This FAQ answers a lot of questions about the edX student experience. You should at least read over the questions so if you encounter any issues during the course, you can refer back to this document for help.
 
 
-
 ### Course forums
 
+This course will provide discussion forums. Forums will be available at the end of most course subsections, so you create posts on the topic being discussed in a particular subsection. You are free to use the forums to connect with other students and the instructor, as well as ask questions about the material. Note that you will find an existing thread dedicated to student introductions.
 
+When you make a contribution in a course discussion topic, you add your post as either a question or a discussion. When you add a post to a discussion topic, you must specify whether it is a question or a discussion.
+
+In addition, students will have a varied level of experience with the technologies covered in this course, so questions will range from the very basic to the very advanced. You are encouraged to assist other students and share your experiences with the product. Thanks a lot!
+
+_edX is a global platform: as such, when creating posts, please be respectful of all cultures, creeds and religions._
 
 
 ### Forum guidelines and best practices
