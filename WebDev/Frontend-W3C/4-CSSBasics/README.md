@@ -32,7 +32,7 @@
     + [The Web is amazing!](01-StartCSS.md#)
     + [The history of CSS](01-StartCSS.md#)
     + [Definitions](01-StartCSS.md#)
-    + [Activity 1.2](01-StartCSS.md#)
+    + [Activity 1.2 - The Web before CSS](01-StartCSS.md#)
 + [1.3 Why CSS is important](01-StartCSS.md#)
     + [Separating content from presentation](01-StartCSS.md#)
     + [Meet CSS Zen Garden](01-StartCSS.md#)
