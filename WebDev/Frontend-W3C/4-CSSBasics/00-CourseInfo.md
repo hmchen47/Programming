@@ -279,7 +279,7 @@ It’s fine to make suggestions, but avoid negative commentary and please do not
 
 ### A bug to report?
 
-
+In case you find a broken link or a typo or any other factual problem related to the content material, we would appreciate if you could report it in the discussion forum below. We will do our best to check this forum on a regular basis, and provide a solution. Thank you.
 
 
 ## Course tools
