@@ -35,11 +35,11 @@ Contents
 3. Web Development
 
     + Front-End Web Developer - W3C, edX (2019)
-        1. [Basic CSS](./WebDev/Frontend-W3C/1-CSSBasics.README.md)
-        2. [HTML5 and CSS Fundamentals](./WebDev/Frontend-W3C/2-HTML5CSSFund/README.md)
-        3. [JavaScript Introduction](./WebDev/Frontend-W3C/3-JSIntro/README.md)
-        4. [HTML5 Coding Essentials and Best Practices](./WebDev/Frontend-W3C/4-HTML5Coding/README.md)
-        5. [HTML5 Apps and Games](./WebDev/Frontend-W3C/5-HTML5AppGame/README.md)
+        1. [HTML5 and CSS Fundamentals](./WebDev/Frontend-W3C/1-HTML5CSSFund/README.md)
+        2. [HTML5 Coding Essentials and Best Practices](./WebDev/Frontend-W3C/2-HTML5Coding/README.md)
+        3. [HTML5 Apps and Games](./WebDev/Frontend-W3C/3-HTML5AppGame/README.md)
+        4. [Basic CSS](./WebDev/Frontend-W3C/4-CSSBasics/README.md)
+        5. [JavaScript Introduction](./WebDev/Frontend-W3C/5-JSIntro/README.md)
 
     + Front-End Web Developer - W3C, edX (2018)
         1.  [HTML5 and CSS Fundamentals](./WebDev/Frontend-W3C/1.HTML5CSS/README.md)
