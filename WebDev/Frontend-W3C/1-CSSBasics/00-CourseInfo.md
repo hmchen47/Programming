@@ -86,10 +86,30 @@ Module 5: Designing your Web site for your audience
 5.7 Conclusion and final exam
 
 
-
-
 ### Grading policy
 
+#### Passing
+
+This course is graded as pass/fail, meaning you will either be given a passing score or a failing score.
+
+The score required to pass this course is 70%.
+
+#### You will be graded on...
+
+1. Module exercises
+    At the end of each module, in the "Conclusion" sections, you will find a small handful of questions. These are designed to assess your progress in the course, module after module. Questions will be in the form of multiple choice, checkbox or text input problems.
+
+    _Module exercises count towards 72% of the grade._
+
+2. Final exam
+
+    The final exam will become available at the release of Module 5 (last module). The final exam will consist of questions (multiple choice, checkbox or text input problems) covering the entirety of the course.
+
+    The final exam counts towards 28% of the grade.
+
+#### You WILL NOT be graded on ...
+
+There will be activities and projects throughout the course. These are to help you practice what you have learnt.
 
 
 
