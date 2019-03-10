@@ -237,7 +237,44 @@ _edX is a global platform: as such, when creating posts, please be respectful of
 
 ### Forum guidelines and best practices
 
+Below are guidelines and best practices for productive collaboration and discussion in our course.
 
++ __Participate!__ It will enhance your learning experience and some discussions may be subject to examination.
++ __Help each other!__ We encourage you to reply to your peers’ questions and comments.
++ __Be polite!__ Opinions are good, but please respect others’ opinions as well.
++ __Do not cheat!__ See collaboration guidelines below to see what’s acceptable.
+
+#### Collaboration Guidelines
+
+These will help you use the forum appropriately as an aid to learning the material. We encourage you to:
+
++ Discuss the general approach to solving a problem.
++ Share your work results (following proposed activities or other).
++ Work jointly to come up with the steps for a solution, or to create an original work.
++ Ask for a hint or clarification in the discussion board, or several hints for that matter, if you get stuck while solving a problem.
++ Please search (use the search button) for an answer to your question in the discussion board before posting. Many of your course classmates are likely to have the same questions and you may find the question and answer without needing to post it yourself.
+
+It is NOT ok to:
+
++ Post the solution to a problem in the discussion board or somewhere else on the Web. If you need help, post errors you’re encountering, but not your answers.
++ Take someone else's solution and simply copy the answers from their solution.
+
+These actions are considered to be cheating. Violations of these guidelines may result in posts being deleted or your account being deactivated.
+
+#### Guidelines to navigate and interact on the forum
+
+The discussion forum helps improve your ability to search and talk about many different topics throughout the course. Here are some friendly guidelines to help you successfully navigate and interact on the forum:
+
++ At the end of some pages, there is a link at the bottom which says “show discussion.” Clicking on this link will show all the discussion on the forum associated with this particular video or problem.
++ Be very specific about where you need help. Are you stuck on a particular part of the problem? Do you need help understanding a particular concept? What have you tried doing so far?
++ Use a descriptive and specific title to your post. This will attract the attention of other learners having the same issue.
++ Use “netiquette,” or common writing practices for online communication. For example:
+    + Avoid TYPING IN ALL CAPS. Some people read this as shouting, even if that is not what you mean to convey.
+    + Avoid unnecessary symbols, abbreviated words, texting shorthand, and replacing words with numbers (e.g. Pls don’t rplce wrds w/#s).
+    + Avoid repeating letters or characters like this: reeepeeaattingggg chaaracterrrss
+    + Avoid excessive punctuation if possible (e.g. !!!!!!!! or ??????)
+
+It’s fine to make suggestions, but avoid negative commentary and please do not “flame” anyone.
 
 
 ### A bug to report?
