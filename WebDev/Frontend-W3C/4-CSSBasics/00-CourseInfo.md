@@ -166,7 +166,7 @@ W3C has designed a ["Front-End Web Developer" (FEWD) Professional Certificate](h
 1. This course: [CSS Basics](https://www.edx.org/course/css-basics)
 1. [JavaScript Introduction](https://www.edx.org/course/javascript-introduction)
 
-To get a W3C FEWD professional certificate, you must successfully pass and receive a Verified Certificate in the five courses above. Note that the dashboard link to Front-End Web Developer Program displays upgrade links to all of the courses in the program AND offer the option to "upgrade all remaining courses" in bulk.
+To get a W3C FEWD professional certificate, you must successfully pass and receive a Verified Certificate in the five courses above. Note that the [dashboard link to Front-End Web Developer Program](https://courses.edx.org/dashboard/programs/98b7344e-cd44-4a99-9542-09dfdb11d31b/) displays upgrade links to all of the courses in the program AND offer the option to "upgrade all remaining courses" in bulk.
 
 IMPORTANT: If you already have a verified certificate in one or more of these courses, you do NOT need to re-take that course
 
