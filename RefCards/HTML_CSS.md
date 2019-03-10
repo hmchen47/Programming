@@ -969,7 +969,6 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 </div>
 
 
-
 ### [Font Properties][038]
 
 | Property | Description | Value Options | Link |
