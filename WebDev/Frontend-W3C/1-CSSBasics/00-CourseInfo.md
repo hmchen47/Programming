@@ -115,7 +115,17 @@ There will be activities and projects throughout the course. These are to help y
 
 ### Due dates
 
+"CSS Basics" is a self-paced course that do not follow a set schedule. All course materials are completely available as soon as the course begins. Assignments and exams do not have start or due dates other than the official end date of the course.
 
+=> The course shows indicators for graded assignments, but no due dates.
+
+There are exercises (or assignments) all over the course. It is __strongly suggested__ that you complete the exercises as promptly as possible at the end of each module of the course, because the content material will still be very fresh in your memories!
+
+#### Purchase the course's Verified Certificate
+
+This self-paced course offers edX-generated certificates, meaning that, after you have completed all course requirements, a certificate is generated automatically. edX verified certificates are generated in PDF format.
+
+The deadline to buy the Verified Certificate for this course is 31 August 2019 (at 23:59 UTC).
 
 
 ### Verified certificate
