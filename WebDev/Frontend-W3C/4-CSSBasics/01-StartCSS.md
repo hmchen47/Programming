@@ -105,6 +105,32 @@ And here is what [www.msn.com](http://www.msn.com/) (made with lots of CSS) look
   Your browser does not support the HTML5 video element.
 </video>
 
+#### Before and after CSS
+
+__Before CSS:__
+
++ all documents looked very similar - it was difficult for different companies to express their brand identities in documents
++ possibilities for styling were very limited and style was difficult to control and maintain - style had to be applied to content directly, so you couldn't update style without having to touch content and vice versa.
+
+__After CSS:__
+
++ Content authors didn't have to worry about style, they could just focus on content
++ Content authors didn't have to worry about what device users would view their document on, those considerations could be handled by the CSS
++ Style became much more efficient- a single rule could apply to multiple elements and a single style sheet could apply to multiple documents.
+
+#### CSS pioneers Bert Bos and Håkon Wium Lie
+
+Bert Bos (W3C) and Håkon Wium Lie (YesLogic) were invited by [CWI](https://www.cwi.nl/) on Thursday 15 June 2017. They gave a lecture and a masterclass on these topics: 'A walk-through of CSS Grid' and 'CSS in print'.
+
+They tweeted the following!
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://twitter.com/wiumlie/status/875659040851755008">
+    <img src="https://pbs.twimg.com/media/DCb21_wWAAAa-o6.jpg" style="margin: 0.1em;" alt="The first mainstream #CSS implementation was by @chriswilson in IE3. WIthout it, CSS would just have been a spec. Chris left, Bert center." title="View image on Twitter" width="250">
+  </a></div>
+</div>
+
+
 
 ### Definitions
 
