@@ -175,6 +175,53 @@ IMPORTANT: If you already have a verified certificate in one or more of these co
 
 ### Getting around the course
 
+<div style="font-size: 1.2em;">If you're new to edX here is some information to get you started. Even if you've used edX for other courses, the information here will help orient you to how this course is laid out.</div>
+
+#### Layout of the course
+
+The CSS Basics course is composed of 5 weeks/modules, covering 5 topics. Each module is made of units which goes over all the material you'll need to learn for the module's topic. To navigate through the module 's units, use the navigation bar at the top. You can use the left and right arrows to move through each unit.
+
+Each unit will generally have some video content, reading material and sometimes an activity. The units are meant to be taken in order but you can skip around if you already have mastered the material in a particular unit. In order to do well on the assessments and the exercises that you will find at the end of each module, you should learn the material in all the units.
+
+#### Bookmarks
+
+It is now possible to bookmark one or more pages (up to 100), i.e., to mark course content so that you can come back to it later (see image below). Please read the [related documentation](http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/SFD_bookmarks.html).
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/556d952aabbe47bfab3cb81ab3750995/c455d046e7e643ec9eecc00a12ecb1cc/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40c33dbbc5b07a4941bda0851aa4ad8b35">
+    <img src="http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/_images/SFD_Bkmk_PgsBkmkd.png" style="margin: 0.1em;" alt="bookmarking a page on edX platform" title="Bookmarks" width="350">
+  </a></div>
+</div>
+
+#### Progress indicators or check marks
+
+You will notice that green check marks appear when you complete content on the unit level and the subsection level. A "completed" unit is a unit where the learner has answered every problem, watched every video all the way through, and viewed the unit page for at least five seconds.
+
+These check marks are intended as a way for you to keep track of your progress through the course, and __they do not impact grades, course completion, or the ability to earn a certificate__. Read [this documentation](http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/SFD_check_progress.html#sfd-progress-indicators) to find more.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/556d952aabbe47bfab3cb81ab3750995/c455d046e7e643ec9eecc00a12ecb1cc/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40c33dbbc5b07a4941bda0851aa4ad8b35">
+    <img src="http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/_images/LMS_Unit_Page.png" style="margin: 0.1em;" alt="The unit navigation bar showing green check marks for completed content." title="Progress indicators " width="350">
+  </a></div>
+</div>
+
+Note that past learners were sometimes experiencing a bug where pages that included a discussion component were not listed as completed on the course outline. This bug has since been fixed, but if you notice another specific unit that is giving trouble, please review the [progress indicator documentation](http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/SFD_check_progress.html#sfd-progress-indicators), and if you are still having trouble, please send a link to the specific unit to our learner support team at info@edx.org so that we can check if anything is amiss.
+
+#### Instructor feedback
+
+Given the nature of this MOOC-style course and the large number of students enrolled, we encourage you to seek help and feedback from your fellow students using the __discussion boards (or forums)__. This is a great way to help each other out and enrich your learning experience.
+
+Note: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and `Ctrl+K`/use the code widget) or use one of the following online code editors:
+
++ JS Bin: http://jsbin.com ([JS Bin tutorial](http://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843))
++ CodePen: http://codepen.io ([CodePen tutorial](https://css-tricks.com/video-screencasts/112-using-codepen/))
+
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, real time remote pair programming.
+
+#### Other resources
+
++ [edX Learners' Guide](https://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/index.html): The guide answers common questions about topics like getting started in an online course, earning certificates, participating in course discussions, etc.
++ [edX Student FAQ](https://www.edx.org/about/student-faq): This FAQ answers a lot of questions about the edX student experience. You should at least read over the questions so if you encounter any issues during the course, you can refer back to this document for help.
 
 
 
