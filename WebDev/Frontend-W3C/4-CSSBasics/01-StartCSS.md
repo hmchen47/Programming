@@ -502,7 +502,17 @@ HINT: Is your favorite color not working? Not all color names are recognized by 
 
 ### Module learnings
 
++ Explaining what CSS is, and why is it important
++ Opening HTML and CSS files in your chosen code editor
++ Using browser tools to inspect the source of a Web page you wrote
 
+In next module, you will:
+
++ Review the basics of HTML
++ Learn the anatomy of a CSS "rule"
++ Discover the concept of a property
++ Get to know selectors and how you can directly attach them to HTML tags
++ Finally, for your module project, you'll get a get a chance to build the CSS for an HTML page from scratch
 
 
 ### Exercises (1-5)
