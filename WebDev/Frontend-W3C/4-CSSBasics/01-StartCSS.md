@@ -568,7 +568,44 @@ In next module, you will:
 
 ### Exercises (6-9)
 
+6. HTML only?
 
+    True or False? It is possible to have a Web page with only HTML and no CSS?
+
+    Ans: True
+
+
+7. CSS only?
+
+    True or False? It is possible to have a Web page with only CSS and no HTML?
+
+    Ans: False
+
+
+8. Web browsers
+
+    Select all of the following applications that are examples of a "Web browser". (3 correct answers!)
+
+    1. Internet Explorer
+    2. Windows
+    3. Chrome
+    4. Firefox
+    5. Android
+    6. Wordpress
+
+    Ans: 134
+
+
+9. CSS history
+
+    In what year was the original CSS proposal paper written by Bert Bos and Hākon Lie?
+
+    1. 2000
+    2. 1994
+    3. 1996
+    4. 1990
+
+    Ans: 2, x3
 
 
 ### Exercises (10-15)
