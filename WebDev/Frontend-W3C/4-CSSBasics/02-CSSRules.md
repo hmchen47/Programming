@@ -825,7 +825,8 @@ CSS
 }
 ```
 
-As you can see, there is HTML and some CSS rules, but the rules are missing their selectors. 
+As you can see, there is HTML and some CSS rules, but the rules are missing their selectors.
+
 You will need to figure out which selectors belong on top of each of the 5 rules so that your final site looks exactly like this:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -839,11 +840,48 @@ Final result after you apply your own selectors
 HINT: Some of the rules require multiple comma separated selectors.
 
 
-
 ## 2.5 Applying styles using CSS properties
 
 ### What is a property?
 
+In unit 2.3, we briefly introduced you to "properties", the part of the CSS rule that tells the browser how to style specific aspects of the selected HTML element.
+
+There is a huge array of different aspects you can style: color, font, size, spacing and much more! You can find the complete list of CSS properties at the W3C's official site [here](https://www.w3.org/Style/CSS/all-properties#list), or check out [Meiert's list here](http://meiert.com/en/indices/css-properties/).
+
+Every property has its own collection of possible values. Some require text input, some specific keywords, some numerical input, etc.
+
+Here are some examples of properties that each accept a different style of value:
+
+```css
+body {
+    background-color: purple; /* key word */
+    color: #FFFFFF; /* HEX code */
+    width: 60%; /* percentage */
+    font-size: 20pt; /* numerical value */
+}
+```
+
+[CodePen of above style](https://codepen.io/techie4good/pen/bwbLJP)
+
+Make sure to look up what the available values are before using a property, because if the browser doesn't understand your value it will typically just skip applying any style. This is where programs like Visual Studio Code come in handy because as you type out the property, the program will automatically suggest possible values for you like so:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/75ab908267b82d94ffa9b0bc9ffbd4d7/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-5-1_property_suggestions.png" style="margin: 0.1em;" alt="text" title="property suggestions" width="300">
+  </a></div>
+</div>
+
+Sometimes the easiest way to learn about different properties is to explore the style on one of your favorite Web sites. You can use your browser tool to inspect an HTML element. Here is an example of inspecting a title:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/93820e63bdf7f44e865bffb7126582f9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-5-1_browser_tool.png" style="margin: 0.1em;" alt="text" title="browser tool" width="350">
+  </a></div>
+</div>
+
+If you are not sure how to do this, please refer to the demo in unit 1.3 to see this in action while inspecting CSS Zen Garden designs. 
+
+As you can see, the browser tools display the value of the properties, and if you click into that space it will even give you some of the different value options and you can even change them and watch the Web site update dynamically. 
 
 
 
