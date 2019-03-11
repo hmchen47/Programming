@@ -237,6 +237,52 @@ Search result: NASA
 
 ### Separating content from presentation
 
+Up until now, we have been discussing CSS's role within a Web site as the "presentation" component, but what is that and why is it so important?
+
+From the history of CSS, we learned why CSS came about, but the short answer is simply because HTML was never designed to describe the way a Web page was supposed to look. When we use HTML for what it was intended to do, describe content, it leaves space for CSS to properly control a page's visuals. This makes it very easy to update or add content without having to even touch the style. 
+
+#### Some benefits of CSS:
+
++ CSS has a host of specialized tools to give you powerful control over the look and feel of your Web site, much more powerful than the tools provided by HTML.
++ Designers can style many HTML pages with a single CSS document for a consistent look and feel across an entire Web page and less code to maintain.
++ Separation of content and presentation makes Web site maintenance much simpler as you can address updates in isolation.
++ Over time more and more devices have become internet-capable, and now there are so many different orientations in which your user can view your content. With CSS, you can specifically cater the style to each device to ensure an optimal experience.
++ Some users have specific presentation needs based on personal or technological limitations or preferences. Separating content from presentation allows these users the option to control how they view content.
++ Before CSS visual elements were almost always achieved with static images, which can have a big affect on network performance. CSS provides an optimized way to style your page so it can load complex visuals quickly. 
+
+#### External resources:
+
++ [CSS design principles](https://www.w3.org/TR/CSS22/intro.html#design-principles)(CSS 2.2)
+    + Forward and backward compatibility.
+    + Complementary to structured documents.
+    + Vendor, platform, and device independence.
+    + Maintainability.
+    + Simplicity.
+    + Network performance.
+    + Flexibility
+    + Richness
+    + Alternative language binding.
+    + Accessibility
++ [Effective Use of Style Sheets](https://www.nngroup.com/articles/effective-use-of-style-sheets/) (updated regularly since 1997!)
+    + Generalized Style
+        + single style sheet for all of the pages on your site
+        + linked style sheets
+        + centralized design
+        + active evangelism program
+        + plenty of examples
+        + page authors should be allowed to create additional embedded styles for their own pages
+    + Implementation advice
+        + continue to work when style sheets are disabled
+        + Do not use more than two fonts
+        + Do not use absolute font sizes
+        + Do not use the `!important` attribute
+        + use the same CLASS names for the same concept in all of the style sheets
++ [Repurposing of content](https://www.w3.org/People/Bos/DesignGuide/repurposing)
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="urhttps://www.w3.org/People/Bos/DesignGuide/repurposingl">
+        <img src="https://www.w3.org/People/Bos/DesignGuide/communication.png" style="margin: 0.1em;" alt="The large circle in the diagram represents human communication with the Web as an intermediary: somebody has an idea (at the top); he represents it in a machine-readable way and enters it into the Web (the red part); the Web transports it and displays it to somebody; that somebody interprets what he sees (at the bottom) and may in turn become the originator of new ideas. There are various smaller circles in the diagram, that each represent modifications of the information, hopefully enhancements, but possibly degradations. The top circle, reflection, is a process under the control of the author; the bottom circle, different views, is controlled by the reader; but the circles in between can be done by either of them, by other people, or automatically by programs such as Web spiders. It is these smaller circles that represent the extra value that the Web can bring to human communication. But for them to work well, the original representation has to be suitable for manipulation by software. The collective name for the manipulations done in these smaller circles is repurposing, i.e., the adaptation of some piece of data for a new purpose." title="Repurposing of content" width="450">
+    </a></div>
+    </div>
 
 
 
