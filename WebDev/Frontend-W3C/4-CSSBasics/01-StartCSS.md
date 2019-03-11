@@ -285,10 +285,57 @@ From the history of CSS, we learned why CSS came about, but the short answer is 
     </div>
 
 
-
 ### Meet CSS Zen Garden
 
+These videos will introduce you to a web project titled "CSS Zen Garden". You can explore the project [here](http://www.csszengarden.com/)
 
+Here is a bit about the project in their own words:
+
+    "CSS Zen Garden is a demonstration of what can be accomplished through CSS-based design. Littering a dark and dreary road lay the past relics of browser-specific tags, incompatible DOMs, broken CSS support, and abandoned browsers. We must clear the mind of the past. Web enlightenment has been achieved thanks to the tireless efforts of folk like the W3C, WASP, and the major browser creators. There is a continuing need to show the power of CSS. The Zen Garden aims to excite, inspire, and encourage participation".
+
+    - Dave Shea, Creator of CSS Zen Garden
+
+#### Video: Meet CSS Zen Garden
+
+<video src="https://edx-video.net/W3CCSS0I2016-V001300_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@27fc27d6d099462ca92f7bc8ff82edcc/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element. <br/>
+  (Caption will be displayed when you start playing the video.) <br/>
+  Press UP to enter the speed menu then use the UP and DOWN arrow keys to navigate the different speeds, then press ENTER to change to the selected speed.Speed 1.25xClick on this button to mute or unmute this video or press UP or DOWN buttons to increase or decrease volume level.Maximum Volume.Downloads and transcripts
+</video>
+ 
+<video src="https://edx-video.net/W3CCSS0I2016-V001200_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@8545c4f90be5473b922c2fb94a698c4c/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
+
+#### View source and browser tools
+
+In the above demo, you saw me using what is called the "developer tool" within my Edge Web browser to inspect and real-time change the style of a page's CSS. You can actually right click on any site and choose to look at the code that creates it. This feature exists in both Chrome and Firefox. Here is what I see when I _right click_ on a Web page in my browser.
+
+As you can see, in this right click menu, there are two options: "Inspect element" and "View source". When you select view source, you can see the HTML and CSS powering that Web page. Here is what it looks like when I view the source of [W3C's Web site](https://www.w3.org/):
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/7831c13150a1448e89fa66891665f6b3/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40067d426fc3c144dd925ae7bacb1c66fa">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/39801ab5481a246021dace754232588d/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/1-3-3_view_source.png" style="margin: 0.1em;" alt="Edge Web browser with view source window open" title="Web browser development tool" width="500">
+  </a></div>
+</div>
+
+
+You can see a window that popped up from the bottom with all the HTML code for that site. Other Web browsers might pop this up in a separate window. 
+
+You can also get more specific and look at individual HTML elements with the "Inspect element" option. Here is what it looks like in Edge when I inspect a specific title:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/7831c13150a1448e89fa66891665f6b3/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40067d426fc3c144dd925ae7bacb1c66fa">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/79b1f75d786b6f5c411abe0621317f56/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/1-3-3_DOM_explorer.png" style="margin: 0.1em;" alt="Edge inspect element view highlighting a specific title" title="Web browser development tool-inspection & hightlight" width="500">
+  </a></div>
+</div>
+
+As you can see, not only is the element highlighted on the page, but this also highlights the HTML code and shows you the CSS for that element on the right-hand side. In the video above, you can see me use this view to change the CSS and HTML real-time, which can be a very convenient way to play around with your designs.
+
+As you work in your own sites you might want to use both of these features of your browser to understand what is happening in your own code, or in Web pages you find on the internet.
 
 
 ### Activity 1.3
