@@ -36,7 +36,7 @@
 + [1.3 Why CSS is important](01-StartCSS.md#)
     1. [Separating content from presentation](01-StartCSS.md#)
     1. [Meet CSS Zen Garden](01-StartCSS.md#)
-    1. [Activity 1.3](01-StartCSS.md#)
+    1. [Activity 1.3 - CSS Zen Garden critique](01-StartCSS.md#)
 + [1.4 Project 1 - Your first CSS](01-StartCSS.md#)
     1. ["Hello beautiful world"](01-StartCSS.md#)
     1. [Comments](01-StartCSS.md#)

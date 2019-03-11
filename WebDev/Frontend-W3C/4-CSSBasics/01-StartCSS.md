@@ -338,10 +338,25 @@ As you can see, not only is the element highlighted on the page, but this also h
 As you work in your own sites you might want to use both of these features of your browser to understand what is happening in your own code, or in Web pages you find on the internet.
 
 
-### Activity 1.3
+### Activity 1.3 - CSS Zen Garden critique
 
+Now that you’ve gotten a good idea of what CSS Zen Garden is, take a closer look. Go to http://www.mezzoblue.com/zengarden/alldesigns/ and look through the different CSS Zen Garden designs for inspiration. Which is your favorite design? Pick one design and share your critiques with the discussion. 
 
+For your chosen design, please answer the following questions:
 
++ What made this design stand out to you?
++ What do you like best about this design?
++ What is one thing you don't like about this design?
+
+Ans:
+
+Here is the design preferred: http://www.csszengarden.com/144/
+
+The design mainly is soft green color what makes me feel comfortable.  A workd title section and followed with a banner photo.  The main section are with two columns while the main column (left one) using light green and the left navigation column with a slightly deeper green color.  
+
+For my most browsing behavior is reading,  I usually look at screen for a long time.  Such a soft green them will easy my eyes while I read the contents for a long period of time.  
+
+The main disadvantage is about the viewport width that is only about one third of the screen.  At least 90 percent of the viewport will make reading more easily.
 
 ## 1.4 Project 1 - Your first CSS
 
