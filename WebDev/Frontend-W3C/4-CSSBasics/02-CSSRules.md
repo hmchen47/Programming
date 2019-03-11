@@ -647,7 +647,7 @@ You can see it's basic structure from the way I have formatted the tags with tab
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/0e1bd16d542e4a1085cb8d9b305f8e59/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40833b012fc6dd41f68fa5fd6e3b93e8a8">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c3441bd3d744e14d5d1c0c663d7ad1dc/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-4-2_inheritance_tree.PNG" style="margin: 0.1em;" alt="text" title="HTML inheritance structure" width="250">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c3441bd3d744e14d5d1c0c663d7ad1dc/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-4-2_inheritance_tree.PNG" style="margin: 0.1em;" alt="ags that contain other tags are parents, and the tags inside of them are their children in the following tree representation." title="HTML inheritance structure" width="250">
   </a></div>
 </div>
 
@@ -677,14 +677,87 @@ Output:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/0e1bd16d542e4a1085cb8d9b305f8e59/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40833b012fc6dd41f68fa5fd6e3b93e8a8">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0eec708dce63466019c5b9d6988caa65/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/css-intro-2-4-2.png" style="margin: 0.1em;" alt="text" title="CodePen image snapshot (Inheriting style)" width="100">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0eec708dce63466019c5b9d6988caa65/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/css-intro-2-4-2.png" style="margin: 0.1em;" alt="The CSS specification tell you, for each property, whether it is inheritable." title="CodePen image snapshot (Inheriting style)" width="100">
   </a></div>
 </div>
 
 
 ### Combining multiple selectors
 
+You can imagine that multiple HTML elements on your page will have similar style. If you write a separate CSS rule with the same properties for each of these elements, your CSS file can get very large and hard to manage. When designing CSS, the authors wanted to help make it as easy as possible to write and edit style sheets "by hand", so there are a number of features that help keep your styles succinct.
 
+For example, what if you want to change the font that is consistent across many elements? You would have to change it in many places. Instead, you can combine multiple selectors on the same rule like so:
+
+```css
+p, ul, ol {
+   color: blue;
+   background-color: pink;
+}
+```
+
+The comma means that each of these elements should have the same, duplicated style. No need to have repeated style! Of course, you could simply apply this style to an element that contains all of these, say the body element, but not all properties are inherited so using the comma is a direct way to apply consistent style across multiple categories of HTML elements. 
+
+[Here is a Code Pen that explores using the comma to combine selectors.](https://codepen.io/w3devcampus/pen/PVJLEm)
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Title 1</h1>
+        <h2>Title 2</h2>
+        <ul>
+            <li>Part of the reason a well structured HTML document is so important</li>
+            <li>is because HTML elements inherit stylistic properties</li>
+            <li>You can see it's basic structure from the way I have formatted the tags with tabbing</li>
+        </ul>
+        <h3>Title 3</h3>
+        <ol>
+            <li>but here is a more visual representation of the hierarchy of tags</li>
+            <li>Tags that contain other tags are parents</li>
+            <li>and the tags inside of them are their children in the following tree representation</li>
+        </ol>
+    </body>
+</html>
+```
+
+CSS code:
+
+```css
+body {
+    color: #660099;
+}
+ 
+h1,h2,h3 {
+    font-family: Impact, sans-serif;
+}
+ 
+ul,ol {
+    font-family: helvetica, sans-serif;
+}
+ 
+h2,ul {
+    font-style: italic;
+}
+ 
+h3,ol {
+    text-decoration: underline;
+}
+```
+
+Output:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/0e1bd16d542e4a1085cb8d9b305f8e59/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40833b012fc6dd41f68fa5fd6e3b93e8a8">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/5ec613c3818f6c12089c5073749b4cbb/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-4-3_combining_selectors.PNG" style="margin: 0.1em;" alt="text" title="Output from multiple selectors code example" width="250">
+  </a></div>
+</div>
 
 
 ### Activity 2.4 - Apply your own selectors
