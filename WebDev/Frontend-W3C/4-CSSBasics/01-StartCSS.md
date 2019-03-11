@@ -439,11 +439,63 @@ As you can see, you can put as much text between the open and close symbols as y
 Generally, it is a good idea to put a comment at the top of each CSS rule, or at the very least at the top of sets of rules that apply to a single category or section of your Web page. 
 
 
-
-
 ### Module 1 project - Hello your world
 
+It's finally time to write your own CSS! Open your code editor of choice and save the following code as a new HTML document.
 
+_Remember_: to do this, you will need to give it a `.html` file extension when you are saving it. For example, you could call it `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <p>
+      Hello Beautiful World
+    </p>
+  </body>
+</html>
+```
+
+Once you have your HTML document view it in a Web browser. It should look like this:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/137b958c31b147438258263a359ee926/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4012f12928c41749328bd588f657aab9bf">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/70af927dd6dd60a087d406298c21f9ad/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/1-4-3_no_css.PNG" style="margin: 0.1em;" alt="An image of Hello Beautiful World in a web browser with black text" title="Default presentation on browser" width="250">
+  </a></div>
+</div>
+
+Now it’s time to add some CSS. Here is the CSS we wrote in the "Hello Beautiful World" demo. Make a new file with this css and save it with a .css file extension. For example, you can call it `styles.css`
+
+```css
+p {
+    color: blue;
+}
+```
+
+This won’t change the look of your HTML until you link the two files with this HTML tag.
+
+To do this:
+
++ remember it should be placed in the header, that is between the `<head>` and `</head>` tags in the HTML file.
++ place the HTML and CSS files in the same folder on your computer
+add the linking code to the HTML header (that means after the `<head>` tag and before the `</head>` tag). If your css is called "styles.css", here is what it would look like:
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+  ```
+
+Now change the HTML and CSS files so that it says “Hello `<your name>`, welcome to my first CSS Web page” in your favorite color! Here’s what mine looks like:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/137b958c31b147438258263a359ee926/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4012f12928c41749328bd588f657aab9bf">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9651b21ea92e785368a73893434f5592/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/1-4-3_css.PNG" style="margin: 0.1em;" alt="An image of Hello Kasey in green text" title="Example image of web page" width="250">
+  </a></div>
+</div>
+
+HINT: Is your favorite color not working? Not all color names are recognized by CSS. Sometimes the best way is to use HEX. We'll talk in more detail about colors in the next module, but here is a list of colors you can use: [Extended color keywords](http://www.w3.org/TR/css-color/#svg-color)
 
 
 ## 1.5 Conclusion and exercises
