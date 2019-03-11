@@ -612,10 +612,74 @@ li {
 }
 ```
 
-
 ### Inheriting style
 
+Part of the reason a well structured HTML document is so important is because HTML elements inherit stylistic properties.
 
+Let's say we have an HTML document (see the corresponding [Code Pen](https://codepen.io/techie4good/pen/mAVVkY?editors=1100#0)).
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1> Title </h1>
+            <h2> sub title </h2>
+        </header>
+        <section>
+            <p> This is my paragraph text </p>
+            <ul>
+                <li> list item 1 </li>
+                <li> list item 2 </li>
+                <li> list item 3 </li>
+            </ul>
+        </section>
+    </body>
+</html>
+```
+
+You can see it's basic structure from the way I have formatted the tags with tabbing, but here is a more visual representation of the hierarchy of tags. Tags that contain other tags are parents, and the tags inside of them are their children in the following tree representation:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/0e1bd16d542e4a1085cb8d9b305f8e59/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40833b012fc6dd41f68fa5fd6e3b93e8a8">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c3441bd3d744e14d5d1c0c663d7ad1dc/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-4-2_inheritance_tree.PNG" style="margin: 0.1em;" alt="text" title="HTML inheritance structure" width="250">
+  </a></div>
+</div>
+
+
+Through inheritance, CSS property values set on one element will be transferred down the tree to that element's children. In this example, every element gets the same font because we applied it to the body tag. Since the body element is a common parent for all visible elements is a convenient selector for when you want to set stylistic rules for the entire document.
+
+Then, we applied different styles at different levels of the tree so that the "li" or list element tag ends up with three different styles (font, underline and green) without us actually applying any style directly to that tag. 
+
+```css
+body {
+   font-family: "Century Gothic", sans-serif;
+}
+header {
+   font-style: italic;
+}
+section {
+   text-decoration: underline;
+}
+ul {
+   color: green;
+}
+```
+
+Not every property is inherited, but many are. The CSS specification tell you, for each property, whether it is inheritable. It's a good idea to keep in mind the structure of your HTML document when choosing your selectors so you can use inheritance to your advantage by applying styles to the top most element and save yourself extra CSS code.
+
+Output:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/0e1bd16d542e4a1085cb8d9b305f8e59/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40833b012fc6dd41f68fa5fd6e3b93e8a8">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0eec708dce63466019c5b9d6988caa65/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/css-intro-2-4-2.png" style="margin: 0.1em;" alt="text" title="CodePen image snapshot (Inheriting style)" width="100">
+  </a></div>
+</div>
 
 
 ### Combining multiple selectors
