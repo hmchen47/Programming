@@ -352,7 +352,77 @@ Ans:
 
 ### The anatomy of a CSS rule
 
+#### Video: The anatomy of a CSS rule
 
+<video src="https://edx-video.net/W3CCSS0I2016-V001600_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@60910593f9834ed897a0a15610f73f1b/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+ 
+
+#### Live coding video: The anatomy of a CSS rule - Demo
+
+<video src="https://edx-video.net/W3CCSS0I2016-V001800_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@cdb5f4a677cd45d2a28c60d11ef0285e/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
+[Here's the code from the video in a Code Pen for you to play around with](https://codepen.io/techie4good/pen/JXwWvr)
+
+-----------------------------------
+
+The HTML code is shown below:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1> Welcome to my first CSS Website</h1>
+        <h2> I'm glad you're here</h2>
+        <img src="designer.png" alt="designer"/>
+        <p>
+            This is my first site using CSS, or Cascading Style Sheets. I'm still learning and I have a long way to go, but doesn't it still look nice?
+It's amazing what a difference just some colors and fonts can make!
+        </p>
+    </body>
+</html>
+```
+
+And the attached CSS file (style.css):
+
+```css
+body {
+    background-color: #83AF9B;
+    text-align: center;
+    font-family: Arial;
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    background-color: #FE4365;
+    color: #F9CDAD;
+    font-size: 8em;
+    padding: 50px;
+}
+h2 {
+    color: #FE4365;
+    background-color: #F9CDAD;
+}
+img {
+    height: 250px;
+}
+p {
+    background-color: #FC9D9A;
+    color: white;
+    padding: 50px;
+    font-size: 2em;
+}
+```
 
 
 ### Constructing your CSS rules
