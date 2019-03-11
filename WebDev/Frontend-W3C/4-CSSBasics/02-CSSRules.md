@@ -296,10 +296,18 @@ The div element is a generic element to hold content. It is considered a last re
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-div-element)
 
 
-
 ### Next steps - learn more HTML
 
+Note that, as this CSS Introduction course focuses on CSS, we will always provide you with the complete HTML for whatever content you will be asked to style. However, to become proficient in Web development, you are going to need a good handle on HTML. You can start by looking into some of these links:
 
++ [Introduction section of the W3C HTML5 specification](https://www.w3.org/TR/html5/introduction.html#introduction)
++ [HTML educational material for beginners](https://www.w3.org/community/webed/wiki/HTML/Training) (W3C resource)
+
+Or of you are looking for more in-depth training, we suggest you check out one of these other W3Cx courses to better understand how to structure your pages with HTML and more:
+
++ [HTML5&CSS Fundamentals](https://www.edx.org/course/html5-and-css-fundamentals) (beginner level)
++ [HTML5 Coding Essentials and Best Practices](https://www.edx.org/course/html5-coding-essentials-and-best-practices) (intermediate level)
++ [HTML5 Apps and Games](https://www.edx.org/course/html5-apps-and-games) (advanced level)
 
 
 ### Activity 2.2 - Practice with HTML Validator
