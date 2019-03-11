@@ -362,8 +362,57 @@ The main disadvantage is about the viewport width that is only about one third o
 
 ### "Hello beautiful world"
 
+#### Video: "Hello beautiful world" Intro
 
+<video src="https://edx-video.net/W3CCSS0I2016-V001100_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@359a8797107d4e54abe7c33db7e7031a/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
 
+#### Live coding video: "Hello beautiful world" Demo
+
+<video src="https://edx-video.net/W3CCSS0I2016-V001500_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@2dd75d2bc0c348eaad01dc2b131a7c86/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
+#### Demo
+
+Here is the code we wrote in this demo.
+
+Here is the HTML part:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p>
+      Hello Beautiful World
+    </p>
+  </body>
+</html>
+```
+
+... and the CSS file (style.css) is below:
+
+```css
+p {
+  color: blue;
+  font-family:Helvetica;
+}
+```
+
+... and here is the "output":
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/137b958c31b147438258263a359ee926/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4012f12928c41749328bd588f657aab9bf">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4fda62c8d7111a005f0871712d979395/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/1-4-1_hello_beautiful_world.PNG" style="margin: 0.1em;" alt="text" title="caption" width="200">
+  </a></div>
+</div>
 
 ### Comments
 
