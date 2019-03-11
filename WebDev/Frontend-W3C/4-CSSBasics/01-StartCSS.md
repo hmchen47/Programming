@@ -378,7 +378,7 @@ The main disadvantage is about the viewport width that is only about one third o
 
 #### Demo
 
-Here is the code we wrote in this demo.
+Here is the [code](https://codepen.io/techie4good/pen/oxQaVN) we wrote in this demo.
 
 Here is the HTML part:
 
@@ -415,6 +415,28 @@ p {
 </div>
 
 ### Comments
+
+As you write your CSS, you might end up with a pretty large document that can be hard to manage, or you might find yourself working on a team and having to read CSS someone else has written. In these cases, it helps to leave "notes" for the humans that read the file.
+
+There is a way to leave notes that the Web browser will ignore when it is reading your CSS code, they're called "comments". In fact, leaving comments in your code is considered a best practice by developers and is a habit we highly recommend you develop now.
+
+To add comments to your CSS file, you need to surround any text you want the computer to ignore with a set of slashes and asterisks like so:
+
+```css
+/* those two symbols start my comment block
+ I can have more comment text here
+and the following two symbols end my comment */
+```
+
+As you can see, you can put as much text between the open and close symbols as you need, you can even have multiple lines. If you are working in an editor like Visual Studio code, you will notice that when you turn text into a comment, it turns green to indicate that the computer ignores that code.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="urhttps://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/137b958c31b147438258263a359ee926/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4012f12928c41749328bd588f657aab9bfl">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9adb288f759490dc188a3c7484aa4896/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/1-4-2_Comments.PNG" style="margin: 0.1em;" alt="Image of Visual Studio Code Comments" title="Example of CSS comment" width="250">
+  </a></div>
+</div>
+
+Generally, it is a good idea to put a comment at the top of each CSS rule, or at the very least at the top of sets of rules that apply to a single category or section of your Web page. 
 
 
 
