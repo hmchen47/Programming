@@ -1,0 +1,15 @@
+/* The Cascading Style Sheet for 2.3.3 Activity 2.3 - Building your first CSS rule set
+*/
+
+body {
+      background-color: purple;
+}
+h1 {
+    color: whitesmoke;
+}
+p {
+    color: fuchsia;
+}
+ul {
+    background-color: silver;
+}
