@@ -517,6 +517,52 @@ In next module, you will:
 
 ### Exercises (1-5)
 
+1. CSS definition
+
+    What does "CSS" stand for?
+
+    Ans: Cascading Style Sheets
+
+
+2. HTML definition
+
+    What does "HTML" stand for?
+
+    Ans: HyperText Markup Language
+
+
+3. Internet and Web definitions
+
+    What is the difference between Internet and Web? (2 correct answers!)
+
+    1. Internet and Web are the same thing
+    2. Internet is a network of networks
+    3. Web is an application of Internet
+
+    Ans: 23
+
+
+4. HTTP and HTML definitions
+
+    What is the difference between HTML and HTTP?
+
+    1. HTTP describes what's on the page and HTML allows sites to communicate with each other
+    2. HTML describes what's on a page and HTTP allows the page to be communicated to a user
+    3. HTML and HTTP are the same thing
+
+    Ans: 2
+
+
+5. Web page definition
+
+    Choose from the following the most correct definition of a "Web page":
+
+    1. A hypertext document connected to the World Wide Web
+    2. Any HTML document
+    3. A software application for retrieving, presenting and traversing information resources on the World Wide Web
+    4. A document you can open with a Web browser
+
+    Ans: 1
 
 
 
