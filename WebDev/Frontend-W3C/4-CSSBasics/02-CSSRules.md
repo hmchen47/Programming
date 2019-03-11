@@ -505,21 +505,112 @@ To do so, you will need to write 4 CSS Rules. You will need to use the following
 
 And you will need the following properties:
 
-+ background-color: silver;
-+ background-color: purple;
-+ color: white;
-+ color: fuchsia; 
++ `background-color: silver;`
++ `background-color: purple;`
++ `color: white;`
++ `color: fuchsia;`
 
 Now it's up to you to combine these selectors and properties into 4 rules to achieve the final style.
-
-
 
 
 ## 2.4 Attaching CSS to HTML using selectors
 
 ### What is a selector?
 
+In unit 2.3, we defined a CSS selector as the portion of the CSS rule that tells the browser on which HTML element to apply the defined style.
 
+When your HTML is simple, the selectors can be simple as well. The most basic selectors simply mirror the __HTML tag__. For example "p" attaches to all `<p>` tags, "img" will attach to all `<img>` tags and so on. As you can imagine, there will often be times when you don't want every single HTML element of a particular type to have identical style. In Module 3, we'll discuss a variety of ways to use selectors to attach to specific HTML elements.
+
+In unit 2.2, we briefly mentioned the fact that properties apply to the entire hierarchy of HTML elements to which they are attached. This means that you will have to be very careful which selectors you choose to use in combination with your chosen style. When choosing your selector you might want to keep the following aspects of an HTML element in mind:
+
++ How many of these HTML elements are on my page? Do I want this style to apply to every one of these elements?
++ What are this HTML element's children, and do I want this style to apply to them as well?
++ Is this element a block element or an inline element, and does this style make sense in that context?
+
+It is possible to independently target every HTML element on the page using selectors, but for this module we are going to stick to basics and only use selectors that match the HTML tag name. For example, here are some example selectors we'll use in this module:
+
+```css
+a {
+ /* style for a tags */
+}
+```
+
+This would affect the style of all link tags on the page.
+
+```css
+p {
+ /* style for p tags */
+}
+```
+
+This would affect the style of all paragraph tags on the page and the style of elements contained within the paragraph tag. 
+
+```css
+body {
+ /* style for all elements in the body */
+}
+```
+
+This would apply style to the body tag as well as allow the elements inside the body tag to inherit certain styles applied here. 
+
+[Here is a Code Pen that demonstrates how styles apply to different selectors.](https://codepen.io/techie4good/pen/pEzLrd)
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Title</h1>
+        <p>In unit 2.3, we defined a CSS selector as the portion of the CSS rule that tells the browser on which HTML element to apply the defined style.
+            <a href="http://www.microsoft.com">Click Here!</a>
+        </p>
+        <ul>
+            <li>When your HTML is simple, the selectors can be simple as well</li>
+            <li>he most basic selectors simply mirror the HTML tag</li>
+            <li>For example "p" attaches to all tags, "img" will attach to all tags and so on</li>
+            <li>As you can imagine, there will often be times</li>
+            <li>when you don't want every single HTML element of a particular type to have identical style</li>
+        </ul>
+        <p> 
+In Module 3, we'll discuss a variety of ways to use selectors to attach to specific HTML elements. 
+In unit 2.2, we briefly mentioned the fact that properties apply to the entire hierarchy of HTML elements to which they are attached. This means that you will have to be very careful which selectors you choose to use in combination with your chosen style 
+ <br />
+<a href="http://www.w3.org">Check this out</a>
+It is possible to independently target every HTML element on the page using selectors, but for this module we are going to stick to basics and only use selectors that match the HTML tag name. For example, here are some example selectors we'll use in this module:
+        </p>
+        <ol>
+            <li>This would affect the style of all link tags on the page</li>
+            <li>This would affect the style of all paragraph tags on the page</li>
+            <li>and the style of elements contained within the paragraph tag</li>
+            <li>This would apply style to the body tag</li>
+            <li>as well as allow the elements inside the body tag to inherit certain styles applied here. </li>
+        </ol>
+    </body>
+</html>
+```
+
+CSS code:
+
+```css
+body {
+    color: red; /* every element inherits this except those with more specific style */
+}
+ul {
+    color: blue;/* li elements inherit this color */
+}
+p {
+    font-style: italic; /* this even the a tags inherit within the paragraphs */
+}
+li {
+    text-decoration: line-through; /* applies to all li elements, in both ul and ol tags */
+}
+```
 
 
 ### Inheriting style
