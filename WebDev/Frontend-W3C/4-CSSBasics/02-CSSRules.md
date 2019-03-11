@@ -312,7 +312,40 @@ Or of you are looking for more in-depth training, we suggest you check out one o
 
 ### Activity 2.2 - Practice with HTML Validator
 
+HTML has been available to the public since 1991, but since then a lot has changed. One of the ways to make sure your HTML is well structured and up to date is to use the W3C HTML Validator. As you are developing your pages, it's a good idea to regularly check if your HTML is written according to W3C standards.
 
+You can find the validator [here](https://validator.w3.org/)
+
+You can pass any URL on the Web into the validator, and it will tell you how the HTML for that page stacks up against Web Standards. If you pass in https://www.w3.org (the W3C's homepage), you see the following:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/9dee69c0a62b4adea75199d9f4cef463/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4031b574414af74ae0a881d3601d7b4664">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/aa9d7a414b88b72a0071f979112f27a0/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-2-4_validator.PNG" style="margin: 0.1em;" alt="You can pass any URL on the Web into the validator, and it will tell you how the HTML for that page stacks up against Web Standards. If you pass in https://www.w3.org (the W3C's homepage)." title="HTML validator output for w3.org" width="350">
+  </a></div>
+</div>
+
+If you start to try out other URLs, you might find this is a very rare result ;) <br/>
+Try passing in your favorite Web address and see what comes up. For example, If you pass in https://www.microsoft.com/en-us/, you get 567 warnings and errors!
+
+One of the more common errors is using an HTML tag that is considered obsolete. Often the error points you to this wiki page "[Use CSS instead](https://wiki.whatwg.org/wiki/Presentational_elements_and_attributes)".
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/9dee69c0a62b4adea75199d9f4cef463/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4031b574414af74ae0a881d3601d7b4664">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0b22b4d9104262183dc5677196d3a455/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-2-4_error.PNG" style="margin: 0.1em;" alt="One of the more common errors is using an HTML tag that is considered obsolete. Often the error points you to this wiki page "Use CSS instead"." title="Image of obsolete HTML error" width="350">
+  </a></div>
+</div>
+
+For this activity, please try out some of your favorite Web addresses in this validator and see what happens. Find a page that has one of these types of errors and answer the following questions in the discussion board:
+
++ What URL gave you errors?
++ How many warnings and errors does this site have?
++ What HTML attribute does it use when it should use CSS instead?
+
+Ans:
+
+1. url: https://softnshare.com/brief-two-ux-teams-story/?fbclid=IwAR3W9P5hXii-KHVXDNgYhJxIey34YYwifukoqFMgZE35nvW_Qsn5SfE5lWw
+2. 26 errors; 15 warnings
+3. None
 
 
 ## 2.3 Building a CSS rule
