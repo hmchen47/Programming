@@ -4,7 +4,18 @@
 
 ### Welcome to Module 2
 
+In this module, we will...
 
+1. Review the basics of HTML
+1. Introduce you to the anatomy of a CSS "rule"
+1. Introduce you to the concept of a property and give you a set of properties to get started
+1. Introduce you to selectors and how you can directly attach them to HTML tags
+1. Finally, for your module project, you'll get a get a chance to build the CSS for an HTML page from scratch
+
+<video src="https://edx-video.net/W3CCSS0I2016-V001400_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@85d748fe0d994db0b2ccc5974d3a09df/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
 
 
 ## 2.2 HTML review
