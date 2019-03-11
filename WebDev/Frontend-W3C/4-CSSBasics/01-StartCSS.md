@@ -610,5 +610,72 @@ In next module, you will:
 
 ### Exercises (10-15)
 
+10. CSS benefits
+
+    Select all of the benefits of CSS (3 correct answers!)
+
+    1. easily maintainable style
+    2. efficient application of style
+    3. all HTML documents look similar
+    4. content authors don't have to worry about style
+
+    Ans: 124
+
+
+11. Linking style
+
+    Which of the following pieces of code is the correct way to connect a CSS document with the name "styles.css" to your HTML document via the head tag?
+    1. `< style a href="styles.css" style >`
+    2. `< link style="styles.css" >`
+    3. `< link rel="stylesheet" href="styles.css" >`
+    4. `< link type="javascript" href="styles.css" >`
+
+    Ans: 3
+
+
+12. Comment syntax
+
+    Which of the following is the correct syntax for a CSS comment?
+    1. `/ comment text \`
+    2. `/* comment text */`
+    3. `* comment text *`
+    4. `/* comment text /*`
+
+    Ans: 2
+
+
+13. Multi-line comments
+
+    True or False? You can have multiple lines of text in one comment?
+
+    Ans: True
+
+
+14. Comments best practices
+
+    Where should you add comments in your CSS document according to best practices?
+    1. At the top of each CSS rule or group of CSS rules that apply to the same section of your Web page
+    2. At the end of the style sheet
+    3. After each property or property value
+
+    Ans: 1
+
+
+15. First CSS rule
+
+    Which of the following will turn text blue if put inside the following CSS rule?
+
+    ```css
+    p {
+      //code here
+    }
+    ```
+
+    1. `font color = blue`
+    2. `text color blue`
+    3. `color: blue;`
+    4. `font-color-blue;`
+
+    Ans: 3
 
 
