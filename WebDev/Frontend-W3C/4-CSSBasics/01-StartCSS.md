@@ -210,12 +210,30 @@ Stands for "<b>H</b>yper<b>t</b>ext <b>T</b>ransfer <b>P</b>rotocol <b>S</b>ecur
 
 
 
-### Activity 1.2
+### Activity 1.2 - The Web before CSS
+
+Now it's your turn to do some exploration! For this activity, your job is to find examples of Web sites before and after CSS.
+
+A great place to start is at [archive.org](http://archive.org/) (aka, the "WayBack machine") which stores copies of web pages throughout history. You can search for some of your favorite websites and see if they have stored copies older than 1996. You should find that any Web page made before 1996 will look very different than Web sites we typically see today. When you find a real retro gem, please share it in this week's discussion (see below).
+
+Here's one of my personal favorite vintage sites (which is still live!): http://www.warnerbros.com/archive/spacejam/movie/jam.htm
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/b8efea36f1874c2a8a0fc6843d20b063/db3538e67b894874ace354d59ba6bf64/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40e1a1b7b99e4541f99c4aa3338277bac2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9b699b24c510fe8398ede6913f661b56/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/Space_Jam.jpg" style="margin: 0.1em;" alt="snapshot of a Web page showing SpaceJam" title="SpaceJam" width="250">
+  </a></div>
+</div>
+
+
+Search result: NASA
+
++ Dec. 31, 1996: https://web.archive.org/web/19961231235847/http://nasa.gov/
++ Jul. 05, 1998: https://web.archive.org/web/19970605230559/http://www.nasa.gov:80/
++ Mar. 10, 2019: https://web.archive.org/web/20190310163403/https://www.nasa.gov/
+
+
 
 ## 1.3 Why CSS is important
-
-
-
 
 ### Separating content from presentation
 
