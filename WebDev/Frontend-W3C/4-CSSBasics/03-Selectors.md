@@ -4,7 +4,21 @@
 
 ### Welcome to Module 3
 
+#### Video: welcome to Module 3
 
+
+<video src="https://edx-video.net/W3CCSS0I2016-V005900_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@4217fd0468774c3789c662106419427b/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
+
+#### In this module, we'll learn:
+
++ How to use classes and IDs to independently target HTML elements of the same type
++ How to apply different style to the same element based on the way the user interacts with that element using pseudo-classes
++ How to scope style rules using contextual selectors and the HTML inheritance structure of your document
++ What the "Cascading" part of "Cascading Style Sheets" means
 
 
 ### The power of selectors
