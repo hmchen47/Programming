@@ -1,21 +1,50 @@
 /* The CSS for 2.7 About Me page Activity */
 
+body {
+    background-color: palegoldenrod;
+    margin: 1em;
+}
 h1 {
-
+    background-color: rgb(1, 71, 71);
+    color: blanchedalmond;
+    margin: 0.2em;
+    padding: 0.5em;
+    font-size: 3em;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 h2 {
-
+    margin: 0.2em;
+    padding: 0.5em;
+    font-size: 1.5em;
+    font-weight: 900;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(1, 71, 71)
 }
-
+h3 {
+    margin: 1em 0.2em 0.2em 0.2em;
+    padding: 1em;
+    background: rgb(1, 71, 71);
+    color: blanchedalmond;
+    font-size: 1.2em;
+    font-style: italic;
+}
+.author {
+    text-align: right;
+}
 p {
-
+    margin: 0.2em;
+    padding: 0.7em;
+    font-size: 1.0em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 5px olive dashed;
 }
 
 ol, ul {
-
+    border: 5px olive solid;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 li {
-    
+    padding: 0.3em;
 }
