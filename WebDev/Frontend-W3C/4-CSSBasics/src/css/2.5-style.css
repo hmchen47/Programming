@@ -16,7 +16,13 @@ h1 {
  
  
 h2 {
-    background-color: #ff6600
+    background-color: #ff6600;
+    color: #ffff99;
+    margin: 1em 0.5em 0.5em 0.7em;
+    padding: 2em 0em 0.2em 0.5em;
+    height: 1.5em;
+    font-family: "Courier New";
+    font-size: 1.8em;
 }
  
 ol {
