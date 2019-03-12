@@ -1163,12 +1163,202 @@ There are even more ways to adjust text appearance and you can read more about t
 
 ### Spacing properties
 
+CSS provides a great set of tools to help you position the HTML elements on your page, and we will cover that in depth in Module 4. For now we will talk about how to apply white space around individual HTML elements.
+
+There are two different ways you can define white space:
+
++ in absolute terms: using an exact number of pixels,
++ and in relative terms: using percentages or ems.
+
+For now, we'll use pixels because that is easier to learn. However, ultimately you will want to use percentages and ems so your content adapts to different screens. We will discuss how to use percentages in Module 4.
+
+When you view an element in your browser tools you can see the white space around it represented like so:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="text" title="margin padding border" width="300">
+  </a></div>
+</div>
+
+
+The above image is called the "__box model__", which we will get into more detail about in Module 4. For now, you can see that the space around the content is broken into three distinct regions.
+
+
+#### Padding
+
+```css
+p {
+   padding: 20px;
+}
+```
+
+"Padding" is the white space that sits closest to an HTML element. Many elements already have a default padding defined. For example, `ul` elements by default are indented to the left a bit because they have a left padding.
+
+You can set the padding on an element's four sides independently using `padding-top`, `padding-right`, `padding-bottom` and `padding-left`. Or you can use the more compact padding: 10px 15px 20px 25px. In this case, the order of the numbers sets the `top`, `right`, `bottom` and `left` paddings. In the above example, I collapsed all of these and just set the padding on all four sides to be 20px. [Here is a code pen that demonstrates all these different ways to set padding.](https://codepen.io/w3devcampus/pen/zeEXao)
+
+[Documentation](https://www.w3.org/TR/CSS2/box.html#propdef-padding-top)
+
+
+#### Border
+
+```css
+p {
+   border: 1px black solid;
+}
+```
+
+The "border" is the area outside the padding of an HTML element. By default, borders are set to be empty, but you can set their width, color, pattern, even an image! Like padding, you can even adjust the four sides of a border independent of one another using `border-top`, `border-right`, `border-bottom` or `border-left`. You can also adjust the different aspects of a border with `border-width`, `border-color`, and `border-style`. In the above example, I collapsed all of these properties into a single simple property and value set. 
+
+[Documentation](https://www.w3.org/TR/css3-background/#borders)
+
+
+#### Margin
+
+```css
+p {
+   margin-bottom: 50px;
+}
+```
+
+An HTML element's "margin" is the white space that sits outside the border. Margins of HTML elements interact with other another on the page to determine how they are arranged on the page. A lot of elements have default margins applied.
+
+For example, the body tag typically has a margin that causes any content to not extend all the way to the extreme edge of the page. Be careful, margins can be tricky. When two margins touch they "collapse" such that the space between the elements is equivalent to the larger of the two margins. Like the above properties, you can also set the margins on each side independently using `margin-top`, `margin-left`, `margin-bottom` and `margin-right`.
+
+[Documentation](https://www.w3.org/TR/CSS2/box.html#propdef-margin)
+
+
+#### Example
+
+[Here is a CodePen exploring padding, border and margin.](https://codepen.io/techie4good/pen/vXBRJP)
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Main Title</h1>
+    <ul>
+      <li> List element 1</li>
+      <li> List element 2</li>
+      <li> List element 3</li>
+    </ul>
+    <p>
+      Integer euismod at lectus vel placerat. Nam laoreet a quam in maximus. Duis turpis tellus, accumsan ac efficitur in, tempus vel augue. Aenean vitae venenatis tortor. Praesent dignissim nisl id odio fringilla, ac dapibus enim euismod. Sed id tellus vel est blandit finibus non vel magna. Nullam mattis, odio in suscipit dapibus, mauris dolor mollis nisl, et ultricies sem justo ac dui. Etiam ut turpis ipsum. Vivamus sodales vel nibh ut gravida. Pellentesque eu nunc elementum, sodales diam dictum, lobortis magna. Suspendisse id mattis ipsum. Vivamus scelerisque facilisis justo, id facilisis dui auctor sed.
+    </p>
+  </body>
+</html>
+```
+
+CSS code:
+
+```css
+body {
+    background-color: #99ffff;
+    margin-top: 20px;
+    margin-left: 70px;
+}
+h1 {
+    background-color: #ff6699;
+    border-bottom: 20px #ff0066 solid;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+ul {
+    background-color: #ff9933;
+    border-left: 5px black dashed;
+    margin: 50px;
+}
+li {
+    background-color: #ffcc66;
+    margin: 10px;
+    padding: 10px;
+}
+p {
+    background-color: #ccff99;
+    border: 10px white double;
+    padding: 0px;
+    margin: 0px;
+}
+```
+Output:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/aa7902a4786441d8d4dcdda4ac175a79/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/css-intro-2-5-2.png" style="margin: 0.1em;" alt=" exploring padding, border and margin" title="CodePen resulting image (Spacing properties)" width="250">
+  </a></div>
+</div>
+
+
+In this code pen, you can see that I used background color to illustrate where there was padding and where there was margin. An element's background color extends over its padding but not over its margin.
 
 
 
-## Activity 2.5 - Adding your own properties
+### Activity 2.5 - Adding your own properties
 
-### 2.6 Style studies
+Now that you have a few properties in your CSS toolbox, let's practice using them.
+
+Here is some HTML and CSS, but as you can see the CSS rules have selectors but no properties. See this [Code Pen of Code Stub](https://codepen.io/techie4good/pen/EgYEAp).
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Adding Properties</h1>
+    <h2>Using Colors, Fonts and Spacing</h2>
+    <p>          
+      There is a huge array of different aspects you can style: color, font, size, spacing and much more! For a complete list of official CSS properties look here: https://www.w3.org/Style/CSS/all-properties#list or http://meiert.com/en/indices/css-properties/
+    </p>
+    <ol>
+      <li>Make sure to look up what the available values are before using a property</li>
+      <li>because if the browser doesn't understand your value it will typically just skip applying any style</li>
+      <li>This is where programs like Visual Studio Code come in handy</li>
+      <li>because as you type out the property the program will automatically suggest possible values for you </li>
+      <li>Sometimes the easiest way to learn about different properties is to explore the style on one of your favorite websites</li>
+    </ol>
+    <p>     
+If you aren't sure how to do this refer to the demo in unit 1.3 to see this in action while inspecting CSS Zen Garden designs. As you can see, the browser tools display the value of the properties, and if you click into that space it will even give you some of the different value options and you can even change them and watch the Web site update dynamically.
+    </p>
+  </body>
+</html>
+```
+
+As you can see, these CSS rules have selectors, but no properties. For this activity, it is up to you to add the correct properties and set their values appropriately to achieve this final style:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a1594384f91556ed990dff48f258fb76/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-5-5_Activity.PNG" style="margin: 0.1em;" alt="text" title="Final image of web site with proper CSS properties applied" width="450">
+  </a></div>
+</div>
+
+Here are the color HEX code used above:
+
++ `light yellow: #ffff99`
++ `medium yellow: #ffcc00`
++ `orange: #ff6600`
+
+Here are the fonts used above:
+
++ Helvetica
++ Impact
++ Courier New
+
+
+
+
+## 2.6 Style studies
 
 
 
