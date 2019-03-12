@@ -1033,7 +1033,8 @@ Font-size sets the overall scale of your text. You can use a lot of different un
 
 The ideal way to set text size is to use "em". Em is a way to set your text size based on the system settings of the device in which you are viewing that font. This becomes especially important for users who have special font preferences due to accessibility requirements. To use em do not set font-size on the body tag, but instead set the size for each element in relation to the user's default. For example, 1em is the default, 2em is twice as big, 0.5em is half as big etc. [Here are some more font sizing tips and tricks.](https://www.w3.org/Style/Examples/007/units.en.html)
 
-<table><colgroup><col><col><col><col>
+<table>
+  <colgroup><col><col><col><col>
     </colgroup><thead>
      <tr>
       <th>
@@ -1051,7 +1052,9 @@ The ideal way to set text size is to use "em". Em is a way to set your text size
       </th><td>em, cm, mm, in, pt, pc, %
       </td><td>px, ex
       </td><td>
-   </td></tr></tbody></table>
+    </td></tr>
+  </tbody>
+</table>
 
 [Documentation](https://www.w3.org/TR/css-fonts/#font-size-prop)
 
@@ -1060,7 +1063,7 @@ The ideal way to set text size is to use "em". Em is a way to set your text size
 
 ```css
 p {
-font-weight: bold;
+  font-weight: bold;
 }
 ```
 
@@ -1345,9 +1348,9 @@ As you can see, these CSS rules have selectors, but no properties. For this acti
 
 Here are the color HEX code used above:
 
-+ `light yellow: #ffff99`
-+ `medium yellow: #ffcc00`
-+ `orange: #ff6600`
++ light yellow: #ffff99
++ medium yellow: #ffcc00
++ orange: #ff6600
 
 Here are the fonts used above:
 
@@ -1356,14 +1359,13 @@ Here are the fonts used above:
 + Courier New
 
 
-
-
 ## 2.6 Style studies
 
-
-
-
 ### Style studies
+
+In each unit, we will have a section like this one where we profile specific aspects of Web sites and the various ways you can use CSS to style them. This is intended to give you practical examples of how to apply the CSS you are developing along the way. 
+
+Each style study will discuss the different concerns of styling a given element and three sample styles.
 
 
 
