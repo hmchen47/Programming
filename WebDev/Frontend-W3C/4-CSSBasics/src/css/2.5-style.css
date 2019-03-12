@@ -1,5 +1,7 @@
+/* CSS file for 2.5.5 Activity-Adding your own properties */
+
 body {
- 
+    background-color: #ffff99;
 }
  
 h1 {
@@ -8,7 +10,7 @@ h1 {
  
  
 h2 {
- 
+    background-color: #ff6600
 }
  
 ol {
@@ -16,7 +18,7 @@ ol {
 }
  
 li {
- 
+    background-color: #ffcc00;
 }
  
 p {
