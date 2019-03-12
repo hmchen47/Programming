@@ -38,6 +38,7 @@ p {
     font-size: 1.0em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: 5px olive dashed;
+    border-radius: 1em;
 }
 
 ol, ul {
