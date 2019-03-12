@@ -1505,6 +1505,98 @@ This design is based on pastel primary colors and uses color as a highlight agai
 
 ### Buttons
 
+Buttons are a key way that your users will interact with your page. Often buttons are a call to action for your user- so you will want them to stand out!
+
+When styling a button you aren't just styling the text, but also the area around it, including the border. By giving them a distinct background color or border you make it clear that this whole area is "clickable".
+
+Typically your user will expect your button to be wider than it is tall, to accomplish this you'll want to set the left and right padding to be greater than the top and bottom paddings.
+
+Here is an example of a button where it's not immediately clear that it is actually a button.
+
+#### Button 1
+
+This design is a pretty traditional button where it has a distinct background-color and border-color to help it stand out from both the background and the body text.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/19f23422b5574f43953df1259e27c6f4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40488524f351ba487aa19204de45b0d496">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/71258305acbafe9ca8d4bcd0d5aebe10/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-6-2_button_1.PNG" style="margin: 0.1em;" alt="button design 1 image" title="button design 1 image" width="450">
+  </a></div>
+</div>
+
+
+```css
+#design1 {
+    background-color: #94618E;
+    color: #F8EEE7;
+    font-family: Corbel;
+}
+#design1 button {
+    background-color: #F4DECB;
+    padding: 10px 25px;
+    border: 5px solid #F8EEE7;
+    color: #49274A;
+    font-weight: bold;
+    font-size: 1.2em;
+ }
+```
+
+
+#### Button 2
+
+This is a more modern button design where there is no distinct border, but just a flat color background.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/19f23422b5574f43953df1259e27c6f4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40488524f351ba487aa19204de45b0d496">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/546df96b5a1e929d2b85b95614013c05/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-6-2_button_2.PNG" style="margin: 0.1em;" alt="button design 2 image" title="button design 2 image" width="450">
+  </a></div>
+</div>
+
+
+```css
+#design2 {
+    background-color: #D9D9D9;
+    color: white;
+    font-family: "Century Gothic", sans-serif;
+}
+#design2 button {
+    background-color: #4484CE;
+    border: 0px;
+    color: white;
+    padding: 10px 50px;
+    font-family: Impact, sans-serif;
+    font-size: 1.3em;
+}
+```
+
+#### Button 3
+
+This is a big graphic button that uses border-radius to give the button rounded corners.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/19f23422b5574f43953df1259e27c6f4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40488524f351ba487aa19204de45b0d496">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7f2cfe384e3c3678086d305452ffa48c/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-6-2_button_3.PNG" style="margin: 0.1em;" alt="button 3 design image" title="button 3 design image" width="450">
+  </a></div>
+</div>
+
+
+```css
+#design3 {
+    font-family: Impact, sans-serif;
+    font-size: 2em;
+}
+ 
+#design3 button {
+    font-family: Impact, sans-serif;
+    font-weight: 100;
+    background-color: white;
+    border: 7px #EC576B solid;
+    border-radius: 20px;
+    font-size: 0.8em;
+}
+```
+
+[Here are three different ways to style buttons you can play around with.](https://codepen.io/techie4good/pen/ORXzoo?editors=1100#0)
+
 
 
 
