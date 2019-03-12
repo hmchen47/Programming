@@ -1368,10 +1368,138 @@ In each unit, we will have a section like this one where we profile specific asp
 Each style study will discuss the different concerns of styling a given element and three sample styles.
 
 
-
-
 ### Titles
 
+There are a couple different categories of text on a Web page: titles, body text, links, captions, etc.
+
+You'll want to style each of these differently to help your user understand the proper context for your text. One of the most important categories of text to stand out are your titles.
+
+There are different aspects of text you can alter to make it stand out.
+
++ size
++ font
++ capitalization
++ color
++ emphasis
++ weight
+
+However, you should only alter a few of these following aspects at a time to prevent your titles from being too distracting. The below is an example of using too many different aspects of font for emphasis:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/19f23422b5574f43953df1259e27c6f4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40488524f351ba487aa19204de45b0d496">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/3d61e59f7c40b29e950c2954ade93c81/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-6-1_title_ugly.PNG" style="margin: 0.1em;" alt="Image of too busy title" title="Image of too busy title" width="450">
+  </a></div>
+</div>
+
+
+```css
+#busyTitle h1{
+    font-size: 2em;
+    font-family: Impact;
+    color: yellow;
+    background-color: gray;
+    font-style: italic;
+    font-variant: small-caps;
+    font-weight: bold;
+    text-decoration: underlinel;
+}
+```
+
+#### Title 1
+
+This title uses soft clean colors based on print media, so we chose a serif font. We also increased the size and color to help the title appear more prominent than the body text.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/19f23422b5574f43953df1259e27c6f4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40488524f351ba487aa19204de45b0d496">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7b4d131e7d9b1d7256b9eb940fc8c2aa/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-6-1_title_1.PNG" style="margin: 0.1em;" alt="title 1" title="title 1" width="450">
+  </a></div>
+</div>
+
+
+```css
+#design1 {
+    background-color: #F4F4F4;
+    font-family: "Lucidia Sans Unicode", sans-serif;
+}
+ 
+#design1 h1 {
+    color: #C0B283;
+    font-size: 4em;
+    font-weight: 700;
+    font-family: Garamond;
+    width: 300px;
+}
+ 
+#design1 p {
+    color: #373737;
+    font-size: 1.2em;
+}
+```
+
+
+#### Title 2
+
+This design is intended to look futuristic, so it only uses sans-serif, thin font with high contrast colors.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/19f23422b5574f43953df1259e27c6f4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40488524f351ba487aa19204de45b0d496">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6ae804aa364c30d81afe6a6c824a98cf/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-6-1_title_2.PNG" style="margin: 0.1em;" alt="title 2" title="title 2" width="450">
+  </a></div>
+</div>
+
+
+```css
+#design2 {
+    font-family: Century Gothic, sans-serif;
+    background-color: #0E0B16;
+}
+ 
+#design2 h1 {
+    font-weight: 400;
+    font-size: 2.3em;
+    color: #A239CA;
+    font-style: italic;
+}
+ 
+#design2 p {
+    color: #E7DFDD;
+}
+```
+
+#### Title 3
+
+This design is based on pastel primary colors and uses color as a highlight against the default white background. We have achieved the separation between title and body text by setting its background color separately and giving it a bottom border. 
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/19f23422b5574f43953df1259e27c6f4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40488524f351ba487aa19204de45b0d496">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ec1b9e7c51052441da84f9736e3acd0e/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-6-1_title_3.PNG" style="margin: 0.1em;" alt="title 3" title="title 3" width="450">
+  </a></div>
+</div>
+
+
+```css
+#design3 {
+    color: #DF744A;
+    font-family: Arial, sans-serif;
+}
+ 
+#design3 h1 {
+    background-color: #BFD8D2;
+    text-align: center;
+    font-size: 4em;
+    font-weight: 100;
+    padding: 30px;
+    border-bottom: 5px #DCB239 solid;
+    font-family: Helvetica, sans-serif;
+}
+ 
+#design3 p {
+    background-color: #FEDCD2;
+    padding: 50px;
+}
+```
+
+[Here is a code pen of all the above examples of different title designs for you to play around with.](https://codepen.io/techie4good/pen/ZpOvBd?editors=1100#0)
 
 
 
