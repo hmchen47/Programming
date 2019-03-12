@@ -110,7 +110,7 @@
 + [3.7 Conclusion and exercises](03-Selectors.md#)
     1. [After this module you should be able to...](03-Selectors.md#)
     1. [Exercises (1-5)](03-Selectors.md#)
-    1. [Exercices (6-10)](03-Selectors.md#)
+    1. [Exercises (6-10)](03-Selectors.md#)
     1. [Exercises (11-15)](03-Selectors.md#)
 
 
@@ -183,9 +183,9 @@
 + [Exercises (1-5)](06-Final.md#)
 + [Exercises (6-10)](06-Final.md#)
 + [Exercises (11-15)](06-Final.md#)
-+ [Exercices (16-20)](06-Final.md#)
-+ [Exercices (21-25)](06-Final.md#)
-+ [Exercices (26-30)](06-Final.md#)
++ [Exercises (16-20)](06-Final.md#)
++ [Exercises (21-25)](06-Final.md#)
++ [Exercises (26-30)](06-Final.md#)
 + [Continue your studies](06-Final.md#)
 
 
