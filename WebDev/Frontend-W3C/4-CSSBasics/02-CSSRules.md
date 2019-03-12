@@ -1598,11 +1598,28 @@ This is a big graphic button that uses border-radius to give the button rounded 
 [Here are three different ways to style buttons you can play around with.](https://codepen.io/techie4good/pen/ORXzoo?editors=1100#0)
 
 
+### Activity 2.6 - Effective titles and buttons
+
+Now that you know a bit more about how CSS is written, you will start to understand and notice more of the design elements as you navigate around the Web.
+
+In this module's style studies section, you learned some effective ways to style titles and buttons. You also learned about some design choices that make your titles and buttons not as effective...
+
++ Titles shouldn't be overly styled. They should only have a few properties set to help them stand out from body text, but not too many otherwise they will be too busy.
++ Buttons should send a clear message that they need to be interacted with. If a button doesn't show up as a rectangle, a user typically won't understand that it's a button.
+
+For this activity, please find a Web page that has either titles or buttons and discuss how effectively they are styled. In the discussion below, answer the following questions:
+
++ Which Web page are you evaluating?
++ Is their use of titles or buttons as effective as they can be?
++ What do you like about their title or button design?
++ What would you change about their title or button design to be more effective?
 
 
-### Activity 2.6
-
-
+Ans: 
+1. The web page evaluated: https://www.packtpub.com/packt/offers/free-learning/?login=1
+2. Yes, the title banner and the button are standout with contrast color.  Theya re easy to spot and lead us to take action.
+3. The title banner color with a dark background and big fonts for us to read.  The timer banner is with orange that alerts users the time is runing out.  The entire page looks neat and carries message clear.
+4. The button might consider bigger fount and increase font weight.
 
 
 ## 2.7 Project 2 - About me page
