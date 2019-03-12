@@ -1662,12 +1662,19 @@ Note: you are welcome to look up other styles and apply them however you like as
 We've set up a discussion forum below, in case you want to share your work!
 
 
-
 ## 2.8 Conclusion and exercises
 
 ### After Module 2 you should be able to...
 
++ understand the how HTML and CSS work together to create Web content
++ describe what the different parts of a CSS rule are
++ employ basic selectors and combine them using the comma
++ apply properties that style color, font and spacing
 
+In module 3, you will then learn:
++ classes, IDs
++ contextual selectors
++ pseudo classes
 
 
 ### Exercises (1-4)
