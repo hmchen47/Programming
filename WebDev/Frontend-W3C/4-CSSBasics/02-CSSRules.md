@@ -1838,7 +1838,6 @@ font-style: italic;
     Explanation: It is best to use relative sizes instead of using absolute ones, so that the reader's preferences (the font sizes configured in the browser) are respected.
 
 
-
 9. Border aspects
 
     When adding a border, what are the three aspects that can be styled? (3 correct answers!)
@@ -1864,8 +1863,66 @@ font-style: italic;
     Explanation: When two vertical margins meet, they "collapse": the smaller one disappears inside the larger one. The right answer is : the space between the two elements is the larger of the two margins.
 
 
-
 ### Exercises (11-12)
+
+Use the following code for the next 2 questions
+
+Given the following HTML:
+
+```html
+<body>
+    <header>
+       <h1> My Page </h1>
+    </header>
+    <section>
+       <h2> My Content </h2>
+       <p> This is where my page's content will be </p>
+    </section>
+</body>
+```
+
+And the following CSS:
+
+```css
+body {
+   color: green;
+}
+header {
+   background-color: blue;
+}
+section {
+   font-weight: bold;
+}
+p {
+   text-decoration: underline;
+}
+```
+
+11. Styling the p tag
+
+    Which of the following styles will be applied to the p tag? (Select all that apply, 3 correct answers!)
+
+    1. green text
+    2. blue background
+    3. bold text
+    4. underlined text
+
+    Ans: 134 <br/>
+    Explanation: P has 'text-decoration: underline' applied, and inherits the color green and the font-weight bold, but it is not inside the header so it is not blue.
+
+
+12. Styling the h1 tag
+
+    From the style sheet above, how does the h1 look? (Select all that apply, 2 correct answers!)
+
+    1. green text
+    2. blue background
+    3. underlined text
+
+    Ans: 12 <br/>
+    Explanation: H1 inherits the green color from the body, and it has the blue background of the header because its own background is transparent.<br/>
+    Note that h1 is also bold, because the browser default style for h1 is bold.
+
 
 
 
