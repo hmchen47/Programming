@@ -106,7 +106,6 @@
     1. [Images](03-Selectors.md#)
     1. [Forms](03-Selectors.md#)
 + [3.6 Project 3 - My profile](03-Selectors.md#)
-    1. [Module 3 project](03-Selectors.md#)
 + [3.7 Conclusion and exercises](03-Selectors.md#)
     1. [After this module you should be able to...](03-Selectors.md#)
     1. [Exercises (1-5)](03-Selectors.md#)
