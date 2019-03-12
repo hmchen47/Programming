@@ -1626,6 +1626,40 @@ Ans:
 
 ### Module 2 project - About me page
 
+Now that you have played around with applying selectors and properties, you have the tools to make a much more sophisticated Web page than "Hello Your World". 
+
+For your module project, you are going to create a page describing yourself using your favorite colors. Your Web page must have the following content:
+
++ an h1 title with your name
++ an h2 title with your favorite quote
++ a paragraph describing your favorite hobbies
++ an ordered list of your favorite foods
++ an unordered list of your favorite websites, including links to them
+
+And in addition, you must employ the following styles:
+
++ 3 different font colors
++ 2 different background colors
++ a serif font
++ a sans-serif font
++ italic text
++ bold text
++ 1 border
++ extra margin between the edge of the screen and your content
++ extra padding around your list items
+
+For example, here is what my page looks like:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/a266d0919e0f4e31afa5a0c2abb25edf/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4069a34ed95d0a4b4683e10efb32d63db8">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/152ba1416a059133e7dcd8af8480df6b/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/css-intro-2-6-1.png" style="margin: 0.1em;" alt="CodePen resulting image (Module 2 project)" title="CodePen resulting image (Module 2 project)" width="350">
+  </a></div>
+</div>
+
+
+Note: you are welcome to look up other styles and apply them however you like as long as you at least have the above requirements met.
+
+We've set up a discussion forum below, in case you want to share your work!
 
 
 
