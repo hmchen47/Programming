@@ -1785,6 +1785,83 @@ font-style: italic;
 
 ### Exercises (5-10)
 
+5. Color as a value
+
+    Which of the following values will set a color property to black? (2 correct answers!)
+
+    1. `#000000;`
+    2. `"black";`
+    3. `black;`
+    4. `#FFFFFF;`
+    5. `rgb(255,255,255);`
+
+    Ans: 13 <br/>
+    Explanation: Beware: color keyword (such as "black") do not have quotes around them, otherwise it is interpreted as text. `#FFFFFF;` and `rgb(255,255,255);` each gives the color white.
+
+
+6. Color inheritance
+
+    True or False? "background-color" is inherited from parent to child HTML element (if the parent is not a body element).
+
+    Ans: False <br/>
+    Explanation: "background-color" is not inherited, but note that the background of elements is normally transparent so you see the background of the parent behind them.
+
+
+7. font-family
+
+    What will happen to the text affected by the following CSS rule?
+
+    ```css
+    body {
+      font-family: "Century Gothic", Arial, sans-serif;
+    }
+    ```
+
+    1. The browser will try to use each font, starting with Century Gothic and moving to the right until it finds a supported font.
+    2. The browser will try to use each font, starting with sans-serif and moving to the left until it finds a supported font.
+    3. Text will use all three different fonts based on the different tags it lives within.
+
+    Ans: 1 <br/>
+    Explanation: The prefered font is mentioned first and the other fonts are fallbacks.
+
+
+8. font-size
+
+    Which of the following font-size units is recommended as a best practice to maximize accessibility?
+
+    1. in
+    2. px
+    3. em
+    4. pt
+
+    Ans: 3 <br/>
+    Explanation: It is best to use relative sizes instead of using absolute ones, so that the reader's preferences (the font sizes configured in the browser) are respected.
+
+
+
+9. Border aspects
+
+    When adding a border, what are the three aspects that can be styled? (3 correct answers!)
+
+    1. border-weight
+    2. border-color
+    3. border-style
+    4. border-height
+    5. border-width
+
+    Ans: 235 <br/>
+    Explanation: The three aspects are width (for the thickness), style (solid, dashed, etc.) and color.
+
+
+10. Margins
+
+    When two vertical margins meet, what happens?
+    1. the space between the two elements is the larger of the two margins. correct
+    2. the space between the two elements is the smaller of the two margins.
+    3. the space between the two elements is the sum of the two margins. incorrect
+
+    Ans: 1 <br/>
+    Explanation: When two vertical margins meet, they "collapse": the smaller one disappears inside the larger one. The right answer is : the space between the two elements is the larger of the two margins.
 
 
 
