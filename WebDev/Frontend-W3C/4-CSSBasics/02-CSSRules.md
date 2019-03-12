@@ -887,11 +887,277 @@ As you can see, the browser tools display the value of the properties, and if yo
 
 ### Color properties
 
+Color is one of the first things you'll want to explore when designing your Web site. Thankfully, CSS provides a wide array of tools for you to control the color of different HTML elements. There are basic color properties:
 
+#### color
+
+This property sets the foreground color of an element's text content. By default, all text content will be set to black. If you set the color on one HTML element it will be inherited by all HTML elements within that. For example, if you set the color property on the body tag to blue, all text on your web page will be changed to blue, unless that text has a more specific color property that will override it. 
+
+[Documentation](https://www.w3.org/TR/css3-color/#foreground)
+
+
+#### background-color
+
+This property sets the background color of an element. This color then represents the exact space the element takes up, which is always a rectangular area. The default value is 'transparent' which means whatever is behind the element will shine through. Note that background-color is one example of a property that is not inherited, so you will have to directly set the background-color on each element. To set the overall color of your page, apply a background color to the body tag, and since all other element's background colors will be transparent by default, it will appear as if everything has that same background color. 
+
+[Documentation](https://www.w3.org/TR/css3-background/#the-background-color)
+
+
+#### color as a value
+
+These color properties take in a color as their value, and there are three different ways you can define that color: keyword, a HEX code or an rgb value.
+
+__keyword__
+
+Probably the simplest and least flexible way to set colors is using a keyword. A keyword is one of the predefined colors like "blue" or "green". 
+
+```css
+body {
+   background-color: teal; 
+}
+```
+
+The list of color keywords is: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, and yellow. You can read more about these keyword colors [here](https://www.w3.org/TR/CSS22/syndata.html#value-def-color).
+
+
+__HEX__
+
+A HEX code is a 6 character code to represent the color, giving you a lot more options. The 6 characters of the code are broken into 3 sets of 2, where each set of 2 represents the amount of either red, green or blue that makes up the color. These sets are hexadecimal numbers, which means that each ranges between 00 to FF where 00 means no color and FF means all of that color. Thus #000000 represents pure black and #FFFFFF represents pure white.
+
+When using a hex code in CSS you must put a hash character in front of the 6 characters like so:
+
+```css
+body {
+   background-color: #00CC00; /* green */
+}
+```
+
+__decimal__
+
+You can also specify colors using rgb in decimal form like so:
+
+```css
+body {
+   background-color: rgb(0,204,0); /*same green as above*/
+}
+```
+
+This will give you the same range as HEX values. This method is a less common, but it's up to you which method of specifying colors you prefer. 
+
+[Documentation](https://www.w3.org/TR/CSS22/syndata.html#value-def-color)
+
+Here are some of the colors you can use, and the three different ways you can set their value in the color or color-background property:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f3568defc277a8c99de86bd557a17f68/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/colors-rgb.png" style="margin: 0.1em;" alt="text" title="color swatches" width="500">
+  </a></div>
+</div>
+
+You can see these color properties in action using all three approaches to setting the value [in this CodePen](https://codepen.io/techie4good/pen/PGYRYL).
+
+#### Other resources
+
++ color paletteWe will discuss how to pick a good color palette for your site in Module 5, but in the mean time [here is a good wiki article from the W3C](https://www.w3.org/wiki/Colour_theory) discussing the general use of colors on the Web.
++ More color units are described in the [CSS3 specification](https://www.w3.org/TR/css3-color/#colorunits).
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://www.w3.org/wiki/images/d/d2/10000000.jpg" style="margin: 0.1em;" alt="Colours, or hues, have historically been divided into primary, secondary, and tertiary colours. The primary colours consist of red, yellow and blue, and they’re called primary colours because you don’t need to mix colours to make these three hues. If you want to translate these colours into web colours, you can recreate them using their hex (hexadecimal) equivalents of #ff0000, #ffff00, and #0033cc. Secondary colours are mixed from primary colours." title="the primary and secondary colours, and their hex equivalents" width="350">
+  </a></div>
+</div>
+
+<br/>
+<table style="display: table;border-collapse: separate;border-spacing: 2px;border-color: grey;text-align: center;">
+   <caption><b><a href="https://www.w3.org/TR/css-color-3/#html4">Color names and <span class="index-inst" id="srgbval">sRGB</span>
+    values</a></b><br>
+   </caption>
+   <tbody>
+    <tr><th style="background:black">Named</th><th>Numeric</th><th>Color name</th><th>Hex rgb</th><th>Decimal</th></tr><tr><td style="background:black"></td><td style="background:#000000"></td><td><dfn id="black">black</dfn></td><td >#000000</td><td >0,0,0
+    </td></tr><tr><td style="background:silver"></td><td style="background:#C0C0C0"></td><td><dfn id="silver">silver</dfn></td><td >#C0C0C0</td><td >192,192,192
+    </td></tr><tr><td style="background:gray"></td><td style="background:#808080"></td><td><dfn id="gray">gray</dfn></td><td >#808080</td><td >128,128,128
+    </td></tr><tr><td style="background:white"></td><td style="background:#FFFFFF"></td><td><dfn id="white">white</dfn></td><td >#FFFFFF</td><td >255,255,255
+    </td></tr><tr><td style="background:maroon"></td><td style="background:#800000"></td><td><dfn id="maroon">maroon</dfn></td><td >#800000</td><td >128,0,0
+    </td></tr><tr><td style="background:red"></td><td style="background:#FF0000"></td><td><dfn id="red">red</dfn></td><td >#FF0000</td><td >255,0,0
+    </td></tr><tr><td style="background:purple"></td><td style="background:#800080"></td><td><dfn id="purple">purple</dfn></td><td >#800080</td><td >128,0,128
+    </td></tr><tr><td style="background:fuchsia"></td><td style="background:#FF00FF"></td><td><dfn id="fuchsia">fuchsia</dfn></td><td >#FF00FF</td><td >255,0,255
+    </td></tr><tr><td style="background:green"></td><td style="background:#008000"></td><td><dfn id="green">green</dfn></td><td >#008000</td><td >0,128,0
+    </td></tr><tr><td style="background:lime"></td><td style="background:#00FF00"></td><td><dfn id="lime">lime</dfn></td><td >#00FF00</td><td >0,255,0
+    </td></tr><tr><td style="background:olive"></td><td style="background:#808000"></td><td><dfn id="olive">olive</dfn></td><td >#808000</td><td >128,128,0
+    </td></tr><tr><td style="background:yellow"></td><td style="background:#FFFF00"></td><td><dfn id="yellow">yellow</dfn></td><td >#FFFF00</td><td >255,255,0
+    </td></tr><tr><td style="background:navy"></td><td style="background:#000080"></td><td><dfn id="navy">navy</dfn></td><td >#000080</td><td >0,0,128
+    </td></tr><tr><td style="background:blue"></td><td style="background:#0000FF"></td><td><dfn id="blue">blue</dfn></td><td >#0000FF</td><td >0,0,255
+    </td></tr><tr><td style="background:teal"></td><td style="background:#008080"></td><td><dfn id="teal">teal</dfn></td><td >#008080</td><td >0,128,128
+    </td></tr><tr><td style="background:aqua"></td><td style="background:#00FFFF"></td><td><dfn id="aqua">aqua</dfn></td><td >#00FFFF</td><td >0,255,255
+  </td></tr></tbody>
+</table>
 
 
 ### Font properties
 
+Font is an extremely important part of how you communicate content to your user. As you are likely aware there are many different aspects to font, and with CSS you can explicitly style each aspect. [Here is a quick reference for what the fonts look like with different properties.](https://www.w3.org/Style/Examples/007/fonts)
+
+
+#### font-family
+
+```css
+p {
+   font-family: Helvetica, Verdana, sans-serif;
+}
+```
+
+This property sets the font face. There are a collection of Web safe fonts that generally each browser has agreed to support, but there is an infinite number of different fonts. The problem is they might not all look the way you want them to on different browsers.
+
+That is why this property "font-__family__" allows a list of fonts in the order of your preference. This comma-separated list orders your font preference from left to right. In our above example, our first choice is Helvetica, if the browser doesn't support that it will move to the next on the list, Verdana, and if it still doesn't support that it will just pick any sans-serif font it does support. You should always end your font family with fonts that are likely to be supported by the browser, this way you are guaranteed to have control over the font-family.
+
+Something to keep in mind: some fonts have names with multiple words like "Times New Roman" or "Century Gothic". When using these fonts you'll need to surround the entire name with quotes so the browser understands that is a single font name like so:
+
+```css
+p {
+   font-family: "Times New Roman", "New Century Schoolbook", serif;
+}
+```
+
+[Documentation](https://www.w3.org/TR/css-fonts/#font-family-prop%20%20%20%20%20%20%20https://www.w3.org/Style/Examples/007/fonts.en.html)
+
+
+#### font-size
+
+```css
+h1 {
+   font-size: 2.5em;
+}
+```
+
+Font-size sets the overall scale of your text. You can use a lot of different units to set the font size. Some of these units you are probably familiar with if you have used text editors before such as pt size or you can use px size. However, these methods are not advised because they are static and will not adapt based on screen size. 
+
+The ideal way to set text size is to use "em". Em is a way to set your text size based on the system settings of the device in which you are viewing that font. This becomes especially important for users who have special font preferences due to accessibility requirements. To use em do not set font-size on the body tag, but instead set the size for each element in relation to the user's default. For example, 1em is the default, 2em is twice as big, 0.5em is half as big etc. [Here are some more font sizing tips and tricks.](https://www.w3.org/Style/Examples/007/units.en.html)
+
+<table><colgroup><col><col><col><col>
+    </colgroup><thead>
+     <tr>
+      <th>
+      </th><th>Rec­om­mended
+      </th><th>Oc­ca­sional use
+      </th><th>Not rec­om­mended
+    </th></tr></thead><tbody>
+     <tr>
+      <th>Screen
+      </th><td>em, px, %
+      </td><td>ex
+      </td><td>pt, cm, mm, in, pc
+     </td></tr><tr>
+      <th>Print
+      </th><td>em, cm, mm, in, pt, pc, %
+      </td><td>px, ex
+      </td><td>
+   </td></tr></tbody></table>
+
+[Documentation](https://www.w3.org/TR/css-fonts/#font-size-prop)
+
+
+#### font-weight
+
+```css
+p {
+font-weight: bold;
+}
+```
+
+The weight of a font is the thickness of the letters. You can set this property using keywords with which you might be familiar: `bold`, `normal` or `lighter`. You can also set this property more specifically using numerical values 100, 200, 300, 400, 500, 600, 700, 800 or 900. Normal is represented as 400, whereas bold is 700.
+
+Note that few fonts have settings for all values. If the value is not available, the browser will use the nearest available one. For example, if 800 is not available but 700 is, then the browser will display 700. [You can try out different fonts in this code pen to see how they look at each weight setting.](https://codepen.io/techie4good/pen/XNdrMw)
+
+[Documentation](https://www.w3.org/TR/css-fonts/#font-weight-prop)
+
+
+#### font-style
+
+```css
+p {
+   font-style: italic;
+}
+```
+
+The font style property adjusts the angle of the letters in relation to the horizontal plane. Italic forms are generally cursive in nature while oblique faces are typically sloped versions of the regular face.
+
+[Documentation](https://www.w3.org/TR/css-fonts/#font-style-prop)
+
+
+#### text-decoration
+
+```css
+p {
+   text-decoration: underline;
+}
+```
+
+Text-decoration adds a line across your text. You can set this line to be underneath your text, underline, through your text, line-through, or on top, overline.
+
+[Documentation](http://www.w3.org/TR/css-text-decor-3/#text-decoration-property)
+
+#### Example:
+
+[Here is a CodePen exploring each of these styles.](https://codepen.io/techie4good/pen/ozvqxy)
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Main title</h1>
+        <h2>Sub title</h2>
+        <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia consequat nibh, non commodo neque maximus semper. Vivamus non ultricies massa, vel convallis nunc. Aenean tempus risus at orci faucibus, eget hendrerit elit sodales. Quisque imperdiet diam nibh, ut semper enim dapibus et. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean in feugiat neque. Nunc eget libero mauris. Maecenas condimentum luctus nulla.
+
+Nulla a sem orci. Cras eget neque viverra, condimentum nulla et, tincidunt libero. In sit amet quam purus. Aliquam erat volutpat. Sed hendrerit urna quis sapien mattis dictum. Etiam vehicula tortor eu libero finibus dapibus. Mauris nunc neque, sodales nec est sed, gravida convallis sem. Nam vulputate sed est sed eleifend. Quisque sodales elit at ornare vulputate.
+
+Morbi quis metus tortor. Cras dapibus nisl urna, et pretium risus rutrum at. Maecenas a sollicitudin elit. Ut suscipit neque ligula. Nam aliquam massa in pretium ullamcorper. Sed id nisl et mauris maximus suscipit. Suspendisse potenti. Nulla interdum, magna eu facilisis aliquam, tellus nulla luctus nisi, eu cursus magna sapien sed mi.
+        </p>
+    </body>
+</html>
+```
+
+CSS code:
+
+```css
+body {
+    font-family: Helvetica, Verdana, sans-serif;
+    font-size: 12pt;
+}
+h1 {
+    font-size: 3em;
+    font-style: italic;
+}
+h2 {
+    font-size: 2em;
+    text-decoration: underline;
+}
+p {
+    font-weight: bold;
+}
+```
+
+Output:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/5c78c149b787fe19d78703a7aa07a75d/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/css-intro-2.5.png" style="margin: 0.1em;" alt="text" title="CodePen resulting image (Font properties)" width="250">
+  </a></div>
+</div>
+
+#### External resources:
+
+There are even more ways to adjust text appearance and you can read more about them here: 
+
++ [CSS Fonts Module Level 4](https://www.w3.org/TR/css-fonts/)
++ [CSS Text Decoration Module Level 4](http://www.w3.org/TR/css-text-decor/)
 
 
 
