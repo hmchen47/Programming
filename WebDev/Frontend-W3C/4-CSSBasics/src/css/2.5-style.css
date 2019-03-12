@@ -5,7 +5,13 @@ body {
 }
  
 h1 {
- 
+    border: 3px #ff6600 solid;
+    margin: 0.5em;
+    padding: 0.2em;
+    color: #ff6600;
+    font-size: 2.5em;
+    font-weight: 900;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
  
  
