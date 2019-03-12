@@ -1679,7 +1679,108 @@ In module 3, you will then learn:
 
 ### Exercises (1-4)
 
+1. CSS anatomy
 
+    The part of a CSS rule that attaches the style to the HTML element is called the:
+
+    Ans:selector
+
+
+Use the following code for questions 2 and 3
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <p> This is HTML element 1 </p>
+        <p> This is HTML element 2 </p>
+        <div> This is HTML element 3 </div>
+    </body>
+</html>
+```
+
+2. Style inheritance
+
+    ```css
+    p {
+      color: red;
+    }
+    ```
+
+    After this rule is attached to the above HTML, which elements would have red text?
+    1. element 2
+    2. all three elements
+    3. element 3
+    4. elements 1 and 2
+    5. element 1
+
+    Ans: 4
+
+
+3. Style inheritance again
+
+    ```css
+    body {
+      color: green;
+    }
+    ```
+
+    This rule was attached to the above HTML, which elements would have green text?
+    1. element 2
+    2. all three elements
+    3. element 3
+    4. elements 1 and 2
+    5. element 1
+
+    Ans: 2
+
+
+Code for question 4
+
+Here is some redundant CSS code:
+
+```css
+p {
+color: blue;
+font-family: Arial, sans-serif;
+}
+ 
+h1 {
+color:blue;
+font-family: Arial, sans-serif;
+font-style: italic;
+}
+ 
+a {
+font-style: italic;
+}
+```
+
+4. Combining rules
+
+    Which of the following CSS documents is equivalent to the above code?
+
+    1. 
+      ```css
+      p { color: blue; } 
+      h1, a { font-style: italic; font-family: Arial, sans-serif;}
+      ```
+    2. 
+      ```css
+      p, h1, a { font-family: Arial, sans-serif; } 
+      h1 { font-style: italic; color: blue}
+      ```
+    3. 
+      ```css
+      p, h1 { color: blue; font-family: Arial, sans-serif; } 
+      h1, a { font-style: italic; }
+      ```
+    Ans: 3
 
 
 ### Exercises (5-10)
