@@ -162,7 +162,73 @@ Output:
 </div>
 
 
-### Activity 3.2
+### Activity - Add your own classes and ids
+
+Here is some HTML and CSS. As you can see it's not too interesting, because not all of the styles are applied to the HTML.
+
+```css
+body {
+   background-color: #00ccff;
+   color: white;
+   font-family: Helvetica, sans-serif;
+   margin: 35px 25px 0px 25px;
+}
+p,h2 {
+   padding: 10px;
+}
+.topSection{
+   background-color: #3300cc;
+   color: #cccccc;
+}
+.bottomSection {
+   background-color: #cccccc;
+   color: #3300cc;
+}
+#importantItem {
+   text-decoration: underline;
+   color: #99ff99;
+}
+#unimportantItem {
+   color: gray;
+}
+```
+
+```html
+<!DOCTYPE html> 
+  <!--It's a best practice to always declare DOCTYPE!-->
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+        </head>
+  <body>
+    <h1>Welcome to my page</h1>
+    <h2>Top Section</h2>
+    <p>Classes and IDs are "attribute selectors". This means that you can attach style to HTML elements based on that element's attributes. This empowers you to apply different style to items of the same HTML type.Classes are an HTML attribute that specifies a name for a group of elements on the page. You can apply the class name to as many elements as you like, even if they are of different HTML tag types. You can use the class name with a period in front as the selector like so:</p>
+    <ul>
+      <li>Class names must be single words</li>
+      <li>but you can include digits and dashes as long as the name begins with a letter</li>
+      <li>To apply a CSS rule to a class you use the class name preceeded by a period (".")</li>
+    </ul>
+    <h2>Bottom Section</h2>
+    <p>An ID is an HTML attribute that specifies a name or unique identifier for a particular HTML element. They are like classes with a very important distinction: the value of the ID attribute must be unique throughout the document. This lets you target a single HTML element for styling. You use the name with a hashtag in front as the selector like so. ID names have the same rules as class names: start with a letter, can include numbers and dashes, no spaces. The way to create a selector for an ID is also similar to how you create a selector for a class, except you replace the period with a hash symbol ("#") like in the code below.
+    </p>
+    <ul>
+      <li>How to use classes and IDs to independently target HTML elements of the same type</li>
+      <li>How to apply different style to the same element based on the way the user interacts with that element using pseudo-classes</li>
+      <li>What the "Cascading" part of "Cascading Style Sheets" means</li>
+      <li>How to scope style rules using contextual selectors and the HTML inheritance structure of your document</li>
+    </ul>
+  </body>
+</html>
+```
+
+In this activity, your job is to add the HTML id and class attributes to the correct elements so that you get a final result that looks like this:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/ac74f8ec30b14ea58fe791c324062d2c/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40f60d634ed7f54bd8935f185e31f17dac">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2d0d454c1dd43e5cc10ca355082a61bc/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-2-2_activity.PNG" style="margin: 0.1em;" alt="Activity: Apply Classes and IDs final image" title="Apply Classes and IDs final image" width="350">
+  </a></div>
+</div>
 
 
 
