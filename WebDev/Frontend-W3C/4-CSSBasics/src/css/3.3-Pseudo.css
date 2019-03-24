@@ -20,11 +20,11 @@ button {
   color: #006666;
   border: 3px white solid;
 }
-button {
+button:hover {
   background-color: #006666;
   color: white;
 }
-button {
+button:active {
   background-color: #33cc99;
 }
 li {
