@@ -300,8 +300,77 @@ The active pseudo-class applies when an element is activated. This happens in th
 [Example](src/3.3-PseudoClass.html)
 
 
-### Activity 3.3
+### Activity - - Applying pseudo classes
 
+Now it's your turn to try out some pseudo classes. Here is a Web page.
+
+See the Pen [Practice with Pseudoclasses](https://codepen.io/techie4good/pen/rraNJr/)
+
+```css
+body {
+   background-color: #006666;
+   color: white;
+}
+h1 {
+   text-decoration: underline;
+}
+input {
+   border: 3px white solid;
+}
+input {
+   border: 3px yellow solid;
+}
+input {
+   background-color: yellow;
+   border: 3px yellow solid;
+}
+button {
+   background-color: white;
+   color: #006666;
+   border: 3px white solid;
+}
+button {
+   background-color: #006666;
+   color: white;
+}
+button {
+   background-color: #33cc99;
+}
+li {
+   background-color: white;
+   color: #006666;
+}
+li {
+   background-color: #33cc99;
+   color: white;
+}
+a {
+   color: white;
+}
+a {
+   color: #33cc99;
+}
+```
+
+If you look at the CSS for this page you'll notice there are multiple CSS rules with the same selectors. That is because some of these rules need to have pseudo classes applied.
+
+Please add pseudo-classes to the existing rules so that:
+
++ The title is underlined when the user hovers their mouse over the text
++ The input box gets a yellow border when the user hovers their mouse over the box
++ The input box has a yellow background when the user clicks inside the box
++ When the user hovers over the button it gets a background color of #006666 (dark green) and a text color of white
++ When the user clicks the button it gets a background color of #33cc99 (light green)
++ The background color of the list elements turns white and the text turns #006666 (dark green) when the user hover overs them
++ When clicked, the list elements get a background color of #33cc99 (light green) while the text stays white
++ The links at the bottom of the page start out as white in color and then when they are clicked they turn #33cc99 (light green)
++ The resulting output should look like this when the user has not interacted with the page in any way:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/2069ed7e6d9c4e35a70c056994d2413e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4040486880ddf54d08922814a53f31f69b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/17c251eec9c7e28a5214a2888df27bef/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-3_activity.PNG" style="margin: 0.1em;" alt="Activity: Pseudo Class final image no interaction" title="Pseudo Class final image no interaction" width="350">
+  </a></div>
+</div>
 
 
 
@@ -312,7 +381,7 @@ The active pseudo-class applies when an element is activated. This happens in th
 
 
 
-### Activity 3.4.1
+### Activity 
 
 
 
@@ -322,7 +391,7 @@ The active pseudo-class applies when an element is activated. This happens in th
 
 
 
-### Activity 3.4.2
+### Activity 
 
 
 
