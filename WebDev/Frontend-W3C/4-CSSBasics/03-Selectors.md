@@ -61,6 +61,12 @@ p {
   Your browser does not support the HTML5 video element.
 </video>
 
+#### Classes and IDs
+
+Classes and IDs are "attribute selectors". This means that you can attach style to HTML elements based on that element's attributes. This empowers you to apply different style to items of the same HTML type.
+
+
+
 #### Classes
 
 Classes are an HTML attribute that specifies a name for a group of elements on the page. You can apply the class name to as many elements as you like, even if they are of different HTML tag types. You can use the class name with a period in front as the selector like so:
@@ -83,9 +89,12 @@ To apply a CSS rule to a class you use the class name preceeded by a period ("."
 
 #### IDs
 
-An ID is an HTML attribute that specifies a name or unique identifier for a particular HTML element. They are like classes with a very important distinction: the value of the ID attribute must be unique throughout the document. This lets you target a single HTML element for styling. You use the name with a hashtag in front as the selector like so:
+An ID is an HTML attribute that specifies a name or unique identifier for a particular HTML element. They are like classes with a very important distinction: _the value of the ID attribute must be unique throughout the document_. This lets you target a single HTML element for styling. You use the name with a hashtag in front as the selector like so:
 
-`<p id="MyFirstId">` This is an extra special paragraph </p>
+```html
+<p id="MyFirstId"> This is an extra special paragraph </p>
+```
+
 ID names have the same rules as class names: start with a letter, can include numbers and dashes, no spaces. The way to create a selector for an ID is also similar to how you create a selector for a class, except you replace the period with a hash symbol ("#") like in the code below:
 
 ```css
