@@ -27,11 +27,11 @@ button:hover {
 button:active {
   background-color: #33cc99;
 }
-li {
+li:hover {
   background-color: white;
   color: #006666;
 }
-li {
+li:active {
   background-color: #33cc99;
   color: white;
 }
