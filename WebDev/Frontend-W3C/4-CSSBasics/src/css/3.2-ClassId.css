@@ -1,0 +1,25 @@
+body {
+   background-color: #00ccff;
+   color: white;
+   font-family: Helvetica, sans-serif;
+   margin: 35px 25px 0px 25px;
+}
+p,h2 {
+   padding: 10px;
+}
+.topSection{
+   background-color: #3300cc;
+   color: #cccccc;
+}
+.bottomSection {
+   background-color: #cccccc;
+   color: #3300cc;
+}
+#importantItem {
+   text-decoration: underline;
+   color: #99ff99;
+}
+#unimportantItem {
+   color: gray;
+}
+
