@@ -297,6 +297,20 @@ The active pseudo-class applies when an element is activated. This happens in th
 
 [Documentation](https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes)
 
+#### [Comparisons of `:active` and `:focus`](https://stackoverflow.com/questions/1677990/what-is-the-difference-between-focus-and-active)
+
+`:focus` and `:active` are two different states.
+
++ `:focus` represents the state when the element is currently selected to receive input and
++ `:active` represents the state when the element is currently being activated by the user.
+
+For example let's say we have a `<button>`. The `<button>` will not have any state to begin with. It just exists. If we use `Tab` to give "focus" to the `<button>`, it now enters its `:focus` state. If you then click (or press `space`), you then make the button enter its (`:active`) state.
+
+On that note, when you click on an element, you give it focus, which also cultivates the illusion that `:focus` and `:active` are the same. They are not the same. When clicked the button is in `:focus:active` state.
+
+
+
+
 [Example](src/3.3-PseudoClass.html)
 
 
