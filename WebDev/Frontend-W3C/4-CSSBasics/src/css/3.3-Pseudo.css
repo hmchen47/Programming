@@ -8,10 +8,10 @@ h1:hover {
 input {
   border: 3px white solid;
 }
-input {
+input:focus {
   border: 3px yellow solid;
 }
-input {
+input:active {
   background-color: yellow;
   border: 3px yellow solid;
 }
