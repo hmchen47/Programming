@@ -2,7 +2,7 @@ body {
   background-color: #006666; 
   color: white;
 }
-h1 {
+h1:hover {
   text-decoration: underline;
 }
 input {
