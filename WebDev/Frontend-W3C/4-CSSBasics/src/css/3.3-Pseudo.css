@@ -38,6 +38,6 @@ li:active {
 a {
   color: white;
 }
-a {
+a:active {
   color: #33cc99;
 }
