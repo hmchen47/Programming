@@ -1020,5 +1020,108 @@ Use the below HTML code to answer questions 9 and 10
 
 ### Exercises (11-15)
 
+11. Rule difference
+
+    What is the difference between the following two rules?
+
+    ```css
+    p a {
+      color: red;
+    }
+    p, a {
+      color: red;
+    }
+    ```
+
+    1) The two rules are the exact same
+    2) The top rule turns all hyperlinks inside paragraphs red and the bottom rule turns all paragraph text and all hyperlinks red
+    3) The top rule turns all paragraph text and all hyperlink text red and the bottom rule turns all hyperlink text inside pargraphs red
+    4) The top rule turns all paragraph text red and the bottom rule turns all hyperlink text red
+
+    Ans: 2 <br/>
+    Explanation: The top rule applies to a elements that are inside p elements, and the bottom rule applies independently to p elements and a elements.
+
+
+12. Cascades!
+
+    What does the "cascading" part of "cascading style sheets" refer to?
+
+    1) The set of rules that govern how to decide which rule wins when multiple rules apply to the same HTML element.
+    2) How browsers interpret all the different rules to style a complete page.
+    3) The set of rules that govern what order CSS rules are displayed in.
+    4) The ability to combine multiple selectors onto the same rule.
+
+    Ans: 1 <br/>
+    Explanation: Cascading refers in particular to the ability to override style rules with more specific style rules.
+
+
+Use the following HTML and CSS to answer questions 13, 14 and 15
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>My HTML page</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <p>paragraph 1</p>
+      <article>
+         <p id="paragraph1">paragraph 2</p>
+         <p>paragraph 3</p>
+      </article>
+   </body>
+</html>
+```
+
+```css
+body {
+    color: red;
+}
+article {
+    color: blue;
+}
+#paragraph1 {
+    color: green;
+}
+```
+
+13. About paragraph 1
+
+    What color will paragraph 1 text be?
+
+    1) red
+    2) blue
+    3) green
+
+    Ans: 1 <br/>
+    Explanation: This is a tricky question because we put the id paragraph1 on the text that says paragraph 2 ;) The right answer is red.
+
+
+14. About paragraph 2
+
+    What color will paragraph 2 text be?
+
+    1) blue
+    2) green
+    3) red
+
+    Ans: 2 <br/>
+    Explanation: Paragraph 2 has a specific id selector "paragraph1", which makes it green.
+
+
+15. About paragraph 3
+
+    What color will paragraph 3 text be?
+
+    1) red
+    2) blue
+    3) green
+
+    Ans: 2 <br/>
+    Explanation: Paragraph 3 inherits the color from the article. Note that it inherits from article and not from body, since article is closer.
+
+
 
 
