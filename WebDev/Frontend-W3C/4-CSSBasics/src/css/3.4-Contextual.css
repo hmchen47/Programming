@@ -30,7 +30,7 @@ ol {
     background-color: #FFFFFF;
     color: #E24E43;
 }
-ol {
+li ol {
     border: 5px solid #E24E43;
 }
 
