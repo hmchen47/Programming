@@ -4,9 +4,18 @@ body {
     background-color: palegoldenrod;
     margin: 1em;
 }
+
+section {
+    border: 0.3em olive solid;
+    margin-bottom: 0.5em;
+}
+footer {
+    text-align: center;
+    font-weight: 0.8em;
+    color: darkblue;
+}
 h1 {
-    background-color: rgb(1, 71, 71);
-    color: blanchedalmond;
+    color: rgb(109, 48, 59);
     margin: 0.2em;
     padding: 0.5em;
     font-size: 3em;
@@ -16,10 +25,10 @@ h1 {
 h2 {
     margin: 0.2em;
     padding: 0.5em;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 900;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(1, 71, 71)
+    color: rgb(3, 70, 146)
 }
 h3 {
     margin: 1em 0.2em 0.2em 0.2em;
@@ -32,13 +41,16 @@ h3 {
 .author {
     text-align: right;
 }
+header p {
+    border: none;
+
+}
 p {
-    margin: 0.2em;
+    margin: 1.0em;
     padding: 0.7em;
     font-size: 1.0em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: 5px olive dashed;
-    border-radius: 1em;
+    border: 0.1em lightseagreen solid;
 }
 
 ol, ul {
@@ -49,3 +61,4 @@ ol, ul {
 li {
     padding: 0.3em;
 }
+
