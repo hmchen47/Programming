@@ -103,6 +103,7 @@
     1. [Meet contextual selectors](03-Selectors.md#)
     1. [Contextual selectors](03-Selectors.md#)
     1. [Activity - Contextual selectors](03-Selectors.md#)
+    1. [C is for "Cascading"](03-Selectors.md#)
     1. [Cascading styles](03-Selectors.md#)
     1. [Activity](03-Selectors.md#)
 + [3.5 Style studies](03-Selectors.md#)
