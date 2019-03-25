@@ -269,7 +269,7 @@ li:hover {
 }
 ```
 
-The hover pseudo-class is applied when the user points at an object but doesn't activate it, most commonly when they let their mouse cursor lay on top of an element without clicking. Some form factors don't support this, such as touch devices or pen surfaces. This is a really good way to encourage a user to click a link and you will often see it used in navigation bars. 
+The hover pseudo-class is applied when the user points at an object but doesn't activate it, most commonly when they let their mouse cursor lay on top of an element without clicking. Some form factors don't support this, such as touch devices or pen surfaces. This is a really good way to encourage a user to click a link and you will often see it used in navigation bars.
 
 
 #### `:focus`
@@ -898,6 +898,123 @@ In the next module,  you will:
 
 ### Exercises (6-10)
 
+6. Link style?
+
+    Which pseudo-class would you use when you want to apply a different style to links a user has already clicked?
+
+    1) focus
+    2) active
+    3) visited
+    4) link
+
+    Ans: 3 <br/>
+    Explanation: The correct answer is "visited".
+    + The visited pseudo-class applies a different style to links that the user has already clicked.
+    + The opposite of visited is "link" which is a link a user has not yet clicked.
+    + Focus styles an element that receives keyboard input. You can often give the focus to an element by cicking in it, but that is not the only way.
+    + The active pseudo-class applies while the user clicks.
+
+
+7. Mouse 
+
+    Which pseudo-class would you use when you want to display a list of navigation links when a user moves their mouse over the nav bar?
+
+    1) visited
+    2) hover
+    3) active
+    4) focus
+
+    Ans: 2 <br/>
+    Explanation: The `:hover` pseudo-class applies while the user designates an element with a pointing device, but does not necessarily activate it. This is the right answer.
+
+
+8. Input box
+
+    Which pseudo-class would you use when you want to change the color of an input box while a user clicks into it?
+
+    1) focus
+    2) active
+    3) visited
+    4) hover
+
+    Ans: 2 <br/>
+    Explanation: The right answer is: active.
+    + Clicking has the effect of setting the focus on an element, but the question is about setting the color "while" the user clicks.
+    + 'Focus' is not the right answer, because the input element continues to have the focus after the click (until the focus is moved elswehere by another click or some other action).
+
+
+
+Use the below HTML code to answer questions 9 and 10
+
+```html
+<!DOCTYPE html>
+<!--It's a best practice to always declare DOCTYPE!-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>title 1</h1>
+            <p>
+                <a href="www.edx.org">hyperlink 1</a>
+                paragraph body text block number 1
+           </p>
+           <a href="www.edx.org">hyperlink 2</a>
+        </header>
+        <section>
+            <h1>title 2</h1>
+            <a href="www.edx.org">hyperlink 3</a>
+            <p>
+                paragraph body text block number 2
+                <a href="www.edx.org">hyperlink 4</a>
+            </p>
+            </section>
+            <footer>
+                <h1>title 3</h1>
+                <a href="www.edx.org">hyperlink 5</a>
+            </footer>
+    </body>
+</html>
+```
+
+9. Text blocks
+
+    Which of the above HTML elements will the following CSS rule apply to?
+
+    ```css
+    section p {
+        color: purple;
+    }
+    ```
+
+    1) both text blocks 1 and 2
+    1) text block 2
+    1) text block 1
+
+    Ans: 2 <br/>
+    Explanation: Only block 2 is inside a section. Block 1 is inside a header but not inside a section.
+
+
+10. Hyperlinks
+
+    Which of the above HTML elements will the following CSS rule apply to?
+
+    ```css
+    p a {
+      color: red;
+    }
+    ```
+
+    1) all hyperlinks
+    1) hyperlinks 2, 3 and 5
+    1) hyperlinks 1 and 4
+    1) hyperlinks 1 and 2
+    
+    Ans: 3 <br/>
+    Explanation: The correct answer is "hyperlinks 1 and 4" because the other a elements are not inside p.
 
 
 
