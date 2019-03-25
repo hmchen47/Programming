@@ -620,13 +620,101 @@ The image below shows when you hover "paragraph 4". The same hover should apply 
 Use the discussion board below to share your experiences.
 
 
-
-
-
 ## 3.5 Style studies
 
 ### Images
 
+Images are an extremely important part of your page, not only as part of your content but as a key way to help style your page. Before you even get to styling them you need to put considerable thought into what type of images to include in your page. One of the easiest ways to slow down your site's performance is to include lots of large, high-quality images. There are two general things to consider when picking your images: what format and how large are they?
+
+
+##### Formats
+
++ JPEG - Possibly the most common image format used on the web, because it does a good job of compressing colorful, complex images into reasonably sized files. JPEG is often used for photos because otherwise, photos can take a very long time to load. 
++ PNG - Provides a higher quality image, but you pay for it with a larger file size. PNG also has the ability to have transparent backgrounds, so you'll often see this used for graphics as part of the page's layout. 
++ GIF - Supports moving images and transparent backgrounds. These can be especially large files so try to use sparingly!
+
+
+##### Sizing
+
+It's important to format and size your image before uploading it to your site, because while you can use CSS to resize it, the browser will download the full image even if you've chosen to display it smaller than it is.
+
+You can resize images using the width or height properties of CSS like so:
+
+```css
+img {
+    width: 100px;
+    height: 100px;
+}
+```
+
+In Module 4, we will discuss width and height in detail, but for the purpose of images, know that if you only set one of these two properties the image will scale according to its original dimensions. If you set both width and height, CSS will stretch your image to fit whatever you specify.
+
+
+##### Spacing
+
+Rarely does it look nice when your content images touch your text content. You'll often want to give your images a good amount of white space surrounding them, and you can do this with padding and/or margin. In the examples below, you can see how you can even use padding and margin to achieve some interesting stylistic effects with your images.
+
+
+##### Border Radius
+
+In Module 2, we saw how you can use the "border-radius" property to make a button with rounded corners. You can do the same to images. You might even notice that it has become popular to turn square images into perfect circles, especially for icons or profile photos.
+
+
+##### Images as Design Elements
+
+When you see complicated styles as part of a Web page's design, chances are there are images as a foundational element. For example, you will often see images set as backgrounds or as a link. Remember that you can put an `<img>` tag within an anchor tag to turn it into a link. You can also use the background-image CSS property to set an image as a background instead of just using a solid color. You can [read more about background images here](https://www.w3.org/wiki/CSS_background_images).
+
+
+#### Text in images
+
+It is best to overlay real text rather than use pixelated text. This makes it possible to search, copy and style the text, as well as making translation much easier. It also has [accessibility benefits](https://www.w3.org/WAI/tutorials/images/textual/) and makes translation much easier.
+
+
+#### Examples
+
+As you can see, there are a lot of things to consider, and if you do not plan out your images carefully they can end up looking very disruptive, like this example:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/bb71adbabf3b4433a409b2090a20b41a/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4067edcd0a95a7470c86a06912670d164b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4dfc920e8937e832168274022b8aacfe/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-5-1_uglyImage.PNG" style="margin: 0.1em;" alt="Image without proper formatting" title="Image without proper formatting" width="350">
+  </a></div>
+</div>
+
+
+##### Images 1
+
+This design shows some of the basics in properly incorporating images. It uses the colors from the image in the design of the overall page to help the image look as if it belongs. It also uses padding to give the image a "polaroid-style" border.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/bb71adbabf3b4433a409b2090a20b41a/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4067edcd0a95a7470c86a06912670d164b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/8500beba6b3e49c74e5084f5461b1db2/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-5-1_images1.PNG" style="margin: 0.1em;" alt="Well balanced image design 1" title="Well balanced image design 1" width="350">
+  </a></div>
+</div>
+
+
+#### Images 2
+
+This design is an example of an image gallery design. This gives all the images the same size and alignment while including plenty of white space to help the page not look too overwhelming despite having multiple photos. 
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/bb71adbabf3b4433a409b2090a20b41a/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4067edcd0a95a7470c86a06912670d164b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ec78a5a75f578adc4db6de31ec2ad86c/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-5-1_images2.PNG" style="margin: 0.1em;" alt="Images 2 design of photo gallery" title="Images 2 design of photo gallery" width="350">
+  </a></div>
+</div>
+
+
+
+#### Images 3
+
+This design demonstrates the use of an image both as a background as a link. When using images as design elements it's best to use simple images to let your content still be easily consumable.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/bb71adbabf3b4433a409b2090a20b41a/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4067edcd0a95a7470c86a06912670d164b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c64513097088690b3f547df80990407b/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-5-1_images3.PNG" style="margin: 0.1em;" alt="Images 3 design using images as design elements" title="Images 3 design using images as design elements" width="350">
+  </a></div>
+</div>
+
+[Example code](src/3.5-Images.html)
 
 
 
