@@ -10,6 +10,12 @@
 </video>
 
 
+### In this module, you will learn
+
++ How to use padding and margin to position elements relative to each other and the window
++ How to use alignment to control how your content sits within its HTML element
++ How to use the float property to let multiple HTML elements share horizontal space
++ How to use relative positioning to design your page so that it maintains its layout regardless of screen size
 
 
 ### Meet the box model
