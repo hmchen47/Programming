@@ -53,15 +53,13 @@ p {
 ## 3.2 Using HTML classes and IDs
 
 ### Meet IDs and classes
-
-#### Video: meet IDs and classes
  
 <video src="https://edx-video.net/W3CCSS0I2016-V004600_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
   <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@d06bd738723849709edb85e879cd89e7/handler/transcript/download" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video>
 
-#### Classes and IDs
+### Classes and IDs
 
 Classes and IDs are "attribute selectors". This means that you can attach style to HTML elements based on that element's attributes. This empowers you to apply different style to items of the same HTML type.
 
@@ -810,10 +808,22 @@ For reference here is what my solution looks like:
 
 ### After this module you should be able to...
 
+Specifically style any single element on a page using IDs
++ Group HTML elements with similar style using classes
++ Employ pseudo classes to make HTML elements more dynamic
++ Scope CSS rules using contextual selection
++ Build CSS rule sets with intention leveraging the cascading nature of CSS to manage conflicting rules
+
+In the next module,  you will:
++ Learn about layout and positioning with CSS
++ Understand the box model
++ Explore relative positioning
++ Learn about the flow property
 
 
 
 ### Exercises (1-5)
+
 
 
 
