@@ -1,22 +1,23 @@
 body {
   background-color: #F8EEE7;
 }
-p {
+header p,
+footer p {
   background-color: #F4DECB;
 }
-p {
+section p {
   background-color: #94618E;
   color: #F8EEE7;
 }
-p {
+article p {
   background-color: #49274A;  
 }
-p {
+#specific p {
   background-color: #FFFFFF;
   color: #49274A;
 }
 p {
-  background-color: #B4DBC0 !important;
-  border: 2px dashed black;
+    background-color: #B4DBC0 !important;
+    border: 2px dashed black;
 }
 
