@@ -297,6 +297,7 @@ The active pseudo-class applies when an element is activated. This happens in th
 
 [Documentation](https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes)
 
+
 #### [Comparisons of `:active` and `:focus`](https://stackoverflow.com/questions/1677990/what-is-the-difference-between-focus-and-active)
 
 `:focus` and `:active` are two different states.
@@ -392,7 +393,60 @@ Please add pseudo-classes to the existing rules so that:
 
 ### Meet contextual selectors
 
+<video src="https://edx-video.net/W3CCSS0I2016-V004800_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@8d5b18b8cd6d43dbb7b4ff7f4708d3d0/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+<br/>
 
+### Contextual selectors
+
+When you use two selectors separated by a space on a rule, you scope the rule to the elements that correspond to the selector on the right that are INSIDE the elements that correspond to the selector on the left. Let's say we have the following HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <img src="images/pic1.jpg" alt="pic 1" />
+        <p>
+            This is my paragraph full of useful information
+            <img src="images/pic2.jpg" alt="pic 2" />
+            Since there is text around these images they should be styled a little differently.
+            <img src="images/pic3.jpg" alt="pic 3" />
+        </p>
+        <img src="images/pic4.jpg" alt="pic 4" />
+    </body>
+</html>
+```
+
+If we applied the following CSS rule then the images INSIDE the paragraph would be set to a width of 100px, but that rule would not apply to the images outside the paragraph.
+
+```css
+p img {
+    width: 100px;
+}
+```
+
+Below is a diagram of the given HTML with the two imgs that will styled by the above rule are indicated by the red arrows.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/8c35f24ecbd746c1a0106f1c4ce9e1b0/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40096e999e5b21437b8b86bc0e4f12b730">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/8a65bf214939ba9bec2a0b48674f222b/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-3-1_combinging_selectors.PNG" style="margin: 0.1em;" alt="Diagram pointing out which img tags will be styled" title="Diagram pointing out which img tags will be styled" width="350">
+  </a></div>
+</div>
+
+As your Web pages get more complex, contextual selectors become more important, because it won't scale to apply classes and IDs to each individual item. Contextual selection becomes especially useful when you structure your HTML with section tags like header, section, article and footer. 
+
+Pay attention to the styles of the paragraphs and lists in the following example:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/8c35f24ecbd746c1a0106f1c4ce9e1b0/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40096e999e5b21437b8b86bc0e4f12b730">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c5e971447c473f55ca8f0b39e3ab624b/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-4_contextual_selectors.PNG" style="margin: 0.1em;" alt="Contextual selector example output" title="Contextual selector example output" width="350">
+  </a></div>
+</div>
 
 
 ### Activity 
