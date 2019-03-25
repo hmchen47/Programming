@@ -16,7 +16,7 @@ article p {
   background-color: #FFFFFF;
   color: #49274A;
 }
-p {
+p:hover {
     background-color: #B4DBC0 !important;
     border: 2px dashed black;
 }
