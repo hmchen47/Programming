@@ -449,7 +449,63 @@ Pay attention to the styles of the paragraphs and lists in the following example
 </div>
 
 
-### Activity 
+### Activity - Contextual selectors
+
+For practice, we are going to learn how to better scope CSS without the crutch of classes and IDs.
+
+Look carefully at the CSS code:
+
+```css
+body {
+    font-family: Tahoma, sans-serif;
+}
+header, article, footer {
+    border: 10px #E9B000 solid;
+    margin: 30px;
+}
+h1 {
+    color: #E86E80;
+}
+h1 {
+    background-color: #E86E80;
+    color: #FFFFFF;
+}
+p {
+    background-color: #008F95;
+    color: #FFFFFF;
+}
+p {
+    background-color: #FFFFFF;
+    color: #008F95;
+}
+ 
+ol {
+    background-color: #E24E43;
+    color: #FFFFFF;
+}
+ol {
+    background-color: #FFFFFF;
+    color: #E24E43;
+}
+ol {
+    border: 5px solid #E24E43;
+}
+```
+
+As you can see there are CSS rules with duplicate selectors. You'll need to add some extra selectors to the existing CSS rules so that instead of duplicate rules, you have rules that address different instances of the HTML elements based on the structure of the HTML.
+
+Your final site should look like this:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/8c35f24ecbd746c1a0106f1c4ce9e1b0/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40096e999e5b21437b8b86bc0e4f12b730">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a657f9f2689caa7eaa14108ebe793f3a/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-4-2_sol_1.PNG" style="margin: 0.1em;" alt="Activity: contextual selectors result part 1" title="contextual selectors result part 1" width="250"><br/>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9157bc4051afdbdc661dd69d001850b8/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-4-2_sol_2.PNG" style="margin: 0.1em;" alt="Activity: contextual selectors result part 2" title="contextual selectors result part 2" width="250"><br/>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9157bc4051afdbdc661dd69d001850b8/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-4-2_sol_3.PNG" style="margin: 0.1em;" alt="Activity: contextual selectors result part 3" title="contextual selectors result part 1" width="250">
+  </a></div>
+</div>
+
+
+ Use the discussion below to share your experiences.
 
 
 
