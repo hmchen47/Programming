@@ -507,7 +507,12 @@ Your final site should look like this:
 
  Use the discussion below to share your experiences.
 
+### C is for "Cascading"
 
+<video src="https://edx-video.net/W3CCSS0I2016-V002600_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@93ddb17cda4c4b309c30052eef036c52/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
 
 
 ### Cascading styles
