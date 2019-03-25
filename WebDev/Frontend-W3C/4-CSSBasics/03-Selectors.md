@@ -517,6 +517,53 @@ Your final site should look like this:
 
 ### Cascading styles
 
+Now that you've learned all these different selectors, you've probably noticed that there is nothing preventing one from creating rules that overlap, meaning creating rules that apply style to the same HTML elements. In fact, it's very common for HTML elements on a page to have multiple CSS rules competing for importance.
+
+Thanks to the "cascading" part of "Cascading Style Sheets", this isn't a problem. That is because CSS has a way to figure out which rule "wins" when styles are conflicting. CSS actually computes a "weight" for each style rule and the one with the greatest weight wins. If you want all the specifics on how this weight is computed you can read more [here](https://www.w3.org/TR/CSS22/cascade.html). For simplicity's sake, __the most specific rule wins!__ 
+
++ A rule is generally more specific if it applies to a fewer number of elements than another rule that encompasses those elements. The more facets a rule has the more specific it is.
+  + When pseudo-classes are applied this is more specific than without the pseudo-class. For example, `p:hover` will win over just `p`.
+  + Contextual selection is more specific because it scopes the rule to elements within a certain subset of those on the page. For example, a rule that applies to all the paragraphs within articles is more specific than a rule that applies to all the paragraphs on the page.
+  + IDs are most specific because you are directly applying them to the desired HTML element. The rule based on an ID will always win over other rules ([ID > class > element](https://www.w3.org/TR/selectors-3/#specificity))
++ If two rules have the exact same weight, the one that comes __later__ in the CSS document is what is applied.
++ You can use the "__!important__" modifier on a CSS property so that it will guarantee that style will be applied. This is a way for you to override the calculated weight.
+
+Look at the corresponding HTML and CSS, where code showing how Cascading order applies with many overlapping rules: [Example Code](src/3.4-Cascading.html)
+
+```css
+section {
+   color: red;
+}
+section section {
+   color: orange;
+}
+section section section {
+   color: green;
+}
+#section {
+   color: blue;
+}
+section:hover {
+   color: purple;
+}
+section:hover section:hover {
+   color: pink;
+}
+section:hover section:hover section:hover {
+   color: yellow;
+}
+```
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/8c35f24ecbd746c1a0106f1c4ce9e1b0/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40096e999e5b21437b8b86bc0e4f12b730">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/763b325de4e1aa809898376c050a0edb/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-4-3_cascading.PNG" style="margin: 0.1em;" alt="Cascading order demo" title="Cascading order demo" width="450">
+  </a></div>
+</div>
+
+Things to observe about the above:
+
++ the rule based on an ID isn't even overwritten by the pseudo class
++ when you hover over the sections within other sections, multiple hover rules apply!
 
 
 
