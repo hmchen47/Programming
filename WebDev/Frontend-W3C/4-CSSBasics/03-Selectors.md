@@ -567,7 +567,58 @@ Things to observe about the above:
 
 
 
-### Activity 
+### Activity - Cascading order
+
+Cascading order can be difficult to manage.
+
+Look at the corresponding some HTML and CSS:
+
+
+Look at the CSS code:
+
+```css
+body {
+    background-color: #F8EEE7;
+}
+p {
+    background-color: #F4DECB;
+}
+p {
+    background-color: #94618E;
+    color: #F8EEE7;
+}
+p {
+    background-color: #49274A;
+}
+p {
+    background-color: #FFFFFF;
+    color: #49274A;
+}
+p {
+    background-color: #B4DBC0 !important;
+    border: 2px dashed black;
+}
+```
+
+As you can see, there are a lot of repeat CSS rules. For this activity, you cannot change any of the HTML (meaning you cannot add any IDs), but you'll need to change the CSS to make some of the rules more specific so that you achieve this final result:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/8c35f24ecbd746c1a0106f1c4ce9e1b0/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40096e999e5b21437b8b86bc0e4f12b730">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9900678ca1c8c341096eae766d6f2268/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-4-4_sol_1.PNG" style="margin: 0.1em;" alt="Activity: Cascading order final solution no interaction" title="Cascading order final solution no interaction" width="250">
+  </a></div>
+</div>
+
+
+The image below shows when you hover "paragraph 4". The same hover should apply to ALL p tags.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/8c35f24ecbd746c1a0106f1c4ce9e1b0/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40096e999e5b21437b8b86bc0e4f12b730">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/750842224453aca7c3571b7d4df034b7/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-4-4_sol_2.PNG" style="margin: 0.1em;" alt="Activity: cascading style practice with hover" title="cascading style practice with hover" width="250">
+  </a></div>
+</div>
+
+Use the discussion board below to share your experiences.
+
 
 
 
