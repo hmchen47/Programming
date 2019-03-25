@@ -629,8 +629,8 @@ Images are an extremely important part of your page, not only as part of your co
 
 ##### Formats
 
-+ JPEG - Possibly the most common image format used on the web, because it does a good job of compressing colorful, complex images into reasonably sized files. JPEG is often used for photos because otherwise, photos can take a very long time to load. 
-+ PNG - Provides a higher quality image, but you pay for it with a larger file size. PNG also has the ability to have transparent backgrounds, so you'll often see this used for graphics as part of the page's layout. 
++ JPEG - Possibly the most common image format used on the web, because it does a good job of compressing colorful, complex images into reasonably sized files. JPEG is often used for photos because otherwise, photos can take a very long time to load.
++ PNG - Provides a higher quality image, but you pay for it with a larger file size. PNG also has the ability to have _transparent backgrounds_, so you'll often see this used for graphics as part of the page's layout. 
 + GIF - Supports moving images and transparent backgrounds. These can be especially large files so try to use sparingly!
 
 
@@ -717,10 +717,64 @@ This design demonstrates the use of an image both as a background as a link. Whe
 [Example code](src/3.5-Images.html)
 
 
-
 ### Forms
 
+Forms can be a surprisingly tricky element to style because you are asking for a lot of interaction from your user, and the burden is on you as the designer to make it clear what exactly you are asking them to do. However, with a few simple design changes you can make it much easier for your user to navigate your form. Here are some key design elements to keep in mind when designing forms.
 
++ __white space__ - It is important to separate your form elements from your other content, otherwise it can easily be skipped over. It is also important to use white space surrounding each of your input elements to help draw your user's eye from the start to the end of your form. White space can also give the impression of simplicity and ease, an overcrowded form can seem daunting and tiring to fill out.
++ __borders__ - Possibly one of the most important design elements of your forms are borders. Borders give your user a visual clue that they should enter text, or select something from a drop down. When you eliminate all borders it is impossible to tell what is a form and what is just static text.
++ __labels__ - Each input should have a label communicating to the user what information you are asking them to submit. You will want to make sure this text is aligned and flows with the input element so it is clear what label is associated with which input. One of the easiest ways to make sure there is a label is to put the label inside the input text box as demonstrated in some of our sample designs. 
++ __input sizes__ - You can help the user quickly assess how much text you are asking them to provide by how big your input element is. A very small input element will infer that you are only asking for a small number of characters, and a very large box with multiple lines can infer that you are asking a lot more from your user. It is also important to try and gauge the input size accordingly so your user doesn't run out of space as they are entering text.
++ __pseudo-classes__ - Perhaps one of the best uses of pseudo-classes is with forms. Pseudo-classes can help provide extra feedback as your user interacts with each of your form elements. You'll often see hover used to expose more information, active used to help a user understand which element they are currently interacting with, and more.
++ __submit button__ - Don't forget some of the lessons learned in Module 2: it is important to make your button look like a button. You will want to make sure that your submit button is placed so that it is obvious after a user has entered in all the requested info.
+
+Here is an HTML/CSS form:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/bb71adbabf3b4433a409b2090a20b41a/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4067edcd0a95a7470c86a06912670d164b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b15bc8dc6a66f081174d0c999fda1d2f/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-5-2_uglyform.PNG" style="margin: 0.1em;" alt="A form that is so unstyled it is impossible to use" title="A form that is so unstyled it is impossible to use" width="250">
+  </a></div>
+</div>
+
+
+You might never know it, but each of the 4 elements below the title are intended for the user to interact with. By stripping them of their styles you can see how important it is to add visual cues for your user. 
+
+
+#### Form 1
+
+The first form design uses basic layout to give each input element a clear label, space and area for input followed by a clear submit button. This design also used pseudo classes to engage the user, which you can see in action in the Code Pen
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/bb71adbabf3b4433a409b2090a20b41a/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4067edcd0a95a7470c86a06912670d164b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/3bc57b678ab0d1c8db7cced74dfc2272/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-5-2_form1.PNG" style="margin: 0.1em;" alt="Form design #1" title="Form design #1" width="150">
+  </a></div>
+</div>
+
+
+
+#### Form 2
+
+This form design is more minimalist, using the clear and consistent design and layout to help the user feel like the form is extra short.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/bb71adbabf3b4433a409b2090a20b41a/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4067edcd0a95a7470c86a06912670d164b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/34ea96a4fc4b3f3d55a21dabde1993a9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-5-2_form2.PNG" style="margin: 0.1em;" alt="Form design #2" title="Form design #2" width="250">
+  </a></div>
+</div>
+
+
+
+#### Form 3
+
+This form design leaves lots of white space to help it feel clean and simple. 
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/bb71adbabf3b4433a409b2090a20b41a/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4067edcd0a95a7470c86a06912670d164b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d1912f243c54ca8053f800a665a2d1f5/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-5-2_form3.PNG" style="margin: 0.1em;" alt="Form 3 design" title="Form 3 design" width="250">
+  </a></div>
+</div>
+
+[Exampl code](src/3.5-Forms.html)
 
 
 ## 3.6 Project 3 - My profile
