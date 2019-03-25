@@ -12,12 +12,13 @@ section p {
 article p {
   background-color: #49274A;  
 }
-#specific p {
+#specific {
   background-color: #FFFFFF;
   color: #49274A;
 }
 p:hover {
     background-color: #B4DBC0 !important;
     border: 2px dashed black;
+    color: black;
 }
 
