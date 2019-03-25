@@ -121,6 +121,7 @@
 
 + [4.1 Introduction](04-Layout.md#)
     1. [Welcome to Module 4](04-Layout.md#)
+    1. [In this module, you will learn](04-Layout.md#)
     1. [Meet the box model](04-Layout.md#)
 + [4.2 The basics of layout](04-Layout.md#)
     1. [The alignment property](04-Layout.md#)
