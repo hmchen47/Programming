@@ -824,7 +824,75 @@ In the next module,  you will:
 
 ### Exercises (1-5)
 
+1. Class name
 
+    Which of the following is a valid name for a class?
+
+    1. 1stClass
+    2. myFirstClass
+    3. my first class
+    4. myFirstClass!
+
+    Ans: 2 <br/>
+    Explanation: The valid name should not start with a number, should not have spaces in it, and cannot contain other symbols such as a "!".
+
+
+2. How many for a class name?
+
+    How many HTML elements can a class name apply to?
+
+    1) 1
+    2) 2
+    3) 10
+    4) unlimited
+
+    Ans: 4 <br/>
+    Explanation: You can give a same class name to as many elements as you like.
+
+
+3. How many for an ID?
+
+    How many HTML elements can an ID be applied to?
+
+    1) 1
+    2) 2
+    3) 10
+    4) unlimited
+
+    Ans: 1 <br/>
+    Explanation: There can be only one element with a given ID, according to the HTML specification. <br/> But note that browsers often try to correct errors automatically and so, in practice, may still apply a style even if there are two elements with the same ID.
+
+
+4. Correct selector?
+
+    Which is the correct selector for a CSS rule to style a class named "navLinks"?
+
+    1) *navLinks {
+    2) :navLinks {
+    3) .navLinks {
+    4) #navLinks {
+
+    Ans: 3 <br/>
+    Explanation: Do not use "*", ":" or "#" because:
+      + "*" is not used as a flag character
+      + ":" is only used for pseudo-classes and pseudo-elements
+      + "#" is for ID selectors
+
+
+5. Pseudo-what?
+
+    What is a "pseudo-class"?
+
+    1) A way to group HTML elements based on name.
+    2) A way to select HTML elements based on their state as opposed to their HTML structure.
+    3) A way to make HTML elements listen to the user's clicks.
+    4) A way to animate your HTML elements.
+
+    Ans: 2 <br/>
+    Explanation: The right answer is "select HTML elements based on their state as opposed to their HTML structure", because:
+    + grouping is done via the use of a ",".
+    + ":active" is a pseudo-class to react to user clicks, but not all pseudo-classes react to clicks.
+    + there are indeed pseudo-classes that can change the style of an element while it is displayed (:hover, :active), but that is not true of all pseudo-classes (:link, :visited).
 
 
 
