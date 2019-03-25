@@ -87,6 +87,7 @@ section h2 {
     font-weight: bolder;
     background-color: transparent;
     border: none;
+    border-bottom: 3px darkolivegreen solid;
     color: rgb(1, 71, 71);
     font-style: normal;
     padding: 0.0em;
