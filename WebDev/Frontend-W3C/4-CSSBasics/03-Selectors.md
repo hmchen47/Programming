@@ -779,6 +779,30 @@ This form design leaves lots of white space to help it feel clean and simple.
 
 ## 3.6 Project 3 - My profile
 
+Now that you have a host of new selectors available, you can style much more complicated HTML. Take your "about me page" from Module 2, and add to it so that it becomes more of a "profile". Your page must have the following elements:
+
++ header and footer tags
++ an education, work experience and favorite things sections
++ at least two subsections within each main section. You could use either the `<section>` tag, the `<article>` tag or the `<div>` tag for this.
+  + Each subsection should have its own title and two inner subsections
+
+Once you have all these elements, style them to look nice, but you must have each of the following:
+
++ 1 ID
++ 2 different classes, each with at least 2 members
++ 1 special style applied when an element is hovered over by the user's cursor
++ 1 special style applied when the user clicks an element
++ 3 uses of contextual selectors
+
+For reference here is what my solution looks like:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/46a1028808b949b9af0061a363d40b8a/98cdb86d90244fe1bae1f85fa5e3af95/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40be283f64b8544e9d936b14e3b9dd7fe6">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/44b0156181929a7e9db4535b587d8081/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-6_sol_1.PNG" style="margin: 0.1em;" alt="Project: kasey's solution part 1" title="kasey's solution part 1" width="180">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/44b0156181929a7e9db4535b587d8081/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-6_sol_2.PNG" style="margin: 0.1em;" alt="Project: Kasey's solution 2" title="Kasey's solution 2" width="220">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/44b0156181929a7e9db4535b587d8081/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/3-6_sol_3.PNG" style="margin: 0.1em;" alt="Project: Kasey's solution 3" title="Kasey's solution 3" width="220">
+  </a></div>
+</div>
 
 
 
