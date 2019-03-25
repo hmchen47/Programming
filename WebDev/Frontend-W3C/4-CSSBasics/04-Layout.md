@@ -20,6 +20,11 @@
 
 ### Meet the box model
 
+<video src="https://edx-video.net/W3CCSS0I2016-V004900_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@d7de8c9c374b442c8dca24cbb32d0766/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
 
 
 ## 4.2 The basics of layout
