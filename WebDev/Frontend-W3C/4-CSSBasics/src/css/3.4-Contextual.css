@@ -5,7 +5,8 @@ header, article, footer {
     border: 10px #E9B000 solid;
     margin: 30px;
 }
-header h1 {
+header h1, 
+footer h1 {
     color: #E86E80;
     background-color: white;
 }
@@ -22,7 +23,8 @@ p {
     color: #008F95;
 }
  
-header ol {
+header ol,
+footer ol {
     background-color: #E24E43;
     color: #FFFFFF;
 }
