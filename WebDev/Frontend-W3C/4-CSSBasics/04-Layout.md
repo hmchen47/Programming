@@ -389,7 +389,7 @@ You'll often want to set the width of a floating object so that you have tighter
 
 #### The Clear Property
 
-Once you have some elements floating things can get a little messy. Its easy for floating objects to overlap, and to prevent this you can use the "clear" property.
+Once you have some elements floating things can get a little messy. It's easy for floating objects to overlap, and to prevent this you can use the "clear" property.
 
 [Documentation](https://www.w3.org/TR/CSS22/visuren.html#propdef-clear)
 
@@ -409,23 +409,23 @@ HTML code:
     </head>
   <body>
    <div id="default">
-   This div is not floating, has no width set.
+   This div is not floating, has no width set. (Red)
    </div>
    <div id="floatRightNoWidth">
-   This div is floating right, but no width is set.
+   This div is floating right, but no width is set. (orange)
    </div>
    <div id="floatRightTooWide">
-   This div is floating right, but the text is very very very long. This makes the div fill the horizontal space of the page by default, so when it is floated it doesn't look like it goes anywhere.
+   This div is floating right, but the text is very very very long. This makes the div fill the horizontal space of the page by default, so when it is floated it doesn't look like it goes anywhere. (Yellow)
    </div>
    <div id="noFloatWidthSet">
-   This div isn't floating, and its width is set to 40%. Floating elements can overlap.
+   This div isn't floating, and its width is set to 40%. Floating elements can overlap. (Green)
    </div>
  
    <div id="floatRightWidthSet">
-   This div is floating right, and its width is set to 30%
+   This div is floating right, and its width is set to 30% (blue)
    </div>
    <div id="noFloatClearRight">
-   This div isn't floating, and it is set to clear to the right, so nothing can overlap.
+   This div isn't floating, and it is set to clear to the right, so nothing can overlap. (Purple)
    </div>
   </body>
 </html>
@@ -471,12 +471,109 @@ div {
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/78bb3347b1a747dcb8b73dd7ef309e50/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40fc1f61466cbb45e191c5030fdd9bf38e">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/445a62ab3ed7255b919c73ceac322320/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-3_float.PNG" style="margin: 0.1em;" alt="Result of float example code" title="Result of float example code" width="250">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/445a62ab3ed7255b919c73ceac322320/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-3_float.PNG" style="margin: 0.1em;" alt="Result of float example code" title="Result of float example code" width="350">
   </a></div>
 </div>
 
 
-### Activity
+### Activity - Practice with float
+
+One of the toughest parts of layouts with CSS is figuring out which elements to apply a float property to.
+
+Here is [some HTML and CSS](https://codepen.io/techie4good/pen/xEbWrp):
+
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+  <body>
+   <header>
+    <h2>welcome greeting subtitle</h2>
+    <h1>Homepage Title</h1>
+   </header>
+  <section id="navigation">
+   <ul>
+    <li>nav link 1</li>
+    <li>nav link 2</li>
+    <li>nav link 3</li>
+    <li>nav link 4</li>
+    </ul>
+   </section>
+   <section id="content">
+    <div id="topRight">
+    If your elements are still not exactly where you want them to be after adjusting the padding, margins and alignment, then you can try out the float property. The "float" property is one of the most powerful tools you can master when learning CSS.
+    </div>
+    <div id="topLeft">
+    Up until now, we haven't moved elements very far from wherever the web browser automatically places them, but as you've probably noticed this has left our page very left side heavy.
+    </div>
+    <div id="bottomRight">
+    The float property liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction you specify.  You can specify float either right, left or the default of none.
+    </div>
+    <div id="bottomLeft">
+    Elements underneath a floating object will automatically wrap themselves around the content. For example, if you float an image, the text underneath will wrap around it so that none of it is actually obscured underneath the image.
+    </div>
+   </section>
+  </body>
+</html>
+```
+
+CSS code:
+
+```css
+body {
+   background-color: #4ABDAC;
+   color: #FFFFFF;
+   font-family: Georgia, serif;
+}
+header {
+   background-color: #F7B733;
+   height: 75px;
+}
+ 
+h1 {
+   padding: 15px;
+}
+#navigation {
+   height: 30px;
+   width: 30%;
+   margin-left: auto;
+   margin-right: auto;
+}
+ 
+#navigation li:hover {
+   border-bottom: 1px #FC4A1A solid;
+}
+#content {
+   background-color: #DFDCE3;
+   width: 50%;
+   margin: 0 auto;
+}
+div {
+   background-color: #FC4A1A;
+   width: 250px;
+   height: 150px;
+   padding: 10px;
+   margin: 20px;
+}
+```
+
+As you can see the layout is pretty messy. Your job in this activity is to decide which elements deserve a float property. You might also need to adjust some widths, margins and paddings to get everything looking like the final image below:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/78bb3347b1a747dcb8b73dd7ef309e50/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40fc1f61466cbb45e191c5030fdd9bf38e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/8fa8e85bccbafdea433ff8666300430e/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-3-2_activity_output.PNG" style="margin: 0.1em;" alt="Practice with Float final result" title="Practice with Float final result" width="450">
+  </a></div>
+</div>
+
+
+__HINT__: Pay close attention to the IDs applied to the HTML elements
 
 
 
