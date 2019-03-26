@@ -42,6 +42,13 @@ h2 {
 
 article {
   background-color: #FFFFFF;
+  width: 40%;
+  text-align: justify;
+  margin: 50px;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 30px;
 }
 
 #leftP {
@@ -53,7 +60,7 @@ article {
 }
 
 h3 {
-
+    text-align: right;
 }
 
 footer {
