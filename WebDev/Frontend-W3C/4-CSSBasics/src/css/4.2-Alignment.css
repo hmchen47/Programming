@@ -1,0 +1,47 @@
+body {
+  font-family: Tahoma;
+}
+
+header {
+  background-color: #EC576B;
+  color: white;
+  border-bottom: 5px #FEDC3D solid;
+}
+
+header h1 {
+  border-bottom: 2px #FFFFFF solid;
+}
+
+header p {
+  border-bottom: 2px #FFFFFF solid;
+}
+
+section {
+  background-color: #FEDC3D;
+}
+
+h2 {
+  border-bottom: 5px #000000 solid;
+}
+
+article {
+  background-color: #FFFFFF;
+}
+
+#leftP {
+
+}
+
+#rightP {
+
+}
+
+h3 {
+
+}
+
+footer {
+  background-color: #4EC5C1;
+  border-top: 5px #FEDC3D solid;
+  color: white;
+}
