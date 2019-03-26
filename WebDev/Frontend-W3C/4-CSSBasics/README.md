@@ -131,6 +131,7 @@
     1. [Activity - Practice with alignment](04-Layout.md#)
 + [4.3 Floating elements](04-Layout.md#)
     1. [Meet the float property](04-Layout.md#)
+    1. [The float property](04-Layout.md#)
     1. [Activity](04-Layout.md#)
 + [4.4 Relative positioning](04-Layout.md#)
     1. [Meet relative positioning](04-Layout.md#)
