@@ -226,6 +226,7 @@ __External resources:__
 + A "CSS Tricks" article on [What you should know about collapsing margins](https://css-tricks.com/what-you-should-know-about-collapsing-margins/)
 
 
+
 ### Activity - Practice with alignment
 
 For this activity, you are going to practice some of the basic alignment properties you've learned in this unit.
@@ -346,8 +347,6 @@ To do this you will need to:
 + limit the footer height to 10% of the page, but no more than 50px and no less than 10px. It should have a padding of 10px and a margin between it and the section of 30px.
 
 Use the discussion below to discuss your experiences.
-
-
 
 
 ## 4.3 Floating elements
