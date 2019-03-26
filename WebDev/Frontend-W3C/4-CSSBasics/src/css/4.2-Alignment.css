@@ -1,20 +1,28 @@
 body {
   font-family: Tahoma;
   margin: 0;
+  padding: 0;
 }
 
 header {
   background-color: #EC576B;
   color: white;
   border-bottom: 5px #FEDC3D solid;
+  margin: 0;
 }
 
 header h1 {
   border-bottom: 2px #FFFFFF solid;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  line-height: 75px;
 }
 
 header p {
   border-bottom: 2px #FFFFFF solid;
+  height: 75px;
+  text-align: center;
 }
 
 section {
@@ -45,4 +53,5 @@ footer {
   background-color: #4EC5C1;
   border-top: 5px #FEDC3D solid;
   color: white;
+  margin: 0;
 }
