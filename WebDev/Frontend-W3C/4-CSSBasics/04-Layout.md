@@ -105,6 +105,7 @@ You may have noticed that the text-align property sets the content's alignment h
 
 
 INTERNATIONAL CONSIDERATIONS
+
 Please do not use text-align indiscriminately. If there's a possibility that your site will need to be translated into a language that uses the Arabic, Hebrew, or Thaana scripts (which read from right to left), it creates difficulties to have to change all the  right values to left and vice versa.
 
 Most, but not yet all, major browsers support the values start and end. The start value aligns text with the side of the line where you start reading, whether that's on the left for English or the right for Urdu. They also make more sense for use with vertical text, such as for Japanese and Mongolian. Once these values are widely supported by browsers, they will often be a better choice than right and left, since there's no need to change the values for pages as the language changes.
@@ -116,6 +117,61 @@ Once you finish this course, look out for these and other international features
 
 ### Element width and height
 
+Until now we've let the browser decide how big the element is, but you can actually adjust its width and height manually.
+
+Width and height
+Documentation: [the width property](https://www.w3.org/TR/CSS22/visudet.html#the-width-property) and [the height property](https://www.w3.org/TR/CSS22/visudet.html#the-height-property)
+
+```css
+p {
+   width: 30%;
+}
+```
+
+You can use pixel values for both width and height, but you'll most often want to use percentages to set these so that your elements grow and shrink as appropriate based on the screen size.
+
+For example, if we set the width of a paragraph to $30\%$ as you resize the browser window, you'll see how that element dynamically resizes. That's because when you use percentages, the size is computed based on the element's "[containing block](https://www.w3.org/TR/CSS22/visuren.html#containing-block)", or the element that contains the one you're styling. If your element is just within the body tag, the width is computed based on the relationship with the screen width.
+
+Things are a bit more complicated with using a percentage to set an element's height. This is because typically the body's height is not specified, so if you use a percentage the size won't adjust.
+
+
+__min-width, max-width, min-height, max-height__
+
+Documentation: [max and min width](https://www.w3.org/TR/CSS22/visudet.html#min-max-widths) and [max and min height](https://www.w3.org/TR/CSS22/visudet.html#min-max-heights)
+
+Setting width and height with percentages will save you work because your design will automatically optimize for the user's screen size. However, some elements can't grow and shrink as dynamically as text can.
+
+For example, images will get "pixelated" if you let them grow too large, and they can look really distorted. Thankfully, you can set max and min width and heights. This way, you can set a range for your image to grow and shrink where you know it will still look good.
+
+```css
+img {
+   width: 100%;
+   max-width: 1024px;
+}
+```
+
+[Example HTML](src/4.2-WidthHeight.html)<br/>
+[Example CSS](src/css/4.2-WisthHeight.css)
+
+When you view the above example, the paragraphs will dynamically resize based on the size of your window. For example, here is what the code looks like in a wide window:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/8677e13b3db74668975ed449d681277e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40830982357f6646b796b37c238897fb9e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/433e61cced8e11e11f1478eb37983e5d/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-2-1_wide.PNG" style="margin: 0.1em;" alt="dynamic width and height wide example" title="dynamic width and height wide example" width="550">
+  </a></div>
+</div>
+
+
+However, here is the exact same code viewed in a much narrower window:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/8677e13b3db74668975ed449d681277e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40830982357f6646b796b37c238897fb9e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/3d9b1840bdbdfaee3fcb0e6576da916f/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-2-1_narrow.PNG" style="margin: 0.1em;" alt="dynamic width and high output narrow example" title="dynamic width and high output narrow example" width="200">
+  </a></div>
+</div>
+
+
+Here, you can see that the elements have resized accordingly, but have hit the limits of their min and max constraints. This is why using percentages for width and height are so important, it helps you write code that works for all screen sizes.
 
 
 ### Padding and margin
