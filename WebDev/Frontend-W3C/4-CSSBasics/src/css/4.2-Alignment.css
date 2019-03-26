@@ -67,5 +67,10 @@ footer {
   background-color: #4EC5C1;
   border-top: 5px #FEDC3D solid;
   color: white;
-  margin: 0;
+  text-align: center;;
+  height: 10%;
+  max-height: 50px;
+  min-height: 10px;
+  padding: 10px;
+  margin-top: 30px;
 }
