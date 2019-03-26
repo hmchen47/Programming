@@ -176,9 +176,177 @@ Here, you can see that the elements have resized accordingly, but have hit the l
 
 ### Padding and margin
 
+Whenever possible, it is ideal to position your elements by adjusting their padding and margins. Sometimes this isn't enough to get the element exactly where you'd like it to be, so we'll learn more tools later in this module. Regardless, you'll almost always want some padding and margin around your element so it's best to adjust these before progressing onto more complicated positioning methods.
+
+Once you have set the width for your element, then you can set margins as a way to position your element relative to others. One of the most commonly used margin settings is "auto". That is because if you set an element's left and right margin to auto it will be dynamically centered within its containing block.
+
+```css
+div {
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto;
+}
+```
+
+However, note that this only works for block HTML elements like paragraphs, divs and headers. If you want to use this to position an inline element, such as img or a, you will need to tell CSS to treat them as block elements by setting display: block;
+
+```css
+img {
+   display: block;
+   width: 200px;
+   margin-left: auto;
+   margin-right: auto;
+}
+```
+
+[Example HTML](src/4.2-Positioning.html) <br/>
+[Example CSS](src/css/4.2-Positioning.css)
+
+Here is what the above code looks like in a wide window:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/8677e13b3db74668975ed449d681277e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40830982357f6646b796b37c238897fb9e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/8e7ce50235a81f6e65d0fe91084838bf/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-2-2_wide.PNG" style="margin: 0.1em;" alt="centered elements with margin wide example" title="centered elements with margin wide example" width="550">
+  </a></div>
+</div>
 
 
-### Activity
+Now, if you resize the window, the elements remain centered no matter what. Here is the above code in a narrow window:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/8677e13b3db74668975ed449d681277e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40830982357f6646b796b37c238897fb9e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e4842b904e93366d4b42b22e46440847/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-2-2_narrow.PNG" style="margin: 0.1em;" alt="dynamically centered elements narrow example" title="dynamically centered elements narrow example" width="150">
+  </a></div>
+</div>
+
+
+__External resources:__
+
++ A W3C CSS tip: [CSS centering things](https://www.w3.org/Style/Examples/007/center), on different ways to center your content.
++ A "CSS Tricks" article on [What you should know about collapsing margins](https://css-tricks.com/what-you-should-know-about-collapsing-margins/)
+
+
+### Activity - Practice with alignment
+
+For this activity, you are going to practice some of the basic alignment properties you've learned in this unit.
+
+Here is some HTML and CSS:
+
+```html
+<!DOCTYPE html> 
+<!--It's a best practice to always declare DOCTYPE!-->
+<html lang="en">
+  <head>
+    <title>Practice with Alignment</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to my web page</h1>
+      <p>
+        This is the tagline to my homepage
+      </p>
+    </header>
+    <section>
+      <h2>This is the main body of my page</h2>
+      <article id="leftP">
+        <h3>Article title</h3>
+        This is a buch of text that will be left aligned under the main title of the page, but still within the main center section of the page.
+      </article>
+      <article id="rightP">
+        <h3>Article title</h3>
+        Here is some more text that will be right aligned under the first paragraph, but still within the main center section of the page.
+      </article>
+    </section>
+    <footer>
+      thank you and please visit again soon!
+    </footer>
+  </body>
+</html>
+```
+
+```css
+body {
+  font-family: Tahoma;
+}
+
+header {
+  background-color: #EC576B;
+  color: white;
+  border-bottom: 5px #FEDC3D solid;
+}
+
+header h1 {
+  border-bottom: 2px #FFFFFF solid;
+}
+
+header p {
+  border-bottom: 2px #FFFFFF solid;
+}
+
+section {
+  background-color: #FEDC3D;
+}
+
+h2 {
+  border-bottom: 5px #000000 solid;
+}
+
+article {
+  background-color: #FFFFFF;
+}
+
+#leftP {
+
+}
+
+#rightP {
+
+}
+
+h3 {
+
+}
+
+footer {
+  background-color: #4EC5C1;
+  border-top: 5px #FEDC3D solid;
+  color: white;
+}
+```
+
+As it is, the given HTML and CSS codes produce the following Web page:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/8677e13b3db74668975ed449d681277e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40830982357f6646b796b37c238897fb9e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ac176f1517ec268dcb30bb52998246a1/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-2-4_before.PNG" style="margin: 0.1em;" alt="Practice with Alignment before image" title="Practice with Alignment before image" width="450">
+  </a></div>
+</div>
+
+
+As you can see it's not very well aligned. Your goal is to add properties to the existing CSS rules so that the final page looks like this:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/8677e13b3db74668975ed449d681277e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40830982357f6646b796b37c238897fb9e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/eaf30118ca2b8f2fe5fda30a25c2c3d2/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-2-4_after.PNG" style="margin: 0.1em;" alt="Practice with alignment after picture" title="Practice with alignment after picture" width="450">
+  </a></div>
+</div>
+
+
+To do this you will need to:
+
++ remove the margin at the very edges of the page so the header and footer touch the edges of the page.
++ limit the size of the h1 title to 50% of the page's width, with horizontally centered text and vertically centered text within a height of 75px.
++ stretch the height of the header p to 50px, but let the text remain top aligned
++ limit the width of the section to 75% of the page, but never less than 500px. The section should be centered within the window.
++ limit the width of the h2 to 30% of the section, centered within that container. It should have a padding of 30px all around it.
++ limit the width of each article to 40% of the width of the section, with justified text. Each should have a margin of 50px all around it, a top padding of 10px, a left and right padding of 15px and a bottom padding of 30px. The h3 within each article should be aligned to the right.
++ give the #leftP article a left margin of 10% of the section.
++ give the #rightP article a left margin of 50% of the section.
++ limit the footer height to 10% of the page, but no more than 50px and no less than 10px. It should have a padding of 10px and a margin between it and the section of 30px.
+
+Use the discussion below to discuss your experiences.
+
 
 
 
