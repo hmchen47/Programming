@@ -57,6 +57,61 @@ Box model definition in the [W3C's CSS2.1 specification](https://www.w3.org/TR/C
 
 ### The alignment property
 
+One of the simplest ways to align content is to use the direct text-align property. This can help you set the alignment of text or inline content within the context of their containing HTML element.
+
+__text-align__
+
+[Documentation](https://www.w3.org/TR/CSS22/text.html#alignment-prop)
+
+```css
+h1 {
+   text-align: center;
+}
+```
+
+If you have used a text editor before, like Microsoft Word, you've probably used the different text-align properties: left (default for English), right, center and justify. Text-align in CSS works the same way. Left, center and right specify how the lines of text within the text block are arranged. Justify sets the left and right edges of the text flush with the container's edges, which stretches the white space between words so that the overall block fits in a perfect rectangle.
+
+See below for examples of what each of these values will do to your text:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/8677e13b3db74668975ed449d681277e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40830982357f6646b796b37c238897fb9e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/8fa61e99d7f19f1e10862952f41a5128/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-2-3_text_align.PNG" style="margin: 0.1em;" alt="Example of each text-align value options" title="Example of each text-align value options" width="350">
+  </a></div>
+</div>
+
+
+Note that this property can only apply to block elements like paragraphs, divs and headers.
+
+__line-height__
+
+[Documentation](https://www.w3.org/TR/CSS22/visudet.html#line-height)
+
+```css
+h1 {
+   line-height: 1.2;
+}
+```
+
+You may have noticed that the text-align property sets the content's alignment horizontally, but it leaves its vertical alignment unchanged. Text lives within a specified vertical space, in which the text is drawn by default in the middle of that vertical space. If you change the height of the containing HTML block, the text will remain at the top of the block. However, if you instead use the "line-height" property, then the block will grow and the text will vertically center within it.
+
+
+... and the resulting output:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/8677e13b3db74668975ed449d681277e/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40830982357f6646b796b37c238897fb9e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/3de7c0b54bd64eeffcf209a9928a95f0/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-2-3_alignment-1.PNG" style="margin: 0.1em;" alt="output from alignment example code" title="output from alignment example code" width="450">
+  </a></div>
+</div>
+
+
+INTERNATIONAL CONSIDERATIONS
+Please do not use text-align indiscriminately. If there's a possibility that your site will need to be translated into a language that uses the Arabic, Hebrew, or Thaana scripts (which read from right to left), it creates difficulties to have to change all the  right values to left and vice versa.
+
+Most, but not yet all, major browsers support the values start and end. The start value aligns text with the side of the line where you start reading, whether that's on the left for English or the right for Urdu. They also make more sense for use with vertical text, such as for Japanese and Mongolian. Once these values are widely supported by browsers, they will often be a better choice than right and left, since there's no need to change the values for pages as the language changes.
+
+Also, note that CSS will in the future provide better support for justification in languages where words are not separated by spaces, such as Chinese and Thai, or languages where words are separated by special marks, such as in Amharic. For more information about different approaches to justification, see this article.
+
+Once you finish this course, look out for these and other international features of CSS as you explore its features further.
 
 
 ### Element width and height
