@@ -26,6 +26,32 @@
 </video>
 
 
+### The Box Model
+
+The Box Model is how Web browsers see individual HTML elements. Each element is comprised of 4 areas: the __element__, the __padding__, the __border__ and the __margin__.
+
+We discussed how to adjust the white space of these areas in Module 2.5, but in this module we will be discussing these areas as a method to position elements on a page.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/cc87ccb0d8f243f98b2f17c1955c0298/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%408347080b2233486082d5154ee2e14ad6">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e0c6338dd98e9176bf12088bb686892f/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-1_box_model.PNG" style="margin: 0.1em;" alt="anatomy of the box model" title="anatomy of the box model" width="400">
+  </a></div>
+</div>
+
+
++ __element__ - This is always contained within a square, even if it is a text block with jagged edges or a transparent image that isn't rectangular. Web browsers will impose a rectangle around the smallest area the HTML element's content actually occupies. Until now we've allowed the Web browser to determine the size of the element based solely on the content, but later in this section we'll learn how to adjust this sizing.
++ __padding__ - This is the white space just outside the element's content. You can set each of the four sides independently, and you can set the value to 0. If you set the element's background color, that color will apply to the padding as well.
++ __border__ - This is the area just outside the padding. Most HTML element's border default width is 0 and thus invisible. You can set each of the four sides independently. You can set a color, a pattern, even an image. This is a great way to add horizontal or vertical lines to an element on your page.
++ __margin__ - This is the space surrounding an element, outside the border. Margins are the part of HTML elements that interact with one another. When two margins interact the larger of the two wins meaning the smaller margin "collapses", thus the actual space between two elements is the larger of the two, not the sum of the margins.
+
+[Example HTML](src/4.1-Box.html)
+[Example CSS](src/css/4.1-Box.css)
+
+#### External resource:
+
+Box model definition in the [W3C's CSS2.1 specification](https://www.w3.org/TR/CSS2/box.html)
+
+
 
 ## 4.2 The basics of layout
 
