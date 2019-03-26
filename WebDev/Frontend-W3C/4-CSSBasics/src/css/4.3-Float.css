@@ -28,7 +28,6 @@ header h2 {
    width: 30%;
    margin-left: auto;
    margin-right: auto;
-   transform: rotate(180deg);
 }
 
 #navigation li {
@@ -36,7 +35,6 @@ header h2 {
    width: 25%;
    float: right;
    text-align: center;
-   transform: rotate(-180deg);
 }
  
 #navigation li:hover {
