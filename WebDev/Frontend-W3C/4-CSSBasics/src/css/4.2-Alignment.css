@@ -21,12 +21,15 @@ header h1 {
 
 header p {
   border-bottom: 2px #FFFFFF solid;
-  height: 75px;
+  height: 50px;
   text-align: center;
 }
 
 section {
   background-color: #FEDC3D;
+  width: 75%;
+  min-width: 500px;
+  margin: 0 auto;
 }
 
 h2 {
