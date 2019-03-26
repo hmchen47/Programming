@@ -360,7 +360,120 @@ Use the discussion below to discuss your experiences.
 
 ### The float property
 
+If your elements are still not exactly where you want them to be after adjusting the padding, margins and alignment, then you can try out the float property. The "float" property is one of the most powerful tools you can master when learning CSS.
 
+[Documentation](https://www.w3.org/TR/CSS22/visuren.html#float-position)
+
+```css
+h1 {
+   width: 20em;
+   float: right;
+}
+```
+
+Up until now, we haven't moved elements very far from wherever the web browser automatically places them, but as you've probably noticed this has left our page very left side heavy. This is because, by default, elements are stacked one on top of the other, and they don't share horizontal space. With the float property, we can change this.
+
+The float property liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction you specify.  You can specify float either right, left or the default of none.
+
+Elements underneath a floating object will automatically wrap themselves around the content. For example, if you float an image, the text underneath will wrap around it so that none of it is actually obscured underneath the image, but now both text and an image can share horizontal space.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/78bb3347b1a747dcb8b73dd7ef309e50/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40fc1f61466cbb45e191c5030fdd9bf38e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c631ba121850e9a7653d7b877f7ef05b/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-3_float_img.PNG" style="margin: 0.1em;" alt="example of floating img and surrounding text" title="example of floating img and surrounding text" width="350">
+  </a></div>
+</div>
+
+
+You'll often want to set the width of a floating object so that you have tighter control over the space that object occupies. Remember that, by default, block HTML elements occupy the entire width of the page, even if there isn't actual content that extends that far. In this case, you'll want to set the width so that your element's size more accurately represents its content and you don't have unnecessary white space. 
+
+
+#### The Clear Property
+
+Once you have some elements floating things can get a little messy. Its easy for floating objects to overlap, and to prevent this you can use the "clear" property.
+
+[Documentation](https://www.w3.org/TR/CSS22/visuren.html#propdef-clear)
+
+```css
+p {
+   clear: both;
+}
+```
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+  <body>
+   <div id="default">
+   This div is not floating, has no width set.
+   </div>
+   <div id="floatRightNoWidth">
+   This div is floating right, but no width is set.
+   </div>
+   <div id="floatRightTooWide">
+   This div is floating right, but the text is very very very long. This makes the div fill the horizontal space of the page by default, so when it is floated it doesn't look like it goes anywhere.
+   </div>
+   <div id="noFloatWidthSet">
+   This div isn't floating, and its width is set to 40%. Floating elements can overlap.
+   </div>
+ 
+   <div id="floatRightWidthSet">
+   This div is floating right, and its width is set to 30%
+   </div>
+   <div id="noFloatClearRight">
+   This div isn't floating, and it is set to clear to the right, so nothing can overlap.
+   </div>
+  </body>
+</html>
+```
+
+CSS code:
+
+```css
+body {
+   font-size: 24pt;
+   font-family: helvetica, sans-serif;
+}
+div {
+   margin-bottom: 10px;
+}
+#default {
+   background-color: red;
+}
+#floatRightNoWidth {
+   background-color: orange;
+   float: right;
+}
+#floatRightTooWide {
+   background-color: yellow;
+   float: right;
+}
+#noFloatWidthSet {
+   background-color: green;
+   width: 40%;
+}
+#noFloatClearRight {
+   background-color: purple;
+   clear: right;
+}
+#floatRightWidthSet {
+   background-color: blue;
+   width: 30%;
+   float: right;
+}
+```
+
+... and the resulted output image:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/78bb3347b1a747dcb8b73dd7ef309e50/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40fc1f61466cbb45e191c5030fdd9bf38e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/445a62ab3ed7255b919c73ceac322320/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-3_float.PNG" style="margin: 0.1em;" alt="Result of float example code" title="Result of float example code" width="250">
+  </a></div>
+</div>
 
 
 ### Activity
