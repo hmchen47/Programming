@@ -581,9 +581,130 @@ __HINT__: Pay close attention to the IDs applied to the HTML elements
 
 ### Meet relative positioning
 
+<video src="https://edx-video.net/W3CCSS0I2016-V005300_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@5f16c9019b6b4e0ab7ba5b7b0ec29532/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
 
 
-### Activity
+### The position property
+
+The "position" property sets the algorithm for how the Web browser will compute the way the HTML elements are placed on the page. There are four different value options for the position property: 
+
++ __relative__ - This is the position setting we will be discussing in detail as it is the best way to build on the dynamic layout methods we have learned thus far. This lets you specify where an HTML element should be relative to where it would be by default.
++ __static__ - This is the default setting and will place an element wherever the web browser computes it should be.
++ __fixed__ - This places an element in a specific location within the window. You can use this to set an element to remain where it is regardless of scrolling. This was used heavily when "frames" were popular, however now it should be used very sparingly.
++ __absolute__ - This allows you to position elements relative to their containing box. This removes an element from its normal flow (just like a floating element) so it can be difficult to control and make a layout that is truly dynamic.
+
+[Documentation](https://www.w3.org/TR/CSS22/visuren.html#choose-position)
+
+```css
+div {
+   position: relative;
+}
+```
+
+Once you've set the position to "relative" that frees you up to set the top, right, bottom and left properties- otherwise known as the "box offsets". These properties specify the distance between this object and its normal static position and the corner of the box that we are specifying.
+
+For example, if we set the "left" to be "30px", it will move the element 30px to the right away from the left of where it was placed by default.
+
+```css
+p {
+   position: relative;
+   left: 30px;
+}
+```
+
+[Documentation](https://www.w3.org/TR/CSS22/visuren.html#position-props)
+
+Note that position is not an inherited property so you will have to apply it individually to each element. Because of this it is best to use this approach to designing your layout sparingly and should only be used after you cannot achieve your desired layout with alignment or floating. 
+
+
+First example with this CSS code:
+
+```css
+h1 {
+   background-color: red;
+   width: 300px;
+   position: relative;
+   left: 150px;
+}
+section {
+   background-color: orange;
+   height: 100px;
+}
+h2 {
+   position: relative;
+   top: 20px;
+}
+footer {
+   background-color: yellow;
+   height: 200px;
+   width: 300px;
+   position: relative;
+   left: 50px;
+   top: 50px;
+}
+h3 {
+   position: relative;
+   top: 50px;
+   left: 10px;
+}
+```
+
+.... gives this output:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/14550b18e08e46ed8b8f19621768cab4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%400e765880600543b3ab4add58441fbb59">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a4ce8d619c1e91db563362743d829e21/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/css-intro-4-4-position1.png" style="margin: 0.1em;" alt="Relative positioning - no overlap" title="Relative positioning - no overlap" width="350">
+  </a></div>
+</div>
+
+
+Note that relative positioning can make elements overlap - check the following CSS code as a second example:
+
+```css
+h1 {
+   background-color: red;
+   width: 300px;
+   position: relative;
+   left: 150px;
+}
+section {
+   background-color: orange;
+   height: 100px;
+}
+h2 {
+   position: relative;
+   top: 20px;
+}
+footer {
+   background-color: yellow;
+   height: 200px;
+   width: 300px;
+   position: relative;
+   left: 50px;
+   top: -50px;
+}
+h3 {
+   position: relative;
+   top: 50px;
+   left: 10px;
+}
+```
+
+... that gives this different output:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/14550b18e08e46ed8b8f19621768cab4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%400e765880600543b3ab4add58441fbb59">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/fecd6b132ba6083f0694307af1dc85c0/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/css-intro-4-4-position2.png" style="margin: 0.1em;" alt="Relative positioning - overlap" title="Relative positioning - overlap" width="350">
+  </a></div>
+</div>
+
+
+
+### Activity - Practice with relative positioning
+
 
 
 
