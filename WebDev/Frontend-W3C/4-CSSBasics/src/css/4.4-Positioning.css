@@ -1,0 +1,21 @@
+body {
+  background-color: #EFEFEF;
+  color: #A9A9A9;
+  font-family: "Book Antiqua", serif; 
+}
+h1 {
+  color: #FF3B3F;
+}
+h2 {
+}
+div {
+  background-color: #CAEBF2;
+  width: 80%;
+}
+h3 {
+  color: #FF3B3F;
+}
+p {
+  width: 90%;
+}
+
