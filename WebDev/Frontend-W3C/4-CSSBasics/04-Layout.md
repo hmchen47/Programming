@@ -816,7 +816,29 @@ Now that we are at the end of Module 4, you have a long list of different ways t
 
 
 
-### Module 4 project
+### Module 4 project - My resume
+
+In Modules 2 and 3, you've been building on a Web page that displays personal information about you. For this module project, we are going to continue to build on that work and turn our profile into a "resume" or "CV". It's almost a requirement these days that you have a professional online presence, so this is a good way to start building that online portfolio.
+
+Traditional printed resumes typically are required to fit on a single piece of paper (A4 or Letter sizes), which means they need to make very effective use of the space available. For this project, you are going to try to reproduce a typical resume layout but with HTML and CSS.
+
+Here is what my Web resume looks like:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/5999eaf51b77404eb43cdf0e62531fad/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%400e4ed413a4ba419ba83de5eda7ae06d2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/07fb2ab374e9dcd5a05257cf25507fde/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-6_Kasey_Resume.PNG" style="margin: 0.1em;" alt="Kasey's web resume" title="Kasey's web resume" width="350">
+  </a></div>
+</div>
+
+To more closely simulate a paper resume, your entire page's content must be centered in the middle 75% of the page. All your content should remain centered, and in the same position relative to the other elements on the page when you resize the browser window. 
+
+For this project you must at least:
+
++ Use percentages to set the width of 3 elements
++ Change the text-alignment property to something other than "left" on at least 1 element
++ Have 4 floating elements
++ Use the clear property once
++ Use the position property and box offsets to position at least 2 elements
 
 
 
