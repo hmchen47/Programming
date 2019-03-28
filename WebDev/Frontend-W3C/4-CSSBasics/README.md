@@ -142,7 +142,7 @@
     1. [Footers](04-Layout.md#)
 + [4.6 Project 4 - My resume](04-Layout.md#)
     1. [When to use what?](04-Layout.md#)
-    1. [Module 4 project](04-Layout.md#)
+    1. [Module 4 project- My resume](04-Layout.md#)
 + [4.7 Conclusion and exercises](04-Layout.md#)
     1. [After Module 4, you should be able to...](04-Layout.md#)
     1. [Exercises (1-5)](04-Layout.md#)
