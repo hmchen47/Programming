@@ -830,7 +830,7 @@ Here is what my Web resume looks like:
   </a></div>
 </div>
 
-To more closely simulate a paper resume, your entire page's content must be centered in the middle 75% of the page. All your content should remain centered, and in the same position relative to the other elements on the page when you resize the browser window. 
+To more closely simulate a paper resume, your entire page's content must be centered in the middle 75% of the page. All your content should remain centered, and in the same position relative to the other elements on the page when you resize the browser window.
 
 For this project you must at least:
 
@@ -846,6 +846,14 @@ For this project you must at least:
 
 ### After Module 4, you should be able to...
 
++ Control exactly where an HTML element is placed on a page
++ Design the layout of your HTML elements such that they stay aligned as the window grows and shrinks
++ Employ the alignment, float and position properties when appropriate for optimal page structure
+
+In the next module, we'll...
++ Learn about how to design your Web page to meet your user's needs
++ Review historical web design trends and what we can learn from them
++ Explore current Web design styles and learn how to best use them
 
 
 ### Exercises (1-5)
