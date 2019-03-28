@@ -858,6 +858,84 @@ In the next module, we'll...
 
 ### Exercises (1-5)
 
+Use the following diagram representing the box model to answer questions 1, 2 and 
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/60880ee11cf3463bb80468dfb9f19d2b/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4046c0b6a1f3b1405aa8ba43aecec465e5">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c9a8a2e2fc13dbf7c17b4d68132bf6f1/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-7-1_box_model.PNG" style="margin: 0.1em;" alt="Box model showing regions a, b, c and d" title="Box model showing regions a, b, c and d" width="350">
+  </a></div>
+</div>
+
+
+1. "Region C"
+
+    What is the name of the region labeled "Region C" above?
+
+  Ans: padding
+
+2. "Region A"
+
+    What is the name of the region labeled "Region A" above?
+
+    Ans: margin
+
+
+3. "Region B"
+
+    What is the name of the region labeled "Region B" above?
+
+    Ans: border
+
+
+Use the following code to answer questions 4 and 5
+HTML code:
+
+```html
+<section>
+   <article>
+      <h1>Header 1</h1>
+   </article>
+</section>
+```
+
+CSS code:
+
+```css
+section {
+   width: 1000px;
+}
+article {
+   width: 50%;
+}
+h1 {
+   width: 10%;
+}
+```
+
+4. Wide element
+
+    Based on the HTML and CSS give, how wide will the article element be?
+    1) 500px
+    2) 50px
+    3) 250px
+    4) 100px
+    5) 1000px
+
+    Ans: 1 <br/>
+    Explanation: 50% of 1000px equals 500px!
+
+
+5. Wide h1
+
+    Based on the HTML and CSS give, how wide will the h1 elements be?
+    1) 500px
+    2) 50px
+    3) 250px
+    4) 100px
+    5) 1000px
+
+    Ans: 2 <br/>
+    Explanation: 10% of 50% of 1000px equals 50px ;)
 
 
 ### Exercises (6-10)
