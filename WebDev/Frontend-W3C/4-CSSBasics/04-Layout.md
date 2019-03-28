@@ -119,7 +119,8 @@ Once you finish this course, look out for these and other international features
 
 Until now we've let the browser decide how big the element is, but you can actually adjust its width and height manually.
 
-Width and height
+#### Width and height
+
 Documentation: [the width property](https://www.w3.org/TR/CSS22/visudet.html#the-width-property) and [the height property](https://www.w3.org/TR/CSS22/visudet.html#the-height-property)
 
 ```css
@@ -940,8 +941,88 @@ h1 {
 
 ### Exercises (6-10)
 
+6. Avoiding pixelisation
+
+    When displaying an image, what is the best way to integrate it into your design and prevent it from becoming too pixelated?
+
+    1) Set your image's width to a percentage, and set its max-width so it cannot overgrow its quality
+    2) Set your image's width to a percentage to let it dynamically resize with your user's window
+    3) Set your image's width to a specific pixel size so it will not resize
+    4) Upload the image in the desired dimensions, and do not let it resize with your design
+
+    Ans: 2 <br/>
+    Explanation: Pixelisation occurs when images are stretched, but not when they are shrunk. The max-width avoids that the image stretches.
+
+
+7. Centering things
+
+    What is the best way to dynamically center a block element horizontally within its containing element?
+
+    1) Set the outer block element's left and right margins to auto
+    2) Set the outer block element's text-align property to center
+    3) Set the inner block element's left and right margins to auto
+    4) Set the inner block element's text-align property to center
+
+    Ans: 3, x1 <br/>
+    Explanation: The text-align property affects text within a block, but not the block as a whole. The auto margins have to be on the block that is to be centered.
+
+
+8. Centering in a block
+
+    What is the best way to center the inline content, like text and images, horizontally within a block element?
+    1) Set the inner block element's line-height to the size of the outer block element
+    2) Set the block element's text-align property to center
+    3) Set the block element's left and right margins to auto
+    4) Set the inline content's text-align property to center
+
+    Ans: 2, x3 <br/>
+    Explanation: Inline content is affected by the text-align property. The margins on the block do not influence the alignment of inline content.
+
+
+9. Vertical centering
+
+    What is the simplest way to vertically center a single line of text content within a block element?
+    1) Set the block element's line-height to the same value as the height of the block
+    2) Set the block element's left and right margins to auto
+    3) Set the block element's text-align property to center
+
+    Ans: 1 <br/>
+    Explanation: Text is put in the middle of the vertical space given by the line-height property. Text-align only works in the horizontal direction and the margins of the block element do not affect the alignment of the text within the element.
+
+
+Use the following code to answer question 10:
+HTML code:
+
+```html
+<h1> Header 1 </h1>
+<h2> Header 2 </h2>
+```
+
+CSS code:
+
+```css
+h1 {
+   margin: 50px;
+}
+h2 {
+   margin: 10px;
+}
+```
+
+10. Margin size
+
+    Based on the HTML and CSS above, what is the resulting margin separating the H1 and H2 elements?
+    1) 20px
+    2) 50px
+    3) 80px
+    4) 30px
+
+    Ans: 2 <br/>
+    Explanation: The vertical margin between two elements is the largest of the two elements' margins.
+
 
 
 ### Exercises (11-14)
+
 
 
