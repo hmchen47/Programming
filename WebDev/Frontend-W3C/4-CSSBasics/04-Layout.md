@@ -803,10 +803,16 @@ This final design flows with the overall structure of the page, but limits the c
 
 
 
-
 ## 4.6 Project 4 - My resume
 
 ### When to use what?
+
+Now that we are at the end of Module 4, you have a long list of different ways to move HTML elements around your page using CSS. With so many tools come choices, as you can now accomplish the same task multiple ways. Here are some guidelines on how to decide when to use which tool, in the order in which you should use them when positioning an element.
+
+1) Use padding and margin whenever you can. This will keep things simple in relation to the box model and the overall flow of elements in relation to one another.
+2) The float property is necessary when you want two block elements to share horizontal space. It can be easy to overuse the float property, keep in mind that if elements aren't floating the way you want them to you might want to adjust their order in the HTML instead of applying float to more and more elements.
+3) If the above tools aren't getting your element where it should be, you can use relative positioning and directly set the box offsets (top, bottom, left, right). This makes things a bit more complicated especially when you try to inspect the box model around your element, but sometimes this is unavoidable because of collapsing margins. 
+4) If all that is not enough, there are advanced CSS features such as flexbox, table layout, absolute positioning and grid layout. These will be taught in an advanced CSS course.
 
 
 
