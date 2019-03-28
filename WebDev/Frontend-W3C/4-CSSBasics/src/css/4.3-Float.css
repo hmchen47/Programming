@@ -36,15 +36,18 @@ header h2 {
    float: right;
    text-align: center;
 }
- 
+
 #navigation li:hover {
    border-bottom: 1px #FC4A1A solid;
 }
+
 #content {
    background-color: #DFDCE3;
    width: 50%;
    margin: 0 auto;
+   overflow: auto;
 }
+
 div {
    background-color: #FC4A1A;
    width: 250px;
@@ -52,3 +55,22 @@ div {
    padding: 10px;
    margin: 20px;
 }
+
+#topRight {
+   float: right;
+}
+
+#bottomRight {
+   float: right;
+}
+
+#topLeft {
+   float: left;
+}
+
+#bottomLeft {
+   float: left;
+}
+
+
+
