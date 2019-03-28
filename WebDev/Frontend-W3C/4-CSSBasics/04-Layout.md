@@ -702,10 +702,22 @@ h3 {
 </div>
 
 
-
 ### Activity - Practice with relative positioning
 
+For this activity, we are going to focus on using relative positioning to adjust how items sit on the page.
 
+Here is some [HTML and CSS](https://codepen.io/techie4good/pen/KgwRwg)
+
+Your task is to add CSS so that you achieve this final layout:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/14550b18e08e46ed8b8f19621768cab4/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%400e765880600543b3ab4add58441fbb59">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/96e4824c9970225df71220b783177964/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-4_activity_output.PNG" style="margin: 0.1em;" alt="Relative positioning activity output" title="Relative positioning activity output" width="450">
+  </a></div>
+</div>
+
+
+You can do this with padding and margins, but limit yourself to only add position, top and left properties. Try resizing your browser window, and if you've implemented everything correctly all the elements will stay in the same position relative to one another.
 
 
 ## 4.5 Style studies
