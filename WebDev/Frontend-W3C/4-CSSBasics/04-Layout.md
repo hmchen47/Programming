@@ -724,6 +724,41 @@ You can do this with padding and margins, but limit yourself to only add positio
 
 ### Menus
 
+One of the most important aspects of any Web site is the navigation menu. Over time, top level navigation has become fairly standardized so your user will be looking for some key elements that help them find their way around your site:
+
+A small group of descriptive links in a rectangular arrangement, often horizontally
+A hover style to give your user some amount of responsiveness
+A special style indicating the link for the page you are currently on
+
+Menu 1
+This is a very basic menu design. It floats the list elements to the left and gives them each a simple hover property (underline) and a new background color for the link representing the page you are currently viewing.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/715961f4bb784c38a01f469bb345ee7b/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%404c834437628a4b35844d8d2e10d8dedf">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6985026ba90be845a330a399bc6b59a1/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-5_menu_1.PNG" style="margin: 0.1em;" alt="Menu 1 design" title="Menu 1 design" width="450">
+  </a></div>
+</div>
+
+
+Menu 2
+This menu design uses a vertical arrangement but still floats the overall menu object so it can sit level with your content. You can also see a tabbed format here where the page you are currently viewing directly connects to the menu item representing it. 
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/715961f4bb784c38a01f469bb345ee7b/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%404c834437628a4b35844d8d2e10d8dedf">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/33113a2129d524c729491baf42660eab/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-5_menu_2.PNG" style="margin: 0.1em;" alt="Menu 2 design" title="Menu 2 design" width="450">
+  </a></div>
+</div>
+
+
+Menu 3
+This third design employs hover as a way to expose secondary links. This lets you leave the top level clean and simple but gives the user the power of more specific options when they interact with your header.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/715961f4bb784c38a01f469bb345ee7b/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%404c834437628a4b35844d8d2e10d8dedf">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e082cebfa12f01a129b47d94dd0a929a/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-5_menu_3.PNG" style="margin: 0.1em;" alt="menu 3 design" title="menu 3 design" width="450">
+  </a></div>
+</div>
+
 
 
 ### Footers
