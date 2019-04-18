@@ -1024,5 +1024,97 @@ h2 {
 
 ### Exercises (11-14)
 
+Use the following code to answer question 11:
+
+HTML code:
+
+```html
+<article>
+    <img src="images/myPic.jpg" alt="A boy raises his hand in a classroom" /> 
+    <p>This is the test I would like to surround my image. This text is sitting to the right of my image, and the image is touching the left of the window. </p>
+</article>
+```
+
+The result:
+
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/2fb0b177f7594d2aa29f0ffa9e3b8b0a/60880ee11cf3463bb80468dfb9f19d2b/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4046c0b6a1f3b1405aa8ba43aecec465e5">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/06eebde78ad82ec57f0883100f27eedf/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/4-7-2_float.PNG" style="margin: 0.1em;" alt="A boy raises his hand in a classroom" title="A boy raises his hand in a classroom" width="250">
+  </a></div>
+</div>
+
+
+11. Left and right
+
+    Which of the following CSS rules applied to the above HTML will result in the given image where the img is positioned to the left of the text on its right?
+    1) `p { float: left; }`
+    2) `img { float: left; }`
+    3) `p { float: right; }`
+    4) `img { float: right; }`
+
+    Ans: 2 <br/>
+    Explanation
+    + p { float: right; } and p { float: left; } would both put the text below the image, because the p element would be as wide as the article.
+    + img { float: right; } would put the image on the right.
+    + img { float: left; } is the correct answer.
+
+
+Use the following code to answer questions 12 and 13:
+
+HTML code:
+
+```html
+<ul>
+   <li>Amsterdam</li>
+   <li>Bangkok</li>
+   <li>Cairo</li>
+   <li>Dubai</li>
+</ul>
+```
+
+12. Float left
+
+    In what order will the items (words) be displayed if the following CSS rule was applied to the above HTML?
+
+    ```css
+    li { float: left; }
+    ```
+
+    1) Dubai Cairo Bangkok Amsterdam
+    2) Amsterdam Bangkok Cairo Dubai
+    3) Cairo Dubai Amsterdam Bangkok
+    4) Bangkok Cairo Dubai Amsterdam
+
+    Ans: 2 <br/>
+    Explanation: { float: left; } moves elements to the left as far as possible, but not further than any earlier elements in the list.
+
+
+13. Float right
+
+    In what order will the items (words) be displayed if the following CSS rule was applied to the above HTML?
+
+    ```css
+    li { float: right; }
+    ```
+
+    1) Dubai Cairo Bangkok Amsterdam
+    2) Bangkok Cairo Dubai Amsterdam
+    3) Cairo Dubai Amsterdam Bangkok
+    4) Amsterdam Bangkok Cairo Dubai
+
+    Ans: 1 <br/>
+    Explanation: { float: right; } moves elements to the right as far as possible, but not further than any earlier elements in the list.
+
+
+14. Relative positioning definition
+
+    Which of the following best describes "relative positioning"?
+    1) An element can be positioned relative to where it would be placed by default.
+    2) An element can be positioned relative to its parent element with the same setting.
+    3) An element can be positioned relative to the window such that as you scroll the element will remain in the same place.
+
+    Ans: 1 <br/>
+    Explanation: To keep an element fixed in the window, use "fixed positioning". To position an element reative to its parents, use "absolute positioning".
 
 
