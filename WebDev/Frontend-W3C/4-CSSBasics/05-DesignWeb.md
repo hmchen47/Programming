@@ -330,9 +330,40 @@ Example: See the W3C logo below. It contains a link that points to the W3C Web s
 </a>
 ```
 
-
 ### Inclusive design
 
+As you are designing your site, it is critical that you keep in mind the range of users who might be viewing your page. There are some simple design choices you can make to ensure that your web page is as inclusive as possible.
+
+Typically a good approach is to keep your designs on the simpler side. Not only is this in line with current trends, but when there are fewer elements and styles, it is easier for everyone to consume the information you are trying to convey.
+
+
+#### color-blind
+
+When a user is color-blind, it typically means there is a category of colors that are difficult for them to distinguish between. So, by picking diverse colors that contrast well, you can ensure that these users can still read your page. To do this:
+
+1. Pick a base color (example: blue).
+2. Choose one or two shades of the same color (example: pastel blue, navy blue) as supplementary colors. Make sure these colors contrast with the base color, meaning that if one was placed on top of the other, it is still legible. Also, if you are choosing multiple supplementary colors, try to pick one from the yellows group (warmer colors) and one from the blues group (cooler colors). This way, a color-blind user is likely to only have difficulty seeing one of these, not both.
+3. Select an accent color that is a totally different color from the previously chosen colors.
+
+Even with a carefully chosen palette, it might still be difficult for a user to distinguish between colors. In addition to using color to indicate something, you'll also want to use shape. For example, if you have two buttons, one that is green for "agree" and one that is red for "disagree", it can be almost impossible for some users to decide which to click! In this case, you'll want to make sure they are both clearly labeled, or the shapes of the buttons are distinctly different.
+
+Thankfully, The Paciello Group has created a tool you can download to check if your chosen colors provide enough contrast for color blind users. You can find out more about this free tool [here](https://www.paciellogroup.com/resources/contrastanalyser/)
+
+
+#### low-vision
+
+It is extremely common (as many as 20% of users over 45) for a user to have difficulty reading small text. These users often will have their Web browser set to magnify text to a size that is more comfortable for them, which can make all your carefully designed layouts look very different. These users will typically do one of two things:
+
++ _zoom in on the entire page_: you can test to see what this experience will be like with your own Web browser, typically with the "ctrl+" shortcut.
++ _use a text-only zoom_: to see what it looks like, you might want to test your layout with larger fonts, like 24pt or 32pt, to make sure your layout can grow to accommodate the overflow text. Also, note that long lines of text (over 50 characters wide) can be especially difficult to scroll through to read.
+
+In general, you will want to make sure your font size is at least 1em. By using em you can let the text size grow based on the user's browser settings. 
+
+
+#### External resources
+
++ [Tips on designing for Web accessibility](https://www.w3.org/WAI/gettingstarted/tips/designing) - on W3C's WAI Web site
++ [Color contrast](https://www.w3.org/WAI/eval/preliminary.html#contrast)
 
 
 ### What is internationalization?
