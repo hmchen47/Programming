@@ -149,7 +149,6 @@ Web sites can become pretty complicated if you add many design elements, and it 
 In this module, we'll discuss how to style the three most fundamental design aspects of a Web page: typography, color, and white space.
 
 
-
 ### Typography
 
 A good rule of thumb when designing your Web site is to use no more than two different typefaces per page. Typically this means that you select 1 bold typeface for titles or other eye-catching pieces of text, and a neutral typeface for large blocks or the body text of your page. 
@@ -187,6 +186,12 @@ When choosing your font, probably the biggest choice you'll make is what categor
 #### External resource
 
 + Here is the W3C documentation for all of CSS's font properties: [CSS Fonts Module Level 3](https://www.w3.org/TR/css-fonts-3/).
++ Difference between type family, font face, typeface, font in the context of typography
+  + __Type Family__ - The design of all the characters comprised of a family and all its encompassing faces. `Helvetica` is a type family. Helvetica Condensed is a type family, Myriad Pro is a type family, etc.
+  + __Typeface__ - the specific weight or instance of a particular family. I.E. `Bold`, `italic`, `oblique` are all typefaces. Typeface is generally referred to by family + face. For example Helvetica Bold Italic would be referred to as the typeface where `Helvetica` is the Family and `Bold Italic` is the face.
+  + __Font__ - Refers to the computer software file which contains information regarding _the display and output of a typeface_. You choose a font from the typeface menu. Fonts only exist on a computer. In the world today many use the word "Font" incorrectly -- "oh, I like that font." is wrong. It should be "Oh, I like that typeface." However, "Which font did you pick for that Photoshop design?" would be correct. Whereas, "What font is used in this logo?" is incorrect (should be typeface).
+  + __Font Face__ - (somewhat interchangeable with typeface) the face of the type family. For example `Bold` or `Italic` are a face where as `Helvetica` would be the family. Referencing "font", font face specifically refers to the software used to render a particular face of a family - You may have `Helvetica bold` as a font face, but not `Helvetica italic`.
+
 
 
 ### Color
@@ -231,7 +236,7 @@ It can be difficult to strike a good balance of white space. The most common mis
 
 You will want to make liberal use of paddings and margins to make sure that your site has plenty of empty space. Empty space makes it easier for a user's eyes to move around your page. You will want to ensure there is space between your HTML elements as well as between your elements and the edge of the page. 
 
-Good balance between content and white space prevents your user from becoming fatigued while looking at your site. For example, when lines of text are very long, it is difficult to read without losing track of where you are. It is also fatiguing when the lines of text are too short because the user has to read vertically too much. There is considerable research on the topic, but a good rule of thumb is to limit lines of text to 50-75 characters wide. 
+Good balance between content and white space prevents your user from becoming fatigued while looking at your site. For example, when lines of text are very long, it is difficult to read without losing track of where you are. It is also fatiguing when the lines of text are too short because the user has to read vertically too much. There is considerable research on the topic, but a good rule of thumb is to limit __lines of text to 50-75 characters wide__. 
 
 
 ### Activity 5.2 - Breaking design guidelines
@@ -241,17 +246,89 @@ For this activity, you'll need to find a Web site that violates one of the follo
 2. Uses more than 4 different colors within the same page
 3. Displays text wider than 50-75 characters across
 
+Example:
+
++ [LingsCars](https://www.lingscars.com/): violate 1, 2, & 3
++ http://www.arngren.net/: looks like old way advertisement, violates 2, though the text not wider than 50~70 but the pcitures crowded the whole page, only one font-family: "New Time Roman"
++ [World's Worst Website Ever](http://www.arngren.net/): violate 1, 2
+
+
 Once you have found a site, please share it in the discussion and answer the following questions:
 1. Which of the 3 design guidelines are violated? More than 1 guideline?
 2. Do you think that violation is a problem in this design?
 3. How you you improve the design overall? 
 
 
-
 ## 5.3 Designing for your audience
 
 ### Intro to Web accessibility
 
+#### What is Web accessibility?
+
+> The power of the Web is in its universality.<br/>
+> Access by everyone regardless of disability is an essential aspect.<br/>
+> __Tim Berners-Lee, W3C Director and inventor of the World Wide Web__
+
+The Web has become an essential aspect of our daily lives, and everyone should have access to this technology. Web accessibility focuses on ensuring equivalent access for people with disabilities. It is increasingly important to many organizations and governments from around the world, and has many business benefits. Access to information, including on the Web, is also recognized by the UN Convention on the Rights of Persons with Disabilities (CRPD).
+
+##### Who is impacted?
+
+Web accessibility addresses all disabilities, including hearing, learning and cognitive, neurological, physical, speech, and visual disabilities. Some examples of Web accessibility features include:
+
++ Captions on audio and multimedia content for people who are hard of hearing;
++ Clear and consistent layout for people with learning and cognitive disabilities;
++ Keyboard support for people with physical disabilities and do not use a mouse;
++ Text alternatives for people with visual disabilities and using screen readers;
+
+__Web accessibility benefits people with and without disabilities__
+
+Web accessibility features also benefit many more users, such as:
+
++ People with temporary situational limitations, such as a broken arm;
++ People using mobile devices, televisions, and other access channels;
++ People using older computers, with low bandwidth, and other limitations;
++ People who are new to computers, to the Web, or to your own website;
++ People who are not fluent in the language of your particular website;
+
+The Web is an increasingly important resource in many aspects of life: education, employment, government, commerce, health care, recreation, and more. When Web pages, Web technologies, Web tools, or Web applications are badly designed, they can create barriers that exclude people from using the Web. More information is available in the [W3C Accessibility](https://www.w3.org/standards/webdesign/accessibility) overview.
+
+#### First steps in Web accessibility
+
+There are many simple Web accessibility improvements that you can implement and check right away, even when you are new to this topic. Two example excerpts are provided below on this page but you can find more tips and information from W3C/WAI:
+
++ [Tips for Getting Started with Web Accessibility](https://www.w3.org/standards/webdesign/accessibility)
++ [Easy Checks - A First Review of Web Accessibility](https://www.w3.org/WAI/eval/preliminary)
+
+
+##### Example 1: page title
+
+Good page titles are particularly important for orientation - to help people know where they are and move between pages open in their browser. The first thing screen readers say when the user goes to a different Web page is the page title. In the Web page markup, they are the `<title>` within the `<head>`.
+
+__Check #1: There is a title that adequately and briefly describes the content of a page, and that it distinguishes the page from other Web pages.__
+
+Example:
+
+```html
+<head>
+...
+   <title>Web Accessibility Initiative (WAI) - home page</title>
+...
+</head>
+```
+
+##### Example 2: image text alternatives ("ALT TEXT")
+
+Text alternatives ("alt text") are a primary way of making visual information accessible, because they can be rendered through any sensory modality (for example, visual, auditory or tactile) to match the needs of the user. Providing text alternatives allows the information to be rendered in a variety of ways by a variety of user agents. For example, a person who cannot see a picture can have the text alternative read aloud using synthesized speech.
+
+__Check #2: Every image has alt with appropriate alternative text.__
+
+Example: See the W3C logo below. It contains a link that points to the W3C Web site. The text alternative is going to be a brief description of the link target.
+
+```html
+<a href="http://w3.org">
+   <img src="images/w3c_home.png" width="72" height="48" alt="W3C Web site">
+</a>
+```
 
 
 ### Inclusive design
