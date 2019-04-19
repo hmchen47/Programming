@@ -449,8 +449,19 @@ Don't use CSS to apply direction for bidirectional or right-to-left scripts, suc
 5. __Use start and end__: Using these values, where possible, rather than left and right makes it easier to convert content between languages that use right-to-left and lef-to-right scripts.
 
 
-### Activity 5.3
+### Activity 5.3 - Accessibility guidelines
 
+For this section, your task is to go out and find a Web page that has one of the following issues:
+
+1. A page that does not have a title set in its header
+2. A page that has images without alt-text
+3. A page with a color scheme makes it difficult for color-blind users to use
+4. A page with a layout that breaks on text-only zoom
+
+Once you've found an example of any of the above, post it on the discussion below, and answer the following questions:
+
+1. Which of the above 4 accessibility guidelines does this page break? More than one?
+2. Because of this violation what part of the Web page becomes inaccessible and to which group of users?
 
 
 ## 5.4 Historical Web design trends
