@@ -24,6 +24,20 @@
 
 ### The importance of design
 
+#### Video: the importance of design
+
+<video src="https://edx-video.net/W3CCSS0I2016-V005200_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@05f1d31c3812439f84c6020adf4c1c8b/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+#### Web stats
+
+Numerous studies have been done to determine exactly how important Web design is. Here are a few interesting stats to guide you:
+
++ 38% of people will stop engaging with a website if the content/layout is unattractive
++ 2 out of every 3 minutes spent on the Web are via a mobile device
 
 
 
