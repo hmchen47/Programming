@@ -174,7 +174,7 @@
     1. [Moving pieces](05-DesignWeb.md#)
     1. [Rigid layouts](05-DesignWeb.md#)
     1. [Heavy content](05-DesignWeb.md#)
-    1. [Activity 5.4](05-DesignWeb.md#)
+    1. [Activity 5.4 - Retro design styles](05-DesignWeb.md#)
 + [5.5 Current Web design trends](05-DesignWeb.md#)
     1. [The current state of Web design](05-DesignWeb.md#)
     1. [Minimalism](05-DesignWeb.md#)
