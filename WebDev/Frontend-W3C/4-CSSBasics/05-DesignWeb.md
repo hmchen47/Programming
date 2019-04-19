@@ -234,8 +234,17 @@ You will want to make liberal use of paddings and margins to make sure that your
 Good balance between content and white space prevents your user from becoming fatigued while looking at your site. For example, when lines of text are very long, it is difficult to read without losing track of where you are. It is also fatiguing when the lines of text are too short because the user has to read vertically too much. There is considerable research on the topic, but a good rule of thumb is to limit lines of text to 50-75 characters wide. 
 
 
+### Activity 5.2 - Breaking design guidelines
 
-### Activity 5.2
+For this activity, you'll need to find a Web site that violates one of the following design guidelines:
+1. Uses more than 2 different font-faces within a single page
+2. Uses more than 4 different colors within the same page
+3. Displays text wider than 50-75 characters across
+
+Once you have found a site, please share it in the discussion and answer the following questions:
+1. Which of the 3 design guidelines are violated? More than 1 guideline?
+2. Do you think that violation is a problem in this design?
+3. How you you improve the design overall? 
 
 
 

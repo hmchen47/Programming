@@ -162,7 +162,7 @@
     1. [Typography](05-DesignWeb.md#)
     1. [Color](05-DesignWeb.md#)
     1. [White space](05-DesignWeb.md#)
-    1. [Activity 5.2](05-DesignWeb.md#)
+    1. [Activity 5.2 - Breaking design guidelines](05-DesignWeb.md#)
 + [5.3 Designing for your audience](05-DesignWeb.md#)
     1. [Intro to Web accessibility](05-DesignWeb.md#)
     1. [Inclusive design](05-DesignWeb.md#)
