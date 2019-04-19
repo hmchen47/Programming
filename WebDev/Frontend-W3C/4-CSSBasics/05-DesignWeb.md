@@ -587,6 +587,13 @@ Benefits of flat design:
 
 ### Long scrolling
 
+In the past, Web sites were comprised of many separate pages that you would navigate to, leaving behind the page you came from. These days, you'll often find pages that are comprised of a single long scrolling page with links that just jump to different portions of the page. The reason for this is less about fashion and more about technological developments. Especially on touch devices, scrolling is a more natural human way to interact with a page.
+
+This can be accomplished with something called "internal links". This is where you load the entire page as one long site and the links at the top simple jump to different locations within the site. To do this, you need to give the section you want to jump to an id, and then you use the `id` selector as the `href` setting on the anchor tag. 
+
+[HTML Example](src/5.5-LongScroll.html)
+
+There are other methods that are more advanced that save you from loading the entire page. One technique under development to make scrolling easier and more accurate is a module called "[CSS Scroll Snap](https://www.w3.org/TR/css-scroll-snap-1/)".
 
 
 ### New layout techniques (OPTIONAL)
