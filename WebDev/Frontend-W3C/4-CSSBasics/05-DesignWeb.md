@@ -137,12 +137,16 @@ The CSS WG members are working on a [whole range of specifications](https://www.
   </a></div>
 </div>
 
-T
-
 
 ## 5.2 The basics of design
 
 ### Applying basic design principals
+
+Often it's hard to pull apart the pieces of a design that are "good" or "bad", most of that is subjective. Instead, it's better to think of individual pieces of a design as "effective" or "ineffective" according to the demographic and the task they are trying to achieve. 
+
+Web sites can become pretty complicated if you add many design elements, and it can be intimidating to figure out how to get started when thinking about how to present your Web page. One of the best ways to get started is to think about each of the individual HTML elements we've learned how to style so far, and how to style according to your specific goals. 
+
+In this module, we'll discuss how to style the three most fundamental design aspects of a Web page: typography, color, and white space.
 
 
 
