@@ -463,6 +463,9 @@ Once you've found an example of any of the above, post it on the discussion belo
 1. Which of the above 4 accessibility guidelines does this page break? More than one?
 2. Because of this violation what part of the Web page becomes inaccessible and to which group of users?
 
+Examples: 
+
++ [Most Famous Videos of the Last Century](https://www.scaruffi.com/politics/videos.html): violate 1
 
 ## 5.4 Historical Web design trends
 
@@ -522,7 +525,36 @@ Animations are beyond the scope of this class, however be aware that there are t
 
 
 
-### Activity 5.4
+### Activity 5.4 - Retro design styles
+
+For this activity, please find a retro styled Web site that uses one of the following outdated design elements. You might want to use the Internet Archive to find some older Web pages where these elements were more prevalent.
+
+1. overly animated text
+2. animated cursors
+3. Frames
+4. HTML table layouts
+
+Once you've found an example page, post it in the discussion and answer the following questions:
+
+1. Which historic design element does this page use? More than one?
+2. What new technology would you use to modernize this element?
+
+
+Examples:
+
++ [Neo-Surrealism Art](https://web.archive.org/web/20060410143214/http://www.neosurrealismart.com/): violated 2, 4
++ [Moving Letters](https://tobiasahlin.com/moving-letters/): violated 1 (bit it's ok on this webpage)
++ [16 Frames](https://www.w3.org/TR/html401/present/frames.html): violate 3 (bot the webpage itself but the contents described)
+
+
+#### Resources
+
++ [Framing](https://en.wikipedia.org/wiki/Framing_(World_Wide_Web))
+  + In the context of a web browser, a __frame__ is a part of a web page or browser window which displays content independent of its container, with the ability to load content independently.
+  + In HTML, a __frameset__ is a group of named frames to which web pages and media can be directed; an iframe provides for a frame to be placed inside the body of a document.
+  + Frames were used to display and navigate early web apps, such as web chat sites and online magazines.
+  + Since the early 2000s, the use of framesets has increasingly been considered obsolete due to usability and accessibility concerns, and the feature has been removed from the HTML5 standard.
+  + The practice of framing HTML content led to numerous criticisms, most centering on usability and accessibility concerns.
 
 
 
