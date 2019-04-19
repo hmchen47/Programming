@@ -570,6 +570,19 @@ Examples:
 
 ### Minimalism
 
+This Web design trend is part fashion, part function. Since we always keep mobile devices in mind when designing, the "rich design" styles of the past (drop shadows, gradients, lots of images, colors, and fonts) have been replaced with the current trend "flat design".
+
+Flat design emphasizes:
+
++ _simple elements_ - grid layouts, limited number of elements
++ _flat colors_ - no drop shadows, no attempt to make 2D elements look 3D
++ _clean typography_ - sans-serif fonts, large sized and lower case 
+
+Benefits of flat design:
+
++ _low load times_ - better for mobile network connections
++ _responsiveness_ - when there are a small number of elements, it is easier to manage their relationships so that the overall layout can grow and shrink to accommodate different screen sizes
++ _intuitive experience_ - research has shown that the cleaner a site, the easier it is for a user to find the information they are looking for
 
 
 ### Long scrolling
