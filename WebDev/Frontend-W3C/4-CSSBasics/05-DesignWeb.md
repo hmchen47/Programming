@@ -468,6 +468,10 @@ Once you've found an example of any of the above, post it on the discussion belo
 
 ### The history of Web design
 
+<video src="https://edx-video.net/W3CCSS0I2016-V005500_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/xblock/block-v1:W3Cx+CSS.0x+3T2018+type@video+block@07690fa73ca040fe9d662289d7ea0249/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ### Moving pieces
