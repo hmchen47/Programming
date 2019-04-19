@@ -476,6 +476,15 @@ Once you've found an example of any of the above, post it on the discussion belo
 
 ### Moving pieces
 
+As Web design tools became more sophisticated, the Web seemed to fill up with lots of fancy features that ultimately were just distracting. Especially in an era before mobile phones, certain items were used to add emphasis and style, but now are considered dated and would be a huge issue for mobile Web browsers.
+
+Here is a list of style elements that should be avoided:
+
++ __marquee and rotating text__ - instead, use the different aspects of font to emphasize text like: size, color, weight or typography.
++ __cursors with animation__ - a very exciting feature at the time, now would be considered very dated, especially since mobile Web browsers don't even show a cursor. If you are going to adjust the cursor's appearance, do so using the [CSS cursor property](https://www.w3.org/wiki/CSS/Properties/cursor) and limit your usage to help your users understand when an item is interactive.
++ __lots of GIFs__ - GIFs are still very in style, especially with the popularity of services like giphy.com. Be aware however that GIFs draw a LOT of attention, so try to only use them when necessary. 
++ __videos that play automatically__ - these days, you'll find this tactic used almost exclusively by advertisements, so it is a good idea to avoid it if you don't want your user to dismiss your content. 
++ __background music__ - sometimes still used to set a tone for your site, but often is considered disruptive by users. If you absolutely must have background music, make sure to give your user a way to turn it off that is easily accessible.
 
 
 ### Rigid layouts
