@@ -489,6 +489,22 @@ Here is a list of style elements that should be avoided:
 
 ### Rigid layouts
 
+Now, when we design sites, we are always talking about "different screen sizes", "different devices", etc. This is because there is such a huge array of ways that users will access a Web site. Historically, this was not the case, and it was a safe assumption that your user would access your site using a device and screen that were very similar to the ones you used to make it. As our devices evolved, so did our CSS layout tools so we could move away from these old trends.
+
+
+#### frames
+
+Used as a crutch for Web site navigation, this was a site within a site that followed your user around as they navigated. It was often used in placement of a menu bar. This feature was removed in HTML5.
+
+Instead, focus on making a user's flow through your site intuitive by building a visually distinct and consistent form of navigation. 
+
+
+#### HTML Tables for Layout
+
+Tables organize data into structured rectangular sections, so it was an easy way to organize your site in a grid-like layout. HTML tables came with lots of problems. They overloaded HTML trees with lots of unnecessary tags that all come with their own set style that had to be adjusted, and they were extremely limited in how much you could actually adjust them. They also can pose problems with accessibility, it was easy for your content to be displayed in the wrong order.
+
+Initially, we replaced HTML tables with `<div>` tags, a multi-purpose tag that was much more flexible than a table row or column, but while divs were flexible they weren't very descriptive. With HTML5, we gained more content descriptive tags like `<header>`, `<footer>`, `<section>` and `<article>` that have the same flexibility of div but that better describe your content.
+
 
 
 ### Heavy content
