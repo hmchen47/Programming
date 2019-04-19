@@ -509,6 +509,17 @@ Initially, we replaced HTML tables with `<div>` tags, a multi-purpose tag that w
 
 ### Heavy content
 
+These days, it is extremely likely that many of your users will view your page on a mobile device, typically using cell data as their connection. Cell networks are much more limited than the hard wired connections that were once the only gateway to the Internet.
+
+Back when this was the case, Web designers employed a number of techniques that were very "heavy" (often Adobe Flash) or required a lot of data to download. Now, we have to always be aware of how heavy our page load is, so we don't exclude users on cellular data networks from accessing our site.
+
+
+#### Adobe Flash
+
+This is a way for designers to add interactivity and sophisticated animations to sites. However, Flash is not supported on mobile phones and so the use of flash to animate pages has fallen out of style. Also, with CSS3, we now have a host of animations that come standard with CSS so there is less need for an external, heavy technology to make dynamic pages.
+
+Animations are beyond the scope of this class, however be aware that there are two ways to do animations: using [CSS animations](https://www.w3.org/TR/css3-animations/) or [CSS transitions](https://www.w3.org/TR/css3-transitions/).
+
 
 
 ### Activity 5.4
