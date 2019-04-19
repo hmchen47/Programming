@@ -119,6 +119,25 @@ Absolute units are usually the wrong answer.
 
 ### The W3C CSS WG
 
+The W3C CSS Working Group
+The CSS Working Group (Cascading Style Sheets Working Group or CSS WG) is a working group created by the W3C in 1997 to tackle issues that had not been addressed with CSS level 1. The number of members reaches 125 in April 2017!
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/12e8f1585d88470e95f54cf0ff6a1a00/6c9058a29dc5493fbb43332c6bc3b550/2?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40video%2Bblock%4005f1d31c3812439f84c6020adf4c1c8b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/399b45274a039620a540a7faca602183/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/CSSWG-TPAC16.jpg" style="margin: 0.1em;" alt="The CSS WG meeting in Lisbon, November 2016. The working group is co-chaired by Rossen Atanassov and Alan Stearns. (Photo credit: Marie-Claire Forgue)" title="Photo of the CSS Working Group members at TPAC 2016" width="350">
+  </a></div>
+</div>
+
+
+The CSS WG members are working on a [whole range of specifications](https://www.w3.org/Style/CSS/current-work), but their core document is [CSS snapshot 2018](https://www.w3.org/TR/css-2018/). This document collects together into one definition all the specs that together form the current state of Cascading Style Sheets (CSS) as of 2018. The primary audience is CSS implementers, not CSS authors, as this definition includes modules by specification stability, not Web browser adoption rate.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/12e8f1585d88470e95f54cf0ff6a1a00/6c9058a29dc5493fbb43332c6bc3b550/2?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40video%2Bblock%4005f1d31c3812439f84c6020adf4c1c8b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/1d59dc5bc30f26cb9e6cab6afe0d6516/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/CSS-WG-TPAC2018.jpg" style="margin: 0.1em;" alt="he CSS WG meeting in Lyon, France, October 2018. The working group is co-chaired by Rossen Atanassov and Alan Stearns." title="Photo of the CSS Working Group members at TPAC 2018" width="350">
+  </a></div>
+</div>
+
+T
 
 
 ## 5.2 The basics of design
