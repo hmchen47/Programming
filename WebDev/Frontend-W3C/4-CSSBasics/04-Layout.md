@@ -253,11 +253,13 @@ Here is some HTML and CSS:
       <h2>This is the main body of my page</h2>
       <article id="leftP">
         <h3>Article title</h3>
-        This is a buch of text that will be left aligned under the main title of the page, but still within the main center section of the page.
+        This is a buch of text that will be left aligned under the main title of the page, 
+        but still within the main center section of the page.
       </article>
       <article id="rightP">
         <h3>Article title</h3>
-        Here is some more text that will be right aligned under the first paragraph, but still within the main center section of the page.
+        Here is some more text that will be right aligned under the first paragraph, but 
+        still within the main center section of the page.
       </article>
     </section>
     <footer>
@@ -416,7 +418,9 @@ HTML code:
    This div is floating right, but no width is set. (orange)
    </div>
    <div id="floatRightTooWide">
-   This div is floating right, but the text is very very very long. This makes the div fill the horizontal space of the page by default, so when it is floated it doesn't look like it goes anywhere. (Yellow)
+   This div is floating right, but the text is very very very long. This makes the div 
+   fill the horizontal space of the page by default, so when it is floated it doesn't 
+   look like it goes anywhere. (Yellow)
    </div>
    <div id="noFloatWidthSet">
    This div isn't floating, and its width is set to 40%. Floating elements can overlap. (Green)
@@ -509,16 +513,23 @@ HTML code:
    </section>
    <section id="content">
     <div id="topRight">
-    If your elements are still not exactly where you want them to be after adjusting the padding, margins and alignment, then you can try out the float property. The "float" property is one of the most powerful tools you can master when learning CSS.
+    If your elements are still not exactly where you want them to be after adjusting 
+    the padding, margins and alignment, then you can try out the float property. 
+    The "float" property is one of the most powerful tools you can master when learning CSS.
     </div>
     <div id="topLeft">
-    Up until now, we haven't moved elements very far from wherever the web browser automatically places them, but as you've probably noticed this has left our page very left side heavy.
+    Up until now, we haven't moved elements very far from wherever the web browser automatically 
+    places them, but as you've probably noticed this has left our page very left side heavy.
     </div>
     <div id="bottomRight">
-    The float property liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction you specify.  You can specify float either right, left or the default of none.
+    The float property liberates an element from its automatic position and lifts it up to "float" 
+    on top of other elements in the direction you specify.  You can specify float either right, 
+    left or the default of none.
     </div>
     <div id="bottomLeft">
-    Elements underneath a floating object will automatically wrap themselves around the content. For example, if you float an image, the text underneath will wrap around it so that none of it is actually obscured underneath the image.
+    Elements underneath a floating object will automatically wrap themselves around the content. 
+    For example, if you float an image, the text underneath will wrap around it so that none 
+    of it is actually obscured underneath the image.
     </div>
    </section>
   </body>
@@ -1031,7 +1042,8 @@ HTML code:
 ```html
 <article>
     <img src="images/myPic.jpg" alt="A boy raises his hand in a classroom" /> 
-    <p>This is the test I would like to surround my image. This text is sitting to the right of my image, and the image is touching the left of the window. </p>
+    <p>This is the test I would like to surround my image. This text is sitting 
+      to the right of my image, and the image is touching the left of the window. </p>
 </article>
 ```
 
