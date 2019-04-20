@@ -28,11 +28,36 @@
     <link rel="stylesheet" href="css/style.css"/>
   </head>
   <body>
-    <!-- CONTENTS HERE -->
+    <!-- CONTENTS HERE / COMMENT Syntax-->
   </body>
 </html>
 ```
 
++ HTML element Syntax
+
+```html
+<tagname>
+    My content
+</tagname>
+```
+
+## Common HTML Tags
+
+| Tag | Description |Attribute |  Link |
+|-----|-------------|------|
+| `<html>` | root element of a document  | `lang="en"` | [W3C][008], [Common Tags][009] |
+| `<head>` | element containing all the metadata for the site | | [W3C][010], [Common Tags][011] |
+| `<body>` | element containing all the visible content for the site like text, images, links etc. | | [W3C][012], [Common Tags][013] |
+| `<p>` | paragraph, a block of text that is physically separated from adjacent blocks through blank lines | | [W3C][014], [Common Tags][015] |
+| `<a>` | By surrounding text with an tag you turn it into a hyperlink. | `href="url"` | [W3C][016], [Common Tags][017] |
+| `<img />` | insert an image based on the source | `src="url" alt="text"` | [W3C][018], [Common Tags][019] |
+| `<ul>` | "unordered list" element, a collection of elements in which the order is meaningless | | [W3C][020], [Common Tags][021] |
+| `<ol>` | "ordered list" element, displayed with a number preceding them | | [W3C][022], [Common Tags][023] |
+| `<br />` | a self-closing tag that inserts a line break | | [W3C][024], [Common Tags][025] |
+| `<header>` | sectioning element, containing all the introductory content on the page typically a title and tagline or navigational elements | | [W3C][026], [Common Tags][027] |
+| `<section>` | sectioning element, a general-purpose grouping element | | [W3C][028], [Common Tags][029] |
+| `<footer>` | sectioning element, organizing the final content on the page such as the credits or contact info | | [W3C][030], [Common Tags][031] |
+| `<div>` | a generic element to hold content, used to collect together large portions of a site that contain multiple different types of content | | [W3C][032], [Common Tags][033] |
 
 
 
@@ -46,40 +71,6 @@
 -------------------------------------------
 
 <!--
-[000]: http://www.codepen.io/
-[001]: https://msdn.microsoft.com/en-us/library/02aa8baz(v=vs.80).aspx
-[002]: https://validator.w3.org/
-[003]: http://validator.w3.org/unicorn/
-[004]: http://validator.w3.org/checklink
-[005]: https://validator.w3.org/i18n-checker/
-[006]: http://www.w3.org/2009/cheatsheet/
-[007]: 
-[008]: 
-[009]: 
-[000]: 
-[011]: 
-[012]: 
-[013]: 
-[014]: 
-[015]: 
-[016]: 
-[017]: 
-[018]: 
-[019]: 
-[020]: 
-[021]: 
-[022]: 
-[023]: 
-[024]: 
-[025]: 
-[026]: 
-[027]: 
-[028]: 
-[029]: 
-[030]: 
-[031]: 
-[032]: 
-[033]: 
 [034]: 
 [035]: 
 [036]: 
@@ -247,3 +238,38 @@
 [198]: 
 [199]: 
 -->
+
+[000]: http://www.codepen.io/
+[001]: https://msdn.microsoft.com/en-us/library/02aa8baz(v=vs.80).aspx
+[002]: https://validator.w3.org/
+[003]: http://validator.w3.org/unicorn/
+[004]: http://validator.w3.org/checklink
+[005]: https://validator.w3.org/i18n-checker/
+[006]: http://www.w3.org/2009/cheatsheet/
+[007]: https://www.w3.org/TR/html52/
+[008]: https://www.w3.org/TR/2016/WD-html52-20160818/semantics.html#the-html-element
+[009]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#html
+[000]: https://www.w3.org/TR/2016/WD-html52-20160818/document-metadata.html#the-head-element
+[011]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#head
+[012]: https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-body-element
+[013]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#body
+[014]: https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-p-element
+[015]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#p
+[016]: https://www.w3.org/TR/2016/WD-html52-20160818/textlevel-semantics.html#elementdef-a
+[017]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#a
+[018]: https://www.w3.org/TR/2016/WD-html52-20160818/semantics-embedded-content.html#the-img-element
+[019]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#img-
+[020]: https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-ul-element
+[021]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#ul-
+[022]: https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-ol-element
+[023]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#ol
+[024]: https://www.w3.org/TR/2016/WD-html52-20160818/textlevel-semantics.html#the-br-element
+[025]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#br-
+[026]: https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-header-element
+[027]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#header
+[028]: https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-section-element
+[029]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#section
+[030]: https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-footer-element
+[031]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#footer
+[032]: https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-div-element
+[033]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#div
