@@ -694,9 +694,17 @@ For this activity, go out and find what you think is the best-designed Web page!
 3. Is this Web page accessible?
 
 
-
 ## 5.6 Project 5 - Apply good design
 
-### Apply good design
+Now that we've discussed so many design guidelines, it's your turn to try some out. Take your resume you created in Module 4 and make sure that it conforms to all the following rules:
+
++ 4 total colors that are color-blind inclusive
++ 2 total typefaces that can grow if a user is employing a text-zoom
++ each element has a good amount of white space around it
++ no line of text is longer than 75 characters wide
+
+Be creative and do not hesitate to share your results in the discussion forum below!
+
+
 
 
