@@ -181,7 +181,7 @@
     1. [Long scrolling](05-DesignWeb.md#long-scrolling)
     1. [New layout techniques (OPTIONAL)](05-DesignWeb.md#new-layout-techniques-optional)
     1. [CSS Grid layout (OPTIONAL)](05-DesignWeb.md#css-grid-layout-optional)
-    1. [Activity 5.5](05-DesignWeb.md#activity-55---best-design)
+    1. [5.6 Project 5 - Apply good design](05-DesignWeb.md#activity-55---best-design)
 + [5.6 Project 5 - Apply good design](05-DesignWeb.md#56-project-5---apply-good-design)
 
 
