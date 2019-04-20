@@ -377,21 +377,21 @@ The HTML code is shown below:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My HTML page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1> Welcome to my first CSS Website</h1>
-        <h2> I'm glad you're here</h2>
-        <img src="designer.png" alt="designer"/>
-        <p>
-            This is my first site using CSS, or Cascading Style Sheets. I'm still learning and 
-            I have a long way to go, but doesn't it still look nice?
-It's amazing what a difference just some colors and fonts can make!
-        </p>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1> Welcome to my first CSS Website</h1>
+    <h2> I'm glad you're here</h2>
+    <img src="designer.png" alt="designer"/>
+    <p>
+      This is my first site using CSS, or Cascading Style Sheets. I'm still learning and 
+      I have a long way to go, but doesn't it still look nice?
+      It's amazing what a difference just some colors and fonts can make!
+    </p>
+  </body>
 </html>
 ```
 
@@ -399,30 +399,30 @@ And the attached CSS file (style.css):
 
 ```css
 body {
-    background-color: #83AF9B;
-    text-align: center;
-    font-family: Arial;
-    padding: 0;
-    margin: 0;
+  background-color: #83AF9B;
+  text-align: center;
+  font-family: Arial;
+  padding: 0;
+  margin: 0;
 }
 h1 {
-    background-color: #FE4365;
-    color: #F9CDAD;
-    font-size: 8em;
-    padding: 50px;
+  background-color: #FE4365;
+  color: #F9CDAD;
+  font-size: 8em;
+  padding: 50px;
 }
 h2 {
-    color: #FE4365;
-    background-color: #F9CDAD;
+  color: #FE4365;
+  background-color: #F9CDAD;
 }
 img {
-    height: 250px;
+  height: 250px;
 }
 p {
-    background-color: #FC9D9A;
-    color: white;
-    padding: 50px;
-    font-size: 2em;
+  background-color: #FC9D9A;
+  color: white;
+  padding: 50px;
+  font-size: 2em;
 }
 ```
 
@@ -433,7 +433,7 @@ Here is an example CSS "rule":
 
 ```css
 p {
-    color: blue;
+  color: blue;
 }
 ```
 
@@ -469,24 +469,24 @@ Now that you have a basic understanding of how to put the pieces of a CSS rule t
 ```html
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <title>My HTML page</title>
-      <link rel="stylesheet" href="style.css">
-   </head>
-   <body>
-      <h1>My H1 header</h1>
-      <p> This is a block of text to represent a paragraph that you will want to style. 
-      This might be an explanation of of the list that follows, it is all contained within 
-      a single paragraph tag.
-      </p>
-      <ul>
-         <li>This is list item 1</li>
-         <li>Item 2 in the list</li>
-         <li>The third item in the list</li>
-         <li>Item 4 completes the list</li>
-      </ul>
-   </body>
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>My H1 header</h1>
+    <p> This is a block of text to represent a paragraph that you will want to style. 
+    This might be an explanation of of the list that follows, it is all contained within 
+    a single paragraph tag.
+    </p>
+    <ul>
+      <li>This is list item 1</li>
+      <li>Item 2 in the list</li>
+      <li>The third item in the list</li>
+      <li>Item 4 completes the list</li>
+     </ul>
+  </body>
 </html>
 ```
 
@@ -564,25 +564,25 @@ HTML code:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My HTML page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Title</h1>
-        <p>In unit 2.3, we defined a CSS selector as the portion of the CSS rule that tells the 
-          browser on which HTML element to apply the defined style.
-            <a href="http://www.microsoft.com">Click Here!</a>
-        </p>
-        <ul>
-            <li>When your HTML is simple, the selectors can be simple as well</li>
-            <li>he most basic selectors simply mirror the HTML tag</li>
-            <li>For example "p" attaches to all tags, "img" will attach to all tags and so on</li>
-            <li>As you can imagine, there will often be times</li>
-            <li>when you don't want every single HTML element of a particular type to have identical style</li>
-        </ul>
-        <p> 
+  <head>
+      <meta charset="utf-8">
+      <title>My HTML page</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Title</h1>
+    <p>In unit 2.3, we defined a CSS selector as the portion of the CSS rule that tells the 
+      browser on which HTML element to apply the defined style.
+      <a href="http://www.microsoft.com">Click Here!</a>
+    </p>
+    <ul>
+      <li>When your HTML is simple, the selectors can be simple as well</li>
+      <li>he most basic selectors simply mirror the HTML tag</li>
+      <li>For example "p" attaches to all tags, "img" will attach to all tags and so on</li>
+      <li>As you can imagine, there will often be times</li>
+      <li>when you don't want every single HTML element of a particular type to have identical style</li>
+    </ul>
+    <p> 
 In Module 3, we'll discuss a variety of ways to use selectors to attach to specific HTML elements. 
 In unit 2.2, we briefly mentioned the fact that properties apply to the entire hierarchy of HTML 
 elements to which they are attached. This means that you will have to be very careful which 
@@ -592,15 +592,15 @@ selectors you choose to use in combination with your chosen style
 It is possible to independently target every HTML element on the page using selectors, but for 
 this module we are going to stick to basics and only use selectors that match the HTML tag name. 
 For example, here are some example selectors we'll use in this module:
-        </p>
-        <ol>
-            <li>This would affect the style of all link tags on the page</li>
-            <li>This would affect the style of all paragraph tags on the page</li>
-            <li>and the style of elements contained within the paragraph tag</li>
-            <li>This would apply style to the body tag</li>
-            <li>as well as allow the elements inside the body tag to inherit certain styles applied here. </li>
-        </ol>
-    </body>
+    </p>
+    <ol>
+      <li>This would affect the style of all link tags on the page</li>
+      <li>This would affect the style of all paragraph tags on the page</li>
+      <li>and the style of elements contained within the paragraph tag</li>
+      <li>This would apply style to the body tag</li>
+      <li>as well as allow the elements inside the body tag to inherit certain styles applied here. </li>
+    </ol>
+  </body>
 </html>
 ```
 
@@ -608,16 +608,16 @@ CSS code:
 
 ```css
 body {
-    color: red; /* every element inherits this except those with more specific style */
+  color: red; /* every element inherits this except those with more specific style */
 }
 ul {
-    color: blue;/* li elements inherit this color */
+  color: blue;/* li elements inherit this color */
 }
 p {
-    font-style: italic; /* this even the a tags inherit within the paragraphs */
+  font-style: italic; /* this even the a tags inherit within the paragraphs */
 }
 li {
-    text-decoration: line-through; /* applies to all li elements, in both ul and ol tags */
+  text-decoration: line-through; /* applies to all li elements, in both ul and ol tags */
 }
 ```
 
@@ -630,25 +630,25 @@ Let's say we have an HTML document (see the corresponding [Code Pen](https://cod
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My HTML page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1> Title </h1>
-            <h2> sub title </h2>
-        </header>
-        <section>
-            <p> This is my paragraph text </p>
-            <ul>
-                <li> list item 1 </li>
-                <li> list item 2 </li>
-                <li> list item 3 </li>
-            </ul>
-        </section>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1> Title </h1>
+      <h2> sub title </h2>
+    </header>
+    <section>
+      <p> This is my paragraph text </p>
+      <ul>
+        <li> list item 1 </li>
+        <li> list item 2 </li>
+        <li> list item 3 </li>
+        </ul>
+    </section>
+  </body>
 </html>
 ```
 
@@ -667,16 +667,16 @@ Then, we applied different styles at different levels of the tree so that the "l
 
 ```css
 body {
-   font-family: "Century Gothic", sans-serif;
+  font-family: "Century Gothic", sans-serif;
 }
 header {
-   font-style: italic;
+  font-style: italic;
 }
 section {
-   text-decoration: underline;
+  text-decoration: underline;
 }
 ul {
-   color: green;
+  color: green;
 }
 ```
 
@@ -699,8 +699,8 @@ For example, what if you want to change the font that is consistent across many 
 
 ```css
 p, ul, ol {
-   color: blue;
-   background-color: pink;
+  color: blue;
+  background-color: pink;
 }
 ```
 
@@ -713,26 +713,26 @@ HTML code:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My HTML page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Title 1</h1>
-        <h2>Title 2</h2>
-        <ul>
-            <li>Part of the reason a well structured HTML document is so important</li>
-            <li>is because HTML elements inherit stylistic properties</li>
-            <li>You can see it's basic structure from the way I have formatted the tags with tabbing</li>
-        </ul>
-        <h3>Title 3</h3>
-        <ol>
-            <li>but here is a more visual representation of the hierarchy of tags</li>
-            <li>Tags that contain other tags are parents</li>
-            <li>and the tags inside of them are their children in the following tree representation</li>
-        </ol>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Title 1</h1>
+    <h2>Title 2</h2>
+    <ul>
+      <li>Part of the reason a well structured HTML document is so important</li>
+      <li>is because HTML elements inherit stylistic properties</li>
+      <li>You can see it's basic structure from the way I have formatted the tags with tabbing</li>
+    </ul>
+    <h3>Title 3</h3>
+    <ol>
+      <li>but here is a more visual representation of the hierarchy of tags</li>
+      <li>Tags that contain other tags are parents</li>
+      <li>and the tags inside of them are their children in the following tree representation</li>
+    </ol>
+  </body>
 </html>
 ```
 
@@ -740,23 +740,23 @@ CSS code:
 
 ```css
 body {
-    color: #660099;
+  color: #660099;
 }
  
 h1,h2,h3 {
-    font-family: Impact, sans-serif;
+  font-family: Impact, sans-serif;
 }
  
 ul,ol {
-    font-family: helvetica, sans-serif;
+  font-family: helvetica, sans-serif;
 }
  
 h2,ul {
-    font-style: italic;
+  font-style: italic;
 }
  
 h3,ol {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 ```
 
@@ -872,10 +872,10 @@ Here are some examples of properties that each accept a different style of value
 
 ```css
 body {
-    background-color: purple; /* key word */
-    color: #FFFFFF; /* HEX code */
-    width: 60%; /* percentage */
-    font-size: 20pt; /* numerical value */
+  background-color: purple; /* key word */
+  color: #FFFFFF; /* HEX code */
+  width: 60%; /* percentage */
+  font-size: 20pt; /* numerical value */
 }
 ```
 
@@ -931,7 +931,7 @@ Probably the simplest and least flexible way to set colors is using a keyword. A
 
 ```css
 body {
-   background-color: teal; 
+  background-color: teal; 
 }
 ```
 
@@ -946,7 +946,7 @@ When using a hex code in CSS you must put a hash character in front of the 6 cha
 
 ```css
 body {
-   background-color: #00CC00; /* green */
+  background-color: #00CC00; /* green */
 }
 ```
 
@@ -956,7 +956,7 @@ You can also specify colors using rgb in decimal form like so:
 
 ```css
 body {
-   background-color: rgb(0,204,0); /*same green as above*/
+  background-color: rgb(0,204,0); /*same green as above*/
 }
 ```
 
@@ -991,23 +991,40 @@ You can see these color properties in action using all three approaches to setti
     values</a></b><br>
    </caption>
    <tbody>
-    <tr><th style="background:black;">Named</th><th>Numeric</th><th>Color name</th><th>Hex rgb</th><th>Decimal</th></tr><tr><td style="background:black;"></td><td style="background:#000000"></td><td><dfn id="black">black</dfn></td><td >#000000</td><td >0,0,0
-    </td></tr><tr><td style="background:silver;"></td><td style="background:#C0C0C0"></td><td><dfn id="silver">silver</dfn></td><td >#C0C0C0</td><td >192,192,192
-    </td></tr><tr><td style="background:gray;"></td><td style="background:#808080"></td><td><dfn id="gray">gray</dfn></td><td >#808080</td><td >128,128,128
-    </td></tr><tr><td style="background:white;"></td><td style="background:#FFFFFF"></td><td><dfn id="white">white</dfn></td><td >#FFFFFF</td><td >255,255,255
-    </td></tr><tr><td style="background:maroon;"></td><td style="background:#800000"></td><td><dfn id="maroon">maroon</dfn></td><td >#800000</td><td >128,0,0
-    </td></tr><tr><td style="background:red;"></td><td style="background:#FF0000"></td><td><dfn id="red">red</dfn></td><td >#FF0000</td><td >255,0,0
-    </td></tr><tr><td style="background:purple;"></td><td style="background:#800080"></td><td><dfn id="purple">purple</dfn></td><td >#800080</td><td >128,0,128
-    </td></tr><tr><td style="background:fuchsia;"></td><td style="background:#FF00FF"></td><td><dfn id="fuchsia">fuchsia</dfn></td><td >#FF00FF</td><td >255,0,255
-    </td></tr><tr><td style="background:green;"></td><td style="background:#008000"></td><td><dfn id="green">green</dfn></td><td >#008000</td><td >0,128,0
-    </td></tr><tr><td style="background:lime;"></td><td style="background:#00FF00"></td><td><dfn id="lime">lime</dfn></td><td >#00FF00</td><td >0,255,0
-    </td></tr><tr><td style="background:olive;"></td><td style="background:#808000"></td><td><dfn id="olive">olive</dfn></td><td >#808000</td><td >128,128,0
-    </td></tr><tr><td style="background:yellow;"></td><td style="background:#FFFF00"></td><td><dfn id="yellow">yellow</dfn></td><td >#FFFF00</td><td >255,255,0
-    </td></tr><tr><td style="background:navy;"></td><td style="background:#000080"></td><td><dfn id="navy">navy</dfn></td><td >#000080</td><td >0,0,128
-    </td></tr><tr><td style="background:blue;"></td><td style="background:#0000FF"></td><td><dfn id="blue">blue</dfn></td><td >#0000FF</td><td >0,0,255
-    </td></tr><tr><td style="background:teal;"></td><td style="background:#008080"></td><td><dfn id="teal">teal</dfn></td><td >#008080</td><td >0,128,128
-    </td></tr><tr><td style="background:aqua;"></td><td style="background:#00FFFF"></td><td><dfn id="aqua">aqua</dfn></td><td >#00FFFF</td><td >0,255,255
-  </td></tr></tbody>
+    <tr><th style="background:black;">Named</th><th>Numeric</th><th>Color name</th><th>Hex rgb</th><th>Decimal</th></tr>
+    <tr><td style="background:black;"></td><td style="background:#000000"></td><td><dfn id="black">black</dfn></td><td >#000000</td><td >0,0,0
+    </td></tr>
+    <tr><td style="background:silver;"></td><td style="background:#C0C0C0"></td><td><dfn id="silver">silver</dfn></td><td >#C0C0C0</td><td >192,192,192
+    </td></tr>
+    <tr><td style="background:gray;"></td><td style="background:#808080"></td><td><dfn id="gray">gray</dfn></td><td >#808080</td><td >128,128,128
+    </td></tr>
+    <tr><td style="background:white;"></td><td style="background:#FFFFFF"></td><td><dfn id="white">white</dfn></td><td >#FFFFFF</td><td >255,255,255
+    </td></tr>
+    <tr><td style="background:maroon;"></td><td style="background:#800000"></td><td><dfn id="maroon">maroon</dfn></td><td >#800000</td><td >128,0,0
+    </td></tr>
+    <tr><td style="background:red;"></td><td style="background:#FF0000"></td><td><dfn id="red">red</dfn></td><td >#FF0000</td><td >255,0,0
+    </td></tr>
+    <tr><td style="background:purple;"></td><td style="background:#800080"></td><td><dfn id="purple">purple</dfn></td><td >#800080</td><td >128,0,128
+    </td></tr>
+    <tr><td style="background:fuchsia;"></td><td style="background:#FF00FF"></td><td><dfn id="fuchsia">fuchsia</dfn></td><td >#FF00FF</td><td >255,0,255
+    </td></tr>
+    <tr><td style="background:green;"></td><td style="background:#008000"></td><td><dfn id="green">green</dfn></td><td >#008000</td><td >0,128,0
+    </td></tr>
+    <tr><td style="background:lime;"></td><td style="background:#00FF00"></td><td><dfn id="lime">lime</dfn></td><td >#00FF00</td><td >0,255,0
+    </td></tr>
+    <tr><td style="background:olive;"></td><td style="background:#808000"></td><td><dfn id="olive">olive</dfn></td><td >#808000</td><td >128,128,0
+    </td></tr>
+    <tr><td style="background:yellow;"></td><td style="background:#FFFF00"></td><td><dfn id="yellow">yellow</dfn></td><td >#FFFF00</td><td >255,255,0
+    </td></tr>
+    <tr><td style="background:navy;"></td><td style="background:#000080"></td><td><dfn id="navy">navy</dfn></td><td >#000080</td><td >0,0,128
+    </td></tr>
+    <tr><td style="background:blue;"></td><td style="background:#0000FF"></td><td><dfn id="blue">blue</dfn></td><td >#0000FF</td><td >0,0,255
+    </td></tr>
+    <tr><td style="background:teal;"></td><td style="background:#008080"></td><td><dfn id="teal">teal</dfn></td><td >#008080</td><td >0,128,128
+    </td></tr>
+    <tr><td style="background:aqua;"></td><td style="background:#00FFFF"></td><td><dfn id="aqua">aqua</dfn></td><td >#00FFFF</td><td >0,255,255
+   </td></tr>
+  </tbody>
 </table>
 
 
@@ -1020,7 +1037,7 @@ Font is an extremely important part of how you communicate content to your user.
 
 ```css
 p {
-   font-family: Helvetica, Verdana, sans-serif;
+  font-family: Helvetica, Verdana, sans-serif;
 }
 ```
 
@@ -1032,7 +1049,7 @@ Something to keep in mind: some fonts have names with multiple words like "Times
 
 ```css
 p {
-   font-family: "Times New Roman", "New Century Schoolbook", serif;
+  font-family: "Times New Roman", "New Century Schoolbook", serif;
 }
 ```
 
@@ -1043,7 +1060,7 @@ p {
 
 ```css
 h1 {
-   font-size: 2.5em;
+  font-size: 2.5em;
 }
 ```
 
@@ -1096,7 +1113,7 @@ Note that few fonts have settings for all values. If the value is not available,
 
 ```css
 p {
-   font-style: italic;
+  font-style: italic;
 }
 ```
 
@@ -1109,7 +1126,7 @@ The font style property adjusts the angle of the letters in relation to the hori
 
 ```css
 p {
-   text-decoration: underline;
+  text-decoration: underline;
 }
 ```
 
@@ -1126,15 +1143,15 @@ HTML code:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My HTML page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Main title</h1>
-        <h2>Sub title</h2>
-        <p>
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Main title</h1>
+    <h2>Sub title</h2>
+    <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia consequat nibh, non commodo 
 neque maximus semper. Vivamus non ultricies massa, vel convallis nunc. Aenean tempus risus at orci 
 faucibus, eget hendrerit elit sodales. Quisque imperdiet diam nibh, ut semper enim dapibus et. 
@@ -1150,8 +1167,8 @@ Morbi quis metus tortor. Cras dapibus nisl urna, et pretium risus rutrum at. Mae
 elit. Ut suscipit neque ligula. Nam aliquam massa in pretium ullamcorper. Sed id nisl et mauris 
 maximus suscipit. Suspendisse potenti. Nulla interdum, magna eu facilisis aliquam, tellus nulla 
 luctus nisi, eu cursus magna sapien sed mi.
-        </p>
-    </body>
+      </p>
+  </body>
 </html>
 ```
 
@@ -1159,19 +1176,19 @@ CSS code:
 
 ```css
 body {
-    font-family: Helvetica, Verdana, sans-serif;
-    font-size: 12pt;
+  font-family: Helvetica, Verdana, sans-serif;
+  font-size: 12pt;
 }
 h1 {
-    font-size: 3em;
-    font-style: italic;
+  font-size: 3em;
+  font-style: italic;
 }
 h2 {
-    font-size: 2em;
-    text-decoration: underline;
+  font-size: 2em;
+  text-decoration: underline;
 }
 p {
-    font-weight: bold;
+  font-weight: bold;
 }
 ```
 
@@ -1219,7 +1236,7 @@ The above image is called the "__box model__", which we will get into more detai
 
 ```css
 p {
-   padding: 20px;
+  padding: 20px;
 }
 ```
 
@@ -1234,7 +1251,7 @@ You can set the padding on an element's four sides independently using `padding-
 
 ```css
 p {
-   border: 1px black solid;
+  border: 1px black solid;
 }
 ```
 
@@ -1247,7 +1264,7 @@ The "border" is the area outside the padding of an HTML element. By default, bor
 
 ```css
 p {
-   margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 ```
 
@@ -1296,31 +1313,31 @@ CSS code:
 
 ```css
 body {
-    background-color: #99ffff;
-    margin-top: 20px;
-    margin-left: 70px;
+  background-color: #99ffff;
+  margin-top: 20px;
+  margin-left: 70px;
 }
 h1 {
-    background-color: #ff6699;
-    border-bottom: 20px #ff0066 solid;
-    margin-bottom: 10px;
-    padding: 5px;
+  background-color: #ff6699;
+  border-bottom: 20px #ff0066 solid;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 ul {
-    background-color: #ff9933;
-    border-left: 5px black dashed;
-    margin: 50px;
+  background-color: #ff9933;
+  border-left: 5px black dashed;
+  margin: 50px;
 }
 li {
-    background-color: #ffcc66;
-    margin: 10px;
-    padding: 10px;
+  background-color: #ffcc66;
+  margin: 10px;
+  padding: 10px;
 }
 p {
-    background-color: #ccff99;
-    border: 10px white double;
-    padding: 0px;
-    margin: 0px;
+  background-color: #ccff99;
+  border: 10px white double;
+  padding: 0px;
+  margin: 0px;
 }
 ```
 Output:
@@ -1436,14 +1453,14 @@ However, you should only alter a few of these following aspects at a time to pre
 
 ```css
 #busyTitle h1{
-    font-size: 2em;
-    font-family: Impact;
-    color: yellow;
-    background-color: gray;
-    font-style: italic;
-    font-variant: small-caps;
-    font-weight: bold;
-    text-decoration: underlinel;
+  font-size: 2em;
+  font-family: Impact;
+  color: yellow;
+  background-color: gray;
+  font-style: italic;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-decoration: underlinel;
 }
 ```
 
@@ -1460,21 +1477,21 @@ This title uses soft clean colors based on print media, so we chose a serif font
 
 ```css
 #design1 {
-    background-color: #F4F4F4;
-    font-family: "Lucidia Sans Unicode", sans-serif;
+  background-color: #F4F4F4;
+  font-family: "Lucidia Sans Unicode", sans-serif;
 }
  
 #design1 h1 {
-    color: #C0B283;
-    font-size: 4em;
-    font-weight: 700;
-    font-family: Garamond;
-    width: 300px;
+  color: #C0B283;
+  font-size: 4em;
+  font-weight: 700;
+  font-family: Garamond;
+  width: 300px;
 }
  
 #design1 p {
-    color: #373737;
-    font-size: 1.2em;
+  color: #373737;
+  font-size: 1.2em;
 }
 ```
 
@@ -1492,19 +1509,19 @@ This design is intended to look futuristic, so it only uses sans-serif, thin fon
 
 ```css
 #design2 {
-    font-family: Century Gothic, sans-serif;
-    background-color: #0E0B16;
+  font-family: Century Gothic, sans-serif;
+  background-color: #0E0B16;
 }
  
 #design2 h1 {
-    font-weight: 400;
-    font-size: 2.3em;
-    color: #A239CA;
-    font-style: italic;
+  font-weight: 400;
+  font-size: 2.3em;
+  color: #A239CA;
+  font-style: italic;
 }
  
 #design2 p {
-    color: #E7DFDD;
+  color: #E7DFDD;
 }
 ```
 
@@ -1521,23 +1538,23 @@ This design is based on pastel primary colors and uses color as a highlight agai
 
 ```css
 #design3 {
-    color: #DF744A;
-    font-family: Arial, sans-serif;
+  color: #DF744A;
+  font-family: Arial, sans-serif;
 }
  
 #design3 h1 {
-    background-color: #BFD8D2;
-    text-align: center;
-    font-size: 4em;
-    font-weight: 100;
-    padding: 30px;
-    border-bottom: 5px #DCB239 solid;
-    font-family: Helvetica, sans-serif;
+  background-color: #BFD8D2;
+  text-align: center;
+  font-size: 4em;
+  font-weight: 100;
+  padding: 30px;
+  border-bottom: 5px #DCB239 solid;
+  font-family: Helvetica, sans-serif;
 }
  
 #design3 p {
-    background-color: #FEDCD2;
-    padding: 50px;
+  background-color: #FEDCD2;
+  padding: 50px;
 }
 ```
 
@@ -1568,17 +1585,17 @@ This design is a pretty traditional button where it has a distinct background-co
 
 ```css
 #design1 {
-    background-color: #94618E;
-    color: #F8EEE7;
-    font-family: Corbel;
+  background-color: #94618E;
+  color: #F8EEE7;
+  font-family: Corbel;
 }
 #design1 button {
-    background-color: #F4DECB;
-    padding: 10px 25px;
-    border: 5px solid #F8EEE7;
-    color: #49274A;
-    font-weight: bold;
-    font-size: 1.2em;
+  background-color: #F4DECB;
+  padding: 10px 25px;
+  border: 5px solid #F8EEE7;
+  color: #49274A;
+  font-weight: bold;
+  font-size: 1.2em;
  }
 ```
 
@@ -1596,17 +1613,17 @@ This is a more modern button design where there is no distinct border, but just 
 
 ```css
 #design2 {
-    background-color: #D9D9D9;
-    color: white;
-    font-family: "Century Gothic", sans-serif;
+  background-color: #D9D9D9;
+  color: white;
+  font-family: "Century Gothic", sans-serif;
 }
 #design2 button {
-    background-color: #4484CE;
-    border: 0px;
-    color: white;
-    padding: 10px 50px;
-    font-family: Impact, sans-serif;
-    font-size: 1.3em;
+  background-color: #4484CE;
+  border: 0px;
+  color: white;
+  padding: 10px 50px;
+  font-family: Impact, sans-serif;
+  font-size: 1.3em;
 }
 ```
 
@@ -1623,17 +1640,17 @@ This is a big graphic button that uses border-radius to give the button rounded 
 
 ```css
 #design3 {
-    font-family: Impact, sans-serif;
-    font-size: 2em;
+  font-family: Impact, sans-serif;
+  font-size: 2em;
 }
  
 #design3 button {
-    font-family: Impact, sans-serif;
-    font-weight: 100;
-    background-color: white;
-    border: 7px #EC576B solid;
-    border-radius: 20px;
-    font-size: 0.8em;
+  font-family: Impact, sans-serif;
+  font-weight: 100;
+  background-color: white;
+  border: 7px #EC576B solid;
+  border-radius: 20px;
+  font-size: 0.8em;
 }
 ```
 
@@ -1723,9 +1740,9 @@ In module 3, you will then learn:
 
 1. CSS anatomy
 
-    The part of a CSS rule that attaches the style to the HTML element is called the:
+  The part of a CSS rule that attaches the style to the HTML element is called the:
 
-    Ans:selector
+  Ans:selector
 
 
 Use the following code for questions 2 and 3
@@ -1733,16 +1750,16 @@ Use the following code for questions 2 and 3
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My HTML page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <p> This is HTML element 1 </p>
-        <p> This is HTML element 2 </p>
-        <div> This is HTML element 3 </div>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML page</title>
+    <link rel="stylesheet" href="style.css">
+    <p> This is HTML element 2 </p>
+  </head>
+  <body>
+    <p> This is HTML element 1 </p>
+    <div> This is HTML element 3 </div>
+  </body>
 </html>
 ```
 
