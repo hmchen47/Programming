@@ -1,0 +1,27 @@
+body {
+  background-color: #7CDBD5;
+}
+p {
+  background-color: #F9BE02;
+}
+#five {
+  padding: 5px;
+  border: 5px #F53240 solid;
+  margin: 5px;
+}
+#ten {
+  padding: 10px;
+  border: 10px #F53240 solid;
+  margin: 10px;
+}
+#fifty {
+  padding: 50px;
+  border: 50px #F53240 solid;
+  margin: 50px;
+}
+#oneHundred {
+  padding: 100px;
+  border: 100px #F53240 solid;
+  margin: 100px;
+}
+

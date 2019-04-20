@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<!--It's a best practice to always declare DOCTYPE!-->
+<html lang="en">
+  <head>
+    <title>Dynamic Width and Height</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/4.2-WidthHeight.css" />
+  </head>
+  <body>
+    <p id="width50">
+      width 50%, no min or max
+    </p>
+    <p id="width80max">
+      width 80%, max of 1000px
+    </p>
+    <p id="width30min">
+      width 30%, min of 200px
+    </p>
+    <p class="heightSet">
+      the height is set to 25%, but there is no affect
+    </p>
+    <div id="containingBlock">
+      <p class="heightSet">
+        this height is also set to 25%, and since it's within a div containing block who has a set height of 500px this p will resize in relation to that. 
+      </p>
+    </div>
+  </body>
+</html>

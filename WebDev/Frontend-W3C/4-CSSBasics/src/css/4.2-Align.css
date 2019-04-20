@@ -1,0 +1,25 @@
+h1 {
+  background-color: red;
+  width: 500px;
+  text-align: center;
+}
+h2 {
+  background-color: orange;
+  text-align: right;
+}
+p {
+  background-color: yellow;
+  width: 500px;
+  padding: 10px;
+  text-align: justify;
+}
+h3 {
+  background-color: green;
+  line-height: 1.2;
+}
+h4 {
+  background-color: blue;
+  height: 200px;
+  line-height:4;
+}
+

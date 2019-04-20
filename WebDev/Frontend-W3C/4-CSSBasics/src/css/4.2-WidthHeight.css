@@ -1,0 +1,22 @@
+#width50 {
+  background-color:red;
+  width: 50%;
+}
+#width80max {
+  background-color: orange;
+  width: 80%;
+  max-width: 1000px;
+}
+#width30min {
+  background-color: yellow;
+  width: 30%;
+  min-width: 200px;
+}
+.heightSet {
+  background-color: green;
+  height: 25%;
+}
+#containingBlock {
+  height: 500px;
+}
+
