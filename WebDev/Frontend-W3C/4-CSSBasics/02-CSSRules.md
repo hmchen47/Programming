@@ -150,7 +150,8 @@ The section element that contains all the visible content for your site like you
 
 ```html
 <p>
-   This is my introductory paragraph to my Web page! This text will wrap around in a single block and then after the paragraph is done there will be a line of white space.
+   This is my introductory paragraph to my Web page! This text will wrap around in a single 
+   block and then after the paragraph is done there will be a line of white space.
 </p>
 ```
 
@@ -386,7 +387,8 @@ The HTML code is shown below:
         <h2> I'm glad you're here</h2>
         <img src="designer.png" alt="designer"/>
         <p>
-            This is my first site using CSS, or Cascading Style Sheets. I'm still learning and I have a long way to go, but doesn't it still look nice?
+            This is my first site using CSS, or Cascading Style Sheets. I'm still learning and 
+            I have a long way to go, but doesn't it still look nice?
 It's amazing what a difference just some colors and fonts can make!
         </p>
     </body>
@@ -474,7 +476,9 @@ Now that you have a basic understanding of how to put the pieces of a CSS rule t
    </head>
    <body>
       <h1>My H1 header</h1>
-      <p> This is a block of text to represent a paragraph that you will want to style. This might be an explanation of of the list that follows, it is all contained within a single paragraph tag.
+      <p> This is a block of text to represent a paragraph that you will want to style. 
+      This might be an explanation of of the list that follows, it is all contained within 
+      a single paragraph tag.
       </p>
       <ul>
          <li>This is list item 1</li>
@@ -567,7 +571,8 @@ HTML code:
     </head>
     <body>
         <h1>Title</h1>
-        <p>In unit 2.3, we defined a CSS selector as the portion of the CSS rule that tells the browser on which HTML element to apply the defined style.
+        <p>In unit 2.3, we defined a CSS selector as the portion of the CSS rule that tells the 
+          browser on which HTML element to apply the defined style.
             <a href="http://www.microsoft.com">Click Here!</a>
         </p>
         <ul>
@@ -579,10 +584,14 @@ HTML code:
         </ul>
         <p> 
 In Module 3, we'll discuss a variety of ways to use selectors to attach to specific HTML elements. 
-In unit 2.2, we briefly mentioned the fact that properties apply to the entire hierarchy of HTML elements to which they are attached. This means that you will have to be very careful which selectors you choose to use in combination with your chosen style 
+In unit 2.2, we briefly mentioned the fact that properties apply to the entire hierarchy of HTML 
+elements to which they are attached. This means that you will have to be very careful which 
+selectors you choose to use in combination with your chosen style 
  <br />
 <a href="http://www.w3.org">Check this out</a>
-It is possible to independently target every HTML element on the page using selectors, but for this module we are going to stick to basics and only use selectors that match the HTML tag name. For example, here are some example selectors we'll use in this module:
+It is possible to independently target every HTML element on the page using selectors, but for 
+this module we are going to stick to basics and only use selectors that match the HTML tag name. 
+For example, here are some example selectors we'll use in this module:
         </p>
         <ol>
             <li>This would affect the style of all link tags on the page</li>
@@ -778,11 +787,20 @@ HTML
   </head>
   <body>
     <h1>Main Title</h1>
-    <p>In unit 2.3, we defined a CSS selector as the portion of the CSS rule that tells the browser on which HTML element to apply the defined style.
+    <p>In unit 2.3, we defined a CSS selector as the portion of the CSS rule that tells the 
+    browser on which HTML element to apply the defined style.
 
-When your HTML is simple, the selectors can be simple as well. The most basic selectors simply mirror the HTML tag. For example "p" attaches to all &lt;p&gt; tags, "img" will attach to all &lt;img&gt; tags and so on. As you can imagine, there will often be times when you don't want every single HTML element of a particular type to have identical style. In Module 3, we'll discuss a variety of ways to use selectors to attach to specific HTML elements. 
+When your HTML is simple, the selectors can be simple as well. The most basic selectors 
+simply mirror the HTML tag. For example "p" attaches to all &lt;p&gt; tags, "img" will 
+attach to all &lt;img&gt; tags and so on. As you can imagine, there will often be times 
+when you don't want every single HTML element of a particular type to have identical 
+style. In Module 3, we'll discuss a variety of ways to use selectors to attach to 
+specific HTML elements. 
 
-In unit 2.2, we briefly mentioned the fact that properties apply to the entire hierarchy of HTML elements to which they are attached. This means that you will have to be very careful which selectors you choose to use in combination with your chosen style. When choosing your selector you might want to keep the following aspects of an HTML element in mind</p>
+In unit 2.2, we briefly mentioned the fact that properties apply to the entire hierarchy 
+of HTML elements to which they are attached. This means that you will have to be very 
+careful which selectors you choose to use in combination with your chosen style. When 
+choosing your selector you might want to keep the following aspects of an HTML element in mind</p>
     <h2>Sub Title 1</h2>
     <ul>
       <li>How many of these HTML elements are on my page?</li>
@@ -973,22 +991,22 @@ You can see these color properties in action using all three approaches to setti
     values</a></b><br>
    </caption>
    <tbody>
-    <tr><th style="background:black">Named</th><th>Numeric</th><th>Color name</th><th>Hex rgb</th><th>Decimal</th></tr><tr><td style="background:black"></td><td style="background:#000000"></td><td><dfn id="black">black</dfn></td><td >#000000</td><td >0,0,0
-    </td></tr><tr><td style="background:silver"></td><td style="background:#C0C0C0"></td><td><dfn id="silver">silver</dfn></td><td >#C0C0C0</td><td >192,192,192
-    </td></tr><tr><td style="background:gray"></td><td style="background:#808080"></td><td><dfn id="gray">gray</dfn></td><td >#808080</td><td >128,128,128
-    </td></tr><tr><td style="background:white"></td><td style="background:#FFFFFF"></td><td><dfn id="white">white</dfn></td><td >#FFFFFF</td><td >255,255,255
-    </td></tr><tr><td style="background:maroon"></td><td style="background:#800000"></td><td><dfn id="maroon">maroon</dfn></td><td >#800000</td><td >128,0,0
-    </td></tr><tr><td style="background:red"></td><td style="background:#FF0000"></td><td><dfn id="red">red</dfn></td><td >#FF0000</td><td >255,0,0
-    </td></tr><tr><td style="background:purple"></td><td style="background:#800080"></td><td><dfn id="purple">purple</dfn></td><td >#800080</td><td >128,0,128
-    </td></tr><tr><td style="background:fuchsia"></td><td style="background:#FF00FF"></td><td><dfn id="fuchsia">fuchsia</dfn></td><td >#FF00FF</td><td >255,0,255
-    </td></tr><tr><td style="background:green"></td><td style="background:#008000"></td><td><dfn id="green">green</dfn></td><td >#008000</td><td >0,128,0
-    </td></tr><tr><td style="background:lime"></td><td style="background:#00FF00"></td><td><dfn id="lime">lime</dfn></td><td >#00FF00</td><td >0,255,0
-    </td></tr><tr><td style="background:olive"></td><td style="background:#808000"></td><td><dfn id="olive">olive</dfn></td><td >#808000</td><td >128,128,0
-    </td></tr><tr><td style="background:yellow"></td><td style="background:#FFFF00"></td><td><dfn id="yellow">yellow</dfn></td><td >#FFFF00</td><td >255,255,0
-    </td></tr><tr><td style="background:navy"></td><td style="background:#000080"></td><td><dfn id="navy">navy</dfn></td><td >#000080</td><td >0,0,128
-    </td></tr><tr><td style="background:blue"></td><td style="background:#0000FF"></td><td><dfn id="blue">blue</dfn></td><td >#0000FF</td><td >0,0,255
-    </td></tr><tr><td style="background:teal"></td><td style="background:#008080"></td><td><dfn id="teal">teal</dfn></td><td >#008080</td><td >0,128,128
-    </td></tr><tr><td style="background:aqua"></td><td style="background:#00FFFF"></td><td><dfn id="aqua">aqua</dfn></td><td >#00FFFF</td><td >0,255,255
+    <tr><th style="background:black;">Named</th><th>Numeric</th><th>Color name</th><th>Hex rgb</th><th>Decimal</th></tr><tr><td style="background:black;"></td><td style="background:#000000"></td><td><dfn id="black">black</dfn></td><td >#000000</td><td >0,0,0
+    </td></tr><tr><td style="background:silver;"></td><td style="background:#C0C0C0"></td><td><dfn id="silver">silver</dfn></td><td >#C0C0C0</td><td >192,192,192
+    </td></tr><tr><td style="background:gray;"></td><td style="background:#808080"></td><td><dfn id="gray">gray</dfn></td><td >#808080</td><td >128,128,128
+    </td></tr><tr><td style="background:white;"></td><td style="background:#FFFFFF"></td><td><dfn id="white">white</dfn></td><td >#FFFFFF</td><td >255,255,255
+    </td></tr><tr><td style="background:maroon;"></td><td style="background:#800000"></td><td><dfn id="maroon">maroon</dfn></td><td >#800000</td><td >128,0,0
+    </td></tr><tr><td style="background:red;"></td><td style="background:#FF0000"></td><td><dfn id="red">red</dfn></td><td >#FF0000</td><td >255,0,0
+    </td></tr><tr><td style="background:purple;"></td><td style="background:#800080"></td><td><dfn id="purple">purple</dfn></td><td >#800080</td><td >128,0,128
+    </td></tr><tr><td style="background:fuchsia;"></td><td style="background:#FF00FF"></td><td><dfn id="fuchsia">fuchsia</dfn></td><td >#FF00FF</td><td >255,0,255
+    </td></tr><tr><td style="background:green;"></td><td style="background:#008000"></td><td><dfn id="green">green</dfn></td><td >#008000</td><td >0,128,0
+    </td></tr><tr><td style="background:lime;"></td><td style="background:#00FF00"></td><td><dfn id="lime">lime</dfn></td><td >#00FF00</td><td >0,255,0
+    </td></tr><tr><td style="background:olive;"></td><td style="background:#808000"></td><td><dfn id="olive">olive</dfn></td><td >#808000</td><td >128,128,0
+    </td></tr><tr><td style="background:yellow;"></td><td style="background:#FFFF00"></td><td><dfn id="yellow">yellow</dfn></td><td >#FFFF00</td><td >255,255,0
+    </td></tr><tr><td style="background:navy;"></td><td style="background:#000080"></td><td><dfn id="navy">navy</dfn></td><td >#000080</td><td >0,0,128
+    </td></tr><tr><td style="background:blue;"></td><td style="background:#0000FF"></td><td><dfn id="blue">blue</dfn></td><td >#0000FF</td><td >0,0,255
+    </td></tr><tr><td style="background:teal;"></td><td style="background:#008080"></td><td><dfn id="teal">teal</dfn></td><td >#008080</td><td >0,128,128
+    </td></tr><tr><td style="background:aqua;"></td><td style="background:#00FFFF"></td><td><dfn id="aqua">aqua</dfn></td><td >#00FFFF</td><td >0,255,255
   </td></tr></tbody>
 </table>
 
@@ -1117,11 +1135,21 @@ HTML code:
         <h1>Main title</h1>
         <h2>Sub title</h2>
         <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia consequat nibh, non commodo neque maximus semper. Vivamus non ultricies massa, vel convallis nunc. Aenean tempus risus at orci faucibus, eget hendrerit elit sodales. Quisque imperdiet diam nibh, ut semper enim dapibus et. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean in feugiat neque. Nunc eget libero mauris. Maecenas condimentum luctus nulla.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia consequat nibh, non commodo 
+neque maximus semper. Vivamus non ultricies massa, vel convallis nunc. Aenean tempus risus at orci 
+faucibus, eget hendrerit elit sodales. Quisque imperdiet diam nibh, ut semper enim dapibus et. 
+Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean in feugiat neque. Nunc eget 
+libero mauris. Maecenas condimentum luctus nulla.
 
-Nulla a sem orci. Cras eget neque viverra, condimentum nulla et, tincidunt libero. In sit amet quam purus. Aliquam erat volutpat. Sed hendrerit urna quis sapien mattis dictum. Etiam vehicula tortor eu libero finibus dapibus. Mauris nunc neque, sodales nec est sed, gravida convallis sem. Nam vulputate sed est sed eleifend. Quisque sodales elit at ornare vulputate.
+Nulla a sem orci. Cras eget neque viverra, condimentum nulla et, tincidunt libero. In sit amet 
+quam purus. Aliquam erat volutpat. Sed hendrerit urna quis sapien mattis dictum. Etiam vehicula 
+tortor eu libero finibus dapibus. Mauris nunc neque, sodales nec est sed, gravida convallis sem. 
+Nam vulputate sed est sed eleifend. Quisque sodales elit at ornare vulputate.
 
-Morbi quis metus tortor. Cras dapibus nisl urna, et pretium risus rutrum at. Maecenas a sollicitudin elit. Ut suscipit neque ligula. Nam aliquam massa in pretium ullamcorper. Sed id nisl et mauris maximus suscipit. Suspendisse potenti. Nulla interdum, magna eu facilisis aliquam, tellus nulla luctus nisi, eu cursus magna sapien sed mi.
+Morbi quis metus tortor. Cras dapibus nisl urna, et pretium risus rutrum at. Maecenas a sollicitudin 
+elit. Ut suscipit neque ligula. Nam aliquam massa in pretium ullamcorper. Sed id nisl et mauris 
+maximus suscipit. Suspendisse potenti. Nulla interdum, magna eu facilisis aliquam, tellus nulla 
+luctus nisi, eu cursus magna sapien sed mi.
         </p>
     </body>
 </html>
@@ -1252,7 +1280,13 @@ HTML code:
       <li> List element 3</li>
     </ul>
     <p>
-      Integer euismod at lectus vel placerat. Nam laoreet a quam in maximus. Duis turpis tellus, accumsan ac efficitur in, tempus vel augue. Aenean vitae venenatis tortor. Praesent dignissim nisl id odio fringilla, ac dapibus enim euismod. Sed id tellus vel est blandit finibus non vel magna. Nullam mattis, odio in suscipit dapibus, mauris dolor mollis nisl, et ultricies sem justo ac dui. Etiam ut turpis ipsum. Vivamus sodales vel nibh ut gravida. Pellentesque eu nunc elementum, sodales diam dictum, lobortis magna. Suspendisse id mattis ipsum. Vivamus scelerisque facilisis justo, id facilisis dui auctor sed.
+      Integer euismod at lectus vel placerat. Nam laoreet a quam in maximus. Duis turpis tellus, 
+      accumsan ac efficitur in, tempus vel augue. Aenean vitae venenatis tortor. Praesent dignissim 
+      nisl id odio fringilla, ac dapibus enim euismod. Sed id tellus vel est blandit finibus non 
+      vel magna. Nullam mattis, odio in suscipit dapibus, mauris dolor mollis nisl, et ultricies 
+      sem justo ac dui. Etiam ut turpis ipsum. Vivamus sodales vel nibh ut gravida. Pellentesque 
+      eu nunc elementum, sodales diam dictum, lobortis magna. Suspendisse id mattis ipsum. Vivamus 
+      scelerisque facilisis justo, id facilisis dui auctor sed.
     </p>
   </body>
 </html>
@@ -1322,17 +1356,25 @@ HTML code:
     <h1>Adding Properties</h1>
     <h2>Using Colors, Fonts and Spacing</h2>
     <p>          
-      There is a huge array of different aspects you can style: color, font, size, spacing and much more! For a complete list of official CSS properties look here: https://www.w3.org/Style/CSS/all-properties#list or http://meiert.com/en/indices/css-properties/
+      There is a huge array of different aspects you can style: color, font, size, spacing and much 
+      more! For a complete list of official CSS properties look here: 
+      https://www.w3.org/Style/CSS/all-properties#list or http://meiert.com/en/indices/css-properties/
     </p>
     <ol>
       <li>Make sure to look up what the available values are before using a property</li>
-      <li>because if the browser doesn't understand your value it will typically just skip applying any style</li>
+      <li>because if the browser doesn't understand your value it will typically just skip 
+        applying any style</li>
       <li>This is where programs like Visual Studio Code come in handy</li>
-      <li>because as you type out the property the program will automatically suggest possible values for you </li>
-      <li>Sometimes the easiest way to learn about different properties is to explore the style on one of your favorite websites</li>
+      <li>because as you type out the property the program will automatically suggest possible 
+        values for you </li>
+      <li>Sometimes the easiest way to learn about different properties is to explore the style 
+        on one of your favorite websites</li>
     </ol>
     <p>     
-If you aren't sure how to do this refer to the demo in unit 1.3 to see this in action while inspecting CSS Zen Garden designs. As you can see, the browser tools display the value of the properties, and if you click into that space it will even give you some of the different value options and you can even change them and watch the Web site update dynamically.
+If you aren't sure how to do this refer to the demo in unit 1.3 to see this in action while inspecting 
+CSS Zen Garden designs. As you can see, the browser tools display the value of the properties, and if 
+you click into that space it will even give you some of the different value options and you can even 
+change them and watch the Web site update dynamically.
     </p>
   </body>
 </html>
