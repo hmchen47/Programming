@@ -5,6 +5,38 @@
 
 + [CSS Validator][000]
 
++ [CSS Zen Garden][003]
+
+## [CSS design principles(CSS 2.2)][001]
+
++ Forward and backward compatibility.
++ Complementary to structured documents.
++ Vendor, platform, and device independence.
++ Maintainability.
++ Simplicity.
++ Network performance.
++ Flexibility
++ Richness
++ Alternative language binding.
++ Accessibility
+
+## [Effective Use of Style Sheets][002]
+
++ Generalized Style
+  + single style sheet for all of the pages on your site
+  + linked style sheets
+  + centralized design
+  + active evangelism program
+  + plenty of examples
+  + page authors should be allowed to create additional embedded styles for their own pages
++ Implementation advice
+  + continue to work when style sheets are disabled
+  + Do not use more than two fonts
+  + Do not use absolute font sizes
+  + Do not use the !important attribute
+  + use the same CLASS names for the same concept in all of the style sheets
+
+
 
 
 
@@ -15,9 +47,9 @@
 -------------------------------------------
 <!--
 [000]: https://jigsaw.w3.org/css-validator/
-[001]: 
-[002]: 
-[003]: 
+[001]: https://www.w3.org/TR/CSS22/intro.html#design-principles
+[002]: https://www.nngroup.com/articles/effective-use-of-style-sheets/
+[003]: http://www.csszengarden.com/
 [004]: 
 [005]: 
 [006]: 
