@@ -26,6 +26,9 @@
     <title>Title for Tab in Browser</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css"/>
+    <style>
+      /* code block for CSS & Comment Syntax */
+    </style>
   </head>
   <body>
     <!-- CONTENTS HERE / COMMENT Syntax-->
