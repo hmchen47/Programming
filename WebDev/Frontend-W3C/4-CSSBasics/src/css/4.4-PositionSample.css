@@ -1,0 +1,28 @@
+h1 {
+  background-color: red;
+  width: 300px;
+  position: relative;
+  left: 150px;
+}
+section {
+  background-color: orange;
+  height: 100px;
+}
+h2 {
+  position: relative;
+  top: 20px;
+}
+footer {
+  background-color: yellow;
+  height: 200px;
+  width: 300px;
+  position: relative;
+  left: 50px;
+  top: 50px;
+}
+h3 {
+  position: relative;
+  top: 50px;
+  left: 10px;
+}
+

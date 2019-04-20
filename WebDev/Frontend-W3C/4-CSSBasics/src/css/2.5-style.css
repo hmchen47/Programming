@@ -1,0 +1,45 @@
+/* CSS file for 2.5.5 Activity-Adding your own properties */
+
+body {
+    background-color: #ffff99;
+}
+ 
+h1 {
+    border: 3px #ff6600 solid;
+    margin: 0.5em;
+    padding: 0.2em;
+    color: #ff6600;
+    font-size: 2.5em;
+    font-weight: 900;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+ 
+ 
+h2 {
+    background-color: #ff6600;
+    color: #ffff99;
+    margin: 1em 0.7em 0.3em 0.7em;
+    padding: 1.5em 0em 0.2em 0.5em;
+    height: 1.5em;
+    font-family: "Courier New";
+    font-size: 1.8em;
+}
+ 
+ol {
+    background-color: #ffcc00;
+    margin: 2em 1.2em 2em 1.2em;
+    padding: 0.3em 2em 0.3em 2em;
+}
+ 
+li {
+    font-family: Impact;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+ 
+p {
+    border: 2px #ffcc00 dashed;
+    margin: 1.2em 1.3em 1.2em 1.2em;
+    padding: 0.5em;
+}
+
