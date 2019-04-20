@@ -1,0 +1,16 @@
+body {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+ul {
+  list-style: none;
+  padding: 50px;
+}
+ul li {
+  float: left;
+  width: 10%;
+}
+section {
+  clear: both;
+}

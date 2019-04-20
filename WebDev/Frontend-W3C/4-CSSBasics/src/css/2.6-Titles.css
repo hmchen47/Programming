@@ -1,0 +1,65 @@
+div {
+  padding: 50px;
+}
+
+#busyTitle h1{
+  font-size: 2em;
+  font-family: Impact;
+  color: yellow;
+  background-color: gray;
+  font-style: italic;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/*Soft clean colors based on print media, so we use a serif font for the title only*/
+#design1 {
+  background-color: #F4F4F4;
+  font-family: "Lucidia Sans Unicode", sans-serif;
+}
+#design1 h1 {
+  color: #C0B283;
+  font-size: 4em; 
+  font-weight: 700;
+  font-family: Garamond; 
+  width: 300px;
+}
+#design1 p {
+  color: #373737;
+  font-size: 1.2em;
+}
+
+/*This design is supposed to look more futuristic, so it only uses sans-serif, thin font with high contrast*/
+#design2 {
+  font-family: Century Gothic, sans-serif;
+  background-color: #0E0B16;
+}
+#design2 h1 {
+  font-weight: 400;
+  font-size: 2.3em;
+  color: #A239CA;
+  font-style: italic;
+}
+#design2 p {
+  color: #E7DFDD;
+}
+
+/*this design is based on pastel primary colors and uses color as a highlight against the default white background*/
+#design3 {
+  color: #DF744A;
+  font-family: Arial, sans-serif;
+}
+#design3 h1 {
+  background-color: #BFD8D2;
+  text-align: center;
+  font-size: 4em;
+  font-weight: 100;
+  padding: 30px;
+  border-bottom: 5px #DCB239 solid;
+  font-family: Helvetica, sans-serif;
+}
+#design3 p {
+  background-color: #FEDCD2;
+  padding: 50px;
+}

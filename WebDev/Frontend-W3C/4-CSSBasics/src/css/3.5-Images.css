@@ -1,0 +1,69 @@
+div {
+  margin-bottom: 50px;
+}
+
+#uglyImg {
+  background-color: gray;
+  padding: 10px;
+}
+
+#images1 {
+  background-color: #A4D555;
+  padding: 50px;
+  width: 750px;
+}
+#images1 p {
+  background-color: #02558B;
+  font-family: "Century Gothic";
+  font-size: 1.2em;
+  color: white;
+  width: 350px;
+  padding: 30px;
+  float: right;
+}
+#images1 img {
+  width: 250px;
+  padding: 15px 15px 50px 15px;
+  background-color: white;
+}
+
+#images2 {
+  width: 750px;
+  background-color: #E9E9E9;
+  padding: 30px;
+  font-family: Arial;
+}
+#images2 p {
+  background-color: #99D3DF;
+  padding: 20px 30px;
+}
+#images2 img {
+  width: 200px;
+  padding: 10px;
+  border: 2px #88BBD6 solid;
+  margin: 5px;
+  background-color: white;
+}
+
+#images3 {
+  background-image: url('https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2016+type@asset+block@spaceNeedle.jpg');
+  background-repeat: no-repeat; 
+  height: 500px;
+  width: 500px;
+}
+#images3 p, #clickHere {
+  color: white;
+  font-family: Tahoma;
+  padding: 40px;
+}
+#navBox {
+  width: 220px;
+  margin-left: 30px;
+}
+#clickHere {
+  float: right;
+  padding: 30px 0px;
+}
+#clickHere a {
+  color: white;
+}
