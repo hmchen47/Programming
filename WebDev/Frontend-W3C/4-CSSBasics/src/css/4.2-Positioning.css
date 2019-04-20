@@ -1,0 +1,25 @@
+h1 {
+  background-color: red;
+  width: 50%;
+  margin: 0 auto;
+}
+p {
+  background-color: orange;
+  width: 70%;
+}
+a {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
+section {
+  background-color: yellow;
+  width: 70%;
+  margin: 0 auto;
+}
+div {
+  background-color: green;
+  width: 50%;
+  margin: 0 auto;
+}
+
