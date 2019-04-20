@@ -16,9 +16,22 @@
   + [W3C cheatsheet][006]
 
 
+## HTML Template
 
-
-
+```html
+<!DOCTYPE html> 
+<!--It's a best practice to always declare DOCTYPE!-->
+<html lang="en">
+  <head>
+    <title>Title for Tab in Browser</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <!-- CONTENTS HERE -->
+  </body>
+</html>
+```
 
 
 
