@@ -183,7 +183,7 @@
     1. [CSS Grid layout (OPTIONAL)](05-DesignWeb.md#)
     1. [Activity 5.5](05-DesignWeb.md#)
 + [5.6 Project 5 - Apply good design](05-DesignWeb.md#)
-    1. [Apply good design](05-DesignWeb.md#)
+
 
 ## [Conclusion and final exam](06-Final.md)
 
