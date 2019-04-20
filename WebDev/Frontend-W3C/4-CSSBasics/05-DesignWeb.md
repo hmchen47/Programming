@@ -685,7 +685,13 @@ Have a look at how CSS Grid Layout went from an idea to a reality. The video bel
 </video><br/>
 
 
-### Activity 5.5
+### Activity 5.5 - Best design
+
+For this activity, go out and find what you think is the best-designed Web page! Post a link to it in the discussion along with the answers to the following questions:
+
+1. Why do you like the design of this Web page?
+2. What is one aspect of this Web page you would like to use in your own design?
+3. Is this Web page accessible?
 
 
 
