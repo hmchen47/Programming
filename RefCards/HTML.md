@@ -47,7 +47,7 @@
 ## Common HTML Tags
 
 | Tag | Description |Attribute |  Link |
-|-----|-------------|------|
+|-----|-------------|------|-------|
 | `<html>` | root element of a document  | `lang="en"` | [W3C][008], [Common Tags][009] |
 | `<head>` | element containing all the metadata for the site | | [W3C][010], [Common Tags][011] |
 | `<body>` | element containing all the visible content for the site like text, images, links etc. | | [W3C][012], [Common Tags][013] |
@@ -252,7 +252,7 @@
 [007]: https://www.w3.org/TR/html52/
 [008]: https://www.w3.org/TR/2016/WD-html52-20160818/semantics.html#the-html-element
 [009]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#html
-[000]: https://www.w3.org/TR/2016/WD-html52-20160818/document-metadata.html#the-head-element
+[010]: https://www.w3.org/TR/2016/WD-html52-20160818/document-metadata.html#the-head-element
 [011]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#head
 [012]: https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-body-element
 [013]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#body
