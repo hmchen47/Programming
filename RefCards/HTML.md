@@ -63,6 +63,18 @@
 | `<div>` | a generic element to hold content, used to collect together large portions of a site that contain multiple different types of content | | [W3C][032], [Common Tags][033] |
 
 
+## Image element
+
+| Attribute | value | Description | Link |
+|-----------|-------|-------------|------|
+| `src` | URL | Specifies the URL of an image | [Images][034] |
+| `width` | pixels | Specifies the width of an image | [Images][035] |
+| `height` | pixels | Specifies the height of an image |[Images][036] |
+| `alt` | text | Specifies an alternate text for an image | [Images][037] |
+| `border-radius` | pixels, `%` | create rounded images | [Images][038] |
+| `margin` | `auto` | center the image | [Images][038] |
+| `display` | `inline-block` | display format on browser | [Images][039] |
+
 
 
 
@@ -74,12 +86,6 @@
 -------------------------------------------
 
 <!--
-[034]: 
-[035]: 
-[036]: 
-[037]: 
-[038]: 
-[039]: 
 [040]: 
 [041]: 
 [042]: 
@@ -276,3 +282,9 @@
 [031]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#footer
 [032]: https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-div-element
 [033]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#div
+[034]: https://www.w3schools.com/tags/att_img_src.asp
+[035]: https://www.w3schools.com/tags/att_img_width.asp
+[036]: https://www.w3schools.com/tags/att_img_height.asp
+[037]: https://www.w3schools.com/tags/att_img_alt.asp
+[038]: https://www.w3schools.com/css/css3_images.asp
+[039]: https://www.w3schools.com/tags/tag_img.asp
