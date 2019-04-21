@@ -88,7 +88,27 @@
 + CSS property values set on one element will be transferred down the tree to that element's children.
 + Not every property is inherited, but many are.
 
+## [Selector's specificity][036]
 
++ Calculate specificity
+  + count the number of ID selectors in the selector (= a)
+  + count the number of class selectors, attributes selectors, and pseudo-classes in the selector (= b)
+  + count the number of type selectors and pseudo-elements in the selector (= c)
+  + ignore the universal selector (`*`)
+
++ Example
+
+  ```
+  *               /* a=0 b=0 c=0 -> specificity =   0 */
+  LI              /* a=0 b=0 c=1 -> specificity =   1 */
+  UL LI           /* a=0 b=0 c=2 -> specificity =   2 */
+  UL OL+LI        /* a=0 b=0 c=3 -> specificity =   3 */
+  H1 + *[REL=up]  /* a=0 b=1 c=1 -> specificity =  11 */
+  UL OL LI.red    /* a=0 b=1 c=3 -> specificity =  13 */
+  LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
+  #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
+  #s12:not(FOO)   /* a=1 b=0 c=1 -> specificity = 101 */
+  ```
 
 ## Color Properties
 
