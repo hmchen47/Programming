@@ -48,6 +48,7 @@
 + Selector:
   + tell the browser what HTML tags this rule applies to
   + types: tag, class & id
+  + attribute selectors: Classes and IDs
   + multiple HTML elements with similar style: `p, ul, ol {color: blue; }`
 
 + Property:
@@ -58,6 +59,24 @@
   + [complete list of latest CSS properties][005] at the W3C
 
 
+## Selectors
+
+| Selector | Description | Declaration | Usage | Link |
+|----------|-------------|-------------|-------|------|
+| `.class` | an HTML attribute that specifies a name for a group of elements on the page | `.className { color: blue; }` | `<p class="className">paragraph</p>` | [W3C][023], [Selectors][024] |
+| `#id` | an HTML attribute that specifies a name or unique identifier for a particular HTML element | `#MyFirstId { color: blue; }` | `<p id="MyFirstId"> special paragraph </p>` | [W3C][025], [Selectors][026] |
+| `element` | select all elements | `p { color: blue;}` | `<p>Paragraph</p>` | [W3C][027] |
+| `element1, element2` | select all element1 & element2 | `p, div { color: blue; }` | `<div> division </div>`, `<p> paragraph </p>` | [W3C][027] |
+| `element1 element2` | select all element2 inside element 1 | `div p { color: blue;}` | `<div> <p> text </p> </div>`, `<div> <article> <p> text </p> </article> </div>` | [W3C][027] [Selector][034] |
+| `element1>element2` | select all element2 where the parent is element1 | `div>p {color: blue;}` | `<div> <img /> <p> text </p> </div>` | [W3C][027] |
+| `element1+element2` | select all element2placed immediately after element1 | `div+p { color: blue;}` | `<div> <p> text </p> </div>`  | [W3C][027] |
+| `e:state` | pseudo-classes, applied to an existing selector based on their state | `a:active {color: blue;}` | `<a href="url">` | [W3C][027] |
+| `e:link`, `e:visited` | User agents commonly display unvisited links differently from previously visited ones | `a:link { color: blue; }`, `a:visited {color: orange}` | [W3C][028] [Selector][029] |
+| `e:hover` | applies while the user designates an element (with some pointing device), but does not activate it | `li.hover { background-color: green; }` | `<li> text </li>` | [W3C][030], [W3C][031], [Selector][032] |
+| `e.active` | applies while an element is being activated by the user | `li.active {background-color: orange;}` | `<li> text </li>` | [W3C][031], [Selector][033] |
+| `e.focus` | applies while an element has the focus (accepts keyboard events or other forms of text input) | `li.focus { background-color: blue;}` | `<li> text </li>` | [W3C][031], [Selector][033] |
+
+
 ## Tree Presentation - Inheritance
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -66,8 +85,10 @@
   </a></div>
 </div>
 
-+ CSS property values set on one element will be transferred down the tree to that element's children. 
++ CSS property values set on one element will be transferred down the tree to that element's children.
 + Not every property is inherited, but many are.
+
+
 
 ## Color Properties
 
@@ -138,20 +159,20 @@
 [020]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#border
 [021]: https://www.w3.org/TR/CSS2/box.html#propdef-margin
 [022]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#margin
-[023]: 
-[024]: 
-[025]: 
-[026]: 
-[027]: 
-[028]: 
-[029]: 
-[030]: 
-[031]: 
-[032]: 
-[033]: 
-[034]: 
-[035]: 
-[036]: 
+[023]: https://www.w3.org/TR/html52/dom.html#classes
+[024]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#classes
+[025]: https://www.w3.org/TR/html52/dom.html#the-id-attribute
+[026]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#ids
+[027]: https://www.w3schools.com/cssref/css_selectors.asp
+[028]: https://www.w3.org/TR/CSS22/selector.html#link-pseudo-elements
+[029]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#link-and-visited
+[030]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
+[031]: https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes
+[032]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
+[033]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#focus
+[034]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#active
+[035]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#contextual-selectors
+[036]: https://www.w3.org/TR/selectors-3/#specificity
 [037]: 
 [038]: 
 [039]: 
