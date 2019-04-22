@@ -155,10 +155,20 @@
 |----------|-------------|------|-------|
 | `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left` | the white space that sits closest to an HTML element | `px`, `em` | [W3C][021], [Space][022] |
 | `border`, `border-top`, `border-right`, `border-bottom`, `border-left` | the area outside the padding of an HTML element | `1px black solid` | [W3C][023], [Space][024] |
-| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `em`, `px` | [W3C][025], [Space][026] |
+| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `auto`, `em`, `px` | [W3C][025], [Space][026] |
 
 
+## Image Property
 
+See [Image Attributes][]
+
+
+## Alignment Property
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `text-align` | set the content's alignment horizontally | `left`, `right`, `center`, `justify` | [W3C][038], [Alignment][039] |
+| `line-height` | HTML element block grows and the text will vertically center within it | [W3C][040], [Alignment][041] |
 
 
 
@@ -166,38 +176,6 @@
 
 -------------------------------------------
 <!--
-[010]: https://www.w3.org/Style/Examples/007/fonts
-[011]: https://www.w3.org/TR/css-fonts/#font-family-prop
-[012]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-family
-[013]: https://www.w3.org/TR/css-fonts/#font-size-prop
-[014]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-size
-[015]: https://www.w3.org/TR/css-fonts/#font-weight-prop
-[016]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-weight
-[017]: https://www.w3.org/TR/CSS2/box.html#propdef-padding-top
-[018]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#padding
-[019]: https://www.w3.org/TR/css3-background/#borders
-[020]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#border
-[021]: https://www.w3.org/TR/CSS2/box.html#propdef-margin
-[022]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#margin
-[023]: https://www.w3.org/TR/html52/dom.html#classes
-[024]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#classes
-[025]: https://www.w3.org/TR/html52/dom.html#the-id-attribute
-[026]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#ids
-[027]: https://www.w3schools.com/cssref/css_selectors.asp
-[028]: https://www.w3.org/TR/CSS22/selector.html#link-pseudo-elements
-[029]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#link-and-visited
-[030]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
-[031]: https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes
-[032]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
-[033]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#focus
-[034]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#active
-[035]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#contextual-selectors
-[036]: https://www.w3.org/TR/selectors-3/#specificity
-[037]: 
-[038]: 
-[039]: 
-[040]: 
-[041]: 
 [042]: 
 [043]: 
 [044]: 
@@ -367,3 +345,35 @@
 [007]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#color
 [008]: https://www.w3.org/TR/css3-background/#the-background-color
 [009]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#background-color
+[010]: https://www.w3.org/Style/Examples/007/fonts
+[011]: https://www.w3.org/TR/css-fonts/#font-family-prop
+[012]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-family
+[013]: https://www.w3.org/TR/css-fonts/#font-size-prop
+[014]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-size
+[015]: https://www.w3.org/TR/css-fonts/#font-weight-prop
+[016]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-weight
+[017]: https://www.w3.org/TR/CSS2/box.html#propdef-padding-top
+[018]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#padding
+[019]: https://www.w3.org/TR/css3-background/#borders
+[020]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#border
+[021]: https://www.w3.org/TR/CSS2/box.html#propdef-margin
+[022]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#margin
+[023]: https://www.w3.org/TR/html52/dom.html#classes
+[024]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#classes
+[025]: https://www.w3.org/TR/html52/dom.html#the-id-attribute
+[026]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#ids
+[027]: https://www.w3schools.com/cssref/css_selectors.asp
+[028]: https://www.w3.org/TR/CSS22/selector.html#link-pseudo-elements
+[029]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#link-and-visited
+[030]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
+[031]: https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes
+[032]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
+[033]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#focus
+[034]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#active
+[035]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#contextual-selectors
+[036]: https://www.w3.org/TR/selectors-3/#specificity
+[037]: ./HTML.md#image-element
+[038]: https://www.w3.org/TR/CSS22/text.html#alignment-prop
+[039]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align
+[040]: https://www.w3.org/TR/CSS22/visudet.html#line-height
+[041]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#line-height
