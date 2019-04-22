@@ -111,7 +111,7 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     5. Using color exclusively to indicate interactive elements on the page
 
     Ans: 13 <br/>
-        Explanation
+    Explanation
         + Monospace fonts don't usually improve the readibility.
         + HTML tables are good for tabular data, but using them for formatting hides the logical order of elements.
         + Using only color can pose problems for people with color blindness, and often doesn't provide enough contrast.
@@ -156,6 +156,78 @@ Use this image of an interactive HTML page to answer question 10:
 
 
 ## Exercises (11-15)
+
+11. Low vision
+
+    What is the best font size to accomodate users with low vision?
+
+    1. Using at most 16pt, so when using a screen zoom fonts aren't overly exaggerated.
+    2. Using at least 1em, so the font can grow and shrink based on user settings.
+    3. Using at least 18px, so that fonts are displayed in relation to screen resolution.
+    4. Using at least 12pt, so fonts cannot display smaller than typical printed text.
+
+    Ans: 2 <br/>
+    Setting any fixed font size means that some people will have to zoom! It is better to use 1em so people automatically get the font size they prefer.
+
+
+12. Internationalization
+
+    Which of the following are ways to make your site more accessible for international users? (2 correct answers!)
+
+    1. Use ASCII characters to allow for non roman characters.
+    2. Use UTF-8 character encoding to accomodate a wide range of language symbols.
+    3. Declare the language of your page.
+    4. Do not set the language of your page so that it can adapt accordingly.
+
+    Ans: 24 <br/>
+    Explanation
+
+        + UTF-8 ensures that people can use all scripts of the world, so that they can can put their name in a form.
+        + Indicating the language of the page helps, among other things, automatic translation and search engines.
+
+
+13. Outdated
+
+    Which of the following Web design elements are considered "outdated" and should generally be avoided? (4 correct answers!)
+
+    1. Automative scrolling (marquee)
+    2. Cursive text
+    3. HTML tables as a way to structure layout
+    4. Infinitely scrolling Web pages
+    5. Animated cursors
+    6. Frames as a way to keep navigation bars static
+
+    Ans: 1356 <br/>
+    Explanation
+        + Cursive text is old as writing itself, and not likely to go out of fashion.
+        + And, "infinite scrolling is a new trend. Whether it is also good design still remains to be seen...", states Bert Bos.
+
+
+14. Flat design
+
+    Which of the following is the best description of the current trend of "flat design"?
+
+    1. Clean color palettes limited to few colors that are analogous on the color wheel.
+    2. Simple, minimalistic design with clean typography, simple elements in a well organized grid layout and 2D design without drop shadows.
+    3. Simple Web layouts that use a long scrolling page with anchor links instead of multiple pages linked via a nav bar.
+    4. Rich design that makes the elements of the page jump out as if they were 3D through use of beveled edges, drop shadows and gradients.
+
+    Ans: 2 <br/>
+    "Flat design" refers to the absence of pseudo-3D elements and uses simple, grid-like alignments. Flat design can be applied to long and short pages alike and use few or many colors.
+
+
+15. Best tool
+
+    Since the release of HTML5 in 2014, what is considered the best tool with which to structure your page?
+
+    1. context-specific tags like header, nav or footer
+    2. HTML tables
+    3. div tags
+    4. frames
+
+    Ans: 1 <br/>
+    Tables and frames should not be used to structure a Web page. <br/>
+    Div tags can be used if there aren't any more specific elements to express a purpose, such as header, nav and footer.
 
 
 
