@@ -36,6 +36,63 @@
   + Do not use the !important attribute
   + use the same CLASS names for the same concept in all of the style sheets
 
+## [CSS Best Practice][056]
+
++ [Executive summary][057]
+  + Logical source order: accessibility, mobile optimization, device adaptability, and long-term maintainability.
+  + Liquid layouts and relativity: Use smart relative sizing
+  + Media queries: get font size adaptation free by using `em`s
+  + Prevent zombie code: Delete it before it does, and ruins your layout
+  + Test in multiple browsers: Your favorite browser is not always right.
+  + Don't use proprietary features! Don't rely on the latest -WebKit- invention.
+  + Turn off CSS: A well-coded page will be understandable without it.
+
++ [Foundations][058]
+  + Indent your code for readability ease
+  + Learn how to code CSS before relying on frameworks (such as Bootstrap, etc.)
+  + Separate content and style
+    + Use semantic markup, ie., "classes for meaning, not for show".
+    + Use `<table>` for tabular data: don't use tables for layout
+  + Linearized logical source order
+    + The order of the HTML content should make sense even without the CSS.
+      + for long-term site maintainability
+      + for mobile
+      + for accessibility
+      + as a foundation for device adaptation (media queries)
+  + Linguistic variations: set the language correctly for better typography
+
++ [Testing][059]
+  + Test without CSS: turn off CSS, and if the page makes no sense, fix your markup.
+  + Test in multiple environments:
+    + Resize the window
+    + Zoom the text
+    + Try a mobile browser
+    + Navigate by keyboard
+  + Test in multiple browsers: remember that just testing in Chrome does not work for everyone! ;)
+
++ [Adaptability][060]
+  + Media queries: set media query breakpoints in `em` or `ch`, not always in `px`.
+  + Liquid layouts and relativity: what is your sizing based on?
+    + Containing block size? → Use percents.
+    + Viewport size? → Use viewport units: `vw`, `vh`, `vmin`, `vmax`
+    + Font height? → Use `em` or `rem`.
+    + Font pitch? → Use `em` or `ch`.
+    + Content size? → Use auto or min-content/max-content.
+    + Combination of the above? → Use the appropriate layout formulas: `flex`, `min-width`, `max-width`, etc.
+
++ [Defensive Coding][061]
+  + `!important` means never override- to use with caution
+  + Use !important to define overriding rules, not for fixups
+  + Duplicate selectors if you need to increase specificity, or
+  + Simplify selectors if you need to decrease specificity
+  + Don't over-escalate: understand your code, and don't overkill.
+  + Drop dead code: you tried something and it didn't work? Delete it right away!
+  + Code to Standard
+  + Don't rely on proprietary extensions
+  + Don't use experimental features in production or commit to keeping up-to-date.
+  + Provide fallbacks / use @supports.
+
+
 ## [CSS Syntax][004]
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -208,12 +265,6 @@ See [Image Attributes][]
 
 -------------------------------------------
 <!--
-[056]: 
-[057]: 
-[058]: 
-[059]: 
-[060]: 
-[061]: 
 [062]: 
 [063]: 
 [064]: 
@@ -353,6 +404,7 @@ See [Image Attributes][]
 [198]: 
 [199]: 
 -->
+
 [000]: https://jigsaw.w3.org/css-validator/
 [001]: https://www.w3.org/TR/CSS22/intro.html#design-principles
 [002]: https://www.nngroup.com/articles/effective-use-of-style-sheets/
@@ -409,3 +461,9 @@ See [Image Attributes][]
 [053]: https://www.w3.org/TR/CSS22/visuren.html#choose-position
 [054]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property
 [055]: https://www.w3.org/TR/CSS22/visuren.html#position-props
+[056]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#css-best-practices
+[057]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#executive-summary
+[058]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#foundations
+[059]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#testing
+[060]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#adaptability
+[061]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#defensive-coding
