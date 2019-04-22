@@ -59,7 +59,7 @@ Box model definition in the [W3C's CSS2.1 specification](https://www.w3.org/TR/C
 
 One of the simplest ways to align content is to use the direct text-align property. This can help you set the alignment of text or inline content within the context of their containing HTML element.
 
-#### text-align
+__text-align__
 
 [Documentation](https://www.w3.org/TR/CSS22/text.html#alignment-prop)
 
@@ -82,7 +82,7 @@ See below for examples of what each of these values will do to your text:
 
 Note that this property can only apply to block elements like paragraphs, divs and headers.
 
-#### line-height
+__line-height__
 
 [Documentation](https://www.w3.org/TR/CSS22/visudet.html#line-height)
 
@@ -104,7 +104,7 @@ You may have noticed that the text-align property sets the content's alignment h
 </div>
 
 
-#### INTERNATIONAL CONSIDERATIONS
+INTERNATIONAL CONSIDERATIONS
 
 Please do not use text-align indiscriminately. If there's a possibility that your site will need to be translated into a language that uses the Arabic, Hebrew, or Thaana scripts (which read from right to left), it creates difficulties to have to change all the  right values to left and vice versa.
 
@@ -136,7 +136,7 @@ For example, if we set the width of a paragraph to $30\%$ as you resize the brow
 Things are a bit more complicated with using a percentage to set an element's height. This is because typically the body's height is not specified, so if you use a percentage the size won't adjust.
 
 
-#### min-width, max-width, min-height, max-height
+__min-width, max-width, min-height, max-height__
 
 Documentation: [max and min width](https://www.w3.org/TR/CSS22/visudet.html#min-max-widths) and [max and min height](https://www.w3.org/TR/CSS22/visudet.html#min-max-heights)
 
@@ -390,7 +390,7 @@ Elements underneath a floating object will automatically wrap themselves around 
 You'll often want to set the width of a floating object so that you have tighter control over the space that object occupies. Remember that, by default, block HTML elements occupy the entire width of the page, even if there isn't actual content that extends that far. In this case, you'll want to set the width so that your element's size more accurately represents its content and you don't have unnecessary white space. 
 
 
-### The Clear Property
+#### The Clear Property
 
 Once you have some elements floating things can get a little messy. It's easy for floating objects to overlap, and to prevent this you can use the "clear" property.
 
@@ -883,7 +883,7 @@ Use the following diagram representing the box model to answer questions 1, 2 an
 
     What is the name of the region labeled "Region C" above?
 
-    Ans: padding
+  Ans: padding
 
 2. "Region A"
 

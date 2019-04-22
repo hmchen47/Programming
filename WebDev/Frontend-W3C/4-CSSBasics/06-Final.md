@@ -16,8 +16,8 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     2. 1 - 3
     3. 7 - 10
 
-    Ans: 2 <br/>
-    A best practice is to use one font the titles and another font for the body text.
+  Ans: 2 <br/>
+  A best practice is to use one font the titles and another font for the body text.
 
 
 2. Sans-serif
@@ -29,7 +29,7 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     3. They have extra flourishes to help them be more readable.
     4. They are the best choice for large blocks of digital text.
 
-    Ans: 14
+  Ans: 14
 
 
 3. Serif or not serif
@@ -41,8 +41,8 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     3. Courier New
     4. Garamond
 
-    Ans: 24 <br/>
-    Arial is a sans-serif font and Courrier New is an example of a monospace font.
+  Ans: 24 <br/>
+  Arial is a sans-serif font and Courrier New is an example of a monospace font.
 
 
 4. Courier New
@@ -54,8 +54,8 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     3. its letters are as tall as they are wide
     4. it is often used to display example code
 
-    Ans: 24 <br/>
-    The "Courier New" font mimics an old typewriter and is traditionally use for computer code.
+  Ans: 24 <br/>
+  The "Courier New" font mimics an old typewriter and is traditionally use for computer code.
 
 
 5. Palette colors
@@ -67,8 +67,8 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     3. 1 - 2
     4. 7 - 8
 
-    Ans: 1 <br/>
-    Colors can be used to make things stand out, but it only works if there are not too many colors.
+  Ans: 1 <br/>
+  Colors can be used to make things stand out, but it only works if there are not too many colors.
 
 
 ## Exercises (6-10)
@@ -82,8 +82,8 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     3. 50 - 75 characters wide
     4. 15 - 20 characters wide
 
-    Ans: 3 <br/>
-    Long lines make it difficult for your eyes to return to the start of the next line. So a best practice would be to limit lines of text to 50-75 characters wide, that is about 10 to 12 words per line.
+  Ans: 3 <br/>
+  Long lines make it difficult for your eyes to return to the start of the next line. So a best practice would be to limit lines of text to 50-75 characters wide, that is about 10 to 12 words per line.
 
 
 7. Web accessibility
@@ -96,8 +96,8 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     4. People living with physical limitations such as low-vision or color blindness.
     5. People using mobile devices, and other diverse access channels.
 
-    Ans: 12345 (x1235)<br/>
-    Web accessibility addresses all disabilities, including hearing, learning and cognitive, neurological, physical, speech, and visual disabilities. And also, Web accessibility helps for temporary situational limitations.
+  Ans: 12345 (x1235)<br/>
+  Web accessibility addresses all disabilities, including hearing, learning and cognitive, neurological, physical, speech, and visual disabilities. And also, Web accessibility helps for temporary situational limitations.
 
 
 8. Accessibility improvements
@@ -110,11 +110,11 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     4. Using HTML tables for formatting
     5. Using color exclusively to indicate interactive elements on the page
 
-    Ans: 13 <br/>
-    Explanation
-        + Monospace fonts don't usually improve the readibility.
-        + HTML tables are good for tabular data, but using them for formatting hides the logical order of elements.
-        + Using only color can pose problems for people with color blindness, and often doesn't provide enough contrast.
+  Ans: 13 <br/>
+  Explanation
+    + Monospace fonts don't usually improve the readibility.
+    + HTML tables are good for tabular data, but using them for formatting hides the logical order of elements.
+    + Using only color can pose problems for people with color blindness, and often doesn't provide enough contrast.
 
 
 9. Inclusive color palette
@@ -126,11 +126,11 @@ As stated in the [grading policy page](https://courses.edx.org/courses/course-v1
     3. A small collection of colors that are highly contrasting, choosing at least one from the warmer color group and one from the cooler color group.
     4. Colors that are well coordinated according to "complimentary" colors located across the color wheel from one another.
 
-    Ans: 3 <br/>
-    Explanation
-        + Colors that are too similar do not provide the contrast needed.
-        + If you use a wide range of colors, there will also be colors among them that are hard to distinguish.
-        + Complementary colors are not enough. You also need to give them different contrast.
+  Ans: 3 <br/>
+  Explanation
+    + Colors that are too similar do not provide the contrast needed.
+    + If you use a wide range of colors, there will also be colors among them that are hard to distinguish.
+    + Complementary colors are not enough. You also need to give them different contrast.
 
 
 Use this image of an interactive HTML page to answer question 10:
@@ -151,8 +151,8 @@ Use this image of an interactive HTML page to answer question 10:
     3. Add alt text to the buttons so those using a screen reader will understand which button is green and which is red.
     4. Change the colors of the buttons from red and green to blue and orange to accomodate those with different types of color-blindness.
 
-    Ans: 1 <br/>
-    It is not necessary to remove color as long as there are alternative ways to distinguish the buttons, such as shape and/or text.
+  Ans: 1 <br/>
+  It is not necessary to remove color as long as there are alternative ways to distinguish the buttons, such as shape and/or text.
 
 
 ## Exercises (11-15)
@@ -166,8 +166,8 @@ Use this image of an interactive HTML page to answer question 10:
     3. Using at least 18px, so that fonts are displayed in relation to screen resolution.
     4. Using at least 12pt, so fonts cannot display smaller than typical printed text.
 
-    Ans: 2 <br/>
-    Setting any fixed font size means that some people will have to zoom! It is better to use 1em so people automatically get the font size they prefer.
+  Ans: 2 <br/>
+  Setting any fixed font size means that some people will have to zoom! It is better to use 1em so people automatically get the font size they prefer.
 
 
 12. Internationalization
@@ -179,11 +179,10 @@ Use this image of an interactive HTML page to answer question 10:
     3. Declare the language of your page.
     4. Do not set the language of your page so that it can adapt accordingly.
 
-    Ans: 24 <br/>
-    Explanation
-
-        + UTF-8 ensures that people can use all scripts of the world, so that they can can put their name in a form.
-        + Indicating the language of the page helps, among other things, automatic translation and search engines.
+  Ans: 24 <br/>
+  Explanation
+    + UTF-8 ensures that people can use all scripts of the world, so that they can can put their name in a form.
+    + Indicating the language of the page helps, among other things, automatic translation and search engines.
 
 
 13. Outdated
@@ -197,10 +196,10 @@ Use this image of an interactive HTML page to answer question 10:
     5. Animated cursors
     6. Frames as a way to keep navigation bars static
 
-    Ans: 1356 <br/>
-    Explanation
-        + Cursive text is old as writing itself, and not likely to go out of fashion.
-        + And, "infinite scrolling is a new trend. Whether it is also good design still remains to be seen...", states Bert Bos.
+  Ans: 1356 <br/>
+  Explanation
+    + Cursive text is old as writing itself, and not likely to go out of fashion.
+    + And, "infinite scrolling is a new trend. Whether it is also good design still remains to be seen...", states Bert Bos.
 
 
 14. Flat design
@@ -212,8 +211,8 @@ Use this image of an interactive HTML page to answer question 10:
     3. Simple Web layouts that use a long scrolling page with anchor links instead of multiple pages linked via a nav bar.
     4. Rich design that makes the elements of the page jump out as if they were 3D through use of beveled edges, drop shadows and gradients.
 
-    Ans: 2 <br/>
-    "Flat design" refers to the absence of pseudo-3D elements and uses simple, grid-like alignments. Flat design can be applied to long and short pages alike and use few or many colors.
+  Ans: 2 <br/>
+  "Flat design" refers to the absence of pseudo-3D elements and uses simple, grid-like alignments. Flat design can be applied to long and short pages alike and use few or many colors.
 
 
 15. Best tool
@@ -225,9 +224,9 @@ Use this image of an interactive HTML page to answer question 10:
     3. div tags
     4. frames
 
-    Ans: 1 <br/>
-    Tables and frames should not be used to structure a Web page. <br/>
-    Div tags can be used if there aren't any more specific elements to express a purpose, such as header, nav and footer.
+  Ans: 1 <br/>
+  Tables and frames should not be used to structure a Web page. <br/>
+  Div tags can be used if there aren't any more specific elements to express a purpose, such as header, nav and footer.
 
 
 

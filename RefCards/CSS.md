@@ -36,63 +36,6 @@
   + Do not use the !important attribute
   + use the same CLASS names for the same concept in all of the style sheets
 
-## [CSS Best Practice][056]
-
-+ [Executive summary][057]
-  + Logical source order: accessibility, mobile optimization, device adaptability, and long-term maintainability.
-  + Liquid layouts and relativity: Use smart relative sizing
-  + Media queries: get font size adaptation free by using `em`s
-  + Prevent zombie code: Delete it before it does, and ruins your layout
-  + Test in multiple browsers: Your favorite browser is not always right.
-  + Don't use proprietary features! Don't rely on the latest -WebKit- invention.
-  + Turn off CSS: A well-coded page will be understandable without it.
-
-+ [Foundations][058]
-  + Indent your code for readability ease
-  + Learn how to code CSS before relying on frameworks (such as Bootstrap, etc.)
-  + Separate content and style
-    + Use semantic markup, ie., "classes for meaning, not for show".
-    + Use `<table>` for tabular data: don't use tables for layout
-  + Linearized logical source order
-    + The order of the HTML content should make sense even without the CSS.
-      + for long-term site maintainability
-      + for mobile
-      + for accessibility
-      + as a foundation for device adaptation (media queries)
-  + Linguistic variations: set the language correctly for better typography
-
-+ [Testing][059]
-  + Test without CSS: turn off CSS, and if the page makes no sense, fix your markup.
-  + Test in multiple environments:
-    + Resize the window
-    + Zoom the text
-    + Try a mobile browser
-    + Navigate by keyboard
-  + Test in multiple browsers: remember that just testing in Chrome does not work for everyone! ;)
-
-+ [Adaptability][060]
-  + Media queries: set media query breakpoints in `em` or `ch`, not always in `px`.
-  + Liquid layouts and relativity: what is your sizing based on?
-    + Containing block size? → Use percents.
-    + Viewport size? → Use viewport units: `vw`, `vh`, `vmin`, `vmax`
-    + Font height? → Use `em` or `rem`.
-    + Font pitch? → Use `em` or `ch`.
-    + Content size? → Use auto or min-content/max-content.
-    + Combination of the above? → Use the appropriate layout formulas: `flex`, `min-width`, `max-width`, etc.
-
-+ [Defensive Coding][061]
-  + `!important` means never override- to use with caution
-  + Use !important to define overriding rules, not for fixups
-  + Duplicate selectors if you need to increase specificity, or
-  + Simplify selectors if you need to decrease specificity
-  + Don't over-escalate: understand your code, and don't overkill.
-  + Drop dead code: you tried something and it didn't work? Delete it right away!
-  + Code to Standard
-  + Don't rely on proprietary extensions
-  + Don't use experimental features in production or commit to keeping up-to-date.
-  + Provide fallbacks / use @supports.
-
-
 ## [CSS Syntax][004]
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -200,16 +143,6 @@
 | `text_decoration` | add a line across text | `underline` | [W3C][019], [Fonts][020] |
 
 
-### [Typography][066]
-
-+ sans-serif: the letters do not have added flourishes; most popular; `Helvetica`, `Verdana`, `Arial`, `Tahoma`
-+ serif - the small flourish lines at the edges of letters and symbols; `Times New Roman`, `Book Antiqua`, `Georgia`
-+ monospace - all letters have the same fixed width; `Courier New`
-+ cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
-+ fantasy - the most diverse category of fonts including all of those that are particularly decorative
-
-
-
 ## Spacing Property
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -222,51 +155,9 @@
 |----------|-------------|------|-------|
 | `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left` | the white space that sits closest to an HTML element | `px`, `em` | [W3C][021], [Space][022] |
 | `border`, `border-top`, `border-right`, `border-bottom`, `border-left` | the area outside the padding of an HTML element | `1px black solid` | [W3C][023], [Space][024] |
-| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `auto`, `em`, `px` | [W3C][025], [Space][026] |
+| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `em`, `px` | [W3C][025], [Space][026] |
 
 
-## Image Property
-
-See [Image Attributes][]
-
-
-## Alignment Property
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `text-align` | set the content's alignment horizontally | `left`, `right`, `center`, `justify` | [W3C][038], [Alignment][039] |
-| `line-height` | HTML element block grows and the text will vertically center within it | [W3C][040], [Alignment][041] |
-
-
-## Element width and height
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `width` | element width | `<length>`, `<percentage>`, `auto`, `inherit`  | [W3C][043] [Element][047] |
-| `height` | element height | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][044] [Element][047] |
-| `min-width` | minimum width of the element | `<length>`, `<percentage>`, `inherit` | [W3C][045] [Element][048] |
-| `min-width` | maximum width of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][045] [Element][048] |
-| `min-height` | minimum height of the element |`<length>`, `<percentage>`, `inherit` | [W3C][046] [Element][048] |
-| `max-width` | maximum height of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][046] [Element][048] |
-
-
-## Floating Property
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `float` | liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction specified | `left`, `right`, `none`, `inherit` | [W3C][050], [Float][050] |
-| `clear` | indicate which sides of an element's box(es) may not be adjacent to an earlier floating box | `none`, `left`, `right`, `both`, `inherit` | [W3C][051], [Float][052] |
-
-
-## Position Property
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `position` | set the algorithm for how the Web browser will compute the way the HTML elements are placed on the pag | `static`, `relative`, `absolute`, `fixed`, `inherit` | [W3C][053], [Position][054] |
-| `top` | specify how far an absolutely positioned box's top margin edge is offset below the top edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `right` | specify how far a box's right margin edge is offset to the left of the right edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `bottom` | specify how far a box's bottom margin edge is offset above the bottom of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `left` | specify how far a box's left margin edge is offset to the right of the left edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
 
 
 
@@ -275,7 +166,59 @@ See [Image Attributes][]
 
 -------------------------------------------
 <!--
-[062]: https://github.com/hmchen47/Programming/blob/css/WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#typography
+[010]: https://www.w3.org/Style/Examples/007/fonts
+[011]: https://www.w3.org/TR/css-fonts/#font-family-prop
+[012]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-family
+[013]: https://www.w3.org/TR/css-fonts/#font-size-prop
+[014]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-size
+[015]: https://www.w3.org/TR/css-fonts/#font-weight-prop
+[016]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-weight
+[017]: https://www.w3.org/TR/CSS2/box.html#propdef-padding-top
+[018]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#padding
+[019]: https://www.w3.org/TR/css3-background/#borders
+[020]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#border
+[021]: https://www.w3.org/TR/CSS2/box.html#propdef-margin
+[022]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#margin
+[023]: https://www.w3.org/TR/html52/dom.html#classes
+[024]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#classes
+[025]: https://www.w3.org/TR/html52/dom.html#the-id-attribute
+[026]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#ids
+[027]: https://www.w3schools.com/cssref/css_selectors.asp
+[028]: https://www.w3.org/TR/CSS22/selector.html#link-pseudo-elements
+[029]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#link-and-visited
+[030]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
+[031]: https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes
+[032]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
+[033]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#focus
+[034]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#active
+[035]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#contextual-selectors
+[036]: https://www.w3.org/TR/selectors-3/#specificity
+[037]: 
+[038]: 
+[039]: 
+[040]: 
+[041]: 
+[042]: 
+[043]: 
+[044]: 
+[045]: 
+[046]: 
+[047]: 
+[048]: 
+[049]: 
+[050]: 
+[051]: 
+[052]: 
+[053]: 
+[054]: 
+[055]: 
+[056]: 
+[057]: 
+[058]: 
+[059]: 
+[060]: 
+[061]: 
+[062]: 
 [063]: 
 [064]: 
 [065]: 
@@ -414,7 +357,6 @@ See [Image Attributes][]
 [198]: 
 [199]: 
 -->
-
 [000]: https://jigsaw.w3.org/css-validator/
 [001]: https://www.w3.org/TR/CSS22/intro.html#design-principles
 [002]: https://www.nngroup.com/articles/effective-use-of-style-sheets/
@@ -425,55 +367,3 @@ See [Image Attributes][]
 [007]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#color
 [008]: https://www.w3.org/TR/css3-background/#the-background-color
 [009]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#background-color
-[010]: https://www.w3.org/Style/Examples/007/fonts
-[011]: https://www.w3.org/TR/css-fonts/#font-family-prop
-[012]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-family
-[013]: https://www.w3.org/TR/css-fonts/#font-size-prop
-[014]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-size
-[015]: https://www.w3.org/TR/css-fonts/#font-weight-prop
-[016]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-weight
-[017]: https://www.w3.org/TR/CSS2/box.html#propdef-padding-top
-[018]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#padding
-[019]: https://www.w3.org/TR/css3-background/#borders
-[020]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#border
-[021]: https://www.w3.org/TR/CSS2/box.html#propdef-margin
-[022]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#margin
-[023]: https://www.w3.org/TR/html52/dom.html#classes
-[024]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#classes
-[025]: https://www.w3.org/TR/html52/dom.html#the-id-attribute
-[026]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#ids
-[027]: https://www.w3schools.com/cssref/css_selectors.asp
-[028]: https://www.w3.org/TR/CSS22/selector.html#link-pseudo-elements
-[029]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#link-and-visited
-[030]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
-[031]: https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes
-[032]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
-[033]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#focus
-[034]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#active
-[035]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#contextual-selectors
-[036]: https://www.w3.org/TR/selectors-3/#specificity
-[037]: ./HTML.md#image-element
-[038]: https://www.w3.org/TR/CSS22/text.html#alignment-prop
-[039]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align
-[040]: https://www.w3.org/TR/CSS22/visudet.html#line-height
-[041]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#line-height
-[042]: https://www.w3.org/TR/CSS22/visudet.html#the-width-property
-[043]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height
-[044]: https://www.w3.org/TR/CSS22/visudet.html#the-height-property
-[045]: https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
-[046]: https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
-[047]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height
-[048]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height
-[049]: https://www.w3.org/TR/CSS22/visuren.html#float-position
-[050]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-float-property
-[051]: https://www.w3.org/TR/CSS22/visuren.html#propdef-clear
-[052]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-clear-property
-[053]: https://www.w3.org/TR/CSS22/visuren.html#choose-position
-[054]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property
-[055]: https://www.w3.org/TR/CSS22/visuren.html#position-props
-[056]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#css-best-practices
-[057]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#executive-summary
-[058]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#foundations
-[059]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#testing
-[060]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#adaptability
-[061]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#defensive-coding
