@@ -171,25 +171,43 @@ See [Image Attributes][]
 | `line-height` | HTML element block grows and the text will vertically center within it | [W3C][040], [Alignment][041] |
 
 
+## Element width and height
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `width` | element width | `<length>`, `<percentage>`, `auto`, `inherit`  | [W3C][043] [Element][047] |
+| `height` | element height | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][044] [Element][047] |
+| `min-width` | minimum width of the element | `<length>`, `<percentage>`, `inherit` | [W3C][045] [Element][048] |
+| `min-width` | maximum width of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][045] [Element][048] |
+| `min-height` | minimum height of the element |`<length>`, `<percentage>`, `inherit` | [W3C][046] [Element][048] |
+| `max-width` | maximum height of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][046] [Element][048] |
+
+
+## Floating Property
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `float` | liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction specified | `left`, `right`, `none`, `inherit` | [W3C][050], [Float][050] |
+| `clear` | indicate which sides of an element's box(es) may not be adjacent to an earlier floating box | `none`, `left`, `right`, `both`, `inherit` | [W3C][051], [Float][052] |
+
+
+## Position Property
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `position` | set the algorithm for how the Web browser will compute the way the HTML elements are placed on the pag | `static`, `relative`, `absolute`, `fixed`, `inherit` | [W3C][053], [Position][054] |
+| `top` | specify how far an absolutely positioned box's top margin edge is offset below the top edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `right` | specify how far a box's right margin edge is offset to the left of the right edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `bottom` | specify how far a box's bottom margin edge is offset above the bottom of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `left` | specify how far a box's left margin edge is offset to the right of the left edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+
+
+
 
 
 
 -------------------------------------------
 <!--
-[042]: 
-[043]: 
-[044]: 
-[045]: 
-[046]: 
-[047]: 
-[048]: 
-[049]: 
-[050]: 
-[051]: 
-[052]: 
-[053]: 
-[054]: 
-[055]: 
 [056]: 
 [057]: 
 [058]: 
@@ -377,3 +395,17 @@ See [Image Attributes][]
 [039]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align
 [040]: https://www.w3.org/TR/CSS22/visudet.html#line-height
 [041]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#line-height
+[042]: https://www.w3.org/TR/CSS22/visudet.html#the-width-property
+[043]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height
+[044]: https://www.w3.org/TR/CSS22/visudet.html#the-height-property
+[045]: https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
+[046]: https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
+[047]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height
+[048]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height
+[049]: https://www.w3.org/TR/CSS22/visuren.html#float-position
+[050]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-float-property
+[051]: https://www.w3.org/TR/CSS22/visuren.html#propdef-clear
+[052]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-clear-property
+[053]: https://www.w3.org/TR/CSS22/visuren.html#choose-position
+[054]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property
+[055]: https://www.w3.org/TR/CSS22/visuren.html#position-props
