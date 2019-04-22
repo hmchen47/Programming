@@ -200,6 +200,16 @@
 | `text_decoration` | add a line across text | `underline` | [W3C][019], [Fonts][020] |
 
 
+### [Typography][066]
+
++ sans-serif: the letters do not have added flourishes; most popular; `Helvetica`, `Verdana`, `Arial`, `Tahoma`
++ serif - the small flourish lines at the edges of letters and symbols; `Times New Roman`, `Book Antiqua`, `Georgia`
++ monospace - all letters have the same fixed width; `Courier New`
++ cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
++ fantasy - the most diverse category of fonts including all of those that are particularly decorative
+
+
+
 ## Spacing Property
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -265,7 +275,7 @@ See [Image Attributes][]
 
 -------------------------------------------
 <!--
-[062]: 
+[062]: https://github.com/hmchen47/Programming/blob/css/WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#typography
 [063]: 
 [064]: 
 [065]: 
