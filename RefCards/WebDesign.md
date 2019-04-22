@@ -28,6 +28,34 @@
   + Maximize __compatibility__ with current and future technologies.
 
 
+## [English Typography][002]
+
+Use the proper English characters instead of their misused equivalents.
+
++ Quotes
+  + `“` (`&#8220;`) opening quote (instead of `"`)
+  + `”` (`&#8221;`) closing quote (instead of `"`)
++ Apostrophe
+  + `’` (`&#8217;`) apostrophe (instead of `'`)
++ Dashes and Hyphens
+  + `–` (`&#8211;` or `&ndash;`) en dash, used for ranges, e.g. “13–15 November” (instead of `-`)
+  + `—` (`&#8212;` or `&mdash;`) em dash, used for change of thought, e.g. “Star Wars is—as everyone knows—amazing.” (instead of `-`, or `--`)
++ Ellipsis
+  + `…` (`&#8230;` or `&hellip;`) horizontal ellipsis, used to indicate an omission or a pause (instead of `...`)
+
+
+## [Internationalization Quicktips][001]
+
++ Use Unicode wherever possible for content, databases, etc. Always declare the encoding of content.
++ Use characters rather than escapes (e.g. `&#xE1`; `&#225`; or `&aacute;`) whenever you can.
++ Declare the language of documents and indicate internal language changes.
++ Use style sheets for presentational information. Restrict markup to semantics.
++ Check for translatability and inappropriate cultural bias in images, animations & examples.
++ Use an appropriate encoding on both form and server. Support local formats of names/addresses, times/dates, etc.
++ Use simple, concise text. Use care when composing sentences from multiple strings.
++ On each page include clearly visible navigation to localized pages or sites, using the target language.
++ For XHTML, add dir="rtl" to the html tag for right-to-left text. Only re-use it to change the base direction.
++ Validate! Use techniques, tutorials, and articles at http://www.w3.org/International/
 
 
 
@@ -49,9 +77,6 @@
 ---------------------------------------------
 
 <!--
-[000]: 
-[001]: 
-[002]: 
 [003]: 
 [004]: 
 [005]: 
@@ -250,3 +275,7 @@
 [198]: 
 [199]: 
 -->
+
+[000]: https://www.w3.org/2009/cheatsheet/#wcag2
+[001]: https://www.w3.org/2009/cheatsheet/#i18n
+[002]: https://www.w3.org/2009/cheatsheet/#typo

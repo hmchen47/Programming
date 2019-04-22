@@ -151,7 +151,7 @@ In this module, we'll discuss how to style the three most fundamental design asp
 
 ### Typography
 
-A good rule of thumb when designing your Web site is to use no more than two different typefaces per page. Typically this means that you select 1 bold typeface for titles or other eye-catching pieces of text, and a neutral typeface for large blocks or the body text of your page. 
+A good rule of thumb when designing your Web site is to use __no more than two different typefaces per page__. Typically this means that you select 1 bold typeface for titles or other eye-catching pieces of text, and a neutral typeface for large blocks or the body text of your page. 
 
 There is no official taxonomy of fonts, and not all browsers support all fonts, so it can be difficult to get your font looking exactly the way you want on all platforms. While you're starting out, it's best to stick to the most popular and commonly used fonts. [Here is a good list](https://www.w3.org/Style/Examples/007/fonts.en.html) of fonts for English pages and the appropriate fall-backs to get you started. On the Web, you can find other lists of available system fonts for non-Latin scripts, such as [this one](https://r12a.github.io/scripts/fontlist/).
 
