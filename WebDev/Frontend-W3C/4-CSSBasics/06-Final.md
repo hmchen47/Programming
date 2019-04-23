@@ -232,6 +232,66 @@ Use this image of an interactive HTML page to answer question 10:
 
 ## Exercises (16-20)
 
+16. CSS benefits!
+
+    Which of the following are benefits that came with the invention of CSS? (3 correct answers!)
+
+    1. Managing content became easier as Web developers did not have to update presentation whenever they adjusted content.
+    2. Web developers no longer had to worry about presentation.
+    3. It became much easier to manage the style of large Web pages with a centralized style definition.
+    4. HTML documents could be presented in many more complex ways because of new design tools.
+
+  Ans: 134 <br/>
+  Front-end Web developers should actually worry about presentation! ;)
+
+
+17. CSS file
+
+    Which of the following snippets of code properly attaches a CSS file named "styles.css" to your HTML document?
+
+    1. `< link rel="stylesheet" href="styles.css" >`
+    2. `< header > < link type="stylesheet" > < /header >`
+    3. `< html style="styles.css" > < /html >`
+    4. `< style > < a href="styles.css" > style < /a > < /style >`
+
+  Ans: 1 <br/>
+  Look carefully at the correct syntax for HTML. The 3 wrong answers are "illegal" HTML, meaning that the HTML is not gramatically correct.
+
+
+18. Commenting code
+
+    Which of the following would correctly be interpeted as "comments" within a .css file?
+
+    1. /!** here is my comment /**
+    2. < !-- here is my comment -- >
+    3. /* here is my comment */
+    4. // here is my comment
+
+  Ans: 3 <br/>
+  Explanation
+    + // is used for comments in JavaScript
+    + < !-- is the common syntax for HTML, not for CSS
+    + and the /!** does not exist at all!
+
+
+19. Name?
+
+    What is the name for the individual lines of a CSS rule within the curly braces that set different aspects of the HTML element's visual aspects?
+
+  Ans: property
+
+
+20. Just C
+
+    The "C" in "CSS" stands for what?
+
+    1. Cursive
+    2. Cascading
+    3. Creating
+    4. Combining
+
+  Ans: 2 <br/>
+  One the fundamental aspects of CSS is the ability for stylesheets to combine (cascade) and overwrite one another.
 
 
 ## Exercises (21-25)
