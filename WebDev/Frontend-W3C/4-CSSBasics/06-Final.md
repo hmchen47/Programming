@@ -364,6 +364,71 @@ Use this image of an interactive HTML page to answer question 10:
 
 ## Exercises (26-30)
 
+26. CSS selector
+
+  What does the following CSS selector apply to?
+  ```css
+  article p a:hover {
+      color: green;
+  }
+  ```
+
+  1. All articles, paragraphs and hovered links within the body.
+  2. All links within paragraphs that are within articles when the user holds their mouse over the link.
+  3. Article text that has not already been clicked by the user.
+  4. All paragraphs and hovered over links within articles.
+
+  Ans: 2 (x1) <br/>
+  The selected element is the a element. The p and article elements only provide context.
+
+
+27. A final color
+
+  Given a CSS document with the following rules, which of the following statements is true?
+
+  ```css
+  body { color: red; }
+  p { color: blue; }
+  #bodyText:hover { color: purple; }
+  #bodyText { color: green; }
+  ```
+
+  1. All text within an element with the ID "bodyText" will be green, unless the user hovers their cursor over the element, then it will be purple.
+  2. All text within an element with the ID "bodyText" will be green, whereas all other text will be red.
+  3. All text within an element with the ID "bodyText" will be green, whereas all other text will either be red or blue.
+  4. All text within the body will be red.
+
+  Ans: 1 <br/>
+  Explanation
+  + Text within the body will not be red if it is inside a `p` or an element with the ID `#bodyText`.
+  + It is not correct that all text within an element with the ID "bodyText" will be green, because it can sometimes be purple.
+
+
+28. Spaces
+
+  What is the name of the space immediately surrounding an HTML element on all sides?
+  
+  Ans: padding
+
+
+29. Positioning properties
+
+  When positioning an HTML element on your page, in what order would you decide to use positioning properties for optimal adaptability of layout?
+
+  1. tables > floating > padding and margin > advanced positioning
+  2. padding and margin > floating > relative positioning > advanced positioning
+  3. relative positioning > padding > margin > floating
+  4. relative positioning > floating > padding > tables
+
+  Ans: 2 <br/>
+  t is not recommended to use tables for layout. Padding and margin are the easiest to use. The others are for more complex cases.
+
+
+30. Happy birthday!
+
+  In what year did CSS celebrate its 20th birthday?
+
+  Ans: 2016
 
 
 ## Continue your studies
