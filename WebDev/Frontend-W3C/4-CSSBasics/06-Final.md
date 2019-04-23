@@ -296,6 +296,70 @@ Use this image of an interactive HTML page to answer question 10:
 
 ## Exercises (21-25)
 
+21. A best practice to remember!
+
+  TRUE or FALSE? One should always declare !DOCTYPE on all HTML documents?
+
+  Ans: TRUE
+
+
+22. Valid tags
+
+  Which of the following are valid HTML tags? (3 correct answers!)
+
+  1. `< html >`
+  2. `< headers >`
+  3. `< middle >`
+  4. `< section >`
+  5. `< img >`
+  6. `< list >`
+
+  Ans: 145 <br/>
+  Explanation
+    + Use `< header >` and not `< headers >`
+    + Use `< li >` with `< ul >` or `< ol >`, but not `< list >`
+    + No `< middle >` element, but there exists a property vertical-align: middle
+
+
+23. CSS rule and multiple selectors
+
+  Sometimes you'll want the same style to apply to different HTML elements. Which of the following is the correct way to use the same CSS rule on multiple selectors?
+
+  1. selector2:selector2 {
+  2. selector1, selector2 {
+  3. selector1 > selector2 {
+  4. selector1 selector2 {
+
+  Ans: 2 <br/>
+  Explanation
+    + A ":" is used to introduce pseudo-classes and pseudo-elements.
+    + ">" separates a parent and a child element.
+    + A space separates an element from a descendant element.
+
+
+24. IDs
+
+  Which of the following statements are true about IDs? (2 correct answers!)
+
+  1. You can only set an ID to a single element on a page
+  2. .myIdName { is the correct way to select based on a set ID
+  3. IDs will have highest precedence in cascading order
+
+  Ans: 13 <br/>
+  `.myIdName` selects elements with a class rather than ID.
+
+
+25. From purple to blue
+
+  When a link's text appears to be purple instead of blue, what is the most likely reason?
+
+  1. the user has applied the "focus" pseudo-class to draw your attention to the purple link.
+  2. the purple link is broken and does not properly redirect to a different location.
+  3. the pseudo-class "visited" is being applied to the purple link meaning the user has already clicked it.
+  4. the user has adjusted some links to have purple text and some to have blue.
+
+  Ans: 3 <br/>
+  Blue and purple are the traditional colors used for indicating unvisited links and visited links, respectively.
 
 
 ## Exercises (26-30)
