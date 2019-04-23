@@ -433,4 +433,16 @@ Use this image of an interactive HTML page to answer question 10:
 
 ## Continue your studies
 
+Hopefully at this point you feel comfortable with all the basics of CSS, but as mentioned throughout this course there is still a lot more to learn. Here are some courses we recommend you check out next:
+
++ W3Cx FEWD program imageAs part of the [W3C "Front-End Web Developer" Professional Certificate](https://www.edx.org/professional-certificate/front-end-web-developer-9) program
+  + [HTML5&CSS Fundamentals](https://www.edx.org/course/html5-css-fundamentals-w3cx-html5-0x)
+  + [HTML5 Coding Essentials and Best Practices](https://www.edx.org/course/html5-coding-essentials-w3cx-html5-1x-2)
+  + [HTML5 Apps and Games: Advanced Techniques](https://www.edx.org/course/html5-apps-games-advanced-techniques-w3cx-html5-2x)
+  + [JavaScript Introduction](https://www.edx.org/course/javascript-introduction-w3cx-js-0x)
+
++ From Microsoft:
+  + [Advanced CSS Concepts from Microsoft](https://www.edx.org/course/advanced-css-concepts-microsoft-dev218x)
+  + [JavaScript, HTML and CSS Development from Microsoft](https://www.edx.org/course/javascript-html-css-web-development-microsoft-dev211-1x)
+
 
