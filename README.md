@@ -1,3 +1,5 @@
+# Table of Contents for Programming
+
 This repository tracks my learning on different programming languages.
 
 Contents
@@ -62,7 +64,8 @@ Contents
 
 
 ----------------------------
-NB: keywords for Git Commits
+
+## Keywords for Git Commits
 
   <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 50vw;">
     <thead>
