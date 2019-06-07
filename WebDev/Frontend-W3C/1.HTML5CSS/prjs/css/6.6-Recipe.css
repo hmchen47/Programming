@@ -1,19 +1,27 @@
 nav{
     background: lightgreen;
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 5em;
 =======
     width: 10em;
 >>>>>>> feat: fix nav bar position and resize
+=======
+    width: 5em;
+>>>>>>> feat: resize nav bar & reposition, add top margin for soup
     margin-bottom: 0.5em;
     padding-left: 1em;
     font-size: 1.2em;
     position: fixed;
 <<<<<<< HEAD
+<<<<<<< HEAD
     top: 3rem;
     opacity: 0.6;
 =======
     top: 4rem;
+=======
+    top: 3rem;
+>>>>>>> feat: resize nav bar & reposition, add top margin for soup
     opacity: 0.8;
 >>>>>>> feat: fix nav bar position and resize
 }
@@ -80,3 +88,9 @@ tr:nth-child(even) {
     background-color: antiquewhite;
 }
 
+<<<<<<< HEAD
+=======
+#soup {
+    margin-top: 3em;
+}
+>>>>>>> feat: resize nav bar & reposition, add top margin for soup
