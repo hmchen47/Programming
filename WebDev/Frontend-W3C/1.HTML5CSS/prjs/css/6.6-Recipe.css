@@ -1,12 +1,21 @@
 nav{
     background: lightgreen;
+<<<<<<< HEAD
     width: 5em;
+=======
+    width: 10em;
+>>>>>>> feat: fix nav bar position and resize
     margin-bottom: 0.5em;
     padding-left: 1em;
     font-size: 1.2em;
     position: fixed;
+<<<<<<< HEAD
     top: 3rem;
     opacity: 0.6;
+=======
+    top: 4rem;
+    opacity: 0.8;
+>>>>>>> feat: fix nav bar position and resize
 }
 
 img{
