@@ -217,7 +217,6 @@
     + [CSS exercises (21-25)](05.HTMLCSS.md#css-exercises-21-25-)
 
 
-
 ## Module 6: Basics of page layout
 
 + 6.1 [Introduction to Module 6](06-Layout.md#6-1-introduction-to-module-6)
