@@ -178,7 +178,6 @@
     + [Debugging (18-25)](04.Debug.md#debugging-18-25-)
 
 
-
 ## Module 5: More HTML and CSS
 
 + [5.1 Introduction to Module 5](05.HTMLCSS.md#5-1-introduction-to-module-5)
