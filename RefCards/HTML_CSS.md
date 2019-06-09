@@ -714,6 +714,38 @@
 
 
 
+### Table Element
+
+| Type | Element | Link |
+|------|---------|------|
+| Table | `<table>` | [Table][066] |
+| Caption | `<caption>` | [Tbl Caption][067] |
+| Row groups | `<thead>`, `<tfoot>`, `<tbody>` | [Tbl Header][068], [Tbl Body][069], [Tbl Footer][070] |
+| Column groups | `<colgroup>`, `<col>` | [Tbl Col][071] |
+| Table row | `<tr>` | [Tbl Row][072] |
+| Table cells | `<th>`, `<td>` | [Row Heading][073], [Tbl Data][074] |
+
+
+
+#### The th tag
+
+| Attributes for `<th>` | Purpose | Usage | Output | Link |
+|-----------------------|---------|-------|--------|------|
+| `colspan` | Specifies the number of cells you want that column to span (cover) <br/> Possible values: positive integer number | `<th colspan="2">` | [View example](https://codepen.io/w3devcampus/pen/xXERVo) | [Row Heading][073] |
+| `rowspan` | Specifies the number of cells you want the row to span (cover) <br/> Possible values: positive integer number | `<th rowspan="2">` | [View example](https://codepen.io/w3devcampus/pen/WZGojz) | [Row Heading][073] |
+| `scope` | Specifies if a header cell is the header for a `row`, `column`, `rowgroup` or `colgroup` <br/> Possible values: `row`, `col`, `rowgroup`, `colgroup`, `auto` | `<th scope="row">` | [View example](https://codepen.io/w3devcampus/pen/YrGpEG) | [Row Heading][073] |
+
+
+#### The td tag
+
+| Attributes for `<td>` | Purpose | Usage | Output | Link |
+|-----------------------|---------|-------|--------|------|
+| `colspan` | Specifies the number of cells you want that column to span (cover) <br/> Possible values: positive integer number | `<td colspan="2">` | [View example](https://codepen.io/w3devcampus/pen/zEKoRg) | [Tbl Data][074] |
+| `rowspan` | Specifies the number of cells you want the row to span (cover) <br/> Possible values: positive integer number | `<td rowspan="2">` | [View example](https://codepen.io/w3devcampus/pen/PJGbeJ) | [Tbl Data][074] |
+| `headers` | Value is the 'id' of the `<th>` tag it corresponds to if any | `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<th id="header-id">` <br/> `</tr>` <br/> `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> `</tr>` | [View example](https://codepen.io/w3devcampus/pen/KXgNxr) | [Tbl Data][074] |
+
+
+
 
 <br/><br/>
 
@@ -1586,8 +1618,11 @@ display: inline-grid;
 ------------------------
 
 <!--
+<<<<<<< HEAD
 [083]: 
 [084]: 
+=======
+>>>>>>> docs: add contents for Table RefCards
 [085]: 
 [086]: 
 [087]: 
