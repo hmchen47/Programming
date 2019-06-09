@@ -745,6 +745,382 @@
 | `headers` | Value is the 'id' of the `<th>` tag it corresponds to if any | `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<th id="header-id">` <br/> `</tr>` <br/> `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> `</tr>` | [View example](https://codepen.io/w3devcampus/pen/KXgNxr) | [Tbl Data][074] |
 
 
+### Image Element
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="30%">Usage</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Link</td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Where to fetch the image from (must have)</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Values:</span></p>
+      <ul>
+        <li><span style="font-family: arial,helvetica,sans-serif;">Path to an image file within your Web site</span></li>
+        <li><span style="font-family: arial,helvetica,sans-serif;">Path to an image file that resides elsewhere on the Web</span></li>
+      </ul>
+    </td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="example.png" alt="Example Tutorial Image"&gt;</span></p>
+    </td>
+    <td>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#image-src-attribute">Source</a></p>
+    </td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>alt</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Provide a short description of what the image is about (must have)</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here"&gt;</span></td>
+    <td>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-alt-attribute">Alternative Text</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">A global attribute to provide the title of the image</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" title="Add a title of the image"&gt;</span></td>
+    <td>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-title-attribute">Image Ttitle</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#global-attribute-title-">Global Ttitle</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>height <br/><br/> width</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Resize the image in pixels without using an external editor</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" height="hhh"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" width="www"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" width="www" height="hhh"&gt;</span></td>
+    <td>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-height-width-attributes">Size</a></p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+### Audio Element
+
+#### [Audio Tag][085]
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="30%">Usage</td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Used to specify the URL of the audio file to embed.</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Values:</span></p>
+      <ul>
+        <li><span style="font-family: arial,helvetica,sans-serif;">absolute URL (file residing somewhere on the Web)</span></li>
+        <li><span style="font-family: arial,helvetica,sans-serif;">relative URL (within your Web site)</span></li>
+      </ul>
+    </td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3"&gt;&lt;/audio&gt;</span></p>
+    </td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>controls</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Boolean attribute when specified provides controls for the user like play, pause, seek bar and volume</span></p>
+      <p><img alt="Controls from HTML5 audio" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/327f2b7346ed0f5b804d41e3d49dd8ea/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/audio-controls.PNG" type="saveimage" target="[object Object]" isimmediatepropagationstopped="function t(){return!1}" ispropagationstopped="function t(){return!1}" isdefaultprevented="function t(){return!1}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" stoppropagation="function (){r.isPropagationStopped=n}" preventdefault="function (){r.isDefaultPrevented=n}" width="263" height="26"></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls&gt;&lt;/audio&gt;</span></td>
+  </tr>
+  <tr>
+    <td>loop</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Boolean attribute when specified loops media content</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls loop&gt;&lt;/audio&gt;</span></td>
+  </tr>
+  <tr>
+    <td>muted</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Boolean attribute when specified mutes media when playback begins</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls muted&gt;&lt;/audio&gt;</span></td>
+  </tr>
+  <tr>
+<td>preload</td>
+<td>
+<p><span style="font-family: arial,helvetica,sans-serif;">Allows author to communicate to the browser which settings will work best - audio should not be preloaded (none), only audio metadata is fetched (metadata), audio file can be downloaded when page loads (auto)</span><br><span style="font-family: arial,helvetica,sans-serif;">values: none, metadata, auto</span></p>
+</td>
+<td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls preload="auto"&gt;&lt;/audio&gt;</span></td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>
+<p><span style="font-family: arial,helvetica,sans-serif;">Boolean attribute when specified will automatically begin playing the source file as soon as it can without waiting for the entire audio file to finish downloading</span></p>
+<p></p>
+</td>
+<td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls autoplay&gt;&lt;/audio&gt;</span><audio autoplay="autoplay"></audio></td>
+</tr>
+</tbody>
+</table>
+
+
+#### [Source Tag][086]
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr>
+    <th style="text-align: left; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="30%">Usage</td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">Specifies the URL of the media file</span></td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;source src="sounds/flute.mp3"&gt;</span></td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Specifies the internet media type, also known as the MIME type for the audio resource. A media type is an identifier for file formats and format contents transmitted over the internet like text and audio files.</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">It consists of a type and a sub-type. Eg: "audio/mpeg" - <strong>audio</strong> is the type and <strong>mpeg</strong> is the subtype. It can also take optional parameters that can be specified after a semicolon - "audio/ogg; codecs=opus" means the audio is in the ogg format and uses the opus codec. If the browser supports the Ogg format but not the Opus codec, the audio file will not load.</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">If the type attribute is not specified, the media type is retrieved from the server.</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;source src="sounds/flute.mp3" type="audio/mpeg"&gt;</span></td>
+  </tr>
+</tbody>
+</table>
+
+
+### Video Element
+
+#### [Video Tag][087]
+
+<table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;"  width="40%">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Usage</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>src</td>
+    <td>specifies the URL or location of the media file</td>
+    <td width="40%">&lt;video&nbsp;src="multimedia/running.mp4"&gt;&lt;/video&gt;</td>
+  </tr>
+  <tr>
+    <td>autoplay</td>
+    <td>Boolean attribute when specified will automatically begin playing source file as soon as it can without waiting for the entire video&nbsp;file to finish downloading. Note: Some versions of chrome support autostart instead of autoplay</td>
+    <td width="40%">
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;autoplay&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>controls</td>
+    <td>
+      <p>Boolean attribute when specified provides controls for the user like play, pause, seek bar and volume</p>
+      <p><img alt="Image of HTML5 video controls" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b30f1164c96da183a2c339b152ebe472/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/video-controls.PNG" type="saveimage" target="[object Object]" isimmediatepropagationstopped="function t(){return!1}" ispropagationstopped="function t(){return!1}" isdefaultprevented="function t(){return!1}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" stoppropagation="function (){r.isPropagationStopped=n}" preventdefault="function (){r.isDefaultPrevented=n}" width="232" height="26"></p>
+    </td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;controls&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>loop</td>
+    <td>Boolean attribute when specified loops media content</td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;controls&nbsp;loop&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>muted</td>
+    <td>Boolean attribute when specified mutes media when playback begins</td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;controls&nbsp;muted&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>preload</td>
+    <td>Allows author to communicate to the browser which settings will work best - video&nbsp;should not be preloaded (none), only video&nbsp;metadata is fetched (metadata), video&nbsp;file can be downloaded (auto)<br>values: none, metadata, auto</td>
+    <td>
+      <p>&lt;video&gt; src="multimedia/running.mp4"&nbsp;controls&nbsp;preload="auto"&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>poster</td>
+    <td>Specifies the URL of the frame you want to display as&nbsp;the video cover until the user starts or seeks the video. By default, the first frame is considered the poster frame. &nbsp;The poster can also be an arbitrary image, not necessarily in any frame of the video.</td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;poster="/images/video-screenshot.png" controls&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>height, width</td>
+    <td>height and width of the video's play area in pixels. Always set height and width for a video so the browser can allocate the specified space for it when it loads the page.&nbsp;</td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;controls&nbsp;width="320" height="240"&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### [Source Tag][088]
+
+<table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; min-width: 5em;">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; min-width: 13em;">Usage</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>src</td>
+    <td>Specifies the URL or location of the media file</td>
+    <td>&lt;source src="multimedia/small.mp4"&gt;&lt;/source&gt;</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>
+      <p>Specifies the internet media type, also known as the MIME type for the audio/video resource. A media type is an identifier for file formats and format contents transmitted over the internet like text and audio files.</p>
+      <p>It consists of a type and a sub-type. Eg: "video/mp4" - <b>video</b>&nbsp;is the type and <strong>mp4</strong>&nbsp;is the subtype. It can also take optional parameters that can be specified after a semicolon - "video/mp4; codecs="avc1.42E01E, mp4a.40.2"" means the video&nbsp;is in the mp4 format and uses the codecs -&nbsp;avc1.42E01E, mp4a.40.2. If the browser supports the mp4&nbsp;format but none of the&nbsp;avc1.42E01E, mp4a.40.2&nbsp;codecs, the video file will not load.</p>
+      <p>If the type attribute is not specified, the media type is retrieved from the server.</p>
+    </td>
+    <td>&lt;source src="multimedia/small.mp4" type="video/mp4"&gt;&lt;/source&gt;</td>
+  </tr>
+</tbody>
+</table>
+
+
+#### [Track Element][089]
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Usage</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>default</td>
+    <td>It is a boolean attribute. If you have multiple tracks for the same video file, you can specify which one is the default using this attribute. It can be used on one track element in a video. If you only have one track element, default should still be added to deliver the video with captions turned on in most browsers.</td>
+    <td>
+      <p>&lt;video src="multimedia/small.mp4" controls&gt; <br/>
+      &nbsp; &lt;track src="captions/small-en.vtt" label="english" default&gt;<br/>
+      &nbsp; &lt;track src="captions/small-fr.vtt" label="French"&gt;<br/>
+      &lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>kind</td>
+      <td>Specifies the kind of the source&nbsp;file. <br>Values: subtitles (default value), captions, descriptions (textual description of the video best suited for the blind who cannot be seen), chapters (meant for chapter titles), metadata (kind of track that is used by scripts and is not visible to the user).</td>
+    <td>
+      <p>&lt;track src="captions/small-en.vtt" kind="captions"&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>Label of the track.&nbsp;Browser uses the label value to display track options for user to select.&nbsp;</td>
+    <td>
+      <p>&lt;track src="captions/small-en.vtt" label="English"&gt;<br/>
+      <span style="line-height: 22.4px;">&lt;track src="captions/small-fr.vtt" label="French"&gt;</span></p>
+    </td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>URL of track. The <strong>file must be on a Web server</strong>. The .vtt file cannot be loaded from a file (file://) protocol.</td>
+    <td>
+      <p>&lt;track src="http://www.xyz.org/small-en.vtt"&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>srclang</td>
+    <td>Language of text track. Eg: en, fr. <br>If kind&nbsp;is 'subtitles', then the srclang attribute must be specified.</td>
+    <td>
+      <p>&lt;track src="captions/small-en.vtt" kind="subtitles" srclang="en"&gt;</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+### Embedded Content
+
+#### [The iframe Tag][090]
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%">Value</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%">Example</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>src</td>
+    <td>Specifies the address of the page you want to display in your frame. This is the primary attribute of interest in the iframe.</td>
+    <td>URL</td>
+    <td>&lt;iframe src="https://www.w3.org/"&gt;&lt;/iframe&gt;</td>
+  </tr>
+  <tr>
+    <td>allowfullscreen</td>
+    <td>This will allow the iframe to open "Full screen mode", often used with videos. Without this attribute, full screen mode is disabled for the iframe.</td>
+    <td>no value</td>
+    <td><span style="line-height: 22.4px;">&lt;iframe src="https://www.w3.org/" allowfullscreen&gt;&lt;/iframe&gt;</span></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>Specifies a name for the iframe. Using the name attribute, the iframe can act as a target for a link. Just as the 'self' target will replace the current window with the site at the href URL, and "_blank" will open a new window at that URL, if you set the name attribute, that name can be used as a target so that when you click on it, the new page will open up in that iframe.</td>
+    <td>text</td>
+    <td>
+      <p>&lt;iframe name="frame-one" src="https://www.w3.org/"&gt;&lt;/iframe&gt;</p>
+      <p>&lt;a href="https://www.wikipedia.org/" target="frame-one"&gt;&lt;/a&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>sandbox</td>
+    <td>
+      <p>This can&nbsp;apply a number of restrictions on the iframe, preventing the site in the iframe from using pop-ups, running scripts, automatically running videos and numerous other things. &nbsp;This helps avoid some of the potential security issues that iframes may be prone to.</p>
+    </td>
+    <td><no value="">no value (applies all restrictions)<br>allow-forms<br>allow-modals<br>allow-orientation-lock<br>allow-pointer-lock<br>allow-popups<br>allow-same-origin<br>allow-scripts<br>allow-top-navigation<br></no></td>
+    <td>
+      <p>&lt;iframe src="https://www.w3.org/" sandbox&gt;&lt;/iframe&gt;</p>
+      <p>OR</p>
+      <p>&lt;iframe src="https://www.w3.org/" sandox="allow-popups"&gt;&lt;/iframe&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>width, height</td>
+    <td>While width and height are valid attributes for an iframe, they should be avoided in favor of CSS properties.</td>
+    <td>pixels</td>
+    <td>&lt;iframe src="https://www.w3.org/" width="500"&gt;&lt;/iframe&gt;</td>
+  </tr>
+  </tbody>
+</table>
+
+
+
 
 
 <br/><br/>
@@ -1619,6 +1995,7 @@ display: inline-grid;
 
 <!--
 <<<<<<< HEAD
+<<<<<<< HEAD
 [083]: 
 [084]: 
 =======
@@ -1629,6 +2006,8 @@ display: inline-grid;
 [088]: 
 [089]: 
 [090]: 
+=======
+>>>>>>> docs: add Image element for RefCards
 [091]: 
 [092]: 
 [093]: 
@@ -1808,6 +2187,7 @@ display: inline-grid;
 [063]: https://www.w3schools.com/css/css_padding.asp
 [064]: https://www.w3schools.com/css/css_border.asp
 [065]: https://www.w3schools.com/css/css_margin.asp
+<<<<<<< HEAD
 
 [070]: ../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-left-top-right-and-bottom-properties
 [071]: ../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#-z-index-
@@ -1822,3 +2202,30 @@ display: inline-grid;
 [080]: https://developer.mozilla.org/en-US/docs/Web/CSS/clear
 [081]: https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements
 [082]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements
+=======
+[066]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-table-tag
+[067]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-caption-tag
+[068]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-thead-tag
+[069]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tbody-tag
+[070]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tfoot-tag
+[071]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-colgroup-and-col-tags
+[072]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tr-tag
+[073]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-th-tag
+[074]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-td-tag
+[075]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#border
+[076]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#border-collapse
+[077]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#table-width-and-height
+[078]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#text-align
+[079]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#vertical-align
+[080]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#padding
+[081]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#border-spacing
+[082]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#side-borders
+[083]: /WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#zebra-table
+[084]: /WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#hover-to-highlight
+[085]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#audio-element
+[086]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#source-tag
+[087]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#video-element
+[088]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#source-element-for-multiple-source-files
+[089]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#track-element-for-captions-and-subtitles
+[090]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-iframes-tag
+>>>>>>> docs: add Image element for RefCards
