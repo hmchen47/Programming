@@ -695,14 +695,14 @@ Here is an example. Suppose we have two lists. We want the third item in the lis
 This is why, in our introduction to CSS, we said that margin should be your "go to" property when you want to adjust position.
 
 
-__Cannot use opposite properties__
+##### Cannot use opposite properties
 
 When using `position:relative` if you use the `left` property you cannot also use the `right` property.  And, if you use the `top` property you cannot also use the `bottom` property. If both properties are applied, then the CSS precedence rules will determine the "winner", which is usually just the last one applied.
 
 Again, this is unlike margins, where both `margin-right` and `margin-left` can be meaningfully used.
 
 
-__No automatic size adjustments__
+##### No automatic size adjustments
 
 This follows from the previous limitation. You may recall that block level elements take the width of their parent (when no width is specified).  And when using left or right margins on a block level element that does not have an explicit width, the browser will smartly size the element down for you to make it fit.  But this size adjustment does not happen when you use `position:relative` and the `left` or `right` positional properties. This is easily illustrated with an example. Below is a block level paragraph with a border applied to it.  When a `margin-left` is applied to it, the paragraph is made smaller and no part goes outside its parent.  But when it is `position:relative` and moved with the `left` property, it can leave the bounds of its parent, or go offscreen.
 
