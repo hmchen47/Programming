@@ -1991,6 +1991,111 @@ display: inline-grid;
 </table>
 
 
+### The Flexible Box Layout
+
+#### Basic Concepts of flexbox
+
++ Layout and Axes
+  + __main axis__:
+    + the axis running in the direction the flex items are being laid out in
+    + __main start__ and __main end__: the start and end of main axis
+  + __cross axis__:
+    + the axis running perpendicular to the direction the flex items are being laid out in
+    + __cross start__ and __cross end__:  start and end of cross axis
+  + __flex container__: set parent element w/ `display: fex`
+  + __flex items__: the items being laid out as flexible boxes inside the flex container
+
++ main axis defined by __flex-direction__
+  + row: along the row in the inline direction from left to right
+  + row-reverse: along the row in the inline direction from right to left
+  + column: from the top of the page to the bottom
+  + column-reverse: from the bottom of the page to the top
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">
+      <img src="https://mdn.mozillademos.org/files/15614/Basics1.png" style="margin: 0.1em;" alt="row or row-reverse: main axis will run along the row in the inline direction" title="Inline directon: row or row-reverse" width="250">
+      <img src="https://mdn.mozillademos.org/files/15615/Basics2.png" style="margin: 0.1em;" alt="column or column-reverse: main axis will run from the top of the page to the bottom — in the block direction" title="Block direction: column or column-reverse" width="250">
+      <img src="https://mdn.mozillademos.org/files/15616/Basics3.png" style="margin: 0.1em;" alt=" flex-direction (main axis) is set to row or row-reverse the cross axis runs down the columns" title="The cross axis runs perpendicular to the main axis" width="250">
+      <img src="https://mdn.mozillademos.org/files/15617/Basics4.png" style="margin: 0.1em;" alt="main axis is column or column-reverse then the cross axis runs along the rows" title="main axis is column or column-reverse then the cross axis runs along the rows" width="250">
+    </a></div>
+  </div>
+
++ [The flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
+  + An area of a document laid out using flexbox
+  + set the value of the area's container's display property to `flex` or `inline-flex`
+  + flex items: the direct children of that container
+  + ways to create a flex container all of the contained flex items
+    + Items display in a row (the `flex-direction` property's default is `row`).
+    + The items start from the start edge of the main axis.
+    + The items do not stretch on the main dimension, but can shrink.
+    + The items will stretch to fill the size of the cross axis.
+    + The `flex-basis` property is set to `auto`.
+    + The `flex-wrap `property is set to `nowrap`.
+
++ [Multi-line flex containers with flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
+  + While flexbox is a one dimensional model, it is possible to cause our flex items to wrap onto multiple lines.
+  + To cause wrapping behaviour add the property `flex-wrap` with a value of `wrap`.
+  + guide to wrap flex items: [Mastering Wrapping of Flex Items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items)
+
+
+
+#### Flexbox Property
+
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 15%">Possible Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Link</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>flex</td>
+    <td>specified using one, two, or three values:<ul> <li><strong>One-value syntax:</strong><ul><li>&lt;number&gt;: interpreted as &lt;flex-grow&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li><li>keywords: none, auto, or initial</li></ul></li> <li><strong>Two-value syntax</strong>: the first value, &lt;number&gt;, interpreted as &lt;flex-grow&gt;. The second value must be one of: <ul><li>&lt;number&gt;: interpreted as &lt;flex-shrink&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li></ul></li><li><strong>Three-value syntax</strong> (order): <ol><li>&lt;number&gt; for &lt;flex-grow&gt;</li><li>&lt;number&gt; for &lt;flex-shrink&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li></ol></li></ul></td>
+    <td>init, auto, none, &lt;flex-grow&gt;, &lt;flex-shrink&gt;, &lt;flex-basis&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-minimum">Lecture</a></td>
+  </tr>
+  <tr>
+    <td>flex-direction</td>
+    <td>set how flex items placed in the flex container defining the main axis and the direction (normal or reversed)</td>
+    <td>row, row-reverse, column, column-reverse</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+  </tr>
+  <tr>
+    <td>flex-wrap</td>
+    <td>set whether flex items are forced onto one line or can wrap onto multiple lines</td>
+    <td>nowrap, wrap, wrap-reverse</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+  </tr>
+  <tr>
+    <td>flex-flow</td>
+    <td>a shorthand property for <strong>flex-direction</strong> and <strong>flex-wrap</strong> properties</td>
+    <td>nowrap, wrap, wrap-reverse</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+  </tr>
+  <tr>
+    <td>flex-basis</td>
+    <td><ul><li>set the initial main size of a flex item</li><li>content: automatic sizing, based on the flex item’s content</li></ul></td>
+    <td>&lt;width&gt;, content</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+  </tr>
+  <tr>
+    <td>flex-grow</td>
+    <td><ul><li>set how much of the remaining space in the flex container should be assigned to that item (the flex grow factor)</li><li>remaining space: the size of the flex container minus the size of all flex items together</li><li>sibling items: <ul><li>all items with the same share of remaining space with the same grow factor</li><li>distributed according tot he ratio defined by the different flex grow factors</li></ul></ul></td>
+    <td>&lt;number&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+  </tr>
+  <tr>
+    <td>flex-shrink</td>
+    <td>set the flex shrink factor of a flex item</td>
+    <td>&lt;number&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+  </tr>
+  </tbody>
+</table>
+
+
 
 ------------------------
 
