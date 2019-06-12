@@ -1315,6 +1315,7 @@
 
 <br/>
 
+
 #### Lecture Note
 
 | Selector | HTML | CSS | Link |
@@ -1993,10 +1994,14 @@ display: inline-grid;
 
 ------------------------
 
+<<<<<<< HEAD
 <!--
 <<<<<<< HEAD
 <<<<<<< HEAD
 [083]: 
+=======
+<!--[083]: 
+>>>>>>> docs: add contents for Display Flow, Positioning & Sizing Properties in RefCards
 [084]: 
 =======
 >>>>>>> docs: add contents for Table RefCards
@@ -2188,6 +2193,9 @@ display: inline-grid;
 [064]: https://www.w3schools.com/css/css_border.asp
 [065]: https://www.w3schools.com/css/css_margin.asp
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> docs: add contents for Display Flow, Positioning & Sizing Properties in RefCards
 
 [070]: ../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-left-top-right-and-bottom-properties
 [071]: ../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#-z-index-
@@ -2202,6 +2210,7 @@ display: inline-grid;
 [080]: https://developer.mozilla.org/en-US/docs/Web/CSS/clear
 [081]: https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements
 [082]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements
+<<<<<<< HEAD
 =======
 [066]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-table-tag
 [067]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-caption-tag
@@ -2229,3 +2238,5 @@ display: inline-grid;
 [089]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#track-element-for-captions-and-subtitles
 [090]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-iframes-tag
 >>>>>>> docs: add Image element for RefCards
+=======
+>>>>>>> docs: add contents for Display Flow, Positioning & Sizing Properties in RefCards
