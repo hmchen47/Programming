@@ -1,0 +1,2853 @@
+# Module 6: Basics of page layout
+
+## 6.1 Introduction to Module 6
+
+### Welcome to Module 6
+
+<video src="https://edx-video.net/W3CHTM502016-V014900_DTH.mp4" preload="none" loop="loop" controls="controls" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/xblock/block-v1:W3Cx+HTML5.0x+2T2018+type@video+block@458b8e52b262434bb94d0dd1823a0972/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
+<br/>
+
+### Module 6 - Content
+
+__6.1 Introduction__: Understanding what "layout" means to your Web programming.
+
+__6.2 Concepts__: Get an understanding of "display" versus "position" & "block" versus "inline". 
+Note: Positioning and z-index are OPTIONAL material.
+
+__6.3 Flexbox__: There is more to understand about positioning and sizing.
+Note: Calc is OPTIONAL.
+
+__6.4 More flexbox__: Main axis & cross axis, justification, alignment and order — more flexbox concepts. Note: This ENTIRE section is OPTIONAL.
+
+__6.5 New layout technique: CSS Grid__
+
+__6.6 Recipe project__: Let's get "responsive" — how to make your Web page look good on differently sized devices.
+
+__6.7 Where to from here?__: Considering what you now know — what do you want to learn next?
+
+__6.8 Final exam__: Consists of questions (multiple choice, checkbox or text input problems) covering the entirety of the course. The final exam counts towards 25% of the grade.
+
+<br/>
+
+### History of layout
+
+Before we get started working on the topic of layout directly, it is useful to understand a bit of HTML and CSS history.  
+
+In the not-so-distant-past, most HTML documents were long-form prose interspersed with lists and sometimes tables of information. HTML was used to present technical documentation, corporate communication, instructions and manuals, lists of files, and occasionally emails or notices. The "layout" needs were minimal to non-existent.
+
+Over time, however, users began to prettify their documents by adjusting font sizes and font faces. And this was primarily done in HTML itself, which caused problems. Thus the first impetus for CSS was to separate any style information from the HTML document itself. However, the use cases those times were all still primarily text-based.  The goals of CSS were modeled after the "master sheets" of some word processors. 
+
+Before the first specification for CSS had been agreed upon, Web developers began a transition to creating different types of documents. These documents were more like fancy magazine pages - images, not text, were the centerpiece. Decorative graphics abounded, advertisements showed up. And even as CSS2 and later CSS3 were being written, Web development changed again - Web pages became more interactive, the term "Web application" was coined. Many Web sites bore far more similarity to the control panel of a microwave than to a magazine article, much less the page of a book.  And finally along came smart phones and a whole new "mobile Web" focus for Web sites, Web pages, and Web applications.
+
+During its short lifetime, CSS has often played "catch up" especially with respect to layout.  Here is a short list of techniques and CSS properties used historically for layout:
+
++ tables and "slicing"
++ absolute positioning
++ floats and clear
++ css columns
++ css tables
++ flexbox
+
+Except for some basic required concepts, we are going to skip all of this and go straight to flexbox. After many stumbles, flexbox finally brings sanity to the much needed world of layout in CSS.
+
+<br/>
+
+
+## 6.2 Concepts
+
+### Text baseline and the display property
+
+#### Why won't this work?
+
+When newbie developers are groping around CSS blindly, they often stumble upon a variety of CSS properties that could be used to alter the positioning or size of an element such as `left`, `top`, and `margin`. However, when using the properties, these developers get confused because the properties fail to behave consistently. Sometimes the properties work, sometimes they don't, sometimes they do the opposite of what they are doing in a different rule.  We have not covered properties like `left` and `top` yet, but we have introduced `margin` and the intrepid readers may have already discovered in their exercises that `margin` can have some unexpected behavior. Why is that?
+
+The answer has to do with the two CSS properties: `display` and `position`. The `display` property, in particular, has different default values for different tags. Some tags start with `display:block`, and others are `display:inline`. They behave very differently.  These two properties (`display` and `position`) often change how an element responds to certain other layout properties.  And when this is not understood, then it may seem random to a developer struggling to get stuff to work.
+
+So, let's start with understanding a very important difference between block and inline display. And that begins with the baseline.
+
+##### Baseline
+
+The text "baseline" is a key concept to understanding how the browser makes its layout decisions.  
+
+<a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/1fe35eaba7534b5d86b69fa0e09494a3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%4065eedf84e09a4619a4152d1cdcadc73a">
+    <img style="display: block; background-color: black" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/03a5c30240869b1400f96ca51fc2eb19/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/baseline2.png" alt="baseline" title="baseline" width="100" >
+</a>
+
+In the image above, we see two text characters placed next to each other, the blue line indicating the baseline. The baseline determines how and where the characters are positioned. Note that the tail of the "g" hangs below the baseline.  
+
+The baseline is never drawn by the browser, it is not exposed directly to you as a developer, and CSS only may have some properties related to it. However, the baseline governs the placement of all inline elements.
+
+##### display: block versus inline
+
+As the browser is rendering your page, every time it encounters the next tag it has a simple question: "Do I give this element its own line?"   For example, every `<p>` tag gets a new line, but `<a>` tags do not.
+
+This is the key distinction between the "block" level elements (like the `<p>` tag) and the "inline" elements (like the `<a>` tag).   Here is a quick table of the default values for some of the tags we've already learned.
+
+<table class="tag-table">
+<tbody>
+  <tr><th style="width: 10em;">Block</th><th style="width: 10em;">Inline</th></tr>
+  <tr>
+    <td>
+      <ul>
+        <li>p</li>
+        <li>h1</li>
+        <li>div</li>
+        <li>blockquote</li>
+        <li>ul</li>
+        <li>ol</li>
+        <li>li</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>a</li>
+        <li>span</li>
+        <li>q</li>
+        <li>i</li>
+        <li>b</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+Here are some differences between the block - level and inline elements.
+
+##### Block Level
+
++ appears below and to the left of their block level neighbors (like a carriage return on a typewriter going to the next new line)
++ __will expand to fill the width of the parent container by default__
++ respects all margin properties
++ can have its `width` property set, which will make it narrower and cause its children to wrap, but not crop. (We'll cover this later)
++ takes on the height of all its children (pending certain exceptions) as long as its own `height` is unset. (We will cover setting the height later)
++ ignores the `vertical-align` property
+
+
+##### Inline Elements
+
++ simply appear to the right of their preceding inline neighbor. They do not drop to the next line unless they must "wrap".
++ __by default, the width is simply the width of the content of the element, plus any padding__
++ __ignore top and bottom margin settings__
++ __ignore `width` and `height` properties__
++ are subject to `vertical-align` property as well as CSS white-space settings
++ support `padding`, but any `padding-top` or `padding-bottom` does __not__ contribute to the calculation of the height of the text line it sits upon
++ cleave to the baseline where they are being placed
+
+The last bullet about inline elements is one of the most important to understand. Inline elements cleave to the _baseline_.  This is very important to understand why inline elements are positioned vertically the way they are. It also contributes to why they ignore top and bottom margins. Note that making an inline element "bigger" with padding will certainly keep its neighbors away horizontally. But if there is a neighboring text line above or below, it can only be kept at bay with the `line-height` property, not margins or padding.
+
+Below we see a span that has padding, margin-top, and background-color applied, but no extra room is being made for it above or below, so its background is overlapping the lines above and below.
+
+<table>
+<tbody>
+  <tr><th style="width: 60%;">CSS</th><th>Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #0000ff;"> span</span> { <br/>    <span style="color: #333399;">margin-top</span>: <span style="color: #339966;">15px</span>; <span style="color: #808080;">/* ignored */</span> <br/>    <span style="color: #333399;">padding</span>:<span style="color: #339966;">15px</span>;<br/>    <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>;<br/> }</pre>
+    </td>
+    <td class="inline-result">
+      <p>Nothing could hinder it but her love of extremes, and her insistence on regulating life <span style="margin-top: 15px; padding: 15px; background-color: lightblue; line-height1.4em;">according</span> to notions which might cause a wary man to hesitate before he made her an offer, or even might lead her at last to refuse all offers.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+So here we prevent the overlap by setting the `line-height` of the span. However, this solution should not be considered optimal.  Better is to change the span to be `display:inline-block`, which is discussed below.
+
+<table>
+<tbody>
+  <tr><th style="width: 60%;">CSS</th><th>Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #0000ff;"> span</span> { <br/>    <span style="color: #333399;">margin-top</span>: <span style="color: #339966;">15px</span>; <span style="color: #808080;">/* still ignored */</span> <br/>    <span style="color: #333399;">padding</span>:<span style="color: #339966;">15px</span>; <br/>    <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>; <br/>    <span style="color: #333399;">line-height</span>: <span style="color: #339966;">42px</span>; <span style="color: #808080;">/* fix */</span><br/>}</pre>
+    </td>
+    <td class="inline-pad-result">
+      <p>Nothing could hinder it but her love of extremes, and her insistence on regulating life <span style="margin-top: 15px; padding: 15px; background-color: lightblue; line-height1.4em; line-height: 42px;">according</span> to notions which might cause a wary man to hesitate before he made her an offer, or even might lead her at last to refuse all offers.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+##### inline-block
+
+The astute reader may have spotted an obvious omission from the table of block and inline elements above: `<img>` . Is `<img>` a block level element or inline?  If you venture to experiment you may conclude "both", and you will be right.
+
+For historic reasons, the `<img>` tag defaults to `display:inline` in most browsers. If you inspect using the browsers inspector, that's what you will see. However, it does not follow the same rules as other inline elements. In fact, regardless of what the inspector says, images are special cased and are inline-block.
+
+Inline-block elements still cleave to the text baseline of the line they are on. If top or bottom margins or paddings are used, then the entire line is adjusted to make room. (So the line-height does not need to be used.)
+
++ `inline-block` elements respect `margin-top` and `margin-bottom`
++ the vertical padding for inline-block elements contributes to the calculation of the height of the line it falls on
++ inline-block elements respect `width` and `height` properties
+
+In some browsers, some of the form elements default to inline-block (like `<button>`, `<select>`, and `<input>`)
+
+Here is the overlapping background style presented again, but this time instead of using line-height to solve the problem, we simply make the span element `display:inline-block`.  Note that the `margin-top` is also respected.
+
+<table>
+<tbody>
+  <tr><th style="width: 60%;">CSS</th><th>Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #0000ff;"> span</span> {<br/>    <span style="color: #333399;">margin-top</span>: <span style="color: #339966;">15px</span>; <span style="color: #808080;">/* no longer ignored */</span><br/>    <span style="color: #333399;">padding</span>:<span style="color: #339966;">15px</span>; <br/>    <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>; <br/>    <span style="color: #333399;">display</span>:<span style="color: #ff6600;">inline-block</span>; <span style="color: #808080;">/* fix */</span>}</pre>
+    </td>
+    <td class="inline-block-result">
+      <p>Nothing could hinder it but her love of extremes, and her insistence on regulating life <span style="margin-top: 15px; padding: 15px; background-color: lightblue; line-height1.4em; display: inline-block">according</span> to notions which might cause a wary man to hesitate before he made her an offer, or even might lead her at last to refuse all offers.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+##### display property
+
+At long last we arrive at the `display` property. We have now seen three of its possible values: `block`, `inline`, and `inline-block`.  There are others (like none and flex) and we will cover them later.  
+
+```css
+.name { display: inline-block; }
+```
+
+A key to not getting confounded by the display property is to have a grasp on which elements default to which display value and appreciating the differences between block, inline, and inline-block display.
+
+<br/>
+
+
+### Horizontal centering
+
+Now that we've covered inline versus block display, we can intelligently discuss centering. Let's start with inline elements.
+
+#### inline
+
+How do you center an inline element?  As we recall, inline elements are positioned along the baseline, in the natural flow of the text or content. So for any individual inline element, there is _no CSS property_ you can apply directly to cause this element to center. You may apply some padding evenly or unevenly to position its content relative to its own box. But that's not centering the element itself.
+
+To center an inline element, we use the `text-align` property of its parent.
+
+```css
+p { text-align: center; } /* the text and any inline children of this element will be centered */
+```
+
+If this isn't satisfactory, consider changing the element to be inline-block or block.
+
+#### block
+
+How do you center a block level element? First, you may recall that block level elements take the width of their parent by default. If the element is the same width as its parent, it is already centered.  So the first step is to limit the width of the element.  Setting the width property directly is not generally a good practice, but we'll just do that and discuss sizing at length later.
+
+```css
+div { width: 200px; }
+```
+
+Now that we've sized the element, how to center it?
+
+#### margin magic
+
+If set to `auto`, then the left and right margins will center the element.  This is the simplest and best way of centering a block level element.  So the full solution is to set the width and apply `auto` to the left and right margins (or to all margins).
+
+```css
+div { width: 200px; margin: auto; }
+```
+
+#### Horizontal centering - a better way
+
+Do auto margins seem spooky to you?  There is a better way to achieve centering and its name is _flexbox_.  We'll read more about it later.
+
+### Vertical centering
+
+#### inline
+
+Inline elements respect the vertical-align property. This determines how the inline element is aligned relative to the baseline it is being laid upon. This may or may not solve your vertical centering conundrum.
+
+#### block
+
+There is no `margin:auto` approach to vertical centering. There are some complicated systems that folk have developed, but the shortest and best answer to vertical centering: use flexbox.
+
+<br/>
+
+
+### Key concept: position property
+
+#### The 'left', 'top', 'right', and 'bottom' properties
+
+In CSS, there are four properties which can be used to adjust or set the position of an element. Those properties are: `left`, `top`, `right`, and `bottom`.
+
+However, in one of the best jokes played by the authors of the CSS specification, using those properties by themselves will have no effect on any element. Surprisingly, most developers struggling with CSS don't find this funny.
+
+The reason these properties don't work by default is that they only work when applied to _positioned_ elements. And positioned elements are those that have had their `position` property changed from the default. 
+
+
+#### The 'position' property
+
+The CSS `position` property governs how an element is positioned on the page and how it responds to the position adjusting properties (`left`, `top`, `right`, and `bottom`).  Up to this point in this course, we have not used this property and so everything we've seen has been the default position, which is `position:static` for all elements.
+
+As of today, the position property has four different values it can take: `static`, `relative`, `absolute`, and `fixed`. We will look at `static` and `fixed`.   The options `relative` and `absolute` are more complex, they'll be discussed in an optional advanced section for completeness, but we aren't going to worry much about them because flexbox reduces their use cases.
+
+
+#### Static
+
+```css
+position: static; /* the default */
+```
+
+A position property of static is the default for all elements. It simply means that all elements follow the "flowing text"model of layout and the only properties influencing their position are margins, padding, and the display property that selects block level layout, inline or inline-block. Static elements _ignore_ the positioning properties we read about earlier (`left`, `top`, `right`, and `bottom`).
+
+#### Fixed
+
+```css
+position: fixed;
+```
+
+A fixed positioned element respects the positioning properties (`left`, `top`, `right`, and `bottom`).  A fixed positioned element is positioned against the _window_ rectangle (aka the viewport).  This means that fixed position elements will not scroll with the rest of the page.  Fixed position elements can easily "stick" to the side or bottom or top of the browser. To observe this better, see the Fixed position activity in the next section.
+
++ Fixed position elements are positioned against the viewport.
++ _Best practice_: use both a horizontal and a vertical positioning property on every fixed positioned element.
++ Fixed positioned elements do not contribute to size of the parent.
++ Fixed positioned block level elements do not get the width of their parent. 
++ Margins do not work the same.
++ Opposite properties can be used to size an element.
+
+
+__Best practice: use both horizontal and vertical positioning property on every fixed element__
+
+There is a very subtle extension to the previous interpretation problem: if an element is set to be `position:fixed`, but has no horizontal positioning property (that is, `left` or `right`), then it will be displayed in the flow exactly as it would have been.  Except, later, if `left:0px;` is added (for example), then the element may jump to the left edge of the browser window. The same applies vertically. This is a bewildering behavior, as most users do not expect there to be a difference between `left:0px` and no `left` property at all.
+
+Therefore, for any fixed positioned element, the best practice is to ensure that one of the horizontal positioning properties (that is, `left` or `right`) and one of the vertical properties (`top` or `bottom`) are both set.
+
+
+__Fixed positioned block level elements do not get the width of their parent__
+
+Earlier we learned that the block level element automatically gets the width of its parent, that is, they extend to become full width. But this is only true for `static` and `relative` positioned elements. Elements that are `fixed` positioned (or `absolute`) do not exhibit this behavior. Their initial width is simply the width of their content. Though it can be changed.
+
+
+__Margins do not work the same__
+
+For `static` and `relative` positioned items, margins can be used to adjust an element position and keep neighboring siblings "away". That's our quick assumption about the margins. However, when an element is `fixed` positioned, a given margin might be able to move the element but will not move any siblings. Margins cannot be used to keep siblings "away", to fight crowding.
+
+As a general rule, if a positioning property is being used (like `left`), then the matching margin (`margin-left`) can also be used to additionally adjust the position of the element. Otherwise, the margin will unlikely have any effect.
+
+__opposite properties can be used to size element__
+
+This is one of the nicer features. Working with preset dimension properties (`height` and `width`) can make your design brittle and reduce its adaptability. However, `fixed` positioned items can instead set the opposite positioning properties (like `left` and `right`) and leave the matching dimensional property (`width`) unspecified.  The element will grow or shrink based on the size of the browser window.  Note that this feature is only available to `fixed` (and `absolute`) elements.
+
+<br/>
+
+
+### Knowledge checks
+
+Here are some questions for a self check to make sure you understand everything. These questions are not graded.
+
+1. Inline display
+
+    Which of the following tags default to inline display? (select all that apply - 5 correct answers!)
+
+    a. p <br/>
+    b. q <br/>
+    c. blockquote <br/>
+    d. span <br/>
+    e. div <br/>
+    f. h1 <br/>
+    g. a <br/>
+    h. ul <br/>
+    i. ol <br/>
+    j. li <br/>
+    k. i <br/>
+    l. b
+
+    Ans: bdgkl
+
+
+2. Inline element
+
+    Which of the following statements are true about an inline element? (select all that apply -- 4 correct answers!)
+
+    a. respect all margins. <br/>
+    b. ignore top and bottom margins. <br/>
+    c. respect width and height properties. <br/>
+    d. are set along the text baseline next to their siblings. <br/>
+    e. always receive a new line. <br/>
+    f. padding makes the item larger. <br/>
+    g. top and bottom padding do not contribute to any line-height calculations.
+
+    Ans: bdfg
+
+
+3. Block lifting
+
+    Which of the following statements are true about block level elements? (select all that apply -- 5 correct answers!)
+
+    a. always receive a "new line" when placed. <br/>
+    b. respects all margin properties. <br/>
+    c. defaults to the full width of any parent. <br/>
+    d. ignores the width property. <br/>
+    e. ignores the height property. <br/>
+    f. with absence of any height properties, is vertically sized to accomodate its children (though there are exceptions). <br/>
+    g. ignores the vertical-align property.
+
+    Ans: abcfg
+
+
+4. My ways...
+
+    Elements that are inline-block are inline elements that behave in some ways like block level elements. What ways are those? (select all that apply -- 3 correct answers!)
+
+    a. get a "new line" when placed. <br/>
+    b. respect all margin properties. <br/>
+    c. default to full width of any parent. <br/>
+    d. respect the width and height properties. <br/>
+    e. top and bottom padding contributes to line-height calculation.
+
+    Ans: bde
+
+
+5. Image behavior
+
+    Which of the following best describes the default display behavior of the <img> element?
+
+    a. inline-block <br/>
+    b. nline <br/>
+    c. block
+
+    Ans: a <br/>
+    Explanation: If you look in the Element Inspector of your browser, it will most likely show you that an `<img>` element is display:inline. However, the element does not behave like an inline element. It supports height and width and all margins. `<img>` elements are inline-block elements.
+
+
+6. Unset element
+
+    What is the default `position` property that every element has if it is unset?
+
+    a. static <br/>
+    b. relative <br/>
+    c. fixed <br/>
+    d. absolute
+
+    Ans: a <br/>
+    Explanation: static position is the default that every element gets unless it has the position property explicitly set.
+
+
+7. Static positioning
+
+    Do the various positioning properties (like left, top, etc.) affect an item that is statically positioned?
+
+    Ans: No <br/>
+    Explanation: static elements (the default) do not respect the positioning properties.
+
+
+8. Viewport position
+
+    If you want to position an element relative to the browser window (aka the viewport), what position value should you choose?
+
+    a. static <br/>
+    b. absolute <br/>
+    c. fixed <br/>
+    d. relative
+
+    Ans: c <br/>
+    Explanation: Fixed positioned elements have their positioning properties interpreted relative to the viewport, regardless of parents or how the document might have been scrolled.
+
+
+9. Cornered
+
+    Which of the following will result in its element being positioned in the lower right corner of the browser window?
+
+    a. `position:static; display:block; margin-left:90%; margin-right:0px; margin-top:90%; margin-bottom:0px;` <br/>
+    b. `position:relative; bottom:0px; right:0px;` <br/>
+    c. `position:fixed; bottom:0px; right:0px;` <br/>
+    d. `position:absolute; top:90vh; left:90vw; width:10vh; height`:10vw;
+
+    Ans: c <br/>
+    Explanation: A simple elegant solution. Works even if the item in question is inline.
+
+<br/>
+
+
+### Positioning
+
+#### Positioned elements
+
+We read about the positioned elements in an earlier section. There are five positioning properties (`left`, `top`, `right`, `bottom`, and `z-index`) that can be used to influence the position of an element. But these properties, by default, will have no effect on any element.  This is because all elements are `position:static` by default, and static elements ignore those positioning properties.  Only positioned elements, which are elements where the position property is set to something besides static, respect the properties.
+
+We saw `position:fixed`, which is fairly simple: the positioning properties cause the fixed elements to be positioned relative to the browser window; they don't even scroll with the content.  Besides `fixed` and `static`, the `position` property can also be set to `relative` and `absolute`. For these values, the positioning properties have different interpretations.
+
+#### relative
+
+```css
+position: relative;
+```
+
+The relative value is exactly like static in that the "flowing text" model of layout is setting the initial position for the element (including margins and display). However, unlike static, elements with relative position respect the positioning  properties (`left`, `top`, `right`, and `bottom`).  These properties will move the named edge of the element __from__ its initial position. So a value of `top: 20px;` will move the top edge of the element 20 pixels further down the page.  And similarly, a value of `left: 20px;` will move an element 20 pixels from its original left edge, which means move it 20 pixels to the right.
+
+The `relative` position property has three primary gotchas of which you should be aware:
+
++ Items are moved independently of siblings.
++ Opposite positioning properties (like `left` and `right`) cannot be used simultaneously.
++ There are no automatic size adjustments.
+
+
+##### Independence - margin-top vs top
+
+IMPORTANT: The positioning properties (`left`, `top`, `right`, and `bottom`) adjust the placement of the element __<i>independently of its siblings</i>__.  What does this mean?   Let's imagine we have a list and we want to move one of the items a little further down the page. Should we use margin-top to move it? Or `position:relative` in conjunction with the top property?  The answer to this question depends on whether you want any of the other list items to move as well.  If you want the siblings to move down as well, then use `margin-top`.
+
+Here is an example. Suppose we have two lists. We want the third item in the list to have a background color and to be moved down by 30 pixels. Compare what happens when we use  `margin-top` to move it, versus a positioning property (`top`).   When we use `top`, the "Third" item appears overlapping the Fourth and Fifth items, as they did not move at all.
+
+<table class="bozo">
+<tbody>
+  <tr><th class="th-title" colspan="2">margin-top</th><th class="th-title" colspan="2">top</th></tr>
+  <tr><th>CSS</th><th>Result</th><th>CSS</th><th>Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #0000ff;">.third</span> { <br/>  <span style="color: #333399;">margin-top</span>: <span style="color: #339966;">30px</span>; <br/>  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>; <br/>}</pre>
+    </td>
+    <td>
+      <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li style="margin-top:30px; background-color: lightblue;">Third</li>
+        <li>Fourth</li>
+        <li>Fifth</li>
+      </ul>
+    </td>
+    <td>
+      <pre><span style="color: #0000ff;">.third</span> { <br/>  <span style="color: #333399;">position</span>: <span style="color: #ff6600;">relative</span>; <br/>  <span style="color: #333399;">top</span>: <span style="color: #339966;">30px</span>; <br/>  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>; <br/>}</pre>
+    </td>
+    <td>
+      <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li  style="position: relative; top: 30px; background-color: lightblue;">Third</li>
+        <li>Fourth</li>
+        <li>Fifth</li>
+      </ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+This is why, in our introduction to CSS, we said that margin should be your "go to" property when you want to adjust position.
+
+
+##### Cannot use opposite properties
+
+When using `position:relative` if you use the `left` property you cannot also use the `right` property.  And, if you use the `top` property you cannot also use the `bottom` property. If both properties are applied, then the CSS precedence rules will determine the "winner", which is usually just the last one applied.
+
+Again, this is unlike margins, where both `margin-right` and `margin-left` can be meaningfully used.
+
+
+##### No automatic size adjustments
+
+This follows from the previous limitation. You may recall that block level elements take the width of their parent (when no width is specified).  And when using left or right margins on a block level element that does not have an explicit width, the browser will smartly size the element down for you to make it fit.  But this size adjustment does not happen when you use `position:relative` and the `left` or `right` positional properties. This is easily illustrated with an example. Below is a block level paragraph with a border applied to it.  When a `margin-left` is applied to it, the paragraph is made smaller and no part goes outside its parent.  But when it is `position:relative` and moved with the `left` property, it can leave the bounds of its parent, or go offscreen.
+
+<table class="no-resize">
+<tbody>
+  <tr><th colspan="2">margin-left</th><th colspan="2">left</th></tr>
+  <tr><th style="width: 30%;">CSS</th><th style="width: 20%;">Result</th><th style="width: 30%;">CSS</th><th style="width: 20%;">Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #0000ff;">p</span> { <br/>  <span style="color: #333399;">margin-left</span>: <span style="color: #339966;">40px</span>; <br/>}</pre>
+    </td>
+    <td>
+      <p style="border: 1px solid black; margin_left: 40px;">Dorothea was altogether captivated by the wide embrace of this conception.</p>
+    </td>
+    <td>
+      <pre><span style="color: #0000ff;">p</span> { <br/>  <span style="color: #333399;">position</span>: <span style="color: #ff6600;">relative</span>; <br/>  <span style="color: #333399;">left</span>: <span style="color: #339966;">40px</span>; <br/>}</pre>
+    </td>
+    <td>
+      <p style="border: 1px solid black; position: relative; left: 40px">Dorothea was altogether captivated by the wide embrace of this conception.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+Admittedly, this is not necessarily a "limitation", for many layout situations preserving the size is exactly what is wanted.
+
+
+#### Absolute
+
+```css
+position: absolute;
+```
+
+Absolute positioning, as it is realized in the browsers via CSS, can be very powerful and that ease and power is very seductive to many CSS newbies. But there are some big trade-offs incurred that are often not appreciated. Many experienced professional CSS developers completely forswear absolute positioning - they will not use it under any circumstances.
+
+An element that is positioned absolutely is taken out of the normal text "flow" that governs elements positioned statically or relatively.  Instead, an absolutely positioned element is positioned by the `left`, `top`, `right`, and/or `bottom` properties. The size or position of siblings have no effect on an absolutely positioned element that has some positioning properties set (`left`, `top`, etc.)
+
+Let's take a simple example.  Here we have a paragraph that contains some text and an inner `<q>`.  For a better illustration, the paragraph has its height set and a border applied.  The `<q>` is positioned absolutely.
+
+<table class="crimetable">
+<tbody>
+  <tr><th style="width:30%;">HTML</th><th>CSS</th><th style="width: 30%;"">Result</th></tr>
+  <tr>
+    <td>&lt;p&gt;She bethought herself now of the condemned criminal. &lt;q&gt;What news have you brought about the sheep-stealer, uncle?&lt;/q&gt;&lt;/p&gt;</td>
+    <td>
+      <pre><span style="color: #0000ff;">p</span> { <br/>  <span style="color: #333399;">height</span>: <span style="color: #339966;">200px</span>; <br/>  <span style="color: #333399;">border</span>: <span style="color: #339966;">2px</span> <span style="color: #ff6600;">solid black</span>;   <br/> } <br/><span style="color: #0000ff;">q</span> {  <br/>  <span style="color: #333399;">position</span>: <span style="color: #ff6600;">absolute</span>; <br/>  <span style="color: #333399;">left</span>: <span style="color: #339966;">50px</span>; <br/>  <span style="color: #333399;">top</span>: <span style="color: #339966;">50px</span>; <br/>  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>; <br/>  <span style="color: #333399;">padding</span>: <span style="color: #339966;">10px</span>;<br>  <span style="color: #333399;">display</span>: <span style="color: #ff6600;">block</span>; <br/>  <span style="color: #333399;">width</span>: <span style="color: #339966;">70px</span>; <br/> }</pre>
+    </td>
+    <td>
+      <p style="border: 2px solid black; height: 200px;">She bethought herself now of the condemned criminal. <q style="position:relative; left: 50px; top:50px; background-color: lightblue; padding: 10px; display: block; width: 70px;">What news have you brought about the sheep-stealer, uncle?</q></p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+So that seems fairly straightforward and useful. But there are some subtle caveats and trade-offs of which you must be wary:
+
++ Interpretation of positioning depends upon parent/grandparent elements being positioned elements.
++ Best practice: use both a horizontal and a vertical positioning property on every absolute element.
++ Absolutely positioned elements do not contribute to size of the parent.
++ Absolute positioned block level elements do not get the width of their parent. 
++ Margins do not work the same.
++ Opposite properties can be used to size element.
+
+__Interpretation of positioning properties (top, left, etc.) depends ON parent/grandparent being positioned elements (or not).__
+
+IMPORTANT: For an absolutely positioned element, __where__ the left, top, etc. are calculated __from__ depends upon the `position` property of the parent and grandparents of the element in question. If the parent of the element is a positioned element (meaning its position is set to anything except `position:static`), then an absolutely positioned child  is positioned relative to that parents rectangle (or grandparent, or great-grandparent, etc).  But if none of the parents are positioned elements, the child is positioned relative to the bounds of the document.  
+
+This means that how the position properties of an absolutely positioned element are interpreted depends upon the position property of its parent (and grandparents). For many developers, this is a spooky action at a distance. Changing the position property on an element may not affect that element at all, but can cause it children (or great great grandchildren) to suddenly jump to another part of the page.  
+
+In the example below, someone who did not read the section in the module 3 about how to style list items has decided to use arbitrary numbers. There are four list items each containing child spans which are absolutely positioned. Two of the list items are `position:relative`, so the spans are positioned starting from their rectangle.  But two of the list items are `position:static` (the default), so the spans are moved up to the `<ul>` (which is also `position:relative`) where they overlap each other. (The red 1 is hidden behind the red 2). Borders have been added in the result below, so you can easily see the rectangle for  `<li>` versus `<ul>`.
+
+<a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/1fe35eaba7534b5d86b69fa0e09494a3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%4065eedf84e09a4619a4152d1cdcadc73a">
+    <img style="display: block; margin: auto; background-color: black" src="images/m6-01.png" alt="Interpretation of positioning properties (top, left, etc.) depends ON parent/grandparent being positioned elements (or not)." title="Interpretation of positioning properties (top, left, etc.) depends ON parent/grandparent being positioned elements (or not)." width="500" >
+</a>
+
+
+__Best practice: use both horizontal and vertical positioning property on every absolute element__
+
+There is a very subtle extension to the previous interpretation problem: if an element is set to be `position:absolute` but has no horizontal positioning property (that is, `left` or `right`), then it will be displayed in the flow exactly as it would have been.  Except, later, if `left:0px;` were added (for example), then the element may jump to the left edge of the first parent/grandparent that is a positioned element. The same applies vertically. This is a bewildering behavior, as most users do not expect there to be a difference between `left:0px` and _no_ `left` property at all.
+
+Therefore, for any absolutely positioned element, the best practice is to ensure that one of the horizontal positioning properties (that is, `left` or `right`) and one of the vertical properties (`top` or `bottom`) are set.
+
+
+__Absolutely positioned elements do not contribute to size of parent__
+
+Whether you realize it or not, one of the most useful default behaviors is that the height of a parent element is automatically extended to include all its children, its content. Designers working in CSS unconsciously lean on this fact as they plan layouts and adjust element positions. But this is __not__ true for children that are positioned absolutely.  Absolutely positioned children do not contribute to the size of the parent element. A parent element that contains only absolutely positioned children will have a height of 0, has no "measurable" content and will behave as if it is empty.
+
+A consequence of this is that as a design starts to use absolute positioning, it may also have to start explicitly setting the dimensions of containers, which makes the overall design brittle and less adaptable.
+
+In the example below, there are two lists (`<ul>`) each with a fat border. The list on the left is normal - its children contribute to making the `<ul>` taller and the fat border extends around, enclosing everything correctly. But the list items (`<li>`) on the right are positioned absolutely.  So those list items on the right do not contribute to the height of the parent. As a result, it ends up with a height of 0, as if it were empty. The fat border just becomes a fat flat line, and the list items themselves are not enclosed.
+
+<a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/1fe35eaba7534b5d86b69fa0e09494a3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%4065eedf84e09a4619a4152d1cdcadc73a">
+    <img style="display: block; margin: auto; background-color: black" src="images/m6-02.png" alt="Absolutely positioned elements do not contribute to size of parent" title="Absolutely positioned elements do not contribute to size of parent" width="500" >
+</a>
+
+
+__Absolute positioned block level elements do not get the width of their parent__
+
+Earlier we learned that block level elements automatically get the width of their parent, that is, they extend to become full width. But this is only true for static and relative positioned elements. Elements that are absolute positioned (or fixed) do not exhibit this behavior. If you look at the table above, from the previous point, the individual list items have a light blue background color. All the list items are block level elements, and the ones on the left, which are `position:static`, extend their rectangle rightward to fill the entire line. But the right column of absolutely positioned items does not. Their initial size is simply the size of their content. 
+
+
+__Margins do not work the same__
+
+For static and relative positioned items, margins can be used to adjust an element position and keep neighboring siblings "away". We make this quick assumption about margins.  But when an element is absolutely positioned, a given margin _might_ be able to move the element but will not move any siblings. Margins cannot be used to keep siblings "away", to fight crowding.
+
+ As a general rule, if a positioning property is being used (like `left`), then the matching margin (`margin-left`) can also be used to additionally adjust the position of the element. Otherwise, the margin will unlikely have any effect.
+
+
+__Opposite properties can be used to size element__
+
+This is one of the nicer features. Working with preset dimension properties (`height` and `width`) can make your design brittle and reduce its adaptability. However, absolutely positioned items can instead set the opposite positioning properties (like `left` and `right`) and leave the matching dimensional property (width) unspecified.  The element will grow or shrink based on the size of the ancestor it is positioning against.  Note that this feature is only available to absolute and fixed positioned elements.
+
+<br/>
+
+
+### 'z-index'
+
+In the previous sections, we named four positioning properties: `left`, `top`, `right`, and `bottom`.   With these properties, we can govern the placement of positioned elements in both the x and y axis.  But there is a fifth positioning property: `z-index`.
+
+```css
+z-index: 3;
+```
+
+Like the other positioning properties, `z-index` only applies to positioned elements (elements that have their position property set to `relative`, `absolute`, or `fixed`, but not `static`).  With the `z-index` you can control overlapping - whether or not an element is in front of or behind other _sibling_ positioned elements.  The z-index can be an integer 0 or higher. The higher the number, the more "topmost" or "overlapping" the element will be.
+
+In the sample below, we have two lists with relatively positioned list items and background colors. We are forcing them to overlap by making them position relative and using negative margins (`margin-bottom:-20px;`). The list on the left has no z-index values set, so the later elements overlap the earlier ones.  But on the right, we govern the overlapping with the z-index property.
+
+<table class="zitable">
+<tbody>
+  <tr><th>CSS</th><th style="width: 10em;">Result</th><th>CSS</th><th style="width: 10em;">Result</th></tr>
+  <tr>
+    <td>
+      <pre>/* no z-index set */</pre>
+    </td>
+    <td>
+      <ul>
+        <li style="position: relative; padding: 10px; margin-bottom: -20px; background-color: lightblue;">First</li>
+        <li style="position: relative; padding: 10px; margin-bottom: -20px; background-color: lightgreen;">Second</li>
+        <li style="position: relative; padding: 10px; margin-bottom: -20px; background-color: pink;">Third</li>
+        <li style="position: relative; padding: 10px; margin-bottom: -20px; background-color: purple;">Fourth</li>
+      </ul>
+    </td>
+    <td>
+      <pre>.first { z-index: 4; }<br/>.second { z-index: 3; }<br/>.third { z-index: 2; }<br/>.fourth { z-index: 1; }</pre>
+    </td>
+    <td>
+      <ul>
+        <li style="position: relative; margin-bottom: -20px; padding: 10px;background-color: lightblue; z-index: 4;">First</li>
+        <li style="position: relative; margin-bottom: -20px; padding: 10px;background-color: lightgreen; z-index: 3;">Second</li>
+        <li style="position: relative; margin-bottom: -20px; padding: 10px;background-color: pink; z-index: 2;">Third</li>
+        <li style="position: relative; margin-bottom: -20px; padding: 10px;background-color: purple; z-index: 1;">Fourth</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+
++ z-index has no effect on position:static (the default) elements.
++ If z-index is not set, siblings that appear later in the HTML document overlap (are "higher than") earlier siblings.
++ z-index is relative between siblings, not any arbitrary elements.
+
+
+#### Siblings and nesting
+
+It is entirely possible that one element with z-index:100 could appear __<i>below</i>__ another element with z-index:1;  
+
+This can happen because the z-index is used to figure out which sibling is higher than another. But if two elements are not siblings, then the z-index of their respective sibling ancestors will need to be calculated to figure out which is higher. 
+
+Below is a simple example: there are two overlapping sibling divs, "Albert" and "Betty". Albert has a red border and is  z-index:1.  Betty has a blue border, and is z-index:2.  Therefore, Betty and her child Bernice are higher than Albert and his child Alan. Albert's child Alan has a z-index of 100, which is the highest z-index of any of them, but because Alan's parent Albert is lower than Betty, Alan remains behind. Alan's high z-index is only relevant to his siblings, not to cousins further out in the document.
+
+<a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/1fe35eaba7534b5d86b69fa0e09494a3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%4065eedf84e09a4619a4152d1cdcadc73a">
+    <img style="display: block; margin: auto; background-color: black" src="images/m6-03.png" alt="z-index: Siblings and nesting" title="z-index: Siblings and nesting" width="500" >
+</a>
+
+
+#### Knowledge checks (not graded)
+
+1. Will the z-index property work...
+
+    Will the z-index property work on an item with position:relative; ?
+
+    Ans: Yes <br/>
+    Explanation: the z-index property will apply to all positioned elements. So every position option except position:static.
+
+
+2. On an item with 'position:static;' ...
+
+    Will the z-index property work on an item with position:static; ?
+
+    Ans: No <br/>
+    Explabnation: z-index will not work on a position:static element.
+
+<br/>
+
+
+
+### Activity - Block vs. inline and discussion
+
+We've provided you with a starter project file. The code is included below in this CodePen
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+  <title>Block vs Inline</title>
+  <style>
+    .u { text-decoration: underline; }
+    .brect {
+      background-color:lightblue;
+      border:1px dotted dimgray;
+    }
+    .prect {
+      background-color:lightpink;
+      border:1px dotted dimgray;
+    }
+    .w {
+      width:300px;
+    }
+    .h {
+      height:100px;
+    }
+    .pad {
+      padding:20px;
+    }
+    .marg-vert {
+      margin-top:30px;
+      margin-bottom:30px;
+    }
+    .marg-horiz {
+      margin-left:30px;
+      margin-right:30px;
+    }
+  </style>
+</head>
+ 
+<body>
+  <p class="">He was a squyer of lowe degre</p>
+  <p class="">Will Ladislaw's mind was now wholly bent on seeing Dorothea again, and forthwith quitting 
+  Middlemarch. </p>
+  <span class="">Ladislaw felt the awkwardness of asking for more last words. </span>
+  <span class="u">It is certainly trying to a man's dignity to reappear when he is not expected to do so: 
+  a first farewell has pathos in it, but to come back for a second lends an opening to comedy</span>
+</body>
+</html>
+```
+
+This simple file has two block level elements (the paragraphs) and two spans, which are inline. Additionally, there are several classes defined for you. 
+
+Try the following:
+
++ Notice immediately each paragraph gets its own line.
++ Notice the inline span that follows the paragraph (`</p>`) starts on its own line. However, the second inline span directly follows its predecessor - it does not get a new line, it continues on the same line.
++ Try applying the `brect` and `prect` classes to the elements. (via `class="brect"`). When applied to the paragraphs, you can see that the classes make the width of the paragraph stretch to the edge of the window. It is the same as its parent width.  Note that its height is no more than its content.  But the background colors and borders are tight to the spans.
++ Try applying the w class to each of the elements. This class sets the `width` property. It works on both paragraphs, but it has no effect on the two spans.
++ Try applying the h class to each element. This class sets the `height` property. Again, the paragraphs are affected, but the spans are not.
++ Apply the pad class to each element. This class sets the `padding` property. The paragraphs are clearly padded. The spans are also padded, but the extra padding does not space them out. So if the background colors are still being applied, the padded background of one inline element may overlap the other.  Can you think of a solution that would prevent the overlap?
++ Apply the `marg-vert` class to each element. This class sets the top and bottom margins. Note that it works on the block level paragraphs well enough, but has no effect on the inline spans.
++ Apply the `marg-horiz` class to each element. This class sets the left and right margins.  It works on everything.
+
+Play some more with the elements, trying to appreciate how block and inline elements differ.
+
++ Try changing the HTML so that the inline elements are inside the block level ones.  
++ Put a `margin:0` on the body.
++ Have fun!
+
+NOTE: Please do not upload HTML code to the discussion forum.
+
+<br/>
+
+
+### Activity - Cornerpiece and discussion
+
+For this activity, use this [CodePen](http://codepen.io/w3devcampus/pen/aWaORJ) with the [template file](prjs/6.2-Cornerpiece-template.html):
+
+The project file consists of a very long bit of prose and at the end has a single `<img>` tag.  
+
++ Get the cornerpiece `<img>` element to appear in the lower right of the viewport.  It should not scroll with the rest of the document.
++ That cornerpiece likely obscures any text that it overlaps. Try to get the document text to be on top of the cornerpiece. You will have to adjust the HTML to achieve this.
++ That cornerpiece is definitely a decorative graphic. Remove the `<img>` tag and use decorative CSS. Again, you will have to change the HTML to achieve this.
+
+NOTE: Please do not upload HTML code to the discussion forum.
+
+
+## 6.3 CSS Flexbox
+
+### Sizing and dimensions
+
+We have already touched on the size properties in the various discussions about display and positioning. But here we'll cover them properly and add a few more.
+
+
+#### Default behavior
+
+The default sizing behavior depends upon the display property for an element.  
+
+
+##### inline
+
+Inline elements take the size of their content plus any padding. Additionally, inline elements __ignore__ any explicit sizing properties (`width`, `height`, etc.) unless they are also position:absolute or position:fixed.  This leads to a lot of confusion when newbies are working with inline elements. If you have an inline element whose size you want to indicate explicitly, you should probably change it to inline-block.
+
+
+##### inline-block
+
+Inline-block elements also take the size of their content, plus padding. However, they respect any explicit sizing properties.  This is handy.
+
+
+##### block
+
+By default when no sizing properties are used, block level elements take the width of their parent and the height of their content. Block level elements respect any explicit sizing properties.
+
+The "width of parent" aspect of block level elements occasionally surprises developers who might not expect that each animal in a modest list of pets extends all the way to the right edge of the browser.
+
+These display states are covered in the display section. 
+
+
+##### images - aspect ratio preserving
+
+Images have an interesting behavior in that if only one dimension is set, the other is automatically calculated so that the original aspect ratio of the image is preserved.  This is true for both decorative CSS images and `<img>` tags.
+
+
+#### sizing properties
+
+There are six sizing properties. They are
+
++ `width`
++ `min-width`
++ `max-width`
++ `height`
++ `min-height`
++ `max-height`
+
+The width and height properties are a simple way to explicitly set the width or height of an element. It is set directly, and the element maintains that dimension (unless it is inline and ignores these properties). And certainly, when dealing with images, there is little reason to pursue anything but the most straightforward approach. 
+
+However, if you look again at the descriptions for inline-block and block level elements above, you will notice that inline-block elements are _sized (height and width) to their content_.  And block level elements take the _width of their parent_ and the _height of their content_. So these elements are fundamentally __variably__ sized, and this variability is one of the most powerful and useful aspects of these elements.
+
+However, when we use an explicit width or height property, we remove that variability from the element. This makes it less powerful and less useful.
+
+The `min-width` and `min-height` properties allow us to set a minimum boundary for that variability, but otherwise the variable sizing of the element is unimpeded. So if we have `min-width:300px;` that means the element will be 300 pixels or possibly wider.
+
+Likewise the `max-width` and `max-height` properties allow us to set a maximum boundary for the variability.
+
+As we move into flexbox based layouts, variability in our design will become very important.  
+
+
+#### Best practice
+
+Unless you have good cause, try to avoid using explicit dimension properties like `width` and `height`.  If you must control the dimensions, consider using the min- or max- variants.
+
+
+#### Cropping and scrolling: overflow
+
+If the element's dimensions are overdetermined by the sizing properties, then its content may not fit. In the example below, the width and height of the paragraph have been set too small for its content.  As a result, the content overflows the rectangle of the paragraph. We've made this easier to see by adding a border and background color to the paragraph.  
+
+This default behavior, that content that doesn't fit is shown anyway, can be surprising if you weren't expecting it. 
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr>
+    <th style="background-color: #3d64ff; color: #ffffff;">CSS</th>
+    <th style="background-color: #3d64ff; color: #ffffff;">Result</th>
+  </tr>
+  <tr>
+    <td>
+      <pre>p { <br/>  width:  250px;<br/>  height: 200px;<br/>  border: 1px solid black;<br/>  background-color: lightblue;<br/>}</pre>
+    </td>
+    <td>
+      <p style="border: 1px solid black; width: 250px; height: 200px; background-color: lightblue; font-size: 8px;"">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say "I'm going to sleep." And half an hour later the thought that it was time to go to sleep would awaken me; I would try to put away the book which, I imagined, was still in my hands, and to blow out the light; I had been thinking all the time, while I was asleep, of what I had just been reading, but my thoughts had run into a channel of their own, until I myself seemed actually to have become the subject of my book: a church, a quartet, the rivalry between François I and Charles V. This impression would persist for some moments after I was awake; it did not disturb my mind, but it lay like scales upon my eyes and prevented them from registering the fact that the candle was no longer burning. Then it would begin to seem unintelligible, as the thoughts of a former existence must be to a reincarnate spirit; the subject of my book would separate itself from me, leaving me free to choose whether I would form part of it or no; and at the same time my sight would return and I would be astonished to find myself in a state of darkness, pleasant and restful enough for the eyes, and even more, perhaps, for my mind, to which it appeared incomprehensible, without a cause, a matter dark indeed.</p>
+      <p></p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+__overflow__
+
+The overflow properties govern this situation.  There are three related properties: `overflow`, `overflow-x`, and `overflow-y`.
+
+```css
+p { overflow: auto; }
+```
+
+With common text, overflowing normally only occurs in the vertical direction (like in the example above). But if your element contains images, extremely long words, or has adjusted CSS white spacing properties, then content can overflow horizontally as well.  The overflow property applies a common policy to both situations, and the overflow-x and overflow-y properties let you assign different policies for horizontal versus vertical overflow. 
+
+There are five possible values: `unset`, `auto`, `visible`, `hidden`, and `scroll`. In the example below, the paragraphs are limited to a height of 100 pixels.
+
+1. `unset` is both the default value when overflow has not been set and a value that can be explicitly set.
+2. The interpretation for the `auto` value may vary from browser to browser. Typically, if a scroll bar is needed, it is shown, but if it is not needed, no scroll bar is shown.  In the example below, no horizontal scroll bar is needed, so none is shown. If there was less content in the paragraph, then no scroll bar would be shown at all.
+3. When the value is `scroll`, then the scroll bars are always shown, whether they are needed or not.
+
+<table>
+<tbody>
+  <tr><th>unset</th><th>auto</th><th>visible</th><th>hidden</th><th>scroll</th></tr>
+  <tr style="vertical-align: top; height: 250px;">
+    <td>
+      <p style="height: 100px; overflow: unset;">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say "I'm going to sleep."</p>
+    </td>
+    <td>
+      <p style="height: 100px; overflow: auto;">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say "I'm going to sleep."</p>
+    </td>
+    <td>
+      <p style="height: 100px; overflow: visible;">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say "I'm going to sleep."</p>
+    </td>
+    <td>
+      <p style="height: 100px; overflow: hidden;">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say "I'm going to sleep."</p>
+    </td>
+    <td>
+      <p style="height: 100px; overflow: scroll;">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say "I'm going to sleep."</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### The box model and box-sizing
+
+So, if we say that some block level element is supposed to have a height and width of 100 pixels, does that include the border or the padding?  This is an excellent question, worthy of some experimentation. The reader is encouraged to explore this.
+
+The answer is that the default behavior of the browser is that the sizing properties govern the size of the content area and any padding or borders are "extra".  But, if this is not the desired behavior, you can change it. 
+
+Every element has several "boxes" it manages: its own content, padding, border, and margins.  In CSS parlance, this question is about the "Box Model" of the element.  Here is an illustration of how the different boxes are organized (innermost to outermost).
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40f59373dbfbc04cfbb386dc810e886e0e"> 
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ebbf5b8bead6014e108c5be1df38d824/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/boxmodel.jpg" style="margin: 0.1em;" alt="text" title="Flexbox diagram" width="300" >
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">
+    <img src="https://developer.mozilla.org/files/3739/flex_terms.png" style="margin: 0.1em;" alt="When elements are laid out as flexible boxes, they are laid out along two axes" title="An aside on the flex model" width="395">
+  </a>
+</div>
+
++ An aside on the flex modelSection (diagram above right)
+  + The __main axis__ is the axis running in the direction the flex items are being laid out in (e.g. as rows across the page, or columns down the page.) The start and end of this axis are called the __main start__ and __main end__.
+  + The __cross axis__ is the axis running perpendicular to the direction the flex items are being laid out in. The start and end of this axis are called the __cross start__ and __cross end__.
+  + The parent element that has `display: flex` set on it is called the __flex container__.
+  + The items being laid out as flexible boxes inside the flex container are called __flex items__.
+
+
+
+__box-sizing__
+
+```css
+p { box-sizing: border-box; }
+```
+
+The `box-sizing` property determines how the sizing properties are applied.  It has two values: `content-box` and `border-box`.  
+
+The `content-box` value is default and simply means that the height or width properties affect the content box of the element and any padding or border is "additional".  
+
+When `border-box` is used, the sizing properties are used to set the "whole" size of the element, and the content size is likely to be less.
+
+#### This is making my head hurt! How important is this?
+
+Another good question. If you are manipulating items with JavaScript, then it may be important. If you are using any of the "older" methods for CSS layout (like floats, tables, etc.), then managing the box model is of paramount importance.
+
+However, if you are using the flexbox layout (which we begin in the next section), then the box-model is not that important. The rule of thumb is that the more you are directly managing the size of items, the more likely you will need to change the `box-sizing` property to be `border-box`.
+
+
+### Flexbox
+
+Up to this point, we have covered quite a few different CSS layout concepts. Inline vs. block level display, different position values, various positioning properties, six different sizing properties, plus countless details and interactions.  So by this time, we should know enough to make a two-column page design, right?  Sadly, we cannot.  The intrepid among us might be able to cobble something together by creatively using inline-block, or maybe absolute or fixed positioning, but ultimately, any design built with just the topics we've covered so far will likely be brittle or unwieldy. Why is that?
+
+All the layout properties we've looked at have all applied to an _individual_ element.  But performing layout tasks like columnar layout or anything responsive requires coordinating _multiple_ elements.  This is where the flexbox comes in.  When working with flexbox layout, there are some CSS properties that are applied to a parent element (also known as the flex container) and other CSS properties that are applied to the direct children of that parent (also known as the flex items).  The flex container will handle laying out of its children. And, best of all, the flex container will lay out its children smartly, making the best use of the screen size available to it, while still following the general guidelines you laid down for it.   As a general rule, layout with flexbox is pretty easy and the results are great.  So let's get started.
+
+
+#### The minimum
+
+The minimum scenario for using flexbox is to make use of two CSS rules, and better results are achieved with a third.
+
+1. `display:flex;` on the flex container
+2. `flex:1;` on the flex items (the children of the flex container)
+3. (better) `flex-flow: row wrap;` on the flex container.
+
+Here is a series of screen captures showing these minimum options applied to a parent `<div>` and four identical paragraphs at various browser sizes, with no other properties applied except some small margin and padding on the paragraph, and a background color and a border radius to help visualize.
+
+<span style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40f59373dbfbc04cfbb386dc810e886e0e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/12adc51449bbe643629a3a37c8464cae/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/four_across_wide_30.png" style="padding: 0.02em;" alt="Flexbox image with four columns wideFlexbox image with three columns and one beneathFlexbox image with two lines of twoFlexbox image with one column and four lines" title="Fig.1" width="150">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bd6de0e3780ce3303f225bfaedf61d23/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/three_and_one_30.png" style="padding: 0.02em;" alt="Flexbox image with four columns wideFlexbox image with three columns and one beneathFlexbox image with two lines of twoFlexbox image with one column and four lines" title="Fig.2" width="150">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/741852181e2467cb6c6cdd5a067e9ee9/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/two_and_two_30.png" style="padding: 0.02em;" alt="Flexbox image with four columns wideFlexbox image with three columns and one beneathFlexbox image with two lines of twoFlexbox image with one column and four lines" title="Fig.3" width="150">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4e8158ad51651509b53f35439557859e/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/one_30.png" style="padding: 0.02em;" alt="Flexbox image with four columns wideFlexbox image with three columns and one beneathFlexbox image with two lines of twoFlexbox image with one column and four lines" title="Fig.4" width="150">
+  </a>
+</span>
+
+
+#### flex container
+
+```css
+div  { display: flex; }
+span { display: inline-flex; }
+```
+
+To designate an element as a flex container, we simply set the `display` property to be `flex` or `inline-flex`. A flex element will itself be a block level element, and an inline-flex element will itself be an inline element. However, in both cases the element is now a flex container and will be handling the layout of its children.
+
+__flex-flow__
+
+```css
+.fc {
+  display: flex;  /* this is now a flex container */
+  flex-flow: row wrap;
+ }
+ ```
+
+Flexbox containers can lay out their children both horizontally, as in a row, and vertically, as in a column, and _both at the same time_.  This means that a single flex container not only can help you lay out a three column design, but also handle the header and footer above and below. (Did we mention that flexbox rocks?)
+
+But the flexbox container does need a starting rule to follow. Do you want it to primarily line things up horizontally like a row? Or vertically like a column? And will you be wanting that row or column to wrap? The `flex-flow` property lets you specify both of those things. 
+
+Strictly speaking, the `flex-flow` property is actually an abbreviation that replaces two other flexbox container properties: `flex-direction` and `flex-wrap`.  But the row wrap value is so useful that it will likely be the standard.
+
+```css
+flex-flow: <flex-direction> <flex-wrap>;
+```
+
+The possible values for the `flex-direction` are: `row`, `row-reverse`, `column`, and `column-reverse`.
+
+The values for the flex-wrap part are: `wrap`, `wrap-reverse`, and `nowrap`.
+
+There are more properties that we can apply to a flex container and we'll look at them in the upcoming sections. But these two will take care of most of what you might want.
+
+__flex items__
+
+The direct children of a flex container are automatically converted into flex items, with the exception of children that are position-fixed or position-absolute, which are taken out of the "flow" of the flex container.  So there is no property needed to designate a child as a flex item, as it happens automatically. 
+
+One other automatic behavior to be aware of is that empty flex items are automatically removed from the flex container. Keep that in mind if you were planning on using an empty `<div></div>` construct as a placeholder for a CSS background image.
+
+There is an array of flex item properties that can be applied to the children of a flex container, but there are three that we are not supposed to use in isolation. These three are: `flex-grow`, `flex-shrink`, and `flex-basis`.These three properties interrelate, so rather than using them in isolation the CSS3 specification encourages us to use the `flex` property, which can act as an abbreviation for all the three.
+
+__flex property__
+
+Earlier, we saw that `display:flex;` can be used to designate a parent element as a flex container. In that case, the symbol "`flex`" is used as a value of the `display` property.
+
+But flex is also the name of  a property. It is a property that is applied to flex items, the children of a flex container.  
+
+```css
+span { flex: <flex-grow> <flex-shrink> <flex-basis>; }
+```
+
+The `flex` property provides a convenient way to abbreviate the three interrelated properties of `flex-grow`, `flex-shrink`, and `flex-basis`.  The flex property also gives a flex item nice defaults for the optional properties. Therefore, `flex:1;` is __better__ than `flex-grow:1;`.
+
+__flex-grow__
+
+```css
+p { flex: 1; /* rather than use flex-grow, use flex: <flex-grow>; */ }
+```
+
+The `flex-grow` property is set simply to a positive number. In isolation that number means nothing. However, when the flex container is laying out its children, for any row (or column) it is processing it may end up with a little extra space. The `flex-grow` property determines how much extra space this flex item should get relative to its siblings.  If one sibling has a `flex-grow` value of 2 and another  - `flex-grow` value of 1, the former will receive twice as much of the extra space that is divided among the children.
+
+A larger `flex-grow` value does not necessarily mean that an element is larger than its siblings that have smaller `flex-grow` values. The content of each sibling is first accounted for by the flex container when creating any row or column and only after that has been settled is any extra space distributed among the children.
+
+Setting the `flex-grow` to 0 will prevent the flex item from growing. But remember, that will cause the item to shed its "flexible size" super-power.
+
+__flex-shrink__
+
+```css
+p { flex: 1 1; /* rather than use flex-shrink directly, use flex: <flex-grow> <flex-shrink> */ }
+```
+
+The `flex-shrink` is the opposite of `flex-grow`. When laying out any row or column, if the flex container needs to take away some space from the children, then those with the highest `flex-shrink` values contribute more of the needed space.  Again, the `flex-shrink` value is just a number and it only has meaning when compared to its sibling `flex-shrink` values. And, again, this only occurs in the situation where the flex-container might need some space from its children.
+
+Note: Like `flex-grow`, setting the `flex-shrink` to 0 will prevent the flex item from shrinking. However, this may not be as desirable as it first seems. Remember the box model from the previous section? If an item `flex-shrink` value is 0, then its border or padding may end up off-screen or pushed out of the parent, because there is a difference between "fitting" and "fitting nicely", and without the ability to be shrunk an item might fit but not "fit nicely". If you must set `flex-shrink` to 0, then it is recommended that you also set the box-sizing to border-box.
+
+__flex-basis__
+
+```css
+p { flex: 1 1 87px;  /* use flex: <flex-grow> <flex-shrink> <flex-basis> */}
+```
+
+The `flex-basis` can be used instead of the sizing properties on a flex item. If the `flex-direction` of the parent flex container is `row` or `row-reverse`, then the `flex-basis` will govern the width of the flex item. If the `flex-direction` is `column` or `column-reverse`, it governs the height.
+
+The `flex-basis` provides the starting dimension (width or height) for the flex-item. It may be grown or shrunk from that. If you do not want it to change at all, then set the `flex-grow` and `flex-shrink` to 0, and the `box-sizing` to `border-box`.  However, this is not advisable. Read the `flex-shrink` discussion above.  
+
+
+### Flexbox advice and best practices
+
+Here are some quick tips to help you get the most out of flexbox.
+
+__Remember the minimum__
+
+If you have a parent element that contains some child elements, then putting `display:flex;` on the parent is all that is needed to get started. The parent itself behaves like a normal block level element, it is the flex container, and all of its children are flex items. 
+
+It's not a bad idea to specify the `flex-flow` for the flex container (`flex-flow: row wrap;`), but it isn't required.
+
+It's generally a good idea to also initialize the flex property on the `flex` items (e.g. `flex:1`), but again, this isn't required.
+
+__Use variable dimensions on flex items instead of explicit ones__
+
+This advice may not apply to images and may not be appropriate for every flex item. However, for most flex items, try to avoid using explicit `width` and `height` properties. Instead, use the `flex-basis` to set a desired dimension (e.g. `flex: 1 1 200px;`).  Or consider using `min-width` (or `max-width`) and `min-height` (or `max-height`).
+
+Doing so will make your flex items a bit more malleable. In CSS professional parlance, this is called being "responsive".
+
+__Do not overconstrain your flex items. Let the browser work for you.__
+
+This is a follow-on to the previous piece of advice. With flexbox you give the browser some general guidelines and allow it to figure it out. (_"Hey, put these in a row, I guess they can wrap. This item should be 80 pixels wide generally, and this item should always be at least 200 pixels wide, and this item should be first."_).  If you overly constrain the flexbox container by disallowing growing, shrinking, and setting explicit dimensions, then the results may be not optimal. Don't micromanage, let the flexbox do its job.
+
+Remember also, that if you overdetermine the dimensions for an element, then you may also have to start managing its `overflow` setting and its box model. Who needs more worry?  Underconstraining is the path to happiness.
+
+__Thinking of using inline-block? Consider flexbox instead.__
+
+If you are considering changing the `display` of several elements to be `inline-block`, that may indicate that you should be using flexbox instead. Perhaps their parent should be set to be a flex container and they should be flex items.  
+
+__Centering? Maybe flexbox__
+
+If you need to center some content horizontally, then the previous section on centering may help. It discusses the various options for inline or block level elements.  However, a flex container and a flex child is also a possible approach. The flex container property `justify-content:center;` might help. See the optional section on that.   Both approaches (flexbox and "traditional") have their advantages in various situations.  Use your judgement.
+
+If you need to center something vertically, unless it is an inline element or the content of a table cell, the best answer is almost certainly flexbox. See the `align-content` and `justify-content` properties in the advanced optional flexbox material.
+
+__AVOID margin: auto on flex items__
+
+`margin:auto` prevents align-self from working (a very handy flexbox property covered in the Optional section). There are effective ways of using auto margins though, just do so with [care](https://medium.com/@samserif/flexbox-s-best-kept-secret-bd3d892826b6#.wzrvpxpqv)
+
+__Try to keep your flexbox usage simple__
+
+You can see [here](http://caniuse.com/#search=) that flexbox is widely supported across all the modern browsers. However, Internet Explorer had bugs in its support (but they are fixed in Edge). And the flexbox standard has had some changes since it was first proposed. For this reason, try to keep your usage of flexbox close to what is covered in this course material, and, as with all CSS, be sure to always test in as many browsers as possible.
+
+### External resources
+
++ [Flexbox documentation](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) on MDN (available in many languages!)
++ [What Happens When You Create A Flexbox Flex Container?](https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/) (by Rachel Andrew - 2 August 2018)
+
+
+### Knowledge checks (1-8)
+
+1. Compatibility of combinations
+
+    Which of the following combinations are NOT compatible? Which of the following will not work?
+    1. `display:inline; min-width:200px;`
+    2. `display:inline-block; max-width:100px;`
+    3. `display:block; width:200px;`
+
+    Ans: 1 <br/>
+    Explanation:  Inline elements do not respond to the sizing properties.
+
+
+2. Default sizing
+
+    Which of the following statements correctly describe the default sizing of a block level element? How does a block level element behave when no sizing properties are applied?
+    1. horizontally sizes to its own content, takes the height of its parent
+    2. vertically sizes to own content, takes the width of parent
+    3. sized horizontally and vertically to its content
+    4. takes height and width of parent
+
+    Ans: 2 <br/>
+    Explanation: A block level element defaults to the width of its parent but vertically is sized by its content.
+
+  
+3. Flexbox container
+
+    How do you designate an element as a flexbox container? (select all that apply -- 2 correct answers!)
+    1. `display:flex`
+    2. `flex:1`
+    3. `display:inline-flex`
+    4. `display:block; flex:1`
+
+    Ans: 13 <br/>
+  Explanation: The flex property is applied to flexbox children, not the flexbox container.<br/>
+  It must be possible for both inline and block level elements to be flex containers.
+
+
+4. What is needed to designate its children?
+
+    If a parent has been designated as a flexbox container, then what is needed to designate its children as a flexbox items?
+    1. `display:flex`
+    2. nothing. All direct children of a flexbox container are automatically made into flexbox items.
+    3. `position:static`
+    4. `flex:1`
+
+    Ans: 2 <br/>
+    Explanation: `display:flex` is used to designate an element as a flexbox container, not as a flexbox child/item. Note that it is perfectly acceptable for an element to be both a flexbox child and a flexbox container. <br/>
+    While it is a very good practice to always set the `flex` property for any flexbox items, it is not strictly required. <br/>
+    It is recommended that every flexbox item have its `flex` property initialized, but this is not strictly required.
+
+
+5. Flexbox layout
+
+    Examine this image of a flexbox layout:
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40f59373dbfbc04cfbb386dc810e886e0e">
+        <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bd6de0e3780ce3303f225bfaedf61d23/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/three_and_one_30.png" style="margin: 0.1em;" alt="image shows a browser window with three flexbox items of the same size layouted as 3 columns, and one flewbox item below that is as wide as the sum of the 3 items above" title="6.3.4 Q5" width="150">
+      </a></div>
+    </div>
+
+    Which of the following is true?
+    1. the flexbox container has `flex-flow:row wrap;`
+    2. the last flexbox item has `clear:both`
+    3. the flexbox container has `flex-flow:row;`
+    4. the flexbox container has `flex-flow: column;`
+
+    Ans: 1 <br/>
+    Explanation: The flex-flow specifies both a row flex-direction and wrapping
+
+
+6. Flexbox container with three children
+
+    There is a flexbox container with three children with _identical content_.
+
+    The flexbox container has `flex-flow:row;`
+
+    The first child has `flex:1` applied to it, the second `flex:2`, and the third `flex:3`.
+
+    `flex:1` is the same as which of the following?
+    1. `flex-basis:1px;`
+    2. `flex-grow:1`
+    3. `flex-shrink:1`
+
+    Ans: 2
+
+
+7. Which of the following are possible...
+
+    There is a flexbox container with three children with identical content.
+
+    The flexbox container has `flex-flow:row;`
+
+    The first child has `flex:1` applied to it, the second `flex:2`, and the third `flex:3`.
+
+    When examined in the browser, which of the following are possible? (select all that apply - 2 correct answers!)
+
+    1. all three elements are the same width.
+    2. the first item is wider than the others.
+    3. the first item is the narrowest and the third item the widest.
+    4. the first item is much narrower, and the second and third items are the same width.
+
+    Ans: 13 <br/>
+    Explanation: `flex-grow` is only applied if there is extra space to be shared. If not, no "flexing" occurs. <br/>
+    if there is extra space to be applied to the various children, then no two of them will be the same width.
+
+
+8. Full flex property
+
+    Which of the following is the correct description of the full flex property?
+    1. `flex: <flex-grow> <flex-basis> <flex-shrink>`
+    1. `flex: <flex-grow> <flex-shrink> <flex-basis>`
+    1. `flex: <flex-shrink> <flex-grow>`
+    1. `flex: <flex-grow> <flex-start> <flex-end>`
+
+    Ans: 2
+
+
+### Knowledge checks (9-13)
+
+__Units__
+
+Recall from Week 3 the different units that are available in CSS for specifying dimensions:
+
++ `px`
++ `em`
++ `rem`
++ `%`
++ `vh` / `vw`
+
+These are all convenient for sizing text and images and videos as might befit the need.  However, when pursuing page layout we often want to mix units. Examine this simple situation:
+
+<table>
+<tbody>
+  <tr><th>HTML</th><th>CSS</th></tr>
+  <tr>
+    <td>
+      <pre>&lt;body&gt;<br/>  &lt;header&gt;Header&lt;/header&gt;<br/>  &lt;main&gt;Content Goes Here&lt;/main&gt;<br/>&lt;/body&gt;  </pre>
+    </td>
+    <td>
+      <pre><span style="color: #0000ff;">body</span>{<br/>  <span style="color: #333399;">margin</span>: <span style="color: #339966;">0px</span>; <br/>  }<br/><span style="color: #0000ff;">header</span> {<br/>  <span style="color: #333399;">height</span>: <span style="color: #339966;">100px</span>;<br/>  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>;<br/>  }<br/><span style="color: #0000ff;">main</span> {<br/>  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">whitesmoke</span>;<br/>  <span style="color: #333399;">overflow-y</span>: <span style="color: #ff6600;">scroll</span>;<br/>  }  </pre>
+    </td>
+  </tr>
+  <tr><th colspan="2" ><br/> Result</th></tr>
+  <tr>
+    <td class="img" colspan="2"><div style="disply: flex; justify-content: center;"><img alt="image shows a browser window with a large header. In the main element, it is written &quot;Content Goes Here&quot;. The content is not extending down (i.e., there is a little scrolling bar)" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ae8c8eaae966eba6c448fcf4a210fb37/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/unhappy.png" type="saveimage" target="[object Object]" width="300" height="200"></div></td>
+  </tr>
+</tbody>
+</table>
+
+Because `<header>` and `<main>` are both block level elements, they extend full width.  Great.  And the `height` of the header has been set to 100px.  But the main does not yet have a height set, so it takes the height of its content. However, for this design, we want it to scroll its content, and we want it to extend to the bottom of the browser window.  The scrolling is easily accomplished with the `overflow-y:scroll;`  declaration.
+
+So what should the height of the `<main>` section be to make it extend down?  
+
+__calc()__
+
+The ideal height for the `main` section is that of the viewport minus the height of the header.  You may remember that the `vh` unit is a percentage of the viewport.  So `100vh` is one hundred percent of the viewport.  And we can see that the height of the header in the CSS above is `100px`.  
+
+Wherever a CSS dimension unit is accepted we can also provide the `calc()` expression. This expression lets us mix units of different types. It looks like this:
+
+```css
+main { height: calc(100vh - 100px); }
+```
+
+And if we try adding that to the CSS above, we get the result we wanted:
+
+<img alt="image shows a browser window with a large header. In the main element, it is written &quot;Content Goes Here&quot;. The content is not extending down (i.e., there is a little scrolling bar)" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ae8c8eaae966eba6c448fcf4a210fb37/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/unhappy.png" type="saveimage" target="[object Object]" width="300" align="middle" height="200">
+
+You can download the final result [here](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4679b22005822fc4119eb9d51c8717b5/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/calc.zip).
+
+So that's `calc()`, another weapon in your ever strengthening CSS arsenal.
+
+
+__Notes__
+
++ The parentheses for `calc()` are required.
++ The standard arithmetic operations are supported, addition, subtraction, multiplication, and division:  `+  -  *  /`
++ Overuse of `calc()` can make your page slow.
++ Using `calc()` for sizing flexbox items (the items inside a flexbox container) may not always work as desired. In particular, `calc()` along the cross axis may not work in every situation.
+
+
+__Exploration Activity__
+
+Go back to the original situation posed above.  Can you think of any other solutions that will end up with the desired result that don't use `calc()` and do not use flexbox?  We have already discussed quite a few layout concepts. Might some be leveraged to otherwise solve this problem?
+
+--------------------------------------------
+
+9. `calc()` declarations
+
+    Which of the 'calc()' declarations are correct? (select all that apply -- 3 correct answers!)
+    1. `calc 100vh - 80px;`
+    2. `calc(100vh - 80px);`
+    3. `calc(80px + 120px);`
+    4. `calc(75vw * 2);`
+
+    Ans: 234
+
+
+#### Examine the following HTML code FOR questions 10 through 13:
+
+```html
+<body>
+  <header>Header</header>
+  <article>Article</article>
+  <footer>Footer</footer>
+</body>
+```
+
+__Situation__
+
+For this design, you are asked to make the header and footer each have a height of 80px. The content of the article may vary in height. It could be a long series of paragraphs, or it could be just a sentence.
+
+What is the CSS that will size the article height such that it will keep the footer at the bottom of the viewport if the article content is small? However, if the content is long, it will let the article just size to the content (meaning the footer may be offscreen until the user scrolls the entire page down).  
+
+The next four questions are about the CSS needed to size the article as described.
+
+10. Which property for the height of the article
+
+    Examine the code and situation above. Think about the CSS required to acheive it.
+
+    ```css
+    article { property:value; }
+    ```
+
+    What property should be set to control the overall height of the article as described?
+    1. min-height
+    2. max-height
+    3. height
+
+    Ans: 1 <br/>
+    Explanation: Setting the minimum height for the article can help keep it sized so that the footer, which follows it, stays at the bottom of the browser window.
+
+
+11. Desired value
+
+    Examine the code and situation above. In Question 10, you selected the property that should be used to control the height of the article. But what should its value be set to?
+
+    Which of these sentences describes the desired value most accurately?
+    1. the maximum height of the article should be no more than twice the viewport height.
+    2. at minimum, the height of the article should be the height of the viewport minus the combined heights of the header and footer.
+    3. the minimum height of the article should be the height of the viewport plus the height of the header and the footer
+    4. the height of the article should be the same as the height of the viewport
+
+    Ans: 2
+
+
+12. Height of the viewport
+
+    Which of these unit declarations represents the height of the viewport?
+    1. 100vw
+    2. 100vh
+    3. 720px
+    4. 100%
+
+    Ans: 2 <br/>
+    Explanation: 100vh means one hundred percent of the viewport height.
+
+
+13. What value should be set...
+
+    Examine the code and situation above. In question 10, you selected the property we need to control the height of the article as described. In question 11, you selected a description of its value. In question 12, you selected the declaration that represents the overall height of the viewport. Lastly, observe that the height of the footer and header are each 80 pixels. So, finally, what value should be set for the property?
+
+    ```css
+    article { property:value; }
+    ```
+
+    What value should be set for the property?
+
+    Ans: `calc(100vh - 160px)` or `calc(100vh - 160px);` or `calc(100vh-160px);` or `calc(100vh-160px)`
+
+
+
+### Activity - Basic flexbox
+
+There are several more flexbox related properties that we will learn. However, there is a lot already that can be accomplished with only display:flex, flex-flow, and flex. So let's explore.
+
+You can edit in this [CodePen](http://codepen.io/w3devcampus/pen/mmGeda).
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox</title>
+  <style>
+    body{ margin:0px; }
+    p {
+      margin:10px;
+      padding:20px; 
+      background-color:lightgray;
+      border-radius: 10px;
+    }
+    </style>
+</head>
+
+<body>
+  <div class="fc">
+    <p class="first">For a long time I used to go to bed early. Sometimes, when I had put out my candle, 
+    my eyes would close so quickly that I had not even time to say</p>
+    <p class="second">For a long time I used to go to bed early. Sometimes, when I had put out my candle, 
+    my eyes would close so quickly that I had not even time to say</p>
+    <p class="third">For a long time I used to go to bed early. Sometimes, when I had put out my candle, 
+    my eyes would close so quickly that I had not even time to say</p>
+    <p class="fourth">For a long time I used to go to bed early. Sometimes, when I had put out my candle, 
+    my eyes would close so quickly that I had not even time to say</p>
+  </div>
+</body>
+</html>
+```
+
+The resulting layout should look like this:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40f59373dbfbc04cfbb386dc810e886e0e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/07b4af5c81f90dafe6e40a9036ef9ae9/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/resultflexbox.PNG" style="margin: 0.1em;" alt="resultat of flebox" title="resultat of flebox" width="500">
+  </a></div>
+</div>
+
+
+### Basic flexbox
+
+<video src="https://edx-video.net/W3CHTM502016-V015900_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/xblock/block-v1:W3Cx+HTML5.0x+2T2018+type@video+block@3a74f3304450402b9944caf0d9202ea9/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+
+
+### Activity - Holy grail with flexbox
+
+Among CSS aficionados, the "holy grail" was considered to be a simple page layout of a header, footer, and three columns specified with CSS and without any hacks or complications.  In other words, CSS as a language would not be considered ready for performing layout until such a task could be accomplished.
+
+With flexbox this goal is finally achievable. And it doesn't require much flexbox knowledge. We've already covered everything we need. So let's see how to do it.
+
+__Semantic sections__
+
+You may recall from week 2 several semantic tags for denoting the different parts of a page:
+
++ `header`
++ `footer`
++ `aside`
++ `article`
++ `main`
++ `section`
++ `nav`
+
+Several of those tags like `<header>`, `<footer>`, and `<aside>` have tantalizingly promising names that suggest they provide some sort of layout assistance.  However, the HTML5 newcomer may be disappointed to discover that those tags are just basic block level elements, functioning no different than `<p>` or `<div>`.   Flexbox comes to the rescue and helps those tags realize their potential.
+
+__Step 1 - choose tags__
+
+Let us imagine that we are working on a three-column page with header and footer. So the `<header>` and `<footer>` tags are obvious choices.  Let's pick 3 others. We'll start with something like this:
+
+HTML
+```html
+<body>
+  <header>the header</header>
+  <aside>first column</aside>
+  <main>the main content should be here</main>
+  <section>this is the third column</section>
+  <footer>the footer</footer>
+</body>
+```
+
+NOTE:  A better practice is to use longer text content for the dummy text.  This will help us verify sizing and scrolling, etc. Instead of simple text like "first column", insert a long paragraph of text. 
+
+__Step 2 - surround with flexbox container__
+
+Our five tags will be the flexbox items. They need to be nested in a flexbox container. So we'll surround them with a simple `div`, since the flexbox container serves no semantic purpose - it is only used to achieve a layout goal, and we'll apply a class to the div so we can easily apply the CSS we want.
+
+HTML
+
+```html
+<body>
+  <div class="fc">
+    <header>the header</header>
+    <aside>first column</aside>
+    <main>the main content should be here</main>
+    <section>this is the third column</section>
+    <footer>the footer</footer>
+  </div>
+</body>
+```
+
+__Step 3 - add visualization CSS__
+
+This can be removed later, but when working with layout it is often handy to temporarily apply a border or background color to our main elements to be able to see them fully. 
+
+<table>
+<tbody>
+  <tr><th>CSS</th><th class="result">Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #0000ff;">body</span> { margin:0px; }<br/><br/><span style="color: #0000ff;">.fc</span> &gt; * {<br/>  <span style="color: #333399;">margin</span>: <span style="color: #339966;">10px</span>;<br/>  <span style="color: #333399;">padding</span>: <span style="color: #339966;">20px</span>; <br/>  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightgray</span>;<br/>  <span style="color: #333399;">border-radius</span>: <span style="color: #339966;">10px</span>;<br/>}</pre>
+    </td>
+    <td><img alt="initial layout" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b3f9514fae73a184a82908fde05f97b0/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/holy_grail_initial_300.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="300" height="245"></td>
+  </tr>
+</tbody>
+</table>
+
+__Step 4 - add flexbox CSS__
+
+We need to set the `div` to be a `flex-container` and set its `flex-flow` as well as initialize the flex property on all the flex items.  We saw this earlier and it is very simple. The sections will line up across as a row if your browser is wide enough.
+
+<table>
+<tbody>
+  <tr><th>CSS</th><th class="result">Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #0000ff;">.fc</span> { <br/>  <span style="color: #333399;">display</span>: <span style="color: #ff6600;">flex</span>;<br/>  <span style="color: #333399;">flex-flow</span>: <span style="color: #ff6600;">row wrap</span>;<br/>}<br/><span style="color: #0000ff;">.fc</span> &gt; * { <br/>  <span style="color: #333399;">flex</span>: <span style="color: #339966;">1</span>; <br/>}</pre>
+    </td>
+    <td><img alt="first flex properties applied" src="http://prod-edxapp.edx-cdn.org/assets/courseware/v1/b719bc73c1ac80e6a7ac5d77ef5070dc/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/holy_grail_flex_300.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="300" height="176"></td>
+  </tr>
+</tbody>
+</table>
+
+__Step 5 - set header and footer widths__
+
+We want to get the header and the footer into the correct position. To do that, we simply need to make them full width. There are two possible approaches to accomplishing this:
+
++ explicitly set one or more of the width properties (`width`, `min-width`, `max-width`) to the desired value
++ set the `flex-basis`  
+
+Either approach will work, though if you go with the first approach you might also need to set the box-sizing property to be border-box.   We'll use the flex-basis, since that is simpler and participatory.
+
+Since this is the layout for the entire page, we'll use the vw units to set the width to be 100 percent of the viewport width.
+
+<table>
+<tbody>
+  <tr><th>CSS</th><th class="result">Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #0000ff;">.fc</span> { <br/>  <span style="color: #333399;">display</span>: <span style="color: #ff6600;">flex</span>;<br/>  <span style="color: #333399;">flex-flow</span>: <span style="color: #ff6600;">row wrap</span>;<br/>}<br/><span style="color: #0000ff;">.fc</span> &gt; * { <br/>  <span style="color: #333399;">flex</span>: <span style="color: #339966;">1</span>; <br/>}</pre>
+    </td>
+    <td><img alt="first flex properties applied" src="http://prod-edxapp.edx-cdn.org/assets/courseware/v1/b719bc73c1ac80e6a7ac5d77ef5070dc/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/holy_grail_flex_300.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="300" height="176"></td>
+  </tr>
+</tbody>
+</table>
+
+
+__Step 6 - increase flexbox container height__
+
+You may notice that if there is little content of the sections, then the footer is not at the bottom of the viewport.  For many designs and situations, that is not a problem. However, for many designs, we want the footer to be either at the bottom of the viewport, or at the bottom of the page content, whichever is lower.  Meaning, that if the content of the page exceeds the viewport height, we should have to scroll down to see the bottom of the content, and then the footer would immediately follow. 
+
+So how can we get that footer down there when there isn't enough content?  Think for a minute about this before continuing to read.
+
+...[thinking]...
+
+Have you figured it out? The solution is simple: just make the minimum height of the flex container be the viewport height.
+
+<table>
+<tbody>
+  <tr><th>CSS</th><th class="result">Result</th></tr>
+  <tr>
+    <td>
+      <pre><span style="color: #808080;">/* ensure flex-container is always at least as tall as the viewport. <br/>   Keeps footer from coming up*/</span><br/><span style="color: #0000ff;">.fc</span> { <span style="color: #333399;">min-height</span>: <span style="color: #339966;">100vh</span>; }</pre>
+    </td>
+    <td><img alt="completed layout" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/14ed0170294836374ebc6bd9c86b4078/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/holy_grail_complete_300.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="300" height="180"></td>
+  </tr>
+</tbody>
+</table>
+
+__Congratulations__ - we are done!  So simple.  Go and try increasing the content of one of the middle sections by adding several paragraphs of text. Check that the behavior of the footer is correct.  
+
+For reference, here is the final CSS, with comments. This does not include the visualization CSS for the background colors and rounded corners.
+
+CSS
+
+```css
+/* initialize flexbox container and flexbox items */
+.fc { 
+  display: flex;
+  flex-flow: row wrap;
+}
+.fc > * { 
+  flex: 1; 
+}
+
+/* header and footer should be full width */
+.fc header,
+.fc footer {
+  flex: 0 1 100vw; 
+}
+
+/* ensure flex-container is always at least as tall as the viewport. 
+   Keeps footer from coming up*/
+.fc { min-height: 100vh; }
+```
+
+__Hey - the header and footer height changes__
+
+That is a great observation!  The flexbox container will manage the header and footer height as a function of managing its vertical space.   If you don't want the footer or header to be vertically resized, then the solution is to simply set their height. However, if you do this, you may notice that the flexbox container still gives their row extra height which they simply don't use. So the resulting layout is not optimal. 
+
+BUT, reflect for a moment: if the header and the footer are full width and they are fixed height, what is the flexbox container doing for them? Are they participating in the layout of their siblings in any way? They are not. If the header and footer are set to a constant height and the width of the viewport, they don't need any help from the flexbox container.  So, in this case, the solution is to remove them from the flexbox.
+
+__Step 7 - (optional) remove header and footer from flexbox container__
+
+The HTML change is trivial, and for the CSS we simply set header and footer width and height as desired (and we will likely want to set their box-sizing as well).
+
+The only trick is that we must also adjust the height of the flexbox container. It is no longer the full height of the viewport. Instead, it is the full height of the viewport minus the combined height of the header and footer.  For that, we'll use calc() 
+
+<table>
+<tbody>
+  <tr><th style="min-width: 35em;">HTML</th><th class="result">CSS</th></tr>
+  <tr>
+    <td>
+      <pre>&lt;body&gt;<br/>  &lt;header&gt;the header&lt;/header&gt;<br/>  &lt;div class="fc"&gt;<br/>    &lt;aside&gt;first column&lt;/aside&gt;<br/>    &lt;main&gt;the main content should be here&lt;/main&gt;<br/>    &lt;section&gt;this is the third column&lt;/section&gt;<br/>  &lt;/div&gt;<br/>  &lt;footer&gt;the footer&lt;/footer&gt;<br/>&lt;/body&gt;</pre>
+    </td>
+    <td>
+      <pre><span style="color: #808080;">/* ensure flex-container is always at least as tall as the viewport, <br/>   minus the height of the header and footer combined. <br/>*/</span><br/><span style="color: #0000ff;">.fc</span> { <span style="color: #333399;">min-height</span>: <span style="color: #ff6600;">calc</span>(<span style="color: #339966;">100vh - 200px</span>); } <br/><br/><span style="color: #808080;">/* size header and footer to be full width and 100px tall each */</span><br/><span style="color: #0000ff;">header</span>,<br/><span style="color: #0000ff;">footer</span> {<br/>  <span style="color: #333399;">box-sizing</span>: <span style="color: #ff6600;">border-box</span>;<br/>  <span style="color: #333399;">width</span>: <span style="color: #339966;">100vw</span>;<br/>  <span style="color: #333399;">height</span>: <span style="color: #339966;">100px</span>;<br/>}</pre>
+    </td>
+  </tr>
+  <tr><th colspan="2">Result</th></tr>
+  <tr>
+    <td colspan="2"><img alt="optional fixed header/footer height" src="http://prod-edxapp.edx-cdn.org/assets/courseware/v1/dc93deee2b71d70002d941161aa25cfe/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/holy_grail_optional_400.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="400" height="340"></td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Try it!
+
+You are encouraged to follow these steps yourself. It is very satisfying seeing everything come together step by step.  But the two completed versions are available for direct download.
+
++ Holy grail variable height header and footer
++ Holy grail fixed height header and footer
+
+#### Amendment
+
+At the beginning of this section, the "holy grail" of layout was described as a three-column layout with header and footer. However, that representation wasn't quite complete. The holy grail is all that plus being responsive, meaning that on small devices the three columns should collapse to one.
+
+How might you do this?  Experiment and see if you can figure it out.  (Answer below).
+
+Here is a possible approach to make the columns more responsive.  
+
+```css
+.fc > * { min-width: 200px; }
+```
+
+Do you see why this works?
+
+
+### Activity - Flex columns and discussion
+
+Using the previous activity as a starting place, try setting the flex-flow of the flex container to `flex-flow: column wrap;`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox variable</title>
+  <style>
+    body{ margin:0px; }
+    .fc > * {
+        margin:10px;
+        padding:20px; 
+        background-color:lightgray;
+        border-radius: 10px;
+    }
+    /* initialize flexbox container and flexbox items */
+    .fc { 
+        display:flex;
+        flex-flow: row wrap;
+    }
+    .fc > * { 
+        flex: 1; 
+    }
+    /* header and footer should be full width */
+    .fc header,
+    .fc footer {
+        margin:0px;
+        flex: 0 1 100vw; 
+    }
+    /* ensure flex-container is always at least as tall as the viewport. 
+       Keeps footer from coming up*/
+    .fc { min-height: 100vh; } 
+  </style>
+</head>
+
+<body>
+  <div class="fc">
+    <header>Swanns Way - Overture</header>
+    <aside>For a long time I used to go to bed early. Sometimes, when I had put out my candle, 
+    my eyes would close so quickly that I had not even time to say &quot;I'm going to sleep.
+    &quot;</aside>
+    <main>And half an hour later the thought that it was time to go to sleep would awaken me; 
+    I would try to put away the book which, I imagined, was still in my hands, and to blow out 
+    the light; I had been thinking all the time, while I was asleep, of what I had just been 
+    reading, but my thoughts had run into a channel of their own, until I myself seemed 
+    actually to have become the subject of my book: a church, a quartet, the rivalry between 
+    François I and Charles V. </main>
+    <section><p>This impression would persist for some moments after I was awake; it did not 
+    disturb my mind, but it lay like scales upon my eyes and prevented them from registering 
+    the fact that the candle was no longer burning.
+    </p> </section>
+    <footer>by Marcel Proust</footer>
+  </div>
+</body>
+</html>
+```
+
+Try to lay out something like this, where the header is a narrow column on the left and the footer is a narrow column on the right.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40f59373dbfbc04cfbb386dc810e886e0e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/33fc647c20a8c85cc02c715d8268d72a/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/flex_column_400.png" style="margin: 0.1em;" alt="brower window showing 5 flebox items: 2 are vertical and surround 3 horizontal ones" title="caption" width="350">
+  </a></div>
+</div>
+
+Some notes:
+
++ Don't use the optional approach from the previous section.
++ The default block level behavior of taking the width of the parent will work a bit against you.
++ You will have to explicitly set width properties (width, min-width, and/or max-width) on all the children and the flexbox container.
++ Best results are achieved by sizing the flexbox container in both dimensions.
++ The margins between flexbox items are 10px per column. So you may need to account for that when performing dimension calculations to avoid a scroll bar appearing.  
++ Putting `box-sizing: border-box` on the flex items may help as well.
+
+
+## 6.4 More flexbox
+
+### Main and cross axes
+
+#### Concepts
+
+Before we step deeper into flexbox, there are a few concepts we should make sure to understand.
+
+#### Main axis and cross axis
+
+Every flexbox has two axes. The "main" axis is the major axis along which all the flex items are being laid. So, when the `flex-direction` is `row`, the main axis is horizontal, running left to right.  When the `flex-direction` is `column`, the main axis is vertical, running top to bottom.  (Quick quiz: what if the `flex-direction` is `row-reverse`?).  
+
+The "cross" axis runs perpendicular to the main axis. It is the direction that items might wrap.  So with `flex-flow: row wrap;` the cross axis is vertical and runs top to bottom. And with `flex-flow:row wrap-reverse;` it is vertical running bottom to top.
+
+#### Start and end
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6393afe44890447ebcaaeba74e18f806/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%403742242386b349a890d0861c6f927ec6">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/db3f0bde510b59cd0c562a34947e6c89/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/flex-boxes.jpg" style="margin: 0.1em;" alt="flexbox axes" title="flexbox axes" width="330">
+  </a></div>
+  <div><a href="https://bootstrapcreative.com/resources/flexbox-cheat-sheet/">
+    <img src="https://bootstrapcreative.com/wp-bc/wp-content/uploads/2017/11/Screen-Shot-2017-11-07-at-11.27.06-PM.png" style="margin: 0.1em;" alt="flex direction" title="flex direction" width="300">
+  </a></div>
+</div>
+
+In the illustration above, we see the main and cross axes as they would be for `flex-flow:row wrap;`.  And in the same illustration, we also see the start and end points for both the main and cross axes.  Take a moment and visualize how both the axes and the start and end points would change for each of these combinations for `flex-flow`:
+
++ `row wrap`
++ `row wrap-reverse`
++ `row-reverse wrap`
++ `row-reverse wrap-reverse`
++ `column wrap`
++ `column wrap-reverse`
++ `column-reverse wrap`
++ `column-reverse wrap-reverse`
+
+
+#### main axis for sizing, cross axis for alignment
+
+The terms "main" and "cross" appear in the descriptions of flexbox and in multiple online tutorials you might find. However, they are __not__ used in the names of any CSS properties or values.  The following properties control behavior along the main axis. We are already familiar with all of them, except `justify-content`.
+
++ `flex`
++ `flex-grow`
++ `flex-shrink`
++ `flex-basis`
++ `justify-content`
+
+All the properties above control how a flex item might be sized, except `justify-content`, which controls how a flexbox container spaces out and positions flex items. 
+
+And, obversely, the following list of properties controls behavior along the cross axis:
+
++ `align-content`
++ `align-items`
++ `align-self`
+
+These properties all govern how a flex item might be aligned or positioned along the cross axis. They also support a simple `stretch` value, which we will see when we cover them. 
+
+__Important__: Flexbox items can have their size and position influenced on the main axis, with flex-grow, and others. But on the cross axis, with the exception of a coarse `stretch` option, we can only influence their position. This distinction is very important.  In the cross axis direction, our ability to influence the sizing is limited. When not using `stretch`, we get the normal sizing behavior (block level elements take vertical size of content, etc.) or use the regular sizing properties  (`min-height`, `max-height`, `height`, etc.)
+
+
+#### flex-start and flex-end are contextual
+
+We will begin to see the values `flex-start` and `flex-end` in the next section as we look at alignment and justification.  Just as the terms "main" and "cross" do not appear as CSS terms, be aware that flex-start and flex-end are contextual.  When used with the `justify-content` property, `flex-start` and `flex-end` refer to the "main start" and "main end" sides (as in the illustration above).   When used with any of the flexbox align properties, `flex-start` and `flex-end` refer to the "cross start" and "cross end"  sides.
+
+
+### Justification and alignment
+
+#### justify-content
+
+```css
+.fc { justify-content: space-around; }
+```
+
+When all the flex items in a flexbox container are fully resizable, then there will not be any extra space to put between the items.  However, when the flex items are fixed size, or cannot grow anymore, then the flexbox container will put the extra space between or outside the items. The closest analogue from typography is called "justifying".  Thus, the `justify-content` property serves a similar function for flexbox containers.
+
+The `justify-content` property is applied to the flex container.  It governs how any extra space along the main layout axis is distributed between the flexbox items.  The possible values are: `flex-start`, `flex-end`, `center`, `space-between`, and space-around.  The flex-start, flex-end, and center values do not distribute any space between the flex items. Instead, these values determine where the flex items should be positioned within the flex container, and any extra space is outside them. The `space-between` and `space-around` values both put space evenly between the flex items, but `space-between` places the flex items flush against the main start and main ends of the flexbox container.  Remember that this is only spacing in the direction of the main axis. justify-content does not affect any spacing or placement in the direction of the cross axis.
+
+The table below should help illustrate this. It shows the justification options for a flexbox container with `flex-flow:row;`
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6393afe44890447ebcaaeba74e18f806/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%403742242386b349a890d0861c6f927ec6">
+      <img src="images/m6-04.png" style="margin: 0.1em;" alt="the justification options for a flexbox container with justify-content" title="Justification property: justify-content" width="450">
+    </a></div>
+  </div>
+
+If the `flex-direction` were `row-reverse`, then the only thing to change in the table above would be that the appearances of `flex-start` and `flex-end` would be reversed.
+
+If the `flex-direction` were `column`, then remember that, if the flexbox container is a block level element, its default size would be that of its content. Which means there would be no extra vertical space to distribute. So all the five options above would be identical (a tight stack of items) unless the height of the flexbox container were explicitly made larger.
+
+
+#### align-content and align-items
+
+The `align-content` and `align-items` are often confused for one another. But they are very different.  Both properties only apply if there is extra space in the cross axis direction. This is important to remember, because in many situations there isn't any cross axis space. In the example above (used for `justify-content`), none of the flexbox containers has any extra cross axis space (vertical space).  
+
+
+#### align-items
+
+```css
+.fc { align-items: stretch; }
+```
+
+The align-items determines how items are aligned in the cross axis direction. This is applied to the flexbox container.  The possible values are `stretch`, `flex-start`, `flex-end`, `center`, and `baseline`.    In the context of alignment, `flex-start` and `flex-end` refer to the cross start and cross end sides, which may be swapped if the `flex-wrap:wrap-reverse` option is elected. `align-items` defaults to stretch, if it is not set. The table below should help illustrate this. It shows a flex container with `flex-flow:row;`  and a min-height value that is greater than the height of any of the items.  
+
+In the example below, each item has a different `line-height` value, so you can see how they align to each other.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6393afe44890447ebcaaeba74e18f806/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%403742242386b349a890d0861c6f927ec6">
+      <img src="images/m6-05.png" style="margin: 0.1em;" alt="the alignment options for a flexbox container with align-item" title="Alignment property: align-items" width="450">
+    </a></div>
+  </div>
+
+
+#### align-content
+
+```css
+.fc { align-content: space-between; }
+```
+
+`align-content` is only relevant when the flexbox container supports wrapping and the flex items are, in fact, wrapping.  The `align-content` determines how the wrapped lines are positioned or spaced.  Align-content is not applied to individual items, but rather to the wrapped lines. The `align-content` property supports the `stretch` value, as well as the same values as `justify-content` (`flex-start`, `center`, `flex-end`, `space-between`, `space-around`). This is easier to understand from an example. Below we have a flex container with `flex-flow:row wrap;` and a height value that is greater than the height of any of the items.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6393afe44890447ebcaaeba74e18f806/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%403742242386b349a890d0861c6f927ec6">
+      <img src="images/m6-06.png" style="margin: 0.1em;" alt="the aligment options for a flexbox container with align-content" title="Alignment property: align-content" width="450">
+    </a></div>
+  </div>
+
+
+#### align-self
+
+```css
+.item { align-self: center; }
+```
+
+Unlike the other flexbox align properties, `align-self` is applied to an individual flex item, not to a flexbox container.  This allows an individual flex item to be aligned differently than its siblings.  Again, this is only true for cross axis alignment, and will only come into play, if there is extra space in the cross axis direction to be exploited. 
+
+The values for `align-self` are `stretch`, `flex-start`, `center`, `flex-end`, and `baseline`.
+
+`align-self` is ignored, if any of the four margins on the item is set to `auto`.
+
+In the example below, we have a flex container with `flex-flow:row;` and `align-items:center;`.  The individual items have their `align-self` property set.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6393afe44890447ebcaaeba74e18f806/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%403742242386b349a890d0861c6f927ec6">
+      <img src="images/m6-07.png" style="margin: 0.1em;" alt="the align options for a flexbox container with align-self;" title="Alignment property: align-self" width="550">
+    </a></div>
+  </div>
+
+
+### Order
+
+One of the most exciting flexbox properties is also its simplest: order.
+
+.item { order: 2; }
+
+The order property allows you to determine the order in which the item appears in the flexbox.  This allows you to present the information in the flexbox layout independent of its order in the HTML itself. This is very useful, as there are many factors competing to drive the order of an HTML file.    
+
+For example, semantically, for SEO (Search Engine Optimization), and for accessibility for disabled visitors, the best practice is to put the title of an article before the article itself. While that seems simple enough, if your flexbox layout uses a flex-direction value of column-reverse, this could be a problem.  
+
+The order property, when applied to an individual flexbox item, lets you set its order. By default, the first item in a flexbox container has the order value of 1, the second is 2, etc.  And you can override it.
+
+<table>
+  <tbody>
+    <tr><th style="width: 33vw;">HTML</th><th style="width: 33vw;">CSS</th><th style="width: 33vw;">Result</th></tr><tr>
+    <td style="margin: 20px 0; padding: 10px; border:1px solid #c8c8c8;">
+      <pre>&lt;div class="fc"&gt;<br/>  &lt;p class="one"&gt;One&lt;/p&gt;<br/>  &lt;p class="two"&gt;Two&lt;/p&gt;<br/>  &lt;p class="three"&gt;Three&lt;/p&gt;<br/>  &lt;p class="four"&gt;Four&lt;/p&gt;<br/>&lt;/div&gt;</pre>
+    </td>
+    <td style="margin: 20px 0; padding: 10px; border:1px solid #c8c8c8;">
+      <pre><span style="color: #0000ff;">.four</span>  { <span style="color: #333399; ">order</span>: <span style="color: #339966;">1</span>; }<br/><span style="color: #0000ff;">.two</span>   { <span style="color: #333399;">order</ span>: <span style="color: #339966;">2</span>; } <br/><span style="color: #0000ff;">.one</span>   { <span style="color: #333399;">order</ span>: <span style="color: #339966;">3</span>; } <br/><span style="color: #0000ff;">.three</span> { <span style="color: #333399;">order</ span>: <span style="color: #339966;">4</span>; } </pre>
+    </td>
+    <td style="margin: 20px 0; padding: 10px; border:1px solid #c8c8c8;">
+    <div style="display: flex; flex-flow: column;">
+      <p style="order: 3; padding: 5px; background-color: lightgray; border-radius: 5px; margin: 5px;color: black;">One</p>
+      <p style="order: 2; padding: 5px; background-color: lightgray; border-radius: 5px; margin: 5px;color: black;">Two</p>
+      <p style="order: 4; padding: 5px; background-color: lightgray; border-radius: 5px; margin: 5px;color: black;">Three</p>
+      <p style="order: 1; padding: 5px; background-color: lightgray; border-radius: 5px; margin: 5px;color: black;">Four</p>
+    </div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+
+## 6.5 New layout technique: CSS Grid
+
+### CSS Grid
+
+Have a look at how CSS Grid Layout went from an idea to a reality. The video below has been shot in August 2017 by the Microsoft team. It features some of the [CSS Working Group participants](https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2017/courseware/12e8f1585d88470e95f54cf0ff6a1a00/6c9058a29dc5493fbb43332c6bc3b550/4?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2017%2Btype%40vertical%2Bblock%40beac75cf51c34b51a0ac0f6e5fad70cc):
+
+  > Rossen Atanassov (Microsoft) ; Tab Atkins Jr. (Google) ; Sergio Villar Senin (Igalia) ; Bo Cupp (Microsof) ; Elika Etemad, aka fantasai (W3C Invited Expert to the CSS WG) ; Greg Whitworth (Microsoft) ; Dr. Bert Bos (W3C & Co-Creator of CSS) ; Rachel Andrew (W3C Invited Expert to the CSS WG).
+
+
+### Creating CSS Grid
+
+<video src="https://youtu.be/z-TXKGF9B-0" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/xblock/block-v1:W3Cx+HTML5.0x+2T2018+type@video+block@b11fb3c1c328460890ef734f91235e13/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+### New layout techniques
+
+Web layout is always constrained by the limitations of CSS, but future trends will be able to make use of new tools, such as CSS Flexbox (officially: CSS Flexible Box Layout) and CSS Grid.
+
+Note: this lecture is optional and there will be no questions related to it in the final exam.
+
+Despite the similarities in concept and syntax, Flexbox and Grid are not competing layout techniques. Grid arranges in two dimensions, while Flexbox lays out in one. There is synergy when using the two together.
+
+
+#### CSS Grid
+
+CSS Grid is a CSS module that defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of an element (the ‘grid container’) can be positioned into arbitrary slots in a predefined flexible or fixed-size layout grid.
+
+If that sounds a bit too abstract, here is another way of looking at it. The idea behind the Grid module is that you split the [box](https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/jump_to_id/61920cda43ca49cca2fcf26e763bbe16) that makes up an element into many individual ‘slots’, arranged in a matrix, and separated from each other by (invisible) horizontal and vertical lines. You do that with a property called 'grid', which contains the desired number of rows and columns and/or their sizes. Each child element goes into a slot, so that they end up aligned as in a table. But you have full control over which slot they go into, you can change their order, they can span more than one row or column, and you can leave some slots empty.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/a9a30436ea194b4e88e903bbb787d6de/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%402e6325ba9ea24045b6a9c707122265a9">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/68610fc2b976618d03192de396b29649/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/grid.png" style="margin: 0.1em;" alt="The Grid module provides several different ways to define such a grid and to place the child elements. Too many, in fact, to present here." title="CSS Grid" width="450">
+  </a></div>
+</div>
+
+Because they can refer to a previously defined grid of horizontal and vertical lines, the properties from the CSS Grid module provide more control over the alignment of elements than most other properties in CSS, such as the table-related properties or the 'float' and 'clear' properties, while also allowing elements to be displayed out of order. As such they are especially appreciated for (Web) applications with user interfaces that are made with HTML and CSS. The Grid module is not yet the ['design grid'](https://en.wikipedia.org/wiki/Grid_(graphic_design)) that typographers want for the layout of magazines and books, but it is a first step. (E.g., one obvious thing to do, applying grid properties to an HTML table, doesn't work, because the properties do not handle nested elements yet.) Even though this is only level 1 of the module, it is well worth trying out.
+
+The properties from the Grid module have only been available in major browsers since mid 2017 (see the [status of browser support](http://caniuse.com/#feat=css-grid)). But the ideas behind the Grid module aren't new. From the start of CSS, there have been proposals to use CSS properties to define a template or matrix to guide the layout of elements, e.g.: [Frame-based layout](http://www.w3.org/TR/WD-layout), [Advanced Layout](http://www.w3.org/TR/2005/WD-css3-layout-20051215/) (later called [Template Layout](http://www.w3.org/TR/css-template-3/)), [Grid Style Sheets](https://github.com/gss) and [Constraint CSS](https://constraints.cs.washington.edu/web/ccss-uwtr.pdf). But only recently has technology become good enough to support some (not all!) of those ideas.
+
+
+### A few resources
+
+If you look at the CSS Grid module, you may notice that it has rather a large number of properties: 18. That is because it tries to allow different manners of writing style sheets. There are many shorthand properties and many alternative ways to define the same grid. In practice, most style sheet writers will select a set of just three or four properties that suits their way of working.
+
+When considering the CSS Grid module, also look at the CSS Flexible Box module. It only provides for alignment of elements in a single row or column, but has some features that Grid doesn't have (and it has been around longer and works in older browsers). On the other hand, even for a single row or column, the Grid properties may turn out easier in some cases.
+
+
+#### CSS grid resources
+
++ [A complete guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) (CSS Tricks)
++ [CSS Grid](https://www.w3.org/TR/css-grid-1/), the W3C specification
++ [Grid by example](https://gridbyexample.com/): this site is a collection of examples, video and other information to help you learn CSS Grid Layout.
+
+
+#### CSS flexbox resources
+
++ [A complete guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) (CSS Tricks)
++ [CSS Flexible Box Layout](http://www.w3.org/TR/css-flexbox/), the W3C specification
++ [Flexbox froggy](http://flexboxfroggy.com/) (game to practice CSS flexbox code)
+
+
+## 6.6 Recipe project
+
+### Recipe project - Module 6 and discussion
+
+We'll put to use some of the layout techniques that we've learned.
+
+We'll improve our Web page by making it more responsive, so it's easily readable whether wide or narrow. And we'll fix the banner and nav element in place, so it's always where we need it.
+
+Give it a try. Good luck!
+
+
+### Recipe project - Module 6
+
+<video src="https://youtu.be/NA4OoWxZDTo" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/xblock/block-v1:W3Cx+HTML5.0x+2T2018+type@video+block@b987130ccff34badb17d926072e6e370/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+## 6.7 Where to from here?
+
+### Where to from here?
+
+We hope you've enjoyed this course.  We've covered a lot of material and hopefully you are feeling comfortable working with HTML and CSS. One of the wonderful things about these technologies is that there is so many directions to go from here.  
+
+If you want to learn more about the Web accessibility and Web Internationalization guidelines, the next two pages list useful resources.
+
+Below are not topics that you must learn, only areas of interest that you could learn more about if you are inclined to do so. Most of them are covered in the other W3Cx courses, part of the [W3C "Front-End Web Developer" Professional Certificate](https://www.edx.org/professional-certificate/front-end-web-developer-9) program. We encourage you to enroll in:
+
++ ["HTML5 Coding Essentials and Best Practices"](https://www.edx.org/course/html5-coding-essentials-w3cx-html5-1x-2) is an intermediate level course requiring basic HTML5 and CSS knowledge.
++ [CSS Basics](https://www.edx.org/course/css-basics-w3cx-css-0x-0) is a complementary course that covers best practices in Web design, and shows the current design trends.
++ ["HTML5 Apps and Games"](https://www.edx.org/course/html5-apps-games-advanced-techniques-w3cx-html5-2x) offers advanced techniques for creating apps and games.
++ ["JavaScript Introduction"](https://www.edx.org/course/javascript-introduction-w3cx-js-0x) is an introductory course that will teach you how to add interactivity to your Web pages and become an expert Web developer.
+
+
+#### Forms
+
+There are series of HTML tags for making on-page Web forms.  ( `<form>`, `<fieldset>`, `<input>`, `<button>` and others). If you want a search box or a log-in control, then the form tags are worth exploring. On their own, they are very simple. But to make them function you'll need JavaScript or at least some server side development.
+
+
+#### Mobile Application Development
+
+Did you know that mobile apps that can be downloaded via the Apple iTunes store or Google Play could be created with HTML, CSS and Javascript? Many Web developers are unaware that they possess this super power.
+
+
+#### Page Serving
+
+So far we've been working with HTML and CSS files, which are both fundamentally "client side" technologies (also known as the "front end"). By this we mean that they are executed by the browser on the machine of the person viewing the Web page. That browser running on their machine is the "client". But those HTML and CSS files are stored on a Web server. There is a lot to learn about the various aspects of serving files. MIME type, HTTP codes, HTTP requests and headers, HTTP vs HTTPS, access privileges, AJAX, and more.
+
+
+#### Server Side Programming
+
+Extending the previous topic, the Web server itself can be programmed. It can dynamically serve or generate HTML, limit who can access what, handle routing, access databases, and much more. This is the "backend" side and for many applications the backend is where the core logic resides while the front end is little more than a display.
+
+
+#### More CSS
+
+There are nearly 300 CSS properties in the CSS3 specification. We did not cover them all in this course. Areas of possible interest include CSS Transformations, CSS Animations, and media queries.
+
+Happy exploring!
+
+
+### WAI resources
+
+The [W3C Web Accessibility Initiative (WAI)](http://www.w3.org/WAI/) develops standards for Web accessibility, and educational resources to help you understand and implement them. For those who are curious and for future reference, please find below a few resources from W3C/WAI.
+
+
+#### Essential background
+
++ [W3C Accessibility Overview](https://www.w3.org/standards/webdesign/accessibility)
++ [Web Accessibility Perspective Videos](https://www.w3.org/WAI/perspectives/)
++ [Introduction to Web Accessibility](https://www.w3.org/WAI/intro/accessibility.php)
++ [How People with Disabilities Use the Web](https://www.w3.org/WAI/intro/people-use-web/Overview.html)
++ [Business Case for Web Accessibility](https://www.w3.org/WAI/bcase/Overview.html)
+
+
+#### Accessibility Standards
+
++ [Web Content Accessibility Guidelines (WCAG) Overview](https://www.w3.org/WAI/intro/wcag.php)
++ [Authoring Tool Accessibility Guidelines (ATAG) Overview](https://www.w3.org/WAI/intro/atag.php)
++ [User Agent Accessibility Guidelines (UAAG) Overview](https://www.w3.org/WAI/intro/uaag.php)
++ [Accessible Rich Internet Applications (WAI-ARIA) Overview](https://www.w3.org/WAI/intro/aria.php)
+
+
+#### Implementing and Checking
+
++ [Tips for Getting Started with Web Accessibility](http://www.w3.org/WAI/gettingstarted/tips/)
++ [Easy Checks - A First Review of Web Accessibility](https://www.w3.org/WAI/eval/preliminary.html)
++ [Web Accessibility Tutorials](http://www.w3.org/WAI/tutorials/)
++ [Before and After Demonstration (BAD)](https://www.w3.org/WAI/demos/bad/)
+
+
+### Internationalization and CSS: use cases
+
+People who use non-Latin writing systems or use the Latin script for certain languages, often have specific typographic needs that differ from text in, say, English.
+
+Whereas HTML markup provides structure for the content of your page, CSS bring the expressive power to make the page look the way a person from particular a culture would expect.
+
+
+#### Examples
+
+Here are some examples of things that can be done with CSS.
+
++ It is already possible to make text run vertically in CSS for languages such as Chinese, Japanese, Korean and Mongolian. For more information see [Styling vertical Chinese, Japanese, Korean and Mongolian text](https://www.w3.org/International/articles/vertical-text/).
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/9e43ed41a1da42a0aa3fc458e4692be2/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40dc34b67a5e4f4f3582516d2cfec7bd7e">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@mongolian.png" style="margin: 0.1em;" alt="Vertically set Mongolian text." title="Vertically set Mongolian text" width="150">
+    </a></div>
+  </div>
+
++ You can also style counters for lists or chapter headings and such like according to local preferences. Here we see lists using Georgian and Japanese labels.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/9e43ed41a1da42a0aa3fc458e4692be2/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40dc34b67a5e4f4f3582516d2cfec7bd7e">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@counterstyles1.png" style="margin: 0.1em;" alt="Georgian counter styles." title="Georgian counter styles" width="100">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@counterstyles2.png" style="margin: 0.1em;" alt="Japanese counter styles." title="Japanese counter styles" width="100">
+    </a></div>
+  </div>
+
++ When you want to justify text so that the lines are straight on both sides of your column, different strategies are used for different scripts. Most Western typography puts an emphasis on adjusting inter-word spaces, but Chinese doesn't use spaces between words, so you generally do inter-character spacing. In text written using the arabic script it is common to stretch the baseline that joins letters, or use other techniques to balance the line.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/9e43ed41a1da42a0aa3fc458e4692be2/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40dc34b67a5e4f4f3582516d2cfec7bd7e">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@justified_arabic.png" style="margin: 0.1em;" alt="Arabic justification." title="Arabic justification" width="250">
+    </a></div>
+  </div>
+
+  Some scripts allow words to be hyphenated in order to improve the visual effect of a paragraph, but note that the way in which words are hyphenated depends on the language. (And in arabic script, the CSS specification requires that both parts of the word retain their joining line during hyphenation.)
+
++ Text decoration and text style features can vary in applicability from script to script. For example, Japanese characters are fairly complicated so, rather than italicise their text for emphasis, which can make it harder to read at small sizes, they have a tradition of placing special marks alongside the emphasised text (see the middle line of the Japanese example below). Also, it may be important to avoid underlines running over descenders in some scripts, since it can obscure important marks attached to a base character, so CSS allows you to skip 'ink' as shown in the Burmese example below.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/9e43ed41a1da42a0aa3fc458e4692be2/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40dc34b67a5e4f4f3582516d2cfec7bd7e">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@boten.png" style="margin: 0.1em;" alt="Emphasis in Japanese." title="Emphasis in Japanese" width="80">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@decoration-skip-ink.png" style="margin: 0.1em;" alt="Skipping descenders in Burmese." title="Skipping descenders in Burmese." width="200">
+    </a></div>
+  </div>
+
+These are just a few examples. There are many more.
+
+
+#### CSS & Language
+
+__An important point to bear in mind is that for many of these features to work as expected, you need to declare the language of the content.__ For example:
+
++ Hyphenation won't work unless the content is labelled for language. This is because the way that hyphenation works, and the dictionaries it uses, are language-specific.
++ If you want to convert Turkish or Azeri text to uppercase or vice versa, you will get incorrect results unless the browser knows that the text is in that language, because they have a dotted i and a non-dotted ı which do case conversion differently from European languages.
++ If text wraps to a new line, by default it does so differently dependent on whether you are dealing with Chinese or Japanese.
++ And we could continue...
+
+Therefore, you should always ensure that the correct language is specified in the `lang` attribute on the `html` tag, to indicate the default language of the page. And if you have passages in another language inside the page, you should put a `lang` attribute on markup that surrounds them, too.
+
+
+#### Localization
+
+In addition, CSS provides tremendous help if you have to translate content from one language to another. Being able to change a single line in a style sheet to appy a change to all the pages being translated, rather than having to edit every page, saves a massive amount of time. However, this works best when you keep the distinction between semantics (markup) and presentation (styling) clear.
+
+Don't use CSS to apply direction for [bidirectional](https://www.w3.org/International/questions/qa-bidi-css-markup) or right-to-left scripts, such as content in Arabic, Hebrew, Persian, Urdu, Divehi, etc. Use HTML markup instead.
+
+
+### Internationalization resources
+
+This page lists links to resources available from the [W3C Internationalization Activity site](http://www.w3.org/International/) that will help you author HTML and CSS for internationalization.
+
+
+#### Declaring the character encoding
+
++ [Character encodings for beginners](http://www.w3.org/International/questions/qa-what-is-encoding): What is a character encoding, and why should I care?
++ [Handling character encodings in HTML and CSS](http://www.w3.org/International/tutorials/tutorial-char-enc/Overview): Articles that help you understand the essentials for characters and character encodings.
+
+
+#### Declaring the language of content
+
++ [Language on the Web](http://www.w3.org/International/getting-started/language): An overview of language topics for newcomers to HTML authoring.
++ [Language tags in HTML and XML](http://www.w3.org/International/articles/language-tags/): A simple overview of the syntax for language tags in BCP 47.
++ [Setting language preferences in a browser](http://www.w3.org/International/questions/qa-lang-priorities): How do I use the language settings of my browser to specify the language in which a server should send me pages?
++ [Choosing a Language Tag](http://www.w3.org/International/questions/qa-choosing-language-tags): Which language tag is right for me? How do I choose language and other subtags?
+
+
+#### Other HTML internationalization topics
+
++ [Internationalization Techniques, Authoring HTML & CSS](http://www.w3.org/International/techniques/authoring-html-dynamic): Links from this page help you find information about many other important ways to write HTML that works for an international audience.
+
+
+## 6.8 Final exam
+
+### Final exam (1-7)
+
+1. HTML and CSS
+
+  Which of the following are true of HTML and CSS? (select all that apply -- 3 correct answers!)
+
+  1. HTML and CSS are separate languages
+  2. CSS is a subset of HTML
+  3. HTML is used to specify the content of a document while CSS handles its appearance
+  4. It is possible to put CSS inside an HTML document
+
+  Ans: 134
+
+
+2. Identification
+
+  Which of the following are correct well-formed snippets of HTML? (select all that apply -- 2 correct answers!)
+
+  1. `<p>We stood, muted.</p>.`
+  2. `<span>More light and light- more dark and dark our woes!</em>`
+  3. -
+    ```html
+    <ol reversed>
+      <li>day</li>
+      <li>night</li>
+    </ol>
+    ```
+  4. `<a href="#foot>*</a>`
+  5. `<q>Good night, <b>good <i>night!</b> parting</i> is such sweet sorrow</q>`
+
+  Ans: 13 <br/>
+  Remember that open and close tags, when required, must match.
+
+
+3. The `<ol>` tag
+
+  Many tags are abbreviations. For example, in the tag `<p>`, the p stands for paragraph.
+
+  `<ol>` stands for:
+  
+  Ans: ordered list
+
+
+4. The `<ul>` tag
+
+  `<ul>` stands for:
+  
+  Ans: unordered list
+
+
+5. The `<li>` tag
+
+  `<li>` stands for:
+  
+  Ans: list item
+
+
+
+6. The `b` tag
+
+  `<b>` stands for:
+  
+  Ans: bold
+
+
+7. The `<q>` tag
+
+  Many tags are abbreviations. For example, in the tag `<p>`, the p stands for paragraph.
+
+  Please enter the full name for the tag.
+
+  `<q>` stands for:
+  
+  Ans: quote
+
+
+### Final exam (8-16)
+
+8. Image
+
+  The `<img>` element supports several attributes, but two of them are always required.
+
+  Which two attributes are always required for an img element? (select all that apply -- 2 correct answers!)
+
+  1. src
+  2. title
+  3. alt
+  4. width
+  5. height
+
+  Ans: 13
+
+
+9. Image size
+
+  Imagine you have a PNG file that's 400 pixels wide and 300 pixels tall. We include it onto the Web page and attempt to resize it with the following:
+
+  ```html
+  <img src="image.png" alt="kitten!" width="200">
+  ```
+
+  How tall will the image be when it appears in the browser?
+
+  1. 100 pixels
+  2. 150 pixels (aspect ratio preserved)
+  3. 200 pixels (same as the adjusted width)
+  4. 300 pixels (the original height)
+
+  Ans: 2
+
+
+10. Identification
+
+  Which of the following demonstrate correct syntax for applying an attribute to a tag? (select all that apply -- 2 correct answers!)
+
+  1. `<img src="flower.png" alt = lovely daffodils>`
+  2. `<ol reversed>`
+  3. `<p id="opening">`
+  4. `</p id="opening">`
+  5. `<a href="http://wikipedia.org>`
+
+  Ans: 23
+  
+
+11. Attributes
+
+  Can an attribute be applied multiple times to the same element?
+  
+  Ans: No <br/>
+  Any given attribute may only be applied once to an element.
+
+
+12. Attributes and classes
+
+  Which of the following demonstrates the __correct__ way to apply multiple classes to a single element?
+
+  1. No element can have multiple classes
+  2. `<li class="bird flightless">penguin</li>`
+  3. `<li class="bird" class="flightless">penguin</li>`
+
+  Ans: 2
+
+
+13. Attributes and identifiers
+
+  Which of the following demonstrates the __correct__ way to apply multiple identifiers to a single element?
+
+  1. No element can have multiple ids
+  2. `<p id="first-paragraph dorothea">Ms. Brooke</p>`
+  3. `<p id="first-paragraph" id="dorothea">Ms. Brooke</p>`
+
+  Ans: 1
+
+
+14. Hyperlinks
+
+  Examine this snippet of HTML:
+
+  `<a href="#footnote">Footnote</a>`
+  
+  Which of the following statements are true about the snippet above?
+
+  1. The hyperlink will open a new window
+  2. The hyperlink will take the user to another page, footnote.html
+  3. The hyperlink will take the user to some other element on the page that has id="footnote"
+  4. It is not a valid hyperlink
+
+  Ans: 3
+
+
+15. The `<details>` tag
+
+  The `<details>` tag is used in conjunction with which other tag?
+
+  1. `<mark>`
+  2. `<information>`
+  3. `<summary>`
+  4. `<li>`
+
+  Ans: 3
+
+16. More details...
+
+  What do the `<details>` tag and the answer to the previous question do when used together?
+
+  1. They do nothing special
+  2. Define a hyperlink that will jump between the two sections
+  3. Show a disclosure triangle that can be "opened" to see the other contents of the <details>
+  4. Display a caption that accompanies an image
+
+  Ans: 3
+
+
+
+### Final exam (17-24)
+
+17. Basic CSS properties - size
+
+  What is the CSS property that adjusts the size of text?
+  
+  Ans: font-size
+
+
+18. Basic CSS properties - color
+
+  What CSS property lets us change the text color?
+  
+  Ans: color
+
+
+19. Basic CSS properties - space
+
+  What CSS property puts spacing between elements?
+  
+  Ans: margin
+
+
+20. CSS selectors - article
+
+  `article { line-height: 16px; }`
+
+  In the CSS above, the CSS selector used is an example of which type?
+
+  1. pseudo selector
+  2. class selector
+  3. tag selector
+  4. id selector
+  
+  Ans: 3
+
+
+21. CSS selectors - first paragraph
+
+  `#first-paragraph { line-height: 16px; }`
+
+  In the CSS above, the CSS selector used is an example of which type?
+
+  1. pseudo selector
+  2. id selector
+  3. tag selector
+  4. class selector
+
+  Ans: 2
+
+
+22. CSS selectors
+
+  `.dorothea { line-height: 16px; }`
+
+  In the CSS above, the CSS selector used is an example of which type?
+
+  1. pseudo selector
+  2. class selector
+  3. tag selector
+  4. id selector
+  
+  Ans: 2
+
+
+23. CSS comments
+
+  Which of the following demonstrate correctly how to include a comment into CSS?
+
+  1. `;; Put your CSS below`
+  1. `/* Put your CSS below */`
+  1. `// Put your CSS below`
+  1. `<!-- Put your CSS below -->`
+
+  Ans: 2
+
+
+24. Inherit
+
+  What does the `inherit` value mean?
+
+  1. Override any other competing CSS rules and apply this value no matter what.
+  2. The value of the CSS property in question being applied to this child element should be gotten from its parent element.
+  3. For the property in question, use the same value as in the preceding CSS rule, ie from earlier in the CSS file.
+  4. Just use the default value for the CSS property in question.
+
+  Ans: 2
+
+
+
+### Final exam (25-35)
+
+25. Invisible border
+
+  True or False? An invisible border is the same as no border:
+  
+  Ans: False
+
+
+26. Three blocks - negative margin
+
+  The next 3 questions (26, 27 and 28) refer to this image:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6be610c329d743c88824c48667c0d0ae/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40885d1392a8cb4d70a79fda91b960a2f4">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2c88627f0e19f0341e97ccb8775e40c1/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/quiz-2.png" style="margin: 0.1em;" alt="The image is composed of 3 boxes horizontally disposed. The first box is light green with a blue border and is identified by the words 'Block 1'. On its right, there are 2 other boxes. First, 'Block 2' is light-blue with a red border and, second, 'Block 3' is light-pink with a thick green border. 'Block3' is overlapping 'Block 2' on the left." title="Diagram for Q26~28" width="250">
+    </a></div>
+  </div>
+
+  Which of the boxes above has a negative margin-left?
+
+  1. None - negative margins aren't allowed
+  2. Block 2
+  3. Block 3
+  4. Block 1
+
+  Ans: 3
+
+
+27. Three blocks - negative padding
+
+  Which of the boxes above has negative padding?
+
+  1. None - negative padding isn't allowed
+  2. Block 2
+  3. Block 3
+  4. Block 1
+  
+  Ans: 1 <br/>
+  The smallest padding allowed is 0, which is no padding. It can't be negative.
+
+
+28. Three blocks - border
+
+  Which of the boxes has the smallest border?
+
+  1. All the borders are the same width
+  2. Block 1
+  3. Block 3
+  4. Block 2
+  
+  Ans: 2 <br/>
+  I.e. the thinnest border.
+
+
+29. Debugging the box model
+
+  Use this image for the next 4 problems (29, 30, 31 and 32):
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6be610c329d743c88824c48667c0d0ae/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40885d1392a8cb4d70a79fda91b960a2f4">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6380d1a9d7502285764f236822d04974/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/quiz-3.png" style="margin: 0.1em;" alt="box model" title="Diagram for Q29~32" width="250">
+    </a></div>
+  </div>
+
+  True or False? Padding, border and margin are all equal to each other
+  
+  Ans: False (xTrue)
+
+
+30. Debugging the box model - padding
+
+  True or False? Padding on all 4 sides is equal.
+  
+  Ans: True
+
+
+31. Debugging the box model - margin
+
+  True or False? There are no negative margins
+
+  Ans: True (xFalse)
+
+
+32. Debugging the box model - height
+
+  Assuming the border and background are visible, what is the height of the visible part of this element on the screen?
+
+  1. 126.219px
+  2. 89.219px
+  3. 94px
+  4. 57px
+  
+  Ans: 3
+
+
+33. Inspector
+
+  Use this image for the 3 following questions (33, 34 and 35):
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6be610c329d743c88824c48667c0d0ae/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40885d1392a8cb4d70a79fda91b960a2f4">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ae95260728fe37cc40491e2da960fcd3/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/quiz-4.png" style="margin: 0.1em;" alt="This image shows the style debugger tool with the following parameters: element.style has a 30px padding-right. The li element has a display attribute equals to list-item.There are 2 style attributes that are inherited from the ul element: list-style-type equals to none and font-size equals to 16px. The list-style-type of the ul element of the user agent stylesheet is striked out. The font-size attribute inherited from the body element is striked out." title="Diagram for Q33~35" width="250">
+    </a></div>
+  </div>
+
+  Name one property that has been overridden by a more specific rule
+  
+  Ans: list-style-type
+
+
+34. Inspector - best practice
+
+  Does this code use the best practice of putting CSS Style rules into a separate .css file?
+  
+  Ans: No
+
+
+35. Inspector - numbering
+
+  Assuming the element is part of a list, are the list items automatically numbered?
+
+  Ans: No (xYes)
+
+
+
+### Final exam (36-43)
+
+36. HTML entities
+
+  The HTML entity `&lt;` will result in which character appearing on the page?
+
+  1. `#`
+  2. `<`
+  3. `&`
+  4. `>`
+  
+  Ans: 2
+
+
+37. HTML entities - &
+
+  What HTML entity will result in an ampersand (&) ?
+  
+  Ans: `&amp;`, `&#38;`
+
+
+38. Table identification - green border
+
+  The next 3 questions (38, 39 and 40) refer to this image:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6be610c329d743c88824c48667c0d0ae/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40885d1392a8cb4d70a79fda91b960a2f4">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/946a724ff9ef1473ae29609b28b38f91/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/table_identification.png" style="margin: 0.1em;" alt="The image shows a table composed of 2 columns and 6 rows. The header of the 1st column has a green border. The 4th row has a red border and the last cell -- 2nd column and 6th row -- has a blue border" title="Diagram for Q38~40" width="250">
+    </a></div>
+  </div>
+
+  Which tag was used to define the area with the green border?
+
+  1. `<td>`
+  2. `<tr>`
+  3. `<th>`
+  4. `<table>`
+  
+  Ans: 3 <br/>
+  Assume typical default settings for font-weight and text-align
+
+
+39. Table identification - red border
+
+  Which tag was used to define the area with the red border?
+
+  1. `<td>`
+  2. `<tr>`
+  3. `<th>`
+  4. `<table>`
+  
+  Ans: 2
+
+
+40. Table identification - blue border
+
+  Which tag was used to define the area with the blue border?
+
+  1. `<td>`
+  2. `<tr>`
+  3. `<th>`
+  4. `<table>`
+  
+  Ans: 1
+
+
+41. Inline element position
+
+  Which of the following CSS properties could affect the position of an inline element?
+
+  1. Neither margin-top nor padding-top nor border-top
+  2. padding-top
+  3. border-top
+  4. margin-top
+  
+  Ans: 1
+
+
+42. Borders and decorations
+
+  Which CSS property will let you put a border around an element?
+  
+  Ans: border
+
+
+43. Decorative images
+
+  Which CSS property will let you apply an image into the background of an element?
+
+  Ans: background-image
+
+
+
+### Final exam (44-52)
+
+Source code for the following question (44):
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confessions</title>
+  <style>
+    q {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    .stammer {
+      left: 50px;
+      top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <p>I stared into the fridge disbelieving my eyes.
+    <q>I ate the last piece of cake,</q> she said, her head poking around the door.
+  </p>
+  <p class="stammer"><q>But whose head is this?</q> I stammered.</p>
+  <p><q>Oh that? - I think it belongs to my ex.</q> she stepped from behind the door, a knife in her hand.
+  <q> Sorry about the cake. You aren't mad, are you?</q> her lashes raised up and I fell into her sumptuous 
+  eyes, for not the first time. Those eyes!</p>
+</body>
+</html>
+```
+
+44. Error identification
+
+  Examine the CSS and HTML above.
+
+  The CSS above is not working as intended. Identify all the problems: (select all that apply -- 2 correct answers!)
+
+  1. `<q>` is an inline element. As such, the margin-left will have no effect upon it.
+  2. `<q>` is an inline element. As such, the margin-top will have no effect upon it.
+  3. `<p>` is an inline element. As such, the left and top properties will have no effect upon it.
+  4. `<p>` is position:static by default. As such, it is not a positioned element and the left and top properties will have no effect upon it.
+  
+  Ans: 24 <br/>
+  Inline means that it typically appears on a line with other elements.
+
+
+45. Positioned element
+
+  What does it mean to be a positioned element?
+
+  1. Positioned elements are "smart" elements and fix all problems
+  2. Unlike non-positioned elements, a positioned element can have its position adjusted/set by the positioning properties (top, left, bottom, right, and z-index )
+  3. Positioned elements ignore font- and text- properties
+  4. Unlike non-positioned elements, a positioned element can have its position adjusted by the margin property (and margin-top, margin-left, margin-bottom, and margin-right )
+  
+  Ans: 2 <br/>
+  Positioned meaning that it's position its position is not 'static'
+
+
+46. Sizing - block width
+
+  Which describes the default width of a block level element?
+
+  1. Sized to width of parent
+  2. Sized to width of content, plus padding
+  
+  Ans: 1 (x2) <br/>
+  Block level elements normally appear on their own line (horizontal space) within the parent, e.g. a paragraph that is the direct child of the body would take up the entire width of the body.
+
+
+47. Sizing - inline width
+
+  Which describes the default width of an inline element?
+
+  1. Sized to width of content, plus padding
+  2. Sized to width of parent
+  
+  Ans: 1
+
+
+48. Sizing - block height
+
+  Which describes the default height of a block level element?
+
+  1. Sized to height of content
+  2. Sized to height of parent
+  
+  Ans: 1 (x2) <br/>
+  If the element has a border, the height would be the vertical inside difference between the top and bottom border
+
+
+49. Sizing - inline height
+
+  Which describes the height of an inline level element?
+
+  1. Sized to height of content, plus padding
+  2. Sized to height of parent
+  
+  Ans: 1 (x2)
+
+
+50. Flexbox
+
+  How cool is flexbox?
+
+  1. Pretty Cool
+  2. Cool
+  3. Very Cool
+  4. Awesome
+
+  Ans: 4
+
+
+51. Flexbox container
+
+  How do you designate an element as a flexbox container? (select all that apply - 2 correct answers!)
+
+  1. `display:flex`
+  2. `flex:1`
+  3. `display:inline-flex`
+  4. `display:block; flex:1`
+  
+  Ans: 13 <br/>
+  It must be possible for both inline and block level elements to be flex containers.
+
+
+52. 'flex-basis'
+
+  What does the flex-basis property do?
+  
+  1. tells the parent flexbox container the ideal starting size (main-axis size) for the flexbox item
+  2. sets the maximum amount of space that can be given to or taken from the flexbox item
+  3. sets the cross axis size for the flexbox item
+  
+  Ans: 1 <br/>
+  Basis as in something to base things on.
+
+

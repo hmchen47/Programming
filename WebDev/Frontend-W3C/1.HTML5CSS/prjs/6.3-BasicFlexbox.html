@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox</title>
+  <style>
+    body{ margin:0px; }
+    p {
+      margin:10px;
+      padding:20px; 
+      background-color:lightgray;
+      border-radius: 10px;
+    }
+    .fc {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    p {
+      flex: 1;
+    }
+    .second {
+      flex: 2;
+    }
+    </style>
+</head>
+
+<body>
+  <div class="fc">
+    <p class="first">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say</p>
+    <p class="second">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say</p>
+    <p class="third">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say</p>
+    <p class="fourth">For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say</p>
+  </div>
+</body>
+</html>
+
+

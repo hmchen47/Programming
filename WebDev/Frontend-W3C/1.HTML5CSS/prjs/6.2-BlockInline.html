@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+  <title>Block vs Inline</title>
+  <style>
+    body {
+        margin: 0;
+    }
+    .u { text-decoration: underline; }
+    .brect {
+      background-color:lightblue;
+      border:1px dotted dimgray;
+    }
+    .prect {
+      background-color:lightpink;
+      border:1px dotted dimgray;
+    }
+    .w {
+      width:300px;
+    }
+    .h {
+      height:100px;
+    }
+    .pad {
+      padding:20px;
+    }
+    .marg-vert {
+      margin-top:30px;
+      margin-bottom:30px;
+    }
+    .marg-horiz {
+      margin-left:30px;
+      margin-right:30px;
+    }
+  </style>
+</head>
+ 
+<body>
+  <p class="brect w h pad marg-vert marg-horiz">He was a squyer of lowe degre</p>
+  <p class="prect w h pad marg-vert marg-horiz">Will Ladislaw's mind was now wholly bent on seeing Dorothea again, and forthwith quitting Middlemarch. </p>
+  <div class="brect pad w h marg-verct marg-horiz">
+    <span class="brect">Ladislaw felt the awkwardness of asking for more last words. </span>
+    <span class="prect">It is certainly trying to a man's dignity to reappear when he is not expected to do so: a first farewell has pathos in it, but to come back for a second lends an opening to comedy</span>
+  </div>
+</body>
+</html>

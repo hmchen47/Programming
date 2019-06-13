@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Styling your table</title> 
+  <style>
+  table { border-collapse: collapse; }
+    table, th, td { padding: 15px; border-bottom: 1px solid black; }
+
+    table.eg1 tr:nth-child(even) { background-color: #ccff99; }
+
+    table.eg2 tr:nth-child(odd) { background-color: #ccff99; }
+
+    table.eg3 tr:nth-child(3n) { background-color: #ccff99; }
+</style>
+</head>
+<body>
+<table class="eg1">
+    <tr><th class="eg1">Name</th><th class="eg1">Age</th><th class="eg1">Gender</th></tr>
+    <tr><td class="eg1">Michael</td><td class="eg1">21</td><td class="eg1">Male</td></tr>      
+    <tr><td class="eg1">Amy</td><td class="eg1">37</td><td class="eg1">Female</td></tr>      
+    <tr><td class="eg1">Mark</td><td class="eg1">32</td><td class="eg1">Male</td></tr> 
+</table>
+<br><br>
+<table class="eg2">
+    <tr><th class="eg2">Name</th><th class="eg2">Age</th><th class="eg2">Gender</th></tr>
+    <tr><td class="eg2">Michael</td><td class="eg2">21</td><td class="eg2">Male</td></tr>        
+    <tr><td class="eg2">Amy</td><td class="eg2">37</td><td class="eg2">Female</td></tr> 
+    <tr><td class="eg2">Mark</td><td class="eg2">32</td><td class="eg2">Male</td></tr> 
+</table>
+<br><br>
+<table class="eg3">
+    <tr><th class="eg3">Name</th><th class="eg3">Age</th><th class="eg3">Gender</th></tr>
+    <tr><td class="eg3">Michael</td><td class="eg3">21</td><td class="eg3">Male</td></tr> 
+    <tr><td class="eg3">Sarah</td><td class="eg3">37</td><td class="eg3">Female</td></tr> 
+    <tr><td class="eg3">Mark</td><td class="eg3">32</td><td class="eg3">Male</td></tr> 
+    <tr><td class="eg3">Paul</td><td class="eg3">25</td><td class="eg3">Male</td></tr> 
+    <tr><td class="eg3">Jack</td><td class="eg3">26</td><td class="eg3">Male</td></tr> 
+    <tr><td class="eg3">Juliet</td><td class="eg3">55</td><td class="eg3">Female</td></tr> 
+</table>
+</body>
+</html>

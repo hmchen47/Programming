@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>a fancy table</title> 
+  <style>
+    table, th, td {
+        padding: 30px; 
+        border: 1px solid #DCDCDC;
+        text-align: center;
+    }
+    
+    table { 
+        border-collapse: collapse; 
+        overflow: auto;
+        font-family: "Ubuntu", "Verdana", "Arial", sans-serif; 
+    }
+    
+    tr:hover {
+        background-color: #e6e6e6; 
+    }
+    
+    tr.main-heading {
+        line-height: 10%;
+        background-color: #32B2B2;
+        color: white;
+    }
+    
+    tr.sub-heading {
+        line-height: 150%;
+        background-color: #149494;
+        color: white;
+    }
+    
+    tr.buy-now-footer {
+        line-height: 150%;
+        background-color: #149494;
+        font-weight: bold;
+        font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+<table>
+    <thead>
+        <tr class="main-heading">
+            <th id="mh-co1" scope="col">Trial</th>
+            <th id="mh-co2" scope="col">Starter</th>
+            <th id="mh-co3" scope="col">Premium</th>
+            <th id="mh-co4" scope="col">VIP</th>
+        </tr>
+        <tr class="sub-heading">
+            <th id="sh-co1" scope="col">Free</th>
+            <th id="sh-co2" scope="col">$5.99<br>per month</th>
+            <th id="sh-co3" scope="col">$15.99<br>per month</th>
+            <th id="sh-co4" scope="col">$29.99<br>per month</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td headers="mh-co1 sh-co1">2hrs/day</td>
+            <td headers="mh-co2 sh-co2">7hrs/day</td>
+            <td headers="mh-co3 sh-co3">Unlimited</td>
+            <td headers="mh-co4 sh-co4">Unlimited</td>
+        </tr>
+        <tr>
+            <td headers="mh-co1 sh-co1">5 channels</td>
+            <td headers="mh-co2 sh-co2">32 channels</td>
+            <td headers="mh-co3 sh-co3">Booster Pack - 152 channels</td>
+            <td headers="mh-co4 sh-co4">Unlimited</td>
+        </tr>
+        <tr>
+            <td headers="mh-co1 sh-co1">-</td>
+            <td headers="mh-co2 sh-co2">-</td>
+            <td headers="mh-co3 sh-co3">Free Ello Subscription</td>
+            <td headers="mh-co4 sh-co4">Free Ello Subscription</td>
+        </tr>
+        <tr>
+            <td headers="mh-co1 sh-co1">Email Support</td>
+            <td headers="mh-co2 sh-co2">Email Support</td>
+            <td headers="mh-co3 sh-co3">Email &amp; Call Support</td>
+            <td headers="mh-co4 sh-co4">Unlimited Email &amp; Call Support</td>
+        </tr>   
+    </tbody>
+    <tfoot>
+          <tr class="buy-now-footer">
+            <td colspan="4"><a href="http://www.example.com" target="blank">Buy now!</a></td>
+          </tr>
+    </tfoot>
+</table>
+</body>
+</html>

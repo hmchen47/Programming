@@ -1,0 +1,14 @@
+
+/* CSS */
+html body {
+    margin-left: 40px;
+}
+
+li {
+    line-height: 1.3em;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}

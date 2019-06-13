@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> ctivity - Holy Grail </title>
+
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+    body { margin:0px; }
+
+    .fc {
+      display: flex;
+      flex-flow: row wrap;
+      min-height: calc(100vh - 3em); /* ensure flex-container is always at least as tall as the viewport. Keeps footer from coming up*/
+    }
+    .fc > * {
+      flex: 1;
+      margin: 10px;
+      padding: 20px; 
+      background-color: lightgray;
+      border-radius: 10px;
+      min-width: 200px;
+    }
+
+    header > div,
+    footer > div {
+      box-sizing: border-box;
+      background-color: lightgrey;
+      width: 100vw;
+      line-height: 3em;
+      vertical-align: middle;
+      font-weight: bold;
+      padding-left: 2em;
+    }
+
+  </style>
+</head>
+<body>
+  <header><div>Improving DevOps Flow with Kanban</div></header>
+  <div class="fc">
+    <aside> First column --- <br/>
+      We’re a relatively small team of engineers at Excella focused on developing, improving, and maintaining the pipeline for a vital online system for one of the organizations we work with. We decided early on to use Kanban to manage our work. 
+    </aside>
+    <main>
+      <h1>More Predictable Output</h1>
+      <p>One of the most important benefits is that our output has become more predictable. With long and erratic cycle times, it was hard to anticipate how long it would take to complete a task. It could be days until someone was free to pick up a new, high priority item and then it could take weeks to finish. With shorter, more predictable cycle times, we can get started more quickly and expect that the work will only take a few days. That means when a client asks how long will it take to get something done, we can now say with confidence, “You should have it by the end of the week.”</p>
+<!--
+      <p>How did we achieve this change? We used what our Kanban system was telling us, made a series of incremental improvements, and learned from them. When we started, we had just a simple Jira Kanban board. If you’ve used Jira for Kanban before, you know it has some limitations, but we’ve been able to overcome most of them. The first major change we made was to introduce a “Dev Review” column to identify items that required feedback or approval from the developers on the team. This helped ensure that the changes we made aligned with the broader architectural vision. It improved the situation, but items tended to languish once they got in there. More on that in a bit. </p>
+
+      <h2>Improved Teamwork</h2>
+      <p>Morale on the team has improved as a result. We like getting things accomplished and delivering value for our clients. We’re doing that more often while simultaneously being more responsive and working with more predictability. It’s improved our relationships with clients and with each other.</p>
+
+      <p>Further improvements were triggered by a process change at our daily stand-up. The team went from going around a circle and answering the three questions in turn, to walking through the work on the board. We started at the right-hand side and talked about those columns closest to “Done” first. This helped us highlight items in the “Dev Review” or Internal Review columns. Instead of them languishing, people spoke up at the stand-up and agreed to get them done. This was an excellent example of how using a visual board can help improve collaboration.</p>
+-->
+    </main>
+    <section>
+      this is the third column
+      <ol>
+        <li>More predictable output</li>
+        <li>Better Kanban board layout</li>
+        <li>Improved teamwork</li>
+        <li>Looking ahead</li>
+      </ol>
+    </section>
+  </div>
+  <footer><div>Rags: Agile, DevOps, Kanban, Tools</div></footer>
+</body>
+</html>
+

@@ -1,0 +1,13 @@
+
+/* CSS */
+
+li {
+    font-family: Georgia, Times, 'Times New Roman';
+    list-style-image: url("img/my_triangle.png");
+}
+
+h1 {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    color: darkred;
+}
+

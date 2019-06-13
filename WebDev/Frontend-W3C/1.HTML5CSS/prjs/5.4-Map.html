@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Image Map Example</title>
+    <style>
+    section {
+        font-size: 24px;
+    }
+
+    li {
+        font-size: .5em;
+    }
+    </style>
+</head>
+
+<body style="text-align: center;">
+        
+    <p>This is an example of an usemap that can be used for navigation for a 'Hobbies' page illustrating Music, Surfing, Gaming and Photopgraphy.</p>
+    <p>This image map is primarily made of the shape value 'rect'.</p>
+    
+    <h4>Try me! I am an image map</h4>
+    
+    <!--            usemap example 1-->
+    <!--            Clicking on different parts of this image will bring to the pages specified in the area's href attribute. -->
+    <!--            The style attribute has been added to the image tag to center it -->
+    
+    <img src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2017+type@asset+block@black-usemap-nav.png" alt="Hobbies" usemap="#navigatormap" style="display: block; margin-left: auto; margin-right: auto;">
+    <map name="navigatormap">
+        <area shape="rect" coords="202,19,400,219" href="https://en.wikipedia.org/wiki/Music" title="Click to navigate to Music" target="_blank" alt="music">
+        <area shape="rect" coords="408,21,600,220" href="https://en.wikipedia.org/wiki/Surf" title="Click to navigate to Surfing" target="_blank" alt="surf">
+        <area shape="rect" coords="607,22,801,221" href="https://en.wikipedia.org/wiki/Gaming" title="Click to navigate to Gaming" target="_blank" alt="gaming">
+        <area shape="rect" coords="807,22,1001,219" href="https://en.wikipedia.org/wiki/Photography" title="Click to navigate to Photography" target="_blank" alt="photography">
+    </map>
+
+    
+    
+    <p>This image was taken from Mount Rushmore's wikipedia page.</p>
+    <p>Clicking on the face of each President brings you to their wikipedia page. Instead of navigating to external pages, you can also navigate to other sections of your page.</p> 
+    <p>If you were creating a page about Mount Rushmore, this will make an interesting navigation image.</p>
+    <p>This image map is primarily made of the shape value 'poly'.</p>
+    
+    <h4>Try me! I am an image map</h4>
+    
+    <!--            usemap example 2-->
+    <!--            Clicking on different parts of this image will bring to the pages specified in the area's href attribute. -->
+    <!--            The style attribute has been added to the image tag to center it -->
+    
+    <img src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2017+type@asset+block@rushmore.jpg" width="737" height="338"  usemap="#rushmore-map" alt="" style="display: block; margin-left: auto; margin-right: auto;">
+    <map name="rushmore-map">
+        <area shape="poly" coords="198,24,158,51,138,90,142,133,171,152,219,153,254,148,273,110,255,63" title="George Washington" href="https://en.wikipedia.org/wiki/George_Washington" target="_blank" alt="George Washington"/>
+        <area shape="poly" coords="277,85,322,87,352,115,359,171,341,208,295,199,275,173,269,138" title="Thomas Jefferson" href="https://en.wikipedia.org/wiki/Thomas_Jefferson" target="_blank" alt="Thomas Jefferson"/>
+        <area shape="poly" coords="368,153,424,160,438,208,439,236,436,270,411,287,385,271,368,245,356,217" title="Theodore Roosevelt" href="https://en.wikipedia.org/wiki/Theodore_Roosevelt" target="_blank" alt="Theodore Roosevelt"/>
+        <area shape="poly" coords="495,144,594,141,588,206,591,251,577,281,548,295,511,290,499,246,487,204,485,171" title="Abraham Lincoln" href="https://en.wikipedia.org/wiki/Abraham_Lincoln" target="_blank" alt="Abraham Lincoln"/>
+    </map>
+
+</body>
+
+</html>
+
+
