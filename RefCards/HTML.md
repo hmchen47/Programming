@@ -4,24 +4,24 @@
 
 + Template
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title> My Web Page Title </title>
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> My Web Page Title </title>
 
-  <!-- CSS Usage: link preferred ~ comment for HTML-->
-  <link rel="stylesheet" href="css/my_styles.css">
-  <style>
-    /* CSS will go in this area ~ comment for CSS */
-  </style>
-</head>
-<body>
-  <!-- Contents within this area -->
-</body>
-</html>
-```
+    <!-- CSS Usage: link preferred ~ comment for HTML-->
+    <link rel="stylesheet" href="css/my_styles.css">
+    <style>
+      /* CSS will go in this area ~ comment for CSS */
+    </style>
+  </head>
+  <body>
+    <!-- Contents within this area -->
+  </body>
+  </html>
+  ```
 
 + Useful Reference& Tool Links
   + [W3C HTML5 specification](https://www.w3.org/TR/html5/)
@@ -39,7 +39,7 @@
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.w3schools.com/html/html_layout.asp">
-      <img src="https://www.w3schools.com/html/img_sem_elements.gif" style="margin: 0.1em;" alt="HTML5 offers new semantic elements that define the different parts of a web page" title="HTML Layout" width="250">
+      <img src="https://www.w3schools.com/html/img_sem_elements.gif" style="margin: 0.1em;" alt="HTML5 offers new semantic elements that define the different parts of a web page" title="HTML Layout" width="200">
     </a></div>
   </div>
 
@@ -72,13 +72,51 @@
 
 + [Named Character Reference][002]
 
-  | Symbol | Entity Name | Entity Number | Usage |
-  |--------|-------------|---------------|-------|
-  | Less than '<' | `&lt;` | `&#60;` | Div tag: `&lt;` |
-  | Greater than '>' | `&gt;` | `&#62;` | Div tag: `&lt;div&gt;` |
-  | Ampersand '&' | `&amp;` | `&#38;` | `Tom &amp; Jerry` |
-  | Non-breaking space - space that will not create a new line | `&nbsp;` | `&#160;` | If you add multiple spaces, the browser will remove all but one. So you have to use this entity to add multiple spaces in your HTML page. |
-  | Quotes " | `&quot;` | `&#34;` | Link to a another section on the same page using the id of the element: `&lt;a href=&quot;&num;timetable&quot;&gt;` <br/> Displayed as: `<a href="#timetable">` <br/> `&quot;` is generally encouraged for code. For an actual quotation, `<q>` or `<blockquote>` is preferred. |
+  + [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html)
+
+  + Frequent used codes
+
+    <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead><tr>
+        <th style="background-color: #3d64ff; color: #ffffff; width: 10vw">Symbol</th>
+        <th style="background-color: #3d64ff; color: #ffffff; width: 10vw">Entity Name</th>
+        <th style="background-color: #3d64ff; color: #ffffff; width: 10vw">Entity Number</th>
+        <th style="background-color: #3d64ff; color: #ffffff; width: 20vw">Usage</th>
+      </tr></thead>
+      <tbody>
+      <tr>
+        <td style="text-align:left;">Less than '&lt;'</td>
+        <td style="text-align:center;"> &#38;lt; </td>
+        <td style="text-align:center;"> &#38;&#35;60; </td>
+        <td>Div tag: &#38;lt; </td>
+      </tr>
+      <tr>
+        <td style="text-align:left;">Greater than '&gt;'</td>
+        <td style="text-align:center;"> &#38;gt; </td>
+        <td style="text-align:center;"> &#38;&#35;62; </td>
+        <td>Div tag: &#38;gt; </td>
+      </tr>
+      <tr>
+        <td style="text-align:left;">Ampersand '&' </td>
+        <td style="text-align:center;"> &#38;amp; </td>
+        <td style="text-align:center;"> &#38;&#35;38; </td>
+        <td>Tome &#38;amp; Jerry </td>
+      </tr>
+      <tr>
+        <td style="text-align:left;">Non-breaking space - space that will not create a new line </td>
+        <td style="text-align:center;"> &#38;nbsp; </td>
+        <td style="text-align:center;"> &#38;&#35;160; </td>
+        <td>If you add multiple spaces, the browser will remove all but one. So you have to use this entity to add multiple spaces in your HTML page. </td>
+      </tr>
+      <tr>
+        <td style="text-align:left;">Quotes " </td>
+        <td style="text-align:center;"> &#38;quot; </td>
+        <td style="text-align:center;"> &#38;&#35;34; </td>
+        <td>Link to a another section on the same page using the id of the element: '&lt;a href="#timetable"&gt;' <br/> Displayed as: '<a href="#timetable"> timetable </a>' <br/><br/> &quot; is generally encouraged for code. For an actual quotation, '&lt;q&gt;' or '&lt;blockquote&gt;' is preferred. </td>
+      </tr>
+      </tbody>
+    </table>
+
 
 + Case Sensitive
   + Tags: case insensitive
