@@ -1,8 +1,6 @@
-# Reference Cards for Web Development
+# Reference Cards for Web Development - HTML5
 
-## HTML5
-
-### Best Practices
+## Best Practices
 
 + Template
 
@@ -88,7 +86,7 @@
 
 + Always declare the language of your page in the `<html>` tag
 
-### HTML/Tag Syntax
+## HTML/Tag Syntax
 
 <a href="https://www.w3.org/community/webed/wiki/HTML/Training/Tag_syntax">
     <img src="https://www.w3.org/community/webed/wiki/images/3/39/Elements.png"  style="margin-right: 0.3em;" alt="HTML elements usually come in tag pairs" title="HTML elements" width="350">
@@ -96,7 +94,7 @@
 </a>
 
 
-### Tags
+## Tags
 
 | Tag | Description | Link |
 |-----|-------------|------|
@@ -123,7 +121,7 @@
 
 
 
-### Semantic Elements
+## Semantic Elements
 
 | Semantic Element | Description | Link |
 |------------------|-------------|---------|
@@ -145,15 +143,15 @@
 | `<hr>` | Used to introduce a horizontal line in your HTML document. | [I-2.3 Semantic Meaning][022] |
 
 
-### Attributes
+## Attributes
 
 + __Attributes are used in tags to further define the tag__
 + Syntax: Attribute name, equal sign, opening quote, attribute value, closing quote, e.g., `start="5"`, Attribute name: start; Attribute Value = 5
 + Boolean attribute: presence = true, omit = false
 
-#### [List of Global Attributes][008]
+### [List of Global Attributes][008]
 
-##### Core Attributes
+#### Core Attributes
 
 | Name | Values | Description | Lecture |
 |------|--------|-------------|---------|
@@ -172,7 +170,7 @@
 | `title` | normal character data | Advisory information associated with the element. | [I-2.2 Attributes][014], [I-2.4 Images][029] |
 
 
-#### [Event-handler Attributes][008]
+### [Event-handler Attributes][008]
 
 | Attributes | Description |
 |------------|-------------|
@@ -232,7 +230,7 @@
 | `onwaiting = string` |Playback of the video or audio element has stopped because the next frame is not yet available (but UA agent expects that frame to become available in due course). |
 
 
-### Non-global Attributes
+## Non-global Attributes
 
 [__MDN Attribute List__](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 
@@ -253,7 +251,7 @@
 | `<download>` | `<a>`, `<area>` | Indicates that the hyperlink is to be used for downloading a resource. | [I-2.5 Hyperlinks][035] |
 
 
-### Table Element
+## Table Element
 
 | Type | Element | Link |
 |------|---------|------|
@@ -266,7 +264,7 @@
 
 
 
-#### The th tag
+### The th tag
 
 | Attributes for `<th>` | Purpose | Usage | Output | Link |
 |-----------------------|---------|-------|--------|------|
@@ -275,7 +273,7 @@
 | `scope` | Specifies if a header cell is the header for a `row`, `column`, `rowgroup` or `colgroup` <br/> Possible values: `row`, `col`, `rowgroup`, `colgroup`, `auto` | `<th scope="row">` | [View example](https://codepen.io/w3devcampus/pen/YrGpEG) | [Row Heading][073] |
 
 
-#### The td tag
+### The td tag
 
 | Attributes for `<td>` | Purpose | Usage | Output | Link |
 |-----------------------|---------|-------|--------|------|
@@ -284,7 +282,7 @@
 | `headers` | Value is the 'id' of the `<th>` tag it corresponds to if any | `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<th id="header-id">` <br/> `</tr>` <br/> `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> `</tr>` | [View example](https://codepen.io/w3devcampus/pen/KXgNxr) | [Tbl Data][074] |
 
 
-### Image Element
+## Image Element
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <thead>
@@ -347,9 +345,9 @@
 </table>
 
 
-### Audio Element
+## Audio Element
 
-#### [Audio Tag][085]
+### [Audio Tag][085]
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <thead>
@@ -415,7 +413,7 @@
 </table>
 
 
-#### [Source Tag][086]
+### [Source Tag][086]
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -443,9 +441,9 @@
 </table>
 
 
-### Video Element
+## Video Element
 
-#### [Video Tag][087]
+### [Video Tag][087]
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
@@ -517,7 +515,7 @@
 </table>
 
 
-#### [Source Tag][088]
+### [Source Tag][088]
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
@@ -546,7 +544,7 @@
 </table>
 
 
-#### [Track Element][089]
+### [Track Element][089]
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -601,19 +599,19 @@
 </table>
 
 
-### Embedded Content
+## Embedded Content
 
-#### [The iframe Tag][090]
+### [The iframe Tag][090]
 
-## CSS3
 
-### CSS Syntax
+
+## CSS Syntax
 
 <a href="https://www.w3schools.com/css/css_syntax.asp">
     <img src="https://www.w3schools.com/css/selector.gif" alt="The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon. A CSS declaration always ends with a semicolon, and declaration blocks are surrounded by curly braces." title="CSS rule-set consists of a selector and a declaration block" height="80">
 </a>
 
-### [Selectors][054]
+## [Selectors][054]
 
 | Selector | HTML | CSS | Link |
 |----------|------|-----|------|
@@ -629,7 +627,7 @@
 
 
 
-### [Properties][038]
+## [Properties][038]
 
 | Property | Description | Value Options | Link |
 |----------|-------------|---------------|------|
@@ -648,7 +646,7 @@
 
 
 
-### Measurement Units
+## Measurement Units
 
 | Unit | Specification | Link |
 |------|---------------|------|
@@ -714,7 +712,7 @@
 
 
 
-### Table Element
+## Table Element
 
 | Type | Element | Link |
 |------|---------|------|
@@ -727,7 +725,7 @@
 
 
 
-#### The th tag
+### The th tag
 
 | Attributes for `<th>` | Purpose | Usage | Output | Link |
 |-----------------------|---------|-------|--------|------|
@@ -736,7 +734,7 @@
 | `scope` | Specifies if a header cell is the header for a `row`, `column`, `rowgroup` or `colgroup` <br/> Possible values: `row`, `col`, `rowgroup`, `colgroup`, `auto` | `<th scope="row">` | [View example](https://codepen.io/w3devcampus/pen/YrGpEG) | [Row Heading][073] |
 
 
-#### The td tag
+### The td tag
 
 | Attributes for `<td>` | Purpose | Usage | Output | Link |
 |-----------------------|---------|-------|--------|------|
@@ -745,7 +743,7 @@
 | `headers` | Value is the 'id' of the `<th>` tag it corresponds to if any | `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<th id="header-id">` <br/> `</tr>` <br/> `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> `</tr>` | [View example](https://codepen.io/w3devcampus/pen/KXgNxr) | [Tbl Data][074] |
 
 
-### Image Element
+## Image Element
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <thead>
@@ -808,9 +806,9 @@
 </table>
 
 
-### Audio Element
+## Audio Element
 
-#### [Audio Tag][085]
+### [Audio Tag][085]
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <thead>
@@ -876,7 +874,7 @@
 </table>
 
 
-#### [Source Tag][086]
+### [Source Tag][086]
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -904,9 +902,9 @@
 </table>
 
 
-### Video Element
+## Video Element
 
-#### [Video Tag][087]
+### [Video Tag][087]
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
@@ -978,7 +976,7 @@
 </table>
 
 
-#### [Source Tag][088]
+### [Source Tag][088]
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
@@ -1007,7 +1005,7 @@
 </table>
 
 
-#### [Track Element][089]
+### [Track Element][089]
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -1062,9 +1060,9 @@
 </table>
 
 
-### Embedded Content
+## Embedded Content
 
-#### [The iframe Tag][090]
+### [The iframe Tag][090]
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -1126,9 +1124,6 @@
 <br/><br/>
 
 ---------------------------------------------
-
-
-------------------------
 
 <!--
 
