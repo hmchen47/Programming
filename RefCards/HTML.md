@@ -24,61 +24,65 @@
 ```
 
 + Useful Reference& Tool Links
-    + [W3C HTML5 specification](https://www.w3.org/TR/html5/)
-    + [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/)
-    + [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
-    + [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
-    + [CSS validator](https://jigsaw.w3.org/css-validator/)
-    + [Unicorn](http://validator.w3.org/unicorn/)  
-    + [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/)
-    + [W3C Link Checker](http://validator.w3.org/checklink)
-    + [CodePen](http://codepen.io/)
+  + [W3C HTML5 specification](https://www.w3.org/TR/html5/)
+  + [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/)
+  + [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
+  + [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
+  + [CSS validator](https://jigsaw.w3.org/css-validator/)
+  + [Unicorn](http://validator.w3.org/unicorn/)  
+  + [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/)
+  + [W3C Link Checker](http://validator.w3.org/checklink)
+  + [CodePen](http://codepen.io/)
 
 
 + HTML Layout Elements
-    <a href="https://www.w3schools.com/html/html_layout.asp"> <br/>
-        <img src="https://www.w3schools.com/html/img_sem_elements.gif" alt="HTML5 offers new semantic elements that define the different parts of a web page" title="HTML Layout" height="250" style="display: block; margin: auto; background-color: white"  alt="HTML Layout Elements" title="HTML Layout Elements" width="200">
-    </a>
-    + `<header>` - Defines a header for a document or a section
-    + `<nav>` - Defines a container for navigation links
-    + `<section>` - Defines a section in a document
-    + `<article>` - Defines an independent self-contained article
-    + `<aside>` - Defines content aside from the content (like a sidebar)
-    + `<footer>` - Defines a footer for a document or a section
-    + `<details>` - Defines additional details
-    + `<summary>` - Defines a heading for the `<details>` element
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.w3schools.com/html/html_layout.asp">
+      <img src="https://www.w3schools.com/html/img_sem_elements.gif" style="margin: 0.1em;" alt="HTML5 offers new semantic elements that define the different parts of a web page" title="HTML Layout" width="250">
+    </a></div>
+  </div>
+
+  + `<header>` - Defines a header for a document or a section
+  + `<nav>` - Defines a container for navigation links
+  + `<section>` - Defines a section in a document
+  + `<article>` - Defines an independent self-contained article
+  + `<aside>` - Defines content aside from the content (like a sidebar)
+  + `<footer>` - Defines a footer for a document or a section
+  + `<details>` - Defines additional details
+  + `<summary>` - Defines a heading for the `<details>` element
 
 
 
-+ Comments: 
-    + Inline: `<!-- This is a comment -->`
-    + Multiple lines:
++ Comments:
+  + Inline: `<!-- This is a comment -->`
+  + Multiple lines:
 
-        ```html
-        <!--
-        Beginning of comment
-        ... 
-        End of comment
-        -->
-        ```
+    ```html
+    <!--
+    Beginning of comment
+    ... 
+    End of comment
+    -->
+    ```
 
 + UTF-8: `<meta charset="utf-8">` in `head` section
-    + Always use the Unicode character encoding UTF-8 for your Web pages
-    + Ensure that your editor saves the file in UTF-8
+  + Always use the Unicode character encoding UTF-8 for your Web pages
+  + Ensure that your editor saves the file in UTF-8
 
 + [Named Character Reference][002]
 
-    | Symbol | Entity Name | Entity Number | Usage |
-    |--------|-------------|---------------|-------|
-    | Less than '<' | `&lt;` | `&#60;` | Div tag: `&lt;` |
-    | Greater than '>' | `&gt;` | `&#62;` | Div tag: `&lt;div&gt;` |
-    | Ampersand '&' | `&amp;` | `&#38;` | `Tom &amp; Jerry` |
-    | Non-breaking space - space that will not create a new line | `&nbsp;` | `&#160;` | If you add multiple spaces, the browser will remove all but one. So you have to use this entity to add multiple spaces in your HTML page. |
-    | Quotes " | `&quot;` | `&#34;` | Link to a another section on the same page using the id of the element: `&lt;a href=&quot;&num;timetable&quot;&gt;` <br/> Displayed as: `<a href="#timetable">` <br/> `&quot;` is generally encouraged for code. For an actual quotation, `<q>` or `<blockquote>` is preferred. |
+  | Symbol | Entity Name | Entity Number | Usage |
+  |--------|-------------|---------------|-------|
+  | Less than '<' | `&lt;` | `&#60;` | Div tag: `&lt;` |
+  | Greater than '>' | `&gt;` | `&#62;` | Div tag: `&lt;div&gt;` |
+  | Ampersand '&' | `&amp;` | `&#38;` | `Tom &amp; Jerry` |
+  | Non-breaking space - space that will not create a new line | `&nbsp;` | `&#160;` | If you add multiple spaces, the browser will remove all but one. So you have to use this entity to add multiple spaces in your HTML page. |
+  | Quotes " | `&quot;` | `&#34;` | Link to a another section on the same page using the id of the element: `&lt;a href=&quot;&num;timetable&quot;&gt;` <br/> Displayed as: `<a href="#timetable">` <br/> `&quot;` is generally encouraged for code. For an actual quotation, `<q>` or `<blockquote>` is preferred. |
 
 + Case Sensitive
-    + Tags: case insensitive
-    + Attributes: case sensitive
+  + Tags: case insensitive
+  + Attributes: case sensitive
 
 + Single and double quotes are interchangeable, but not mixing
 
@@ -89,8 +93,8 @@
 ## HTML/Tag Syntax
 
 <a href="https://www.w3.org/community/webed/wiki/HTML/Training/Tag_syntax">
-    <img src="https://www.w3.org/community/webed/wiki/images/3/39/Elements.png"  style="margin-right: 0.3em;" alt="HTML elements usually come in tag pairs" title="HTML elements" width="350">
-    <img src="https://www.w3.org/community/webed/wiki/images/b/bc/Option.png"  alt="An element can have attributes to refine its meaning." title="HTML elements" width="350">
+  <img src="https://www.w3.org/community/webed/wiki/images/3/39/Elements.png"  style="margin-right: 0.3em;" alt="HTML elements usually come in tag pairs" title="HTML elements" width="350">
+  <img src="https://www.w3.org/community/webed/wiki/images/b/bc/Option.png"  alt="An element can have attributes to refine its meaning." title="HTML elements" width="350">
 </a>
 
 
