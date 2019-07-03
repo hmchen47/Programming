@@ -2,7 +2,7 @@
 
 ## Best Practices
 
-+ Template
+### Template
 
   ```html
   <!DOCTYPE html>
@@ -23,7 +23,7 @@
   </html>
   ```
 
-+ Useful Reference& Tool Links
+### Useful References & Tool Links
   + [W3C HTML5 specification](https://www.w3.org/TR/html5/)
   + [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/)
   + [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
@@ -35,7 +35,7 @@
   + [CodePen](http://codepen.io/)
 
 
-+ HTML Layout Elements
+### HTML Layout Elements
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.w3schools.com/html/html_layout.asp">
@@ -54,7 +54,7 @@
 
 
 
-+ Comments:
+### Comments:
   + Inline: `<!-- This is a comment -->`
   + Multiple lines:
 
@@ -66,58 +66,59 @@
     -->
     ```
 
-+ UTF-8: `<meta charset="utf-8">` in `head` section
-  + Always use the Unicode character encoding UTF-8 for your Web pages
-  + Ensure that your editor saves the file in UTF-8
+### UTF-8: `<meta charset="utf-8">` in `head` section
 
-+ Named Characters
++ Always use the Unicode character encoding UTF-8 for your Web pages
++ Ensure that your editor saves the file in UTF-8
 
-  + [WC3 Named character references](https://www.w3.org/TR/2011/WD-html5-20110113/named-character-references.html)
+### Named Characters
 
-  + [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html)
++ [WC3 Named character references](https://www.w3.org/TR/2011/WD-html5-20110113/named-character-references.html)
 
-  + Frequent used codes
++ [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html)
 
-    <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 60vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-      <thead><tr>
-        <th style="background-color: #3d64ff; color: #ffffff; width: 10vw">Symbol</th>
-        <th style="background-color: #3d64ff; color: #ffffff; width: 5vw">Entity Name</th>
-        <th style="background-color: #3d64ff; color: #ffffff; width: 5vw">Entity Number</th>
-        <th style="background-color: #3d64ff; color: #ffffff; width: 20vw">Usage</th>
-      </tr></thead>
-      <tbody>
-      <tr>
-        <td style="text-align:left;">Less than '&lt;'</td>
-        <td style="text-align:center;"> &#38;lt; </td>
-        <td style="text-align:center;"> &#38;&#35;60; </td>
-        <td>Div tag: &#38;lt; </td>
-      </tr>
-      <tr>
-        <td style="text-align:left;">Greater than '&gt;'</td>
-        <td style="text-align:center;"> &#38;gt; </td>
-        <td style="text-align:center;"> &#38;&#35;62; </td>
-        <td>Div tag: &#38;gt; </td>
-      </tr>
-      <tr>
-        <td style="text-align:left;">Ampersand '&' </td>
-        <td style="text-align:center;"> &#38;amp; </td>
-        <td style="text-align:center;"> &#38;&#35;38; </td>
-        <td>Tome &#38;amp; Jerry </td>
-      </tr>
-      <tr>
-        <td style="text-align:left;">Non-breaking space - space that will not create a new line </td>
-        <td style="text-align:center;"> &#38;nbsp; </td>
-        <td style="text-align:center;"> &#38;&#35;160; </td>
-        <td>If you add multiple spaces, the browser will remove all but one. So you have to use this entity to add multiple spaces in your HTML page. </td>
-      </tr>
-      <tr>
-        <td style="text-align:left;">Quotes " </td>
-        <td style="text-align:center;"> &#38;quot; </td>
-        <td style="text-align:center;"> &#38;&#35;34; </td>
-        <td>Link to a another section on the same page using the id of the element: '&lt;a href="#timetable"&gt;' <br/> Displayed as: '<a href="#timetable"> timetable </a>' <br/><br/> &quot; is generally encouraged for code. For an actual quotation, '&lt;q&gt;' or '&lt;blockquote&gt;' is preferred. </td>
-      </tr>
-      </tbody>
-    </table>
++ Frequent used codes
+
+  <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 60vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead><tr>
+      <th style="background-color: #3d64ff; color: #ffffff; width: 10vw">Symbol</th>
+      <th style="background-color: #3d64ff; color: #ffffff; width: 5vw">Entity Name</th>
+      <th style="background-color: #3d64ff; color: #ffffff; width: 5vw">Entity Number</th>
+      <th style="background-color: #3d64ff; color: #ffffff; width: 20vw">Usage</th>
+    </tr></thead>
+    <tbody>
+    <tr>
+      <td style="text-align:left;">Less than '&lt;'</td>
+      <td style="text-align:center;"> &#38;lt; </td>
+      <td style="text-align:center;"> &#38;&#35;60; </td>
+      <td>Div tag: &#38;lt; </td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Greater than '&gt;'</td>
+      <td style="text-align:center;"> &#38;gt; </td>
+      <td style="text-align:center;"> &#38;&#35;62; </td>
+      <td>Div tag: &#38;gt; </td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Ampersand '&' </td>
+      <td style="text-align:center;"> &#38;amp; </td>
+      <td style="text-align:center;"> &#38;&#35;38; </td>
+      <td>Tome &#38;amp; Jerry </td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Non-breaking space - space that will not create a new line </td>
+      <td style="text-align:center;"> &#38;nbsp; </td>
+      <td style="text-align:center;"> &#38;&#35;160; </td>
+      <td>If you add multiple spaces, the browser will remove all but one. So you have to use this entity to add multiple spaces in your HTML page. </td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Quotes " </td>
+      <td style="text-align:center;"> &#38;quot; </td>
+      <td style="text-align:center;"> &#38;&#35;34; </td>
+      <td>Link to a another section on the same page using the id of the element: '&lt;a href="#timetable"&gt;' <br/> Displayed as: '<a href="#timetable"> timetable </a>' <br/><br/> &quot; is generally encouraged for code. For an actual quotation, '&lt;q&gt;' or '&lt;blockquote&gt;' is preferred. </td>
+    </tr>
+    </tbody>
+  </table>
 
 
 + Case Sensitive
@@ -140,7 +141,7 @@
 </div>
 
 
-## Tags
+### Tags
 
 | Tag | Description | Link |
 |-----|-------------|------|
@@ -167,7 +168,7 @@
 
 
 
-## Semantic Elements
+### Semantic Elements
 
 | Semantic Element | Description | Link |
 |------------------|-------------|---------|
@@ -189,13 +190,13 @@
 | `<hr>` | Used to introduce a horizontal line in your HTML document. | [I-2.3 Semantic Meaning][022] |
 
 
-## Attributes
+### Attributes
 
 + __Attributes are used in tags to further define the tag__
 + Syntax: Attribute name, equal sign, opening quote, attribute value, closing quote, e.g., `start="5"`, Attribute name: start; Attribute Value = 5
 + Boolean attribute: presence = true, omit = false
 
-### [List of Global Attributes][008]
+#### [List of Global Attributes][008]
 
 | Name | Values | Description | Lecture |
 |------|--------|-------------|---------|
@@ -214,7 +215,7 @@
 | `title` | normal character data | Advisory information associated with the element. | [I-2.2 Attributes][014], [I-2.4 Images][029] |
 
 
-### [Event-handler Attributes][008]
+#### [Event-handler Attributes][008]
 
 | Attributes | Description |
 |------------|-------------|
@@ -274,7 +275,7 @@
 | `onwaiting = string` |Playback of the video or audio element has stopped because the next frame is not yet available (but UA agent expects that frame to become available in due course). |
 
 
-## Non-global Attributes
+#### Non-global Attributes
 
 [__MDN Attribute List__](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 
@@ -643,6 +644,9 @@
       &nbsp; &lt;track src="captions/small-fr.vtt" label="French"&gt;<br/>
       &lt;/video&gt;</p>
     </td>
+  </tr>
+  </tbody>
+</table>
 
 
 ## Embedded Content
