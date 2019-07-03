@@ -128,6 +128,18 @@
 
 
 
+## Measurement Units
+
+| Unit | Specification | Link |
+|------|---------------|------|
+| `px` | pixel, a single dot on the screen | [Units][081] |
+| `em` | vertical dimensions, height of capital letter in the _parent_ context | [Units][082] |
+| `rem` | vertical dimensions, size relative to the _root_ | [Units][083] |
+| `%` | relative to the _parent_ dimension | [Units][084] |
+| `vh` | viewport height, percentage of the screen | [Units][085] |
+| `vw` | viewport width, percentage of the screen | [Units][085] |
+
+
 
 ## Selectors
 
@@ -309,17 +321,17 @@
 <br/>
 
 
-### Lecture Note
+### [Selector in Lecture][086]
 
 | Selector | HTML | CSS | Link |
 |----------|------|-----|------|
-| tag | `<li>` | `li {list-style_type: circle;}` | [Selector][055] |
-| id | `<p id="p18"> Ulysses </p>` | `#p18 {color: blue;}` | [Selector][056] |
-| class | `<li class="bird flying">eagle</li>` | `.bird   { color: blue; }` <br/> `.flying { text-decoration: underline; }` | [Selector][057] |
-| Comma separated | `,` | `blockquote,` <br/> `q,` <br/> `.speech {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `color: red;` <br/>&nbsp;&nbsp;&nbsp;&nbsp; `font-style: italic;` <br/> `}` <br/> `.speech { font-weight: bold; }` | [Selector][058] |
-| Specialized | `<li class="insect flying">wasp</li>` | `.insect.flying {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `text-decoration: underline;` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `font-weight: bold;` <br/>   `}` | [Selector][059] |
-| Descendant  | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro a { color: red; }` | [Selector][060] |
-| Direct descendant | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro > a { font-size: large; }` | [Selector][061] |
+| tag | `<li>` | `li {list-style_type: circle;}` | [Selector][087] |
+| id | `<p id="p18"> Ulysses </p>` | `#p18 {color: blue;}` | [Selector][088] |
+| class | `<li class="bird flying">eagle</li>` | `.bird   { color: blue; }` <br/> `.flying { text-decoration: underline; }` | [Selector][089] |
+| Comma separated | `,` | `blockquote,` <br/> `q,` <br/> `.speech {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `color: red;` <br/>&nbsp;&nbsp;&nbsp;&nbsp; `font-style: italic;` <br/> `}` <br/> `.speech { font-weight: bold; }` | [Selector][090] |
+| Specialized | `<li class="insect flying">wasp</li>` | `.insect.flying {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `text-decoration: underline;` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `font-weight: bold;` <br/>   `}` | [Selector][091] |
+| Descendant  | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro a { color: red; }` | [Selector][092] |
+| Direct descendant | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro > a { font-size: large; }` | [Selector][093] |
 
 
 
@@ -375,6 +387,7 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
   ```
 
 
+
 ## Color Properties
 
 | Property | Description | Link |
@@ -415,6 +428,23 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 + monospace - all letters have the same fixed width; `Courier New`
 + cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
 + fantasy - the most diverse category of fonts including all of those that are particularly decorative
+
+
+
+## [Properties][071]
+
+| Property | Description | Value Options | Link |
+|----------|-------------|---------------|------|
+| `color` | text color | `blue`, `lightblue`, `darkblue`, `red`, etc. | |
+| `font-size` | size the text of a tag | `px`, `em`, `%`, `vh` | [Common Prty][072] |
+| `line-height` | height of the space | `<number>` | [Common Prty][073] |
+| `text-align` | alignment | `left`, `center`, `right`, `justify`, `justify-all` | [Common Prty][074] |
+| `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][075] |
+| `font-weight` | text bolder (or less bold) | `normal`, `bold`, `bolder`, `lighter`, `<number>` | [Common Prty][076] |
+| `font-family` | font for an element | `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [Common Prty][077] |
+| `list-style-type` | list marker, usually positioned to the left of any list item | ul: `disc`, `circle`, `square`, `none`; <br/>ol: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][078] |
+| `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][079] |
+| `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][080] |
 
 
 
@@ -478,7 +508,6 @@ See [Image Attributes][]
 
 
 
-
 ### CSS Website Layout - Example
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -487,36 +516,6 @@ See [Image Attributes][]
   </a></div>
 </div>
 
-
-### [Font Properties][038]
-
-| Property | Description | Value Options | Link |
-|----------|-------------|---------------|------|
-| `color` | text color | `blue`, `lightblue`, `darkblue`, `red`, etc. | |
-| `font-size` | size the text of a tag | `px`, `em`, `%`, `vh` | [Common Prty][039] |
-| `line-height` | height of the space | `<number>` | [Common Prty][040] |
-| `text-align` | alignment | `left`, `center`, `right`, `justify`, `justify-all` | [Common Prty][041] |
-| `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][042] |
-| `font-weight` | text bolder (or less bold) | `normal`, `bold`, `bolder`, `lighter`, `<number>` | [Common Prty][043] |
-| `font-family` | font for an element | `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [Common Prty][044] |
-| `list-style-type` | list marker, usually positioned to the left of any list item | ul: `disc`, `circle`, `square`, `none`; <br/>ol: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][051] |
-| `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][052] |
-| `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][053] |
-
-
-
-
-
-### Measurement Units
-
-| Unit | Specification | Link |
-|------|---------------|------|
-| `px` | pixel, a single dot on the screen | [Units][046] |
-| `em` | vertical dimensions, height of capital letter in the _parent_ context | [Units][047] |
-| `rem` | vertical dimensions, size relative to the _root_ | [Units][048] |
-| `%` | relative to the _parent_ dimension | [Units][049] |
-| `vh` | viewport height, percentage of the screen | [Units][050] |
-| `vw` | viewport width, percentage of the screen | [Units][050] |
 
 
 ### Table Properties
@@ -1210,181 +1209,9 @@ display: inline-grid;
 
 
 
-------------------------------------
-
-
-
-
-## CSS Syntax
-
-<a href="https://www.w3schools.com/css/css_syntax.asp">
-    <img src="https://www.w3schools.com/css/selector.gif" alt="The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon. A CSS declaration always ends with a semicolon, and declaration blocks are surrounded by curly braces." title="CSS rule-set consists of a selector and a declaration block" height="80">
-</a>
-
-## [Selectors][054]
-
-| Selector | HTML | CSS | Link |
-|----------|------|-----|------|
-| tag | `<li>` | `li {list-style_type: circle;}` | [Selector][055] |
-| id | `<p id="p18"> Ulysses </p>` | `#p18 {color: blue;}` | [Selector][056] |
-| class | `<li class="bird flying">eagle</li>` | `.bird   { color: blue; }` <br/> `.flying { text-decoration: underline; }` | [Selector][057] |
-| Comma separated |  | `blockquote,` <br/> `q,` <br/> `.speech {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `color: red;` <br/>&nbsp;&nbsp;&nbsp;&nbsp; `font-style: italic;` <br/> `}` <br/> `.speech { font-weight: bold; }` | [Selector][058] |
-| Specialized | `<li class="insect flying">wasp</li>` | `.insect.flying {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `text-decoration: underline;` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `font-weight: bold;` <br/>   `}` | [Selector][059] |
-| Descendant  | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro a { color: red; }` | [Selector][060] |
-| Direct descendant | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro > a { font-size: large; }` | [Selector][061] |
-
-<br/><br/>
-
-
-
-## [Properties][038]
-
-| Property | Description | Value Options | Link |
-|----------|-------------|---------------|------|
-| `color` | text color | `blue`, `lightblue`, `darkblue`, `red`, etc. | |
-| `font-size` | size the text of a tag | `px`, `em`, `%`, `vh` | [Common Prty][039] |
-| `line-height` | height of the space | `<number>` | [Common Prty][040] |
-| `text-align` | alignment | `left`, `center`, `right`, `justify`, `justify-all` | [Common Prty][041] |
-| `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][042] |
-| `font-weight` | text bolder (or less bold) | `normal`, `bold`, `bolder`, `lighter`, `<number>` | [Common Prty][043] |
-| `font-family` | font for an element | `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [Common Prty][044] |
-| `list-style-type` | list marker, usually positioned to the left of any list item | ul: `disc`, `circle`, `square`, `none`; <br/>ol: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][051] |
-| `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][052] |
-| `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][053] |
-
-
-
-
-[038]: https://www.w3.org/Style/CSS/all-properties.en.html#list
-[039]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-size
-[040]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#line-height
-[041]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-align
-[042]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-decoration-underline
-[043]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-weight-bold
-[044]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-weight-bold
-[045]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-family
-[046]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#px
-[047]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#em
-[048]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#rem
-[049]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#
-[050]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#vh--vw
-[051]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-type
-[052]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-position
-[053]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-image
-[054]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors
-[055]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#tag-selector
-[056]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#id-selector
-[057]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#class-selector
-[058]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#comma-separated-selectors
-[059]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors
-[060]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors
-[061]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---
-
-
-
-## Measurement Units
-
-| Unit | Specification | Link |
-|------|---------------|------|
-| `px` | pixel, a single dot on the screen | [Units][046] |
-| `em` | vertical dimensions, height of capital letter in the _parent_ context | [Units][047] |
-| `rem` | vertical dimensions, size relative to the _root_ | [Units][048] |
-| `%` | relative to the _parent_ dimension | [Units][049] |
-| `vh` | viewport height, percentage of the screen | [Units][050] |
-| `vw` | viewport width, percentage of the screen | [Units][050] |
-
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-  <thead>
-  <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Description</td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%">Value</td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%">Example</td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>src</td>
-    <td>Specifies the address of the page you want to display in your frame. This is the primary attribute of interest in the iframe.</td>
-    <td>URL</td>
-    <td>&lt;iframe src="https://www.w3.org/"&gt;&lt;/iframe&gt;</td>
-  </tr>
-  <tr>
-    <td>allowfullscreen</td>
-    <td>This will allow the iframe to open "Full screen mode", often used with videos. Without this attribute, full screen mode is disabled for the iframe.</td>
-    <td>no value</td>
-    <td><span style="line-height: 22.4px;">&lt;iframe src="https://www.w3.org/" allowfullscreen&gt;&lt;/iframe&gt;</span></td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Specifies a name for the iframe. Using the name attribute, the iframe can act as a target for a link. Just as the 'self' target will replace the current window with the site at the href URL, and "_blank" will open a new window at that URL, if you set the name attribute, that name can be used as a target so that when you click on it, the new page will open up in that iframe.</td>
-    <td>text</td>
-    <td>
-      <p>&lt;iframe name="frame-one" src="https://www.w3.org/"&gt;&lt;/iframe&gt;</p>
-      <p>&lt;a href="https://www.wikipedia.org/" target="frame-one"&gt;&lt;/a&gt;</p>
-    </td>
-  </tr>
-  <tr>
-    <td>sandbox</td>
-    <td>
-      <p>This can&nbsp;apply a number of restrictions on the iframe, preventing the site in the iframe from using pop-ups, running scripts, automatically running videos and numerous other things. &nbsp;This helps avoid some of the potential security issues that iframes may be prone to.</p>
-    </td>
-    <td><no value="">no value (applies all restrictions)<br>allow-forms<br>allow-modals<br>allow-orientation-lock<br>allow-pointer-lock<br>allow-popups<br>allow-same-origin<br>allow-scripts<br>allow-top-navigation<br></no></td>
-    <td>
-      <p>&lt;iframe src="https://www.w3.org/" sandbox&gt;&lt;/iframe&gt;</p>
-      <p>OR</p>
-      <p>&lt;iframe src="https://www.w3.org/" sandox="allow-popups"&gt;&lt;/iframe&gt;</p>
-    </td>
-  </tr>
-  <tr>
-    <td>width, height</td>
-    <td>While width and height are valid attributes for an iframe, they should be avoided in favor of CSS properties.</td>
-    <td>pixels</td>
-    <td>&lt;iframe src="https://www.w3.org/" width="500"&gt;&lt;/iframe&gt;</td>
-  </tr>
-  </tbody>
-</table>
-
-
-
-
-
-
 
 -------------------------------------------
 <!--
-[062]: https://github.com/hmchen47/Programming/blob/css/WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#typography
-[063]: 
-[064]: 
-[065]: 
-[066]: 
-[067]: 
-[068]: 
-[069]: 
-[070]: 
-[071]: 
-[072]: 
-[073]: 
-[074]: 
-[075]: 
-[076]: 
-[077]: 
-[078]: 
-[079]: 
-[080]: 
-[081]: 
-[082]: 
-[083]: 
-[084]: 
-[085]: 
-[086]: 
-[087]: 
-[088]: 
-[089]: 
-[090]: 
-[091]: 
-[092]: 
-[093]: 
 [094]: 
 [095]: 
 [096]: 
@@ -1563,4 +1390,27 @@ display: inline-grid;
 [067]: https://developer.mozilla.org/en-US/docs/Web/CSS/clear
 [068]: https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements
 [069]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements
-
+[070]: https://github.com/hmchen47/Programming/blob/css/WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#typography
+[071]: https://www.w3.org/Style/CSS/all-properties.en.html#list
+[072]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-size
+[073]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#line-height
+[074]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-align
+[075]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-decoration-underline
+[076]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-weight-bold
+[077]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-family
+[078]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-type
+[079]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-position
+[080]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-image
+[081]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#px
+[082]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#em
+[083]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#rem
+[084]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#
+[085]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#vh--vw
+[086]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors
+[087]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#tag-selector
+[088]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#id-selector
+[089]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#class-selector
+[090]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#comma-separated-selectors
+[091]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors
+[092]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors
+[093]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---
