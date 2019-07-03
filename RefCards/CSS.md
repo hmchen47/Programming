@@ -335,6 +335,16 @@
 
 
 
+### Styling with Pseudo Class
+
+| Class | Description | Possible Property/Values | Link |
+|-------|-------------|-------------------|------|
+| `tr:nth-child(even)`, `tr:nth-child(odd)` | alternating colors for table rows making it easier to differentiate data between rows | `background-color: color;` | [Zebra][095] |
+| `tr.hover` | mouse over rows in your table to highlight them in the color specified | `background-color: black;` | [Hover][094] |
+| `tr.visted` | usually put on a selector that resolves to an `<a>` tag | None | [Visted][096] |
+
+
+
 ### Tree Presentation - Inheritance
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -414,11 +424,18 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 
 | Property | Description | Value | Link |
 |----------|-------------|------|-------|
-| `font-family` | font face, a collection of Web safe fonts that generally each browser has agreed to support | `Verdana`, `New Time Roman` | [W3C][011], [Fonts][012] |
-| `font-size` | overall scale of the text | `em`, `%`, `px` | [W3C][013], [Fonts][014] |
-| `font-weight` | thickness of the letters | 100~900, `bold`=700, `normal` = 400, `bolder`, `lighter` | [W3C][015], [Fonts][016] |
+| `font-family` | font face, a collection of Web safe fonts that generally each browser has agreed to support | `Verdana`, `New Time Roman`, `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [W3C][011], [Fonts][012], [Common Prty][077] |
+| `font-size` | overall scale of the text | `em`, `%`, `px`, `vh` | [W3C][013], [Fonts][014], [Common Prty][072] |
+| `font-weight` | thickness of the letters | 100~900, `bold`=700, `normal` = 400, `bolder`, `lighter`, `normal`, `bold`, `bolder`, `lighter`, `<number>` | [W3C][015], [Fonts][016], [Common Prty][076] |
 | `font-style` | adjust the angle of the letters in relation to the horizontal plane | `italic`, `normal`, `oblique <angle>` | [W3C][017], [Fonts][018] |
 | `text_decoration` | add a line across text | `underline` | [W3C][019], [Fonts][020] |
+| `color` | text color | `blue`, `lightblue`, `darkblue`, `red`, etc. | |
+| `line-height` | height of the space | `<number>` | [Common Prty][073] |
+| `text-align` | alignment | `left`, `center`, `right`, `justify`, `justify-all` | [Common Prty][074] |
+| `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][075] |
+| `list-style-type` | list marker, usually positioned to the left of any list item | ul: `disc`, `circle`, `square`, `none`; <br/>ol: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][078] |
+| `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][079] |
+| `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][080] |
 
 
 ### [Typography][066]
@@ -428,23 +445,6 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 + monospace - all letters have the same fixed width; `Courier New`
 + cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
 + fantasy - the most diverse category of fonts including all of those that are particularly decorative
-
-
-
-## [Properties][071]
-
-| Property | Description | Value Options | Link |
-|----------|-------------|---------------|------|
-| `color` | text color | `blue`, `lightblue`, `darkblue`, `red`, etc. | |
-| `font-size` | size the text of a tag | `px`, `em`, `%`, `vh` | [Common Prty][072] |
-| `line-height` | height of the space | `<number>` | [Common Prty][073] |
-| `text-align` | alignment | `left`, `center`, `right`, `justify`, `justify-all` | [Common Prty][074] |
-| `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][075] |
-| `font-weight` | text bolder (or less bold) | `normal`, `bold`, `bolder`, `lighter`, `<number>` | [Common Prty][076] |
-| `font-family` | font for an element | `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [Common Prty][077] |
-| `list-style-type` | list marker, usually positioned to the left of any list item | ul: `disc`, `circle`, `square`, `none`; <br/>ol: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][078] |
-| `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][079] |
-| `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][080] |
 
 
 
@@ -496,18 +496,6 @@ See [Image Attributes][]
 | `clear` | indicate which sides of an element's box(es) may not be adjacent to an earlier floating box | `none`, `left`, `right`, `both`, `inherit` | [W3C][051], [Float][052] |
 
 
-## Position Property
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `position` | set the algorithm for how the Web browser will compute the way the HTML elements are placed on the pag | `static`, `relative`, `absolute`, `fixed`, `inherit` | [W3C][053], [Position][054] |
-| `top` | specify how far an absolutely positioned box's top margin edge is offset below the top edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `right` | specify how far a box's right margin edge is offset to the left of the right edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `bottom` | specify how far a box's bottom margin edge is offset above the bottom of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `left` | specify how far a box's left margin edge is offset to the right of the left edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-
-
-
 ### CSS Website Layout - Example
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -518,7 +506,7 @@ See [Image Attributes][]
 
 
 
-### Table Properties
+## Table Properties
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.tallcomponents.com/tallpdf/help/guide/tables?build=net40">
@@ -529,7 +517,6 @@ See [Image Attributes][]
   </a></div>
 </div>
 
-#### Table Properties
 
 | Property | Applied To | Description | Possible Value | Link |
 |----------|------------|-------------|----------------|------|
@@ -543,22 +530,14 @@ See [Image Attributes][]
 | `border-top`, `border-right`, `border-bottom`, `border-left` | `<th>`, `<td>` | set borders to individual sides | `<width, style, color>` | [Side][069] |
 
 
-#### Styling with Pseudo Class
 
-| Class | Description | Possible Property/Values | Link |
-|-------|-------------|-------------------|------|
-| `tr:nth-child(even)`, `tr:nth-child(odd)` | alternating colors for table rows making it easier to differentiate data between rows | `background-color: color;` | [Zebra][083] |
-| `tr.hover` | mouse over rows in your table to highlight them in the color specified | `background-color: black;` | [Hover][084] |
-
-
-
-
-### Box Model
+## Box Model
 
 <a href="https://www.w3.org/TR/CSS22/box.html"> 
     <img src="https://www.w3.org/TR/CSS22/images/boxdim.png" alt="Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding. The margin, border, and padding can be broken down into top, right, bottom, and left segments (e.g., in the diagram, 'LM' for left margin, 'RP' for right padding, 'TB' for top border, etc.)." title="The four areas of the generic CSS box: content, padding, border, and margin." width="350" style="display: block; margin: auto; background-color: white"> <br/>
 </a>
 
+### Model Properties
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead><tr>
@@ -657,11 +636,6 @@ See [Image Attributes][]
 
 
 
-## Display: Block and Inline Elements
-
-### [Display Elements](../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#display-property):
-
-
 ## Display Flow Layout
 
 + Normal Flow / Flow Layout
@@ -675,6 +649,10 @@ See [Image Attributes][]
   + Default formating:
     + block-level elements begin on new lines
     + in-line elements can start anywhere in a line
+
++  [Display Elements](../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#display-property)
+
+
 
 <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
@@ -804,6 +782,20 @@ display: inline-grid;
 
 
 ## Positioned Property
+
+
+### Position Property
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `position` | set the algorithm for how the Web browser will compute the way the HTML elements are placed on the pag | `static`, `relative`, `absolute`, `fixed`, `inherit` | [W3C][053], [Position][054] |
+| `top` | specify how far an absolutely positioned box's top margin edge is offset below the top edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `right` | specify how far a box's right margin edge is offset to the left of the right edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `bottom` | specify how far a box's bottom margin edge is offset above the bottom of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `left` | specify how far a box's left margin edge is offset to the right of the left edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+
+
+
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
   <thead><tr>
@@ -1100,121 +1092,12 @@ display: inline-grid;
 </table>
 
 
-## The Flexible Box Layout
-
-### Basic Concepts of flexbox
-
-+ Layout and Axes
-  + __main axis__:
-    + the axis running in the direction the flex items are being laid out in
-    + __main start__ and __main end__: the start and end of main axis
-  + __cross axis__:
-    + the axis running perpendicular to the direction the flex items are being laid out in
-    + __cross start__ and __cross end__:  start and end of cross axis
-  + __flex container__: set parent element w/ `display: fex`
-  + __flex items__: the items being laid out as flexible boxes inside the flex container
-
-+ main axis defined by __flex-direction__
-  + row: along the row in the inline direction from left to right
-  + row-reverse: along the row in the inline direction from right to left
-  + column: from the top of the page to the bottom
-  + column-reverse: from the bottom of the page to the top
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">
-      <img src="https://mdn.mozillademos.org/files/15614/Basics1.png" style="margin: 0.1em;" alt="row or row-reverse: main axis will run along the row in the inline direction" title="Inline directon: row or row-reverse" width="250">
-      <img src="https://mdn.mozillademos.org/files/15615/Basics2.png" style="margin: 0.1em;" alt="column or column-reverse: main axis will run from the top of the page to the bottom — in the block direction" title="Block direction: column or column-reverse" width="250">
-      <img src="https://mdn.mozillademos.org/files/15616/Basics3.png" style="margin: 0.1em;" alt=" flex-direction (main axis) is set to row or row-reverse the cross axis runs down the columns" title="The cross axis runs perpendicular to the main axis" width="250">
-      <img src="https://mdn.mozillademos.org/files/15617/Basics4.png" style="margin: 0.1em;" alt="main axis is column or column-reverse then the cross axis runs along the rows" title="main axis is column or column-reverse then the cross axis runs along the rows" width="250">
-    </a></div>
-  </div>
-
-+ [The flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
-  + An area of a document laid out using flexbox
-  + set the value of the area's container's display property to `flex` or `inline-flex`
-  + flex items: the direct children of that container
-  + ways to create a flex container all of the contained flex items
-    + Items display in a row (the `flex-direction` property's default is `row`).
-    + The items start from the start edge of the main axis.
-    + The items do not stretch on the main dimension, but can shrink.
-    + The items will stretch to fill the size of the cross axis.
-    + The `flex-basis` property is set to `auto`.
-    + The `flex-wrap `property is set to `nowrap`.
-
-+ [Multi-line flex containers with flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
-  + While flexbox is a one dimensional model, it is possible to cause our flex items to wrap onto multiple lines.
-  + To cause wrapping behaviour add the property `flex-wrap` with a value of `wrap`.
-  + guide to wrap flex items: [Mastering Wrapping of Flex Items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items)
-
-
-
-### Flexbox Property
-
-
-<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-  <thead><tr>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 15%">Possible Value</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Link</th>
-  </tr></thead>
-  <tbody>
-  <tr>
-    <td>flex</td>
-    <td>specified using one, two, or three values:<ul> <li><strong>One-value syntax:</strong><ul><li>&lt;number&gt;: interpreted as &lt;flex-grow&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li><li>keywords: none, auto, or initial</li></ul></li> <li><strong>Two-value syntax</strong>: the first value, &lt;number&gt;, interpreted as &lt;flex-grow&gt;. The second value must be one of: <ul><li>&lt;number&gt;: interpreted as &lt;flex-shrink&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li></ul></li><li><strong>Three-value syntax</strong> (order): <ol><li>&lt;number&gt; for &lt;flex-grow&gt;</li><li>&lt;number&gt; for &lt;flex-shrink&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li></ol></li></ul></td>
-    <td>init, auto, none, &lt;flex-grow&gt;, &lt;flex-shrink&gt;, &lt;flex-basis&gt;</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-minimum">Lecture</a></td>
-  </tr>
-  <tr>
-    <td>flex-direction</td>
-    <td>set how flex items placed in the flex container defining the main axis and the direction (normal or reversed)</td>
-    <td>row, row-reverse, column, column-reverse</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
-  </tr>
-  <tr>
-    <td>flex-wrap</td>
-    <td>set whether flex items are forced onto one line or can wrap onto multiple lines</td>
-    <td>nowrap, wrap, wrap-reverse</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
-  </tr>
-  <tr>
-    <td>flex-flow</td>
-    <td>a shorthand property for <strong>flex-direction</strong> and <strong>flex-wrap</strong> properties</td>
-    <td>nowrap, wrap, wrap-reverse</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
-  </tr>
-  <tr>
-    <td>flex-basis</td>
-    <td><ul><li>set the initial main size of a flex item</li><li>content: automatic sizing, based on the flex item’s content</li></ul></td>
-    <td>&lt;width&gt;, content</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
-  </tr>
-  <tr>
-    <td>flex-grow</td>
-    <td><ul><li>set how much of the remaining space in the flex container should be assigned to that item (the flex grow factor)</li><li>remaining space: the size of the flex container minus the size of all flex items together</li><li>sibling items: <ul><li>all items with the same share of remaining space with the same grow factor</li><li>distributed according tot he ratio defined by the different flex grow factors</li></ul></ul></td>
-    <td>&lt;number&gt;</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
-  </tr>
-  <tr>
-    <td>flex-shrink</td>
-    <td>set the flex shrink factor of a flex item</td>
-    <td>&lt;number&gt;</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
-  </tr>
-  </tbody>
-</table>
-
-
-
 
 
 
 
 -------------------------------------------
 <!--
-[094]: 
-[095]: 
-[096]: 
 [097]: 
 [098]: 
 [099]: 
@@ -1414,3 +1297,6 @@ display: inline-grid;
 [091]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors
 [092]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors
 [093]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---
+[094]: ..WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-hover-active
+[095]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-nth-child
+[096]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-visited
