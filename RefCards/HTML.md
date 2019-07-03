@@ -70,7 +70,9 @@
   + Always use the Unicode character encoding UTF-8 for your Web pages
   + Ensure that your editor saves the file in UTF-8
 
-+ [Named Character Reference][002]
++ Named Characters
+
+  + [WC3 Named character references](https://www.w3.org/TR/2011/WD-html5-20110113/named-character-references.html)
 
   + [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html)
 
@@ -194,8 +196,6 @@
 + Boolean attribute: presence = true, omit = false
 
 ### [List of Global Attributes][008]
-
-#### Core Attributes
 
 | Name | Values | Description | Lecture |
 |------|--------|-------------|---------|
@@ -425,7 +425,7 @@
 
 ## Audio Element
 
-### [Audio Tag][085]
+### [Audio Tag][038]
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <thead>
@@ -491,7 +491,7 @@
 </table>
 
 
-### [Source Tag][086]
+### [Source Tag][039]
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -871,6 +871,8 @@
 [035]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-download-attribute
 [036]: ../WebDev/Frontend-W3C/1.HTML5CSS/03-CSS.md#
 [037]: ../WebDev/Frontend-W3C/1.HTML5CSS/03-CSS.md#
+[038]: /WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#audio-tag
+[039]: /WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#source-element-for-multiple-source-files
 
 [062]: ../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model
 [063]: https://www.w3schools.com/css/css_padding.asp
