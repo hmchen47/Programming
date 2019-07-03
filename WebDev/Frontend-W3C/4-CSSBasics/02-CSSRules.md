@@ -83,7 +83,7 @@ As you can see these types of tags rely on "attributes", these are added modifie
 There are many HTML tags to choose from depending on what elements you want to structure on your page. [You can always look up HTML tags here](https://www.w3.org/TR/html52/). However, here is a short list of some of the most common HTML tags, ones you'll see us use throughout this course.
 
 
-#### `<html>`
+#### html tag
 
 The root element of a document is `<html>`, and this is the first tag you'll need in your document (after the DOCTYPE, of course!). All your other HTML tags should go inside this one, meaning all HTML documents should start with `<html>` at the top and end with `</html>` at the bottom.
 
@@ -102,7 +102,7 @@ It is important that you take care to use the lang attribute to indicate the act
 
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/semantics.html#the-html-element)
 
-#### `<head>`
+#### head tag
 
 This is the element that contains all the metadata for your site, such as your link to your CSS, the page's title and links to other files. This should be the first tag in your document, and there should only be one per document.
 
@@ -124,7 +124,7 @@ Note that this is where you will also set the charset to "utf-8" (<meta charset=
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/document-metadata.html#the-head-element)
 
 
-#### `<body>`
+#### body tag
 
 The section element that contains all the visible content for your site like your text, images, links etc. There should only be one body tag per document and it should come after the head tag.
 
@@ -144,7 +144,7 @@ The section element that contains all the visible content for your site like you
 
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-body-element)
 
-#### `<p>`
+#### Paragraph tag
 
 "p" stands for "paragraph" which is a block of text that is physically separated from adjacent blocks through blank lines. This is the most basic way to group text content.
 
@@ -158,9 +158,9 @@ The section element that contains all the visible content for your site like you
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-p-element)
 
 
-#### `<a>`
+#### Anchor tag
 
-By surrounding text with an <a> tag you turn it into a hyperlink. You will want to use the "href" attribute to indicate to which target the link should take the user when clicked. The default style of the a tag is to turn the text blue and underlined, and then change the color to purple after you have clicked the link. You can adjust all these styles with CSS.
+By surrounding text with an `<a>` tag you turn it into a hyperlink. You will want to use the "href" attribute to indicate to which target the link should take the user when clicked. The default style of the a tag is to turn the text blue and underlined, and then change the color to purple after you have clicked the link. You can adjust all these styles with CSS.
 
 ```html
 <a href="http://www.microsoft.com">Microsoft Main Page</a>
@@ -169,7 +169,7 @@ By surrounding text with an <a> tag you turn it into a hyperlink. You will want 
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/textlevel-semantics.html#elementdef-a)
 
 
-#### `<img />`
+#### Image tag
 
 This tag will insert an image based on the source you provide via the "src" attribute. If the source is inaccessible, you can also specify "fall back" options via the "alt" attribute. You will __always__ want to specify the "alt" attribute with a short phrase describing the image. This text is what will be read aloud if your user is using a screen reader, or will be displayed if the user's browser will not load images. Note that this is an example of a "self-closing" tag meaning there is no closing tag, you just end the opening tag with a forward slash. 
 
@@ -180,9 +180,9 @@ This tag will insert an image based on the source you provide via the "src" attr
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/semantics-embedded-content.html#the-img-element)
 
 
-#### `<ul> `
+#### Unordered-list tag
 
-The UL tag creates an "unordered list" element, meaning a collection of elements in which the order is meaningless. This is a tag that sets the framework for you to add list elements inside it. You will want to add your elements within the ul tag each surrounded your content with list item or "<li>" tags like in the below example.
+The UL tag creates an "unordered list" element, meaning a collection of elements in which the order is meaningless. This is a tag that sets the framework for you to add list elements inside it. You will want to add your elements within the ul tag each surrounded your content with list item or `<li>` tags like in the below example.
 
 ```html
 <ul>
@@ -195,7 +195,7 @@ The UL tag creates an "unordered list" element, meaning a collection of elements
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-ul-element)
 
 
-#### `<ol>`
+#### Ordered-list tag
 
 The OL tag works exactly like the UL tag, except that the list element order matters. OL stands for "ordered list" and by default, the list element items are displayed with a number preceding them.
 
@@ -210,7 +210,7 @@ The OL tag works exactly like the UL tag, except that the list element order mat
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/grouping-content.html#the-ol-element)
 
 
-#### `<br />`
+#### Link break tag
 
 The br element is a self-closing tag that inserts a line break. This is most evident when placed in a block of text as it essentially represents a carriage return or hitting the "enter" key.
 
@@ -225,7 +225,7 @@ The br element is a self-closing tag that inserts a line break. This is most evi
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/textlevel-semantics.html#the-br-element)
 
 
-#### `<header>`
+#### Header tag
 
 The header tag is one of the section elements, it's role is to group other HTML elements according to their role on their page. The header element contains all the introductory content on the page typically a title and tagline or navigational elements.
 
@@ -241,7 +241,7 @@ The header tag is one of the section elements, it's role is to group other HTML 
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-header-element)
 
 
-#### `<section>`
+#### Section tag
 
 Another sectioning element, the "section" tag is a general-purpose grouping element. It most often should include a header tag at the top. This typically will come after a header tag and before a footer tag.
 
@@ -259,7 +259,7 @@ Another sectioning element, the "section" tag is a general-purpose grouping elem
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-section-element)
 
 
-#### `<footer>`
+#### Footer tag
 
 Another sectioning element, the "footer" tag is supposed to organize the final content on the page such as the credits or contact info. 
 
@@ -282,7 +282,7 @@ Another sectioning element, the "footer" tag is supposed to organize the final c
 [Documentation](https://www.w3.org/TR/2016/WD-html52-20160818/sections.html#the-footer-element)
 
 
-#### `<div>`
+#### Div tag
 
 The div element is a generic element to hold content. It is considered a last resort, for when no other element is suitable but is often used to collect together large portions of a site that contain multiple different types of content. 
 
