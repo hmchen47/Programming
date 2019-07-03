@@ -521,7 +521,7 @@
 
 ## Video Element
 
-### [Video Tag][087]
+### [Video Tag][040]
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
@@ -593,7 +593,7 @@
 </table>
 
 
-### [Source Tag][088]
+### [Source Tag][041]
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
@@ -622,7 +622,7 @@
 </table>
 
 
-### [Track Element][089]
+### [Track Element][042]
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -647,7 +647,7 @@
 
 ## Embedded Content
 
-### [The iframe Tag][090]
+### [The iframe Tag][043]
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -871,8 +871,12 @@
 [035]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-download-attribute
 [036]: ../WebDev/Frontend-W3C/1.HTML5CSS/03-CSS.md#
 [037]: ../WebDev/Frontend-W3C/1.HTML5CSS/03-CSS.md#
-[038]: /WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#audio-tag
-[039]: /WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#source-element-for-multiple-source-files
+[038]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#audio-tag
+[039]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#source-element-for-multiple-source-files
+[040]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#video-element
+[041]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#source-element-for-multiple-source-files-1
+[042]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#track-element-for-captions-and-subtitles
+[043]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-iframes-tag
 
 [062]: ../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model
 [063]: https://www.w3schools.com/css/css_padding.asp
