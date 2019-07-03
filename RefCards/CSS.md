@@ -1,12 +1,6 @@
 # Cascading Style Sheet (CSS)
 
 
-## Tools
-
-+ [CSS Validator][000]
-
-+ [CSS Zen Garden][003]
-
 ## [CSS design principles(CSS 2.2)][001]
 
 + Forward and backward compatibility.
@@ -19,6 +13,8 @@
 + Richness
 + Alternative language binding.
 + Accessibility
+
+
 
 ## [Effective Use of Style Sheets][002]
 
@@ -35,6 +31,8 @@
   + Do not use absolute font sizes
   + Do not use the !important attribute
   + use the same CLASS names for the same concept in all of the style sheets
+
+
 
 ## [CSS Best Practice][056]
 
@@ -93,14 +91,27 @@
   + Provide fallbacks / use @supports.
 
 
+## Tools
+
++ [CSS Validator][000]
+
++ [CSS Zen Garden][003]
+
+
 ## [CSS Syntax][004]
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/fa2e67e5afb94de3981b22805acd686c/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4098c09f586c9c45349fe25ca9e1742a14">
+  <div>
+  <a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/fa2e67e5afb94de3981b22805acd686c/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4098c09f586c9c45349fe25ca9e1742a14">
     <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/39ef39b8e6685b816badb923520fa827/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-3-1_css_anatomy.PNG" style="margin: 0.1em;" alt="A CSS rule is broken into two parts: the selector and the property" title="css anatomy" width="250">
     <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/989b2e8ecef6fec3fcc6fd02a5baed58/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-3-1_property_anatomy.PNG" style="margin: 0.1em;" alt="This is what tells the browser how to style the HTML tag that has been selected. This can be as many lines of code as you choose, each of which has two parts- the property and the value you want that property to be." title="property anatomy" width="250">
-  </a></div>
+  </a>
+  <a href="https://www.w3schools.com/css/css_syntax.asp">
+    <img src="https://www.w3schools.com/css/selector.gif" style="margin: 0.1em;" alt="The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon. A CSS declaration always ends with a semicolon, and declaration blocks are surrounded by curly braces." title="CSS rule-set consists of a selector and a declaration block" width="300">
+  </a>
+  </div>
 </div>
+
 
 + Selector:
   + tell the browser what HTML tags this rule applies to
@@ -116,172 +127,11 @@
   + [complete list of latest CSS properties][005] at the W3C
 
 
+
+
 ## Selectors
 
-| Selector | Description | Declaration | Usage | Link |
-|----------|-------------|-------------|-------|------|
-| `.class` | an HTML attribute that specifies a name for a group of elements on the page | `.className { color: blue; }` | `<p class="className">paragraph</p>` | [W3C][023], [Selectors][024] |
-| `#id` | an HTML attribute that specifies a name or unique identifier for a particular HTML element | `#MyFirstId { color: blue; }` | `<p id="MyFirstId"> special paragraph </p>` | [W3C][025], [Selectors][026] |
-| `element` | select all elements | `p { color: blue;}` | `<p>Paragraph</p>` | [W3C][027] |
-| `element1, element2` | select all element1 & element2 | `p, div { color: blue; }` | `<div> division </div>`, `<p> paragraph </p>` | [W3C][027] |
-| `element1 element2` | select all element2 inside element 1 | `div p { color: blue;}` | `<div> <p> text </p> </div>`, `<div> <article> <p> text </p> </article> </div>` | [W3C][027] [Selector][034] |
-| `element1>element2` | select all element2 where the parent is element1 | `div>p {color: blue;}` | `<div> <img /> <p> text </p> </div>` | [W3C][027] |
-| `element1+element2` | select all element2placed immediately after element1 | `div+p { color: blue;}` | `<div> <p> text </p> </div>`  | [W3C][027] |
-| `e:state` | pseudo-classes, applied to an existing selector based on their state | `a:active {color: blue;}` | `<a href="url">` | [W3C][027] |
-| `e:link`, `e:visited` | User agents commonly display unvisited links differently from previously visited ones | `a:link { color: blue; }`, `a:visited {color: orange}` | [W3C][028] [Selector][029] |
-| `e:hover` | applies while the user designates an element (with some pointing device), but does not activate it | `li.hover { background-color: green; }` | `<li> text </li>` | [W3C][030], [W3C][031], [Selector][032] |
-| `e.active` | applies while an element is being activated by the user | `li.active {background-color: orange;}` | `<li> text </li>` | [W3C][031], [Selector][033] |
-| `e.focus` | applies while an element has the focus (accepts keyboard events or other forms of text input) | `li.focus { background-color: blue;}` | `<li> text </li>` | [W3C][031], [Selector][033] |
-
-
-## Tree Presentation - Inheritance
-
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/0e1bd16d542e4a1085cb8d9b305f8e59/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40833b012fc6dd41f68fa5fd6e3b93e8a8">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c3441bd3d744e14d5d1c0c663d7ad1dc/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-4-2_inheritance_tree.PNG" style="margin: 0.1em;" alt="ags that contain other tags are parents, and the tags inside of them are their children in the following tree representation." title="HTML inheritance structure" width="250">
-  </a></div>
-</div>
-
-+ CSS property values set on one element will be transferred down the tree to that element's children.
-+ Not every property is inherited, but many are.
-
-## [Selector's specificity][036]
-
-+ Calculate specificity
-  + count the number of ID selectors in the selector (= a)
-  + count the number of class selectors, attributes selectors, and pseudo-classes in the selector (= b)
-  + count the number of type selectors and pseudo-elements in the selector (= c)
-  + ignore the universal selector (`*`)
-
-+ Example
-
-  ```
-  *               /* a=0 b=0 c=0 -> specificity =   0 */
-  LI              /* a=0 b=0 c=1 -> specificity =   1 */
-  UL LI           /* a=0 b=0 c=2 -> specificity =   2 */
-  UL OL+LI        /* a=0 b=0 c=3 -> specificity =   3 */
-  H1 + *[REL=up]  /* a=0 b=1 c=1 -> specificity =  11 */
-  UL OL LI.red    /* a=0 b=1 c=3 -> specificity =  13 */
-  LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
-  #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
-  #s12:not(FOO)   /* a=1 b=0 c=1 -> specificity = 101 */
-  ```
-
-## Color Properties
-
-| Property | Description | Link |
-|----------|-------------|------|
-| `color` | the foreground color of an element's text content | [W3C][006], [Color][007] |
-| `background-color` | background color of an element | [W3C][008], [Color][009] |
-
-### HTML Color Names and Values
-
-+ A `<color>` is either a keyword or a numerical RGB specification.
-+ [Color names and sRGB values](HTML-Color.md)
-
-+ Complementary and Triadic colour schemes
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.w3.org/wiki/Colour_theory">
-      <img src="https://www.w3.org/wiki/images/4/49/50000000.jpg" style="margin: 0.1em;" alt="the complementary scheme, where you match up colours that lie directly opposite each other on the colour wheel." title="Complementary colour schemes" width="450">
-      <img src="https://www.w3.org/wiki/images/e/e5/80000001.jpg" style="margin: 0.1em;" alt="A triadic colour scheme is created when you pick one colour and then pick two other colours that lie equidistant from each other around the circle." title="Triadic colour schemes" width="300">
-    </a></div>
-  </div>
-
-
-## [Font Property][010]
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `font-family` | font face, a collection of Web safe fonts that generally each browser has agreed to support | `Verdana`, `New Time Roman` | [W3C][011], [Fonts][012] |
-| `font-size` | overall scale of the text | `em`, `%`, `px` | [W3C][013], [Fonts][014] |
-| `font-weight` | thickness of the letters | 100~900, `bold`=700, `normal` = 400, `bolder`, `lighter` | [W3C][015], [Fonts][016] |
-| `font-style` | adjust the angle of the letters in relation to the horizontal plane | `italic`, `normal`, `oblique <angle>` | [W3C][017], [Fonts][018] |
-| `text_decoration` | add a line across text | `underline` | [W3C][019], [Fonts][020] |
-
-
-### [Typography][066]
-
-+ sans-serif: the letters do not have added flourishes; most popular; `Helvetica`, `Verdana`, `Arial`, `Tahoma`
-+ serif - the small flourish lines at the edges of letters and symbols; `Times New Roman`, `Book Antiqua`, `Georgia`
-+ monospace - all letters have the same fixed width; `Courier New`
-+ cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
-+ fantasy - the most diverse category of fonts including all of those that are particularly decorative
-
-
-
-## Spacing Property
-
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
-  </a></div>
-</div>
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left` | the white space that sits closest to an HTML element | `px`, `em` | [W3C][021], [Space][022] |
-| `border`, `border-top`, `border-right`, `border-bottom`, `border-left` | the area outside the padding of an HTML element | `1px black solid` | [W3C][023], [Space][024] |
-| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `auto`, `em`, `px` | [W3C][025], [Space][026] |
-
-
-## Image Property
-
-See [Image Attributes][]
-
-
-## Alignment Property
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `text-align` | set the content's alignment horizontally | `left`, `right`, `center`, `justify` | [W3C][038], [Alignment][039] |
-| `line-height` | HTML element block grows and the text will vertically center within it | [W3C][040], [Alignment][041] |
-
-
-## Element width and height
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `width` | element width | `<length>`, `<percentage>`, `auto`, `inherit`  | [W3C][043] [Element][047] |
-| `height` | element height | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][044] [Element][047] |
-| `min-width` | minimum width of the element | `<length>`, `<percentage>`, `inherit` | [W3C][045] [Element][048] |
-| `min-width` | maximum width of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][045] [Element][048] |
-| `min-height` | minimum height of the element |`<length>`, `<percentage>`, `inherit` | [W3C][046] [Element][048] |
-| `max-width` | maximum height of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][046] [Element][048] |
-
-
-## Floating Property
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `float` | liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction specified | `left`, `right`, `none`, `inherit` | [W3C][050], [Float][050] |
-| `clear` | indicate which sides of an element's box(es) may not be adjacent to an earlier floating box | `none`, `left`, `right`, `both`, `inherit` | [W3C][051], [Float][052] |
-
-
-## Position Property
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `position` | set the algorithm for how the Web browser will compute the way the HTML elements are placed on the pag | `static`, `relative`, `absolute`, `fixed`, `inherit` | [W3C][053], [Position][054] |
-| `top` | specify how far an absolutely positioned box's top margin edge is offset below the top edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `right` | specify how far a box's right margin edge is offset to the left of the right edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `bottom` | specify how far a box's bottom margin edge is offset above the bottom of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `left` | specify how far a box's left margin edge is offset to the right of the left edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-
-
-
-## CSS3
-
-### CSS Syntax
-
-<a href="https://www.w3schools.com/css/css_syntax.asp">
-    <img src="https://www.w3schools.com/css/selector.gif" style="display: block; margin: auto; background-color: white" alt="The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon. A CSS declaration always ends with a semicolon, and declaration blocks are surrounded by curly braces." title="CSS rule-set consists of a selector and a declaration block" height="80">
-</a>
-
-
-### Selectors
-
-#### [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp)
+### [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp)
 
 <table  style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
   <thead>
@@ -459,7 +309,7 @@ See [Image Attributes][]
 <br/>
 
 
-#### Lecture Note
+### Lecture Note
 
 | Selector | HTML | CSS | Link |
 |----------|------|-----|------|
@@ -470,6 +320,20 @@ See [Image Attributes][]
 | Specialized | `<li class="insect flying">wasp</li>` | `.insect.flying {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `text-decoration: underline;` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `font-weight: bold;` <br/>   `}` | [Selector][059] |
 | Descendant  | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro a { color: red; }` | [Selector][060] |
 | Direct descendant | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro > a { font-size: large; }` | [Selector][061] |
+
+
+
+### Tree Presentation - Inheritance
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/0e1bd16d542e4a1085cb8d9b305f8e59/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40833b012fc6dd41f68fa5fd6e3b93e8a8">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c3441bd3d744e14d5d1c0c663d7ad1dc/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-4-2_inheritance_tree.PNG" style="margin: 0.1em;" alt="ags that contain other tags are parents, and the tags inside of them are their children in the following tree representation." title="HTML inheritance structure" width="250">
+  </a></div>
+</div>
+
++ CSS property values set on one element will be transferred down the tree to that element's children.
++ Not every property is inherited, but many are.
+
 
 
 ### CSS Precedence
@@ -509,6 +373,109 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
   #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
   #s12:not(FOO)   /* a=1 b=0 c=1 -> specificity = 101 */
   ```
+
+
+## Color Properties
+
+| Property | Description | Link |
+|----------|-------------|------|
+| `color` | the foreground color of an element's text content | [W3C][006], [Color][007] |
+| `background-color` | background color of an element | [W3C][008], [Color][009] |
+
+### HTML Color Names and Values
+
++ A `<color>` is either a keyword or a numerical RGB specification.
++ [Color names and sRGB values](HTML-Color.md)
+
++ Complementary and Triadic colour schemes
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.w3.org/wiki/Colour_theory">
+      <img src="https://www.w3.org/wiki/images/4/49/50000000.jpg" style="margin: 0.1em;" alt="the complementary scheme, where you match up colours that lie directly opposite each other on the colour wheel." title="Complementary colour schemes" width="450">
+      <img src="https://www.w3.org/wiki/images/e/e5/80000001.jpg" style="margin: 0.1em;" alt="A triadic colour scheme is created when you pick one colour and then pick two other colours that lie equidistant from each other around the circle." title="Triadic colour schemes" width="300">
+    </a></div>
+  </div>
+
+
+## [Font Property][010]
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `font-family` | font face, a collection of Web safe fonts that generally each browser has agreed to support | `Verdana`, `New Time Roman` | [W3C][011], [Fonts][012] |
+| `font-size` | overall scale of the text | `em`, `%`, `px` | [W3C][013], [Fonts][014] |
+| `font-weight` | thickness of the letters | 100~900, `bold`=700, `normal` = 400, `bolder`, `lighter` | [W3C][015], [Fonts][016] |
+| `font-style` | adjust the angle of the letters in relation to the horizontal plane | `italic`, `normal`, `oblique <angle>` | [W3C][017], [Fonts][018] |
+| `text_decoration` | add a line across text | `underline` | [W3C][019], [Fonts][020] |
+
+
+### [Typography][066]
+
++ sans-serif: the letters do not have added flourishes; most popular; `Helvetica`, `Verdana`, `Arial`, `Tahoma`
++ serif - the small flourish lines at the edges of letters and symbols; `Times New Roman`, `Book Antiqua`, `Georgia`
++ monospace - all letters have the same fixed width; `Courier New`
++ cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
++ fantasy - the most diverse category of fonts including all of those that are particularly decorative
+
+
+
+## Spacing Property
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
+  </a></div>
+</div>
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left` | the white space that sits closest to an HTML element | `px`, `em` | [W3C][021], [Space][022] |
+| `border`, `border-top`, `border-right`, `border-bottom`, `border-left` | the area outside the padding of an HTML element | `1px black solid` | [W3C][023], [Space][024] |
+| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `auto`, `em`, `px` | [W3C][025], [Space][026] |
+
+
+## Image Property
+
+See [Image Attributes][]
+
+
+## Alignment Property
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `text-align` | set the content's alignment horizontally | `left`, `right`, `center`, `justify` | [W3C][038], [Alignment][039] |
+| `line-height` | HTML element block grows and the text will vertically center within it | [W3C][040], [Alignment][041] |
+
+
+## Element width and height
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `width` | element width | `<length>`, `<percentage>`, `auto`, `inherit`  | [W3C][043] [Element][047] |
+| `height` | element height | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][044] [Element][047] |
+| `min-width` | minimum width of the element | `<length>`, `<percentage>`, `inherit` | [W3C][045] [Element][048] |
+| `min-width` | maximum width of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][045] [Element][048] |
+| `min-height` | minimum height of the element |`<length>`, `<percentage>`, `inherit` | [W3C][046] [Element][048] |
+| `max-width` | maximum height of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][046] [Element][048] |
+
+
+## Floating Property
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `float` | liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction specified | `left`, `right`, `none`, `inherit` | [W3C][050], [Float][050] |
+| `clear` | indicate which sides of an element's box(es) may not be adjacent to an earlier floating box | `none`, `left`, `right`, `both`, `inherit` | [W3C][051], [Float][052] |
+
+
+## Position Property
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `position` | set the algorithm for how the Web browser will compute the way the HTML elements are placed on the pag | `static`, `relative`, `absolute`, `fixed`, `inherit` | [W3C][053], [Position][054] |
+| `top` | specify how far an absolutely positioned box's top margin edge is offset below the top edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `right` | specify how far a box's right margin edge is offset to the left of the right edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `bottom` | specify how far a box's bottom margin edge is offset above the bottom of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+| `left` | specify how far a box's left margin edge is offset to the right of the left edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
+
 
 
 
@@ -1241,6 +1208,149 @@ display: inline-grid;
 
 
 
+
+
+------------------------------------
+
+
+
+
+## CSS Syntax
+
+<a href="https://www.w3schools.com/css/css_syntax.asp">
+    <img src="https://www.w3schools.com/css/selector.gif" alt="The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon. A CSS declaration always ends with a semicolon, and declaration blocks are surrounded by curly braces." title="CSS rule-set consists of a selector and a declaration block" height="80">
+</a>
+
+## [Selectors][054]
+
+| Selector | HTML | CSS | Link |
+|----------|------|-----|------|
+| tag | `<li>` | `li {list-style_type: circle;}` | [Selector][055] |
+| id | `<p id="p18"> Ulysses </p>` | `#p18 {color: blue;}` | [Selector][056] |
+| class | `<li class="bird flying">eagle</li>` | `.bird   { color: blue; }` <br/> `.flying { text-decoration: underline; }` | [Selector][057] |
+| Comma separated |  | `blockquote,` <br/> `q,` <br/> `.speech {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `color: red;` <br/>&nbsp;&nbsp;&nbsp;&nbsp; `font-style: italic;` <br/> `}` <br/> `.speech { font-weight: bold; }` | [Selector][058] |
+| Specialized | `<li class="insect flying">wasp</li>` | `.insect.flying {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `text-decoration: underline;` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `font-weight: bold;` <br/>   `}` | [Selector][059] |
+| Descendant  | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro a { color: red; }` | [Selector][060] |
+| Direct descendant | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro > a { font-size: large; }` | [Selector][061] |
+
+<br/><br/>
+
+
+
+## [Properties][038]
+
+| Property | Description | Value Options | Link |
+|----------|-------------|---------------|------|
+| `color` | text color | `blue`, `lightblue`, `darkblue`, `red`, etc. | |
+| `font-size` | size the text of a tag | `px`, `em`, `%`, `vh` | [Common Prty][039] |
+| `line-height` | height of the space | `<number>` | [Common Prty][040] |
+| `text-align` | alignment | `left`, `center`, `right`, `justify`, `justify-all` | [Common Prty][041] |
+| `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][042] |
+| `font-weight` | text bolder (or less bold) | `normal`, `bold`, `bolder`, `lighter`, `<number>` | [Common Prty][043] |
+| `font-family` | font for an element | `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [Common Prty][044] |
+| `list-style-type` | list marker, usually positioned to the left of any list item | ul: `disc`, `circle`, `square`, `none`; <br/>ol: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][051] |
+| `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][052] |
+| `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][053] |
+
+
+
+
+[038]: https://www.w3.org/Style/CSS/all-properties.en.html#list
+[039]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-size
+[040]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#line-height
+[041]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-align
+[042]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-decoration-underline
+[043]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-weight-bold
+[044]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-weight-bold
+[045]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-family
+[046]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#px
+[047]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#em
+[048]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#rem
+[049]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#
+[050]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#vh--vw
+[051]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-type
+[052]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-position
+[053]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-image
+[054]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors
+[055]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#tag-selector
+[056]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#id-selector
+[057]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#class-selector
+[058]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#comma-separated-selectors
+[059]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors
+[060]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors
+[061]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---
+
+
+
+## Measurement Units
+
+| Unit | Specification | Link |
+|------|---------------|------|
+| `px` | pixel, a single dot on the screen | [Units][046] |
+| `em` | vertical dimensions, height of capital letter in the _parent_ context | [Units][047] |
+| `rem` | vertical dimensions, size relative to the _root_ | [Units][048] |
+| `%` | relative to the _parent_ dimension | [Units][049] |
+| `vh` | viewport height, percentage of the screen | [Units][050] |
+| `vw` | viewport width, percentage of the screen | [Units][050] |
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%">Value</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%">Example</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>src</td>
+    <td>Specifies the address of the page you want to display in your frame. This is the primary attribute of interest in the iframe.</td>
+    <td>URL</td>
+    <td>&lt;iframe src="https://www.w3.org/"&gt;&lt;/iframe&gt;</td>
+  </tr>
+  <tr>
+    <td>allowfullscreen</td>
+    <td>This will allow the iframe to open "Full screen mode", often used with videos. Without this attribute, full screen mode is disabled for the iframe.</td>
+    <td>no value</td>
+    <td><span style="line-height: 22.4px;">&lt;iframe src="https://www.w3.org/" allowfullscreen&gt;&lt;/iframe&gt;</span></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>Specifies a name for the iframe. Using the name attribute, the iframe can act as a target for a link. Just as the 'self' target will replace the current window with the site at the href URL, and "_blank" will open a new window at that URL, if you set the name attribute, that name can be used as a target so that when you click on it, the new page will open up in that iframe.</td>
+    <td>text</td>
+    <td>
+      <p>&lt;iframe name="frame-one" src="https://www.w3.org/"&gt;&lt;/iframe&gt;</p>
+      <p>&lt;a href="https://www.wikipedia.org/" target="frame-one"&gt;&lt;/a&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>sandbox</td>
+    <td>
+      <p>This can&nbsp;apply a number of restrictions on the iframe, preventing the site in the iframe from using pop-ups, running scripts, automatically running videos and numerous other things. &nbsp;This helps avoid some of the potential security issues that iframes may be prone to.</p>
+    </td>
+    <td><no value="">no value (applies all restrictions)<br>allow-forms<br>allow-modals<br>allow-orientation-lock<br>allow-pointer-lock<br>allow-popups<br>allow-same-origin<br>allow-scripts<br>allow-top-navigation<br></no></td>
+    <td>
+      <p>&lt;iframe src="https://www.w3.org/" sandbox&gt;&lt;/iframe&gt;</p>
+      <p>OR</p>
+      <p>&lt;iframe src="https://www.w3.org/" sandox="allow-popups"&gt;&lt;/iframe&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>width, height</td>
+    <td>While width and height are valid attributes for an iframe, they should be avoided in favor of CSS properties.</td>
+    <td>pixels</td>
+    <td>&lt;iframe src="https://www.w3.org/" width="500"&gt;&lt;/iframe&gt;</td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
 -------------------------------------------
 <!--
 [062]: https://github.com/hmchen47/Programming/blob/css/WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#typography
@@ -1419,7 +1529,7 @@ display: inline-grid;
 [033]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#focus
 [034]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#active
 [035]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#contextual-selectors
-[036]: https://www.w3.org/TR/selectors-3/#specificity
+
 [037]: ./HTML.md#image-element
 [038]: https://www.w3.org/TR/CSS22/text.html#alignment-prop
 [039]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align
