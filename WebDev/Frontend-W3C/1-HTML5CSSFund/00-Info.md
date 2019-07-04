@@ -136,6 +136,16 @@ You __WILL NOT__ be graded on ...
 
 ### Due dates
 
+"HTML5&CSS Fundamentals" is a self-paced course that do not follow a set schedule. All course materials are completely available as soon as the course begins. Assignments and exams do not have start or due dates other than the official end date of the course.
+
+_=> The course shows indicators for graded assignments, but no due dates._
+
+There are exercises (or assignments) all over the course. It is __strongly suggested__ that you complete the exercises as promptly as possible at the end of each module of the course, because the content material will still be very fresh in your memories!
+
+The free (audit track) and the paid (verified track) options are available in this course. It means that:
+
++ All course materials are completely available as soon as the course begins. However, students are no longer be able to audit an individual course free for an unlimited period of time. That period will vary, but is usually around four to six weeks for most courses.
++ Additionally, all graded assessments are now accessible only to students who purchase a certificate. Students who audit courses at no charge will continue to be able to access ungraded assessments.
 
 
 ### Verified certificate
