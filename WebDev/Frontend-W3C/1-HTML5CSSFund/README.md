@@ -5,8 +5,8 @@
 
 + [Welcome to the "HTML5 & CSS Fundamentals" course](00-Info.md#)
     + [Welcome!](00-Info.md#)
+    + [General course introduction](00-Info.md#)
     + [Introduce yourself](00-Info.md#)
-    + [Welcome survey](00-Info.md#)
 + [Course outline, grading and due dates](00-Info.md#)
     + [Course outline](00-Info.md#)
     + [Grading policy](00-Info.md#)
