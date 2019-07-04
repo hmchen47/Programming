@@ -242,6 +242,24 @@ These are HTML, CSS, and JavaScript code editors that preview/showcase your code
 
 ### Course forums
 
+This course provides discussion forums. Forums will be available at the end of most course subsections, so you create posts on the topic being discussed in a particular subsection. You are free to use the forums to connect with other students. Note that you will find an existing thread dedicated to student introductions.
+
+When you make a contribution in a course discussion topic, you add your post as either a question or a discussion. When you add a post to a discussion topic, you must specify whether it is a question or a discussion.
+
++ A question post raises an issue so that members of the discussion administration team and the course community can provide answers -- a question mark image identifies posts that ask questions
++ A discussion post starts a conversation by sharing thoughts and reflections, and inviting community participation.
+
+As shown on the right, a question mark image identifies posts that ask questions and a conversation bubble image identifies posts that start discussions:
+
+To review posts about a particular part of the course or type of issue, select __Discussion__ at the top of the page and then select a topic from the drop- down list. (__All Discussions__ is selected by default.) Only posts about the topic you select appear in the list of posts.
+
+You are free to use the forums to connect with other students and the instructor, as well as ask questions about the material. Note that you will find an existing thread dedicated to student introductions.
+
+In addition, students will have a varied level of experience with the technologies covered in this course, so questions will range from the very basic to the very advanced. You are encouraged to assist other students and share your experiences with the product. Thanks a lot!
+
+Find out more [about discussion forums](http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/sfd_discussions/anatomy.html) in the edX Learner's Guide.
+
+edX is a global platform: as such, when creating posts, please be respectful of all cultures, creeds and religions.
 
 
 ### Forum guidelines and best practices
