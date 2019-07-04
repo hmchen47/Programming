@@ -311,10 +311,18 @@ In case you find a broken link or a typo or any other factual problem related to
 
 ## Course tools
 
-
-
 ### Web browsers
 
+Not surprisingly, it would be helpful to have a browser (short for "Web Browser") installed so that you can see the end result of your source code. Most common browsers are [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge) (and IE), [Firefox](https://firefox.com/), [Chrome](https://www.google.com/chrome/), [Safari](http://www.apple.com/safari/), etc.
+
+Look for the [history of Web browsers](https://en.wikipedia.org/wiki/Web_browser#History) (on Wikipedia). An interesting resource is the [Browser and Platform Market Share](https://www.w3counter.com/globalstats.php) (updated regularly).
+
+
+#### Viewing your work
+
+There are a couple of easy ways you can use a browser to view your work.
+
+First, you can open the file in your browser.  Typically, if you navigate to an html file and open it the system will open it with a browser by default. 
 
 
 ### Web editors
