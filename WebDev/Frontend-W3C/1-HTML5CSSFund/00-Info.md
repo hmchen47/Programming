@@ -168,13 +168,30 @@ Earn your edX verified certificate and share it with the world: you can share yo
 
 #### Receive a Professional Program Certificate
 
-You will receive a certificate for the "Front-End Web Developer" (FEWD) Professional Certificate automatically after you earn verified certificates for all the 5 individual courses in the [program](https://www.edx.org/professional-certificate/front-end-web-developer-9). A FEWD program certificate is distributed immediately after you receive all verified certificates in the program.
+You will receive a certificate for the "[Front-End Web Developer" (FEWD) Professional Certificate](https://www.edx.org/professional-certificate/front-end-web-developer-9) automatically after you earn verified certificates for all the 5 individual courses in the [program](https://www.edx.org/professional-certificate/front-end-web-developer-9). A FEWD program certificate is distributed immediately after you receive all verified certificates in the program.
 
 Earn a professional certificate of achievement stamped by W3C!
 
 
 ### FEWD certificate
 
+W3C "Front-End Web Developer" professional certificate
+
+Professional Certificate programs are series of courses designed by industry leaders and/or top universities to build and enhance critical professional skills needed to succeed in today's most in-demand fields.
+
+Banner image for the FEWD professional certificate programW3C has designed a "Front-End Web Developer" (FEWD) Professional Certificate where you will learn all of the necessary skills needed to build interactive and responsive user experiences on the Web. This program will deepen your knowledge of the 3 foundational languages that power the Web: HTML5, CSS and JavaScript. The W3C FEWD program is composed of 5 courses:
+
+1. This course: [HTML5 and CSS Fundamentals](https://www.edx.org/course/html5-and-css-fundamentals) (formerly titled HTML5 Introduction)
+2. [HTML5 Coding Essentials and Best Practices](https://www.edx.org/course/html5-coding-essentials-and-best-practices) (formerly titled HTML5 Part 1)
+3. [HTML5 Apps and Games](https://www.edx.org/course/html5-apps-games-w3cx-html5-2x) (formerly titled HTML5 Part 2)
+4. [CSS Basics](https://www.edx.org/course/css-basics-w3cx-css-0x)
+5. [JavaScript Introduction](https://www.edx.org/course/javascript-introduction-w3cx-js-0x)
+
+To get a W3C FEWD professional certificate, you must successfully pass and receive a Verified Certificate in the five courses above. Note that the [dashboard link to Front-End Web Developer Program](https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/76828eeb1b274f478c1dce2b9ef2148e/51c7adc625aa480e9b811e964822348a/%3Ca%20href=%22https://courses.edx.org/dashboard/programs/98b7344e-cd44-4a99-9542-09dfdb11d31b/%22%20target=%22_blank%22%3E) displays upgrade links to all of the courses in the program AND offer the option to "upgrade all remaining courses" in bulk.
+
+__IMPORTANT__: If you already have a verified certificate in one or more of these courses, you do NOT need to re-take that course.
+
+Team up with a mentor and get live programming assistance. The CodePrompt platform provides weekly mentorship sessions where you will be able to discuss and find solutions either on your coding projects or assignments. Try it out by [choosing a MOOC](https://codeprompt.io/course-library.html) and by [requesting a demo](https://codeprompt.io/!
 
 
 ## Course practical information
