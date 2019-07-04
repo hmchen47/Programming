@@ -5,7 +5,7 @@
 ### Template
 
   ```html
-  <!DOCTYPE html>
+  <!DOCTYPE html> <!-- HTML5 -->
   <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -25,15 +25,16 @@
   ```
 
 ### Useful References & Tool Links
-  + [W3C HTML5 specification](https://www.w3.org/TR/html5/)
-  + [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/)
-  + [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
-  + [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
-  + [CSS validator](https://jigsaw.w3.org/css-validator/)
-  + [Unicorn](http://validator.w3.org/unicorn/)  
-  + [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/)
-  + [W3C Link Checker](http://validator.w3.org/checklink)
-  + [CodePen](http://codepen.io/)
+
++ [W3C HTML5 specification](https://www.w3.org/TR/html5/)
++ [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/)
++ [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
++ [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
++ [CSS validator](https://jigsaw.w3.org/css-validator/)
++ [Unicorn](http://validator.w3.org/unicorn/)  
++ [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/)
++ [W3C Link Checker](http://validator.w3.org/checklink)
++ [CodePen](http://codepen.io/)
 
 
 ### HTML Layout Elements
