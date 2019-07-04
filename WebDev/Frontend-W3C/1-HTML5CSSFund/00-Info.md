@@ -327,6 +327,44 @@ First, you can open the file in your browser.  Typically, if you navigate to an 
 
 ### Web editors
 
+Any text editor will do!
+
+The first computer programs were actually [configurations of connections between circuits](https://en.wikipedia.org/wiki/ENIAC#Programming). A programmer would design the setup, then a host of people would reconfigure patch cords and the like to realize the program. The next step was flipping bits to write machine code directly to the computer memory. Fortunately, we won't be going back that far in creating source for Web apps.
+
+The next step in programming history was made using very basic text editors. Text could be edited one line at a time, and there was no concept of GUI ([Graphics User Interface](https://en.wikipedia.org/wiki/Graphical_user_interface)). Now, it turns out, that is enough to create a Web page, as its source is simply text. But that would be painfully tedious.  Stepping up, we finally had text editors that were more visually oriented, in fact one early example was called "Vim" (previously known as Vi - for "Visual").
+
+Simple visual editors are quite capable; in fact a great deal of the Web was built using [visual editors of one sort or another](http://xkcd.com/378/) ([xkcd](https://xkcd.com/) webcomic strip entitled "Real Programmers"). __Thus if you're familiar with Notepad or TextEdit or even Vim, you can produce a Web page.__ Of course, innovation didn't stop there and visual editors have incrementally improved to help you write code in particular languages or detect errors, etc.
+
+One caveat: you need to make sure that whatever editor you choose will save to a "plain text" format ('.txt'). Some editors will save to other formats by default (".rtf", ".doc", etc.) so you need to make sure you save your source code as plain text.
+
+All that is to say that there are lots of options when it comes to creating Web pages. There are, of course, GUI drag-and-drop solutions, where you can create a Web page as you would a diagram or picture, but we want to learn the nitty-gritty details of HTML, so we'll ignore those options.
+
+
+#### A non-exhaustive list
+
+Here are a few possibilities for Web editors:
+
++ [Notepad](https://notepad-plus-plus.org/) - on Windows PC's
++ [Visual Studio Code](https://code.visualstudio.com/) - a free open source editor that can run on any operating system. Many developers are already familiar with Visual Studio Code. Many coding videos in this course are demonstrated using Visual Studio Code.
++ [XCode](https://developer.apple.com/xcode/) - Mac developers may be familiar with XCode
++ TextEdit - this is available on Macs, but be sure you're [saving as plain text](https://discussions.apple.com/message/5014514#5014514), not as a ".rtf" or ".doc" file.
++ [Sublime Text](http://www.sublimetext.com/) - it is quite popular with developers, though there can be a bit of a learning curve to use its many features.
++ [BlueGriffon](http://bluegriffon.org/) - a WYSIWYG ("What You See Is What You Get") content editor for the World Wide Web. Powered by Gecko, the rendering engine of Firefox, it's a modern and robust solution to edit Web pages in conformance to the latest Web Standards.
++ [Atom](https://atom.io/) - another cross platform editor, created by [GitHub](https://github.com/).
++ [Vim](http://www.vim.org/) or [Emacs](https://www.gnu.org/software/emacs/) - great editors on which the Internet was built, but if you're not already familiar with these, this isn't the time to try.
+
+
+#### Knowledge check
+
+If your editor saves in a variety of formats, which of the following should you be sure to use for your Web page?
+
+  1. `.exe` or Executable
+  2. `.rtf` or Rich Text Format
+  3. `.txt` or plain text
+  4. `.docx` or MS Document File
+
+  Ans: 3 <br/>
+  H is for HyperText
 
 
 ### Online editors
@@ -334,6 +372,7 @@ First, you can open the file in your browser.  Typically, if you navigate to an 
 
 
 ### W3C validators
+
 
 
 
