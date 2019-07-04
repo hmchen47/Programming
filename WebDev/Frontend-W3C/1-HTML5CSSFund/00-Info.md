@@ -4,6 +4,23 @@
 ## Welcome to the "HTML5 & CSS Fundamentals" course
 
 ### Welcome!
+
+This "HTML5 & CSS Fundamentals" course is designed for anyone, no prerequisites required.
+
+During this course, you will learn:
+
++ Basic concepts of a markup language.
++ Basic building blocks of Web design and style.
++ Basics of HTML5 and CSS.
++ How to write a Web page.
+
+Have fun!
+
+### General course introduction
+
+
+
+
 ### Introduce yourself
 
 
