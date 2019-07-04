@@ -468,6 +468,17 @@ Sir Tim is being given this award for inventing the World Wide Web, the first We
 
 ### The Web is amazing!
 
+People often use the words "Internet" and "Web" interchangeably, but this usage is technically incorrect.
+
+The Web is an application of the Internet. The Web is the most popular way of accessing the Internet, but other applications of the Internet are [e-mail](https://en.wikipedia.org/wiki/Email) and [ftp](https://en.wikipedia.org/wiki/File_Transfer_Protocol) for example. One analogy equates the Internet to a road network where the Web is a car, the email is a bicycle, etc.  Read [this article](https://www.lifewire.com/difference-between-the-internet-and-the-web-2483335) for more details about the difference between Internet and the Web.
+
+The W3C community is passionate about creating free and open Web standards. The next video, created in partnership with Microsoft, explains why standards are important to maintain a royalty-free, Open Web Platform, as well as to help shape the Web of the future.
+
+<video src="https://edx-video.net/W3CHTML5/W3CHTML5T315-V000100_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@d5a6f51e6ebe4f6aba2ca7d71693f9fe/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
 
 
 ### Quizzes
