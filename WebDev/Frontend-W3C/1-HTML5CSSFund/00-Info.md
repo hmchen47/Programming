@@ -26,7 +26,16 @@ Have fun!
 
 ### Introduce yourself
 
+The course discussions are a great place to introduce yourself and ask questions about course materials to fellow students and instructors
+To view the course discussions, click the __Discussion__ tab at the top of any page. You might come across a subset of discussions inside the course. To participate in the forum, click 'Show discussion' to view what others have written. Then, do not hesitate to reply to a post or to click 'New Post'.
 
+__Make your first post here by [introducing yourself](https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/76828eeb1b274f478c1dce2b9ef2148e/be863694ac4b45e492eae4c82576acc5/) to the edX community__. Some questions to get you thinking of how to introduce yourself might be:
+
++ Where are you from?
++ What do you do for a living?
++ What do you hope to learn in this course? etc.
+
+Note that there will be plenty of other discussion forums (related to technical topics) that you will discover during the course. This 1st forum is really dedicated to say "hello!" to your fellow students ;)
 
 ### Welcome survey
 
