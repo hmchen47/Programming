@@ -369,6 +369,21 @@ If your editor saves in a variety of formats, which of the following should you 
 
 ### Online editors
 
+To help you practice during the whole duration of the course, you will use the following tools. Pretty much all the course's examples will actually use these tools.
+
++ JS Bin logo JS Bin (https://jsbin.com/)
+
+  JS Bin is an open source collaborative Web development debugging tool. Some of the course's examples are on JS Bin.
+
+  Tutorials can be found on the Web (such as this [one](http://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843) or that [other one](https://jsbin.com/help/getting-started/) or on YouTube ([video tutorials](https://www.youtube.com/playlist?list=PLXmT1r4krsTooRDWOrIu23P3SEZ3luIUq)). The tool is really simple, just open the link to the provided examples, look at the code, look at the result, etc. Keep in mind that it's always better to be logged in (it's free) if you do not want to lose your contributions/personal work.
+
++ CodePen logo CodePen (https://codepen.io/)
+
+  CodePen is an HTML, CSS, and JavaScript code editor that previews/showcases your code bits in your browser. It helps with cross-device testing, real time remote pair programming and teaching. We are providing a short live coding video on how to use CodePen at the beginning of Module 1
+
+Here's an article which will be of-interest if you use CodePen: [Things you can do with CodePen](https://codepen.io/brentmiller/post/things-you-can-do-with-codepen) [Brent Miller, February 6, 2019].
+
+There are many other handy tools such as [JSFiddle](https://jsfiddle.net/), and [Dabblet](http://dabblet.com/) (Lea Verou's tool). Please share your favorite tool on the discussion forum, and explain why! Share also your own code contributions, such as a nice canvas animation, a great looking HTML5 form, etc. Sharing them using JSBin, or similar tools, would be really appreciated.
 
 
 ### W3C validators
