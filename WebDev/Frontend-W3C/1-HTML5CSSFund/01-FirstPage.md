@@ -75,6 +75,27 @@ The 'JavaScript', or 'JS' for short, part is about the actions a page can take s
 
 ### Hypertext
 
+A fundamental key to the World Wide Web is the concept of "Hypertext".  Hypertext is built on the idea of linking information together, not unlike using footnotes, except much easier and more flexible. The idea was to "Mark Up" your document with links and define how to break it down into different segments (chapters, sections, paragraphs, tables, figures, etc.)
+
+That's why, in 1989, Tim Berners-Lee began to create a definition of HTML: Hypertext Markup Language, to provide a simple, uniform way to incorporate Hyperlinks in a text document.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/633117d2ef0f4bb59cda68d966b6d288/9ad1671507944d7e8193a3ed18ca622f/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4097279ec4c2da42b8b564aa0c7ccb8f0e">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ce9a4c8ef1326bfa91e675462970013a/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/html5textdiagram.png" style="margin: 0.1em;" alt="Illustration of Hypertext documents" title="Illustration of Hypertext documents" width="450">
+  </a></div>
+</div>
+
+He envisioned a technology that would facilitate thoroughly interconnected documents. He wanted authors to be able to connect an idea in one document to the source of the idea in another, or connect a statement with the data that backs up that statement. Traditionally, this kind of thing was done with footnotes and bibliographies, which can be cumbersome. This information should be easily transferable from one place to another, so that in reading one document, it is easy to access everything related (linked) to it. Tim Berners-Lee imagined a "Web" of interconnected documents.
+
+He used the metaphor of a Web to emphasize the importance of connections between documents. It was not just a long list of details, but rather a sea of information stretching out in all directions. This sea of information was navigated by a new tool called a "Browser".
+
+
+#### Knowledge check 1.2.3
+
+True or False: The primary purpose of HTML is to assist formatting of text.
+
+  Ans: False, xTrue<br/>
+  Explication: Though there are a few HTML tags used for formatting, HTML is primarily designed to help organize a document semantically. CSS is used for formatting and other aspects of design.
 
 
 ### The browser
