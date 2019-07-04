@@ -54,6 +54,23 @@ In the following pages, we present HTML through what is usually called the big 3
 
 ### HTML5, CSS and JS
 
+#### What is HTML5?
+
+When people say 'HTML5', they usually mean a bit more than just the 5th version of the "HyperText Markup Language". Modern Web pages and Web applications are generally composed of at least three components, so what people often mean when they say 'HTML5' is the trio of languages: HTML5, CSS3 and JavaScript.
+
+The 'HTML' part contains all the content, organized into a logical structure.  This is the part that an author might be most concerned with: the words, chapter headings, figures, diagrams, etc. 
+
+While there have been numerous versions of HTML since its inception, our focus in this course is the most recent version, HTML5. HTML5 was developed to provide more powerful and flexible ways for developers to create dynamic Web pages.
+
+
+#### CSS
+
+The 'CSS' part (version 3 being current) is all about the presentation or style of the page; what it looks like without too much regard for the specific content. We'll be going into more detail on that later in this course, but for now, think of it as the way you might specify a "theme" in a word processing document, setting fonts, sizes, indentations and whatever else may apply to what it looks like.
+
+
+#@### JavaScript
+
+The 'JavaScript', or 'JS' for short, part is about the actions a page can take such as interaction with the user, and customizing and changing the page according to any number of parameters.  This is what allows a Web page to be more than just a document, but potentially a Web application, with nearly unlimited possibilities.  We will not be doing much with JavaScript in this course, but you should know that it is an important leg of the stool for modern Web pages.
 
 
 ### Hypertext
