@@ -509,13 +509,41 @@ The W3C community is passionate about creating free and open Web standards. The 
 
 ## Why accessibility is important
 
-
-
 ### What is Web accessibility?
+
+> The power of the Web is in its universality.
+> Access by everyone regardless of disability is an essential aspect.
+> Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+
+The Web has become an essential aspect of our daily lives, and everyone should have access to this technology. Web accessibility focuses on ensuring equivalent access for people with disabilities. It is increasingly important to many organizations and governments from around the world, and has many business benefits. Access to information, including on the Web, is also recognized by the UN Convention on the Rights of Persons with Disabilities (CRPD).
+
+
+#### Who is impacted?
+
+Web accessibility addresses all disabilities, including hearing, learning and cognitive, neurological, physical, speech, and visual disabilities. Some examples of Web accessibility features include:
+
++ Captions on audio and multimedia content for people who are hard of hearing;
++ Clear and consistent layout for people with learning and cognitive disabilities;
++ Keyboard support for people with physical disabilities and who do not use a mouse;
++ Text alternatives for people with visual disabilities and who are using screen readers;
+
+
+##### Web accessibility benefits people with and without disabilities
+
+Web accessibility features also benefit many more users, such as:
+
++ People with temporary situational limitations, such as a broken arm;
++ People using mobile devices, televisions, and other access channels;
++ People using older computers, with low bandwidth, and other limitations;
++ People who are new to computers, to the Web, or to your own Web site;
++ People who are not fluent in the language of your particular Web site;
+
+The Web is an increasingly important resource in many aspects of life: education, employment, government, commerce, health care, recreation, and more. When Web pages, Web technologies, Web tools, or Web applications are badly designed, they can create barriers that exclude people from using the Web. More information is available in the [W3C Accessibility](https://www.w3.org/standards/webdesign/accessibility) overview.
 
 
 
 ### First steps in Web accessibility
+
 
 
 
