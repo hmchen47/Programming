@@ -150,6 +150,27 @@ The free (audit track) and the paid (verified track) options are available in th
 
 ### Verified certificate
 
+To earn a verified certificate from this W3Cx course, you enroll in or upgrade to the verified track in the course, pay the certificate fee, [verify your identity](http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/SFD_pursue_certs.html#sfd-verify-your-identity) using a webcam and a photo ID, and earn a passing grade.
+
+There will be assignments (or exercises) all over the course. It is strongly suggested that you complete the exercises as promptly as possible at the end of each module of the course.
+
+As soon as you reach the minimum passing score (70%), your self-paced certificate will be __automatically delivered__. The certificate will appear on your dashboard and Progress page.
+
+Note that Verified certificates do not include your final grade in the course. Your final grade appears on your __Progress__ page and on your dashboard. If you need a record of your grade, you can print your __Progress__ page or dashboard. This course does not offer Honor of Code certificates.
+
+
+#### About the Verified certificate
+
+A verified certificate from edX can provide proof for an employer, school, or other institution that you have successfully completed an online course, so that to get a better/new job, a promotion, or a college application.
+
+Earn your edX verified certificate and share it with the world: you can share your Web certificates (see sample on the right) on Facebook, LinkedIn, and Twitter. Learn more about [Verified Certificates](https://www.edx.org/verified-certificate).
+
+
+#### Receive a Professional Program Certificate
+
+You will receive a certificate for the "Front-End Web Developer" (FEWD) Professional Certificate automatically after you earn verified certificates for all the 5 individual courses in the [program](https://www.edx.org/professional-certificate/front-end-web-developer-9). A FEWD program certificate is distributed immediately after you receive all verified certificates in the program.
+
+Earn a professional certificate of achievement stamped by W3C!
 
 
 ### FEWD certificate
