@@ -196,10 +196,48 @@ Team up with a mentor and get live programming assistance. The CodePrompt platfo
 
 ## Course practical information
 
-
-
 ### Getting around the course
 
+If you're new to edX here is some information to get you started. Even if you've used edX for other courses, the information here will help orient you to how this course is laid out. 
+You are also welcome to register to DemoX, which is a fun and interactive edX course course designed to help you explore the edX learning experience.
+
+#### Layout of the course
+
+The HTML5&CSS Fundamentals course is composed of 6 weeks/modules, covering 6 topics. Each module is made of units which goes over all the material you'll need to learn for the module 's topic. To navigate through the module 's units, use the navigation bar at the top. You can use the left and right arrows to move through each unit.
+
+Each unit will generally have some video content, reading material, an activity, and one or two assessment questions to test your knowledge. Those assessment questions will be called "knowledge check" questions throughout the course. The units are meant to be taken in order but you can skip around if you already have mastered the material in a particular unit. In order to do well on the exercises (and the final exam!) that you will find at the end of each module/week, you should learn the material in all the units.
+
+
+#### Bookmarks
+
+It is now possible to bookmark one or more pages (up to 100), i.e., to mark course content so that you can come back to it later (see image below). Please read the related documentation.
+
+
+#### Progress indicators or check marks
+
+You will notice that green check marks appear when you complete content on the unit level and the subsection level. A "completed" unit is a unit where the learner has answered every problem, watched every video all the way through, and viewed the unit page for at least five seconds. 
+
+These check marks are intended as a way for you to keep track of your progress through the course, and __they do not impact grades, course completion, or the ability to earn a certificate__. Read [this documentation](http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/SFD_check_progress.html#sfd-progress-indicators) to find more.
+
+Note that past learners were sometimes experiencing a bug where pages that included a discussion component were not listed as completed on the course outline. This bug has since been fixed, but if you notice another specific unit that is giving trouble, please review the [progress indicator documentation](http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/SFD_check_progress.html#sfd-progress-indicators), and if you are still having trouble, please send a link to the specific unit to our learner support team at info@edx.org so that we can check if anything is amiss.
+
+
+#### Instructor feedback
+
+Given the nature of this MOOC-style course and the large number of students enrolled, we encourage you to seek help and feedback from your fellow students using the __discussion boards (or forums)__. This is a great way to help each other out and enrich your learning experience.
+
+Note: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
+
++ JS Bin: http://jsbin.com (JS Bin tutorial)
++ CodePen: http://codepen.io (CodePen tutorial)
+
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, real time remote pair programming.
+
+
+#### Other resources
+
++ [edX Learners' Guide](https://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/index.html): The guide answers common questions about topics like getting started in an online course, earning certificates, participating in course discussions, etc.
++ [edX Student FAQ](https://www.edx.org/about/student-faq): This FAQ answers a lot of questions about the edX student experience. You should at least read over the questions so if you encounter any issues during the course, you can refer back to this document for help.
 
 
 ### Course forums
