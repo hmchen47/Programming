@@ -405,6 +405,7 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 | `color` | the foreground color of an element's text content | [W3C][006], [Color][007] |
 | `background-color` | background color of an element | [W3C][008], [Color][009] |
 
+
 ### HTML Color Names and Values
 
 + A `<color>` is either a keyword or a numerical RGB specification.
@@ -446,21 +447,6 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 + cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
 + fantasy - the most diverse category of fonts including all of those that are particularly decorative
 
-
-
-## Spacing Property
-
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
-  </a></div>
-</div>
-
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left` | the white space that sits closest to an HTML element | `px`, `em` | [W3C][021], [Space][022] |
-| `border`, `border-top`, `border-right`, `border-bottom`, `border-left` | the area outside the padding of an HTML element | `1px black solid` | [W3C][023], [Space][024] |
-| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `auto`, `em`, `px` | [W3C][025], [Space][026] |
 
 
 ## Image Property
@@ -516,30 +502,100 @@ See [Image Attributes][]
     <img src="http://learningspot.altervista.org/wp-content/uploads/2017/07/HTML_cellpadding_cellspacing.png" style="margin: 0.1em;" alt="The size indicated in cellpadding and cellspacing, once set, affects all sides of the cell." title="Table cell padding and spacing" width="345">
   </a></div>
 </div>
+<br/>
 
 
-| Property | Applied To | Description | Possible Value | Link |
-|----------|------------|-------------|----------------|------|
-| `border` | `<table>`, `<th>` `<td>` | sets border-width, border-style and border-color in order | `<width, style, color>`: width = pixel, style = none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset; color = color name or color values, transparent | [Border][062] |
-| `border-collapse` | `<table>`, `<th>`, `<td>` | to collapse border or not | separate - default value <br/> collapse - border are collapsed into a single border <br/> initial - sets to default value (separate) | [Collapse][063] |
-| `width`; `height` | `<td>` | set the width and height for the rows and columns for your table based on the content in your cells | units of length like pixels, percentage; auto: the browser will calculate and select a width for the specified element (default value) | [Size][064] |
-| `text-align` | `<th>`, `<td>` | align the text of and cells left, right or center |  left, right or center; Default: `<th>` - center, `<td>` - left | [Horizontal][065] |
-| `vertical-align` | `<th>`, `<td>` | align the text of and cells top, bottom or middle | top, bottom or middle; default: middle | [Vertical][066] |
-| `padding` | `<th>`, `<td>` | provide some space between border and content in cell | units of length like px, cm, % - relative to parent container's width | [Padding][067] | 
-|border-spacing | `<table>`, `<td>`, `<th>` | space between content in cell and border | units of length like px, cm, % - relative to parent container's width | [Space][068] |
-| `border-top`, `border-right`, `border-bottom`, `border-left` | `<th>`, `<td>` | set borders to individual sides | `<width, style, color>` | [Side][069] |
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Applied To</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 25%">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Possible Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Link</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>border</td>
+    <td> &lt;table&gt;, &lt;th&gt;, &lt;td&gt;</td>
+    <td>sets border-width, border-style and border-color in order</td>
+    <td> <ul><li> &lt;width, style, color&gt; <ul><li>width = pixel </li> <li>style = none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset </li> <li>color = color name or color values, transparent</li> </ul></li> <li><a href="https://www.w3schools.com/cssref/pr_border-width.asp">border-width</a>: medium, thin, thick, length, initial, inherit, pixel, (left-pixel, right-pixel)</li> <li><a href="https://www.w3schools.com/cssref/pr_border-style.asp">border-style</a> (required): none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset, initial, inherit</li> <li><a href="https://www.w3schools.com/cssref/pr_border-color.asp">border-color</a>: <i>color value</i>, transparent</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#border">Table</a>, <a href="https://www.w3schools.com/cssref/pr_border.asp">W3S</a></td>
+  </tr>
+  <tr>
+    <td>border-top, border-left, broder-bottom, border-right</td>
+    <td>&lt;th&gt;, &lt;td&gt;</td>
+    <td>set borders to individual sides</td>
+    <td> <ul> &lt;width, style, color&gt; <ul><li>width = pixel </li> <li>style = none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset </li> <li>color = color name or color values, transparent</li> </ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#side-borders"></a>, <a href="https://www.w3schools.com/cssref/pr_border-top.asp">Top</a>, <a href="https://www.w3schools.com/cssref/pr_border-right.asp">Right</a>, <a href="https://www.w3schools.com/cssref/pr_border-bottom.asp">Bottom</a>, <a href="https://www.w3schools.com/cssref/pr_border-left.asp">Left</a></td>
+  </tr>
+  <tr>
+    <td>border-collapse</td>
+    <td> &lt;table&gt;, &lt;th&gt;, &lt;td&gt;</td>
+    <td>to collapse border or not</td>
+    <td><ul><li><strong>separate</strong>: each cell will display its own borders; default value</li> <li><strong>collapse</strong>: border are collapsed into a single border (border-spacing and empty-cells properties have no effect)</li><li>initial: sets to default value (separate)</li><li>inherit: inherited from its parent element</li><ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#border-collapse">Collapse</a>, <a href="https://www.w3schools.com/cssref/pr_border-collapse.asp">W3S</a></td>
+  </tr>
+  <tr>
+    <td>border-spacing</td>
+    <td> &lt;table&gt;, &lt;th&gt;, &lt;td&gt;</td>
+    <td>space between content in cell and border</td>
+    <td><strong>&lt; length, length&gt; </strong>: specifyingthe distance between the borders of adjacent cells in px, cm, etc. Negative values are not allowed.<ul><li>one value: define both the horizontal and vertical spacing between cells</li> <li>two values: the first sets the horizontal spacing and the second sets the vertical spacing</li><ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#border-spacing">Spacing</a>, <a href="https://www.w3schools.com/cssref/pr_border-spacing.asp">W3S</a></td>
+  </tr>
+  <tr>
+    <td>width; height</td>
+    <td> &lt;td&gt;</td>
+    <td>set the width and height for the rows and columns for your table based on the content in your cells | units of length like pixels, percentage; auto: the browser will calculate and select a width for the specified element (default value)</td>
+    <td><ul><li> auto</li> <li><i>length</i> (px, em, cm, etc.)</li> <li><i>%</i> (% of the width of the containing element)</li> <li>inherit (inherited from the parent element)</li><ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#table-width-and-height">Size</a>, <a href="https://www.w3schools.com/cssref/pr_dim_height.asp">height</a>, <a href="https://www.w3schools.com/cssref/pr_dim_width.asp">width</a></td>
+  </tr>
+  <tr>
+    <td>text-align</td>
+    <td> &lt;th&gt;, &lt;td&gt;</td>
+    <td>align the text of and cells left, right or center</td>
+    <td><ul><li> left</li> <li>right</li> <li>center</li> <li>Default: &lt;th&gt; = center, &lt;td&gt; = left</li><ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#text-align">Size</a>, <a href="https://www.w3schools.com/cssref/pr_text_text-align.asp">W3S</a></td>
+  </tr>
+  <tr>
+    <td>vertical-align</td>
+    <td> &lt;th&gt;, &lt;td&gt;</td>
+    <td>align the text of and cells top, bottom or middle</td>
+    <td><ul><li> top</li> <li>bottom</li> <li>middle</li> <li>Default: middle</li><ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#vertical-align">Size</a>, <a href="https://www.w3schools.com/cssref/pr_pos_vertical-align.asp">W3S</a></td>
+  </tr>
+  <tr>
+    <td>padding</td>
+    <td> &lt;th&gt;, &lt;td&gt;</td>
+    <td>provide some space between border and content in cell</td>
+    <td><ul><li><i>length</i> (px, em, cm, etc.)</li> <li><i>%</i> (% of the width of the containing element)</li> <li><strong>&lt;length1, length2&gt;</strong>: <br/>top = bottom = length1; right = left = length2</li> <li><strong>&lt;length1, length2, length3&gt;</strong>: <br/>top = length1; right = left = length2; bottom = length3</li> <li><strong>&lt;length1, length2, length3. length4&gt;</strong>: <br/>top = length1; right = length2; bottom = length3; left = length4</li><ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#padding">Padding</a>, <a href="https://www.w3schools.com/cssref/pr_text_text-align.asp">W3S</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 
 ## Box Model
 
-<a href="https://www.w3.org/TR/CSS22/box.html"> 
-    <img src="https://www.w3.org/TR/CSS22/images/boxdim.png" alt="Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding. The margin, border, and padding can be broken down into top, right, bottom, and left segments (e.g., in the diagram, 'LM' for left margin, 'RP' for right padding, 'TB' for top border, etc.)." title="The four areas of the generic CSS box: content, padding, border, and margin." width="350" style="display: block; margin: auto; background-color: white"> <br/>
-</a>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.w3.org/TR/CSS22/box.html">
+    <img src="https://www.w3.org/TR/CSS22/images/boxdim.png" style="margin: 0.1em;" alt="Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding. The margin, border, and padding can be broken down into top, right, bottom, and left segments (e.g., in the diagram, 'LM' for left margin, 'RP' for right padding, 'TB' for top border, etc.)." title="The four areas of the generic CSS box: content, padding, border, and margin" width="300">
+  </a>
+  <a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
+  </a></div>
+</div>
+
+| Property | Description | Value | Link |
+|----------|-------------|------|-------|
+| `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left` | the white space that sits closest to an HTML element | `px`, `em` | [W3C][021], [Space][022] |
+| `border`, `border-top`, `border-right`, `border-bottom`, `border-left` | the area outside the padding of an HTML element | `1px black solid` | [W3C][023], [Space][024] |
+| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `auto`, `em`, `px` | [W3C][025], [Space][026] |
+
 
 ### Model Properties
 
-<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Description</th>
@@ -551,7 +607,7 @@ See [Image Attributes][]
     <td>padding</td>
     <td>padding for all sides of an element</td>
     <td><ul><li>length (`px`, `em`, `cm`, etc.)</li> <li>% (% of the width of the containing element)</li> <li>inherit (inherited from the parent element)</li><ul></td>
-    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="https://www.w3schools.com/css/css_padding.asp">W3S</a></td>
+    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="">Space</a>, <a href="https://www.w3schools.com/css/css_padding.asp">W3S</a>, </td>
   </tr>
   <tr>
     <td>padding-top</td>
@@ -786,17 +842,6 @@ display: inline-grid;
 
 ### Position Property
 
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `position` | set the algorithm for how the Web browser will compute the way the HTML elements are placed on the pag | `static`, `relative`, `absolute`, `fixed`, `inherit` | [W3C][053], [Position][054] |
-| `top` | specify how far an absolutely positioned box's top margin edge is offset below the top edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `right` | specify how far a box's right margin edge is offset to the left of the right edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `bottom` | specify how far a box's bottom margin edge is offset above the bottom of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-| `left` | specify how far a box's left margin edge is offset to the right of the left edge of the box's containing block | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][055], [Position][054] |
-
-
-
-
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
@@ -809,7 +854,7 @@ display: inline-grid;
     <td>left, top, right, bottom</td>
     <td><ul> <li>adjust or set the position of an element</li> <li>determine the final location of positioned elements</li></ul></td>
     <td>length-value, percentage, auto</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-left-top-right-and-bottom-properties">Position</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/left">Left</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/top">Top</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/bottom">Bottom</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/right">Right</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-left-top-right-and-bottom-properties">Position</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/left">Left</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/top">Top</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/bottom">Bottom</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/right">Right</a>, <a href="https://www.w3.org/TR/CSS22/visuren.html#position-props">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property"> Positioning </a> </td>
   </tr>
   <tr>
     <td>z-index</td>
@@ -833,7 +878,7 @@ display: inline-grid;
     <td>position</td>
     <td><ul> <li>applied to floating and non-floating elements</li></ul></td>
     <td>none, left, right, both, inline-start, inline-end</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Position</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Position</a>, <a href="https://www.w3.org/TR/CSS22/visuren.html#choose-position">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property"> Positioning </a></td>
   </tr>
   </tbody>
 </table>
@@ -892,7 +937,7 @@ display: inline-grid;
     <td>Sets the height of an element</td>
   </tr>
   <tr>
-    <td>max-height</td>box-sizing
+    <td>max-height</td>
     <td>Sets the maximubox-sizingent</td>
   </tr>
   <tr>
@@ -916,7 +961,6 @@ display: inline-grid;
 
 
 ### Box Sizing
-
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
   <thead><tr>
@@ -957,34 +1001,35 @@ display: inline-grid;
     <td>overflow</td>
     <td><ul> <li>specified as one or two keywords chosen from the list of values below</li> <li>two keywords: (overflow-x, overflow-y)</li><li>create a new block formatting context except visible </li><li>if a float intersected with the scrolling element it would forcibly rewrap the content after each scroll step, leading to a slow scrolling experience</li><li>the block-level container must have either a set height (height or max-height) or white-space set to nowrap</li></ul></td>
     <td>visible, hidden, auto, scroll, clip, hidden visible</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow">Overflow</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Lecture</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow">Overflow</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Layout</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#overflow">Table</a></td>
   </tr>
   <tr>
     <td>overflow-block</td>
     <td><ul><li>specified with a single keyword</li><li>sets what shows when content overflows a block-level element's block start and block end edge</li></ul></td>
     <td>visible, hidden, auto, scroll</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-block">Overflow-Block</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Lecture</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-block">Overflow-Block</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Layout</a></td>
   </tr>
   <tr>
     <td>overflow-inline</td>
     <td><ul><li>specified with a single keyword</li><li>sets what shows when content overflows an inline element's start and end edges</li></ul></td>
     <td>visible, hidden, auto, scroll</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-inline">Overflow-Inline</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Lecture</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-inline">Overflow-Inline</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Layout</a></td>
   </tr>
   <tr>
     <td>overflow-x</td>
     <td><ul><li>specified with a single keyword</li><li>sets what shows when content overflows a block-level element's left and right edges</li></ul></td>
     <td>visible, hidden, auto, scroll</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x">Overflow-X</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Lecture</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x">Overflow-X</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Layout</a></td>
   </tr>
   <tr>
     <td>overflow-y</td>
     <td><ul><li>specified with a single keyword</li><li>sets what shows when content overflows an inline element's top and bottom edges</li></ul></td>
     <td>visible, hidden, auto, scroll</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y">Overflow-Y</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Lecture</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y">Overflow-Y</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#cropping-and-scrolling-overflow">Layout</a></td>
   </tr>
   </tbody>
 </table>
+
 
 
 ## The Flexible Box Layout
@@ -1256,9 +1301,7 @@ display: inline-grid;
 [050]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-float-property
 [051]: https://www.w3.org/TR/CSS22/visuren.html#propdef-clear
 [052]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-clear-property
-[053]: https://www.w3.org/TR/CSS22/visuren.html#choose-position
-[054]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property
-[055]: https://www.w3.org/TR/CSS22/visuren.html#position-props
+
 [056]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#css-best-practices
 [057]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#executive-summary
 [058]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#foundations

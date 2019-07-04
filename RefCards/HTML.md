@@ -888,8 +888,6 @@
 [065]: https://www.w3schools.com/css/css_margin.asp
 [066]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#3-2-css-basic-syntax
 
-
-
 [070]: ../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-left-top-right-and-bottom-properties
 [071]: ../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#-z-index-
 [072]: https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html
