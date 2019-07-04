@@ -105,6 +105,33 @@ Module 6: Basics of page Layout
 
 ### Grading policy
 
+#### Passing
+
+This course is graded as pass/fail, meaning you will either be given a passing score or a failing score. 
+__The score required to pass this course is 70%.__
+
+Check your progress from time to time! (see the "Progress" tab above on the far right).
+
+You will be graded on...
+
+1. Module exercises
+
+  At the end of each module, you will find a small handful of questions, named after "Exercises - Module x" (where x is the module number). These are designed to assess your progress in the course, module after module. Questions will be in the form of multiple choice, checkbox or text input problems.
+
+  Module exercises count towards 75% of the grade.
+
+2. Final exam
+
+  The final exam is available at the end of Module 6. The final exam consists of questions (multiple choice, checkbox or text input problems) covering the entirety of the course.
+
+  The final exam counts towards 25% of the grade.
+
+
+You __WILL NOT__ be graded on ...
+
++ In the "About the Web and W3C" section, we provide 2 simple quizzes. They do not count in the final grade.
++ You will find questions at the end of some pages. Each of these is called "knowledge check", and as the name indicates it, they are designed to test your retention of the knowledge, page after page.
++ There are activities throughout the course, as well as a global project that you will build module after module. These are to help you practice what you have learnt.
 
 
 ### Due dates
