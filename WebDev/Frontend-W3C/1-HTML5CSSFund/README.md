@@ -30,6 +30,7 @@
     + [Quizzes](00-Info.md#)
 + [Why accessibility is important](00-Info.md#)
     + [What is Web accessibility?](00-Info.md#)
+    + [Introduction to Web Accessibility and W3C Standards](00-Info.md#)
     + [First steps in Web accessibility](00-Info.md#)
     + [Discussion](00-Info.md#)
 + [Why internationalization is important](00-Info.md#)
