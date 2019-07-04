@@ -102,7 +102,7 @@ True or False: The primary purpose of HTML is to assist formatting of text.
 
 The Internet existed long before the Web came to fruition, and lots of organizations were connected to it, including schools, companies and government organizations.  As things progressed through the 80's, the Internet was used for file transfers, newsgroups (a kind of open forum), email and other conveniences.
 
-At the time there were a number of different programs like '[fetch](https://en.wikipedia.org/wiki/Fetch_(FTP_client)', '[gopher](http://www.yourdictionary.com/gopher#Noun-3' and '[archie](https://en.wikipedia.org/wiki/Archie_search_engine' that were used to download, browse and search for files.  Typically, you might use one tool to search for the location of files of interest, then another to copy that file to a local machine.  Then, you still needed more tools to read that file.  If it was text, you could use a text editor, if it was a formatted document you might need a word processor, if a picture you would need an image viewer and so on.
+At the time there were a number of different programs like '[fetch](https://en.wikipedia.org/wiki/Fetch_(FTP_client))', ['gopher'](http://www.yourdictionary.com/gopher#Noun-3)' and '[archie](https://en.wikipedia.org/wiki/Archie_search_engine)' that were used to download, browse and search for files.  Typically, you might use one tool to search for the location of files of interest, then another to copy that file to a local machine.  Then, you still needed more tools to read that file.  If it was text, you could use a text editor, if it was a formatted document you might need a word processor, if a picture you would need an image viewer and so on.
 
 [Marc Andreesen](https://en.wikipedia.org/wiki/Marc_Andreessen) conceived of a solution that would put all the pieces together in one app, making it easy for users to browse all the different sorts of information and data on the World Wide Web.  Together with others, he started the "Mosaic" project.
 
@@ -123,6 +123,44 @@ Exploring the Web, "Then and Now":
 ## 1.3 Elements, tags and attributes
 
 ### Putting the "M" in HTML
+
+So the "M" in HTML stands for "Markup", but what does Markup really mean? Essentially, it means to annotate a document with extra information. Things like where different sections and paragraphs begin and end, which part is the title, which things should be emphasized and so on.  
+
+There are many ways to markup a document, but HTML borrows a technique from an ancestor language, SGML ([Standard Generalized Markup Language](https://en.wikipedia.org/wiki/Standard_Generalized_Markup_Language)), which uses angle brackets ("<" and ">") to separate the annotations from the regular text.  In HTML these annotations are called "tags".
+
+For example, consider the following chunk of HTML code:
+
+```html
+   <body>
+    <h1>A Tale of Two Cities</h1>
+    <p>
+      It was the best of times, it was the worst of times, . . . .
+    </p>
+    . . .
+    <p>
+      . . . it is a far, far better rest
+      that I go to than I have ever known.
+    </p>
+  </body>
+```
+
+If you eliminated everything in between the angle brackets from the text, for most purposes it would still read the same:
+
+<pre style="font-size: 16px; line-height: 25.6px;"><code>A Tale of Two Cities</code><br>It was the best of times, it was the worst of times . . . .<br>  . . .<br>. . . it is a far, far better rest<br>    that I go to than I have ever known.</pre>
+
+Once you know that everything in angle brackets is "meta-information", it leaves a lot of flexibility. You can put a lot of different things in between those brackets without any of it showing up (directly) in your finished document. And, though you don't usually see directly what's in those angle brackets, they can often have a big effect on what your Web page looks like as well as how it responds and interacts with you.
+
+
+#### Try It Out!
+
+I expect at this point you may be longing to write some HTML code.  As is the tradition in programming tutorials, we'll pause here to create a simple "Hello HTML" program. Please choose any Web editor of your liking (see in the subsection "Course tools" - Module 0).
+
+Note: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget). But it's better to use one of the following online code editors:
+
++ JS Bin: http://jsbin.com (JS Bin tutorial)
++ CodePen: http://codepen.io (CodePen tutorial)
+
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, real time remote pair programming.
 
 
 
