@@ -673,4 +673,3 @@ You will learn about the basics as you progress through the course, so don't wor
 When you start creating Web pages, you can also run them through the W3C's [Internationalization Checker(https://validator.w3.org/i18n-checker/)].  If there are internationalization problems with your page, this checker explains what they are and what to do about it.
 
 
-### Discussion
