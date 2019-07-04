@@ -600,10 +600,6 @@ Example: See the W3C logo below. It contains a link that points to the W3C Web s
 ```
 
 
-### Discussion
-
-
-
 ## Why internationalization is important
 
 
