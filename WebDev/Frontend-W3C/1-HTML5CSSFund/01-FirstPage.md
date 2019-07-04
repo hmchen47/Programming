@@ -109,8 +109,15 @@ At the time there were a number of different programs like '[fetch](https://en.w
 Though not technically the first browser, Mosaic was the first one that many people experienced and played a big part in popularizing the concept of the World Wide Web and the Web browser. It provided a simple graphical way to access and browse the various resources on the Internet. Instead of using different tools to download and view information on the Internet, a simple click on a link would present the information in a graphical window. In many ways, it is the ancestor of most modern browsers.
 
 
-### Activity - Explore the Web and discussion
+### Activity - Explore the Web
 
+Exploring the Web, "Then and Now":
+
++ Go to archive.org and find the earliest instance of the Web site: www.google.com.
++ Note the differences between that and its current Web site.
++ Find an old news story, see how far back you can go (hint: start by looking at yahoo.com).
++ In general, what differences do you notice between Web sites from the 90's and Web sites today?
++ Post your observations and findings in the discussion forum below.
 
 
 ## 1.3 Elements, tags and attributes

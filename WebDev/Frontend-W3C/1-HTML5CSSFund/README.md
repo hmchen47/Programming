@@ -47,7 +47,7 @@
     + [HTML5, CSS and JS](01-FirstPage.md#)
     + [Hypertext](01-FirstPage.md#)
     + [The browser](01-FirstPage.md#)
-    + [Activity - Explore the Web and discussion](01-FirstPage.md#)
+    + [Activity - Explore the Web](01-FirstPage.md#)
 + 1.3 [Elements, tags and attributes](01-FirstPage.md#)
     + [Putting the "M" in HTML](01-FirstPage.md#)
     + [Programming "Hello HTML"](01-FirstPage.md#)
