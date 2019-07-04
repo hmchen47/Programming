@@ -388,6 +388,32 @@ There are many other handy tools such as [JSFiddle](https://jsfiddle.net/), and 
 
 ### W3C validators
 
+For over 15 years, the W3C has been developing and hosting [free and open source tools](http://w3c.github.io/developers/) used every day by __millions of Web developers and Web designers__. All the tools listed below are Web-based, and are available as downloadable sources or as free services on the [W3C Developers tools](http://w3c.github.io/developers/tools/) site.
+
+
+#### W3C Validator
+
+The [W3C validator](https://validator.w3.org/) checks the [markup validity](http://validator.w3.org/docs/help.html#validation_basics) of various Web document formats, such as HTML. Note that you are automatically directed to the Nu Html Checker when validating an HTML5 document.
+
+
+#### CSS Validator
+
+The [CSS validator](https://jigsaw.w3.org/css-validator/) checks Cascading Style Sheets (CSS) and (X)HTML documents that use CSS stylesheets.
+
+
+#### Unicorn
+
+[Unicorn](http://validator.w3.org/unicorn/) is W3C's unified validator, which helps people improve the quality of their Web pages by performing a variety of checks. Unicorn gathers the results of the popular HTML and CSS validators, as well as other useful services, such as Internationalization, RSS/Atom feeds and http headers.
+
+
+#### Internationalization Checker
+
+The [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/) provides information about various internationalization-related aspects of your page, including the HTTP headers that affect it. It will also report a number of  issues and offer advice about how to resolve them.
+
+
+#### Link Checker
+
+The [W3C Link Checker](http://validator.w3.org/checklink) looks for issues in links, anchors and referenced objects in a Web page, CSS style sheet, or recursively on a whole Web site. For best results, it is recommended to first ensure that the documents checked use valid [(X)HTML Markup](http://validator.w3.org/) and [CSS](http://jigsaw.w3.org/css-validator/).
 
 
 
