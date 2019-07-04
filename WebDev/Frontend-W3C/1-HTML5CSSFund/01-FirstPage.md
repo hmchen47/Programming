@@ -12,6 +12,19 @@
 
 ### Module 1 - Content
 
+__1.1 Introduction__: A video that introduces the content of Module 1.
+
+__1.2 The big three__: Learn about the basic tools you will use to code for the Web including hypertext and Web browsers.
+
+__1.3 Elements, tags and attributes__: Here you will begin learning about the functions of the different types of code.
+
+__1.4 Character encoding__: To make you familiarized with international features.
+
+__1.5 Best practices, the wisdom__: Studying other peoples mistakes is a great way to avoid the same pitfalls.
+
+__1.6 More on tags__: Review of the tags we have just learned about and get started on your course project.
+
+__1.7 Test your knowledge__: Try out these quizzes on all the things that you have learned in Module 1.
 
 
 ## 1.2 The big three: HTML5, CSS and JavaScript
