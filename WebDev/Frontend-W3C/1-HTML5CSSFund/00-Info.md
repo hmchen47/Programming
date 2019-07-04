@@ -541,6 +541,24 @@ Web accessibility features also benefit many more users, such as:
 The Web is an increasingly important resource in many aspects of life: education, employment, government, commerce, health care, recreation, and more. When Web pages, Web technologies, Web tools, or Web applications are badly designed, they can create barriers that exclude people from using the Web. More information is available in the [W3C Accessibility](https://www.w3.org/standards/webdesign/accessibility) overview.
 
 
+### Introduction to Web Accessibility and W3C Standards
+
+<video src="https://youtu.be/20SHvU2PKsM" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
++ The Web Content Accessibility Guidelines (WCAG)
+  + ISO 40500
+  + EN 301 549
+
++ Four core principles of WCAG
+  + Perceivable: people can see the content, or hear it
+  + Operable: people can use the computer by typing, or by voice
+  + Understandable: people get clear and simple language
+  + Robust: people can use different assistive technologies
+
 
 ### First steps in Web accessibility
 
