@@ -165,6 +165,58 @@ These are HTML, CSS, and JavaScript code editors that preview/showcase your code
 
 ### Programming "Hello HTML"
 
+You can build and edit your HTML pages by either using online editors or editors that you can install on your machine like Visual Studio Code.
+
+
+#### Using online editors:
+
+Both [JSBin](http://jsbin.com/) and [CodePen](https://codepen.io/) are two online editors that you can use to create HTML Web pages. The following two videos show you how to create your first HTML page using [JSBin](http://jsbin.com/) and [CodePen](https://codepen.io/)
+
+
+#### Live coding video: using JSBin
+
+<video src="https://edx-video.net/W3CHTM502016-V015000_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@e7a17d2e532941fda5c364959878bd3b/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+#### Live coding video: using CodePen
+
+<video src="https://edx-video.net/W3CHTM502016-V008300_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@01aa1ae4d35443b892a3be4fa12a6f3e/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+#### Using Visual Studio Code
+
+Watch these three demos below to learn how to use [Visual Studio Code](https://code.visualstudio.com/) (VS) to write HTML pages and explore the support you get when using Visual Studio Code to create Web pages. You will also learn how to preview your HTML page using the "open in browser" extension. Finally, you will learn how to build your first "Hello HTML!" page using VS Code.
+
+
+#### Live coding video: using Visual Studio Code
+
+<video src="https://edx-video.net/W3CHTM502016-V015100_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@7bf36e0cca7b42399ba26e3ba97bd6bb/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+#### Live coding video: HTML preview using VS Code
+
+<video src="https://edx-video.net/W3CHTM502016-V011300_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@1f77fe3b12d1437abd77e16204b37699/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+#### Live coding video: first page with VS Code
+
+<video src="https://edx-video.net/W3CHTM502016-V015600_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@0cd5a720c72b4c098f1cac1cdfadcbf9/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
 
 
 
