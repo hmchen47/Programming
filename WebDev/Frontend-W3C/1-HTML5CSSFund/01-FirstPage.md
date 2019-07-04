@@ -31,6 +31,25 @@ __1.7 Test your knowledge__: Try out these quizzes on all the things that you ha
 
 ### Vague but exciting!
 
+Twenty eight years ago today, a proposal was sent internally at CERN outlying a universal linked information system. Dubbed 'Information Management: A proposal', pictured below, the proposal was created by Sir Tim Berners-Lee and was sent to his boss Mike Sendall, who described it as 'vague but exciting'.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="url">
+    <img src="https://www.w3.org/History/1989/Image1.gif" style="margin: 0.1em;" alt="Tim Berners-Lee original proposal for the Web" title="Tim Berners-Lee original proposal for the Web" width="350">
+  </a></div>
+</div>
+
+Sir Tim Berners-Lee’s vision for universality enabled the development of a high-level network of content that allows any document to link to any other documents.
+
+The World Wide Web was initially created to make it easier to share research papers. It is a system of interlinked ‘hypertext’ documents that are accessed via the Internet; in essence, an information space. While he did not invent hypertext systems, Berners-Lee proposed using them 'to link and access information of various kinds as a web of nodes in which the user can browse at will.'
+
+His breakthrough was to link hypertext to the Internet and he used three technologies to do this:
+
++ HyperText Transfer Protocol (HTTP) is the foundation of data communication for the Web.
++ HyperText Markup Language (HTML) is the main mark-up language for creating Web pages and information that can be displayed on a Web browser.
+
+Web addresses or a Uniform Resource Locator (URL) are used to reference a Web page.
+In the following pages, we present HTML through what is usually called the big 3 (HTML5, CSS and JavaScript), the hypertext concept and the browser, an application program that provides a way to look at and interact with all the information on the World Wide Web.
 
 
 ### HTML5, CSS and JS
