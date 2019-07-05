@@ -976,6 +976,19 @@ These are HTML, CSS, and JavaScript code editors that preview/showcase your code
 
 ### Recipe project - Module 1
 
+Throughout the course, we'll be building a simple project, adding to it with what we've learned in each module. This project will be a simple Web application that will allow you to browse different recipes.
+
+For now, we'll start off with a simple first draft using just what we've learned about HTML5 using tags we've covered.  We want to have the following components:
+
++ A large title for the app, something like "My Favorite Recipes", or whatever you'd like to call it.
++ A description of a recipe, just some plain text explaining what the recipe is and any other pertinent information.
++ A set of steps to follow, numbered in order.
+
+Please start with this "[empty page](src/1.6.5-Recipes.html)" in CopePen.
+
+... and write the correct markup in order to get this [result](src/1.6.5-RecipesSample.html)
+
+If you want to share an actual work/recipe in the discussion forum, please either copy-paste your lines of code into a JSBin or a CodePen project, or write your HTML5 code directly into one of these online tools.
 
 
 ## 1.7 Exercises - Module 1
