@@ -871,7 +871,7 @@ Now you can create a simple, empty, HTML page, and you know what tags are, thoug
 
 + <strong><!doctype></strong> - This tag is special.  In fact, many folks don't even consider it a tag, as it is officially the DTD - Document Type Declaration.  Unlike most tags, it has no closing tag, not even a "/" at the end.  It is there to declare exactly what type of HTML the computer will find in this file. It is used as that: <!DOCTYPE html>
 + <strong>&lt;html&gt;</strong> - The __html__ open and close tags wrap around nearly everything in your html file (except the doctype tag).  This essentially contains all of the HTML code in the file, which is generally everything (one big html element). In the next module, we will learn about attributes, and you will learn that you should always add a lang attribute to the html opening tag, to identify the default language of your page.
-+ <strong>&lt;head&gt;</strong> - The __head__ element is where you put information that does not really appear in the body of the work.  For example, the <title> of the page, which typically appears on the window containing the page, is defined in the head section.
++ <strong>&lt;head&gt;</strong> - The __head__ element is where you put information that does not really appear in the body of the work.  For example, the `<title>` of the page, which typically appears on the window containing the page, is defined in the head section.
 + <strong>&lt;body&gt;</strong> - The __body__ section contains all of the content of your page, essentially what the user sees.  This could be text, pictures, links, videos, tables and so on.  In addition to the content, the body usually contains lots of other elements, each indicated by their own tags.
 + <strong>&lt;h1&gt;</strong> - There are a whole collection of 'h' tags, `<h1>`, `<h2>`, `<h3>` . . . all the way up to `<h6>`.  Why there are 6 rather than 5 or 7 may be a bit of a mystery, but there it is.  They're generally used the same way you would use chapter or section headings in a book (don't confuse the h here with the `<head>` section, that is completely different).  An `<h1>` tag might be used as the title of the document (as it appears on the page, not the same as the aforementioned `<title>` element), or to indicate the outermost level in a group of nested sections. [Example code](src/1.6.1-Heading.html)
 
@@ -883,6 +883,68 @@ You might notice that when discussing how these different elements are rendered 
 
 
 ### A few new tags to learn
+
+There are a lot more tags, but we will just cover a few more for now, mostly because they are straightforward to use and you can see the effect in your Web page when you use them:
+
++ <strong>&lt;q&gt;</strong> - The __q__ tag is for quotes.  This has no relationship to the somewhat confusing single and double quote characters, rather it's used when you want to quote a person or written work in your Web page.  It is customarily displayed using quotation marks, again unrelated to strings. Thus `<q>Brevity is beautiful</q>` would be rendered as Brevity is beautiful.
++ <strong>&lt;blockquote&gt;</strong> - If you want to quote a larger passage, you may want to use __blockquote__, which will typically set the quoted text apart from the surrounding text and indent it, to make clear that it is quoted text:
+
+  <blockquote style="background: #eee; width: 70%; padding: 1em; font-size: larger;">Early to bed and early to rise, makes someone healthy, wealthy and wise - Benjamin Franklin</blockquote>
+
++ <strong>&lt;ul&gt;, &lt;ol&gt;</strong> - These two tags are used to indicate a list of things.  The only difference is that `<ol>` is an "ordered" list, meaning the elements are in a particular order, and it might be a good idea to number them.  The "__u__" in `<ul>` stands for "unordered" and is used for a list of things where the order doesn't really matter, so it is usually rendered as a bulleted list, or something else without numbers.
++ <strong>&lt;li&gt;</strong> - The li element is a "List Item", i.e. one item in the list.  As you might expect, this element only really makes sense nested inside a list (`<ul>` or `<ol>`).  In the final rendering, each li element would typically be preceded by a number or bullet, or something similar (but not necessarily).  Thus a list in HTML would be look something like this:
+
+  ```html
+  <ul>
+    <li> First item in list </li>
+    <li> Second item in list </li>
+    . . .
+  </ul>
+  ```
+
+  This code might be rendered like this:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/633117d2ef0f4bb59cda68d966b6d288/2ee98d672ca249d6a26d796191c1b381/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40d6d300a95d984151949f9c1678b24f25">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/1f2fef1509f7b65e27161133dd46032e/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/rendered-list-example.png" style="margin: 0.1em;" alt="Example of a list as it would appear on a Web page" title="Example of a list as it would appear on a Web page" width="200">
+    </a></div>
+  </div>
+
+There are a couple more tags we want to bring up at this point, but first a disclaimer.  We have been emphasizing the general rule that HTML is for the logical structure of your content, not what it looks like.  Well, nothing is perfect, including this goal.  There are some HTML elements that are primarily used to satisfy certain formatting requirements. 
+
++ <strong>&lt;hr&gt;</strong> - This one might be debatable.  __HR__ originally stood for "Horizontal Rule", i.e. a horizontal line across the width of the text.  It's still there in HTML5, but now is officially supposed to represent a "thematic break" in the content.  It would typically look like this: <hr>
++ <strong>&lt;br&gt;</strong> - This one signifies a line break.  It is used for any number of purposes.  For example it can be an easy way to make sure that lines of poetry break where they're supposed to (less verbose than requiring each line to be a separate element).  Essentially it helps break the "white space" rule: where spaces and carriage returns are generally treated the same, the `<br>` tag is treated as a required carriage return.  Because it's an empty tag (doesn't contain any text or anything, just indicates a particular point in the text), it doesn't really need a close tag, so it can be written as `<br>`, though `<br />` is also acceptable.  Oddly, in the browsers I tried, if you do add a close tag, as in `<br></br>`, the close tag is interpreted as a regular br tag, thus you get two line breaks in a row.  One other thing to remember is that the `<br>` tag implies a break even if there is no break in the text containing it, i.e. these two sentences would be formatted exactly the same:
+
+```html
+That which we call a rose <br>
+By any other name would smell as sweet
+ 
+That which we call a rose <br> By any other name
+would smell as sweet
+```
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/633117d2ef0f4bb59cda68d966b6d288/2ee98d672ca249d6a26d796191c1b381/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40d6d300a95d984151949f9c1678b24f25">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0b13950888b9af5856ee038b22f594a0/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/poem-examaple.png" style="margin: 0.1em;" alt="Example of poetry as it might appear on a Web page" title="Example of poetry as it might appear on a Web page" width="250">
+    </a></div>
+  </div>
+
++ <strong>&lt;pre&gt;</strong> - This is another tag that helps you break the white space rule.  PRE stands for "PREformatted text", meaning "I've set this up just the way I want it, don't mess with it."  It generally implies a monospace font, and none of the spaces, tabs or carriage-returns are ignored.  It is very handy for illustrating bits of program code, or other "typewritten" material:
+
+  ```html
+  <pre>
+      <h1>Page Heading</h1>
+      <p>And here is the first paragraph</p>
+  </pre>
+  ```
+
+
+#### Knowledge check 1.6.2
+
+A 'ul' element isn't very useful unless it contains what kind of tags?
+
+  Ans: li or &lt;li&gt;<br>
+  Explanation: A 'ul' (unordered List) primarily exists to contain "List Items". Without 'li' elements, it's an empty list.
 
 
 
