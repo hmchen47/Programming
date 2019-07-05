@@ -320,6 +320,21 @@ It's important to remember that just as HTML, CSS and JavaScript are three diffe
 
 ### Attributes
 
+Most of what we'll cover about attributes will come later, but I wanted to introduce the idea briefly. Basically, a given element on your Web page can be distinguished by any number of unique or common attributes.  You can identify it uniquely with an 'id' attribute, or group it with a class of other elements by setting the 'class' attribute.
+
+Attributes in HTML are written inside the opening tag like this:
+
+```html
+<p id="paragraph-1" class="regular-paragraphs">
+   Call me Ishmael . . .
+ </p>
+```
+
+The paragraph above has a unique identifier, "paragraph-1" and is part of a class of "regular-paragraphs". The letters inside the quotes have no meaning to the computer, they just need to be consistent. They are actually strings, which, as we will soon learn, suggest that if you want to have another paragraph in this class, it has to say "regular-paragraphs", not "regular" or "Regular-Paragraphs" or any other variation.
+
+Again, the fact that the computer does not care what we put in those strings (except for some restrictions) means we can use them to convey meaning to a human developer. I could just as easily have said id='x' and class='y', but anyone looking at that would have no hint what the significance of x and y are. Best practice is to name these things to increase clarity, consistency and brevity.
+
+But more about attributes in the next module.
 
 
 ### All together now
