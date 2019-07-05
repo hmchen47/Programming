@@ -958,11 +958,23 @@ A 'ul' element isn't very useful unless it contains what kind of tags?
 [Example Code](src/1.6.2-Quotes.html)
 
 
-### Activity - your first Web page and discussion
+### Activity - your first Web page
+
+For your first Web page, we propose that you:
+
++ Quote some poetry, preserving the "line oriented" format
++ Find a word that has at least 3 different definitions, list them in any order ([this Web site](http://englishwithatwist.com/2014/03/18/10-english-words-with-the-most-multiple-meanings-part-1/) may be helpful)
++ Try out some different tags to see the effect they have on your Web page
+
+Note: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget), but we'd prefer that you use one of the following online code editors:
+
++ JS Bin: http://jsbin.com (JS Bin tutorial)
++ CodePen: http://codepen.io (CodePen tutorial)
+
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, real-time remote pair programming.
 
 
-
-### Recipe project - Module 1 and discussion
+### Recipe project - Module 1
 
 
 
