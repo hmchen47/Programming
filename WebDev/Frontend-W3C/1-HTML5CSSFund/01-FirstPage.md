@@ -339,6 +339,94 @@ But more about attributes in the next module.
 
 ### All together now
 
+One key to understanding HTML, or any computer language, is to be sure that you avoid ambiguity, because computers generally are not good at judgement calls. For example, you could streamline HTML so that whenever you see a <p> tag, you start a new paragraph, no close tag needed. That might work most of the time, but that would prevent you from nesting one element inside another, as the computer could not know if you meant the new element to be nested or a successor.
+
+A human designer might be able to tell what you meant from the context, and knowing that mistakes happen choose the one she thinks is best suited in that case. A computer, on the other hand, has difficulty with a task like that, so it is helpful to use a close tag that matches the open tag to make things absolutely clear.
+
+<div>
+  <div style="border: 1px solid blue; margin-top: 20px;">
+    <div style="display: inline-block; border: none; max-width: 50%; padding-left: 1em;">
+      <pre>&lt;p&gt;
+  The old lady pulled her spectacles
+down and looked over them about the
+room; then she put them up and looked
+out under them.
+
+  There was a slight noise behind her
+and she turned just in time to seize a
+small boy by the slack of his roundabout
+and arrest his flight.
+<span style="line-height: 25.6px;">&lt;/p&gt;</span>
+    </pre>
+  </div>
+  <div style="vertical-align: top; font-family: serif; display: inline-block; max-width: 35%; padding-left: 1em; margin-left: 1em; margin-top: 20px; border: none; border-left: 1px solid blue; margin-right: 1em; padding-right: 1em; text-indent: 1rem;">The old lady pulled her spectacles down and looked over them about the room; then she put them up and looked out under them. There was a slight noise behind her and she turned just in time to seize a small boy by the slack of his roundabout and arrest his flight.</div>
+  <p style="margin-right: 2em; padding-right: 1em; margin-left: 2em; margin-top: 0; text-indent: 4em; font-size: 90%; font-style: italic;">A&nbsp;human reader could easily detect that two paragraphs were intended and that the writer probably just forgot to terminate one and start the other. The computer, on the other hand, will only see one paragraph and layout accordingly.</p>
+  </div>
+  <p></p>
+  <p>On the other hand, you might think that since a computer always knows exactly what tag it is working with (eidetic memory), you could provide a sort of "universal close tag" that doesn't specify the type that it's closing. It would know to close the current tag. While that's technically true, it's handy to have the close tag there for people reading the code. The close tag makes it easier to remember what tag it is closing. We humans can get confused trying to remember that kind of detail.</p>
+  <p>But there are other ambiguities to consider. For example, when a browser receives a file, it may know that it's receiving an HTML file, but it won't know which version of HTML is used (it matters). &nbsp;</p>
+  <p>That's why <strong>the first thing you need in any HTML file</strong> is a tag to tell you what type of HTML file it is:</p>
+  <div class="source-code"><ol class="linenums">
+    <li style="margin-bottom: 0px;" class="L0" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+  </ol></div>
+  <p></p>
+  <p>In other words, the first thing the browser sees is the declaration "This is an HTML5 file, in case you were wondering". It may seem tedious to put this at the top of every file, but believe me, it used to be worse. &nbsp;You probably noticed that it doesn't say "!DOCTYPE HTML5" but just "html".</p>
+  <p>HTML5 can do this because all the previous versions were much more long winded.&nbsp; For example, at the top of an HTML 4.01 page, you might have something like this:</p>
+  <div class="source-code"><ol class="linenums">
+    <li style="margin-bottom: 0px;" class="L0" value="1"><span class="dec">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</span></li>
+  </ol></div>
+  <p></p>
+    <p>We do not need to go into the details of why and what that means, just be grateful that HTML5 did away with it.</p>
+</div>
+
+On the other hand, you might think that since a computer always knows exactly what tag it is working with (eidetic memory), you could provide a sort of "universal close tag" that doesn't specify the type that it's closing. It would know to close the current tag. While that's technically true, it's handy to have the close tag there for people reading the code. The close tag makes it easier to remember what tag it is closing. We humans can get confused trying to remember that kind of detail.
+
+But there are other ambiguities to consider. For example, when a browser receives a file, it may know that it's receiving an HTML file, but it won't know which version of HTML is used (it matters).  
+
+That's why __the first thing you need in any HTML file__ is a tag to tell you what type of HTML file it is:
+
+```html
+<!DOCTYPE html>
+```
+
+In other words, the first thing the browser sees is the declaration "This is an HTML5 file, in case you were wondering". It may seem tedious to put this at the top of every file, but believe me, it used to be worse.  You probably noticed that it doesn't say "!DOCTYPE HTML5" but just "html".
+
+HTML5 can do this because all the previous versions were much more long winded.  For example, at the top of an HTML 4.01 page, you might have something like this:
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+We do not need to go into the details of why and what that means, just be grateful that HTML5 did away with it.
+
+
+#### Everything in HTML
+
+It may seem redundant, but the next bit tells the computer where the actual HTML code begins, using an <html> tag:
+
+```html
+<html>
+```
+
+Nearly every HTML document has two parts. The 'body' is the main content of the page, containing text, images, tables and so on. The 'head' comes before the 'body' (on top?). It is where you put information about the document that does not really go in the body, AKA 'meta-' information. Things like what kind of character set the page is using, where the browser can find style tips, and what the title of the page is (which might be different from the title the user reads) all go in the `<head>`. If you have been paying attention, you should be able to create a very basic html file, in the right form, without any content. Hint, for the head of the document you would write:
+
+```html
+<head>
+ 
+</head>
+```
+
+You may recall the paragraph tag `<p>` that we used in the example above. Try inserting a paragraph into the body of your new document.  You should end up with something that looks like this:
+
+```html
+<!DOCTYPE html>
+<html>
+   <head>
+   </head>
+   <body>
+     <p>
+       As my English teacher used to say, 'One sentence does not a paragraph make'!
+     </p>
+   </body>
+</html>
+```
 
 
 ### Putting it all together
