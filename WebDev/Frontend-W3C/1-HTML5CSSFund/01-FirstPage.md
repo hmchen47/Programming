@@ -235,6 +235,43 @@ That may be a great picture, but how do we represent such a structure in a text 
 
 ### Tags
 
+'Tags' are what we use to organize a text file (which is just a long string of characters) such that it represents a tree of elements that make up the html document.  Tags are not the elements themselves, rather they're the bits of text you use to tell the computer where an element begins and ends.  When you 'mark up' a document, you generally don't want those extra notes that are not really part of the text to be presented to the reader. HTML borrows a technique from another language, SGML, to provide an easy way for a computer to determine which parts are "MarkUp" and which parts are the content. By using '<' and '>' as a kind of parentheses, HTML can indicate the beginning and end of a tag, i.e. the presence of '<' tells the browser 'this next bit is markup, pay attention'.
+
+Whatever that tag (or 'open tag') does, it applies to the content following the tag. Unless you want that to be the entire rest of the document, you need to indicate when to stop using that tag and do something else, so '<' and '>' are again used. Since elements are typically nested within other elements, the browser needs to be able to distinguish between the end of the current tag or the beginning of a new tag (representing a nested element). This is done by adding a '/' right after the '<' to indicated that it's a 'close tag'. To indicate the beginning and end of a paragraph (indicated by the single letter 'p') you end up with something like this:
+
+```html
+<p>This is my first paragraph!</p>
+```
+
+The browser sees the letters `<p>` and decides 'A new paragraph is starting, I'd better start a new line and maybe indent it'. Then when it sees `</p>` it knows that the paragraph it was working on is finished, so it should break the line there before going on to whatever is next.
+
+For example, the `<em>` tag is used for element that needs Emphasis.  The  '<' and '>' indicate that this is a tag, and the "little bits of text" in between tell us what kind of tag it is.  To completely describe the element, it needs an open and close tag, with everything in between the tags is the contents of the element:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/633117d2ef0f4bb59cda68d966b6d288/f36ef1f210bf460e9e0f43be78fb0bd5/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40427074c031424e189e4898d969d7dcd9">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9df11f203d18addb831da2f379cb49a5/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/tags.png" style="margin: 0.1em;" alt="Diagram of an element" title="Diagram of an element" width="350">
+  </a></div>
+</div>
+
+Most tags have open and close versions, but there are a few strange ones.  We'll learn more about these later, but we generally refer to the strange ones as "self closing" tags.   Usually these tags represent an element that is completely described by its attributes, and thus there is no need for other content.  So if you see something like this:
+
+```html
+<img src="https://goo.gl/pVxY0e" alt="Floating Flower"/>
+```
+
+... then you should know that the slash at the end of the open tag is sort of a shorthand for a close tag, so you won't see any other indication that this element is now complete.  There are also a few tags that don't even use the '/' at the end, they just don't have any close tag at all.  This works because all of the information this tag needs is declared in an "attribute".
+
+
+#### Knowledge check 1.3.4
+
+Which is the correct nesting of these elements?
+
+  1. "p" inside "body" inside "html"
+  2. "html" inside "body" inside "p"
+  3. "p" inside "body" inside "head"
+
+  Ans: 1 <br/>
+  Explanation: The top element is the "html" element, which should contain a "head" and a "body" as siblings, not nested in each other. A "p" element belongs in the body, not in the head.
 
 
 ### Comments
