@@ -437,8 +437,15 @@ You may recall the paragraph tag `<p>` that we used in the example above. Try in
 </video><br/>
 
 
-### Activity - View source and discussion
+### Activity - View source
 
+Pick 5 Web sites and do a "View Source" on each of them by right clicking on the page and selecting "view source" from the context menu:
+
++ How many are using HTML5?<br/>(Hint: if you have trouble finding sites that don't use HTML5, try looking at older sites)
++ How many have proper `<body>` and `<html>` close tags?
++ Is there a lot of white space? Why or why not?
+
+Please share your findings in the discussion forum below.
 
 
 ## 1.4 Character encoding
