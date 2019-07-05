@@ -716,7 +716,7 @@ Because an HTML file essentially represents a [tree structure](https://en.wikipe
 
 ```html
 <p>This is a <em>paragraph</em></p>
- 
+
 <h1>Paragraph ahead</h1>
 <p>And here it is.</p>
 ```
@@ -765,6 +765,84 @@ Often, projects will have coding styles that everyone is expected to use so that
 
 
 ### White space and capitalization
+
+Before we go any further, it's good to understand a few technical details.  
+
+#### Tags are case insensitive
+
+You might notice that code is not always consistent in how a given tag is written.  We might say `<h1>` in one spot and `<H1>` in another.  In this case, they are exactly the same kind of tag.  Tag names are "case insensitive" meaning that it does not matter whether you use capital or lower case letters in writing them.  In fact, you could write your body tag as `<bOdY>`, but that's not generally considered a good practice (Camel case/Snake case makes it harder to read).  On the other hand, there are places where you want the computer to be "case sensitive", meaning the computer will distinguish between upper-case and lower-case.
+
+Obviously, you usually don't want your text (that the user reads) to be case insensitive.  You want your sentences and proper names to start with capital letters, but most other characters to be lower-case (unless you want to yell, in which case use "all caps").  You generally don't want the browser to mess with that. You would probably be unhappy if the browser turned all your letters into lower case.  And people might think you're quite tightly wound if the browser converted everything to upper-case.
+
+
+#### Don't worry about too many white spaces
+
+On the other hand, we usually do not want to worry about the amount of white space (spaces, tabs and returns) in between words and lines and paragraphs (well sometimes we do, but there's a tag for that).  In HTML, most extra white space will be ignored.   By 'extra', I mean more than one space (or tab) consecutively.  There are many places where you need to be sure to separate one thing from another with a space, but it generally doesn't matter if you put more spaces in there, your result will look the same.  
+
+Thus, all three of the following elements should look exactly the same when you read them in the browser:
+
+```html
+<H1> This is the Beginning </H1>
+
+<H1>
+
+  This is the Beginning
+
+</H1>
+
+<h1>This is the Beginning</h1>
+```
+
+It might seem confusing at first, but this rule about white space is actually very convenient.  The third option might be a bit too cramped for your taste, while the second might seem to take up too much room in your source code.  __Because it doesn't matter to the browser how much white space there is, you can use white space to make your code more visibly organized and easier to read (note the use of indentation in the second `<H1>` element above)__.
+
+Given that tag names are case insensitive (you can write them either way), you might think that everything in between < and > is case insensitive, but it is not that easy.  
+
+__Attributes are case sensitive__! We have not learned much about attributes yet, but when we do we will discover that they are case sensitive, thus these two elements will have different 'id's:
+
+```html
+ <p id=ThisOne>
+ 
+ <p id=thisone>
+```
+
+Even though they're spelled the same, the differing cases indicate different names.  Note that distinguishing different id's solely by case (i.e. spelled the same but with different capitalization) is a really bad practice (opposite of best practice).  Instead you can use capitalization in other ways, like CamelCase.
+
+
+#### Any kind of quotes for strings
+
+Finally, it will eventually be important to know about "strings".  Strings are just a series of characters.  They could be any characters like "Dingbats" or "ABC123^&*@aeiou".  They can even contain spaces as in "This is a string.".  Because they are so wildly variable (they can essentially be anything you can type), the computer needs us to indicate where a string begins and ends, which is typically done with quotation marks, either single (') or double ("). HTML tries to be helpful here.  
+
+You will find that in places where HTML is expecting certain types of strings (say a string without spaces), even if you do not use the quotation marks it will essentially insert them for you. Thus:
+
+```html
+ <p id=MyName>
+
+ <p id="MyName">
+
+ <p id='MyName'>
+```
+
+.... are all equivalent.  
+
+It is also important to know that, in HTML, __double and single quotes are almost interchangeable, but they have to match__.  If you start a string with a double quote, the computer will not end it until it sees another double quote.  Any single quotes will be happily considered part of the string, which is handy if you need quotation marks in your string.  Because of this, if you create a string as ' "quote" ' (single quotes containing a double quoted string),  your string will have the letters `<space>-"-q-u-o-t-e-"-<space>` (with double quotes in the string and spaces outside those) as opposed to "quote" which will just have the letters q-u-o-t-e (no quotation marks or spaces in the string).  Nevertheless, best practice is to be consistent in your quotes, so it's best to quote them all the same way, even if the browser would understand it anyway.
+
+
+#### In summary
+
+The idea is to take advantage of these flexibilities to create clean organized code that is easy for a human to comprehend.  I guess you could sum it all up with these simple dictum:
+
++ __Case sensitive matters, except when it doesn't__ - case matters for some things, like strings and attributes, but not others, like tag names.
++ __White space is ignored, except when it's not__ - White space is used to separate things, but adding more than one space will be the same as just one.  White space in strings is always just as you type it.
++ __Quotation marks are not part of a string, except when they are__ - Quotation marks enclose a string, but thanks to the flexibility of choice between single or double quotes, it is easy to include one or the other in your string.
++ __The important thing is to look good__ - You can take advantage of flexibility in capitalization and white space to make your code more readable and organized.
+
+
+#### Knowledge check 1.5.3
+
+True or False: Since HTML5 ignores white space, a tag can be spelled with spaces in it, i.e. "ht ml"
+
+  Ans: False <br/>
+  Explanation: Spaces are generally used as separators, to separate one word from another. Putting a space in the middle of a tag name would break it into two words, which wouldn't work.
 
 
 
