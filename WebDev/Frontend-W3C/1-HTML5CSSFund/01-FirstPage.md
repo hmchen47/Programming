@@ -276,6 +276,46 @@ Which is the correct nesting of these elements?
 
 ### Comments
 
+Computers are great at reading computer languages, but it's not always easy for humans.  Comments are a way of adding some text that is primarily targeted towards human readers.
+
+Every programming language I've used has some way of representing comments.  HTML5 is no exception.  If you want to add something in your file that you want the browser to completely ignore, there's a special tag for that (unsurprisingly called a "comment tag"):
+
+```html
+<!-- This is a comment -->
+```
+
+An HTML comment tag starts with `<!--' and ends with '-->`, meaning that as the computer is reading through your HTML file, if it sees `<!--` it will ignore everything it sees until it comes across `-->`.  There is no open or close tag, just a comment tag.  Unlike most other things in HTML5, comments cannot be nested.  If you try that, like:
+
+```html
+<!--
+Beginning of comment
+  <!-- comment nested inside -->
+This is after the nested comment
+-->
+```
+
+Then the computer will see the beginning of the comment tag and start ignoring everything until it sees `-->`, including the second `<!--`.  Once it sees `-->` it assumes the comment is done and goes back to processing everything it sees as HTML code and content, even though the writer may have meant it to be a comment.
+
+Like most other tags, it can span multiple lines of your source file.  This can be really convenient when you have a lot to say:
+
+```html
+<!--
+If you want some good advice,
+Neither a borrower nor a lender be,
+For loan oft loses both itself and friend,
+And borrowing dulls the edge of husbandry.
+-->
+```
+
+Comments are also commonly used in development to block out bits of code, whether for testing or leaving unfinished business in the file:
+
+```html
+<!-- Not sure if I want this wording or not:
+<p>Eighty seven years ago, a bunch of guys started a new country</p>
+-->
+```
+
+It's important to remember that just as HTML, CSS and JavaScript are three different languages, they each have their own way of writing comments.  This might seem confusing, but it's actually kind of important that the HTML comments, at least, differ from the others.  As for the exact form of those comments, we'll cover that in good time.
 
 
 ### Attributes
