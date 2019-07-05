@@ -667,6 +667,29 @@ What is the output for the code below?
 
 ### Character references for other characters
 
+It is also possible to use character references to represent other characters in your page. This is useful when you are unable to type the character itself, or when you can't tell what the character is by looking at it (for example, a no-break space, or an invisible formatting character).
+
+There are predefined, named character references in HTML for several categories, these include:
+
++ currency symbols
++ copyright, trademark and registered symbol
++ general punctuation
++ arrows
++ mathematical symbols
++ Greek letters
+
+For a list of __named__ character references available in HTML, visit:  https://dev.w3.org/html5/html-author/charref.
+
+Any Unicode character can be represented using a __numeric__ character reference.
+
+Apart from the characters used for HTML syntax (described in the previous unit), there is usually no need to use character references to represent characters.  All browsers are built using Unicode internally, which means that they are capable of handling all possible characters defined by Unicode. So, the best practice for symbols like copyright, currency symbols, math and arrows is to simply type them directly into the source code.
+
+You can do this directly in the [code](src/1.4.4-OtherCharacter.html):   `<p>This is © 2015. Breach will entail a fine of € 400</p>`
+
+There is no need for the `&copy;` or `&euro;` HTML character reference if you are able to type the character itself.
+
+If you'd like to read more information about when to use character references and when not to use them, see [Using character escapes in markup and CSS](https://www.w3.org/International/questions/qa-escapes).
+
 
 
 ## 1.5 Best practices
