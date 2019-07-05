@@ -218,10 +218,19 @@ Watch these three demos below to learn how to use [Visual Studio Code](https://c
 </video><br/>
 
 
-
-
 ### Elements
 
+If you are sitting at a coffee shop next to a table of Web developers, you will probably hear three words quite a bit:  'Tags', 'Attributes' and 'Elements' (or sometimes 'DOM elements', same thing just more precise and wordy).
+
+'Elements' are the pieces themselves, i.e. a paragraph is an element, or a header is an element, even the body is an element.  Most elements can contain other elements, as the body element would contain header elements, paragraph elements, in fact pretty much all of the visible elements of the DOM.
+
+<svg width="600" height="300"><g transform="translate(120,20)"><g class="node" transform="translate(0,130)"><circle r="15" style="fill: rgb(255, 255, 255);"></circle><text x="-5" dy="1.4em" text-anchor="end" style="fill-opacity: 1;">html</text></g></g></svg>
+
+Consider the figure above.  It contains a single 'html' element.  It turns out this includes within it the entire content of your html file.  If you click on the "html" node, you'll find that it contains two components, a head and a body.  Clicking on each of those will reveal their respective contents.  This structure is what we computer scientists call a "tree".  Any given element (except for the outermost 'html' element) is wholly contained inside another element, referred to as the "parent" element.  Not surprisingly, the elements that a given element contains are its "child" elements.  And, yes, children of a common parent are often referred to as "siblings".
+
+Thus in the example above, the top element is the html element, which contains just two elements, the head and body.  The head element contains a title element and the body contains an 'h1' element and a 'p' element.  In a more typical example, the body would contain many more children, but for our purpose this is enough.
+
+That may be a great picture, but how do we represent such a structure in a text file?  Well, that's where "tags" come in.
 
 
 ### Tags
