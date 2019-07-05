@@ -521,6 +521,148 @@ What does character encoding do? Check all that apply (2 correct answers!).
 
 ### HTML character references
 
+#### Why we need character references
+
+Before we learn what HTML character references are, let's look at how the need for them came about.
+
+Try the following code in your [HTML](src/1.4.3-Character.html):
+
+```html
+<p>Welcome to "HTML5 & CSS Fundamentals". The first tag we will be learning about is  the <html> tag.</p>
+```
+
+Did you notice the `<html>` tag is missing in your output? In this case, your browser mixed it up with an actual tag, although it was meant to be a part of the sentence as text. 
+
+Because of this kind of confusion, HTML reserves certain characters. If you want to use these characters in your HTML, you need to use character references to display them.
+
+
+#### How to use character references
+
+All HTML character references can be written using either a name or number.
+
+If you want to use a named character reference in your source code, use an ampersand symbol '&', followed by the name and a semi-colon. Names are case sensitive. For example, the following represents a no-break space:
+
+__`&nbsp;`__
+
+There are two types of numeric character reference: ones that use decimal numbers and ones that use hexadecimal numbers.  In each case, the number represents the code point number of the character in Unicode.
+
+If you are using a decimal number, use an ampersand symbol '&' , followed by the symbol '#', then a decimal number and a semi-colon.
+
+__`&#160;`__
+
+If you are using a hexadecimal number, use an ampersand symbol '&' , followed by the symbols '#x', then a hexadecimal number and a semi-colon.
+
+__`&#x00A0;`__
+
+
+#### Protecting characters used for HTML syntax
+
+The five special characters listed in the table below should always be written as character references if you want them to appear on your page when viewed by a reader:
+
+<table align="center" style="font-family: arial,helvetica,sans-serif;" border="1" cellspacing="0" cellpadding="5" auto="">
+  <tbody>
+    <tr>
+      <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Symbol</td>
+      <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Entity Name</td>
+      <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Entity Number</td>
+      <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Usage</td>
+    </tr>
+    <tr>
+      <td>Less than '&lt;'</td>
+      <td>&amp;lt;</td>
+      <td>&amp;#60;</td>
+      <td>
+        <p>Div tag: &amp;lt;div&gt;</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Greater than '&gt;'</td>
+      <td>&amp;gt;</td>
+      <td>&amp;#62;</td>
+      <td><span style="line-height: 22.4px;">Div tag: &amp;lt;div&amp;gt;</span></td>
+    </tr>
+    <tr>
+      <td>Ampersand '&amp;'</td>
+      <td>&amp;amp;</td>
+      <td>&amp;#38;</td>
+      <td>Tom &amp;amp; Jerry</td>
+    </tr>
+    <tr>
+      <td>Non-breaking space - space that will not create a new line</td>
+      <td>&amp;nbsp;</td>
+      <td>&amp;#160;</td>
+      <td>If you add multiple spaces, the browser will remove all but one. So you have to use this entity to add multiple spaces in your HTML page.</td>
+    </tr>
+    <tr>
+      <td>Quotes "</td>
+      <td>&amp;quot;</td>
+      <td>&amp;#34;</td>
+      <td>
+        <p><span style="line-height: 22.4px;">Link to a another section on the same page using the id of the element: &amp;lt;a href=&amp;quot;&amp;num;timetable&amp;quot;&amp;gt;</span></p>
+        <p><span style="line-height: 22.4px;"><span style="line-height: 22.4px;">Displayed as: &lt;a href="#timetable"&gt;</span></span></p>
+        <p><span style="line-height: 22.4px;"><span style="line-height: 22.4px;">&amp;quot; is generally encouraged for code. For an actual quotation, &lt;q&gt; or &lt;blockquote&gt; is preferred.&  nbsp;</span></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+We do not want these special characters to be processed by the browser as HTML code. Instead, you want it to be displayed to the user. So if you wish to display this in your browser:
+
+```HTML
+<img src="images/test.png" alt="test image">
+```
+
+You have to write it like this in your [HTML code](src/1.4.3-SpecialCharacter.html):
+
+```html
+&lt;img src=&quot;images/test.png&quot; alt=&quot;test image&quot;&gt;
+```
+
+Some tolerant browsers will allow using the '&' character directly but not all. So you should use its character reference `&amp;`. [Check out these examples](https://jsfiddle.net/vh2h7usk/1/) illustrating the importance of using the character entity `&amp;` for &.
+
+While it might be tempting to not use one of these character references when you notice that the browser produces the expected result anyway, it is a best practice to use character references for these five special characters using `&lt;`, `&gt;`, `&quot;`, `&amp;` and `&nbsp;` at all times.  This is because you can never be sure what browser or application will be used to view your code, and how that will behave.
+
+The `&quot;` character reference is particularly useful for quotation marks within attribute values. Let's say you want to add a title attribute to an abbreviation to provide an expansion of the abbreviation. If you try the code below in a browser and hover your mouse pointer on the text 'HTML5', it will show you the title text (it works like a tooltip). The title text in the source code includes quotes (around the number 5) like this:
+
+```HTML
+<abbr title="Hypertext Markup Language "5"">HTML5</abbr>
+```
+
+The above will not display the number 5.
+
+Replacing the quotes with its character entity will work:
+
+```HTML
+<abbr title="Hypertext Markup Language &quot;5&quot;">HTML5</abbr>
+```
+
+Check out this [jsfiddle link](https://jsfiddle.net/jffxra04/273/).
+
+
+#### Knowledge check 1.4.3
+
+What is the output for the code below?
+
+  ```html
+  &lt;h1&gt;This is a heading &amp; it is the &quot;biggest&quot; one in this page&gt;/h1&lt; 
+  ```
+
+  1. `This is a heading & it is the "biggest" one in this page`
+  2. `<h1>This is a heading & it is the "biggest" one in this page>/h1<`
+  3. `&lt;h1&gt;This is a heading & it is the &quot;biggest&quot; one in this page&gt;/h1&lt;`
+  4. `<h1>This is a heading & it is the "biggest" one in this page</h1>`
+
+  Ans: 2 <br/>
+  Explanation: Your browser will replace the character entity names in your code with its symbol.
+  <ul>
+    <li> &amp;lt; is replaced with <</li>
+    <li> &amp;gt; is replaced with ></li>
+    <li> &amp;amp; is replaced with &</li>
+    <li> &amp;quot; is replaced with "</li>
+    <li> Note that the closing h1 tag's opening and closing angle brackets is reversed in the line of code provided so it will display >h1< instead of &lt;h1&gt;.</li>
+  </ul>
+
 
 
 ### Character references for other characters
