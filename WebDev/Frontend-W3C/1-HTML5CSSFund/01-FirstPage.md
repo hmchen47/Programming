@@ -846,14 +846,40 @@ True or False: Since HTML5 ignores white space, a tag can be spelled with spaces
 
 
 
-### Activity - Best practices and discussion
+### Activity - Best practices
 
+1. Compare and contrast these two different HTML Style Guides:
+
+  + [jQuery](https://contribute.jquery.org/style-guide/html/)
+  + [Google](https://google.github.io/styleguide/htmlcssguide.html)
+
+Are they consistent with each other? Are there some rules that don't seem to make sense?
+
+Can you find other style guides or coding standards that agree or disagree with some of the suggestions in one of these guides?
+
+2. Check out the [W3C HTML Checker](http://validator.w3.org/):
+
+  + Try "Direct Input" and type some HTML5 code with errors to see what it detects.
+  + Using "Validate by URI", try some popular Web sites and see if you can find any errors.
 
 
 ## 1.6 More on tags
 
 ### Tags we have already used
 
+Now you can create a simple, empty, HTML page, and you know what tags are, though we have not said a lot about specific tags, what they mean, how many there are, etc.  We will start with the ones we have already seen:
+
++ <strong><!doctype></strong> - This tag is special.  In fact, many folks don't even consider it a tag, as it is officially the DTD - Document Type Declaration.  Unlike most tags, it has no closing tag, not even a "/" at the end.  It is there to declare exactly what type of HTML the computer will find in this file. It is used as that: <!DOCTYPE html>
++ <strong>&lt;html&gt;</strong> - The __html__ open and close tags wrap around nearly everything in your html file (except the doctype tag).  This essentially contains all of the HTML code in the file, which is generally everything (one big html element). In the next module, we will learn about attributes, and you will learn that you should always add a lang attribute to the html opening tag, to identify the default language of your page.
++ <strong>&lt;head&gt;</strong> - The __head__ element is where you put information that does not really appear in the body of the work.  For example, the <title> of the page, which typically appears on the window containing the page, is defined in the head section.
++ <strong>&lt;body&gt;</strong> - The __body__ section contains all of the content of your page, essentially what the user sees.  This could be text, pictures, links, videos, tables and so on.  In addition to the content, the body usually contains lots of other elements, each indicated by their own tags.
++ <strong>&lt;h1&gt;</strong> - There are a whole collection of 'h' tags, `<h1>`, `<h2>`, `<h3>` . . . all the way up to `<h6>`.  Why there are 6 rather than 5 or 7 may be a bit of a mystery, but there it is.  They're generally used the same way you would use chapter or section headings in a book (don't confuse the h here with the `<head>` section, that is completely different).  An `<h1>` tag might be used as the title of the document (as it appears on the page, not the same as the aforementioned `<title>` element), or to indicate the outermost level in a group of nested sections. [Example code](src/1.6.1-Heading.html)
+
+  Though you theoretically should not think about what it looks like, it will typically appear as large, possibly bold text in your document, to mark a separation or beginning of some new section.  `<h2>` is usually a bit smaller, and `<h3>` smaller yet and so on down to `<h6>`.  This allows logical nesting of sections, though they should not be nested too deeply. Try not to skip levels of headers when nesting them. __Headings are really useful for some assistive technology users and missing levels can be confusing.__
+
++ <strong>&lt;p&gt;</strong> - __P__ is for 'paragraph', which is how much of your text information might be arranged.  Depending on the style you are using, text wrapped in a `<p>` tag may be indented or have extra vertical white space before starting.  When rendered on the Web page, a p element will typically be a new line. [Example code](src/1.6.1-Paragraph.html)
+
+You might notice that when discussing how these different elements are rendered (i.e. what they look like to the end user), you will find words like "typically", "possibly", and "generally".  It is a little picky. As you will learn in Module 3, it is possible to change the styling of one element to look like just about any other element.  You could style a `<p>` element so that it looks like an `<h1>`, though best practice would be not to do that.
 
 
 ### A few new tags to learn
