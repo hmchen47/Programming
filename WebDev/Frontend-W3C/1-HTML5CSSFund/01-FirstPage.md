@@ -456,7 +456,7 @@ A character can be any letter, digit or symbol that makes up words and languages
 
 Each character is assigned a particular number called a __code point__. These code points are stored in computer memory in the form of bytes (a unit of data in computer memory). In technical terms, we say the character is __encoded__ using one or more bytes.
 
-Basically, all the characters are stored in computer language and a __character encoding__ is the awesome dictionary that is going to help us decode this computer language into something we can understand. In technical terms, it is what is used as a reference to map code points into bytes to store in computer memory; then when you use a character in your HTML, the bytes are then read back into code points using the character encoding as a reference. 
+Basically, all the characters are stored in computer language and a __character encoding__ is the awesome dictionary that is going to help us decode this computer language into something we can understand. In technical terms, it is what is used as a reference to map code points into bytes to store in computer memory; then when you use a character in your HTML, the bytes are then read back into code points using the character encoding as a reference.
 
 Examples of character encodings include:
 
@@ -476,6 +476,47 @@ Read an Introduction to character sets and encodings [here](https://www.w3.org/I
 
 ### The meta tag
 
+Use the `<meta>` element with the `charset` attribute in your HTML page to indicate to the browser the character encoding you will be using in the page.
+
+```html
+<meta charset="utf-8">
+```
+
+Alternatively, you can also use `http-equiv` and `content` attributes.
+
+```html
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+```
+
+We recommend using the first one because it is much less complicated. You should also always use 'utf-8'.
+
+
+#### Where to place it?
+
+The meta declaration belongs inside the `<head>` element, and should be specified within the first 1024 bytes of your page. So the earlier it is mentioned in your code, the better. 
+
+W3C recommends placing it immediately after the opening `<head>` tag:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    ...
+  </head>
+</html>
+```
+
+#### Knowledge check 1.4.2
+
+What does character encoding do? Check all that apply (2 correct answers!).
+
+  1. helps translate page from one language to another
+  2. acts like a dictionary that helps translate code points into bytes that can be stored in memory.
+  3. decodes bytes into code points
+  4. provides support for search engines to process your HTML documents correctly
+
+  Ans: 23
 
 
 ### HTML character references
