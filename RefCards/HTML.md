@@ -151,7 +151,7 @@
 + [Whitespace](../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#don-t-worry-about-too-many-white-spaces)
   + do not want to worry about the amount of white space (spaces, tabs and returns) in between words and lines and paragraphs 
   + most extra white space will be ignored
-  + not matter to the browser how much white space there is, you can use white space to make your code more visibly organized and easier to read (note the use of indentation in the second <H1> element above)
+  + not matter to the browser how much white space there is, you can use white space to make your code more visibly organized and easier to read (note the use of indentation in the second `<H1>` element above)
 
 + [Quote](../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#any-kind-of-quotes-for-strings)
   + Single and double quotes are interchangeable, but not mixing
