@@ -224,7 +224,7 @@ If you are sitting at a coffee shop next to a table of Web developers, you will 
 
 'Elements' are the pieces themselves, i.e. a paragraph is an element, or a header is an element, even the body is an element.  Most elements can contain other elements, as the body element would contain header elements, paragraph elements, in fact pretty much all of the visible elements of the DOM.
 
-<svg width="600" height="300"><g transform="translate(120,20)"><g class="node" transform="translate(0,130)"><circle r="15" style="fill: rgb(255, 255, 255);"></circle><text x="-5" dy="1.4em" text-anchor="end" style="fill-opacity: 1;">html</text></g></g></svg>
+<svg width="600" height="300"><g transform="translate(120,20)"><path class="link" d="M0,117C90,117 90,52 180,52"></path><path class="link" d="M0,117C90,117 90,182 180,182"></path><path class="link" d="M180,182C270,182 270,156 360,156"></path><path class="link" d="M180,182C270,182 270,208 360,208"></path><path class="link" d="M180,52C270,52 270,52 360,52"></path><g class="node" transform="translate(0,117)"><circle r="15" style="fill: rgb(211, 211, 211);"></circle><text x="-5" dy="1.4em" text-anchor="end" style="fill-opacity: 1;">html</text></g><g class="node" transform="translate(180,182)"><circle r="15" style="fill: rgb(211, 211, 211);"></circle><text x="-5" dy="1.4em" text-anchor="end" style="fill-opacity: 1;">body</text></g><g class="node" transform="translate(180,52)"><circle r="15" style="fill: rgb(211, 211, 211);"></circle><text x="-5" dy="1.4em" text-anchor="end" style="fill-opacity: 1;">head</text></g><g class="node" transform="translate(360,208)"><circle r="15" style="fill: rgb(255, 255, 255);"></circle><text x="-5" dy="1.4em" text-anchor="end" style="fill-opacity: 1;">p</text></g><g class="node" transform="translate(360,156)"><circle r="15" style="fill: rgb(255, 255, 255);"></circle><text x="-5" dy="1.4em" text-anchor="end" style="fill-opacity: 1;">h1</text></g><g class="node" transform="translate(360,52)"><circle r="15" style="fill: rgb(255, 255, 255);"></circle><text x="-5" dy="1.4em" text-anchor="end" style="fill-opacity: 1;">title</text></g></g></svg>
 
 Consider the figure above.  It contains a single 'html' element.  It turns out this includes within it the entire content of your html file.  If you click on the "html" node, you'll find that it contains two components, a head and a body.  Clicking on each of those will reveal their respective contents.  This structure is what we computer scientists call a "tree".  Any given element (except for the outermost 'html' element) is wholly contained inside another element, referred to as the "parent" element.  Not surprisingly, the elements that a given element contains are its "child" elements.  And, yes, children of a common parent are often referred to as "siblings".
 
@@ -362,21 +362,6 @@ and arrest his flight.
   <div style="vertical-align: top; font-family: serif; display: inline-block; max-width: 35%; padding-left: 1em; margin-left: 1em; margin-top: 20px; border: none; border-left: 1px solid blue; margin-right: 1em; padding-right: 1em; text-indent: 1rem;">The old lady pulled her spectacles down and looked over them about the room; then she put them up and looked out under them. There was a slight noise behind her and she turned just in time to seize a small boy by the slack of his roundabout and arrest his flight.</div>
   <p style="margin-right: 2em; padding-right: 1em; margin-left: 2em; margin-top: 0; text-indent: 4em; font-size: 90%; font-style: italic;">A&nbsp;human reader could easily detect that two paragraphs were intended and that the writer probably just forgot to terminate one and start the other. The computer, on the other hand, will only see one paragraph and layout accordingly.</p>
   </div>
-  <p></p>
-  <p>On the other hand, you might think that since a computer always knows exactly what tag it is working with (eidetic memory), you could provide a sort of "universal close tag" that doesn't specify the type that it's closing. It would know to close the current tag. While that's technically true, it's handy to have the close tag there for people reading the code. The close tag makes it easier to remember what tag it is closing. We humans can get confused trying to remember that kind of detail.</p>
-  <p>But there are other ambiguities to consider. For example, when a browser receives a file, it may know that it's receiving an HTML file, but it won't know which version of HTML is used (it matters). &nbsp;</p>
-  <p>That's why <strong>the first thing you need in any HTML file</strong> is a tag to tell you what type of HTML file it is:</p>
-  <div class="source-code"><ol class="linenums">
-    <li style="margin-bottom: 0px;" class="L0" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-  </ol></div>
-  <p></p>
-  <p>In other words, the first thing the browser sees is the declaration "This is an HTML5 file, in case you were wondering". It may seem tedious to put this at the top of every file, but believe me, it used to be worse. &nbsp;You probably noticed that it doesn't say "!DOCTYPE HTML5" but just "html".</p>
-  <p>HTML5 can do this because all the previous versions were much more long winded.&nbsp; For example, at the top of an HTML 4.01 page, you might have something like this:</p>
-  <div class="source-code"><ol class="linenums">
-    <li style="margin-bottom: 0px;" class="L0" value="1"><span class="dec">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</span></li>
-  </ol></div>
-  <p></p>
-    <p>We do not need to go into the details of why and what that means, just be grateful that HTML5 did away with it.</p>
 </div>
 
 On the other hand, you might think that since a computer always knows exactly what tag it is working with (eidetic memory), you could provide a sort of "universal close tag" that doesn't specify the type that it's closing. It would know to close the current tag. While that's technically true, it's handy to have the close tag there for people reading the code. The close tag makes it easier to remember what tag it is closing. We humans can get confused trying to remember that kind of detail.
@@ -393,7 +378,10 @@ In other words, the first thing the browser sees is the declaration "This is an 
 
 HTML5 can do this because all the previous versions were much more long winded.  For example, at the top of an HTML 4.01 page, you might have something like this:
 
+```html
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+```
+
 We do not need to go into the details of why and what that means, just be grateful that HTML5 did away with it.
 
 
