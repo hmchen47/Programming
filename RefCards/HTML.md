@@ -2,27 +2,42 @@
 
 ## Best Practices
 
+### The big three: HTML5, CSS and JavaScript
+
++ <p style="color: darkred; font-weight: 900;"><a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#what-is-html5-">HTML</a></p>
+  + Containing all the content, organized into a logical structure
+  + Hypertext: built on the idea of linking information together
+  + Mark Up: annotate a document with extra information; organize document with links and define how to break it down into different segments (chapters, sections, paragraphs, tables, figures, etc.)
++ <p style="color: darkred; font-weight: 900;"><a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#css">CSS</a></p>
+  + The presentation or style of the page
+  + What it looks like without too much regard for the specific content
+  + As a "theme" in a word processing document, setting fonts, sizes, indentations and whatever else may apply to what it looks like
++ <p style="color: darkred; font-weight: 900;"><a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#javascript">Javascript</a></p>
+  + The actions a page can take such as interaction with the user, and customizing and changing the page according to any number of parameters
+  + Allow a Web page to be more than just a document, but potentially a Web application, with nearly unlimited possibilities
+  + 
+
 ### Template
 
-  ```html
-  <!DOCTYPE html> <!-- HTML5 -->
-  <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title> My Web Page Title </title>
+```html
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> My Web Page Title </title>
 
-    <!-- CSS Usage: link preferred ~ comment for HTML-->
-    <link rel="stylesheet" href="css/my_styles.css">
-    <style>
-      /* CSS will go in this area ~ comment for CSS */
-    </style>
-  </head>
-  <body>
-    <!-- Contents within this area -->
-  </body>
-  </html>
-  ```
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+  </style>
+</head>
+<body>
+  <!-- Contents within this area -->
+</body>
+</html>
+```
 
 ### Useful References & Tool Links
 
@@ -54,19 +69,6 @@
   + `<details>` - Defines additional details
   + `<summary>` - Defines a heading for the `<details>` element
 
-
-
-### Comments:
-  + Inline: `<!-- This is a comment -->`
-  + Multiple lines:
-
-    ```html
-    <!--
-    Beginning of comment
-    ... 
-    End of comment
-    -->
-    ```
 
 ### UTF-8: `<meta charset="utf-8">` in `head` section
 
@@ -133,7 +135,8 @@
 
 + Always declare the language of your page in the `<html>` tag
 
-## Element, Tag & Attribute Syntax
+
+## Element, Tag & Attribute
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.w3.org/community/webed/wiki/HTML/Training/Tag_syntax">
@@ -143,7 +146,92 @@
 </div>
 
 
+
+### Elements
+
+#### Definition and Characteristics of Elements
+
++ The pieces themselves, i.e. a paragraph is an element, or a header is an element, even the body is an element
+
++ Tree structure:
+  + parent element: an element wholely containing any given element (except for the outermost 'html' element)
+  + child element:  the elements that a given element contains
+  + siblings: children of a common parent
+
++ Borrow from SGML to provide an easy way for a computer to determine which parts are "MarkUp" and which parts are the content
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.oreilly.com/library/view/learning-web-design/9780596527525/ch04.html">
+    <img src="https://www.oreilly.com/library/view/learning-web-design/9780596527525/graphics/lwd3_0406.jpg" style="margin: 0.1em;" alt="An element consists of both the content and its markup." title="The parts of an (X)HTML element" width="400">
+  </a></div>
+</div>
+
+
+
+#### List of Typical Semantic Elements
+
+
+| Semantic Element | Description | Link |
+|------------------|-------------|---------|
+| `<header>` | Introduction for the whole page or individual sections, article, nav, aside elements. Typically contains site name, logo, navigation. Does not have to be at the beginning of page. | [I-2.3 Semantic Meaning][023] |
+| `<footer>` | Includes typical footer information like authoring, copyrights, contact information and a footer menu. | [I-2.3 Semantic Meaning][021] | 
+| `<nav>` | Navigation links for the document. A page can have more than one `<nav>` element like table of contents, horizontal navigation in header and footer navigation. | [I-2.3 Semantic Meaning][021] |
+| `<section>` | Defines sections in the document such as chapters, headers, etc. Typically used on content that cannot make sense on its own.  | [I-2.3 Semantic Meaning][024] |
+| `<article>` | Defines independent content that should make sense on its own outside of the document such as newspaper articles, blog posts, etc. | [I-2.3 Semantic Meaning][024] |
+| `<aside>` | Side content other than main content, like a sidebar. These are not considered as part of the main page outline. | [I-2.3 Semantic Meaning][020] |
+| `<details>` *see example below | A way to provide additional information that the user can show or hide. Content that is shown to user by default. Other content is hidden and can be expanded to view. | [I-2.3 Semantic Meaning][017] |
+| `<figcaption>` *see example below | Provides a caption (explanation) of an image. To be used within `<figure>`. | [I-2.3 Semantic Meaning][018] |
+| `<figure>` | Contains an image and can be used to group with an image's caption | [I-2.3 Semantic Meaning][018] |
+| `<mark>` *see example below | Defines a part of a text you want to highlight. The highlight styling is specified in CSS. | [I-2.3 Semantic Meaning][019] |
+| `<summary>` | Used within the `<details>` tag. Specifies the visible content. The rest of the content in details is shown/hidden by user. | [I-2.3 Semantic Meaning][017] |
+| `<code>` | Used to represent short computer code in a sentence. It displays code in default monospace font.  | [I-2.3 Semantic Meaning][022] |
+| `<abbr>` | Used to indicate the occurrence of an abbreviation. | [I-2.3 Semantic Meaning][022] |
+| `<br>` | Used to introduce a line break in your HTML document. | [I-2.3 Semantic Meaning][022] |
+| `<address>` | Used to supply contact information for its nearest `<article>` or `<body>` ancestor. | [I-2.3 Semantic Meaning][022] |
+| `<hr>` | Used to introduce a horizontal line in your HTML document. | [I-2.3 Semantic Meaning][022] |
+
+
 ### Tags
+
+#### Definition and Characteristics of Tags
+
++ The annotations with "<" amd ">" separated from the regular text
+
++ Use to organize a text file (which is just a long string of characters) such that it represents a tree of elements that make up the html document
+
++ The bits of text you use to tell the computer where an element begins and ends
+
++ HTML can indicate the beginning and end of a tag, i.e. the presence of '<' tells the browser 'this next bit is markup, pay attention'.
+
++ To stop using that tag and do something else, so '<' and '>' are again used by adding a '/' right after the '<' to indicated that it's a 'close tag'.
+
++ "self closing" tags: an element completely described by its attributes, and thus no need for other content
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/633117d2ef0f4bb59cda68d966b6d288/f36ef1f210bf460e9e0f43be78fb0bd5/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40427074c031424e189e4898d969d7dcd9">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9df11f203d18addb831da2f379cb49a5/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/tags.png" style="margin: 0.1em;" alt="Diagram of an element" title="Diagram of an element" width="250">
+  </a></div>
+</div>
+
+
+#### Comment Tags
+
++ Inline: `<!-- This is a comment -->`
+
++ Multiple lines:
+
+  ```html
+  <!--
+  Beginning of comment
+  ... 
+  End of comment
+  -->
+  ```
+
++ Comments cannot be nested.
+
+
+#### List of Typical Tags
 
 | Tag | Description | Link |
 |-----|-------------|------|
@@ -169,129 +257,183 @@
 | `<link>` | bin `.css` file within `<head>` section | [I-3.2 CSS Basic][066] |
 
 
-
-### Semantic Elements
-
-| Semantic Element | Description | Link |
-|------------------|-------------|---------|
-| `<header>` | Introduction for the whole page or individual sections, article, nav, aside elements. Typically contains site name, logo, navigation. Does not have to be at the beginning of page. | [I-2.3 Semantic Meaning][023] |
-| `<footer>` | Includes typical footer information like authoring, copyrights, contact information and a footer menu. | [I-2.3 Semantic Meaning][021] | 
-| `<nav>` | Navigation links for the document. A page can have more than one `<nav>` element like table of contents, horizontal navigation in header and footer navigation. | [I-2.3 Semantic Meaning][021] |
-| `<section>` | Defines sections in the document such as chapters, headers, etc. Typically used on content that cannot make sense on its own.  | [I-2.3 Semantic Meaning][024] |
-| `<article>` | Defines independent content that should make sense on its own outside of the document such as newspaper articles, blog posts, etc. | [I-2.3 Semantic Meaning][024] |
-| `<aside>` | Side content other than main content, like a sidebar. These are not considered as part of the main page outline. | [I-2.3 Semantic Meaning][020] |
-| `<details>` *see example below | A way to provide additional information that the user can show or hide. Content that is shown to user by default. Other content is hidden and can be expanded to view. | [I-2.3 Semantic Meaning][017] |
-| `<figcaption>` *see example below | Provides a caption (explanation) of an image. To be used within `<figure>`. | [I-2.3 Semantic Meaning][018] |
-| `<figure>` | Contains an image and can be used to group with an image's caption | [I-2.3 Semantic Meaning][018] |
-| `<mark>` *see example below | Defines a part of a text you want to highlight. The highlight styling is specified in CSS. | [I-2.3 Semantic Meaning][019] |
-| `<summary>` | Used within the `<details>` tag. Specifies the visible content. The rest of the content in details is shown/hidden by user. | [I-2.3 Semantic Meaning][017] |
-| `<code>` | Used to represent short computer code in a sentence. It displays code in default monospace font.  | [I-2.3 Semantic Meaning][022] |
-| `<abbr>` | Used to indicate the occurrence of an abbreviation. | [I-2.3 Semantic Meaning][022] |
-| `<br>` | Used to introduce a line break in your HTML document. | [I-2.3 Semantic Meaning][022] |
-| `<address>` | Used to supply contact information for its nearest `<article>` or `<body>` ancestor. | [I-2.3 Semantic Meaning][022] |
-| `<hr>` | Used to introduce a horizontal line in your HTML document. | [I-2.3 Semantic Meaning][022] |
-
-
 ### Attributes
 
+#### Definition and Characteristics 0f Attributes
+
 + __Attributes are used in tags to further define the tag__
+
++ A given element on your Web page can be distinguished by any number of unique or common attributes.
+
++ Identify attribute uniquely with an 'id' attribute, or group it with a class of other elements by setting the 'class' attribute
+
 + Syntax: Attribute name, equal sign, opening quote, attribute value, closing quote, e.g., `start="5"`, Attribute name: start; Attribute Value = 5
+
 + Boolean attribute: presence = true, omit = false
 
-#### [List of Global Attributes][008]
++ Reference: [Attribute List](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 
-| Name | Values | Description | Lecture |
-|------|--------|-------------|---------|
-| `accesskey` | list of key labels | A key label or list of key labels with which to associate the element; each key label represents a keyboard shortcut which UAs can use to activate the element or give focus to the element. <br/> An ordered set of unique space-separated tokens, each of which must be exactly one Unicode code point in length. |  |
-| `class` | set of space-separated tokens | A name of a classification, or list of names of classifications, to which the element belongs. | [I-2.1 Welcome][007], [I-2.2 Attributes][012] |
-| `contenteditable` | "true" or "false" or "" (empty string) or empty | Specifies whether the contents of the element are editable. |  |
-| `contextmenu` | ID reference | The value of the id attribute on the menu with which to associate the element as a context menu. |  |
-| `dir` | "ltr" or "rtl" | Specifies the element’s text directionality. |  |
-| `draggable` | "true" or "false" | Specifies whether the element is draggable. |  |
-| `hidden` | "hidden" or "" (empty string) or empty | Specifies that the element represents an element that is not yet, or is no longer, relevant. |  |
-| `id` | ID | A unique identifier for the element. <br/> There must not be multiple elements in a document that have the same id value. <br/> Any string, with the following restrictions: 1. must be at least one character long 2. must not contain any space characters | [I-2.1 Welcome][006], [I-2.2 Attributes][011] |
-| `lang` | language tag | Specifies the primary language for the contents of the element and for any of the element’s attributes that contain text. <br/> A valid language tag, as defined in [BCP47].  | [I-2.2 Attributes][013] |
-| `spellcheck` | "true" or "false" or "" (empty string) or empty | Specifies whether the element represents an element whose contents are subject to spell checking and grammar checking.  |
-| `style` | string | Specifies zero or more CSS declarations that apply to the element [CSS].  | |
-| `tabindex` | integer | Specifies whether the element represents an element that is is focusable (that is, an element which is part of the sequence of focusable elements in the document), and the relative order of the element in the sequence of focusable elements in the document.  | |
-| `title` | normal character data | Advisory information associated with the element. | [I-2.2 Attributes][014], [I-2.4 Images][029] |
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.oreilly.com/library/view/learning-web-design/9780596527525/ch04.html">
+    <img src="https://www.oreilly.com/library/view/learning-web-design/9780596527525/graphics/lwd3_0411.jpg" style="margin: 0.1em;" alt="Attributes are instructions that clarify or modify an element." title="An element with attributes." width="350">
+  </a></div>
+</div>
 
 
-#### [Event-handler Attributes][008]
+#### List of Global Attributes
 
-| Attributes | Description |
-|------------|-------------|
-| `onabort = string` |Load of element was aborted by the user. |
-| `onblur = string` |Element lost focus. |
-| `oncanplay = string` |The UA can resume playback of media data for this video or audio element, but estimates that if playback were to be started now, the video or audio could not be rendered at the current playback rate up to its end without having to stop for further buffering of content. |
-| `oncanplaythrough = string` |The UA estimates that if playback were to be started now, the video or audio element could be rendered at the current playback rate all the way to its end without having to stop for further buffering |
-| `onchange = string` |User committed a change to the value of element (form control). |
-| `onclick = string` |User pressed pointer button down and released pointer button over element, or otherwise activated the pointer in a manner that emulates such an action. |
-| `oncontextmenu = string` |User requested the context menu for element. |
-| `ondblclick = string` |User clicked pointer button twice over element, or otherwise activated the pointer in a manner that simulates such an action. |
-| `ondrag = string` |User is continuing to drag element. |
-| `ondragend = string` |User ended dragging element. |
-| `ondragenter = string` |User’s drag operation entered element. |
-| `ondragleave = string` |User’s drag operation left element. |
-| `ondragover = string` |User is continuing drag operation over element. |
-| `ondragstart = string` |User started dragging element. |
-| `ondrop = string` |User completed drop operation over element. |
-| `ondurationchange = string` |The DOM attribute duration on the video or audio element has been updated. |
-| `onemptied = string` |The video or audio element has returned to the uninitialized state. |
-| `onended = string` |The end of the video or audio element has been reached. |
-| `onerror = string` |Element failed to load properly. |
-| `onfocus = string` |Element received focus. |
-| `onformchange = string` |User committed a change to the value of a form control in the form to which the element belongs. |
-| `onforminput = string` |User changed the value of a form control in the form to which the element belongs. |
-| `oninput = string` |User changed the value of element (form control). |
-| `oninvalid = string` |Element (form control) did not meet validity constraints. |
-| `onkeydown = string` |User pressed down a key. |
-| `onkeypress = string` |User pressed down a key that is associated with a character value. |
-| `onkeyup = string` |User release a key. |
-| `onload = string` |Element finished loading. |
-| `onloadeddata = string` |UA can render the video or audio element at the current playback position for the first time. |
-| `onloadedmetadata = string` |UA has just determined the duration and dimensions of the video or audio element. |
-| `onloadstart = string` |UA has begun looking for media data in the video or audio element. |
-| `onmousedown = string` |User pressed down pointer button over element. |
-| `onmousemove = string` |User moved mouse. |
-| `onmouseout = string` |User moved pointer off boundaries of element. |
-| `onmouseover = string` |User moved pointer into boundaries of element or one of its descendant elements. |
-| `onmouseup = string` |User released pointer button over element. |
-| `onmousewheel = string` |User rotated wheel of mouse or other device in a manner that emulates such an action. |
-| `onpause = string` |User has paused playback of the video or audio element. |
-| `onplay = string` |UA has initiated playback of the video or audio element. |
-| `onplaying = string` |Playback of the video or audio element has started. |
-| `onprogress = string` |UA is fetching media data for the video or audio element. |
-| `onratechange = string` |Either the DOM attribute defaultPlaybackRate or the DOM attribute playbackRate on the video or audio element has been updated. |
-| `onreadystatechange = string` |Element and all its subresources have finished loading. |
-| `onscroll = string` |Element or document view was scrolled. |
-| `onseeked = string` |The value of the IDL attribute seeking changed to false (a seek operation on the video or audio element ended). |
-| `onseeking = string` |The value of the IDL attribute seeking changed to true, and the seek operation on the video or audio elements is taking long enough that the UA has time to fire the seeking event. |
-| `onselect = string` |User selected some text. |
-| `onshow = string` |User requested the element be shown as a context menu. |
-| `onstalled = string` |UA is attempting to fetch media data for the video or audio element, but that data is not forthcoming. |
-| `onsubmit = string` |The form element was submitted. |
-| `onsuspend = string` |UA is intentionally not currently fetching media data for the video or audio element, but does not yet have the entire contents downloaded. |
-| `ontimeupdate = string` |The current playback position of the video or audio element changed either as part of normal playback, or in an especially interesting way (for example, discontinuously). |
-| `onvolumechange = string` |Either the DOM attribute volume or the DOM attribute muted on the video or audio element has been changed. |
-| `onwaiting = string` |Playback of the video or audio element has stopped because the next frame is not yet available (but UA agent expects that frame to become available in due course). |
+
+<table  style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<caption style="font-size: 1.6em; padding-bottom: 0.3em;"><a href="https://www.w3.org/wiki/HTML/Attributes/_Global#Core_Attributes">Table of Core Attributes</a></caption>
+<thead>
+  <tr style="border-bottom: double black;">
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 10%;">Name</th>
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 20%;">Values</th>
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 60%;">Description</th>
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 10%;">Link</th>
+  </tr>
+</thead>
+<tbody>
+  <tr><td> <code>accesskey</code></td>
+    <td> list of key labels</td>
+    <td> A key label or list of key labels with which to associate the element; each key label represents a keyboard shortcut which UAs can use to activate the element or give focus to the element.<br>An ordered set of unique space-separated tokens, each of which must be exactly one Unicode code point in length.</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>class</code></td>
+    <td> set of space-separated tokens</td>
+    <td> A name of a classification, or list of names of classifications, to which the element belongs.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#example-2-the-class-attribute">I-2.1 Welcome</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-class">I-2.2 Attribute</a></td></tr>
+  <tr><td> <code>contenteditable</code></td>
+    <td> "true" or "false" or "" (empty string) or empty</td>
+    <td> Specifies whether the contents of the element are editable.</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>contextmenu</code></td>
+    <td>  ID reference</td>
+    <td> The value of the id attribute on the menu with which to associate the element as a context menu.</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>dir</code></td>
+    <td> "ltr" or "rtl"</td>
+    <td> Specifies the element’s text directionality.</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>draggable</code></td>
+    <td>  "true" or "false"</td>
+    <td> Specifies whether the element is draggable.</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>hidden</code></td>
+    <td>  "hidden" or "" (empty string) or empty</td>
+    <td> Specifies that the element represents an element that is not yet, or is no longer, relevant.</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>id</code></td>
+    <td> ID</td>
+    <td> A unique identifier for the element.<br>There must not be multiple elements in a document that have the same id value.<br>Any string, with the following restrictions: 1. must be at least one character long 2. must not contain any space characters</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#example-1-the-id-attribute">I-2.1 Welcome</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-id">I-2.2 Attribute</a></td></tr>
+  <tr><td> <code>lang</code></td>
+    <td> language tag</td>
+    <td> Specifies the primary language for the contents of the element and for any of the element’s attributes that contain text.<br>A valid language tag, as defined in [BCP47].</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>spellcheck</code></td>
+    <td>  "true" or "false" or "" (empty string) or empty</td>
+    <td> Specifies whether the element represents an element whose contents are subject to spell checking and grammar checking.</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>style</code></td>
+    <td>  string</td>
+    <td> Specifies zero or more CSS declarations that apply to the element [CSS].</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>tabindex</code></td>
+    <td>  integer</td>
+    <td> Specifies whether the element represents an element that is is focusable (that is, an element which is part of the sequence of focusable elements in the document), and the relative order of the element in the sequence of focusable elements in the document.</td>
+    <td><a href=""></a></td></tr>
+  <tr><td> <code>title</code></td>
+    <td>  normal character data</td>
+    <td> Advisory information associated with the element.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-title">I-2.1 Attributes</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-title-attribute">I-2.4 Images</a></td></tr>
+</tbody>
+</table>
+
+
+#### Event-handler Attributes
+
+
+<table  style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<caption style="font-size: 1.6em; padding-bottom: 0.3em;"><a href="https://www.w3.org/wiki/HTML/Attributes/_Global#Event-handler_Attributes">Table of Event-handler Attributes</a></caption>
+<thead>
+  <tr style="border-bottom: double black;">
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 10%;">Attributes</th>
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 40%;">Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr><td> <code>onabort = string</code></td> <td>Load of element was aborted by the user.</td></tr>
+  <tr><td> <code>onblur = string</code></td> <td> Element lost focus.</td></tr>
+  <tr><td> <code>oncanplay = string</code></td> <td> The UA can resume playback of media data for this video or audio element, but estimates that if playback were to be started now, the video or audio could not be rendered at the current playback rate up to its end without having to stop for further buffering of content.</td></tr>
+  <tr><td> <code>oncanplaythrough = string</code></td> <td> The UA estimates that if playback were to be started now, the video or audio element could be rendered at the current playback rate all the way to its end without having to stop for further buffering</td></tr>
+  <tr><td> <code>onchange = string</code></td> <td> User committed a change to the value of element (form control).</td></tr>
+  <tr><td> <code>onclick = string</code></td> <td> User pressed pointer button down and released pointer button over element, or otherwise activated the pointer in a manner that emulates such an action.</td></tr>
+  <tr><td> <code>oncontextmenu = string</code></td> <td> User requested the context menu for element.</td></tr>
+  <tr><td> <code>ondblclick = string</code></td>
+    <td> User clicked pointer button twice over element, or otherwise activated the pointer in a manner that simulates such an action.</td></tr>
+  <tr><td> <code>ondrag = string</code></td> <td> User is continuing to drag element.</td></tr>
+  <tr><td> <code>ondragend = string</code></td> <td> User ended dragging element.</td></tr>
+  <tr><td> <code>ondragenter = string</code></td> <td> User’s drag operation entered element.</td></tr>
+  <tr><td> <code>ondragleave = string</code></td> <td> User’s drag operation left element.</td></tr>
+  <tr><td> <code>ondragover = string</code></td> <td> User is continuing drag operation over element.</td></tr>
+  <tr><td> <code>ondragstart = string</code></td> <td> User started dragging element.</td></tr>
+  <tr><td> <code>ondrop = string</code></td> <td> User completed drop operation over element.</td></tr>
+  <tr><td> <code>ondurationchange = string</code></td> <td> The DOM attribute duration on the video or audio element has been updated.</td></tr>
+  <tr><td> <code>onemptied = string</code></td> <td> The video or audio element has returned to the uninitialized state.</td></tr>
+  <tr><td> <code>onended = string</code></td> <td> The end of the video or audio element has been reached.</td></tr>
+  <tr><td> <code>onerror = string</code></td> <td> Element failed to load properly.</td></tr>
+  <tr><td> <code>onfocus = string</code></td> <td> Element received focus.</td></tr>
+  <tr><td> <code>onformchange = string</code></td> <td> User committed a change to the value of a form control in the form to which the element belongs.</td></tr>
+  <tr><td> <code>onforminput = string</code></td> <td> User changed the value of a form control in the form to which the element belongs.</td></tr>
+  <tr><td> <code>oninput = string</code></td> <td> User changed the value of element (form control).</td></tr>
+  <tr><td> <code>oninvalid = string</code></td> <td> Element (form control) did not meet validity constraints.</td></tr>
+  <tr><td> <code>onkeydown = string</code></td> <td> User pressed down a key.</td></tr>
+  <tr><td> <code>onkeypress = string</code></td> <td> User pressed down a key that is associated with a character value.</td></tr>
+  <tr><td> <code>onkeyup = string</code></td> <td> User release a key.</td></tr>
+  <tr><td> <code>onload = string</code></td> <td> Element finished loading.</td></tr>
+  <tr><td> <code>onloadeddata = string</code></td> <td> UA can render the video or audio element at the current playback position for the first time.</td></tr>
+  <tr><td> <code>onloadedmetadata = string</code></td> <td> UA has just determined the duration and dimensions of the video or audio element.</td></tr>
+  <tr><td> <code>onloadstart = string</code></td> <td> UA has begun looking for media data in the video or audio element.</td></tr>
+  <tr><td> <code>onmousedown = string</code></td> <td> User pressed down pointer button over element.</td></tr>
+  <tr><td> <code>onmousemove = string</code></td> <td> User moved mouse.</td></tr>
+  <tr><td> <code>onmouseout = string</code></td> <td> User moved pointer off boundaries of element.</td></tr>
+  <tr><td> <code>onmouseover = string</code></td> <td> User moved pointer into boundaries of element or one of its descendant elements.</td></tr>
+  <tr><td> <code>onmouseup = string</code></td> <td> User released pointer button over element.</td></tr>
+  <tr><td> <code>onmousewheel = string</code></td> <td> User rotated wheel of mouse or other device in a manner that emulates such an action.</td></tr>
+  <tr><td> <code>onpause = string</code></td> <td> User has paused playback of the video or audio element.</td></tr>
+  <tr><td> <code>onplay = string</code></td> <td> UA has initiated playback of the video or audio element.</td></tr>
+  <tr><td> <code>onplaying = string</code></td> <td> Playback of the video or audio element has started.</td></tr>
+  <tr><td> <code>onprogress = string</code></td> <td> UA is fetching media data for the video or audio element.</td></tr>
+  <tr><td> <code>onratechange = string</code></td> <td> Either the DOM attribute defaultPlaybackRate or the DOM attribute playbackRate on the video or audio element has been updated.</td></tr>
+  <tr><td> <code>onreadystatechange = string</code></td> <td> Element and all its subresources have finished loading.</td></tr>
+  <tr><td> <code>onscroll = string</code></td> <td> Element or document view was scrolled.</td></tr>
+  <tr><td> <code>onseeked = string</code></td> <td> The value of the IDL attribute seeking changed to false (a seek operation on the video or audio element ended).</td></tr>
+  <tr><td> <code>onseeking = string</code></td> <td> The value of the IDL attribute seeking changed to true, and the seek operation on the video or audio elements is taking long enough that the UA has time to fire the seeking event.</td></tr>
+  <tr><td> <code>onselect = string</code></td> <td> User selected some text.</td></tr>
+  <tr><td> <code>onshow = string</code></td> <td> User requested the element be shown as a context menu.</td></tr>
+  <tr><td> <code>onstalled = string</code></td> <td> UA is attempting to fetch media data for the video or audio element, but that data is not forthcoming.</td></tr>
+  <tr><td> <code>onsubmit = string</code></td> <td> The form element was submitted.</td></tr>
+  <tr><td> <code>onsuspend = string</code></td> <td> UA is intentionally not currently fetching media data for the video or audio element, but does not yet have the entire contents downloaded.</td></tr>
+  <tr><td> <code>ontimeupdate = string</code></td> <td> The current playback position of the video or audio element changed either as part of normal playback, or in an especially interesting way (for example, discontinuously).</td></tr>
+  <tr><td> <code>onvolumechange = string</code></td> <td> Either the DOM attribute volume or the DOM attribute muted on the video or audio element has been changed.</td></tr>
+  <tr><td> <code>onwaiting = string</code></td> <td> Playback of the video or audio element has stopped because the next frame is not yet available (but UA agent expects that frame to become available in due course).</td></tr>
+</tbody>
+</table>
 
 
 #### Non-global Attributes
-
-[__MDN Attribute List__](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 
 | Attribute | Element | Description | Link |
 |-----------|---------|-------------|------| 
 | `<start>` | `<ol>` | Defines the first number if other than 1. |  |
 | `<reversed>` | `<ol>` | Indicates whether the list should be displayed in a descending order instead of a ascending. | [I-2. Attributes][009] |
 | `<div>` | G | define a division or a section of the document; a block level element | [2.3 Semantic Meaning][025] | 
-| `<span>` | similar to `<div>` but different; an inline element | [2.3 Semantic Meaning][025| |
+| `<span>` | `<col>`, `<colspan>` |similar to `<div>` but different; an inline element | [2.3 Semantic Meaning][025] |
 | `<img>` | G | embeds an image into the document | [I-2.4 Images][026] |
-| `<src>` | `<audio>`, `<embed>`, `<iframe>`, `<img>`, `<input>`, `<script>`, `<source>`, `<track>`, `<video>` |  The URL of the embeddable content. | [I-2.4 Images][027] |
+| `<src>` | `<audio>`, `<embed>`, `<iframe>`, `<img>`, <br>`<input>`, `<script>`, `<source>`, `<track>`, <br>`<video>` |  The URL of the embeddable content. | [I-2.4 Images][027] |
 | `<alt>` | `<applet>`, `<area>`, `<img>`, `<input>` | Alternative text in case an image can't be displayed. |  [I-2.4 Images][028] |
-| `<height>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, `<input>`, `<object>`, `<video>` | Specifies the height of elements listed here. For all other elements, use the CSS height property. | [I-2.4 Images][030] |
-| `<width>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, `<input>`, `<object>`, `<video>` | For the elements listed here, this establishes the element's width. | [I-2.4 Images][030] |
+| `<height>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, <br>`<input>`, `<object>`, `<video>` | Specifies the height of elements listed here. For all other elements, use the CSS height property. | [I-2.4 Images][030] |
+| `<width>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, <br>`<input>`, `<object>`, `<video>` | For the elements listed here, this establishes the element's width. | [I-2.4 Images][030] |
 | `<href>` | `<a>`, `<area>`, `<base>`, `<link>` | The URL of a linked resource. | [I-2.5 Hyperlinks][032] |
 | `<target>` | `<a>`, `<area>`, `<base>`, `<form>` | specify the destination where the linked URL in href should be opened | [I-2.5 Hyperlinks][033] |
 | `<media>` | `<a>`, `<area>`, `<link>`, `<source>`, `<style>` | Specifies a hint of the media for which the linked resource was designed. | [I-2.5 Hyperlinks][034] |
@@ -851,22 +993,22 @@
 [009]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#non---global-attributes
 [010]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
 [011]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-id
-[012]:  ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-class
+[012]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-class
 [013]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-lang
 [014]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-title
-[015]:  ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#changes-in-html5
+[015]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#changes-in-html5
 [016]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#semantic-vs-style-tags
 [017]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#detail-element
 [018]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#figcaption-element
-[019]:  ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#mark-element
+[019]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#mark-element
 [020]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#effect-of-semantic-elements
-[021]:  ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#new-html5-semantic-elements
+[021]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#new-html5-semantic-elements
 [022]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements
 [023]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#header-vs-h1---h6
-[024]:  ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#article-and-section-elements
+[024]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#article-and-section-elements
 [025]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#div-and-span-elements
 [026]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-img-tag
-[027]:  ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#image-src-attribute
+[027]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#image-src-attribute
 [028]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-alt-attribute
 [029]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-title-attribute
 [030]: ../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes
@@ -895,5 +1037,3 @@
 [072]: https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html
 [073]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 [074]: https://developer.mozilla.org/en-US/docs/Web/CSS/left
-
-
