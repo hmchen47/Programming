@@ -125,15 +125,43 @@
   </table>
 
 
-+ Case Sensitive
-  + Tags: case insensitive
-  + Attributes: case sensitive
 
-+ Single and double quotes are interchangeable, but not mixing
+### Recommendations & Misc.
+
++ Browser reality
+  + the browser knows roughly what to expect in an HTML page, so if it sees a file ending in '.html' it will automatically stick some stuff in if it is not there already
+  + undefined: not telling how the browser will decide to handle it; e.g., `<h1>Part of this header is<p>in the</h2> paragraph below</p>`
+
++ [Do's](../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#do-s-and-dont-s)
+  + call for one to do it properly, and not depend on the browser to patch it for you
+  + the open and close tags should always match
+  + need the <!doctype> section and the &lt;html&gt; section with &lt;head&gt; and &lt;body&gt;
+  + proper indentation is one way to make your code clearer and easier to understand
+  + consistent quoting of strings is also helpful
+  + projects will have coding styles that everyone is expected to use so that everything looks consistent and developers can more easily read each other's code
+
++ [Dont's](../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#do-s-and-dont-s)
+  + the open and close tags should not be any overlap with other elements
+  + never have a situation in which part of an element is in another, but the other part is not
+
++ Case Sensitive
+  + [Tags](../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-are-case-insensitive): case insensitive
+  + [Attributes](../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#don-t-worry-about-too-many-white-spaces): case sensitive
+
++ [Whitespace](../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#don-t-worry-about-too-many-white-spaces)
+  + do not want to worry about the amount of white space (spaces, tabs and returns) in between words and lines and paragraphs 
+  + most extra white space will be ignored
+  + not matter to the browser how much white space there is, you can use white space to make your code more visibly organized and easier to read (note the use of indentation in the second <H1> element above)
+
++ [Quote](../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#any-kind-of-quotes-for-strings)
+  + Single and double quotes are interchangeable, but not mixing
+  + ' "quote" ' (single quotes containing a double quoted string), your string will have the letters `<space>-"-q-u-o-t-e-"-<space>` (with double quotes in the string and spaces outside those) as opposed to "quote" which will just have the letters q-u-o-t-e (no quotation marks or spaces in the string)
+  + be consistent in your quotes, so it's best to quote them all the same way, even if the browser would understand it anyway
 
 + Headings are really useful for some assistive technology users and missing levels can be confusing.
 
 + Always declare the language of your page in the `<html>` tag
+
 
 
 ## Element, Tag & Attribute
@@ -245,59 +273,59 @@
 <tbody>
   <tr><td>&lt;!DOCTYPE html&gt;</td>
     <td> declaration "This is an HTML5 file, in case you were wondering"</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#all-together-now">All19</a>, <a href="">All18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#all-together-now">DOC18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">DOC19</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
 
   <tr><td> &lt;html&gt;</td>
     <td> where the actual HTML code begins and end</td>
-    <td><a href="">All18</a>, <a href="">All18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#all-together-now">All18</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">HTML19</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
 
   <tr><td> &lt;meta&gt;</td>
     <td> metadata content; represent metadata that cannot be represented by other HTML meta-related elements</td>
-    <td><a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#the-meta-tag">Meta</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#the-meta-tag">Meta</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta">MDN</a></td></tr>
 
   <tr><td> &lt;head&gt;</td>
     <td> where the browser can find style tips, and what the title of the page is</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#everything-in-html">HTML18</a>, <a href="">HTML18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#everything-in-html">HEAD18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">HEAD19</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
 
   <tr><td> &lt;body&gt;</td>
     <td> contains all of the content of your page, essentially what the user sees</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#15-best-practices">Best18</a>, <a href="">All18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#15-best-practices">Body18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">Body19</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
 
   <tr><td> &lt;h1&gt; ~ &lt;h6&gt;</td>
     <td> a whole collection of heading tags</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Heading18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">Heading19</a></td></tr>
 
   <tr><td> &lt;p&gt;</td>
     <td> paragraph; text wrapped in may be indented or have extra vertical white space before starting; typically be a new line</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">P18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">P19</a></td></tr>
 
   <tr><td> &lt;q&gt;</td>
     <td> quotes; used when you want to quote a person or written work in your Web page; customarily displayed using quotation marks, again unrelated to strings</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Quote18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Quote19</a></td></tr>
 
   <tr><td> &lt;blockquote&gt;</td>
     <td> quote a larger passage; typically set the quoted text apart from the surrounding text and indent it, to make clear that it is quoted text</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">BlkQuote18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">BlkQuote19</a></td></tr>
 
   <tr><td> &lt;ul&gt;, &lt;ol&gt;</td>
     <td> indicate a list of things; &lt;ol&gt;: "ordered" list; &lt;ul&gt;: "unordered" list</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">List18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">List19</a></td></tr>
 
   <tr><td> &lt;li&gt;</td>
     <td> List Item; nested inside a list (&lt;ul&gt; or &lt;ol&gt;)</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Item18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Item19</a></td></tr>
 
   <tr><td> &lt;hr&gt;</td>
     <td> Horizontal Rule; a horizontal line across the width of the text</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Rule18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Rule19</a></td></tr>
 
   <tr><td> &lt;br&gt;</td>
     <td> line break; break the "white space" rule: where spaces and carriage returns are generally treated the same; treated as a <i>required carriage return</i></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Break18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Break19</a></td></tr>
 
   <tr><td> &lt;pre&gt;</td>
     <td> "PREformatted text", meaning "I've set this up just the way I want it, don't mess with it."; monospace font, and none of the spaces, tabs or carriage-returns are ignored </td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Format18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Format19</a></td></tr>
 
   <tr><td> &lt;i&gt;</td>
     <td> italic text; used for text in a different mood or voice, such as foreign words, a thought or technical terms</td>
