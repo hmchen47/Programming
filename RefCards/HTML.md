@@ -233,28 +233,102 @@
 
 #### List of Typical Tags
 
-| Tag | Description | Link |
-|-----|-------------|------|
-| `<!DOCTYPE html>` | declaration "This is an HTML5 file, in case you were wondering" | [I-1.3 Elements, tags and attributes][000]; [I-1.6 More on tags][004] |
-| `<html>` | where the actual HTML code begins and end | | [I-1.3 Elements, tags and attributes][001]; [I-1.6 More on tags][004] |
-| `<head>` | where the browser can find style tips, and what the title of the page is | [I-1.3 Elements, tags and attributes][001]; [I-1.6 More on tags][004] |
-| `<body>` | contains all of the content of your page, essentially what the user sees |[I-1.5 Best practices][003]; [I-1.6 More on tags][004] |
-| `<h1> ~ <h6>` | a whole collection of heading tags | [I-1.6 More on tags][004] |
-| `<p>` | paragraph; text wrapped in may be indented or have extra vertical white space before starting; typically be a new line | [I-1.6 More on tags][004] |
-| `<q>` | quotes; used when you want to quote a person or written work in your Web page; customarily displayed using quotation marks, again unrelated to strings | [I-1.6 More on tags][005] |
-| `<blockquote>` | quote a larger passage; typically set the quoted text apart from the surrounding text and indent it, to make clear that it is quoted text | [I-1.6 More on tags][005] |
-| `<ul>`, `<ol>` | indicate a list of things; `<ol>`: "ordered" list; `<ul>`: "unordered" list | [I-1.6 More on tags][005] |
-| `<li>` | List Item; nested inside a list (`<ul>` or `<ol>`) | [I-1.6 More on tags][005] |
-| `<hr>` | Horizontal Rule; a horizontal line across the width of the text | [I-1.6 More on tags][005] |
-| `<br>` | line break; break the "white space" rule: where spaces and carriage returns are generally treated the same; treated as a _required carriage return_ | [I-1.6 More on tags][005] |
-| `<pre>` | "PREformatted text", meaning "I've set this up just the way I want it, don't mess with it."; monospace font, and none of the spaces, tabs or carriage-returns are ignored | [I-1.6 More on tags][005] |
-| `<i>` | italic text; used for text in a different mood or voice, such as foreign words, a thought or technical terms | [I-2.3 Semantic Meaning][015] |
-| `<b>` | bolded text; used as a stylistic offset such as keywords in a document, product names or action words without making them as important; can also be used as headings in list items | [I-2.3 Semantic Meaning][015] |
-| `<em>` | Emphasizes text; semantic tag; stress emphasis of its contents | [I-2.3 Semantic Meaning][016] |
-| `<strong>` | Important text; semantic tag; indication of how something should be | [I-2.3 Semantic Meaning][016] |
-| `<a>` | create a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL | [I-2.5 Hyperlinks][031] |
-| `<style>` | place CSS directly into an HTML document; anywhere in an HTML document;most common place: `<head>` section | [I-3.2 CSS Basic][066] |
-| `<link>` | bin `.css` file within `<head>` section | [I-3.2 CSS Basic][066] |
+
+<table  style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<thead>
+  <tr style="border-bottom: double black;">
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 15%;">Tag</th>
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 60%;">Description</th>
+    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 20%;">Link</th>
+  </tr>
+</thead>
+<tbody>
+  <tr><td>&lt;!DOCTYPE html&gt;</td>
+    <td> declaration "This is an HTML5 file, in case you were wondering"</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#all-together-now">All19</a>, <a href="">All18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
+
+  <tr><td> &lt;html&gt;</td>
+    <td> where the actual HTML code begins and end</td>
+    <td><a href="">All18</a>, <a href="">All18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
+
+  <tr><td> &lt;meta&gt;</td>
+    <td> metadata content; represent metadata that cannot be represented by other HTML meta-related elements</td>
+    <td><a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#the-meta-tag">Meta</a></td></tr>
+
+  <tr><td> &lt;head&gt;</td>
+    <td> where the browser can find style tips, and what the title of the page is</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#everything-in-html">HTML18</a>, <a href="">HTML18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
+
+  <tr><td> &lt;body&gt;</td>
+    <td> contains all of the content of your page, essentially what the user sees</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#15-best-practices">Best18</a>, <a href="">All18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
+
+  <tr><td> &lt;h1&gt; ~ &lt;h6&gt;</td>
+    <td> a whole collection of heading tags</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;p&gt;</td>
+    <td> paragraph; text wrapped in may be indented or have extra vertical white space before starting; typically be a new line</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;q&gt;</td>
+    <td> quotes; used when you want to quote a person or written work in your Web page; customarily displayed using quotation marks, again unrelated to strings</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;blockquote&gt;</td>
+    <td> quote a larger passage; typically set the quoted text apart from the surrounding text and indent it, to make clear that it is quoted text</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;ul&gt;, &lt;ol&gt;</td>
+    <td> indicate a list of things; &lt;ol&gt;: "ordered" list; &lt;ul&gt;: "unordered" list</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;li&gt;</td>
+    <td> List Item; nested inside a list (&lt;ul&gt; or &lt;ol&gt;)</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;hr&gt;</td>
+    <td> Horizontal Rule; a horizontal line across the width of the text</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;br&gt;</td>
+    <td> line break; break the "white space" rule: where spaces and carriage returns are generally treated the same; treated as a <i>required carriage return</i></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;pre&gt;</td>
+    <td> "PREformatted text", meaning "I've set this up just the way I want it, don't mess with it."; monospace font, and none of the spaces, tabs or carriage-returns are ignored </td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;i&gt;</td>
+    <td> italic text; used for text in a different mood or voice, such as foreign words, a thought or technical terms</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#changes-in-html5">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;b&gt;</td>
+    <td> bolded text; used as a stylistic offset such as keywords in a document, product names or action words without making them as important; can also be used as headings in list items</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#changes-in-html5">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;em&gt;</td>
+    <td> Emphasizes text; semantic tag; stress emphasis of its contents</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#semantic-vs-style-tags">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;strong&gt;</td>
+    <td> Important text; semantic tag; indication of how something should be</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#semantic-vs-style-tags">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;a&gt;</td>
+    <td> create a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#anchor-element">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;style&gt;</td>
+    <td> place CSS directly into an HTML document; anywhere in an HTML document;most common place: &lt;head&gt; section</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#3-2-css-basic-syntax">Tags18</a>, <a href="">Tags19</a></td></tr>
+
+  <tr><td> &lt;link&gt;</td>
+    <td> specify .css file within &lt;head&gt; section</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#3-2-css-basic-syntax">Tags18</a>, <a href="">Tags19</a></td></tr>
+</tbody>
+</table>
+
 
 
 ### Attributes
@@ -462,7 +536,7 @@
   <tr>
     <td>Row groups</td>
     <td> &lt;thead&gt;, &lt;tfoot&gt;, &lt;tbody&gt; </td>
-    <td> <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-thead-tag"> Table Header </a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tfoot-tag"> Table Footer </a>, , <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tbody-tag"> Table Body </a></td>
+    <td> <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-thead-tag"> Table Header </a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tfoot-tag"> Table Footer </a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tbody-tag"> Table Body </a></td>
   </tr>
   <tr>
     <td>Column groups</td>
@@ -978,7 +1052,6 @@
 [198]: 
 [199]: 
 -->
-
 
 
 [000]: ../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#all-together-now
