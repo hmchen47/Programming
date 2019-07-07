@@ -26,6 +26,17 @@ It is very important to style your Web pages for search engines to improve your 
 
 ### Module 2 - Content
 
+2.1 __Introduction__: Check out this video explaining what you'll be learning about in Module 2 - and wrap your mind around the concept of "semantic markup".
+
+2.2 __Attributes__: Here you will build on to what you have already learned about attributes.
+
+2.3 __Semantic meaning__: Explaining the difference between 'semantic' and 'style'.
+
+2.4 __Images__: Learn how, when, and where to best utilize images in your Web pages.
+
+2.5 __Hyperlinks__: They are the connections that allow the world to jump from place to place on the Web. Explore the secrets of this powerful mechanism!
+
+2.6 __Exercises__ - Module 2: Lets check what you've learned during Module 2.
 
 
 ## 2.2 Attributes
