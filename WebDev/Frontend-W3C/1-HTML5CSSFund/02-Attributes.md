@@ -383,6 +383,19 @@ References for video below:
 
 ### Activities - Attributes
 
+Please find below suggested activities to help you practice:
+
+1. Find the list of supported attributes for the `<area>` tag. (Hint: use the W3C cheatsheet or MDN attribute reference list)
+2. Create two paragraphs with the same id and run your code in a CodePen. What happens? We know the value of the id attribute must be unique, so why does it behave the way it does? Run your code through the [W3C Markup Validator](https://validator.w3.org/#validate_by_input). Does it throw an error?
+3. Does an attribute called src exist? What is the purpose of this attribute and what are the elements it can be applied to? (Hint: refer to the W3C HTML5 specification, W3C cheatsheet or MDN attribute reference list)
+4. Create an ordered list starting with the number 11. Then, reverse the list. Give it the following title (when you hover your mouse, it should display the title as a tooltip): 'Activity List'.
+
+Note: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
+
++ JS Bin: http://jsbin.com (JS Bin tutorial)
++ CodePen: http://codepen.io (CodePen tutorial)
+
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, realtime remote pair programming.
 
 
 ## 2.3 Semantic meaning
