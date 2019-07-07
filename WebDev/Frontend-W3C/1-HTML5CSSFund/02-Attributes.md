@@ -182,7 +182,7 @@ So attributes like `id` and `class` can be applied to any HTML tag.
 
 #### Non-global attributes
 
-Non-global attributes are attributes applied to a specific instance of a tag. It can be applied to one or more tags. For example, `start` is an attribute for the `<ol>` tag and it cannot be applied on the `<p>` or `<h1>` tags, it is specific to only ordered lists <ol>. Another attribute specific to the <ol> tag is reversed, which we learned in the last unit as an example of a boolean attribute. The non-global attribute width can be applied to several tags such as <img>, <input> and <video>.
+Non-global attributes are attributes applied to a specific instance of a tag. It can be applied to one or more tags. For example, `start` is an attribute for the `<ol>` tag and it cannot be applied on the `<p>` or `<h1>` tags, it is specific to only ordered lists `<ol>`. Another attribute specific to the `<ol>` tag is reversed, which we learned in the last unit as an example of a boolean attribute. The non-global attribute width can be applied to several tags such as `<img>`, `<input>` and `<video>`.
 
 Without the boolean attribute `reversed`:
 
@@ -227,6 +227,7 @@ __Try this__: Navigate to the [HTML attribute reference](https://developer.mozil
 
 
 ### Global attributes: examples
+
 
 
 
