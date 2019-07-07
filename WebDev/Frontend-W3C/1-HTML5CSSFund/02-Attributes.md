@@ -1,10 +1,14 @@
 # Module 2: Attributes, images and links
 
 
-## 2.1 [Introduction to Module 2
+## 2.1 Introduction to Module 2
 
 ### Welcome to Module 2
 
+<video src="https://edx-video.net/W3CHTM502016-V014600_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@7f247e6d116540ba8b4c263a05631dea/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ### Meaningful Web pages
@@ -15,7 +19,7 @@
 
 
 
-## 2.2 [Attributes
+## 2.2 Attributes
 
 ### Introduction to attributes
 
@@ -37,7 +41,7 @@
 
 
 
-## 2.3 [Semantic meaning
+## 2.3 Semantic meaning
 
 ### Separating content & style
 
@@ -67,7 +71,7 @@
 
 
 
-## 2.4 [Images
+## 2.4 Images
 
 ### Introduction to images
 
@@ -93,7 +97,7 @@
 
 
 
-## 2.5 [Hyperlinks
+## 2.5 Hyperlinks
 
 ### Introduction to hyperlinks
 
@@ -119,7 +123,7 @@
 
 
 
-## 2.6 [Exercises - Module 2
+## 2.6 Exercises - Module 2
 
 
 ### Attributes (1-9)
