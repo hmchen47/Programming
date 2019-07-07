@@ -370,6 +370,15 @@ Which of the following is the correct behavior with respect to the code above?
 
 ### Global attributes
 
+References for video below:
+
++ [W3C Cheatsheet](https://www.w3.org/2009/cheatsheet/)
++ [MDN Attribute Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
+
+<video src="https://edx-video.net/W3CHTM50/W3CHTM502016-V005600_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@17f73d8ba52c4569967a94db806240a0/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ### Activities - Attributes
