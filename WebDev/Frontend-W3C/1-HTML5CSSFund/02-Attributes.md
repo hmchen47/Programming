@@ -164,6 +164,66 @@ True or False? Both tags will give the same output. The order in which the attri
 
 ### Global & non-global attributes
 
+You have seen a few examples of attributes now: `start`, `id` and `class`. All HTML elements have attributes.
+
+There are two kind of attributes:
+
++ Global
++ Non-global
+
+
+#### Global attributes
+
+Global attributes can be applied to __all tags__. They are common attributes. Examples of global attributes are id and class. There are many more global attributes. Here is a [list of all the global attributes](https://www.w3.org/wiki/HTML/Attributes/_Global) and the values they accept. 
+
+So attributes like `id` and `class` can be applied to any HTML tag.
+<pre style="padding-left: 30px;"><span style="line-height: 25.6px;">&lt;p id="para1" class="poetry" lang="en"&gt;The global attribute lang takes language codes for values. The code for English is 'en'.&lt;/p&gt;<br><br>&lt;html lang="fr"&gt;&lt;/html&gt; </span>- The language attribute tells the browser that the contents of this document will be in french.</pre>
+
+
+#### Non-global attributes
+
+Non-global attributes are attributes applied to a specific instance of a tag. It can be applied to one or more tags. For example, `start` is an attribute for the `<ol>` tag and it cannot be applied on the `<p>` or `<h1>` tags, it is specific to only ordered lists <ol>. Another attribute specific to the <ol> tag is reversed, which we learned in the last unit as an example of a boolean attribute. The non-global attribute width can be applied to several tags such as <img>, <input> and <video>.
+
+Without the boolean attribute `reversed`:
+
+```html
+<ol>
+   <li>HTML5</li>
+   <li>CSS</li>
+   <li>JavaScript</li>
+</ol>
+```
+
+With the boolean attribute reversed:
+
+```html
+<ol reversed>
+   <li>HTML5</li>
+   <li>CSS</li>
+   <li>JavaScript</li>
+</ol>
+```
+
+[Example Code](src/2.2.2-Attributes.html)
+
+Ordered lists have their own specific attributes and all global attributes can also be applied to them.
+
+
+#### More examples
+
+The image `<img>` and hyperlink `<a>` elements, which we will be learning about shortly, have many non-global attributes of their own.
+
+<strong>&lt;img&gt;</strong>  :  `src`, `alt`, etc.
+
+<strong>&lt;a&gt;</strong>  : `href`, `target`, `download`, etc.
+
+Other than the common global attributes, if you wish to learn about the supported non-global attributes for any element, you can visit the [W3C HTML5 recommendation](https://www.w3.org/TR/html5/dom.html#global-attributes) or the [HTML attribute reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) available at the Mozilla Developer Network (MDN).
+
+__Important__: Throughout the course, using the MDN attribute reference, you are encouraged to explore non-global attributes for the elements you learn about or would like to use in your Web pages. In the MDN attribute reference list, you can click on the element's hyperlinked name to be navigated to its page that lists supported attributes for that element.
+
+__Try this__: Navigate to the [HTML attribute reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) at Mozilla Developer Network and find out which element(s) the attributes muted and readonly can be applied to. 
+
+__Try this__: Navigate to the [HTML attribute reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes) at Mozilla Developer Network and find out the non-global attributes that can be applied to the `<li>` tag. If you click on the `<li>` element, it will take you to the list tag's page that specifies applicable attributes.
 
 
 ### Global attributes: examples
