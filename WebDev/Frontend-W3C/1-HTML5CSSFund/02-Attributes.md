@@ -420,6 +420,132 @@ These are HTML, CSS, and JavaScript code editors that preview/showcase your code
 
 ### Separating content & style
 
+When writing in hypertext language, it is important to separate content and style. Style should be kept tucked away in Cascading Style Sheets (CSS).
+
+Let's look at a few interesting tags that lived as exception to this rule and were eventually corrected in HTML5.
+
++ `<p>This text is in <i>Italics</i>. It uses the i tag</p>`
++ `<p>This text is also in <em>Italics</em>. But it uses the em tag!</p>`
++ `<p>This text is in <b>Bold</b>. It uses the b tag</p>`
++ `<p>This text is also in <strong>Bold</strong>. But it uses the strong tag!</p>`
+
+This is how the above [HTML code](src/2.3.1-Style.html) will look in a browser (go ahead and try it!)
+
+It seems redundant for two tags to do the same thing in HTML. While `<b>` and `<strong>`, `<i>` and `<em>` seem no different in a regular Web browser there is an important difference between them.
+
+
+#### Semantic vs Style tags
+
+The four tags we saw above can be categorized into style and semantic tags.
+
+Style tags, in HTML4, focused purely on presentation and design. It only talked about how the text should look like on the screen. 
+
+Semantic refers to the meaning of words in a language. __Semantic tags__ said something about the semantic of the tag. It offered meaning. 
+
+<table style="font-family: arial,helvetica,sans-serif; width: 60vw;" auto="" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr>
+    <td style="background-color: #3d64ff; color: #ffffff;">Tag</td>
+    <td style="background-color: #3d64ff; color: #ffffff;">Type</td>
+    <td style="background-color: #3d64ff; color: #ffffff;">Description</td>
+  </tr>
+  <tr>
+    <td>&lt;b&gt;</td>
+    <td>Style</td>
+    <td>Makes text bold</td>
+  </tr>
+  <tr>
+    <td>&lt;i&gt;</td>
+    <td>Style</td>
+    <td>Makes text italics</td>
+  </tr>
+  <tr>
+    <td>&lt;em&gt;</td>
+    <td>Semantic</td>
+    <td>Emphasizes text<br><br>Text is italics by default in a browser</td>
+  </tr>
+  <tr>
+    <td>&lt;strong&gt;</td>
+    <td>Semantic</td>
+    <td>Important text<br><br>Text is bold by default in a browser</td>
+  </tr>
+</tbody>
+</table>
+
+
+##### &lt;b&gt; vs &lt;strong&gt;
+
+__Bold__ is a style that makes letters thicker so it stands out among other text but it has no semantic meaning, for example for voice browsers, screen readers, and other types of ways to access the Web. A device like [Kindle Paperwhite](https://en.wikipedia.org/wiki/Amazon_Kindle#Kindle_Paperwhite_.281st_generation.29) that renders text differently, might not pick up the bold.
+
+__Strong__ is an indication of how something should be. It looks like bold in a browser, but it could mean ‘speak with urgency or seriousness’ when reading text aloud. It is semantic in the sense, that we instruct it to be stronger than the text it surrounds which is different from giving instructions on how the text should look in the case of `<b>`. It represents importance, seriousness, or urgency for its contents.
+
+```html
+<p>As a junior developer, you <strong>must</strong> submit your work for code review!</p>
+```
+
+The 'must' maybe be bolded in a browser. But when reading the HTML document out loud by a text-to-speech program, it can be spoken with importance or seriousness.
+
+
+##### &lt;i&gt; vs &lt;em&gt;
+
+__Italics__ slants text. We usually italicize names of magazine, books, TV shows etc. Just like the bold tag, since it is meant purely for presentation purposes, it means nothing to someone who cannot read the text.
+
+__Emphasis__ is used to stress emphasis of its contents. The word in a sentence you emphasize can change the whole meaning. Try reading the sentences below out loud, stressing on the emphasized words: 'you' and 'store'. 
+
+<p><i>You</i> have to go to the store.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not me. That’s your job!&nbsp;</p>
+<p>&nbsp;You have to go to the <i>store.</i></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;To the store. Not the arcade.</p>
+
+
+#### Changes in HTML5
+
+So far, we have looked at how these tags were in HTML4. In the beginning of this unit, we learned that content and style should be kept separate and that styling should be kept tucked away in Cascading Style Sheets. So how did `<i>` and `<b>`, purely style elements make the cut? 
+
+They were initially deprecated, however, in HTML5, they were brought back. This time, with semantic meaning. 
+
+<table align="center" style="font-family: arial,helvetica,sans-serif;" border="1" cellspacing="0" cellpadding="5" table-layout="auto">
+<tbody>
+  <tr>
+    <td width="30">&lt;i&gt;</td>
+    <td>Apart from italic text, it is now also used for text in a different mood or voice, such as foreign words, a thought or technical terms.</td>
+    <td>&lt;p&gt;This restaurant has a breakfast buffet and a four course <b style="color: #ff3300;">&lt;i lang="fr"&gt;</b>À la carte<b style="color: #ff3300;">&lt;/i&gt;</b> dinner.&lt;/p&gt;</td>
+  </tr>
+  <tr>
+    <td width="30">&lt;b&gt;</td>
+    <td>Apart from bolded text, it is now also used as a stylistic offset such as keywords in a document, product names or action words without making them as important. It can also be used as headings in list items.</td>
+    <td>&lt;p&gt;The owner of this <b style="color: #ff3300;">&lt;b&gt;</b>rabbit<b style="color: #ff3300;">&lt;/b&gt;</b>and <b style="color: #ff3300;">&lt;b&gt;</b>hamster<b style="color: #ff3300;">&lt;/b&gt;</b> needs to step forward.&lt;/p&gt;</td>
+  </tr>
+</tbody>
+</table>
+
+As of HTML5, `<em>` is now also used for words and sentences you would pronounce differently. It is not used to convey importance. For that you should use `<strong>`.
+
+You can nest both `<em>` and `<strong>`. Two `<em>` means higher level of stress/emphasis on the content than one `<em>`.
+
+You should also bear in mind that `<b>` and `<i>` may not produce appropriate styling for some parts of the world. For example, Chinese characters are so complicated that they often prefer something such as underlining to bold, because bold makes it too difficult to read the text.
+
+If you do use `<b>` or `<i>` tags, the HTML5 specification recommends that you also use class attributes to identify the semantic intention of the markup. This can be particularly important for pages that get translated, since styling doesn't necessarily map to the same semantic categories across different cultures. For more information, read the article Using `<b>` and `<i>` elements.
+
+
+#### Knowledge check 2.3.1
+
+```html
+<....> You need to leave immediately. Your office is bugged! <....>
+```
+
+Which of the following tags should be used in this case?
+
+1. < strong >
+2. < i >
+3. < b >
+4. < em >
+
+  Ans: 1 <br>
+  Explication: This text sounds like an important message spoken with urgency. 
+  + The `<strong>` tag should be used for text that is typically spoken with urgency or seriousness.
+  + `<em>` is used for emphasis but not to convey importance.
+
 
 
 ### Introduction to semantic elements
