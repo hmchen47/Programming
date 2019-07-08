@@ -1097,6 +1097,12 @@ Explication: `<div>` and `<span>` should only be used when no other semantic ele
 
 ### Activities - Semantic meaning
 
+Please find below suggested activities to help you practice:
+
+1. How are `<header>` and `<h1>` related? What is the difference between them?
+2. Create a well structured HTML page using as many semantic elements as you can.
+3. Write a short HTML page that uses the `<div>` and `<span>` tags. You need not style them.
+
 
 
 ## 2.4 Images
