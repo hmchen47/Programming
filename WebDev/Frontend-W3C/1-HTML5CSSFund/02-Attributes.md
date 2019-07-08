@@ -1354,6 +1354,9 @@ Suppose you have a small image that looks like a warning sign - ⚠.  You want t
 ### Activities - Images
 
 1. Create a simple Web page that talks about your day using only text and images. Include at least three images and add the alt and title attributes.
+
+  [My Code](src/2.4.6-ImagesQ1.html)
+
 2. Look through the Web and your favorite Web sites and identify those that you think use a lot of decorative images.
 3. Create a HTML page and add the following types of images:
 
