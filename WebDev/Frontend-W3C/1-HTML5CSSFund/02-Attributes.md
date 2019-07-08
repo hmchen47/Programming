@@ -1105,9 +1105,11 @@ Please find below suggested activities to help you practice:
 
 2. Create a well structured HTML page using as many semantic elements as you can.
 
-  [Sample code](src/2.3.7-SemanticQ2.html)
+  [HTML code](src/2.3.7-SemanticQ2.html)
 
 3. Write a short HTML page that uses the `<div>` and `<span>` tags. You need not style them.
+
+  [HTML Code](src/2.3.7-SemanticQ3.html)
 
 
 
