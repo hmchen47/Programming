@@ -1242,7 +1242,7 @@ Try this: place your mouse on the image below. Don't click, just rest your curso
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/3d0f9ea5b4ff4e59ba36c1bc1665e6f3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4074262b9688b4439ebf7b5d934c231559">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/64b9d57b8e2c1a03009b0cb79d5f8454/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/img-title.jpg" style="margin: 0.1em;" alt="Tulips in a basket" title="captTulips in woodburn tulip festival" width="350">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/64b9d57b8e2c1a03009b0cb79d5f8454/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/img-title.jpg" style="margin: 0.1em;" alt="Tulips in a basket" title="captTulips in woodburn tulip festival" width="250">
   </a></div>
 </div>
 
@@ -1301,12 +1301,51 @@ True or False? Setting the size for an image must always be done using the 'heig
   Explication: False. You can also use CSS to set height and width for an image. You are encouraged to use CSS when you have multiple images of the same size. If you have different sizes for every image as part of your content, you can add it using 'height' and 'width' attributes to avoid cluttering your CSS. Note that if you wish to maintain the aspect ratio of the image, specifying either height or width is sufficient.
 
 
-
 ### Decorative images
+
+#### Should all images be part of HTML content?
+
+A significant part of images on the Web are not used for any meaning. They merely serve a decorative purpose and fall under the presentation category. How do you identify these images? Well, if you have nothing relevant to put in your alt attribute or if you feel like it is not important to your or to the prospective reader, it should not be in your HTML.
+
+We know we should keep content and style separate in HTML. Then how do we move these images out of content? Well, don't add them using the `<img>` tag in HTML. Use CSS instead. 
+
+Examples of such images:
+
++ background images
++ fancy border graphics
++ banner graphics
++ pictures of landscapes or textures that are being used as elements behind or surrounding the content
+
+Some pages (especially for video games, fancy magazines, etc) have a lot of eye-candy imagery that is not core to any of the semantic meaning of the page.
+
+Can you identify these type of decorative images?
+
+Find out from their tooltips!
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/3d0f9ea5b4ff4e59ba36c1bc1665e6f3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4074262b9688b4439ebf7b5d934c231559">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/74d84724ee496668618e246da1d6fcb2/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/image-background.jpg" style="margin: 0.1em;" alt="Beautiful landscape background image" title="Beautiful landscape background image" width="150">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2fddb207225249526d2368fdac39457/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/image-texture.jpg" style="margin: 0.1em;" alt="Brick texture for use behind main content" title="Brick texture for use behind main content" width="150">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/514eede426463409c5a59f946bbc89a6/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/image-border.jpg" style="margin: 0.1em;" alt="Fancy decorative border image" title="Fancy decorative border image" width="150">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f3eb43a6ef41d4bbd314f98bdbee1f26/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/image-banner.jpg" style="margin: 0.1em;" alt="Decorative banner graphic" title="Decorative banner graphic" width="150">
+  </a></div>
+</div>
+
+
+#### Knowledge check 2.4.4
+
+Suppose you have a small image that looks like a warning sign - ⚠.  You want to place it near a particular paragraph on your Web page. Should you use an  tag for the warning sign, or should you add it via CSS commands?
+
+1. Image tag
+2. CSS
+
+  Ans: 1<br/>
+  Explanation: A good way to decide which image should go into your content is to consider whether you want assistive technology or screen readers to understand the meaning of the image. In this case, a caution symbol might indicate some important text or warning and does not fall under the decorative images category. So, it should be added using the image tag in your content.
 
 
 
 ### Using 'img' tags
+
 
 
 
