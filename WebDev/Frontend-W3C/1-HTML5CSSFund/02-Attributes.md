@@ -612,6 +612,205 @@ Why should you use semantic elements in your Web page?
 
 ### New HTML5 semantic elements
 
+We will elaborate on selected semantic elements in detail in the next unit.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr>
+    <td style="background-color: #3d64ff; color: #ffffff;" width="70">Semantic Element</td>
+    <td style="background-color: #3d64ff; color: #ffffff;">Description</td>
+    <td style="background-color: #3d64ff; color: #ffffff;">Example</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;header&gt;</strong></td>
+    <td>Introduction for the whole page or individual sections, article, nav, aside elements. Typically contains site name, logo, navigation. Does not have to be at the  beginning of page.</td>
+    <td>&lt;header&gt;<br> &lt;h1&gt;The Importance of Being Earnest&lt;/h1&gt;<br> &lt;h3&gt;A Quest for Truth and Beauty&lt;/h3&gt;<br> &lt;p&gt;The play was written in 1895 by playwright Oscar Wilde&lt;/p&gt;<br>&lt;/header&gt;</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;footer&gt;</strong></td>
+    <td>Includes typical footer information like authoring, copyrights, contact information and a footer menu.</td>
+    <td>&lt;footer&gt;<br> &lt;p&gt;Written by: Oscar Wilde&lt;/p&gt;<br> &lt;p&gt;Contact information: &lt;a href="mailto:oscar@wilde.com"&gt;<br> oscar@wilde.com&lt;/a&gt;.&lt;/p&gt;<br>&lt;/footer&gt;</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;nav&gt;</strong></td>
+    <td>Navigation links for the document. A page can have more than one &lt;nav&gt; element like table of contents, horizontal navigation in header and footer navigation.</ td>
+    <td>&lt;nav&gt;&lt;ol&gt;<br>&lt;li&gt;&lt;a href="/act1/"&gt;Act 1&lt;/a&gt;&lt;/li&gt;<span style="line-height: 1.6;">&nbsp;&nbsp;</span><br><span style="line-height: 24.8889px;">&lt;li&gt;</span>&lt;a href="/act2/"&gt;Act 2&lt;/a&gt;&lt;/li&gt; <br><span style="line-height: 24.8889px;">&lt;li&gt;</span>&lt;a href="/act3/"&gt;Act 3&lt; /a&gt;&lt;/li&gt;<br>&lt;/ol&gt;&lt;/nav&gt;</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;section&gt;</strong></td>
+    <td>Defines sections in&nbsp;the document&nbsp;such as&nbsp;chapters, headers, etc. Typically used on content that cannot make sense on its own.&nbsp;</td>
+    <td>&lt;section&gt;<br> &lt;h1&gt;Act 1 - Scene 1&lt;/h1&gt;<br> &lt;p&gt;Set in the morning room of Algy's flat in Half Moon Street&lt;/p&gt;<br>&lt;/section&gt;</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;article&gt;</strong></td>
+    <td>Defines independent content that should make sense on its own outside of the document&nbsp;such as&nbsp;newspaper articles, blog posts, etc.</td>
+    <td>&lt;article&gt;<br> &lt;h1&gt;A blogger's analysis of this brilliant satire&lt;/h1&gt;<br> &lt;p&gt;This witty, sometimes conscious play is Wilde's playground to   raise his progressive sentiments...&lt;/p&gt;<br>&lt;/article&gt;</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;aside&gt;</strong></td>
+    <td>Side content other than main content, like a sidebar. These are not considered as part of the main page outline.</td>
+    <td>&lt;p&gt;Algernon's flat is luxuriously and artistically furnished&lt;/p&gt;<br><br>&lt;aside&gt;<br> &lt;h3&gt;Algernon Moncrieff&lt;/h3&gt;<br> &lt;p&gt;A wealthy bachelor who lives in a fashionable part of London. He has a good sense of humor and utter lack of respect for society.&lt;/p&gt;<br>&lt;/aside&gt;</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;details&gt;</strong><br><br><mark>*see example below</mark></td>
+    <td>A way to provide additional information that the user can show or hide. Content that is shown to user by default. Other content is hidden and can be expanded to  view.</td>
+    <td>&lt;details&gt;<br> &lt;summary&gt;Cast Members&lt;/summary&gt;<br> &lt;p&gt;George Washington as Algernon Moncrieff&lt;/p&gt;<br> &lt;p&gt;Ronald Reagan as John Worthing&lt;/p&gt;<br>&lt;/details&gt;</td>
+  </tr>
+  <tr>
+    <td>
+      <p width="90px"><strong>&lt;figcaption&gt;</strong></p>
+      <p><span style="line-height: 22.4px;"><mark>*see example below</mark></span><strong></strong></p>
+    </td>
+    <td>Provides a caption (explanation) of an image. To be used within &lt;figure&gt;.</td>
+    <td>&lt;figure&gt;<br> &lt;img src="img_cast.jpg" alt="The Importance of Being Earnest Cast"&gt;<br> &lt;figcaption&gt;Fig1. - The cast hard at work at dress rehearsal before opening night&lt;/figcaption&gt;<br>&lt;/figure&gt;</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;figure&gt;</strong></td>
+    <td>Contains an image and can be used to group with an image's caption</td>
+    <td>Refer to &lt;figcaption&gt;</td>
+  </tr>
+  <tr>
+    <td>
+      <p width="90px"><strong>&lt;mark&gt;</strong></p>
+      <p><span style="line-height: 22.4px;"><mark>*see example below</mark></span><strong></strong></p>
+    </td>
+    <td>Defines a part of a text you want to highlight. The highlight styling is specified in CSS.</td>
+    <td>&lt;h4&gt;Lane: &lt;/h4&gt;&lt;p&gt;Yes sir. [&lt;mark&gt;Handing his master the sandwiches on a salver&lt;/mark&gt;]&lt;/p&gt;</td>
+  </tr>
+  <tr>
+    <td width="90"><strong>&lt;summary&gt;</strong></td>
+    <td>Used within the &lt;details&gt; tag. Specifies the visible content. The rest of the content in details is shown/hidden by user.</td>
+    <td>&lt;details&gt;<br> &lt;summary&gt;Cast Members&lt;/summary&gt;<br> &lt;p&gt;George Washington as Algernon Moncrieff&lt;/p&gt;<br> &lt;p&gt;Ronald Reagan as John   Worthing&lt;/p&gt;<br>&lt;/details&gt;</td>
+  </tr>
+</tbody>
+</table>
+
+
+#### &lt;details&gt; element
+
+The `<details>` tag is very cool. It is used in conjunction with a nested `<summary>` tag and some other content. The result is that the summary is shown with a disclosure triangle alongside it, and the other content is initially hidden.  By clicking the triangle, the other content is displayed to the user. This requires no JavaScript and is a simple way to get a powerful and desirable feature.
+
+Below we see the HTML, and you can try it out for yourself! Note that the `<details>` tag works in most Web browsers.
+
+<table>
+<tbody>
+  <tr><th>HTML</th><th class="result">Result / Try It!</th></tr>
+  <tr>
+    <td>
+      <div class="source-code"><ol class="linenums">
+        <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;details&gt;</span></li>
+        <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;summary&gt;</span><span class="pln">Cast Members</span><span   class="tag">&lt;/summary&gt;</span></li>
+        <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;p&gt;</span><span class="pln">George Washington as Algernon  Moncrieff</span><span class="tag">&lt;/p&gt;</span></li>
+        <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;p&gt;</span><span class="pln">Ronald Reagan as John Worthing</ span><span class="tag">&lt;/p&gt;</span></li>
+        <li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/details&gt;</span></li>
+      </ol></div>
+    </td>
+    <td><details><summary>Cast Members</summary>
+      <p>George Washington as Algernon Moncrieff</p>
+      <p>Ronald Reagan as John Worthing</p>
+    </details></td>
+  </tr>
+</tbody>
+</table>
+
+<details open=""> element</details>
+
+[Example Code](src/2.3.3-details.html)
+
+See also the current [browser support](http://caniuse.com/#search=%3Cdetails%3E) (on caniuse.com).
+
+
+#### &lt;figcaption&gt; element
+
+This element is used to provide a caption or explanation of the image (figure). While the alt attribute explains the image for assistive technology, <figcaption> can be used to provide additional information for all users.
+
+```html
+<figure>
+   <img src="img_cast.jpg" alt="The Importance of Being Earnest Cast">
+   <figcaption>Fig1. - The cast hard at work at dress rehearsal before opening night</figcaption>
+</figure>
+```
+
+Result:
+
+<figure>
+  <img width="300" alt="dress rehearsal" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/8b8ca4b537a667b251cb45f6ec8aab7b/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/dressrehears.jpg" type="saveimage" target="[object Object]"><br>
+  <figcaption>Fig1. - The cast hard at work at dress rehearsal before opening night</figcaption>
+</figure>
+
+
+#### &lt;mark&gt; element
+
+This element is used to specify content that you want to highlight. 
+
+```html
+<h3>Lane: </h3><p>Yes sir. [<mark>Handing his master the sandwiches on a salver</mark>]</p>
+```
+
+[Example Code](src/2.3.3-mark.html)
+
+Most browsers will display mark element with a yellow background to black text by default, however, if it doesn't, you can specify the styling in CSS. See also the current browser support (on caniuse.com).
+
+
+#### Effect of semantic elements
+
+If you have had a chance to try the examples of the semantic elements discussed above, you will notice that semantic elements are not visually promising in general. Only a few semantic elements such as `<mark>`, `<em>`, `<strong>` and `<code>` provide some kind of visual change to the document. The rest don't do anything except providing the structure for your document. 
+
+A good example is `<aside>`. The `<aside>` element is used for side content other than the main content, such as a sidebar, but it does not actually create a sidebar in your page. Sidebar is a user interface (UI) element and must be styled to achieve the look of a sidebar. The following code will only create structure to your document, not any visual change:
+
+[Example Code](src/2.3.3-Effect.html)
+
+
+#### Lesser known semantic elements
+
+Note: This section is optional material included for the curious. It will not appear on any graded question.
+
+We will look at a few more semantic elements that are commonly in use but lesser known.
+
+<table style="font-family: arial,helvetica,sans-serif;width: 70vw;" align="center" cellspacing="0" cellpadding="5" border="1">
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Semantic Element</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Description</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Example</td>
+  </tr>
+  <tr>
+    <td>&lt;code&gt;</td>
+    <td>Used to represent short computer code in a sentence. It displays code in default monospace font.&nbsp;</td>
+    <td>&lt;p&gt;For larger code snippets, you should use the &lt;code&gt;pre tag&lt;/code&gt;.&lt;/p&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;abbr&gt;</td>
+    <td>Used to indicate the occurrence of an abbreviation.</td>
+    <td>&lt;abbr title="Hypertext Markup Language"&gt;HTML&lt;/abbr&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;br&gt;</td>
+    <td>Used to introduce a line break in your HTML document.</td>
+    <td>&lt;br&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;address&gt;</td>
+    <td>Used to supply contact information for its nearest <code>&lt;article&gt;</code> or <code>&lt;body&gt;</code> ancestor.</td>
+    <td>&lt;address&gt;<br>&lt;a href="www.example.com"&gt;John Doe&lt;/a&gt;&lt;br&gt;<br>#123, Doe Villa&lt;br&gt;<br>Los Angeles, USA<br>&lt;/address&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;hr&gt;</td>
+    <td>Used to introduce a horizontal line in your HTML document.</td>
+    <td>&lt;p&gt;Hello&lt;/p&gt;&lt;hr&gt;&lt;p&gt;World!&lt;/p&gt;</td>
+  </tr>
+</tbody>
+</table>
+
+Apart from these, `<cite>`, `<em>`, `<strong>`, `<p>` and `<blockquote>` are also semantic elements.
+
+
+#### Knowledge check 2.3.3
+
+True of False? You are designing a Web page to store your grandmother's recipes. Each recipe should be enclosed in a `section` element.
+
+  Ans: False<br>
+  Explication: A page from a recipe book is independent content that will make sense on its own. Thus, the `article` element will be more appropriate.
 
 
 ### Differentiating semantic elements
