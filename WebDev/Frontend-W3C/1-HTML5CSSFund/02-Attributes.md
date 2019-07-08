@@ -1346,7 +1346,10 @@ Suppose you have a small image that looks like a warning sign - ⚠.  You want t
 
 ### Using 'img' tags
 
-
+<video src="https://edx-video.net/W3CHTM502016-V015500_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@7746cdf5eb2e446ab9313ae339857324/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ### Activities - Images
