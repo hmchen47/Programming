@@ -1236,6 +1236,70 @@ Explication: Search engines and assistive technology users do not see images and
 
 ### Attributes: title, height & width
 
+#### The 'title' Attribute
+
+Try this: place your mouse on the image below. Don't click, just rest your cursor on it. 
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/3d0f9ea5b4ff4e59ba36c1bc1665e6f3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4074262b9688b4439ebf7b5d934c231559">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/64b9d57b8e2c1a03009b0cb79d5f8454/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/img-title.jpg" style="margin: 0.1em;" alt="Tulips in a basket" title="captTulips in woodburn tulip festival" width="350">
+  </a></div>
+</div>
+
+Did you see the hidden message 'Tulips from woodburn tulip festival'? title is a global attribute we have seen before but worth mentioning again because it is very useful in an `<img>` tag. If you have a complicated image that could use a tooltip or description, you will want to use the `title` attribute.
+
+```html
+<img src="images/tulips.png" alt="This is supposed to be an image of tulips" title="Tulips from woodburn tulip festival">
+```
+
+The alt attribute is meant to be an alternate source of information while the title attribute should provide additional information about the image.
+
+__Note__: For images, you __must__ use an `alt` attribute as there is no guarantee that the title attribute is presented to assistive technology users. The title attribute should not be relied upon for important information, and it should not be used in place of the alt attribute.
+
+
+#### The 'height' & 'width' Attributes
+
+Not all your images come in the right size for your Web page. The width and height attributes can be used to resize the image in pixels without using an external editor.
+
+Here is my original image:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/3d0f9ea5b4ff4e59ba36c1bc1665e6f3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4074262b9688b4439ebf7b5d934c231559">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c92337ae06a2117b39c05568d1885b00/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/badgehtml5.png" style="margin: 0.1em;" alt="HTML5 logo not resized" title="Example image not resized">
+  </a></div>
+</div>
+
+Clearly too big for the page. The original image dimensions is 345x523 in pixels. Pixel is short for picture element. These are the little dots that make up your image on a computer display like the monitor or laptop you are viewing this in. Pixels are generally too small to see (unless you look really close) and a screen might be made up of millions of pixels.
+
+Now, if I want to resize the HTML logo above by half:
+
+```html
+<img src="images/html5.png" alt="HTML resized image" title="Resized image seems to fit the page better" height="173" width="262">
+```
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/3d0f9ea5b4ff4e59ba36c1bc1665e6f3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4074262b9688b4439ebf7b5d934c231559">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c92337ae06a2117b39c05568d1885b00/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/badgehtml5.png" style="margin: 0.1em;" alt="HTML5 logo resized" title="Example image resized" height="173" width="262">
+  </a></div>
+</div>
+
+Actually, you don't need to define both width and height. You can just specify either height or width and the aspect ratio will be adjusted. For example, the image above can be achieved using the following too:
+
+```html
+<img src="images/html5.png" alt="HTML resized image" title="Resized image seems to fit the page better" height="173">
+```
+
+The use of these attributes really depends on how you are using the image. If it is part of an [image grid](https://www.imagely.com/wp-content/uploads/2013/03/adding-functionality-justified-image-grid-03.png) or a list with multiple images of the same size, it is best achieved by CSS. So you don't have to bother adding the same dimensions to every image and it will be repetitive. Plus it is generally bad practice to encode dimensions directly into the HTML.
+
+However, if you are adding the image into some content and it needs to be a certain size for the visual flow of the reader, then it is best to add it to HTML using the `height` and `width` attributes. This is to avoid cluttering your CSS with a style for every image in your page. This is also useful if you are changing or removing the image: you can just remove it from your HTML and not deal with remembering to remove it from your CSS too.
+
+
+#### Knowledge check 2.4.3
+
+True or False? Setting the size for an image must always be done using the 'height' and 'width' attributes.
+
+  Ans: False<br/>
+  Explication: False. You can also use CSS to set height and width for an image. You are encouraged to use CSS when you have multiple images of the same size. If you have different sizes for every image as part of your content, you can add it using 'height' and 'width' attributes to avoid cluttering your CSS. Note that if you wish to maintain the aspect ratio of the image, specifying either height or width is sufficient.
+
 
 
 ### Decorative images
