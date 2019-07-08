@@ -1099,6 +1099,10 @@ Explication: `<div>` and `<span>` should only be used when no other semantic ele
 Please find below suggested activities to help you practice:
 
 1. How are `<header>` and `<h1>` related? What is the difference between them?
+
+  + `<header>`: simply an area to add any introductory content about your page.  It can contains headings, paragraphs, tables, images, logos and even navigation.
+  + `<h1>` ~ `<h6>`: These elements represent headings for their sections. The semantics and meaning of these elements are defined in the section on headings and sections.
+
 2. Create a well structured HTML page using as many semantic elements as you can.
 3. Write a short HTML page that uses the `<div>` and `<span>` tags. You need not style them.
 
