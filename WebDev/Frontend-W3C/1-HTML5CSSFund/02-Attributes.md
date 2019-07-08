@@ -898,7 +898,7 @@ So we know we can have the nav element in header. In the example above, we have 
 
 Now, let's look at a more complete example using a global header and multiple `<header>`, `<footer>` and `<nav>` tags.
 
-[Complete Example](2.3.4-complete.html)
+[Complete Example](src/2.3.4-complete.html)
 
 
 #### Knowledge check 2.3.4
@@ -911,6 +911,76 @@ True or False? All headings should be used within the header element.
 
 
 ### &lt;article&gt; and &lt;section&gt; elements
+
+An article element as we know is stand-alone content. If you pick an article out of a Web page, it should make sense all by itself. In Brad's Blog example in the previous unit, if you extract only the first article, you can see that it will make sense all by itself without any context. It can be reused anywhere else.
+
+```html
+<article id="ces">
+  <header>
+    <h2>CES 2018</h2>
+    <h3>Consumer electronics and consumer technology tradeshow</h3>
+  </header>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam neque risus, consequat eget vestibulum eu, consequat at eros. Nam eu nisl vel neque malesuada sollicitudin quis eget libero.</p>
+  <footer>
+    <p>Written by guest author Nicholas Abc. Read Nicholas's blog here.</p>
+  </footer>
+</article>
+```
+
+One article element can be nested inside another. For example, if you have a blog post and you want to include a forum post or newspaper article in it, you can nest it in another `<article>` tag.
+
+Let's look at another example:
+
+```html
+<h4>Getting There</h4>
+<p>Arriving at the show location proved much harder for me. I couldn't get a hotel closer to where the show was taking place and so had to rent a car....</p>
+<h4>Conference Sessions</h4>
+<p>I managed to squeeze in 3 conference sessions on the first day...</p>
+```
+
+This doesn't look like it makes sense all on its own. So we can't put it into an article element. Maybe a section element?
+
+The __section element__ is used to section a page. For example, chapters in a book, sections in a thesis or splitting an 'about me' page into introduction, interests and skills. Sections can be used in a page or within an article. In fact, all content within the body element is considered to be within one section. Sections can be nested (one section in another). Sections can also be part of an article, aside or nav elements. While the code above makes no sense by itself, if you add it to our CES 2018 `<article>` example, it will fit right in.
+
+[Example Code](src/2.3.5-ArticleSec.html)
+
+An article element can use section elements to split its contents into groups.
+
+
+#### Semantic elements sample
+
+To get a better understanding on the usage of semantic elements in your Web page, try on this [CodePen](https://codepen.io/w3devcampus/pen/Wjzjpx)
+
+[Semantic Element Complete Example](src/2.3.5-Semantic.html)
+
+It is an example of an informational page about HTML5 using the following semantic elements: header, nav, main, article, section, aside, mark, figure, figcaption, details and summary.
+
+Experiment with the sample and try inserting other semantic elements that you want to try.
+
+
+#### Knowledge check 2.3.5
+
+```html
+<article id="main-content">
+  <header>
+    <h2>Tehnology Trends</h2>
+    <h3>The best of tech in 2017</h3>
+  </header>
+  <p>Some cool info about technology...</p>
+    <article id="sub-article">
+      <header>
+        <h3>Article on technology trends published by XXX magazine on August 2017</h3>
+      </header>
+      <p>XXX article content...</p>
+    </article>
+    <p>Some more cool info...</p>
+</article>
+```
+
+Is the code above valid?
+
+  Ans: Yes<br>
+  Explanation: One article element can be nested inside another, i.e. a blog post can contain a newspaper article like in the example above.
 
 
 
