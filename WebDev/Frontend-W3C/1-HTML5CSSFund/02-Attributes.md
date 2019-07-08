@@ -550,6 +550,64 @@ Which of the following tags should be used in this case?
 
 ### Introduction to semantic elements
 
+Semantic HTML is HTML that concentrates on the meaning of information in Web pages instead of its presentation or look.
+
+
+#### What are semantic elements?
+
+If you want to add a paragraph, you would use the paragraph tag. If you want to add a heading, you would use the header tags `<h1>`-`<h6>`, and to add an image, you would use the image tag (we will learn about this later in this module). All these tags along with their id and class attributes are semantic because they suggest the purpose of the content within the tags. `<i>` and `<b>` suggest nothing about the content and this is why they were not considered semantic enough and initially deprecated.
+
+
+#### Using the right tags
+
+From a semantic HTML perspective, using the right tags is important. You should use `<blockquote>` to wrap a quote and not use a paragraph tag and then style it to look like a quote. You should use `<em>` to emphasize a part of your content, not just to italicize text. For presentation purposes, you can achieve the same using CSS. How something looks has very little to do with what it means. This is why in HTML, we separate content and style.
+
+
+#### Why is it important?
+
+Semantic elements are beneficial to both the developer and browser. They convey much more information about your HTML document's content and structure. There is a tag called header in semantic HTML. When you see a heading like `<h1>` or `<h2>`, you know this is likely the start of a new sub-section or topic. Communication is always welcome in any programming language.
+
+This additional communication is useful for a __developer__ who can understand the markup structure better (when you come back to your code after a year or pass it on to a colleague, this is going to help you and them a lot!). For the __browser__, it can better differentiate different types of data which results in better display of content in different devices. __Assistive technology__, such as a screen reader, will read content and convey information about the content depending on the semantic meaning, for example, identifying headers and reading them in a different tone.
+
+Since its establishment, it is an ongoing effort on part of W3C to make HTML as semantic as possible. HTML5 brought with it a slew of new semantic elements.
+
+
+#### Web page structure
+
+Let's look at a typical Web page structure.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/dd9cc2d025bc4ac5b1a66481aac0db1b/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4025b7c2657986416785cb4a8bb92fbfd2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e8f770a8ceaa0d77fcf563e7633d64f8/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/site-structure-complex.jpg" style="margin: 0.1em;" alt="Website Structure" title="Website Structure" width="300">
+  </a></div>
+</div>
+
+Do you see how each section refers to a part of the document?
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/dd9cc2d025bc4ac5b1a66481aac0db1b/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4025b7c2657986416785cb4a8bb92fbfd2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d4a392ddecb2dcc4b9a4c9efa613e6f3/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/structurecalledout-new.jpg" style="margin: 0.1em;" alt="Diagram explaining basic web page tags" title="Diagram explaining basic web page tags" width="550">
+  </a></div>
+</div>
+
+Tags such as `<article>`, `<section>`, `<header>`, `<nav>` and `<footer>` were specifically introduced in HTML5 to define the Web page structure. These new semantic elements give meaning to different parts of a webpage. When you do a Google search, the search engine automatically processes millions of HTML pages to scan and offer you the most appropriate content.
+
+The use of these semantic elements improves the __automated processing of documents__. When it scans a `<nav>` tag, it automatically knows it includes content related to page navigation or a header indicates introductory content. It provides the structure and consistent behavior across many webpages providing simpler and more direct information to browsers making life easier for them. It also improves the __accessibility__ of webpages. Assistive technologies depend on the structure of the document to present information to the users. If a screen reader can correctly determine the structure of a document, it reads the document more seamlessly and avoids irrelevant information or repeating content.
+
+We can apply the elements in the image above to a simple Web page like [this](src/2.3.2-SimpleWeb.html)
+
+
+#### Knowledge check 2.3.2
+
+Why should you use semantic elements in your Web page?
+
+1. It provides meaning and structure to the Web page and improves automated processing of documents
+2. A user will eventually run out of 'id' values and semantic elements solve that problem
+3. It makes styling the Web page easier
+4. It will drastically improve the structure of your document visually
+
+  Ans: 1<br/>
+  Explanation: Semantic elements provide more meaning and structure to the information in Web pages instead of its presentation or look. It is used to improve processing of documents by the browser and search engines.
 
 
 ### New HTML5 semantic elements
