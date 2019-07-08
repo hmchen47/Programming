@@ -912,7 +912,7 @@ True or False? All headings should be used within the header element.
 
 ### &lt;article&gt; and &lt;section&gt; elements
 
-An article element as we know is stand-alone content. If you pick an article out of a Web page, it should make sense all by itself. In Brad's Blog example in the previous unit, if you extract only the first article, you can see that it will make sense all by itself without any context. It can be reused anywhere else.
+An article element as we know is stand-alone content. If you pick an article out of a Web page, it should make sense all by itself. In [Brad's Blog example](https://codepen.io/w3devcampus/pen/oWqbad) in the previous unit, if you extract only the first article, you can see that it will make sense all by itself without any context. It can be reused anywhere else.
 
 ```html
 <article id="ces">
