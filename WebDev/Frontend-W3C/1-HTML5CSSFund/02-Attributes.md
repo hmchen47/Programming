@@ -473,7 +473,7 @@ Semantic refers to the meaning of words in a language. __Semantic tags__ said so
 </table>
 
 
-##### &lt;b&gt; vs &lt;strong&gt;
+##### 'b' vs 'strong'
 
 __Bold__ is a style that makes letters thicker so it stands out among other text but it has no semantic meaning, for example for voice browsers, screen readers, and other types of ways to access the Web. A device like [Kindle Paperwhite](https://en.wikipedia.org/wiki/Amazon_Kindle#Kindle_Paperwhite_.281st_generation.29) that renders text differently, might not pick up the bold.
 
@@ -486,7 +486,7 @@ __Strong__ is an indication of how something should be. It looks like bold in a 
 The 'must' maybe be bolded in a browser. But when reading the HTML document out loud by a text-to-speech program, it can be spoken with importance or seriousness.
 
 
-##### &lt;i&gt; vs &lt;em&gt;
+##### 'i' vs 'em'
 
 __Italics__ slants text. We usually italicize names of magazine, books, TV shows etc. Just like the bold tag, since it is meant purely for presentation purposes, it means nothing to someone who cannot read the text.
 
@@ -545,7 +545,6 @@ Which of the following tags should be used in this case?
   Explication: This text sounds like an important message spoken with urgency. 
   + The `<strong>` tag should be used for text that is typically spoken with urgency or seriousness.
   + `<em>` is used for emphasis but not to convey importance.
-
 
 
 ### Introduction to semantic elements
@@ -686,7 +685,7 @@ We will elaborate on selected semantic elements in detail in the next unit.
 </table>
 
 
-#### &lt;details&gt; element
+#### 'details' element
 
 The `<details>` tag is very cool. It is used in conjunction with a nested `<summary>` tag and some other content. The result is that the summary is shown with a disclosure triangle alongside it, and the other content is initially hidden.  By clicking the triangle, the other content is displayed to the user. This requires no JavaScript and is a simple way to get a powerful and desirable feature.
 
@@ -713,7 +712,9 @@ Below we see the HTML, and you can try it out for yourself! Note that the `<deta
 </tbody>
 </table>
 
+```html
 <details open=""> element</details>
+```
 
 [Example Code](src/2.3.3-details.html)
 
@@ -722,7 +723,7 @@ See also the current [browser support](http://caniuse.com/#search=%3Cdetails%3E)
 
 #### &lt;figcaption&gt; element
 
-This element is used to provide a caption or explanation of the image (figure). While the alt attribute explains the image for assistive technology, <figcaption> can be used to provide additional information for all users.
+This element is used to provide a caption or explanation of the image (figure). While the alt attribute explains the image for assistive technology, `<figcaption>` can be used to provide additional information for all users.
 
 ```html
 <figure>
@@ -817,10 +818,10 @@ True of False? You are designing a Web page to store your grandmother's recipes.
 
 Now, you have learned the semantic elements available and their syntax. When you try to apply it practically, there are some common problems you might run into. For example, when do we use `<header>` and when do we use `<h1>` to `<h6>` tags? Can I use semantic elements like `<header>`, `<footer>` and `<nav>` multiple times in my Web page? Or a more frequent question, do I use `<article>`, `<section>` or `<div>`?
 
-Fear not. We will discuss these scenarios in detail so you can be better equipped to apply semantic elements in your Web page. 
+Fear not. We will discuss these scenarios in detail so you can be better equipped to apply semantic elements in your Web page.
 
 
-#### &lt;header&gt; vs &lt;h1&gt; - &lt;h6&gt;
+#### header vs h1 - h6
 
 `<header>` is simply an area to add any introductory content about your page. It can contains headings, paragraphs, tables, images, logos and even navigation. `<h1>` to `<h6>` are headings we learned early on in the course. `<h1>` is for the most important heading and `<h6>` is for the least important. Let's see an example of how to use the `<header>` and `<h1>` to `<h6>` tags in your Web page.
 
@@ -842,8 +843,7 @@ If you view page source on the W3C specification and do a search for `<header>`,
 
 [Example Code](src/2.3.4-header.html)
 
-
-Like in the example above, the header can and frequently does contain headings `<h1>` to `<h6>`. In the case of headings, they do not have be to be used within a header. 
+Like in the example above, the header can and frequently does contain headings `<h1>` to `<h6>`. In the case of headings, they do not have be to be used within a header.
 
 Important: Headings are extremely helpful as a navigation tool for assistive technology users. While it is valid to skip header levels (have an h4 after an h2), it is not a good practice. Assistive technology often relies on the semantics of headings to understand your document's structure. More information is provided in Using h1-h6 to identify headings.
 
@@ -854,7 +854,7 @@ Assistive technology uses heading markup, `<h1>` to `<h6>` to identify headings 
 You can learn more about the source of this technique in that other W3C resource page about headings.
 
 
-#### Can you have more than one &lt;header&gt;, &lt;footer&gt; and &lt;nav&gt?
+#### Can you have more than one header, footer and nav?
 
 There is a common misconception that a Web page can only have one header at the start, one footer at the end and one main navigation section to maneuver the site. 
 
@@ -1078,7 +1078,7 @@ Note: There are several other semantic inline elements such as `<abbr>`, `<cite>
 
 #### Why two paragraph tags don't work
 
-In the first <span> example, we said using two paragraph tags was invalid HTML.
+In the first `<span>` example, we said using two paragraph tags was invalid HTML.
 
 ```html
 <p>Hi everyone! My name is Alexa and I work for <p class="company">ABC Company</p></p>
