@@ -815,6 +815,99 @@ True of False? You are designing a Web page to store your grandmother's recipes.
 
 ### Differentiating semantic elements
 
+Now, you have learned the semantic elements available and their syntax. When you try to apply it practically, there are some common problems you might run into. For example, when do we use `<header>` and when do we use `<h1>` to `<h6>` tags? Can I use semantic elements like `<header>`, `<footer>` and `<nav>` multiple times in my Web page? Or a more frequent question, do I use `<article>`, `<section>` or `<div>`?
+
+Fear not. We will discuss these scenarios in detail so you can be better equipped to apply semantic elements in your Web page. 
+
+
+#### &lt;header&gt; vs &lt;h1&gt; - &lt;h6&gt;
+
+`<header>` is simply an area to add any introductory content about your page. It can contains headings, paragraphs, tables, images, logos and even navigation. `<h1>` to `<h6>` are headings we learned early on in the course. `<h1>` is for the most important heading and `<h6>` is for the least important. Let's see an example of how to use the `<header>` and `<h1>` to `<h6>` tags in your Web page.
+
+For a simple HTML page, we will use the W3C HTML5 specification. You can view the page's source code on any browser by right-click and select 'view page source'.
+
+If you view page source on the W3C specification and do a search for `<header>`, you will be able to view the contents of the header element. Here's a simplified version:
+
+```html
+<header>
+   <!-- You will learn about the <a> and <img> tags later in this chapter-->
+  <p>
+    <a href="http://www.w3.org/"><img alt="W3C logo" height="48" src="http://www.w3.org/Icons/w3c_home" width="72"></a>
+  </p>
+ 
+  <h1>HTML 5.2</h1>
+  <h2>W3C Recommendation, 14 December 2017</h2>
+</header>
+```
+
+[Example Code](src/2.3.4-header.html)
+
+
+Like in the example above, the header can and frequently does contain headings `<h1>` to `<h6>`. In the case of headings, they do not have be to be used within a header. 
+
+Important: Headings are extremely helpful as a navigation tool for assistive technology users. While it is valid to skip header levels (have an h4 after an h2), it is not a good practice. Assistive technology often relies on the semantics of headings to understand your document's structure. More information is provided in Using h1-h6 to identify headings.
+
+[Example Code](src/2.3.4-h12h6.html)
+
+Assistive technology uses heading markup, `<h1>` to `<h6>` to identify headings in a document. By using them to define your document's structure, a screen reader that parses your Web page will in some manner indicate the heading level. For example, raise its voice to indicate higher level headings or announce the heading level with the text it reads. They can also navigate through the headings quicker making it easier for the user to navigate contents of the Web page.
+
+You can learn more about the source of this technique in that other W3C resource page about headings.
+
+
+#### Can you have more than one &lt;header&gt;, &lt;footer&gt; and &lt;nav&gt?
+
+There is a common misconception that a Web page can only have one header at the start, one footer at the end and one main navigation section to maneuver the site. 
+
+
+##### Multiple headers & footers
+
+Header and footer elements are for the parent element (section, article, division or body) that they are used in. If you have multiple sections or articles, then you can have one header and footer for each.
+
+
+##### Global header & footer
+
+Header and footer elements can also be used site-wide at the top and bottom of the body of the Web page. This type of header will typically contain logos, main heading, a search area and site-wide navigation and the footer will typically include authoring information, references and other links, copyright information etc.
+
+Sometimes, the header of a Web page comes from a template file. This template file is used throughout the site as a global header. Check out [this demo](http://demo.tutorialzine.com/2015/02/freebie-7-responsive-header-templates/) by tutorialzine.com for examples of header templates.
+
+Let's look at site-wide/global header and footer used in [Microsoft Virtual Academy home page](https://mva.microsoft.com/). At the time of course creation, here are screenshots of its header  
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/dd9cc2d025bc4ac5b1a66481aac0db1b/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4025b7c2657986416785cb4a8bb92fbfd2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/367b933fb83e55ed9030bcb34715c0fb/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/MVA-header.png" style="margin: 0.1em;" alt="Screenshot of the MVA's home page header" title="Screenshot of the MVA's home page header" width="550">
+  </a></div>
+</div>
+
+and footer.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/dd9cc2d025bc4ac5b1a66481aac0db1b/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4025b7c2657986416785cb4a8bb92fbfd2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/298b40740c0f0b470e44b141e27d8433/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/MVA-footer.PNG" style="margin: 0.1em;" alt="Screenshot of MVA's home page showing the footer" title="Screenshot of MVA's home page showing the footer" width="550">
+  </a></div>
+</div>
+
+If you visit the page and navigate to other parts of the site, you will see that the header and footer remain unchanged. 
+
+
+##### Multiple navigation menus
+
+So we know we can have the nav element in header. In the example above, we have one in the global header with menu items 'Courses'. Did you notice that we also have one in the footer? With menu items 'Support', 'Terms of Use', etc. You can definitely have more than one navigation menu in your Web page because there are so many different types of menus calling the need for multiple `<nav>` tags. Using `<nav>` also helps assistive technology. Screen readers now knows exactly where page navigation lies so it can provide options for the users to either skip reading its contents or to make it immediately available.
+
+
+##### Complete example
+
+Now, let's look at a more complete example using a global header and multiple `<header>`, `<footer>` and `<nav>` tags.
+
+[Complete Example](2.3.4-complete.html)
+
+
+#### Knowledge check 2.3.4
+
+True or False? All headings should be used within the header element.
+
+  Ans: False<br/>
+  Explication: Headings, h1 to h6, need not be confined to the header element. They can be used throughout the document. You can include your primary page's heading and headings used at the start of your article or section within the header element.
+
 
 
 ### &lt;article&gt; and &lt;section&gt; elements
