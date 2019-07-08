@@ -1185,6 +1185,53 @@ What’s the best way to ensure that your picture will display correctly?
 
 ### Attribute: alt
 
+`alt` stands for alternate text for an image.
+
+```html
+<img src="image/example.png" alt="Add a short text description of the image here">
+```
+
+Using this attribute, you can provide a short description of what the image is about. This description should convey information about the image or its function in the page. The alt is an important attribute because it is the text alternative to the image for users who are unable to see the image, instead using assistive technology like screen readers that rely on the alt text.  It is also useful to provide relevant information for search engines.
+
+
+#### Importance of THE 'alt' attribute
+
++ If you add alt to your image, screen readers will typically announce that there is an image and read out the contents of the alt attribute.
++ Your image will not display if the path in your source attribute is wrong, if you have a slow internet connection, or if the image has been relocated or renamed. It will show a broken link. It is useful to have the alternate text display so the user can make sense of the missing image.
++ Search engines do not 'see' images. They rely on the alt attribute to find out what the image is about. If you use your target keyword in alt, it will optimize the search.
++ To consume less data, some mobile users turn off images. They need the alt attribute to find out what the image is about.
+
+`alt` also contributes to semantic meaning - it offers meaning to the image and suggests the purpose of the image content.
+
+If the image is purely for presentation or decoration purposes, you should leave alt empty - `<img alt="">`. Assistive technology will then ignore this content.
+
+
+#### Purpose of the image
+
+You can use images for various reasons in your Web page like:
+
++ represent a concept, illustration or just a photograph that provide information
++ background for a button or link
++ display a quote or message in the form of text in an image
++ decorative images
+
+Depending on the category the image fits into, the alt text differs. This W3C [WAI Images Tutorial](https://www.w3.org/WAI/tutorials/images/) is an excellent resource for deciding the category of your image and for learning how to write proper alt text for that category.
+
+Here is an example of a tulip image using invalid source (that image is missing from the 'images' directory) and how it will look in a Web browser:
+
+```html
+<img src="image/tulips.png" alt="This is supposed to be an image of tulips">
+```
+
+[Example Code](src/2.4.2-ImgAlt.html)
+
+
+#### Knowledge check 2.4.2
+
+True or False? One of the functions of the 'alt' attribute is to provide information about the image to assistive technologies and search engines.
+
+Ans: True<br/>
+Explication: Search engines and assistive technology users do not see images and rely on the 'alt' attribute to find out what the image is about.
 
 
 ### Attributes: title, height & width
