@@ -986,6 +986,113 @@ Is the code above valid?
 
 ### &lt;div&gt; and &lt;span&gt; elements
 
+#### The &lt;div&gt; tag
+
+The `<div>` tag is one you will likely see sprinkled all over an HTML document. It is used to define a division or a section of the document. Div is not a semantic element, however, it is commonly used when there isn't a better semantic assignment for it.
+
+It is like a __generic container__ that can hold a variety of elements such as paragraphs, images, links, tables, etc. It can be used to group elements for styling purposes. You can do this by assigning an `id` or `class` attribute to the div element and then apply styles which will affect all elements in the div container.
+
+It should only be used if you cannot use any other semantic element in its place.
+
+We will see an example of `<div>` here:
+
+```html
+<section>
+  <h2>Week 1</h2>
+  <p>This week, you will be learning about...week 1 stuff</p>
+  <div class="code">
+    <ol>
+      <li>Line of code</li>
+      <li>Line of code</li>
+    </ol>
+  </div>
+</section>
+<section>
+  <h2>Week 2</h2>
+  <p>This week, you will be learning about...week 2 stuff</p>
+  <div class="code">
+    <ol>
+      <li>Line of code</li>
+      <li>Line of code</li>
+    </ol>
+  </div>
+</section>
+```
+
+If you want to style all code snippets in your HTML document a certain way, you can place your code in a div container and apply styles collectively to it using the `class` attribute.
+
+
+#### The &lt;span&gt; tag
+
+While we are at the topic of the `<div>` tag and semantic elements, one more important element that comes in handy is `<span>`. Span and Div are so similar yet so different that there is an entire [wikipedia page](https://en.wikipedia.org/wiki/Span_and_div) dedicated to it.
+
+
+##### Usage
+
+What happens when you do not find an appropriate tag to use? Let's look at this example:
+
+```html
+<p>Hi everyone! My name is Alexa and I work for ABC Company</p>
+```
+
+I want to change the color of only 'ABC Company'? Should I use a paragraph tag? Let's try that..
+
+```html
+<p>Hi everyone! My name is Alexa and I work for <p class="company">ABC Company</p></p>
+```
+
+If you then design your style such that the 'company' class will make text blue, the output will look like this:
+
+<p style="padding-left: 60px;">Hi everyone! My name is Alexa and I work for</p>
+
+<p style="color: blue; padding-left: 60px;">ABC Company</p>
+
+That does not work because `<p>` splits it into a newline. The HTML above is also invalid. We will see why shortly. Now, let's try `<span>`.
+
+```html
+<p>Hi everyone! My name is Alexa and I work for <span class="company">ABC Company</span></p>
+```
+
+Hi everyone! My name is Alexa and I work for <span style="color: blue;">ABC Company</span>
+
+
+##### When can &lt;span&gt; be used?
+
++ To add styling to part of a sentence (inline)
++ Manipulate part of a sentence using JavaScript
++ When no other HTML element is applicable, you can use `<span>` (and `<div>`) to add attributes such as class and id
+
+Like `<div>`, `<span>` is not a semantic element. You should only use `<span>` if no other semantic element is appropriate. `<div>` and `<span>` serve the same purpose but should be applied at different levels. `<div>` is a block level element (for a block of space) while `<span>` is an inline element (for within a line or phrase).
+
+
+#### Difference between &lt;div&gt; and &lt;span&gt;
+
+They are both considered generic elements that don't have any meaning. But `<div>` is a block level element while `<span>` is an inline element. 
+
+Block level elements - used within body of the page. It occupies a block of space and starts in a new line. It usually has an empty line above and below the block. They can contain inline elements and other block level elements. Other examples: `<p>`, `<h1>` - `<h6>`.
+
+Inline elements - as the name suggests are 'in-the-line'. They can start anywhere in a line. They can only contain data (like text) or other in-line elements. Other examples: `<em>`, `<strong>`.
+
+Note: There are several other semantic inline elements such as `<abbr>`, `<cite>` and `<code>` that should be used when possible instead of <span>.
+
+
+#### Why two paragraph tags don't work
+
+In the first <span> example, we said using two paragraph tags was invalid HTML.
+
+```html
+<p>Hi everyone! My name is Alexa and I work for <p class="company">ABC Company</p></p>
+```
+
+After an opening tag `<p>`, if it sees another `<p>` or any other block level element including `<div>`, it will automatically close the first open `<p>` for you. Nesting one paragraph tag in another is not valid because the browser will consider them as two paragraphs one after the other. Even though you close the paragraphs with two closing tags `</p></p>` at the end, they are ignored as errors.
+
+
+#### Knowledge check 2.3.6
+
+True or False? `<span>` should be used anytime you want to make inline changes
+
+Ans: False, xTrue<br/>
+Explication: `<div>` and `<span>` should only be used when no other semantic element is appropriate. If you can use inline semantic elements like `<abbr>`, `<cite>` and `<code>`, then they should be used in place in `<span>`.
 
 
 ### Activities - Semantic meaning
