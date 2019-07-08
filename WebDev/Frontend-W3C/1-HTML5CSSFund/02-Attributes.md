@@ -1104,6 +1104,9 @@ Please find below suggested activities to help you practice:
   + `<h1>` ~ `<h6>`: These elements represent headings for their sections. The semantics and meaning of these elements are defined in the section on headings and sections.
 
 2. Create a well structured HTML page using as many semantic elements as you can.
+
+  [Sample code](src/2.3.7-SemanticQ2.html)
+
 3. Write a short HTML page that uses the `<div>` and `<span>` tags. You need not style them.
 
 
