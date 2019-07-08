@@ -1343,7 +1343,6 @@ Suppose you have a small image that looks like a warning sign - ⚠.  You want t
   Explanation: A good way to decide which image should go into your content is to consider whether you want assistive technology or screen readers to understand the meaning of the image. In this case, a caution symbol might indicate some important text or warning and does not fall under the decorative images category. So, it should be added using the image tag in your content.
 
 
-
 ### Using 'img' tags
 
 <video src="https://edx-video.net/W3CHTM502016-V015500_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width="180">
@@ -1353,6 +1352,24 @@ Suppose you have a small image that looks like a warning sign - ⚠.  You want t
 
 
 ### Activities - Images
+
+1. Create a simple Web page that talks about your day using only text and images. Include at least three images and add the alt and title attributes.
+2. Look through the Web and your favorite Web sites and identify those that you think use a lot of decorative images.
+3. Create a HTML page and add the following types of images:
+
+  + Informative image that represents concepts and information
+  + Decorative image
+  + Images of text
+
+Use the `alt` attribute to provide alternate text for the images above.
+
+Refer to the [WAI Images Tutorial](https://www.w3.org/WAI/tutorials/images/) for a guide to writing alternate text.
+
+__Note__: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
+
+JS Bin: http://jsbin.com ([JS Bin tutorial](http://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843))
+CodePen: http://codepen.io ([CodePen tutorial](https://css-tricks.com/video-screencasts/112-using-codepen/))
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, realtime remote pair programming.
 
 
 
