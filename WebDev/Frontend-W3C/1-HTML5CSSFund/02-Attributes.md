@@ -1118,6 +1118,70 @@ Please find below suggested activities to help you practice:
 ### Introduction to images
 
 
+#### The 'img' Tag
+
+In this age of visual culture, what is a Web page without images? Boring! Pictures and images make everything more interesting and engaging. 
+
+Here is the most basic `<img>` tag:
+
+```html
+<img src="example.png" alt="Example Tutorial Image">
+```
+
+The image tag has several attributes out of which only src and alt are required. The rest are useful but optional attributes. 
+
+
+##### Image: 'src' attribute
+
+The source attribute from the `<img>` tag tells us where to fetch the image from. There are two different types of URLs you can give for source. 
+
+1. Path to an image file within your Web site: 
+
+  ```html
+  <img src="images/image-with-relative-url.png" alt="Example Tutorial Image">
+  ```
+
+2. Path to an image file that resides elsewhere on the Web: 
+
+  ```html
+  <img src="http://www.example.com/image-with-absolute-url.png" alt="Example Tutorial Image">
+  ```
+
+The type of image file format (i.e. png, jpeg, etc.) you should use does not depend on the img element in HTML5 but on the browser that renders the content. Some formats like png, jpeg, gif and bmp are widely supported by browsers and so they are recommended when using images in your Web site. Here is a [comprehensive list by Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support) listing browsers and the image formats they support.
+
+Here is a list of things to keep in mind when using the src attribute:
+
++ Do not include spaces in your image path.
++ Make sure your image path matches the capitalization of the actual path. Your images directory in your Web project might be 'Images/' but your path might say 'images/' missing the capitalization in 'I'. Mismatched capitalization might work in some places but not all. Recommended practice: use lower case for all directories, file names and file extensions.
++ Use Unix (/) path name separator instead of Windows (\) style. This might work on Windows but will fail elsewhere. The path should be 'images/example.png' and not 'images\example.png'.
++ When your Web page loads, it is always going to look at the location you specified in src for the image. Ensure the image resides in the right location or the user is going to get a broken link. This is even more crucial when you use a relative path - any path that is 'relative to' the file. E.g. 'images/test.png' is going to look for the 'images' directory in the same level as your html page. Thus, you need to ensure your document root doesn't change. The simplest is to always keep the images at the same level, or one level down.
++ Absolute paths are not recommended to use because essentially, you are hardcoding the entire URL. The URL contains parts to it before the actual path - `http://example.com/images/test.png` like the protocol (http) and domain name (example.com). Whereas, relative URLs start with a path - '/images/test.png'. The base URL here comes from where your HTML document is deployed. This is easier to maintain. It will work on localhost or if you switch domain names without requiring any changes.
+
+
+#### Image: Formats
+
+Before you begin using images in your Web site, you are advised to visit this Web page to get an understanding of the most common image file types such as jpeg, gif, bmp, tiff and png, their pros and cons, operating system compatibility, when to use which format, etc. 
+
+When using images in your HTML5, there are a few image format related information to be aware of.
+
++ __Image data__: most images, especially JPEG, contain a lot more data than is needed for a browser and are too often overly large and slow.  You can reduce the size of the image using photo editing software that allows you to re-sample an image to reduce its pixel data and in turn reducing image size. However, once you re-sample an image, do not make change its size (height and width) to make it larger as it will become pixelated and blurry.
++ __JPEG__ (Joint Photographic Experts Group) images compress well and are the standard for photos. But they don’t support any sort of animation or transparency.
++ __PNG__ (Portable Network Graphics) images support transparency and alpha channels. This makes them useful for non-rectangular images that may need to overlay different background colors or other elements on the page. To make PNG images, a user would need graphics editing software (like GIMP, Photoshop, or others). PNG is a [W3C Web standard](https://www.w3.org/TR/PNG/) (this is the 2nd edition - the 1st edition was [published](https://www.w3.org/TR/REC-png-961001) in 1996!).
++ __SVG__ (Scalable Vector Graphics) are defined mathematically and support animation. Also, since they are defined mathematically  they scale to Logo Scalable Vector Graphics (SVG) any size without worrying about pixels, resolution or image data. This makes SVG images an excellent format to use, if possible. SVG is great for charts, graphs, maps, geometric shapes, and line based illustrations.  SVG is also a markup language in its own right and is very similar to HTML. Typically, it is created with vector graphic software (like Inkscape, Adobe Illustrator, and [others](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Tools_for_SVG)), but some people write the markup by hand. Note that SVG 1.1 is a [W3C Web standard](https://www.w3.org/TR/SVG/).
+
+
+#### Knowledge check 2.4.1
+
+What’s the best way to ensure that your picture will display correctly?
+
+1. add the 'src' attribute
+2. add the 'display' attribute
+3. use an image file format commonly supported by browsers
+4. change your HTML editor
+
+  Ans: 3, x1<br/>
+  Explanation: The browser support for image file format varies. You should use formats like png, jpeg and gif that are widely supported else you risk your image not displaying or displaying incorrectly.<br/> Submit Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.
+
 
 ### Attribute: alt
 
