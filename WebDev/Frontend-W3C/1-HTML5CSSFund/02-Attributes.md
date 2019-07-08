@@ -693,15 +693,15 @@ Below we see the HTML, and you can try it out for yourself! Note that the `<deta
 
 <table>
 <tbody>
-  <tr><th>HTML</th><th class="result">Result / Try It!</th></tr>
+  <tr><th>HTML</th><th style="width: 300px;">Result / Try It!</th></tr>
   <tr>
     <td>
-      <div class="source-code"><ol class="linenums">
-        <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;details&gt;</span></li>
-        <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;summary&gt;</span><span class="pln">Cast Members</span><span   class="tag">&lt;/summary&gt;</span></li>
-        <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;p&gt;</span><span class="pln">George Washington as Algernon  Moncrieff</span><span class="tag">&lt;/p&gt;</span></li>
-        <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;p&gt;</span><span class="pln">Ronald Reagan as John Worthing</ span><span class="tag">&lt;/p&gt;</span></li>
-        <li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/details&gt;</span></li>
+      <div style="padding-left: 30px; padding-right: 30px;border: 1px solid black;"><ol>
+        <li class="L0" style="margin-bottom: 0px;" value="1"><span style="color: #008;">&lt;details&gt;</span></li>
+        <li class="L1" style="margin-bottom: 0px;"><span style="color: #000;">&nbsp;&nbsp; </span><span style="color: #008;">&lt;summary&gt;</span><span style="color: #000;">Cast Members</span><span   style="color: #008;">&lt;/summary&gt;</span></li>
+        <li class="L2" style="margin-bottom: 0px;"><span style="color: #000;">&nbsp;&nbsp; </span><span style="color: #008;">&lt;p&gt;</span><span style="color: #000;">George Washington as Algernon  Moncrieff</span><span style="color: #008;">&lt;/p&gt;</span></li>
+        <li class="L3" style="margin-bottom: 0px;"><span style="color: #000;">&nbsp;&nbsp; </span><span style="color: #008;">&lt;p&gt;</span><span style="color: #000;">Ronald Reagan as John Worthing</ span><span style="color: #008;">&lt;/p&gt;</span></li>
+        <li class="L4" style="margin-bottom: 0px;"><span style="color: #008;">&lt;/details&gt;</span></li>
       </ol></div>
     </td>
     <td><details><summary>Cast Members</summary>
@@ -712,16 +712,15 @@ Below we see the HTML, and you can try it out for yourself! Note that the `<deta
 </tbody>
 </table>
 
-```html
 <details open=""> element</details>
-```
+
 
 [Example Code](src/2.3.3-details.html)
 
 See also the current [browser support](http://caniuse.com/#search=%3Cdetails%3E) (on caniuse.com).
 
 
-#### &lt;figcaption&gt; element
+#### 'figcaption' element
 
 This element is used to provide a caption or explanation of the image (figure). While the alt attribute explains the image for assistive technology, `<figcaption>` can be used to provide additional information for all users.
 
@@ -740,7 +739,7 @@ Result:
 </figure>
 
 
-#### &lt;mark&gt; element
+#### 'mark' element
 
 This element is used to specify content that you want to highlight. 
 
@@ -821,7 +820,7 @@ Now, you have learned the semantic elements available and their syntax. When you
 Fear not. We will discuss these scenarios in detail so you can be better equipped to apply semantic elements in your Web page.
 
 
-#### header vs h1 - h6
+#### 'header' vs 'h1' - 'h6'
 
 `<header>` is simply an area to add any introductory content about your page. It can contains headings, paragraphs, tables, images, logos and even navigation. `<h1>` to `<h6>` are headings we learned early on in the course. `<h1>` is for the most important heading and `<h6>` is for the least important. Let's see an example of how to use the `<header>` and `<h1>` to `<h6>` tags in your Web page.
 
@@ -854,17 +853,17 @@ Assistive technology uses heading markup, `<h1>` to `<h6>` to identify headings 
 You can learn more about the source of this technique in that other W3C resource page about headings.
 
 
-#### Can you have more than one header, footer and nav?
+#### Can you have more than one 'header', 'footer' and 'nav'?
 
 There is a common misconception that a Web page can only have one header at the start, one footer at the end and one main navigation section to maneuver the site. 
 
 
-##### Multiple headers & footers
+##### Multiple 'headers' & 'footers'
 
 Header and footer elements are for the parent element (section, article, division or body) that they are used in. If you have multiple sections or articles, then you can have one header and footer for each.
 
 
-##### Global header & footer
+##### Global 'header' & 'footer'
 
 Header and footer elements can also be used site-wide at the top and bottom of the body of the Web page. This type of header will typically contain logos, main heading, a search area and site-wide navigation and the footer will typically include authoring information, references and other links, copyright information etc.
 
@@ -910,7 +909,7 @@ True or False? All headings should be used within the header element.
 
 
 
-### &lt;article&gt; and &lt;section&gt; elements
+### 'article' and 'section' elements
 
 An article element as we know is stand-alone content. If you pick an article out of a Web page, it should make sense all by itself. In [Brad's Blog example](https://codepen.io/w3devcampus/pen/oWqbad) in the previous unit, if you extract only the first article, you can see that it will make sense all by itself without any context. It can be reused anywhere else.
 
@@ -984,9 +983,9 @@ Is the code above valid?
 
 
 
-### &lt;div&gt; and &lt;span&gt; elements
+### 'div' and 'span' elements
 
-#### The &lt;div&gt; tag
+#### The 'div' tag
 
 The `<div>` tag is one you will likely see sprinkled all over an HTML document. It is used to define a division or a section of the document. Div is not a semantic element, however, it is commonly used when there isn't a better semantic assignment for it.
 
@@ -1022,7 +1021,7 @@ We will see an example of `<div>` here:
 If you want to style all code snippets in your HTML document a certain way, you can place your code in a div container and apply styles collectively to it using the `class` attribute.
 
 
-#### The &lt;span&gt; tag
+#### The 'span' tag
 
 While we are at the topic of the `<div>` tag and semantic elements, one more important element that comes in handy is `<span>`. Span and Div are so similar yet so different that there is an entire [wikipedia page](https://en.wikipedia.org/wiki/Span_and_div) dedicated to it.
 
@@ -1056,7 +1055,7 @@ That does not work because `<p>` splits it into a newline. The HTML above is als
 Hi everyone! My name is Alexa and I work for <span style="color: blue;">ABC Company</span>
 
 
-##### When can &lt;span&gt; be used?
+##### When can 'span' be used?
 
 + To add styling to part of a sentence (inline)
 + Manipulate part of a sentence using JavaScript
@@ -1065,7 +1064,7 @@ Hi everyone! My name is Alexa and I work for <span style="color: blue;">ABC Comp
 Like `<div>`, `<span>` is not a semantic element. You should only use `<span>` if no other semantic element is appropriate. `<div>` and `<span>` serve the same purpose but should be applied at different levels. `<div>` is a block level element (for a block of space) while `<span>` is an inline element (for within a line or phrase).
 
 
-#### Difference between &lt;div&gt; and &lt;span&gt;
+#### Difference between 'div' and 'span'
 
 They are both considered generic elements that don't have any meaning. But `<div>` is a block level element while `<span>` is an inline element. 
 
@@ -1123,7 +1122,7 @@ Please find below suggested activities to help you practice:
 
 
 
-### Using &lt;img&gt; tags
+### Using 'img' tags
 
 
 
