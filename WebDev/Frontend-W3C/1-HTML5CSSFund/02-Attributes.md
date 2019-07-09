@@ -1358,11 +1358,21 @@ Suppose you have a small image that looks like a warning sign - ⚠.  You want t
   [My Code](src/2.4.6-ImagesQ1.html)
 
 2. Look through the Web and your favorite Web sites and identify those that you think use a lot of decorative images.
+
+  Check [Stack Overflow](https://stackoverflow.com/questions/20639180/explanation-of-how-nested-list-comprehension-works)
+
+  + top-left corner: website logo
+  + top-right corner: widgets of incoming box, new achievement, list of stack exchange sites
+  + Ask Question widget
+  + user icons for posters
+
 3. Create a HTML page and add the following types of images:
 
   + Informative image that represents concepts and information
   + Decorative image
   + Images of text
+
+  
 
 Use the `alt` attribute to provide alternate text for the images above.
 
@@ -1370,8 +1380,9 @@ Refer to the [WAI Images Tutorial](https://www.w3.org/WAI/tutorials/images/) for
 
 __Note__: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
 
-JS Bin: http://jsbin.com ([JS Bin tutorial](http://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843))
-CodePen: http://codepen.io ([CodePen tutorial](https://css-tricks.com/video-screencasts/112-using-codepen/))
++ JS Bin: http://jsbin.com ([JS Bin tutorial](http://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843))
++ CodePen: http://codepen.io ([CodePen tutorial](https://css-tricks.com/video-screencasts/112-using-codepen/))
+
 These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, realtime remote pair programming.
 
 
