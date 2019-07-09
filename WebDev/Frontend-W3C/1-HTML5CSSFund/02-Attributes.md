@@ -1662,6 +1662,10 @@ True or False? The extension of the file name is not needed for 'download' attri
 
 3. Create an HTML page with a link that utilizes the download attribute. Try your code in Internet Explorer and Google Chrome. What is the difference in behavior that you see? Why is this happening?
 
+  All the browsers, Chrome, IE and Edge, are open the text and graph files instead of showing download instruction.  
+
+  [Example code](src/2.5.6-HyperlinksQ3.html)
+
 4. Can you think of different scenarios where you would use target values '_self' and '_blank'?
 
 Note: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
