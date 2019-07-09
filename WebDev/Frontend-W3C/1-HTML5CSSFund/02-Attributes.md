@@ -1391,6 +1391,120 @@ These are HTML, CSS, and JavaScript code editors that preview/showcase your code
 
 ### Introduction to hyperlinks
 
+#### What Are Hyperlinks?
+
+In a typical Web page, I am sure you have seen a sentences like these:
+
+&nbsp;&nbsp;&nbsp;&nbsp;[Find out more](https://en.wikipedia.org/wiki/Hyperlink) about our offers!
+
+Or something like this:
+
+<p style="padding-left: 30px;"><a href="https://en.wikipedia.org/wiki/Hyperlink" target="_blank"><img alt="Buy now button for illustrating hyperlinks" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0573c0ed603120bf053860bb0d2a2314/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/buy-now.PNG" type="saveimage" target="[object Object]" width="231" height="44"></a></p>
+
+
+Try clicking the blue text or the 'Buy Now!' button, if you haven't already (make sure to navigate back to the course).
+
+Hyperlink is any text or image you can click and it will take you to another page. This page can be:
+
++ another Web page: e.g. the hyperlinks wiki page at `https://en.wikipedia.org/wiki/Hyperlink`
++ a bookmark (a specific part of a Web page): e.g. the History section of the Hyperlinks wiki page at `https://en.wikipedia.org/wiki/Hyperlink#History`
+
+  We learned about using the id attribute as a link target in the unit about attributes earlier. If you have a section in your page, you can link to that section using the value of its `id` attribute (i.e. History) preceded by the number sign - #History
+
++ a local link (link to another part of the same Web page): e.g. `a_tag.asp` is a page that belongs to this Web site
++ an email: e.g. `mailto:helloauthor@w3c.com`
+
+
+#### Why you should use text over image links
+
+When it comes to hyperlinks, try to use text instead of images when possible.
+
++ Images are not as well understood or recognized as text.
++ Text is better for accessibility.
++ If you have text in an image like the 'Buy now' button, search engines do not recognize text in images.
+
+
+#### Best Practices
+
++ Apply hyperlinks to short phrases. It is unusual to see the link tag used around a whole paragraph.
++ Make link phrase meaningful. Avoid phrases like 'Click Here' or 'Read More'. 'Click here to get help' is redundant when you can create a link around the phrase 'Get Help'. The link is an indication that it should be clicked.
++ Don't use short link text. It is easy to miss the 'blue' hyperlink if it is used on one word or character and is hard for users to click using touch screen.
++ Appearance - links have a default appearance in most browsers, blue and underlined. Ensure no other text in your page is underlined so as to avoid confusing the user. They might get frustrated trying to click text that they think is a link.
++ If you choose to have image links, it should have __alternate text__ that describes the purpose of the link instead of the image used - describe the target link.
+
+```html
+<a href="https://www.table-header-cells.com">
+  <img src="table-th.png" alt="Introduction to table header cells and their usage">
+</a>
+```
+
+
+#### Anchor Element
+
+The hyperlink tag in html is simply `<a>`, and it is called the __anchor element__. Here is how it is used:
+
+```html
+<a href="https://en.wikipedia.org/wiki/Hyperlink">Click here</a> to go to the Wikipedia Hyperlink page.
+```
+
+Result: <strong>[Click here](https://en.wikipedia.org/wiki/Hyperlink) to go to the Wikipedia Hyperlink page.</strong>
+
+Note: The anchor element should not be confused with the <link> tag. The `<link>` tag is used to define a link between a document and an external resource like an external style sheet. You will learn more about the <link> tag in the next chapter.
+
+##### States of a hyperlink:
+
+If the link has not been clicked, it will be blue and underlined. Now, click on the link and you will see that a visited link looks purple and underlined. Apart from unvisited and visited links, there is also a status called active link. A link becomes active while the user is clicking on it. During this time, the link will be red and underlined.
+
+1. __Unvisited__: blue + underlined
+2. __Visited__: purple + underlined
+3. __Active__: red + underlined
+
+
+#### Usage
+
+The `<a>` tag can surround text or an image. 
+
+```html
+<!-- Text in a hyperlink-->
+<a href="https://www.qwant.com/">If you click on me, I will take you to qwant.com</a>
+<!-- Paragraph in a hyperlink-->
+<a href="https://www.qwant.com/"><p>If you click on me, I will take you to qwant.com</p></a>
+<!-- Image in a hyperlink-->
+<a href="https://www.qwant.com/"><img src="images/qwant-image.png" alt="Image navigating to Qwant"></a>
+```
+
+You can even use the anchor element to add your email address under the contacts section of your Web page.
+
+```html
+<p>Feedback: <a href="mailto:authors@example.com">Send Mail to Authors</a></p>
+```
+
+Result (try the hyperlink below):
+
+Feedback: [Send Mail to Authors](authors@example.com)
+
+You can add a subject to the email.
+
+```html
+<p>Feedback: <a href="mailto:authors@example.com?Subject=Hello">Send Mail to Authors with Subject</a></p>
+```
+
+Result (try the hyperlink below)
+
+Feedback: [Send Mail to Authors with Subject](authors@example.com)
+
+Nevertheless, you should probably avoid using hyperlinks for email addresses:
+
++ The email address usually opens up on the default email client on the user's computer which they might not use. This defeats the whole purpose.
++ Providing your email address in your Web page directly as text or a hyperlink will expose your email address. Bots or spam crawlers can be used to search the Web to pick up email addresses for spam. You should avoid this if possible and use contact forms instead.
+
+
+#### Knowledge check 2.5.1
+
+True or False? The anchor element is the same as the `<link>` tag.
+
+  Ans: False<br/>
+  Explication: They are not the same. The anchor element is used for hyperlinks while the `<link>` tag is used to define a link between a document and an external resource like an external style sheet.
 
 
 ### Attributes: href and target
