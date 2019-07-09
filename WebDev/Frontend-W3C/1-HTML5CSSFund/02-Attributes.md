@@ -1648,6 +1648,8 @@ True or False? The extension of the file name is not needed for 'download' attri
 
 1. Test the anchor element by providing broken or invalid links. How does the browser respond?
 
+  [Example code](src/2.5.6-HyperlinksQ1.html)
+
 2. Create a simple 'Contact me' page and include the following using hyperlinks where possible:
 
   + Short introduction (not more than three lines) about yourself
