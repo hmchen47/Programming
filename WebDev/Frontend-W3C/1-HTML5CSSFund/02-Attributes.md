@@ -1646,6 +1646,26 @@ True or False? The extension of the file name is not needed for 'download' attri
 
 ### Activities - Hyperlinks
 
+1. Test the anchor element by providing broken or invalid links. How does the browser respond?
+
+2. Create a simple 'Contact me' page and include the following using hyperlinks where possible:
+
+  + Short introduction (not more than three lines) about yourself
+  + Social media information
+  + Email
+
+In the same page, add navigation at the start for parts of your page like Introduction, Social Media and Email. Use hyperlinks and the 'id' attribute to link to each section from nav.
+
+3. Create an HTML page with a link that utilizes the download attribute. Try your code in Internet Explorer and Google Chrome. What is the difference in behavior that you see? Why is this happening?
+
+4. Can you think of different scenarios where you would use target values '_self' and '_blank'?
+
+Note: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
+
++ JS Bin: http://jsbin.com ([JS Bin tutorial](http://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843))
++ CodePen: http://codepen.io ([CodePen tutorial](https://css-tricks.com/video-screencasts/112-using-codepen/))
+
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, realtime remote pair programming.
 
 
 ### Recipe project - Module 2
