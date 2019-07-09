@@ -1656,7 +1656,9 @@ True or False? The extension of the file name is not needed for 'download' attri
   + Social media information
   + Email
 
-In the same page, add navigation at the start for parts of your page like Introduction, Social Media and Email. Use hyperlinks and the 'id' attribute to link to each section from nav.
+  In the same page, add navigation at the start for parts of your page like Introduction, Social Media and Email. Use hyperlinks and the 'id' attribute to link to each section from nav.
+
+  [Example code](src/2.5.6-HyperlinksQ2.html)
 
 3. Create an HTML page with a link that utilizes the download attribute. Try your code in Internet Explorer and Google Chrome. What is the difference in behavior that you see? Why is this happening?
 
