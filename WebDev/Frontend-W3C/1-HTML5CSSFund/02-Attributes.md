@@ -1641,6 +1641,8 @@ True or False? The extension of the file name is not needed for 'download' attri
   Your browser does not support the HTML5 video element.
 </video><br/>
 
+[Example code: Page 1](src/2.5.5-Hyperlink1.html)
+
 
 ### Activities - Hyperlinks
 
