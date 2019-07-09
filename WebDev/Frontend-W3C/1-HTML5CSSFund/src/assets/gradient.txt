@@ -1,0 +1,5 @@
+Gradient Descent
+
+Gradient descent is an iterative method for finding the minimum of a function. There are various flavors of gradient descent, and I will discuss these in detail in the subsequent article. This blog post presents the different methods available to update the weights. For now, we will stick with the vanilla gradient descent algorithm, sometimes known as the delta rule.
+
+We know that we want to go in the opposite direction of the derivative (since we are trying to ‘go away’ from the error) and we know we want to be making a step proportional to the derivative. This step is controlled by a parameter λ known as the learning rate. Our new weight is the addition of the old weight and the new step, whereby the step was derived from the loss function and how important our relevant parameter is in influencing the learning rate (hence the derivative).
