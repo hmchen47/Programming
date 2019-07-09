@@ -1372,7 +1372,7 @@ Suppose you have a small image that looks like a warning sign - ⚠.  You want t
   + Decorative image
   + Images of text
 
-  
+  [Example code](src/2.4.6-ImagesQ3.html)
 
 Use the `alt` attribute to provide alternate text for the images above.
 
