@@ -1678,6 +1678,21 @@ These are HTML, CSS, and JavaScript code editors that preview/showcase your code
 
 ### Recipe project - Module 2
 
+We are now going to continue building on the recipe project we started in Module 1.  You can find our version in the [CodePen](https://codepen.io/w3devcampus/pen/pPaPXZ) [here](src/2.5.7-ProjectSample.html).
+
+__Feel free to build on your own or on that one, whichever you prefer.__  We can apply some of what we've learned this week to improve our page, both in terms of looks a structure.  Also, we've added a couple more recipes, so we have a more realistic situation, i.e. multiple recipes rather than just one.
+
+Try to make good use of semantic elements, images and hash links to get something like [this](src/2.5.7-ProjectSample2.html)
+
+[My Project Code](src/2.5.7-Recipe.html)
+
+
+#### Live coding video: recipe project - Module 2
+
+<video src="https://edx-video.net/W3CHTM502016-V008500_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@2e778a901b284527aacc589062ead4c7/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ## 2.6 Exercises - Module 2
