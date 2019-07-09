@@ -1509,10 +1509,129 @@ True or False? The anchor element is the same as the `<link>` tag.
 
 ### Attributes: href and target
 
+#### The 'href' attribute
+
+The only attribute we have seen thus far in this chapter of hyperlinks is `href`.
+
+`href` points to the URL that the link should jump to. Though it is an optional attribute, without it, the `<a>` tag will not be a hyperlink because it obviously has no idea where to jump to.
+
+The `href` attribute takes a URL. This URL can be in the form of:
+
++ a link to an external Web site also known as [absolute URL](http://www.differencebetween.com/difference-between-an-absolute-and-vs-a-relative-url/).
+
+  ```html
+  <a href="https://qwant.com"></a>
+  ```
+
++ a link to a file or page within the same Web site also known as [relative URL](http://www.differencebetween.com/difference-between-an-absolute-and-vs-a-relative-url/).
+
+  ```html
+  <a href="contacts.html"></a>
+  ```
+
++ a link to an element on the same page. The element, is referenced using its ID. E.g. If you want to link to a div with id='details', the corresponding anchor tag will be:
+
+  ```html
+  <a href="#details"></a>
+  ```
+
++ protocols such as:
+  + mailto: | for email addresses. 
+
+  ```html
+  <a href="mailto:abc@alphabets.com"></a>
+  ```
+
+#### The 'target' attribute
+
+target specifies the destination where the linked URL in href should be opened. It can take a variety of different values, but for our purposes we'll focus on the two below.
+
+<table style="font-family: arial,helvetica,sans-serif; table-layout: auto;" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr>
+    <td style="background-color: #3d64ff; color: #ffffff;" width="40%">Destination</td>
+    <td style="background-color: #3d64ff; color: #ffffff;" width="15%">Attribute value</td>
+    <td style="background-color: #3d64ff; color: #ffffff;" width="30%">Example</td>
+    <td style="background-color: #3d64ff; color: #ffffff;" width="15%">Result (try this)</td>
+  </tr>
+  <tr>
+    <td width="40%">In the same view where the link resides. If no target is specified, this is the default behavior.</td>
+    <td width="15%">_self</td>
+    <td width="30%">&lt;a href="<span style="color: #339966;">https://qwant.com/</span>" target="<span style="color: #339966;">_self</span>"&gt;&lt;/a&gt;</td>
+    <td width="15%"><a href="https://qwant.com/" target="_self">LINK will open in same window</a>&nbsp;(Navigate back to the course by clicking Back button in browser)</td>
+  </tr>
+  <tr>
+    <td width="40%">
+      <p>In a new window or tab. This is very convenient if you want to link the user to a Web page without having the current page disappear. By clicking on the previous  window or tab, they can redirect to the page where the link is.</p>
+      <p><strong>Note: </strong>It is best to inform users that the page will open in a new tab or window when using '_blank' as some may not be aware of the new tab having  opened.</p>
+    </td>
+    <td width="15%">_blank</td>
+    <td width="30%">&lt;a href="<span style="color: #339966;">https://qwant.com/</span>" target="<span style="color: #339966;">_blank</span>"&gt;&lt;/a&gt;</td>
+    <td width="15%"><a href="https://qwant.com/" target="_blank">LINK will open in new window</a></td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Knowledge check 2.5.2
+
+True or False? The 'mailto:' protocol in the `href` attribute can validate the email address provided.
+
+  Ans: False, xTrue<br/>
+  Explication: It will only open an email client adding the address provided in the recepient's list. It does not have the capacity to check the validity of the email address.
 
 
 ### Attributes: media and download
 
+#### The 'media' attribute
+
+The media attribute was introduced in HTML5. We will look at it briefly here. It is used to specify what kind of media or device the URL you linked to in href is optimized for. The URL could be targeted for special devices like projectors, speech synthesizers or pages meant to be printed. It is useful if you want to cater your target document that the URL points to a particular device type.
+
+Imagine you have a page scattered with multiple images and you want to display this page on a handheld device. Handheld devices are known to have small screens and limited bandwidth. We want to align the page better for a small screen and reduce the size of images. So the media attribute allows us to tell the anchor element that this page is targeted for handheld devices. You do this by providing a value for the attribute. This value could be any valid [media query](http://www.w3.org/TR/css3-mediaqueries/) and is a combination of __device type__ and __media rendering values__.
+
+Let's look at another example - you could create a print link to a long content heavy page that will redirect you to a print version of the same. You want this print version to be formatted into one page ideal for printing and with resolution of 250 dpi. Here is how the HTML5 code will look like:
+
+```html
+<a href="https://en.wikipedia.org/wiki/Media_queries?output=print" 
+  media="print and (resolution:250dpi)">Print wiki page about media queries</a>
+```
+
+
+#### The 'download' attribute
+
+The download attribute is also new in HTML5 and it makes a link download a file instead of navigate to another location. It takes in the filename as value but the value is optional. So the download attribute can be specified in the following ways:
+
+```html
+<a href="/assets/hello.txt" download>
+<a href="/assets/hello.txt" download="new-name-for-text-file">
+```
+
+If you do not specify a value for download, it will download the file with name unchanged. Else it will download the file with file name modified according to value specified.
+
+```html
+<a href="/assets/hello.txt" download>
+```
+
+... will download the file with the same name - 'hello.txt'.
+
+```html
+<a href="/assets/hello.txt" download="new-name-for-text-file">
+```
+
+... will download the file after altering its name to - 'new-name-for-text-file.txt'.
+
+Example (try the hyperlink below in Google Chrome):
+
+[Click to Download](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6e709b3765de6510e212932331a0bf52/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/hello.txt)
+
+__Note__: download attribute will only works on Chrome, Firefox and Opera. It is [not supported in all browsers](http://caniuse.com/#search=download). Try the download attribute in a html file of your own and run it in different browsers to see how it behaves.
+
+#### Knowledge check 2.5.3
+
+True or False? The extension of the file name is not needed for 'download' attribute's value.
+
+  Ans: true, xFalse<br/>
+  Explication: The value should be the new name of the file downloaded. The extension is not needed but providing it is alright. Try both scenarios to find out how the browser responds.
 
 
 ### Use of hyperlink attributes
