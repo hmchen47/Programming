@@ -984,6 +984,59 @@ If you want to share an actual work/recipe in the discussion forum, please eithe
 ### HTML5 and the Web (1-5)
 
 
+1. M in HTML5
+
+  What does the 'M' in HTML5 stand for?
+
+  Ans: Markup<br/>
+  Explanation: HyperText Markup Language
+
+
+2. How many elements?
+
+  How many elements should your document have?
+
+  1. 42
+  2. As many as you need or want to make it clear and organized correct
+  3. Less than 128
+  4. As few as possible
+
+  Ans: 2<br/>
+  Explanation: Though there may be a minimum number of elements required (e.g. an html element, a head and a body) there's no limit, it just depends on how you organize your info.
+
+
+3. What is CSS?
+
+  What is CSS? (select all that apply - 2 answers are possible!)
+
+  1. A subset of HTML
+  2. A separate language
+  3. Used to control what a page looks like
+  4. Used to customize a page for each user
+
+  Ans: 23<br/>
+  Explanation: CSS is a separate language from HTML, used to control the look (style or visual theme) of a web page.
+
+
+4. Internet and Web
+
+  True or False: The main reason the Internet was created was to support the World Wide Web
+
+  Ans: False<br/>
+  Explanation: The internet existed for many years before the World Wide Web was conceived.
+
+
+5. Hypertext
+
+  The term hypertext means:
+
+  1. Writing in ALL CAPS
+  2. Text with embedded links to other documents correct
+  3. Very energetic words
+
+  Ans: 2<br/>
+  Explication: Leaving aside the fact that no browsers are 100% compliant and implement 100% of the standards, there are many choices left up to the browser such as Font choices, white space choices, as well as ambiguities that may be interpreted in more than one way.
+
 
 ### HTML5 tags (6-19)
 
