@@ -1076,7 +1076,7 @@ Web Components is an HTML-related technology which makes it possible to, essenti
       + emphasizing word in a sentence able to change the whole meaning
       + HTML5: used for words and sentences you would pronounce differently
       + HTML5: not used to convey importance
-  + Ref: [Using <b> and <i> elements](https://www.w3.org/International/questions/qa-b-and-i-tags)
+  + Ref: [Using `<b>` and `<i>` elements](https://www.w3.org/International/questions/qa-b-and-i-tags)
 
 
 
@@ -1511,8 +1511,8 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <thead>
   <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Description</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attribute</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Description</td>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="30%">Usage</td>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Link</td>
   </tr>
@@ -1530,7 +1530,7 @@ Web Components is an HTML-related technology which makes it possible to, essenti
       <p><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="example.png" alt="Example Tutorial Image"&gt;</span></p>
     </td>
     <td>
-      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#image-src-attribute">Source</a></p>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#image-src-attribute">Source18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-img-tag">src19</a></p>
     </td>
   </tr>
 </thead>
@@ -1538,11 +1538,11 @@ Web Components is an HTML-related technology which makes it possible to, essenti
   <tr>
     <td>alt</td>
     <td>
-      <p><span style="font-family: arial,helvetica,sans-serif;">Provide a short description of what the image is about (must have)</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Provide a short description of what the image is about (must have)<br/>offer meaning to the image and suggests the purpose of the image content</span></p>
     </td>
     <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here"&gt;</span></td>
     <td>
-      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-alt-attribute">Alternative Text</a></p>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-alt-attribute">Alt Text</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#attribute-alt">alt</a></p>
     </td>
   </tr>
   <tr>
@@ -1552,7 +1552,7 @@ Web Components is an HTML-related technology which makes it possible to, essenti
     </td>
     <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" title="Add a title of the image"&gt;</span></td>
     <td>
-      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-title-attribute">Image Ttitle</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#global-attribute-title-">Global Ttitle</a></p>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-title-attribute">Ttitle</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#global-attribute-title-">Global Ttitle</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-title-attribute">title</a></p>
     </td>
   </tr>
   <tr>
@@ -1562,7 +1562,7 @@ Web Components is an HTML-related technology which makes it possible to, essenti
     </td>
     <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" height="hhh"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" width="www"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" width="www" height="hhh"&gt;</span></td>
     <td>
-      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-height-width-attributes">Size</a></p>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-height-width-attributes">Size</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-height-width-attributes">width&height</a></p>
     </td>
   </tr>
 </tbody>
