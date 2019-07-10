@@ -83,12 +83,12 @@
 
 + Frequent used codes
 
-  <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 60vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead><tr>
-      <th style="background-color: #3d64ff; color: #ffffff; width: 10vw">Symbol</th>
-      <th style="background-color: #3d64ff; color: #ffffff; width: 5vw">Entity Name</th>
-      <th style="background-color: #3d64ff; color: #ffffff; width: 5vw">Entity Number</th>
-      <th style="background-color: #3d64ff; color: #ffffff; width: 20vw">Usage</th>
+      <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Symbol</th>
+      <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Entity Name</th>
+      <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Entity Number</th>
+      <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Usage</th>
     </tr></thead>
     <tbody>
     <tr>
@@ -188,6 +188,7 @@
 
 + Borrow from SGML to provide an easy way for a computer to determine which parts are "MarkUp" and which parts are the content
 
+
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.oreilly.com/library/view/learning-web-design/9780596527525/ch04.html">
     <img src="https://www.oreilly.com/library/view/learning-web-design/9780596527525/graphics/lwd3_0406.jpg" style="margin: 0.1em;" alt="An element consists of both the content and its markup." title="The parts of an (X)HTML element" width="400">
@@ -195,28 +196,785 @@
 </div>
 
 
+#### [Document metadata](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Document_metadata)
+
+Metadata contains information about the page. This includes information about styles, scripts and data to help software (search engines, browsers, etc.) use and render the page. Metadata for styles and scripts may be defined in the page or link to another file that has the information. 
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/base" title="The HTML <base> element specifies the base URL to use for all relative URLs contained within a document. There can be only one <base> element in a document."><code>&lt;base&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;base&gt;</code> element</strong> specifies the base URL to use for all relative URLs contained within a document. There can be only one <code>&lt;base&gt;</code> element in a document.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/head" title="The HTML <head> element contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets."><code>&lt;head&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;head&gt;</code> element</strong> contains machine-readable information (<a class="glossaryLink" href="/en-US/docs/Glossary/metadata" title="metadata: Metadata is — in its very simplest definition — data that describes data. For example, an HTML document is data, but HTML can also contain metadata in its <head> element that describes the document — for example who wrote it, and its summary.">metadata</a>) about the document, like its <a href="/en-US/docs/Web/HTML/Element/title">title</a>, <a href="/en-US/docs/Web/HTML/Element/script">scripts</a>, and <a href="/en-US/docs/Web/HTML/Element/style">style sheets</a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/link" title="The HTML External Resource Link element (<link>) specifies relationships between the current document and an external resource. This element is most commonly used to link to stylesheets, but is also used to establish site icons (both &quot;favicon&quot; style icons and icons for the home screen and apps on mobile devices) among other things."><code>&lt;link&gt;</code></a></td>
+   <td>The <strong>HTML External Resource Link element (<code>&lt;link&gt;</code>)</strong> specifies relationships between the current document and an external resource. This element is most commonly used to link to <a class="glossaryLink" href="/en-US/docs/Glossary/CSS" title="stylesheets: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.">stylesheets</a>, but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/meta" title="The HTML <meta> element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>."><code>&lt;meta&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;meta&gt;</code> element</strong> represents <a class="glossaryLink" href="/en-US/docs/Glossary/Metadata" title="metadata: Metadata is — in its very simplest definition — data that describes data. For example, an HTML document is data, but HTML can also contain metadata in its <head> element that describes the document — for example who wrote it, and its summary.">metadata</a> that cannot be represented by other HTML meta-related elements, like <a href="/en-US/docs/Web/HTML/Element/base" title="The HTML <base> element specifies the base URL to use for all relative URLs contained within a document. There can be only one <base> element in a document."><code>&lt;base&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/link" title="The HTML External Resource Link element (&amp;lt;link&amp;gt;) specifies relationships between the current document and an external resource. This element is most commonly used to link to stylesheets, but is also used to establish site icons (both &quot;favicon&quot; style icons and icons for the home screen and apps on mobile devices) among other things."><code>&lt;link&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/script" title="The HTML <script> element is used to embed or reference executable code; this is typically used to embed or refer to JavaScript code."><code>&lt;script&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/style" title="The HTML <style> element contains style information for a document, or part of a document."><code>&lt;style&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/title" title="The HTML Title element (<title>) defines the document's title that is shown in a browser's title bar or a page's tab."><code>&lt;title&gt;</code></a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/style" title="The HTML <style> element contains style information for a document, or part of a document."><code>&lt;style&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;style&gt;</code> element</strong> contains style information for a document, or part of a document.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/title" title="The HTML Title element (<title>) defines the document's title that is shown in a browser's title bar or a page's tab."><code>&lt;title&gt;</code></a></td>
+   <td>The <strong>HTML Title element</strong> (<strong><code>&lt;title&gt;</code></strong>) defines the document's title that is shown in a <a class="glossaryLink" href="/en-US/docs/Glossary/Browser" title="browser: A Web browser or browser is a program that retrieves and displays pages from&nbsp;the Web, and lets users access further pages through hyperlinks. A browser is the most familiar type of user agent.">browser</a>'s title bar or a page's tab.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Sectioning Root](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Sectioning_root)
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+   <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/body" title="The HTML <body> Element represents the content of an HTML&nbsp;document. There can be only one <body> element in a document."><code>&lt;body&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;body&gt;</code> Element</strong> represents the content of an HTML&nbsp;document. There can be only one <code>&lt;body&gt;</code> element in a document.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Content sectioning](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning)
+
+Content sectioning elements allow you to organize the document content into logical pieces. Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, and heading elements to identify sections of content.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/address" title="The HTML <address> element indicates that the enclosed HTML provides contact information for a person or people, or for an organization."><code>&lt;address&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;address&gt;</code> element</strong> indicates that the enclosed HTML provides contact information for a person or people, or for an organization.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/article" title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable"><code>&lt;article&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;article&gt;</code> element</strong> represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/aside" title="The HTML <aside> element represents a portion of a document whose content is only indirectly related to the document's main content."><code>&lt;aside&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;aside&gt;</code> element</strong> represents a portion of a document whose content is only indirectly related to the document's main content.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/footer" title="The HTML <footer> element represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents."><code>&lt;footer&gt;</code></a></td>
+   <td>The<strong> HTML <code>&lt;footer&gt;</code> element</strong> represents a footer for its nearest <a href="/en-US/docs/Web/Guide/HTML/Sections_and_Outlines_of_an_HTML5_document#Defining_sections">sectioning content</a> or <a href="/en-US/docs/Web/Guide/HTML/Sections_and_Outlines_of_an_HTML5_document#Sectioning_roots" title="Sections and Outlines of an HTML5 document#Sectioning root">sectioning root</a> element. A footer typically contains information about the author of the section, copyright data or links to related documents.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/header" title="The HTML <header> element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements."><code>&lt;header&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;header&gt;</code> element</strong> represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/h1" title="REDIRECT Heading elements [en-US]"><code>&lt;h1&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/h2" title="REDIRECT Heading elements [en-US]"><code>&lt;h2&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/h3" title="REDIRECT Heading elements [en-US]"><code>&lt;h3&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/h4" title="REDIRECT Heading elements [en-US]"><code>&lt;h4&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/h5" title="REDIRECT Heading elements [en-US]"><code>&lt;h5&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/h6" title="REDIRECT Heading elements [en-US]"><code>&lt;h6&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code> elements</strong> represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/hgroup" title="The HTML <hgroup> element represents a multi-level heading for a section of a document. It groups a set of <h1>–<h6> elements."><code>&lt;hgroup&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;hgroup&gt;</code> element</strong> represents a multi-level heading for a section of a document. It groups a set of <code><a href="/en-US/docs/Web/HTML/Element/Heading_Elements">&lt;h1&gt;–&lt;h6&gt;</a></code> elements.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/main" title="The HTML <main> element represents the dominant content of the <body> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application."><code>&lt;main&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;main&gt;</code> element</strong> represents the dominant content of the <a href="/en-US/docs/Web/HTML/Element/body" title="The HTML <body> Element represents the content of an HTML&nbsp;document. There can be only one <body> element in a document."><code>&lt;body&gt;</code></a> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/nav" title="The HTML <nav> element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes."><code>&lt;nav&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;nav&gt;</code> element</strong> represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/section" title="The HTML <section> element represents a standalone section — which doesn't have a more specific semantic element to represent it — contained within an HTML document."><code>&lt;section&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;section&gt;</code> element</strong> represents a standalone section — which doesn't have a more specific semantic element to represent it — contained within an HTML document.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Text content](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Text_content)
+
+Use HTML text content elements to organize blocks or sections of content placed between the opening `<body>` and closing `</body>` tags. Important for accessibility and SEO, these elements identify the purpose or structure of that content.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/blockquote" title="The HTML <blockquote> Element (or HTML Block Quotation Element) indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see Notes for how to change it). A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the <cite> element."><code>&lt;blockquote&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or <em>HTML Block Quotation Element</em>) indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see <a href="#Usage_notes" rel="internal">Notes</a> for how to change it). A URL for the source of the quotation may be given using the <strong>cite</strong> attribute, while a text representation of the source can be given using the <a href="/en-US/docs/Web/HTML/Element/cite" title="The HTML Citation element (<cite>) is used to describe a reference to a cited creative work, and must include the title of that work."><code>&lt;cite&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/dd" title="The&nbsp;HTML <dd> element provides the details about or the definition of the preceding term (<dt>) in a description list (<dl>)."><code>&lt;dd&gt;</code></a></td>
+   <td>The&nbsp;<strong>HTML <code>&lt;dd&gt;</code> element</strong> provides the details about or the definition of the preceding term (<a href="/en-US/docs/Web/HTML/Element/dt" title="The HTML <dt> element specifies a term in a description or definition list, and as such must be used inside a <dl> element."><code>&lt;dt&gt;</code></a>) in a description list (<a href="/en-US/docs/Web/HTML/Element/dl" title="The HTML <dl> element represents a description list. The element encloses a list of groups of terms (specified using the <dt> element) and descriptions (provided by <dd> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs)."><code>&lt;dl&gt;</code></a>).</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/dir" title="The obsolete HTML Directory element (<dir>) is used as a container for a directory of files and/or folders, potentially with styles and icons applied by the user agent."><code>&lt;dir&gt;</code></a></td>
+   <td>The obsolete <strong>HTML Directory element</strong> (<strong><code>&lt;dir&gt;</code></strong>) is used as a container for a directory of files and/or folders, potentially with styles and icons applied by the <a class="glossaryLink" href="/en-US/docs/Glossary/user_agent" title="user agent: A user agent is a computer program representing a person, for example, a browser in a Web context.">user agent</a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/div" title="The HTML Content Division element (<div>) is the generic container for flow content. It has no effect on the content or layout until styled using CSS."><code>&lt;div&gt;</code></a></td>
+   <td>The <strong>HTML Content Division element</strong> (<strong><code>&lt;div&gt;</code></strong>) is the generic container for flow content. It has no effect on the content or layout until styled using <a class="glossaryLink" href="/en-US/docs/Glossary/CSS" title="CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.">CSS</a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/dl" title="The HTML <dl> element represents a description list. The element encloses a list of groups of terms (specified using the <dt> element) and descriptions (provided by <dd> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs)."><code>&lt;dl&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;dl&gt;</code> </strong>element represents a description list. The element encloses a list of groups of terms (specified using the <a href="/en-US/docs/Web/HTML/Element/dt" title="The HTML <dt> element specifies a term in a description or definition list, and as such must be used inside a <dl> element."><code>&lt;dt&gt;</code></a> element) and descriptions (provided by <a href="/en-US/docs/Web/HTML/Element/dd" title="The&nbsp;HTML <dd> element provides the details about or the definition of the preceding term (<dt>) in a description list (<dl>)."><code>&lt;dd&gt;</code></a> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/dt" title="The HTML <dt> element specifies a term in a description or definition list, and as such must be used inside a <dl> element."><code>&lt;dt&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;dt&gt;</code> element</strong> specifies a term in a description or definition list, and as such must be used inside a <a href="/en-US/docs/Web/HTML/Element/dl" title="The HTML <dl> element represents a description list. The element encloses a list of groups of terms (specified using the <dt> element) and descriptions (provided by <dd> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs)."><code>&lt;dl&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/figcaption" title="The HTML <figcaption> or Figure Caption element represents a caption or legend describing the rest of the contents of its parent <figure> element."><code>&lt;figcaption&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;figcaption&gt;</code> or Figure Caption element</strong> represents a caption or legend describing the rest of the contents of its parent <a href="/en-US/docs/Web/HTML/Element/figure" title="The HTML <figure> (Figure With Optional Caption) element represents self-contained content, potentially with an optional caption, which is specified using the (<figcaption>) element."><code>&lt;figure&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/figure" title="The HTML <figure> (Figure With Optional Caption) element represents self-contained content, potentially with an optional caption, which is specified using the (<figcaption>) element."><code>&lt;figure&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;figure&gt;</code> (Figure With Optional Caption) element</strong> represents self-contained content, potentially with an optional caption, which is specified using the (<a href="/en-US/docs/Web/HTML/Element/figcaption" title="The HTML <figcaption> or Figure Caption element represents a caption or legend describing the rest of the contents of its parent <figure> element."><code>&lt;figcaption&gt;</code></a>) element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/hr" title="The HTML <hr> element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section."><code>&lt;hr&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;hr&gt;</code> element</strong> represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/li" title="The HTML <li> element is used to represent an item in a list."><code>&lt;li&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;li&gt;</code> element</strong> is used to represent an item in a list.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/main" title="The HTML <main> element represents the dominant content of the <body> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application."><code>&lt;main&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;main&gt;</code> element</strong> represents the dominant content of the <a href="/en-US/docs/Web/HTML/Element/body" title="The HTML <body> Element represents the content of an HTML&nbsp;document. There can be only one <body> element in a document."><code>&lt;body&gt;</code></a> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/ol" title="The HTML <ol> element represents an ordered list of items, typically rendered as a numbered list."><code>&lt;ol&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;ol&gt;</code> element</strong> represents an ordered list of items, typically rendered as a numbered list.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/p" title="The HTML <p> element represents a paragraph."><code>&lt;p&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;p&gt;</code> element</strong> represents a paragraph.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/pre" title="The HTML <pre> element represents preformatted text which is to be presented exactly as written in the HTML file."><code>&lt;pre&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;pre&gt;</code> element</strong> represents preformatted text which is to be presented exactly as written in the HTML file.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/ul" title="The HTML <ul> element represents an unordered list of items, typically rendered as a bulleted list."><code>&lt;ul&gt;</code></a></td>
+   <td>The<strong> HTML <code>&lt;ul&gt;</code> element</strong> represents an unordered list of items, typically rendered as a bulleted list.</td>
+  </tr>
+
+ </tbody>
+</table>
+
+
+#### [Inline text semantic](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Inline_text_semantics)
+
+Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or any arbitrary piece of text.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+   <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/a" title="The HTML <a> element (or anchor element), along with it's href attribute, creates a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL."><code>&lt;a&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;a&gt;</code> element</strong> (or <em>anchor</em> element), along with it's <a href="#href">href</a> attribute, creates a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/abbr" title="The HTML Abbreviation element (<abbr>) represents an abbreviation or acronym; the optional title attribute can provide an expansion or description for the abbreviation."><code>&lt;abbr&gt;</code></a></td>
+   <td>The <strong>HTML Abbreviation element </strong>(<strong><code>&lt;abbr&gt;</code></strong>) represents an abbreviation or acronym; the optional <code><a href="/en-US/docs/Web/HTML/Global_attributes#attr-title">title</a></code> attribute can provide an expansion or description for the abbreviation.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/b" title="The HTML Bring Attention To element (<b>)&nbsp; is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance."><code>&lt;b&gt;</code></a></td>
+   <td>The <strong>HTML Bring Attention To element (<code>&lt;b&gt;</code>)</strong>&nbsp; is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/bdi" title="The HTML Bidirectional Isolate element (<bdi>)&nbsp; tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text."><code>&lt;bdi&gt;</code></a></td>
+   <td>The HTML <strong>Bidirectional Isolate element</strong> (<strong><code>&lt;bdi&gt;</code></strong>)&nbsp; tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/bdo" title="The HTML Bidirectional Text Override element (<bdo>) overrides the current directionality of text, so that the text within is rendered in a different direction."><code>&lt;bdo&gt;</code></a></td>
+   <td>The <strong>HTML Bidirectional Text Override element</strong> (<strong><code>&lt;bdo&gt;</code></strong>) overrides the current directionality of text, so that the text within is rendered in a different direction.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/br" title="The HTML <br> element produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant."><code>&lt;br&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;br&gt;</code> element</strong> produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/cite" title="The HTML Citation element (<cite>) is used to describe a reference to a cited creative work, and must include the title of that work."><code>&lt;cite&gt;</code></a></td>
+   <td>The <strong>HTML Citation element</strong> (<strong><code>&lt;cite&gt;</code></strong>) is used to describe a reference to a cited creative work, and must include the title of that work.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/code" title="The HTML <code> element displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code."><code>&lt;code&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;code&gt;</code> element</strong> displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/data" title="The HTML <data> element links a given content with a machine-readable translation. If the content is time- or date-related, the <time> element must be used."><code>&lt;data&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;data&gt;</code> element</strong> links a given content with a machine-readable translation. If the content is time- or date-related, the <a href="/en-US/docs/Web/HTML/Element/time" title="The HTML <time> element represents a specific period in time."><code>&lt;time&gt;</code></a> element must be used.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/dfn" title="The HTML Definition element (<dfn>) is used to indicate the term being defined within the context of a definition phrase or sentence."><code>&lt;dfn&gt;</code></a></td>
+   <td>The <strong>HTML Definition element</strong> (<strong><dfn>&lt;dfn&gt;</dfn></strong>) is used to indicate the term being defined within the context of a definition phrase or sentence.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/em" title="The HTML <em> element marks text that has stress emphasis. The <em> element can be nested, with each level of nesting indicating a greater degree of emphasis."><code>&lt;em&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;em&gt;</code> element</strong> marks text that has stress emphasis. The <code>&lt;em&gt;</code> element can be nested, with each level of nesting indicating a greater degree of emphasis.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/i" title="The HTML <i> element represents a range of text that is set off from the normal text for some reason. Some examples include technical terms, foreign language phrases, or fictional character thoughts. It is typically displayed in italic type."><code>&lt;i&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;i&gt;</code> element</strong> represents a range of text that is set off from the normal text for some reason. Some examples include technical terms, foreign language phrases, or fictional character thoughts. It is typically displayed in italic type.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/kbd" title="The HTML Keyboard Input element (<kbd>) represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device."><code>&lt;kbd&gt;</code></a></td>
+   <td>The <strong>HTML Keyboard Input element</strong> (<strong><code>&lt;kbd&gt;</code></strong>) represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/mark" title="The HTML Mark Text element (<mark>) represents text which is marked or highlighted for reference or notation purposes, due to the marked passage's relevance or importance in the enclosing context."><code>&lt;mark&gt;</code></a></td>
+   <td>The <strong>HTML Mark Text element</strong> (<strong><code>&lt;mark&gt;</code></strong>) represents text which is <strong>marked</strong> or <strong>highlighted</strong> for reference or notation purposes, due to the marked passage's relevance or importance in the enclosing context.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/q" title="The HTML <q> element  indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. "><code>&lt;q&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;q&gt;</code> element </strong> indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. </td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/rb" title="The HTML Ruby Base (<rb>) element is used to delimit the base text component of a&nbsp; <ruby> annotation, i.e. the text that is being annotated."><code>&lt;rb&gt;</code></a></td>
+   <td>The <strong>HTML Ruby Base (<code>&lt;rb&gt;</code>) element</strong> is used to delimit the base text component of a&nbsp; <a href="/en-US/docs/Web/HTML/Element/ruby" title="The HTML <ruby> element represents a ruby annotation. Ruby annotations are for showing pronunciation of East Asian characters."><code>&lt;ruby&gt;</code></a> annotation, i.e. the text that is being annotated.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/rp" title="The HTML Ruby Fallback Parenthesis (<rp>) element is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <ruby> element."><code>&lt;rp&gt;</code></a></td>
+   <td>The <strong>HTML Ruby Fallback Parenthesis (<code>&lt;rp&gt;</code>) element</strong> is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <a href="/en-US/docs/Web/HTML/Element/ruby" title="The HTML <ruby> element represents a ruby annotation. Ruby annotations are for showing pronunciation of East Asian characters."><code>&lt;ruby&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/rt" title="The HTML Ruby Text (<rt>) element specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <rt> element must always be contained within a <ruby> element."><code>&lt;rt&gt;</code></a></td>
+   <td>The <strong>HTML Ruby Text (<code>&lt;rt&gt;</code>) element</strong> specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <code>&lt;rt&gt;</code> element must always be contained within a <a href="/en-US/docs/Web/HTML/Element/ruby" title="The HTML <ruby> element represents a ruby annotation. Ruby annotations are for showing pronunciation of East Asian characters."><code>&lt;ruby&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/rtc" title="The HTML Ruby Text Container (<rtc>) element embraces semantic annotations of characters presented in a ruby of <rb> elements used inside of <ruby> element. <rb> elements can have both pronunciation (<rt>) and semantic (<rtc>) annotations."><code>&lt;rtc&gt;</code></a></td>
+   <td>The <strong>HTML Ruby Text Container (<code>&lt;rtc&gt;</code>) element</strong> embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb" title="The HTML Ruby Base (<rb>) element is used to delimit the base text component of a&nbsp; <ruby> annotation, i.e. the text that is being annotated."><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby" title="The HTML <ruby> element represents a ruby annotation. Ruby annotations are for showing pronunciation of East Asian characters."><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb" title="The HTML Ruby Base (<rb>) element is used to delimit the base text component of a&nbsp; <ruby> annotation, i.e. the text that is being annotated."><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt" title="The HTML Ruby Text (<rt>) element specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <rt> element must always be contained within a <ruby> element."><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" title="The HTML Ruby Text Container (<rtc>) element embraces semantic annotations of characters presented in a ruby of <rb> elements used inside of <ruby> element. <rb> elements can have both pronunciation (<rt>) and semantic (<rtc>) annotations."><code>&lt;rtc&gt;</code></a>) annotations.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/ruby" title="The HTML <ruby> element represents a ruby annotation. Ruby annotations are for showing pronunciation of East Asian characters."><code>&lt;ruby&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;ruby&gt;</code> element</strong> represents a ruby annotation. Ruby annotations are for showing pronunciation of East Asian characters.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/s" title="The HTML <s> element renders text with a strikethrough, or a line through it. Use the <s> element to represent things that are no longer relevant or no longer accurate. However, <s> is not appropriate when indicating document edits; for that, use the <del> and <ins> elements, as appropriate."><code>&lt;s&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;s&gt;</code> element</strong> renders text with a strikethrough, or a line through it. Use the <code>&lt;s&gt;</code> element to represent things that are no longer relevant or no longer accurate. However, <code>&lt;s&gt;</code> is not appropriate when indicating document edits; for that, use the <a href="/en-US/docs/Web/HTML/Element/del" title="The HTML <del> element represents a range of text that has been deleted from a document."><code>&lt;del&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/ins" title="The HTML <ins> element represents a range of text that has been added to a document."><code>&lt;ins&gt;</code></a> elements, as appropriate.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/samp" title="The HTML Sample Element (<samp>) is used to enclose inline text which represents sample (or quoted) output from a computer program."><code>&lt;samp&gt;</code></a></td>
+   <td>The <strong>HTML Sample Element</strong> (<strong><code>&lt;samp&gt;</code></strong>) is used to enclose inline text which represents sample (or quoted) output from a computer program.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/small" title="The HTML <small> element makes the text font size one size smaller (for example, from large to medium, or from small to x-small) down to the browser's minimum font size.&nbsp; In HTML5, this element is repurposed to represent side-comments and small print, including copyright and legal text, independent of its styled presentation."><code>&lt;small&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;small&gt;</code></strong> <strong>element </strong>makes the text <em>font size</em> one size smaller (for example, from large to medium, or from small to x-small) down to the browser's minimum font size.&nbsp; In HTML5, this element is repurposed to represent side-comments and small print, including copyright and legal text, independent of its styled presentation.</td>
+  </tr>
+  <tr>
+
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/span" title="The HTML <span> element is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or because they share attribute values, such as lang."><code>&lt;span&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;span&gt;</code> element</strong> is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the <code><a href="/en-US/docs/Web/HTML/Global_attributes#attr-class">class</a></code> or <code><a href="/en-US/docs/Web/HTML/Global_attributes#attr-id">id</a></code> attributes), or because they share attribute values, such as <code><a href="/en-US/docs/Web/HTML/Global_attributes#attr-lang">lang</a></code>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/strong" title="The HTML Strong Importance Element (<strong>) indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type."><code>&lt;strong&gt;</code></a></td>
+   <td>The HTML <strong>Strong Importance Element</strong> (<strong><code>&lt;strong&gt;</code></strong>) indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/sub" title="The HTML Subscript element (<sub>) specifies inline text which should be displayed as subscript for solely typographical reasons."><code>&lt;sub&gt;</code></a></td>
+   <td>The HTML <strong>Subscript element</strong> (<strong><code>&lt;sub&gt;</code></strong>) specifies inline text which should be displayed as subscript for solely typographical reasons.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/sup" title="The HTML Superscript element (<sup>) specifies inline text which is to be displayed as superscript for solely typographical reasons."><code>&lt;sup&gt;</code></a></td>
+   <td>The <strong>HTML Superscript element</strong> (<strong><code>&lt;sup&gt;</code></strong>) specifies inline text which is to be displayed as superscript for solely typographical reasons.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/time" title="The HTML <time> element represents a specific period in time."><code>&lt;time&gt;</code></a></td>
+   <td>The HTML <strong><code>&lt;time&gt;</code> element</strong> represents a specific period in time.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/tt" title="The obsolete HTML Teletype Text element (<tt>) creates inline text which is presented using the user agent's default monospace font face."><code>&lt;tt&gt;</code></a></td>
+   <td>The obsolete <strong>HTML Teletype Text element</strong> (<strong><code>&lt;tt&gt;</code></strong>) creates inline text which is presented using the <a class="glossaryLink" href="/en-US/docs/Glossary/user_agent" title="user agent's: A user agent is a computer program representing a person, for example, a browser in a Web context.">user agent's</a> default monospace font face.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/u" title="The HTML Unarticulated Annotation Element (<u>) represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation."><code>&lt;u&gt;</code></a></td>
+   <td>The HTML <strong>Unarticulated Annotation Element</strong> (<strong><code>&lt;u&gt;</code></strong>) represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/var" title="The HTML Variable element (<var>) represents the name of a variable in a mathematical expression or a programming context."><code>&lt;var&gt;</code></a></td>
+   <td>The HTML <strong>Variable element</strong> (<strong><code>&lt;var&gt;</code></strong>) represents the name of a variable in a mathematical expression or a programming context.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/wbr" title="The HTML <wbr> element represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location."><code>&lt;wbr&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;wbr&gt;</code> element</strong> represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Image and multimedia](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Image_and_multimedia)
+
+HTML supports various multimedia resources such as images, audio, and video.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+   <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/area" title="The HTML <area> element defines a hot-spot region on an image, and optionally associates it with a hypertext link. This element is used only within a <map> element."><code>&lt;area&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;area&gt;</code> element</strong> defines a hot-spot region on an image, and optionally associates it with a <a class="glossaryLink" href="/en-US/docs/Glossary/Hyperlink" title="hypertext link: Hyperlinks connect webpages or data items to one another. In HTML, <a> elements define hyperlinks from a spot on a webpage (like a text string or image) to another spot on some other webpage (or even on the same page).">hypertext link</a>. This element is used only within a <a href="/en-US/docs/Web/HTML/Element/map" title="The HTML <map> element is used with <area> elements to define an image map (a clickable link area)."><code>&lt;map&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/audio" title="The HTML <audio> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element:&nbsp;the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream."><code>&lt;audio&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;audio&gt;</code> element</strong> is used to embed sound content in documents. It may contain one or more audio sources, represented using the <code>src</code> attribute or the <a href="/en-US/docs/Web/HTML/Element/source" title="The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element."><code>&lt;source&gt;</code></a> element:&nbsp;the browser will choose the most suitable one. It can also be the destination for streamed media, using a <a href="/en-US/docs/Web/API/MediaStream" title="The MediaStream interface represents a stream of media content. A stream consists of several tracks such as&nbsp;video or audio tracks. Each track is specified as an instance of MediaStreamTrack."><code>MediaStream</code></a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/img" title="The HTML <img> element embeds an image into the document. It is a replaced element."><code>&lt;img&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;img&gt;</code> element</strong> embeds an image into the document. It is a <a href="/en-US/docs/Web/CSS/Replaced_element">replaced element</a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/map" title="The HTML <map> element is used with <area> elements to define an image map (a clickable link area)."><code>&lt;map&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;map&gt;</code> element</strong> is used with <a href="/en-US/docs/Web/HTML/Element/area" title="The HTML <area> element defines a hot-spot region on an image, and optionally associates it with a hypertext link. This element is used only within a <map> element."><code>&lt;area&gt;</code></a> elements to define an image map (a clickable link area).</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/track" title="The HTML <track> element is used as a child of the media elements <audio> and <video>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in WebVTT format (.vtt files) — Web Video Text Tracks or&nbsp;Timed Text Markup Language (TTML)."><code>&lt;track&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;track&gt;</code> element</strong> is used as a child of the media elements <a href="/en-US/docs/Web/HTML/Element/audio" title="The HTML <audio> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element:&nbsp;the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream."><code>&lt;audio&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/video" title="The HTML Video element (<video>) embeds a media player which supports video playback into the document."><code>&lt;video&gt;</code></a>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in <a href="/en-US/docs/Web/API/Web_Video_Text_Tracks_Format">WebVTT format</a> (<code>.vtt</code> files) — Web Video Text Tracks or&nbsp;<a class="external external-icon" href="https://w3c.github.io/ttml2/index.html" rel="noopener">Timed Text Markup Language (TTML).</a></td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/video" title="The HTML Video element (<video>) embeds a media player which supports video playback into the document."><code>&lt;video&gt;</code></a></td>
+   <td>The <strong>HTML Video element</strong> (<strong><code>&lt;video&gt;</code></strong>) embeds a media player which supports video playback into the document.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Embedded content](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Embedded_content)
+
+In addition to regular multimedia content, HTML can include a variety of other content, even if it's not always easy to interact with.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/applet" title="The obsolete HTML Applet Element (<applet>) embeds a Java applet into the document; this element has been deprecated in favor of <object>."><code>&lt;applet&gt;</code></a></td>
+   <td>The obsolete <strong>HTML Applet Element</strong> (<strong><code>&lt;applet&gt;</code></strong>) embeds a Java applet into the document; this element has been deprecated in favor of <a href="/en-US/docs/Web/HTML/Element/object" title="The HTML <object> element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin."><code>&lt;object&gt;</code></a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/embed" title="The HTML <embed> element embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in."><code>&lt;embed&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;embed&gt;</code> element</strong> embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/iframe" title="The HTML Inline Frame element (<iframe>) represents a nested browsing context, embedding another HTML page into the current one."><code>&lt;iframe&gt;</code></a></td>
+   <td>The <strong>HTML Inline Frame element (<code>&lt;iframe&gt;</code>)</strong> represents a nested <a class="glossaryLink" href="/en-US/docs/Glossary/browsing_context" title="browsing context: A browsing context is the environment in which a browser displays a Document (normally a tab nowadays, but possibly also a window or a frame within a page).">browsing context</a>, embedding another HTML page into the current one.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/noembed" title="The <noembed> element is an obsolete, non-standard way to provide alternative, or &quot;fallback&quot;, content for browsers that do not support the <embed> element or do not support the type of embedded content an author wishes to use."><code>&lt;noembed&gt;</code></a></td>
+   <td>The <code><strong>&lt;noembed&gt;</strong></code> element is an obsolete, non-standard way to provide alternative, or "fallback", content for browsers that do not support the <a href="/en-US/docs/Web/HTML/Element/embed" title="The HTML <embed> element embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in."><code>&lt;embed&gt;</code></a> element or do not support the type of <a href="/en-US/docs/Web/Guide/HTML/Content_categories#Embedded_content">embedded content</a> an author wishes to use.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/object" title="The HTML <object> element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin."><code>&lt;object&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;object&gt;</code> element</strong> represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/param" title="The HTML <param> element defines parameters for an <object> element."><code>&lt;param&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;param&gt;</code> element</strong> defines parameters for an <a href="/en-US/docs/Web/HTML/Element/object" title="The HTML <object> element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin."><code>&lt;object&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/picture" title="The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios."><code>&lt;picture&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;picture&gt;</code> element</strong> contains zero or more <a href="/en-US/docs/Web/HTML/Element/source" title="The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element."><code>&lt;source&gt;</code></a> elements and one <a href="/en-US/docs/Web/HTML/Element/img" title="The HTML <img> element embeds an image into the document. It is a replaced element."><code>&lt;img&gt;</code></a> element to provide versions of an image for different display/device scenarios.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/source" title="The HTML <source> element specifies multiple media resources for the <picture>, the <audio> element, or the <video> element."><code>&lt;source&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;source&gt;</code> element</strong> specifies multiple media resources for the <a href="/en-US/docs/Web/HTML/Element/picture" title="The HTML <picture> element contains zero or more <source> elements and one <img> element to provide versions of an image for different display/device scenarios."><code>&lt;picture&gt;</code></a>, the <a href="/en-US/docs/Web/HTML/Element/audio" title="The HTML <audio> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element:&nbsp;the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream."><code>&lt;audio&gt;</code></a> element, or the <a href="/en-US/docs/Web/HTML/Element/video" title="The HTML Video element (<video>) embeds a media player which supports video playback into the document."><code>&lt;video&gt;</code></a> element.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Scripting](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Scripting)
+
+In order to create dynamic content and Web applications, HTML supports the use of scripting languages, most prominently JavaScript. Certain elements support this capability.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/canvas" title="Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations."><code>&lt;canvas&gt;</code></a></td>
+   <td>Use the <strong>HTML <code>&lt;canvas&gt;</code> element</strong> with either the <a href="/en-US/docs/Web/API/Canvas_API">canvas scripting API</a> or the <a href="/en-US/docs/Web/API/WebGL_API">WebGL API</a> to draw graphics and animations.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/noscript" title="The HTML <noscript> element defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser."><code>&lt;noscript&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;noscript&gt;</code> element</strong> defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/script" title="The HTML <script> element is used to embed or reference executable code; this is typically used to embed or refer to JavaScript code."><code>&lt;script&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;script&gt;</code> element</strong> is used to embed or reference executable code; this is typically used to embed or refer to JavaScript code.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Demarcating edits](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Demarcating_edits)
+
+These elements let you provide indications that specific parts of the text have been altered.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/del" title="The HTML <del> element represents a range of text that has been deleted from a document."><code>&lt;del&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;del&gt;</code> element</strong> represents a range of text that has been deleted from a document.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/ins" title="The HTML <ins> element represents a range of text that has been added to a document."><code>&lt;ins&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;ins&gt;</code> element</strong> represents a range of text that has been added to a document.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Table content](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Table_content)
+
+The elements here are used to create and handle tabular data.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/caption" title="The HTML Table Caption element (<caption>) specifies the caption (or title) of a table, and if used is always the first child of a <table>."><code>&lt;caption&gt;</code></a></td>
+   <td>The <strong>HTML Table Caption element</strong> (<strong><code>&lt;caption&gt;</code></strong>) specifies the caption (or title) of a table, and if used is <em>always</em> the first child of a <a href="/en-US/docs/Web/HTML/Element/table" title="The HTML <table> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data."><code>&lt;table&gt;</code></a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/col" title="The HTML <col> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <colgroup> element."><code>&lt;col&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;col&gt;</code> element</strong> defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <a href="/en-US/docs/Web/HTML/Element/colgroup" title="The HTML <colgroup> element defines a group of columns within a table."><code>&lt;colgroup&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/colgroup" title="The HTML <colgroup> element defines a group of columns within a table."><code>&lt;colgroup&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;colgroup&gt;</code> element</strong> defines a group of columns within a table.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/table" title="The HTML <table> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data."><code>&lt;table&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;table&gt;</code> element</strong> represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/tbody" title="The HTML Table Body element (<tbody>) encapsulates a set of table rows (<tr> elements), indicating that they comprise the body of the table (<table>)."><code>&lt;tbody&gt;</code></a></td>
+   <td>The <strong>HTML Table Body element</strong> (<strong><code>&lt;tbody&gt;</code></strong>) encapsulates a set of table rows (<a href="/en-US/docs/Web/HTML/Element/tr" title="The HTML <tr> element defines a row of cells in a table. The row's cells can then be established using a mix of <td> (data cell) and <th> (header cell) elements.The HTML <tr> element specifies that the markup contained inside the <tr> block comprises one row of a table, inside which the <th> and <td> elements create header and data cells, respectively, within the row."><code>&lt;tr&gt;</code></a> elements), indicating that they comprise the body of the table (<a href="/en-US/docs/Web/HTML/Element/table" title="The HTML <table> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data."><code>&lt;table&gt;</code></a>).</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/td" title="The HTML <td> element defines a cell of a table that contains data. It participates in the table model."><code>&lt;td&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;td&gt;</code> element</strong> defines a cell of a table that contains data. It participates in the <em>table model</em>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/tfoot" title="The HTML <tfoot> element defines a set of rows summarizing the columns of the table."><code>&lt;tfoot&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;tfoot&gt;</code> element</strong> defines a set of rows summarizing the columns of the table.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/th" title="The HTML <th> element defines a cell as header of a group of table cells. The exact nature of this group is defined by the scope and headers attributes."><code>&lt;th&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;th&gt;</code> element</strong> defines a cell as header of a group of table cells. The exact nature of this group is defined by the <code><a href="/en-US/docs/Web/HTML/Element/th#attr-scope">scope</a></code> and <code><a href="/en-US/docs/Web/HTML/Element/th#attr-headers">headers</a></code> attributes.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/thead" title="The HTML <thead> element defines a set of rows defining the head of the columns of the table."><code>&lt;thead&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;thead&gt;</code> element</strong> defines a set of rows defining the head of the columns of the table.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/tr" title="The HTML <tr> element defines a row of cells in a table. The row's cells can then be established using a mix of <td> (data cell) and <th> (header cell) elements.The HTML <tr> element specifies that the markup contained inside the <tr> block comprises one row of a table, inside which the <th> and <td> elements create header and data cells, respectively, within the row."><code>&lt;tr&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;tr&gt;</code> element</strong> defines a row of cells in a table. The row's cells can then be established using a mix of <a href="/en-US/docs/Web/HTML/Element/td" title="The HTML <td> element defines a cell of a table that contains data. It participates in the table model."><code>&lt;td&gt;</code></a> (data cell) and <a href="/en-US/docs/Web/HTML/Element/th" title="The HTML <th> element defines a cell as header of a group of table cells. The exact nature of this group is defined by the scope and headers attributes."><code>&lt;th&gt;</code></a> (header cell) elements.The HTML <strong><code>&lt;tr&gt;</code></strong> element specifies that the markup contained inside the <code>&lt;tr&gt;</code> block comprises one row of a table, inside which the <a href="/en-US/docs/Web/HTML/Element/th" title="The HTML <th> element defines a cell as header of a group of table cells. The exact nature of this group is defined by the scope and headers attributes."><code>&lt;th&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/td" title="The HTML <td> element defines a cell of a table that contains data. It participates in the table model."><code>&lt;td&gt;</code></a> elements create header and data cells, respectively, within the row.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Forms](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms)
+
+HTML provides a number of elements which can be used together to create forms which the user can fill out and submit to the Web site or application. There's a great deal of further information about this available in the HTML [forms guide](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms).
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr> </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/button" title="The HTML <button> element represents a clickable button, which can be used in forms or anywhere in a document that needs simple, standard button functionality."><code>&lt;button&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;button&gt;</code> element</strong> represents a clickable button, which can be used in <a href="/en-US/docs/Learn/HTML/Forms">forms</a> or anywhere in a document that needs simple, standard button functionality.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/datalist" title="The HTML <datalist> element contains a set of <option> elements that represent the values available for other controls."><code>&lt;datalist&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;datalist&gt;</code> element</strong> contains a set of <a href="/en-US/docs/Web/HTML/Element/option" title="The HTML <option> element is used to define an item contained in a <select>, an <optgroup>, or a <datalist>&nbsp;element. As such,&nbsp;<option>&nbsp;can represent menu items in popups and other lists of items in an HTML document."><code>&lt;option&gt;</code></a> elements that represent the values available for other controls.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/fieldset" title="The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form."><code>&lt;fieldset&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;fieldset&gt;</code> element</strong> is used to group several controls as well as labels (<a href="/en-US/docs/Web/HTML/Element/label" title="The HTML <label> element represents a caption for an item in a user interface."><code>&lt;label&gt;</code></a>) within a web form.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/form" title="The HTML <form> element represents a document section that contains interactive controls for submitting information to a web server."><code>&lt;form&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;form&gt;</code> element</strong> represents a document section that contains interactive controls for submitting information to a web server.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/input" title="The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent."><code>&lt;input&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;input&gt;</code> element</strong> is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and <a class="glossaryLink" href="/en-US/docs/Glossary/user_agent" title="user agent: A user agent is a computer program representing a person, for example, a browser in a Web context.">user agent</a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/label" title="The HTML <label> element represents a caption for an item in a user interface."><code>&lt;label&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;label&gt;</code> element</strong> represents a caption for an item in a user interface.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/legend" title="The HTML <legend> element represents a caption for the content of its parent <fieldset>."><code>&lt;legend&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;legend&gt;</code> element</strong> represents a caption for the content of its parent <a href="/en-US/docs/Web/HTML/Element/fieldset" title="The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form."><code>&lt;fieldset&gt;</code></a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/meter" title="The HTML <meter> element represents either a scalar value within a known range or a fractional value."><code>&lt;meter&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;meter&gt;</code> element</strong> represents either a scalar value within a known range or a fractional value.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/optgroup" title="The HTML <optgroup> element creates a grouping of options within a <select> element."><code>&lt;optgroup&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;optgroup&gt;</code> element</strong> creates a grouping of options within a <a href="/en-US/docs/Web/HTML/Element/select" title="The HTML <select> element represents a control that provides a menu of options"><code>&lt;select&gt;</code></a> element.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/option" title="The HTML <option> element is used to define an item contained in a <select>, an <optgroup>, or a <datalist>&nbsp;element. As such,&nbsp;<option>&nbsp;can represent menu items in popups and other lists of items in an HTML document."><code>&lt;option&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;option&gt;</code> element</strong> is used to define an item contained in a <a href="/en-US/docs/Web/HTML/Element/select" title="The HTML <select> element represents a control that provides a menu of options"><code>&lt;select&gt;</code></a>, an <a href="/en-US/docs/Web/HTML/Element/optgroup" title="The HTML <optgroup> element creates a grouping of options within a <select> element."><code>&lt;optgroup&gt;</code></a>, or a <a href="/en-US/docs/Web/HTML/Element/datalist" title="The HTML &amp;lt;datalist&amp;gt; element contains a set of {{HTMLElement(&quot;option&quot;)}} elements that represent the values available for other controls."><code>&lt;datalist&gt;</code></a>&nbsp;element. As such,&nbsp;<code>&lt;option&gt;</code>&nbsp;can represent menu items in popups and other lists of items in an HTML document.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/output" title="The HTML Output element (<output>) is a container element into which a site or app can inject the results of a calculation or the outcome of a user action."><code>&lt;output&gt;</code></a></td>
+   <td>The <strong>HTML Output element</strong> (<strong><code>&lt;output&gt;</code></strong>) is a container element into which a site or app can inject the results of a calculation or the outcome of a user action.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/progress" title="The HTML <progress> element displays an indicator showing the completion progress of a task, typically displayed as a progress bar."><code>&lt;progress&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;progress&gt;</code> element</strong> displays an indicator showing the completion progress of a task, typically displayed as a progress bar.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/select" title="The HTML <select> element represents a control that provides a menu of options"><code>&lt;select&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;select&gt;</code> element</strong> represents a control that provides a menu of options</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/textarea" title="The HTML <textarea> element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form."><code>&lt;textarea&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;textarea&gt;</code> element</strong> represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Interactive element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Interactive_elements)
+
+HTML offers a selection of elements which help to create interactive user interface objects.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/details" title="The HTML Details Element (<details>) creates a disclosure widget in which information is visible only when the widget is toggled into an &quot;open&quot; state."><code>&lt;details&gt;</code></a></td>
+   <td>The <strong>HTML Details Element (<code>&lt;details&gt;</code>)</strong> creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/dialog" title="The HTML <dialog> element represents a dialog box or other interactive component, such as an inspector or window."><code>&lt;dialog&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;dialog&gt;</code> element</strong> represents a dialog box or other interactive component, such as an inspector or window.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/menu" title="The HTML <menu> element represents a group of commands that a user can perform or activate. This includes both list menus, which might appear across the top of a screen, as well as context menus, such as those that might appear underneath a button after it has been clicked."><code>&lt;menu&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;menu&gt;</code> element</strong> represents a group of commands that a user can perform or activate. This includes both list menus, which might appear across the top of a screen, as well as context menus, such as those that might appear underneath a button after it has been clicked.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/menuitem" title="The HTML <menuitem> element represents a command that a user is able to invoke through a popup menu. This includes context menus, as well as menus that might be attached to a menu button."><code>&lt;menuitem&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;menuitem&gt;</code> element</strong> represents a command that a user is able to invoke through a popup menu. This includes context menus, as well as menus that might be attached to a menu button.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/summary" title="The HTML Disclosure Summary element (<summary>) element specifies a summary, caption, or legend for a <details> element's disclosure box."><code>&lt;summary&gt;</code></a></td>
+   <td>The <strong>HTML Disclosure Summary element</strong> (<strong><code>&lt;summary&gt;</code></strong>) element specifies a summary, caption, or legend for a <a href="/en-US/docs/Web/HTML/Element/details" title="The HTML Details Element (&amp;lt;details&amp;gt;) creates a disclosure widget in which information is visible only when the widget is toggled into an &quot;open&quot; state."><code>&lt;details&gt;</code></a> element's disclosure box.</td>
+  </tr>
+ </tbody>
+</table>
+
+
+#### [Web Component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Web_Components)
+
+Web Components is an HTML-related technology which makes it possible to, essentially, create and use custom elements as if it were regular HTML. In addition, you can create custom versions of standard HTML elements.
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/content" title="The HTML <content> element—an obsolete part of the Web Components suite of technologies—was used inside of Shadow DOM as an insertion point, and wasn't meant to be used in ordinary HTML."><code>&lt;content&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;content&gt;</code> element</strong>—an obsolete part of the <a href="/en-US/docs/Web/Web_Components">Web Components</a> suite of technologies—was used inside of <a href="/en-US/docs/Web/Web_Components/Shadow_DOM">Shadow DOM</a> as an <a class="glossaryLink new" href="/en-US/docs/Glossary/insertion_point" rel="nofollow" title="The definition of that term (insertion point) has not been written yet; please consider contributing it!">insertion point</a>, and wasn't meant to be used in ordinary HTML.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/element" title="The obsolete HTML <element> element was part of the Web Components specification; it was intended to be used to define new custom DOM elements."><code>&lt;element&gt;</code></a></td>
+   <td>The obsolete <strong>HTML <code>&lt;element&gt;</code> element</strong> was part of the <a href="/en-US/docs/Web/Web_Components">Web Components</a> specification; it was intended to be used to define new custom DOM elements.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/shadow" title="The HTML <shadow> element—an obsolete part of the Web Components technology suite—was intended to be used as a shadow DOM insertion point."><code>&lt;shadow&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;shadow&gt;</code> element</strong>—an obsolete part of the <a href="/en-US/docs/Web/Web_Components">Web Components</a> technology suite—was intended to be used as a shadow DOM <a class="glossaryLink new" href="/en-US/docs/Glossary/insertion_point" rel="nofollow" title="The definition of that term (insertion point) has not been written yet; please consider contributing it!">insertion point</a>.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/slot" title="The HTML <slot> element—part of the Web Components technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together."><code>&lt;slot&gt;</code></a></td>
+   <td>The <strong>HTML <code>&lt;slot&gt;</code> element</strong>—part of the <a href="/en-US/docs/Web/Web_Components">Web Components</a> technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.</td>
+  </tr>
+  <tr>
+   <td style="vertical-align: top;"><a href="/en-US/docs/Web/HTML/Element/template" title="The HTML Content Template (<template>) element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript."><code>&lt;template&gt;</code></a></td>
+   <td>The <strong>HTML Content Template (<code>&lt;template&gt;</code>) element</strong> is a mechanism for holding <a class="glossaryLink" href="/en-US/docs/Glossary/HTML" title="HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.">HTML</a> that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.</td>
+  </tr>
+ </tbody>
+</table>
+
+
 
 #### List of Typical Semantic Elements
 
 
-| Semantic Element | Description | Link |
-|------------------|-------------|---------|
-| `<header>` | Introduction for the whole page or individual sections, article, nav, aside elements. Typically contains site name, logo, navigation. Does not have to be at the beginning of page. | [I-2.3 Semantic Meaning][023] |
-| `<footer>` | Includes typical footer information like authoring, copyrights, contact information and a footer menu. | [I-2.3 Semantic Meaning][021] | 
-| `<nav>` | Navigation links for the document. A page can have more than one `<nav>` element like table of contents, horizontal navigation in header and footer navigation. | [I-2.3 Semantic Meaning][021] |
-| `<section>` | Defines sections in the document such as chapters, headers, etc. Typically used on content that cannot make sense on its own.  | [I-2.3 Semantic Meaning][024] |
-| `<article>` | Defines independent content that should make sense on its own outside of the document such as newspaper articles, blog posts, etc. | [I-2.3 Semantic Meaning][024] |
-| `<aside>` | Side content other than main content, like a sidebar. These are not considered as part of the main page outline. | [I-2.3 Semantic Meaning][020] |
-| `<details>` *see example below | A way to provide additional information that the user can show or hide. Content that is shown to user by default. Other content is hidden and can be expanded to view. | [I-2.3 Semantic Meaning][017] |
-| `<figcaption>` *see example below | Provides a caption (explanation) of an image. To be used within `<figure>`. | [I-2.3 Semantic Meaning][018] |
-| `<figure>` | Contains an image and can be used to group with an image's caption | [I-2.3 Semantic Meaning][018] |
-| `<mark>` *see example below | Defines a part of a text you want to highlight. The highlight styling is specified in CSS. | [I-2.3 Semantic Meaning][019] |
-| `<summary>` | Used within the `<details>` tag. Specifies the visible content. The rest of the content in details is shown/hidden by user. | [I-2.3 Semantic Meaning][017] |
-| `<code>` | Used to represent short computer code in a sentence. It displays code in default monospace font.  | [I-2.3 Semantic Meaning][022] |
-| `<abbr>` | Used to indicate the occurrence of an abbreviation. | [I-2.3 Semantic Meaning][022] |
-| `<br>` | Used to introduce a line break in your HTML document. | [I-2.3 Semantic Meaning][022] |
-| `<address>` | Used to supply contact information for its nearest `<article>` or `<body>` ancestor. | [I-2.3 Semantic Meaning][022] |
-| `<hr>` | Used to introduce a horizontal line in your HTML document. | [I-2.3 Semantic Meaning][022] |
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+ <thead>
+  <tr style="border-bottom: double black;">
+   <th style="background-color: #3d64ff; color: #ffffff; width: 05%">Element</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+   <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+    <td><code>&lt;header&gt;</code></td>
+    <td>Introduction for the whole page or individual sections, article, nav, aside elements. Typically contains site name, logo, navigation. Does not have to be at the beginning of page.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#header-vs-h1---h6">header18</a>, <a href="">header19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;footer&gt;</code></td>
+    <td>Includes typical footer information like authoring, copyrights, contact information and a footer menu.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#new-html5-semantic-elements">footer18</a>, <a href="">footer19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;nav&gt;</code></td>
+    <td>Navigation links for the document. A page can have more than one &lt;nav&gt; element like table of contents, horizontal navigation in header and footer navigation.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#header-vs-h1---h6">nav18</a>, <a href="">nav19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;section&gt;</code></td>
+    <td>Defines sections in the document such as chapters, headers, etc. Typically used on content that cannot make sense on its own.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#article-and-section-elements">sec18</a>, <a href="">sec19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;article&gt;</code></td>
+    <td>Defines independent content that should make sense on its own outside of the document such as newspaper articles, blog posts, etc.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#article-and-section-elements">article18</a>, <a href="">article19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;aside&gt;</code></td>
+    <td>Side content other than main content, like a sidebar. These are not considered as part of the main page outline.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#effect-of-semantic-elements">footer18</a>, <a href="">footer19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;details&gt;</code></td>
+    <td>A way to provide additional information that the user can show or hide. Content that is shown to user by default. Other content is hidden and can be expanded to view.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#detail-element">details18</a>, <a href="">details19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;figcaption&gt;</code></td>
+    <td>Provides a caption (explanation) of an image. To be used within &lt;figure&gt;.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#figcaption-element">figcap18</a>, <a href="">figcap19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;figure&gt;</code></td>
+    <td>Contains an image and can be used to group with an image's caption</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#figcaption-element">fig18</a>, <a href="">fgi19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;mark&gt;</code></td>
+    <td>Defines a part of a text you want to highlight. The highlight styling is specified in CSS.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#mark-element">mark18</a>, <a href="">mark19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;summary&gt;</code></td>
+    <td>Used within the &lt;details&gt; tag. Specifies the visible content. The rest of the content in details is shown/hidden by user.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#detail-element">footer18</a>, <a href="">footer19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;code&gt;</code></td>
+    <td>Used to represent short computer code in a sentence. It displays code in default monospace font.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">fig18</a>, <a href="">fig19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;abbr&gt;</code></td>
+    <td>Used to indicate the occurrence of an abbreviation.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">abbr18</a>, <a href="">abbr19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;br&gt;</code></td>
+    <td>Used to introduce a line break in your HTML document.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">br18</a>, <a href="">br19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;hr&gt;</code></td>
+    <td>Used to introduce a horizontal line in your HTML document..</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">addr18</a>, <a href="">addr19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;address&gt;</code></td>
+    <td>Used to supply contact information for its nearest &lt;article&gt; or &lt;body&gt; ancestor.</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">addr18</a>, <a href="">addr19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;div&gt;</code></td>
+    <td>define a division or a section of the document; a block level element</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#div-and-span-elements">addr18</a>, <a href="">addr19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;img&gt;</code></td>
+    <td>embeds an image into the document</td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-img-tag">addr18</a>, <a href="">addr19</a></td>
+  </tr>
+ </tbody>
+</table>
+
 
 
 ### Tags
@@ -234,6 +992,7 @@
 + To stop using that tag and do something else, so '<' and '>' are again used by adding a '/' right after the '<' to indicated that it's a 'close tag'.
 
 + "self closing" tags: an element completely described by its attributes, and thus no need for other content
+
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/633117d2ef0f4bb59cda68d966b6d288/f36ef1f210bf460e9e0f43be78fb0bd5/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40427074c031424e189e4898d969d7dcd9">
@@ -262,95 +1021,75 @@
 #### List of Typical Tags
 
 
-<table  style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <thead>
   <tr style="border-bottom: double black;">
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 15%;">Tag</th>
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 60%;">Description</th>
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 20%;">Link</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Tag</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 70%">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 15%">Link</th>
   </tr>
 </thead>
 <tbody>
   <tr><td>&lt;!DOCTYPE html&gt;</td>
     <td> declaration "This is an HTML5 file, in case you were wondering"</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#all-together-now">DOC18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">DOC19</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
-
   <tr><td> &lt;html&gt;</td>
     <td> where the actual HTML code begins and end</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#all-together-now">All18</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">HTML19</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
-
   <tr><td> &lt;meta&gt;</td>
     <td> metadata content; represent metadata that cannot be represented by other HTML meta-related elements</td>
     <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#the-meta-tag">Meta</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta">MDN</a></td></tr>
-
   <tr><td> &lt;head&gt;</td>
     <td> where the browser can find style tips, and what the title of the page is</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#everything-in-html">HEAD18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">HEAD19</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
-
   <tr><td> &lt;body&gt;</td>
     <td> contains all of the content of your page, essentially what the user sees</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#15-best-practices">Body18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">Body19</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Tags18</a></td></tr>
-
   <tr><td> &lt;h1&gt; ~ &lt;h6&gt;</td>
     <td> a whole collection of heading tags</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">Heading18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">Heading19</a></td></tr>
-
   <tr><td> &lt;p&gt;</td>
     <td> paragraph; text wrapped in may be indented or have extra vertical white space before starting; typically be a new line</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#tags-we-have-already-used">P18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#tags-we-have-already-used">P19</a></td></tr>
-
   <tr><td> &lt;q&gt;</td>
     <td> quotes; used when you want to quote a person or written work in your Web page; customarily displayed using quotation marks, again unrelated to strings</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Quote18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Quote19</a></td></tr>
-
   <tr><td> &lt;blockquote&gt;</td>
     <td> quote a larger passage; typically set the quoted text apart from the surrounding text and indent it, to make clear that it is quoted text</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">BlkQuote18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">BlkQuote19</a></td></tr>
-
   <tr><td> &lt;ul&gt;, &lt;ol&gt;</td>
     <td> indicate a list of things; &lt;ol&gt;: "ordered" list; &lt;ul&gt;: "unordered" list</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">List18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">List19</a></td></tr>
-
   <tr><td> &lt;li&gt;</td>
     <td> List Item; nested inside a list (&lt;ul&gt; or &lt;ol&gt;)</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Item18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Item19</a></td></tr>
-
   <tr><td> &lt;hr&gt;</td>
     <td> Horizontal Rule; a horizontal line across the width of the text</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Rule18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Rule19</a></td></tr>
-
   <tr><td> &lt;br&gt;</td>
     <td> line break; break the "white space" rule: where spaces and carriage returns are generally treated the same; treated as a <i>required carriage return</i></td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Break18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Break19</a></td></tr>
-
   <tr><td> &lt;pre&gt;</td>
     <td> "PREformatted text", meaning "I've set this up just the way I want it, don't mess with it."; monospace font, and none of the spaces, tabs or carriage-returns are ignored </td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#a-few-new-tags-to-learn">Format18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#a-few-new-tags-to-learn">Format19</a></td></tr>
-
   <tr><td> &lt;i&gt;</td>
     <td> italic text; used for text in a different mood or voice, such as foreign words, a thought or technical terms</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#changes-in-html5">Tags18</a>, <a href="">Tags19</a></td></tr>
-
   <tr><td> &lt;b&gt;</td>
     <td> bolded text; used as a stylistic offset such as keywords in a document, product names or action words without making them as important; can also be used as headings in list items</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#changes-in-html5">Tags18</a>, <a href="">Tags19</a></td></tr>
-
   <tr><td> &lt;em&gt;</td>
     <td> Emphasizes text; semantic tag; stress emphasis of its contents</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#semantic-vs-style-tags">Tags18</a>, <a href="">Tags19</a></td></tr>
-
   <tr><td> &lt;strong&gt;</td>
     <td> Important text; semantic tag; indication of how something should be</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#semantic-vs-style-tags">Tags18</a>, <a href="">Tags19</a></td></tr>
-
   <tr><td> &lt;a&gt;</td>
     <td> create a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#anchor-element">Tags18</a>, <a href="">Tags19</a></td></tr>
-
   <tr><td> &lt;style&gt;</td>
     <td> place CSS directly into an HTML document; anywhere in an HTML document;most common place: &lt;head&gt; section</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#3-2-css-basic-syntax">Tags18</a>, <a href="">Tags19</a></td></tr>
-
   <tr><td> &lt;link&gt;</td>
     <td> specify .css file within &lt;head&gt; section</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#3-2-css-basic-syntax">Tags18</a>, <a href="">Tags19</a></td></tr>
@@ -384,15 +1123,19 @@
 
 #### List of Global Attributes
 
++ [Global attributes](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#global-)
+  + applied to all tags
+  + common attributes.
+  + E.g., `id`, `class`
 
-<table  style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <caption style="font-size: 1.6em; padding-bottom: 0.3em;"><a href="https://www.w3.org/wiki/HTML/Attributes/_Global#Core_Attributes">Table of Core Attributes</a></caption>
 <thead>
   <tr style="border-bottom: double black;">
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 10%;">Name</th>
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 20%;">Values</th>
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 60%;">Description</th>
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 10%;">Link</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Name</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 15%">Values</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 70%">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
   </tr>
 </thead>
 <tbody>
@@ -403,7 +1146,7 @@
   <tr><td> <code>class</code></td>
     <td> set of space-separated tokens</td>
     <td> A name of a classification, or list of names of classifications, to which the element belongs.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#example-2-the-class-attribute">I-2.1 Welcome</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-class">I-2.2 Attribute</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-class">class18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#global-attribute-class-">class19</a></td></tr>
   <tr><td> <code>contenteditable</code></td>
     <td> "true" or "false" or "" (empty string) or empty</td>
     <td> Specifies whether the contents of the element are editable.</td>
@@ -427,11 +1170,11 @@
   <tr><td> <code>id</code></td>
     <td> ID</td>
     <td> A unique identifier for the element.<br>There must not be multiple elements in a document that have the same id value.<br>Any string, with the following restrictions: 1. must be at least one character long 2. must not contain any space characters</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#example-1-the-id-attribute">I-2.1 Welcome</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-id">I-2.2 Attribute</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-id">id18</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#global-attribute-id-">id19</a></td></tr>
   <tr><td> <code>lang</code></td>
     <td> language tag</td>
     <td> Specifies the primary language for the contents of the element and for any of the element’s attributes that contain text.<br>A valid language tag, as defined in [BCP47].</td>
-    <td><a href=""></a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#global-attribute-lang-">lang</a></td></tr>
   <tr><td> <code>spellcheck</code></td>
     <td>  "true" or "false" or "" (empty string) or empty</td>
     <td> Specifies whether the element represents an element whose contents are subject to spell checking and grammar checking.</td>
@@ -447,20 +1190,21 @@
   <tr><td> <code>title</code></td>
     <td>  normal character data</td>
     <td> Advisory information associated with the element.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#global-attributes-title">I-2.1 Attributes</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-title-attribute">I-2.4 Images</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-title-attribute">lang18</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#global-attribute-title-">title19</a></td></tr>
 </tbody>
 </table>
+
 
 
 #### Event-handler Attributes
 
 
-<table  style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table  style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <caption style="font-size: 1.6em; padding-bottom: 0.3em;"><a href="https://www.w3.org/wiki/HTML/Attributes/_Global#Event-handler_Attributes">Table of Event-handler Attributes</a></caption>
 <thead>
   <tr style="border-bottom: double black;">
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 10%;">Attributes</th>
-    <th  style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue; width: 40%;">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Attributes</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
   </tr>
 </thead>
 <tbody>
@@ -525,30 +1269,100 @@
 
 #### Non-global Attributes
 
-| Attribute | Element | Description | Link |
-|-----------|---------|-------------|------| 
-| `<start>` | `<ol>` | Defines the first number if other than 1. |  |
-| `<reversed>` | `<ol>` | Indicates whether the list should be displayed in a descending order instead of a ascending. | [I-2. Attributes][009] |
-| `<div>` | G | define a division or a section of the document; a block level element | [2.3 Semantic Meaning][025] | 
-| `<span>` | `<col>`, `<colspan>` |similar to `<div>` but different; an inline element | [2.3 Semantic Meaning][025] |
-| `<img>` | G | embeds an image into the document | [I-2.4 Images][026] |
-| `<src>` | `<audio>`, `<embed>`, `<iframe>`, `<img>`, <br>`<input>`, `<script>`, `<source>`, `<track>`, <br>`<video>` |  The URL of the embeddable content. | [I-2.4 Images][027] |
-| `<alt>` | `<applet>`, `<area>`, `<img>`, `<input>` | Alternative text in case an image can't be displayed. |  [I-2.4 Images][028] |
-| `<height>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, <br>`<input>`, `<object>`, `<video>` | Specifies the height of elements listed here. For all other elements, use the CSS height property. | [I-2.4 Images][030] |
-| `<width>` | `<canvas>`, `<embed>`, `<iframe>`, `<img>`, <br>`<input>`, `<object>`, `<video>` | For the elements listed here, this establishes the element's width. | [I-2.4 Images][030] |
-| `<href>` | `<a>`, `<area>`, `<base>`, `<link>` | The URL of a linked resource. | [I-2.5 Hyperlinks][032] |
-| `<target>` | `<a>`, `<area>`, `<base>`, `<form>` | specify the destination where the linked URL in href should be opened | [I-2.5 Hyperlinks][033] |
-| `<media>` | `<a>`, `<area>`, `<link>`, `<source>`, `<style>` | Specifies a hint of the media for which the linked resource was designed. | [I-2.5 Hyperlinks][034] |
-| `<download>` | `<a>`, `<area>` | Indicates that the hyperlink is to be used for downloading a resource. | [I-2.5 Hyperlinks][035] |
++ [Non-global attributes](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#non-global-attributes)
+  + applied to a specific instance of a tag
+  + able to applied to one or more tags
+  + E.g., `start` & `reversed` only for `<ol>`; `width` for `<img>`, `<video>` and `<input>`
+
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<thead>
+  <tr style="border-bottom: double black;">
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 15%">Element</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 50%">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><code>&lt;start&gt;</code></td>
+    <td><code>&lt;ol&gt;</code></td>
+    <td>Defines the first number if other than 1</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#syntax">Start</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;reversed&gt;</code></td>
+    <td>code>&lt;ol&gt;</code></td>
+    <td>Indicates whether the list should be displayed in a descending order instead of a ascending.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#non---global-attributes">Reversed18</a>, <a href="">Reversed19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;span&gt;</code></td>
+    <td><code>&lt;col&gt;, &lt;colspan&gt;</code></td>
+    <td>similar to &lt;div&gt; but different; an inline element</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#div-and-span-elements">Span18</a>, <a href="">Span19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;src&gt;</code></td>
+    <td><code>&lt;audio&gt;, &lt;embed&gt;, &lt;ifeame&gt;, &lt;img&gt;, &lt;input&gt;, &lt;script&gt;, &lt;source&gt;, &lt;track&gt;, &lt;video&gt;</code></td>
+    <td>The URL of the embeddable content.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#image-src-attribute">Span18</a>, <a href="">Span19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;alt&gt;</code></td>
+    <td><code>&lt;applet&gt;, &lt;area&gt;, &lt;img&gt;, &lt;input&gt;</code></td>
+    <td>Alternative text in case an image can't be displayed.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-alt-attribute">Span18</a>, <a href="">Span19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;height&gt;</code></td>
+    <td><code>&lt;canvas&gt;, &lt;embed&gt;, &lt;ifeame&gt;, &lt;img&gt;, &lt;input&gt;, &lt;object&gt;, &lt;video&gt;</code></td>
+    <td>Specifies the height of elements listed here. For all other elements, use the CSS height property.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes">height18</a>, <a href="">height19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;width&gt;</code></td>
+    <td><code>&lt;canvas&gt;, &lt;embed&gt;, &lt;ifeame&gt;, &lt;img&gt;, &lt;input&gt;, &lt;object&gt;, &lt;video&gt;</code></td>
+    <td>For the elements listed here, this establishes the element's width.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes">width18</a>, <a href="">width19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;href&gt;</code></td>
+    <td><code>><code>&lt;a&gt;, &lt;area&gt;, &lt;base&gt;, &lt;link&gt;</code></td>
+    <td>The URL of a linked resource.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-href-attribute">href18</a>, <a href="">href19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;target&gt;</code></td>
+    <td><code>&lt;a&gt;, &lt;area&gt;, &lt;base&gt;, &lt;form&gt;</code></td>
+    <td>specify the destination where the linked URL in href should be opened</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-target-attribute">span18</a>, <a href="">span19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;media&gt;</code></td>
+    <td><code>&lt;a&gt;, &lt;area&gt;, &lt;link&gt;, &lt;source&gt;, &lt;style&gt;</code></td>
+    <td>Specifies a hint of the media for which the linked resource was designed.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-media-attribute">media18</a>, <a href="">media19</a></td>
+  </tr>
+  <tr>
+    <td><code>&lt;download&gt;</code></td>
+    <td><code>&lt;a&gt;, &lt;area&gt;</code></td>
+    <td>Indicates that the hyperlink is to be used for downloading a resource.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-download-attribute">download18</a>, <a href="">download19</a></td>
+  </tr>
+</tbody>
+</table>
+
 
 
 ## Table Element
 
-<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 60vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead><tr>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10vw">Type</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 20vw">Element</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10vw">Link</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Type</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Element</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
   </tr></thead>
   <tbody>
   <tr>
@@ -1080,7 +1894,6 @@
 [198]: 
 [199]: 
 -->
-
 
 [000]: ../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#all-together-now
 [001]: ../WebDev/Frontend-W3C/1.HTML5CSS/01.FirstWebPage.md#everything-in-html
