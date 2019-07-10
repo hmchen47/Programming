@@ -122,6 +122,14 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hyperlink </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#characteristics-of-hyperlink"> Characteristics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> Attribute </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Table </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#table-element"> Table </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-th-tag"> Cell Header </a> </td>
