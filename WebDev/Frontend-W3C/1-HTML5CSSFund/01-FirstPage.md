@@ -1179,4 +1179,116 @@ If you want to share an actual work/recipe in the discussion forum, please eithe
 
 ### Coding (20-29)
 
+20. Creating a Web page
+
+  What would you use to create a Web page? (select all that apply - 4 correct answers!)
+
+  1. A simple text editor
+  2. An advanced HTML aware editor
+  3. A Fortran compiler
+  4. A gui based too
+  5. Free and open source tools
+
+  Ans: 1245<br>
+  Explanation: Since an HTML file is just text, any tool that can produce that text can be used to create a Web page.
+
+
+21. Best practice behaviour
+
+  What will happen if you fail to follow a "best practice"?
+
+  1. The computer will complain
+  2. The browser will loudly complain
+  3. Experienced developers will complain
+  4. The browser will quietly complain
+
+  Ans: 3<br/>
+  Explanation: Though a browser may accept your code without any difficulty, experienced programmers have found that Best practices are a good idea.
+
+
+22. Space, tab and carriage return
+
+  Let's consider a space, or a tab or a carriage return. What are each of them referred to?
+
+  Ans: white space or white spaces or whitespaces or white-spaces or whitespace or white-space<br/>
+  Explanation: White space includes spaces, tabs or carriage returns, providing either horizontal or vertical separation.
+
+
+
+23. Quotes
+
+  True or False: You can use either ' (single quote) or " (double quote) to denote a string.
+
+  Ans: True<br/>
+  Explanation: Either type of quote is acceptable, but they must match in a given string. A string that starts with " must end with ". Any 's will be considered part of the string.
+
+
+24. Case sensitivity
+
+  True or False: HTML tags are case sensitive.
+
+  Ans: False<br/>
+  Explanation: HTML tags are not case sensitive, but be wary as other things in an HTML file are
+
+
+25. Connected?
+
+  True or False: you do need a connection to the Internet to test your HTML code.
+
+  Ans: False<br/>
+  Explication: You can test your code in a browser on your local machine, either by opening your file in the browser or setting up a simple Web server running on your machine.
+
+
+26. Is my HTML5 file complete?
+
+  True or False: Any complete HTML5 file must contain bits of CSS and Javascript.
+
+  Ans: False<br/>
+  Explanation: Though a modern Web page typically uses all three languages, you can create a complete correct Web page using only HTML.
+
+
+27. Which one is different?
+
+  Which of these HTML fragments would render differently from the others?
+
+  1. `<P>This is my Paragraph</P>`
+  2. `<p>         This is my paragraph </p>`
+  3. `<p>This is my Paragraph</p>`
+  4. `<p>This     is     my     Paragraph </p>`
+
+  Ans: 2<br/>
+  Explanation
+  + White space doesn't matter (multiple spaces are treated the same as a single space).
+  + Capitalization of tag names doesn't matter (not case sensitive).
+  + Capitalization of content does matter (text is case sensitive).
+
+
+28. Use of best practices
+
+  "Best practices" are: (select all that apply - 2 correct answers!)
+
+  1. Absolute rules that every html file must obey
+  2. Suggested good habits based on experience
+  3. Intended to make your code cleaner and more organized
+  4. Primarily designed to make your code run faster
+
+  Ans: 23<br/>
+  Explanation: Best practices are used for many reasons but while performance may be one benefit, it's not the primary purpose.
+
+
+29. My mistake!
+
+  If you have a mistake in your HTML code, the browser will: (only 1 correct answer!)
+
+  1. Replace your Web page with an error code
+  2. Try its best to fix it and continue
+  3. Crash and need to be restarted
+  4. Highlight that part of the Web page in red
+
+  Ans: 2<br/>
+  Explanation: It's highly unlikely that a modern browser would crash due to mistaken HTML code. Fortunately for everyone, the browser will try to fix the problem and continue on rendering the rest of the page, but it might not do what the developer intended.
+
+
+
+
 
