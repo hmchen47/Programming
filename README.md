@@ -131,7 +131,7 @@ Contents
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Table </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#table-element"> Table </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#table-element"> Attributes </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-th-tag"> Cell Header </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-td-tag"> Cell Data </a>  </td>
     <td style="padding: 0.3em;">  </td>
