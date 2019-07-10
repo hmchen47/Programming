@@ -1040,6 +1040,141 @@ If you want to share an actual work/recipe in the discussion forum, please eithe
 
 ### HTML5 tags (6-19)
 
+6. Elements surrounded
+
+  What are the little bits of text that surround elements in an html file?
+
+  Ans: tags ot tag <br/>
+  Explanation: Open and close Tags, denoted by < and > , are used to mark the beginning and end of a given element.
+
+
+7. Nesting elements?
+
+  Can some elements contain other elements?
+
+  Ans: Yes <br/>
+  Explanation: Many elements contain other elements, e.g. the body can contain one or more p elements, which can contain em elements and so on.
+
+
+8. Hide or see?
+
+  `<!-- If this line were in your code, would you see it on your Web page? -->`
+
+  Ans: No <br/>
+  Explanation: `<!--` and `-->` are a special kind of tag called "comments", generally used by humans for humans, but they're ignored by the computer, so they don't show up on your rendered webpage
+
+
+9. Elements are the
+
+  True or False: elements are the same as tags.
+
+  Ans: False  <br/>
+  Explanation
+  + Elements make up an html document, while
+  + Tags are the bits of text used to denote Elements.
+
+
+10. Large passage of text
+
+  If you want to indicate that a large passage of text is an exact quotation, what tag would you use?
+
+  Ans: `<blockquote>` or blockquote <br/>
+  Explanation: Blockquote is for a large block of text that is being quoted verbatim from another work.
+
+
+11. Attributes and extra info
+
+  True or False: attributes are used to add extra info to a tag, like a unique identifier.
+
+  Ans: True <br/>
+  Explanation: The 'id' attribute is designed to hold a unique identifier
+
+
+12. Largest heading possible
+  
+  If you want to have the largest heading possible, which kind of tag you would use?
+
+  1. head
+  2. h1 
+  3. h6
+  4. h
+
+  Ans: 2 <br/>
+  Explanation: "h1" represents the outermost heading, and is generally made the largest. The head element is for the head of the document, not for headings in the text. There is no h element.
+
+13. Closing a tag
+
+  What is the first character after a "<" in a closing tag?
+
+  1. `&`
+  2. `/`
+  3. `!`
+  4. `>`
+
+  Ans: b <br/>
+  Explanation: For element types that require closing tags, all of them are indicated with a / followed by the type of element it is, e.g. for a p element, the close tag would be `</p>`
+
+
+
+14. Which doctype?
+
+  What doctype is used for HTML5 documents?
+
+  1. `< !DOCTYPE html >`
+  2. `< !DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >`
+  3. `< ?xml version="1.0" standalone="yes" ? >`
+  4. `< !DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" >`
+
+  Ans: 1 <br/>
+  Explanation: One of the enhancements made to the HTML5 standard was to simplify the doctype declaration to be just 'html'.
+
+
+
+15. The last tag
+
+  That is the last tag in a well-behaved html file?
+
+  1. `< /head >`
+  2. `< /html >`
+  3. `< /doctype >`
+  4. `< /body >`
+
+  Ans: b
+  Explanation: The html element is the outermost element in a file, so it must be the last closing tag.
+
+
+16. Emphasize or not emphasize?
+
+  What tag would you use to emphasize some text?
+
+  Ans: em or `<em>` or strong or `<strong>`<br>
+  Explanation: The em tag indicates text that should be given more emphasis.
+
+
+17. Which closing tag?
+
+  If I told you that an open tag looked like this: `<div id='mydiv' class='myclass'>`, what would the closing tag look like?
+
+  Ans:`</div>` or /div <br/>
+  Explanation: Close tags are just like open tags, but with a prepended '/', and there are no attributes on close tags.
+
+
+
+18. The life of
+
+  The `<p>` tag is used to denote.
+
+  Ans: paragraphs or paragraph or a paragraph<br/>
+  Explanation: P, for paragraph, is used to mark the beginning (open tag) and end (close tag) of a paragraph.
+
+
+19. List items
+
+  A ul element wouldn't be terribly useful unless it contained one or more of these elements:
+
+  Ans: li or `<li>`<br/>
+  Explanation: A list, unordered or otherwise, wouldn't be very interesting if it had no List Items.
+
 
 
 ### Coding (20-29)
