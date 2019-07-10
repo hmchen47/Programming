@@ -54,20 +54,22 @@
 
 ### HTML Layout Elements
 
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.w3schools.com/html/html_layout.asp">
-      <img src="https://www.w3schools.com/html/img_sem_elements.gif" style="margin: 0.1em;" alt="HTML5 offers new semantic elements that define the different parts of a web page" title="HTML Layout" width="200">
-    </a></div>
-  </div>
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/dd9cc2d025bc4ac5b1a66481aac0db1b/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4025b7c2657986416785cb4a8bb92fbfd2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d4a392ddecb2dcc4b9a4c9efa613e6f3/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/structurecalledout-new.jpg" style="margin: 0.1em;" alt="Diagram explaining basic web page tags" title="Diagram explaining basic web page tags" width="550">
+  </a></div>
+</div>
 
-  + `<header>` - Defines a header for a document or a section
-  + `<nav>` - Defines a container for navigation links
-  + `<section>` - Defines a section in a document
-  + `<article>` - Defines an independent self-contained article
-  + `<aside>` - Defines content aside from the content (like a sidebar)
-  + `<footer>` - Defines a footer for a document or a section
-  + `<details>` - Defines additional details
-  + `<summary>` - Defines a heading for the `<details>` element
++ `<header>` - Defines a header for a document or a section
++ `<nav>` - Defines a container for navigation links
++ `<section>` - Defines a section in a document
++ `<article>` - Defines an independent self-contained article
++ `<aside>` - Defines content aside from the content (like a sidebar)
++ `<footer>` - Defines a footer for a document or a section
++ `<details>` - Defines additional details
++ `<summary>` - Defines a heading for the `<details>` element
+
++ Ref: [Web page structure](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#web-page-structure)
 
 
 ### UTF-8: `<meta charset="utf-8">` in `head` section
@@ -187,6 +189,58 @@
   + siblings: children of a common parent
 
 + Borrow from SGML to provide an easy way for a computer to determine which parts are "MarkUp" and which parts are the content
+
++ [Sementic element](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#introduction-to-semantic-elements)
+  + elemets that suggest the purpose of the content within the tags along with id and class attributes
+  + E.g., `<p>` for paragraph; `<h1>` ~ `<h6>` for heading; `<img>` for image; `<blockquote>` to wrap a quote; `<em>` to emphasize a part of your content; 
+  + `<i>` and `<b>` suggest nothing about the content
+  + beneficial to both the developer and browser
+    + convey much more information about your HTML document's content and structure
+    + e.g., heading like `<h1>` or `<h2>` likely the start of a new sub-section or topic
+    + useful for a developer who can understand the markup structure better
+    + browser better differentiate different types of data which results in better display of content in different devices
+    + Assistive technology: read content and convey information about the content depending on the semantic meaning
+  + Only a few semantic elements such as `<mark>`, `<em>`, `<strong>` and `<code>` provide some kind of visual change to the document.
+
++ 'header' vs 'h1' - 'h6'
+  + `<header>`: an area to add any introductory content about your page
+  + `<h1>` to `<h6>`: headings; Headings communicate the organization of the content on the page.
+  + the header can and frequently does contain headings `<h1>` to `<h6>`
+  + Headings are extremely helpful as a navigation tool for assistive technology users.
+  + Assistive technology often relies on the semantics of headings to understand your document's structure.
+  + [Using h1-h6 to identify headings](https://www.w3.org/TR/WCAG20-TECHS/H42.html)
+  + Assistive technology uses heading markup, `<h1>` to `<h6>` to identify headings in a document.
+  + [W3C resource page about headings](https://www.w3.org/WAI/tutorials/page-structure/headings/)
+
++ 'header', 'footer' and 'nav' elements
+  + Header and footer elements are for the parent element (section, article, division or body)
+  + one header and footer for each section or article
+  + Global header and footer elements
+    + used site-wide at the top and bottom of the body of the Web page
+    + typically contain logos, main heading, a search area and site-wide navigation and the footer will typically include authoring information, references and other links, copyright information etc.
+    + the header of a Web page typically with a template file
+  + having the nav element in header
+
++ 'article' and 'section' elements
+  + article and section elements are nestable
+  + section element is used to section a page
+
++ 'div' and 'span' elements
+  + `<div>`:
+    + used to define a division or a section of the document
+    + not a semantic element, but commonly used when there isn't a better semantic assignment for it
+    + a generic container that can hold a variety of elements such as paragraphs, images, links, tables, etc.
+    + ablt to be used to group elements for styling purposes
+    + assigning an id or class attribute to the div element and then apply styles which will affect all elements in the div container
+    + a block level element (for a block of space)
+  + `<span>`
+    + To add styling to part of a sentence (inline)
+    + Manipulate part of a sentence using JavaScript
+    + an inline element (for within a line or phrase)
+  + When no other HTML element is applicable, you can use `<span>` (and `<div>`) to add attributes such as class and id
+  + `<div>` and `<span>` serve the same purpose but should be applied at different levels
+
++ Nesting one paragraph tag in another is not valid because the browser will consider them as two paragraphs one after the other.
 
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -885,92 +939,92 @@ Web Components is an HTML-related technology which makes it possible to, essenti
   <tr>
     <td><code>&lt;header&gt;</code></td>
     <td>Introduction for the whole page or individual sections, article, nav, aside elements. Typically contains site name, logo, navigation. Does not have to be at the beginning of page.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#header-vs-h1---h6">header18</a>, <a href="">header19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#header-vs-h1---h6">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;footer&gt;</code></td>
     <td>Includes typical footer information like authoring, copyrights, contact information and a footer menu.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#new-html5-semantic-elements">footer18</a>, <a href="">footer19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#new-html5-semantic-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;nav&gt;</code></td>
     <td>Navigation links for the document. A page can have more than one &lt;nav&gt; element like table of contents, horizontal navigation in header and footer navigation.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#header-vs-h1---h6">nav18</a>, <a href="">nav19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#header-vs-h1---h6">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;section&gt;</code></td>
     <td>Defines sections in the document such as chapters, headers, etc. Typically used on content that cannot make sense on its own.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#article-and-section-elements">sec18</a>, <a href="">sec19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#article-and-section-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;article&gt;</code></td>
     <td>Defines independent content that should make sense on its own outside of the document such as newspaper articles, blog posts, etc.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#article-and-section-elements">article18</a>, <a href="">article19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#article-and-section-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;aside&gt;</code></td>
     <td>Side content other than main content, like a sidebar. These are not considered as part of the main page outline.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#effect-of-semantic-elements">footer18</a>, <a href="">footer19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#effect-of-semantic-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;details&gt;</code></td>
     <td>A way to provide additional information that the user can show or hide. Content that is shown to user by default. Other content is hidden and can be expanded to view.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#detail-element">details18</a>, <a href="">details19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#detail-element">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#-details-element">details</a></td>
   </tr>
   <tr>
     <td><code>&lt;figcaption&gt;</code></td>
     <td>Provides a caption (explanation) of an image. To be used within &lt;figure&gt;.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#figcaption-element">figcap18</a>, <a href="">figcap19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#figcaption-element">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#-figcaption-element">figcap</a></td>
   </tr>
   <tr>
     <td><code>&lt;figure&gt;</code></td>
     <td>Contains an image and can be used to group with an image's caption</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#figcaption-element">fig18</a>, <a href="">fgi19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#figcaption-element">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;mark&gt;</code></td>
     <td>Defines a part of a text you want to highlight. The highlight styling is specified in CSS.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#mark-element">mark18</a>, <a href="">mark19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#mark-element">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#-mark-element">mark</a></td>
   </tr>
   <tr>
     <td><code>&lt;summary&gt;</code></td>
     <td>Used within the &lt;details&gt; tag. Specifies the visible content. The rest of the content in details is shown/hidden by user.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#detail-element">footer18</a>, <a href="">footer19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#detail-element">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;code&gt;</code></td>
     <td>Used to represent short computer code in a sentence. It displays code in default monospace font.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">fig18</a>, <a href="">fig19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#lesser-known-semantic-elements">Less</a></td>
   </tr>
   <tr>
     <td><code>&lt;abbr&gt;</code></td>
     <td>Used to indicate the occurrence of an abbreviation.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">abbr18</a>, <a href="">abbr19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#lesser-known-semantic-elements">Less</a></td>
   </tr>
   <tr>
     <td><code>&lt;br&gt;</code></td>
     <td>Used to introduce a line break in your HTML document.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">br18</a>, <a href="">br19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#lesser-known-semantic-elements">Less</a></td>
   </tr>
   <tr>
     <td><code>&lt;hr&gt;</code></td>
     <td>Used to introduce a horizontal line in your HTML document..</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">addr18</a>, <a href="">addr19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#lesser-known-semantic-elements">Less</a></td>
   </tr>
   <tr>
     <td><code>&lt;address&gt;</code></td>
     <td>Used to supply contact information for its nearest &lt;article&gt; or &lt;body&gt; ancestor.</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">addr18</a>, <a href="">addr19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#lesser-known-semantic-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#lesser-known-semantic-elements">Less</a></td>
   </tr>
   <tr>
     <td><code>&lt;div&gt;</code></td>
     <td>define a division or a section of the document; a block level element</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#div-and-span-elements">addr18</a>, <a href="">addr19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#div-and-span-elements">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
   <tr>
     <td><code>&lt;img&gt;</code></td>
     <td>embeds an image into the document</td>
-    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-img-tag">addr18</a>, <a href="">addr19</a></td>
+    <td><a hreh="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-img-tag">HTML18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#new-html5-semantic-elements">HTML19</a></td>
   </tr>
  </tbody>
 </table>
@@ -992,6 +1046,38 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 + To stop using that tag and do something else, so '<' and '>' are again used by adding a '/' right after the '<' to indicated that it's a 'close tag'.
 
 + "self closing" tags: an element completely described by its attributes, and thus no need for other content
+
++ [Semantic vs Style tags](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#separating-content-style)
+  + Style tags
+    + focused purely on presentation and design in HTMl4
+    + how the text should look like on the screen in HTMl4
+    + not produce appropriate styling for some parts of the world, e.g., Chinese characters using underlining than bold
+    + HTML5: recommend to use class attributes to identify the semantic intention of the markup; important for pages that get translated
+    + Bold:
+      + a style that makes letters thicker so it stands out among other text but it has no semantic meaning
+      + for example for voice browsers, screen readers, and other types of ways to access the Web
+      + HTML5: used as a stylistic offset such as keywords in a document, product names or action words without making them as important
+    + Italic:
+      + slants text
+      + usually italicize names of magazine, books, TV shows etc.
+      + purely for presentation purposes
+      + HTML5: used for text in a different mood or voice, such as foreign words, a thought or technical terms
+  + Semantic tags
+    + referred to the meaning of words in a language in HTMl4
+    + something about the semantic of the tag, meaning in HTMl4
+    + netstable
+    + E.g., `<em>`, `<strong>`
+    + Strong:
+      + an indication of how something should be
+      + like bold in a browser, but mean 'speak with urgency or seriousness' when reading text aloud
+      + represent importance, seriousness, or urgency for its content
+    + Emphasis
+      + used to stress emphasis of its contents
+      + emphasizing word in a sentence able to change the whole meaning
+      + HTML5: used for words and sentences you would pronounce differently
+      + HTML5: not used to convey importance
+  + Ref: [Using <b> and <i> elements](https://www.w3.org/International/questions/qa-b-and-i-tags)
+
 
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
