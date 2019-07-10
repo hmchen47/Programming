@@ -1172,7 +1172,7 @@ Web Components is an HTML-related technology which makes it possible to, essenti
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#semantic-vs-style-tags">Tags18</a>, <a href="">Tags19</a></td></tr>
   <tr><td> &lt;a&gt;</td>
     <td> create a hyperlink to other web pages, files, locations within the same page, email addresses, or any other URL</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#anchor-element">Tags18</a>, <a href="">Tags19</a></td></tr>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#anchor-element">Tags18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#anchor-element">Tags19</a></td></tr>
   <tr><td> &lt;style&gt;</td>
     <td> place CSS directly into an HTML document; anywhere in an HTML document;most common place: &lt;head&gt; section</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#3-2-css-basic-syntax">Tags18</a>, <a href="">Tags19</a></td></tr>
@@ -1372,83 +1372,149 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 </thead>
 <tbody>
   <tr>
-    <td><code>&lt;start&gt;</code></td>
+    <td><code>start</code></td>
     <td><code>&lt;ol&gt;</code></td>
     <td>Defines the first number if other than 1</td>
     <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#syntax">Start</a></td>
   </tr>
   <tr>
-    <td><code>&lt;reversed&gt;</code></td>
+    <td><code>reversed</code></td>
     <td>code>&lt;ol&gt;</code></td>
     <td>Indicates whether the list should be displayed in a descending order instead of a ascending.</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#non---global-attributes">Reversed18</a>, <a href="">Reversed19</a></td>
   </tr>
   <tr>
-    <td><code>&lt;span&gt;</code></td>
-    <td><code>&lt;col&gt;, &lt;colspan&gt;</code></td>
-    <td>similar to &lt;div&gt; but different; an inline element</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#div-and-span-elements">Span18</a>, <a href="">Span19</a></td>
-  </tr>
-  <tr>
-    <td><code>&lt;src&gt;</code></td>
+    <td><code>src</code></td>
     <td><code>&lt;audio&gt;, &lt;embed&gt;, &lt;ifeame&gt;, &lt;img&gt;, &lt;input&gt;, &lt;script&gt;, &lt;source&gt;, &lt;track&gt;, &lt;video&gt;</code></td>
     <td>The URL of the embeddable content.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#image-src-attribute">Span18</a>, <a href="">Span19</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#image-src-attribute">src18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#image-src-attribute">src19</a></td>
   </tr>
   <tr>
-    <td><code>&lt;alt&gt;</code></td>
+    <td><code>alt</code></td>
     <td><code>&lt;applet&gt;, &lt;area&gt;, &lt;img&gt;, &lt;input&gt;</code></td>
     <td>Alternative text in case an image can't be displayed.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-alt-attribute">Span18</a>, <a href="">Span19</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-alt-attribute">alt18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#attribute-alt">alt19</a></td>
   </tr>
   <tr>
-    <td><code>&lt;height&gt;</code></td>
+    <td><code>height</code></td>
     <td><code>&lt;canvas&gt;, &lt;embed&gt;, &lt;ifeame&gt;, &lt;img&gt;, &lt;input&gt;, &lt;object&gt;, &lt;video&gt;</code></td>
     <td>Specifies the height of elements listed here. For all other elements, use the CSS height property.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes">height18</a>, <a href="">height19</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes">height18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-height-width-attributes">height19</a></td>
   </tr>
   <tr>
-    <td><code>&lt;width&gt;</code></td>
+    <td><code>width</code></td>
     <td><code>&lt;canvas&gt;, &lt;embed&gt;, &lt;ifeame&gt;, &lt;img&gt;, &lt;input&gt;, &lt;object&gt;, &lt;video&gt;</code></td>
     <td>For the elements listed here, this establishes the element's width.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes">width18</a>, <a href="">width19</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-height-weight-attributes">width18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-height-width-attributes">width19</a></td>
   </tr>
   <tr>
-    <td><code>&lt;href&gt;</code></td>
+    <td><code>href</code></td>
     <td><code>><code>&lt;a&gt;, &lt;area&gt;, &lt;base&gt;, &lt;link&gt;</code></td>
     <td>The URL of a linked resource.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-href-attribute">href18</a>, <a href="">href19</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-href-attribute">href18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-href-attribute">href19</a></td>
   </tr>
   <tr>
-    <td><code>&lt;target&gt;</code></td>
+    <td><code>target</code></td>
     <td><code>&lt;a&gt;, &lt;area&gt;, &lt;base&gt;, &lt;form&gt;</code></td>
     <td>specify the destination where the linked URL in href should be opened</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-target-attribute">span18</a>, <a href="">span19</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-target-attribute">span18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-href-attribute">span19</a></td>
   </tr>
   <tr>
-    <td><code>&lt;media&gt;</code></td>
+    <td><code>media</code></td>
     <td><code>&lt;a&gt;, &lt;area&gt;, &lt;link&gt;, &lt;source&gt;, &lt;style&gt;</code></td>
     <td>Specifies a hint of the media for which the linked resource was designed.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-media-attribute">media18</a>, <a href="">media19</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-media-attribute">media18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-media-attribute">media19</a></td>
   </tr>
   <tr>
-    <td><code>&lt;download&gt;</code></td>
+    <td><code>download</code></td>
     <td><code>&lt;a&gt;, &lt;area&gt;</code></td>
     <td>Indicates that the hyperlink is to be used for downloading a resource.</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02-HTML_CSS.md#the-download-attribute">download18</a>, <a href="">download19</a></td>
   </tr>
+  <tr>
+    <td><code>title</code></td>
+    <td>Global</td>
+    <td>Text to be displayed in a tooltip when hovering over the element.</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-title-attribute">title</a></td>
+  </tr>
 </tbody>
+</table>
+
+## Hyperlink
+
+### Characteristics of Hyperlink
+
++ Hyperlink: any text or image and will take you to another page
+  + another Web page, e.g. https://en.wikipedia.org/wiki/Hyperlink
+  + a bookmark (a specific part of a Web page), e.g. https://en.wikipedia.org/wiki/Hyperlink#History
+  + the id attribute as a link target in the unit about attributes earlier; e.g. #History
+  + a local link (link to another part of the same Web page); e.g. a_tag.asp
+  + an email: e.g. mailto:helloauthor@w3c.com
+
++ Best practice
+  + Apply hyperlinks to short phrases.
+  + Make link phrase meaningful.
+  + Don't use short link text.
+  + Appearance - links have a default appearance in most browsers, blue and underlined.
+  + image links with alternate text
+
++ States of a hyperlink (typical)
+  + Unvisited: blue + underlined
+  + Visited: purple + underlined
+  + Active: red + underlined
+
+
+### Attributes for Hyperlink
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Usage</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><code>href</code></td>
+    <td>The URL of a linked resource.</td>
+    <td>&lt;a href="<span style="color: #339966;">https://qwant.com</span>"&gt; &lt;/a&gt;</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-table-tag"> href </a></td>
+  </tr>
+  <tr>
+    <td rowspan="2"><code>target</code></td>
+    <td><code>_self</code>: In the same view where the link resides. If no target is specified, this is the default behavior.</td>
+    <td>&lt;a href="<span style="color: #339966;">https://qwant.com/</span>" target="<span style="color: #339966;">_self</span>"&gt;&lt;/a&gt;</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-target-attribute"> target </a></td>
+  </tr>
+  <tr>
+    <td><code>_blank_</code>: In a new window or tab. This is very convenient if you want to link the user to a Web page without having the current page disappear. By clicking on the previous window or tab, they can redirect to the page where the link is.</td>
+    <td>&lt;a href="<span style="color: #339966;">https://qwant.com/</span>" target="<span style="color: #339966;">_blank</span>"&gt;&lt;/a&gt;</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-target-attribute"> target </a></td>
+  </tr>
+  <tr>
+    <td><code>media</code></td>
+    <td>Specifies a hint of the media for which the linked resource was designed.</td>
+    <td>&lt;a href="<span style="color: #339966;">https://en.wikipedia.org/wiki/Media_queries?output=print</span>" media="print and (resolution:250dpi)"&gt; Print wiki page about media queries &lt;/a&gt;</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-media-attribute">media</a></td>
+  </tr>
+  <tr>
+    <td><code>download</code></td>
+    <td>Indicates that the hyperlink is to be used for downloading a resource.</td>
+    <td>&lt;a href="<span style="color: #339966;">/assets/hello.txt</span>" download&gt;</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-download-attribute">download</a></td>
+  </tr>
+  </tbody>
 </table>
 
 
 
 ## Table Element
 
-<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 50vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Type</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Element</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Element</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Link</th>
   </tr></thead>
   <tbody>
   <tr>
