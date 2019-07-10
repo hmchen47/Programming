@@ -525,7 +525,7 @@ You can nest both `<em>` and `<strong>`. Two `<em>` means higher level of stress
 
 You should also bear in mind that `<b>` and `<i>` may not produce appropriate styling for some parts of the world. For example, Chinese characters are so complicated that they often prefer something such as underlining to bold, because bold makes it too difficult to read the text.
 
-If you do use `<b>` or `<i>` tags, the HTML5 specification recommends that you also use class attributes to identify the semantic intention of the markup. This can be particularly important for pages that get translated, since styling doesn't necessarily map to the same semantic categories across different cultures. For more information, read the article Using `<b>` and `<i>` elements.
+If you do use `<b>` or `<i>` tags, the HTML5 specification recommends that you also use class attributes to identify the semantic intention of the markup. This can be particularly important for pages that get translated, since styling doesn't necessarily map to the same semantic categories across different cultures. For more information, read the article [Using `<b>` and `<i>` elements](https://www.w3.org/International/questions/qa-b-and-i-tags).
 
 
 #### Knowledge check 2.3.1
@@ -770,9 +770,9 @@ We will look at a few more semantic elements that are commonly in use but lesser
 <table style="font-family: arial,helvetica,sans-serif;width: 70vw;" align="center" cellspacing="0" cellpadding="5" border="1">
 <tbody>
   <tr>
-    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Semantic Element</td>
-    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Description</td>
-    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Example</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">Semantic Element</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 30%;">Description</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 30%;">Example</td>
   </tr>
   <tr>
     <td>&lt;code&gt;</td>
@@ -832,7 +832,8 @@ If you view page source on the W3C specification and do a search for `<header>`,
 <header>
    <!-- You will learn about the <a> and <img> tags later in this chapter-->
   <p>
-    <a href="http://www.w3.org/"><img alt="W3C logo" height="48" src="http://www.w3.org/Icons/w3c_home" width="72"></a>
+    <a href="http://www.w3.org/"><img alt="W3C logo" height="48" src="http://www.w3.org/Icons/w3c_home" 
+      width="72"></a>
   </p>
  
   <h1>HTML 5.2</h1>
@@ -844,13 +845,13 @@ If you view page source on the W3C specification and do a search for `<header>`,
 
 Like in the example above, the header can and frequently does contain headings `<h1>` to `<h6>`. In the case of headings, they do not have be to be used within a header.
 
-Important: Headings are extremely helpful as a navigation tool for assistive technology users. While it is valid to skip header levels (have an h4 after an h2), it is not a good practice. Assistive technology often relies on the semantics of headings to understand your document's structure. More information is provided in Using h1-h6 to identify headings.
+__Important__: Headings are extremely helpful as a navigation tool for assistive technology users. While it is valid to skip header levels (have an h4 after an h2), it is not a good practice. Assistive technology often relies on the semantics of headings to understand your document's structure. More information is provided in [Using h1-h6 to identify headings](https://www.w3.org/TR/WCAG20-TECHS/H42.html).
 
 [Example Code](src/2.3.4-h12h6.html)
 
 Assistive technology uses heading markup, `<h1>` to `<h6>` to identify headings in a document. By using them to define your document's structure, a screen reader that parses your Web page will in some manner indicate the heading level. For example, raise its voice to indicate higher level headings or announce the heading level with the text it reads. They can also navigate through the headings quicker making it easier for the user to navigate contents of the Web page.
 
-You can learn more about the source of this technique in that other W3C resource page about headings.
+You can learn more about the source of this technique in that [other W3C resource page about headings](https://www.w3.org/WAI/tutorials/page-structure/headings/).
 
 
 #### Can you have more than one 'header', 'footer' and 'nav'?
@@ -919,7 +920,9 @@ An article element as we know is stand-alone content. If you pick an article out
     <h2>CES 2018</h2>
     <h3>Consumer electronics and consumer technology tradeshow</h3>
   </header>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam neque risus, consequat eget vestibulum eu, consequat at eros. Nam eu nisl vel neque malesuada sollicitudin quis eget libero.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam neque risus,
+    consequat eget vestibulum eu, consequat at eros. Nam eu nisl vel neque malesuada
+    sollicitudin quis eget libero.</p>
   <footer>
     <p>Written by guest author Nicholas Abc. Read Nicholas's blog here.</p>
   </footer>
@@ -932,7 +935,8 @@ Let's look at another example:
 
 ```html
 <h4>Getting There</h4>
-<p>Arriving at the show location proved much harder for me. I couldn't get a hotel closer to where the show was taking place and so had to rent a car....</p>
+<p>Arriving at the show location proved much harder for me. I couldn't get a hotel
+  closer to where the show was taking place and so had to rent a car....</p>
 <h4>Conference Sessions</h4>
 <p>I managed to squeeze in 3 conference sessions on the first day...</p>
 ```
