@@ -67,25 +67,42 @@ Contents
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Hypertext Markup Language (HTML) </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Best Practices </th>
-    <td style="padding: 0.3em;"> <a href="/RefCards/HTML.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#template"> Template </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#useful-references-tool-links"> References & Tools </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#html-layout-elements"> Layout </a></td>
-    
-  </a></tr>
+  </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#utf-8-meta-charset-utf-8-in-head-section"> UTF-8</a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#named-characters"> Named Characters </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#recommendations-misc-"> Recommendations </a></td>
     <td style="padding: 0.3em;"> </td>
-  </a></tr>
+  </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Elements </th>
+    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Elements </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#definition-and-characteristics-of-elements"> Definition </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-typical-elements"> List </a> </td>
-    <td style="padding: 0.3em;">  </td>
-    <td style="padding: 0.3em;">  </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#document-metadata"> Document metadata </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#sectioning-root"> Section root </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#content-sectioning"> Content sectioning </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#text-content"> Text content </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#inline-text-semantic"> Inline text </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#image-and-multimedia"> Image & Multimedia </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#embedded-content"> Embedded content </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#scripting"> Scripting </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#demarcating-edits"> Demarcating edit </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#table-content"> Table content </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#forms"> Forms </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#interactive-element"> Interactive </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#web-component"> Web Components </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-typical-semantic-elements"> Typical </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -136,7 +153,7 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#effective-use-of-style-sheets"> Effective Use </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-best-practice"> Best Practices </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#tools"> Tools </a></td>
-  </a></tr>
+  </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-syntax"> Syntax </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#measurement-units"> Measurement </a> </td>
