@@ -1557,24 +1557,24 @@ target specifies the destination where the linked URL in href should be opened. 
 <tbody>
   <tr>
     <td style="background-color: #3d64ff; color: #ffffff;" width="40%">Destination</td>
-    <td style="background-color: #3d64ff; color: #ffffff;" width="15%">Attribute value</td>
+    <td style="background-color: #3d64ff; color: #ffffff;" width="10%">Attribute value</td>
     <td style="background-color: #3d64ff; color: #ffffff;" width="30%">Example</td>
     <td style="background-color: #3d64ff; color: #ffffff;" width="15%">Result (try this)</td>
   </tr>
   <tr>
-    <td width="40%">In the same view where the link resides. If no target is specified, this is the default behavior.</td>
-    <td width="15%">_self</td>
-    <td width="30%">&lt;a href="<span style="color: #339966;">https://qwant.com/</span>" target="<span style="color: #339966;">_self</span>"&gt;&lt;/a&gt;</td>
-    <td width="15%"><a href="https://qwant.com/" target="_self">LINK will open in same window</a>&nbsp;(Navigate back to the course by clicking Back button in browser)</td>
+    <td>In the same view where the link resides. If no target is specified, this is the default behavior.</td>
+    <td>_self</td>
+    <td>&lt;a href="<span style="color: #339966;">https://qwant.com/</span>" target="<span style="color: #339966;">_self</span>"&gt;&lt;/a&gt;</td>
+    <td><a href="https://qwant.com/" target="_self">LINK will open in same window</a>&nbsp;(Navigate back to the course by clicking Back button in browser)</td>
   </tr>
   <tr>
-    <td width="40%">
+    <td>
       <p>In a new window or tab. This is very convenient if you want to link the user to a Web page without having the current page disappear. By clicking on the previous  window or tab, they can redirect to the page where the link is.</p>
       <p><strong>Note: </strong>It is best to inform users that the page will open in a new tab or window when using '_blank' as some may not be aware of the new tab having  opened.</p>
     </td>
-    <td width="15%">_blank</td>
-    <td width="30%">&lt;a href="<span style="color: #339966;">https://qwant.com/</span>" target="<span style="color: #339966;">_blank</span>"&gt;&lt;/a&gt;</td>
-    <td width="15%"><a href="https://qwant.com/" target="_blank">LINK will open in new window</a></td>
+    <td>_blank</td>
+    <td>&lt;a href="<span style="color: #339966;">https://qwant.com/</span>" target="<span style="color: #339966;">_blank</span>"&gt;&lt;/a&gt;</td>
+    <td><a href="https://qwant.com/" target="_blank">LINK will open in new window</a></td>
   </tr>
 </tbody>
 </table>
