@@ -1253,7 +1253,8 @@ Try this: place your mouse on the image below. Don't click, just rest your curso
 Did you see the hidden message 'Tulips from woodburn tulip festival'? title is a global attribute we have seen before but worth mentioning again because it is very useful in an `<img>` tag. If you have a complicated image that could use a tooltip or description, you will want to use the `title` attribute.
 
 ```html
-<img src="images/tulips.png" alt="This is supposed to be an image of tulips" title="Tulips from woodburn tulip festival">
+<img src="images/tulips.png" alt="This is supposed to be an image of tulips"
+  title="Tulips from woodburn tulip festival">
 ```
 
 The alt attribute is meant to be an alternate source of information while the title attribute should provide additional information about the image.
@@ -1278,7 +1279,8 @@ Clearly too big for the page. The original image dimensions is 345x523 in pixels
 Now, if I want to resize the HTML logo above by half:
 
 ```html
-<img src="images/html5.png" alt="HTML resized image" title="Resized image seems to fit the page better" height="173" width="262">
+<img src="images/html5.png" alt="HTML resized image" title="Resized image seems to fit the page better" 
+  height="173" width="262">
 ```
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/7e7a7ad104714c61b5b7bd35048b9ddc/3d0f9ea5b4ff4e59ba36c1bc1665e6f3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4074262b9688b4439ebf7b5d934c231559">
@@ -1289,7 +1291,8 @@ Now, if I want to resize the HTML logo above by half:
 Actually, you don't need to define both width and height. You can just specify either height or width and the aspect ratio will be adjusted. For example, the image above can be achieved using the following too:
 
 ```html
-<img src="images/html5.png" alt="HTML resized image" title="Resized image seems to fit the page better" height="173">
+<img src="images/html5.png" alt="HTML resized image" 
+  title="Resized image seems to fit the page better" height="173">
 ```
 
 The use of these attributes really depends on how you are using the image. If it is part of an [image grid](https://www.imagely.com/wp-content/uploads/2013/03/adding-functionality-justified-image-grid-03.png) or a list with multiple images of the same size, it is best achieved by CSS. So you don't have to bother adding the same dimensions to every image and it will be repetitive. Plus it is generally bad practice to encode dimensions directly into the HTML.
