@@ -490,7 +490,65 @@ Web fonts are outside the scope of this course. Google provides a nice selection
 
 ### Margin and color
 
+#### Margin
 
+We will examine layout in a later unit. But the `margin` property is the lynch-pin for positioning elements. Whenever you want to move something a little the `margin` property should be your first thought, when having layout problems, it is the first thing you should check.  
+
+The margin can be a bit confusing.  Depending upon context, it will space an item away from its immediate neighbors (in the HTML) or from the edges of its parent. Also, there is not only one `margin` property, but five:
+
+``` css
+p { margin: 10px; }  /* a 10 pixel margin will be applied around all four sides of the item */
+
+p {
+ margin-left:   10px;
+ margin-right:  10px;
+ margin-top:    10px;
+ margin-bottom: 10px;
+}  
+```
+
+#### Color
+
+The `color` property can be used to set the text color of an element. There are several possible formats for the value.
+
+
+##### Named colors
+
+```css
+p { color: blue; }
+b { color: transparent; } /* transparent */
+i { color: lightgrey; }
+```
+
+There are scores of different names. The most common English names for colors are all supported, plus many others.
+
+One of the more interesting is transparent, which will make the text invisible. However, if you want to make an HTML element invisible, then the <span style="color: #333399;">display</span>:<span style="color: #ff6600;">none</span>; or <span style="color: #333399;">visibility</span>:<span style="color: #ff6600;">hidden</span>; rules are preferred. They are discussed in a future section.
+
+
+##### rgb/rgba
+
+```css
+p { color: rgb(10, 200, 255); }
+p { color: rgb(0, 0, 0); }       /* 0,0,0 is black */
+p { color: rgb(255, 255, 255); } /* 255,255,255 is white */
+b { color: rgba(10, 200, 255, 0.5); }  /* semi-transparent */
+```
+
+Generally, any color on a computer is exactly specified by mixing three components together: red, green, and blue. The amount of each component falls within a range between 0 and 255.   So the rgb() function can be used to specify a color.  
+
++  <span style="color: #ff6600;">rgb</span>(  <span style="color: #008000;">red, green, blue</span>);  
++ parenthesis required, commas between each component.
+
+Similarly, the `rgba()` function can be used for semi-transparent colors. The fourth value is for the "alpha channel" (thus the "a" in "rgba") and means the opacity. It is a number between 0 and 1 (for example, 0.5 ).
+
+
+##### Hex code
+
+```css
+p { color: #3A2BFF; }
+```
+
+Quicker than the lengthy rgb() function is simply providing an [hexadecimal (hex) code](https://en.wikipedia.org/wiki/Hexadecimal). This always starts with the pound sign (#) and is followed by three pairs of hex number, ranging 00 to FF. Constructing rgb triplets is hard enough, and deciphering and generating hex codes is even harder. However, almost every editor and color picker will at least show you red, green and blue values and many have hex code displayed as well.  
 
 
 ### Units
