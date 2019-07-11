@@ -58,6 +58,29 @@ The CSS WG members are working on a [whole range of specifications](https://www.
 
 ### An example
 
+Let's see CSS in action. Below, we see two identical copies of HTML, however, styled differently.
+
+Here is the HTML:
+
+```html
+<p>She looked over the top of her book and whispered <q>I'm hungry.</q> My heart stopped.</p>
+```
+
+And now two very different looks:
+
+<hr>
+<p></p>
+<div>
+<p style="padding: 20px; font-size: 1.4em; line-height: 1.44em;">She looked over the top of her book and whispered <q style="margin-left:30px; margin-right:30px; font-size: .6em; line-height: 1.44em; vertical-align: baseline;">I'm hungry.</q> My heart stopped.</p>
+</div>
+<p></p>
+<hr>
+
+<div>
+<p style="font-family: Serif; padding: 20px 20px; margin-left: 20%; margin-right: 20%; font-size:1.7em; line-height:.8em; border: 1px dotted darkgray; border-radius: 20px; background-color: rgb(250,250,250);">She looked over the top of her book and whispered <q style="display: block; margin-top: 10px; margin-bottom: 30px; color: lightgray; font-size: 1.8em; font-weight:bold; text-align: center; line-height: 2em; padding: 20px; text-shadow: 0px 0px 10px black; font-family: sanserif, monospace; text-transform:lowercase;">I'm hungry.</q> My heart stopped.</p>
+</div>
+
+Both of these use the exact same HTML. It is the CSS that makes them so different. So let's get started.
 
 
 
