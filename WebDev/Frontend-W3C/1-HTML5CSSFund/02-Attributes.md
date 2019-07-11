@@ -1831,9 +1831,87 @@ Try to make good use of semantic elements, images and hash links to get somethin
   The paragraph above has two classnames - poetry and shakespeare, split by space.
 
 
-
-
 ### Semantic elements (10-16)
+
+
+10. Semantic elements
+
+    True or False? Semantic elements, like article and section, don't use attributes.
+
+    Ans: False <br/>
+    Explanation: Though semantic elements may not need an attribute to indicate its semantics, they can still use global attributes that apply to all elements
+
+
+11. My text is important!
+
+    Which tag will you use to convey importance in your text?
+
+    a. Emphasis `<em>`
+    b. Strong `<strong>`
+    c.Italics `<i>`
+    d. Bold `<b>`
+
+    Ans: 2 <br/>
+    Explanation: The strong element represents strong importance, seriousness, or urgency for its contents while emphasis is used to stress emphasis of its contents.
+
+12. Mark my words
+
+    a. What is the purpose of the semantic element `<mark>`?
+    b. so it can be refered to by other semantic elements
+    c. underline text
+    d. strikethrough text
+
+    Ans: 4 <br/>
+    Explanation: `<mark>` is used to highlight text. It will display with a yellow background in most browsers.
+
+
+13. Non-semantic tags
+
+    Which of the following is a non-semantic tag?
+
+    a. `<body>`
+    b. `<img>`
+    c. `<div>`
+    d. `<p>`
+
+    Ans: 3 <br/>
+    Explanation: Semantic elements suggest the content within tags. The `<div>` tag does not provide any information of the content within.
+
+
+14. header and footer elements
+
+    True or False? You can have multiple header and footer elements in your Web page.
+
+    Ans: True <br/>
+    Explication: `<header>` and `<footer>` elements do what it is intended to for its parent element which can be a section. So each section in your Web page can have a header and footer just like each article, div, etc.
+
+
+15. Who does semantic elements benefit?
+
+    Who does semantic elements benefit? (select all that apply - 4 correct answers!)
+
+    1. You
+    2. Assistive technology users
+    3. The browser
+    4. The search engine
+    5. The server
+
+    Ans: 1234 <br/>
+    Explanation: Semantic elements convey more information about your HTML document's content and structure which is going to be useful for you when you revisit your code after a long break. For the browser, it can better differentiate different types of data which results in better display of content in different devices. Assistive technology like screen readers gather more information from semantic HTML. It will read content marked up with `<em>` with emphasis or read header tags in a higher voice to indicate it is a heading. Better markup structure imrpoves the automated processing of documents in search engines.
+
+
+
+16. Room with a view
+
+  Which semantic element has content that should be expanded to view?
+
+  1. figcaption
+  2. details
+  3. expand
+  4. summary
+
+  Ans: 2<br/>
+  Explanation: The details element contains `<summary>` and other content. Only `summary` will be displayed and it should be expanded to view all other content.
 
 
 
