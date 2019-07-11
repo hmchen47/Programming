@@ -184,12 +184,29 @@ p {
   color: #223344;
 }
 ```
- 
 
 
 ### Comments
 
+CSS can include "comments" as well, by which you, the developer today, can leave notes and reminders to you, a different developer tomorrow. Or to others who might read your CSS.  
 
+Comments begin with /* and must end with */ and they can span several lines. But they cannot be nested.
+
+```css
+p {
+  font-size: 8px; /* client insists small text makes them more 'professional'. */
+  /* I hope his idea of 'professional' includes paying on time. */
+
+  line-height: 24px; /* see above */
+
+  /* none of the stuff below is working. I don't know why.
+
+  margin-top: 5%;
+  margin-bottom:6%;
+  */
+}
+```
+ 
 
 
 ### Knowledge checks
