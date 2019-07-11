@@ -307,6 +307,8 @@ You could also take another short text (such as a poem) and apply the styles you
   Your browser does not support the HTML5 video element.
 </video><br/>
 
+[Example code](src/3.2.5-UseCSS.html)
+
 
 
 ## 3.3 CSS properties
