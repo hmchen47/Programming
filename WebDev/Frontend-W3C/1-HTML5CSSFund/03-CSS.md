@@ -692,6 +692,38 @@ If you are interested in accessibility, there is much more to learn. These simpl
 ### Knowledge checks
 
 
+Here are some questions for a self check to make sure you understand everything. These questions are not graded.
+
+1. Size me!
+
+  Which CSS property lets you adjust the size of the text?
+
+  Ans: font-size <br/>
+  `font-size` is the CSS property that governs the text size.
+
+
+2. Space control
+
+  Which CSS property allows you to control the spacing between html items?
+
+  Ans: `margin` or `margin:` or `margin-top` or `margin-top:` or `margin-left` or `margin-left:` or `margin-right` or `margin-right:` or `margin-bottom` or `margin-bottom:` <br/>
+  The `margin` property governs basic spacing between items.
+
+
+3. Font-size values
+
+  Which of the following is __NOT__ an acceptable value for the `font-size` property?
+
+  1. `medium`
+  2. `x-small`
+  3. `.4page`
+  4. `1.2em`
+  5. `.9rem`
+  6. `larger`
+  7. `14px`
+
+  Ans: 3
+
 
 
 ### Activity - Units
