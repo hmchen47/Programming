@@ -728,6 +728,14 @@ Here are some questions for a self check to make sure you understand everything.
 
 ### Activity - Units
 
+With the HTML below, please size the text using different units:
+
++ Use `px` units to set the root size of the text for the document.
++ Use `rem` units to size the `h1` and `li` tags.
++ Change the text size of the root CSS rule. You should observe all the text of the document adjusting appropriately.
++ Change the `h1` so that it uses px units. As the root CSS rule is changed, the `h1` will no longer adjust with the rest of the document.
+
+Please experiment by editing the following [Codepen](https://codepen.io/w3devcampus/pen/YVeQZN) [sample file](src/3.3.6-Units.html)
 
 
 
