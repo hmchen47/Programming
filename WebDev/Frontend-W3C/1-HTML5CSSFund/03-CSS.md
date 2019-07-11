@@ -453,7 +453,7 @@ blockquote { font-weight: 900; }
 
 Earlier we saw that the `<i>` and `<em>` tags could make text italicized. But, just as we saw when discussing font-weight, this can be changed with CSS, and any tag can make its text italic or oblique with the font-style property.  The choices of values for this property are <span style="color: #ff6600;">normal</span> and <span style="color: #ff6600;">italic</span>.  
 
-<table  table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <tbody>
   <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th>font-style: normal;</th><th>font-style: italic;</th></tr>
   <tr>
@@ -743,7 +743,90 @@ Please experiment by editing the following [Codepen](https://codepen.io/w3devcam
 
 ### Styling lists
 
+The list markup tags (`<ul>`, `<ol>` and `<li>`) are some of the most frequently used specific purpose tags in HTML. There are a few CSS style properties that are available for lists.
 
+
+#### list-style-type
+
+`list-style-type` governs the little list marker that is usually positioned to the left of any list item.  For un-ordered lists (`<ul>`), there are several popular values: <span style="color: #ff6600;">disc, circle, square</span>, and <span style="color: #ff6600;">none</span>.
+
+```css
+li { list-style-type: disc; }
+```
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th style="width: 10%;">html</th><th style="width: 5%;">default</th><th style="width: 5%;">disc</th><th style="width: 5%;">circle</th><th style="width: 5%;">square</th><th style="width: 5%;">none</th></tr>
+  <tr>
+    <td>
+    <pre>&lt;ul&gt;
+     &lt;li&gt;eggs&lt;/li&gt;
+     &lt;li&gt;milk&lt;/li&gt;
+     &lt;li&gt;bread&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td><ul><li>eggs</li><li>milk</li><li>bread</li></ul></td>
+    <td><ul style="list-style-type: disc;"><li>eggs</li><li>milk</li><li>bread</li></ul></td>
+    <td><ul style="list-style-type: circle;"><li>eggs</li><li>milk</li><li>bread</li></ul></td>
+    <td><ul style="list-style-type: square;"><li>eggs</li><li>milk</li><li>bread</li></ul></td>
+    <td><ul style="list-style-type: none;"><li>eggs</li><li>milk</li><li>bread</li></ul></td>
+  </tr>
+</tbody>
+</table>
+
+For ordered lists (`<ol>`) you can choose different ways of having the numbers shown: <span style="color: #ff6600;">decimal, decimal-leading-zero, lower-roman, upper-roman, lower-alpha, upper-alpha</span>, as well as several of the worlds languages: <span style="color: #ff6600;">armenian, georgian, simp-chinese-formal</span>, and many others.
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width="90%">
+<tbody>
+  <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th style="width: 10%;">decimal</th><th style="width: 10%;">decimal-leading-zero</th><th style="width: 10%;">lower-roman</th><th style="width: 10%;">upper-alpha</th><th style="width: 10%;">simp-chinese-formal</th></tr>
+  <tr>
+    <td><ol style="list-style-type: decimal;"><li>eggs</li><li>milk</li><li>bread</li></ol></td>
+    <td><ol style="list-style-type: decimal-leading-zero;"><li>eggs</li><li>milk</li><li>bread</li></ol></td>
+    <td><ol style="list-style-type: lower-roman;"><li>eggs</li><li>milk</li><li>bread</li></ol></td>
+    <td><ol style="list-style-type: upper-alpha;"><li>eggs</li><li>milk</li><li>bread</li></ol></td>
+    <td><ol style="list-style-type: simp-chinese-formal;"><li>eggs</li><li>milk</li><li>bread</li></ol></td>
+  </tr>
+</tbody>
+</table>
+
+
+#### list-style-position
+
+Besides choosing the type of marker applied to each list item, you may also want to govern how closely it is positioned to the list itself. The `list-style-position` property handles that.  The two values are <span style="color: #ff6600;">inside</span> and <span style="color: #ff6600;">outside</span>.  They govern whether the markers are positioned inside the box of the list, or outside. This is most evident if a border or background or similar is applied to the list. Below, we have put a blue border on the list. 
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width="50%">
+<tbody>
+  <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th>outside</th><th>inside</th></tr>
+  <tr>
+    <td><ol style="border: 1px blue solid; list-style-position: outside;"><li>eggs</li><li>milk</li><li>bread</li></ol></td>
+    <td><ol style="border: 1px blue solid; list-style-position: inside;"><li>eggs</li><li>milk</li><li>bread</li></ol></td>
+  </tr>
+</tbody>
+</table>
+
+
+
+#### list-style-image
+
+The little markers on a list can also be customized to be an image of your choosing. This will require you to have a small image in a Web compatible format (PNG or JPEG recommended) and to know the path from the place where the CSS is being defined to the image.  Image pathnames were covered in Module 2, and we'll be discussing them again in the background-image section. 
+
+```css
+li { list-style-image: url("my_triangle.png"); }
+```
+
+<table  table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width="40%">
+<tbody>
+  <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th>list-style-image</th></tr>
+  <tr>
+    <td>
+      <ul><li style="list-style-image: url('https://prod-edxapp.edx-cdn.org/assets/courseware/v1/073e0b55b08d259174c48c569c6696d9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/my_triangle.png');">eggs</li><li style="list-style-image: url('https://prod-edxapp.edx-cdn.org/assets/courseware/v1/073e0b55b08d259174c48c569c6696d9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/my_triangle.png');">milk</li><li style="list-style-image: url('https://prod-edxapp.edx-cdn.org/assets/courseware/v1/073e0b55b08d259174c48c569c6696d9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/my_triangle.png');">bread</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+Note that the browser will do little more than draw the image.  There is no guarantee to scale the image or assist with spacing or alignment.  Many users find `list-style-image` to be frustrating and instead use the `background-image` CSS property which has more options. There is a section dedicated to the `background-image` property.  
 
 
 ### Selectors
