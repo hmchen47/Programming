@@ -1574,6 +1574,40 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 
 ## Image Element
 
+### Characteristics of Image Element
+
++ [Concerns when using the `src` attribute](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#image-src-attribute):
+  + no space in image path.
+  + image path matches the capitalization of the actual path
+  + use Unix (/) path name separator instead of Windows () style
+  + ensure the image resides in the right location or the user is going to get a broken link
+  + relative path best practice: always keep the images at the same level, or one level down
+  + absolute paths: not recommended
+
++ [alt attribute](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#attribute-alt)
+  + provide a short description of what the image is about
+  + convey information about the image or its function in the page
+  + important attribute:
+    + the text alternative to the image for users who are unable to see the image, instead using assistive technology like screen readers that rely on the alt text
+    + screen readers will typically announce that there is an image and read out the contents of the alt attribute
+    + alternate text displayed if image not displayed if
+      + the path in your source attribute is wrong
+      + slow internet connection
+      + image relocated or renamed
+    + Search engines rely on the alt attribute to find out what the image is about.
+    + tell mobile users what the image is about if images turn off
+
++ [reasons using images](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#purpose-of-the-image):
+  + represent a concept, illustration or just a photograph that provide information
+  + background for a button or link
+  + display a quote or message in the form of text in an image
+  + decorative images
+
++ Images used for decoration or presentation purposes should have an empty value for alt. `<img alt="">`
+
+
+### List of Attributes for Image Element
+
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
 <thead>
   <tr>
