@@ -2011,3 +2011,57 @@ Try to make good use of semantic elements, images and hash links to get somethin
 ### Hyperlinks (25-28)
 
 
+25. Download attribute:
+
+  What is the purpose of your download attribute's value in a hyperlink?
+
+  1. It is a boolean value authorizing download
+  2. It is the name of file in the location specified in href
+  3. Downloaded file name will be modified according to value specified
+  4. Download attribute has no value
+
+  Ans: 3 <br/>
+  Explanation: The download attribute can have a value. If no value is specified, it downloads the file preserving the original file name. If a value is provided, it modifies the file name according to the value specified when downloading.
+
+
+26. Linking documents:
+
+  Different documents can be linked together using which one of these elements?
+
+  1. href
+  2. src
+  3. hyperlink
+  4. anchor
+
+  Ans: 4 <br/>
+  Explanation: The anchor element is used to link different documents across the internet. There is no element called 'hyperlink'. 'src' and 'href' are attributes.
+
+
+27. Anchor element:
+
+  True or False? The anchor element is only used to link from one page to another.
+
+  Ans: False <br/>
+  Explication: While navigating to another page or part of your page is the typical use for an anchor element, the use of the download attribute introduced in HTML5 makes a link download a file instead of navigate to another location.
+
+
+28. Hyperlink destination
+
+  ```html
+  <a href="https://w3.org" target="_blank">W3C</a>
+  ```
+
+  What does the code above do?
+
+  1. Opens the page in a separate frame
+  2. Opens the page in a new tab or window
+  3. Doesn't do anything as the code above is invalid
+  4. Opens the page in the same tab or window
+
+  Ans: b <br/>
+  Explanation: target value '_blank' will open in a new tab/window while '_self' opens in the same tab/window.
+
+
+
+
+
