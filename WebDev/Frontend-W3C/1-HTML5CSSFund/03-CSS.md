@@ -638,7 +638,55 @@ The list of CSS units above is not exhaustive. There are various tutorials and e
 
 ### Accessible typography
 
+#### With great power comes great responsibility
 
+The CSS rules with which we've started are fun and easily understandable. They are mostly concerned with typography. Later, we will see how to use CSS to include decorative images, look at other decorative properties, and take up the topic of layout.
+
+But even with our modest start we must, once again, take up the topic of accessibility.  In Module 2, we learned that using the correct tag with the best semantic meaning is very important for a variety of reasons, one of which included visitors who may have a disability. If you clearly put your page navigation in a <nav> block, and use the header tags and others (like `<article>` or `<main>`), then this can greatly enhance the page experience for certain disabled visitors, like the blind who might be having the page read aloud to them with a screen reader.
+
+Accessibility concerns are important for CSS usage as well. Perhaps doubly so. As page authors, if we don't use CSS, then the page visitor just sees the page with the default typography, and perhaps assisted by tools that can help zoom in on pages, make text bigger, invert colors for the light-sensitive, etc. But as we start to customize the look of the page with CSS, we may unintentionally thwart those tools or make the reading experience less comfortable for those with vision problems.
+
+
+#### Guidelines
+
+For accessible typography, there are really just a few things to avoid:
+
++ do not make text too small
++ do not make lines of text too tight
++ do not use foreground and background colors that are too close to one another, in other words, ensure there is good color contrast
++ do not irregularly space text or make it jump around
+
+Look at those four guidelines. Can you match each guideline to one or more CSS property from earlier? Take a moment and think about it. We'll touch on specific rules below.
+
+
+#### Properties
+
+##### Font-size
+
+Misuse of `font-size` might make text too small. So be wary of that. Furthermore, in the past the gold standard practice was to use `em` units instead of `px`. This is no longer as true as it was, but the practice of using `em` or `rem` units is definitely to be encouraged and it should be your default unit when working with text.
+
+
+##### Line-height
+
+An overly small `line-height` will cause lines to become cramped and difficult to read. Even the largest text can be rendered unreadable by a too small `line-height`. Generally, your `line-height` should always be at least one and a half times the `font-size` (ie, `line-height` should be greater than `1.5em`).
+
+
+##### Color
+
+Color contrast can be easily undone by misuse of the color property.  The exact rules for contrast are rather advanced. For example, "wide stroke" text is allowed to have less contrast than narrow stroke text.  But, regardless of rules, the overall concept is easy to understand: keep your text high contrast to the background. There are further color guidelines concerning certain combinations (like bright blue text on a bright red background), but the rule of thumb is that, if the text is at all hard for you to read, then just assume it is unreadable to someone with a visual disability. If you are interested, there are tools that can help such as [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/) or [Juicy Studio Luminosity Colour Contrast Ratio Analyser](http://juicystudio.com/services/luminositycontrastratio.php).
+
+
+##### Text-align
+
+Any long passage of text should have its alignment match its reading order. Which means, if the language is English, which is read left to right, then any long passage of text should be aligned left.  Right aligned or center aligned text can be very hard for dyslexics.
+
+Obviously, a header or perhaps a menu might be exempt, because they are not typically long passages of text. So this guideline doesn't mean an end to good page layout and typography.
+
+
+#### Summary
+So now, we've seen how typography can affect the accessibility and approachability of your page. It is not so very difficult. Common sense and awareness are good companions and will serve you well.
+
+If you are interested in accessibility, there is much more to learn. These simple guidelines merely scratch the surface.
 
 
 ### Knowledge checks
