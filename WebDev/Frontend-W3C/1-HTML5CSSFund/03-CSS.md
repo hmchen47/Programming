@@ -13,7 +13,15 @@
 
 ### Module 3 - Content
 
+3.1 __Introduction to Module 3__: Get an overview of what CSS (Cascading Style Sheets) can do for your Web pages.
 
+3.2 __CSS basic syntax__: Understanding the language of CSS: style tags, links tags, rules, and comments.
+
+3.3 __CSS properties__: Here, you will be introduced to just a few of the many properties that make CSS such a powerful tool.
+
+3.4 __Lists and selectors__: List markup tags (<ul>, <ol> and <li>) are some of the most frequently used specific purpose tags in HTML, and selectors are what allows you to target specific HTML elements and apply style to them
+
+3.5 __Exercises - Module 3__: Let's see what you learned in Module 3 of the course.
 
 
 ### The CSS language
