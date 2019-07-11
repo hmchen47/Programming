@@ -1707,6 +1707,130 @@ Try to make good use of semantic elements, images and hash links to get somethin
 
 ### Attributes (1-9)
 
+1. Hey you!
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <meta charset='UTF-8'>
+    <head>
+      <p> HEY YOU </p>
+      <style>
+      </style>
+      <script>
+      </script>
+    </head>
+    <body>
+      <h1>YO</h1>
+    </body>
+  </html>
+  ```
+
+  Is it valid to have a paragraph element inside the `<head>` tag like in the code above? (If you are unsure, please check the W3C cheatsheet or MDN’s `<head>` element page)
+
+  Ans: No <br/>
+  Explanation: You cannot have a paragraph element inside `<head>`. Elements that can be used inside `<head>` are `<title>`, `<base>`, `<link>`, `<style>`, `<meta>`, `<script>` and `<noscript>`.
+
+
+2. Show me your id
+
+  ```html
+  <p id="intro">Hi! My name is Alex and I love to cook.</p>
+  ```
+
+  Unlike most attributes, the id of an element should be:
+
+  1. split by spaces if you want to specify multiple values
+  2. the same across a given type of element i.e. all paragraphs have the same id
+  3. unique to that element and can only be used once
+  4. written in all caps (“ID=“)
+
+  Ans: 3 <br/>
+  Explanation: The id of an element should be unique and can only be used once. Unlike the class attribute, you cannot have more than one id value for an element.
+
+
+3. Tag specific?
+
+  True or False? The non-global attribute ‘size’ can only be applied to one tag.
+
+  Ans: False <br/>
+  Explication: Non-global attributes can apply to more than one tag. The size attribute can be applied to `<input>` and `<select>` tags. Read more about them in the HTML attribute reference available at Mozilla Developer Network.
+
+
+4. It's required!
+
+  What are the required attributes in an image tag? (Select all that apply - 2 answers are correct!)
+
+  1. src
+  2. title
+  3. height
+  4. alt
+
+  Ans: 14  <br/>
+  Explanation: The only two required attributes of an image tag are src and alt. All others are optional. src is used to specify the location the image should be fetched from and alt provides a short description of the image that is displayed for assistive technology users, search engines or if the image does not display.
+
+
+5. Tooltip in title
+
+  True or False? A tooltip in the title attribute can only be used on images.
+
+  Ans: False <br/>
+  Explication: Title is a global attribute and so can be used on any element. Another good usage is to expand abbrievations. `<abbr title="HyperText Markup Language">HTML</abbr>`
+
+
+6. Browser support?
+
+  True or False? All browsers support all attributes.
+
+  Ans: False <br/>
+  Explication: Not all browsers support all attributes. http://caniuse.com is a good resource to find out browser support for a particular attribute. Here is an example for the [download attribute](http://caniuse.com/#search=download%20attribute).
+
+
+7. Valid id attribute?
+
+  Which of the following is a valid value following best practice for the id attribute?
+
+  1. `<p id=""> </p>`
+  2. `<p id="NaViGaTiOn"> </p>`
+  3. `<p id="score-display"> </p>`
+  4. `<p id="Frequently asked questions"> </p >`
+
+  Ans: 3 <br/>
+  Explanation:
+  + Frequently asked questions: it hould not contain spaces
+  + NaViGaTiOn: it does not follow best pratice, as you are advised not to mix cases.
+  + score-display: it follows all naming rules
+  + "": the value must be of at least one character
+
+
+8. Truly global
+
+  Which of the following statements about global attributes is true?
+
+  1. All global attributes are of type boolean
+  2. Global attributes are common to all elements
+  3. Only 'id' and 'class' are global attributes
+  4. Global attributes only apply to elements that do not have any attributes of their own
+
+  Ans: 2 <br/>
+  Explanation: Global attributes are a list of attributes that are common to all elements in HTML.
+
+
+9. Multiple classes
+
+  What do you use to split multiple classnames in the 'class' attributes?
+
+  1. You can only specify one classname in the 'class' attribute
+  2. space
+  3. comma
+  4. colon
+
+  Ans: 2 <br/>
+  Explanation: You can include two classnames for an element by separating them by space.<br/>
+  `<p class="poetry shakespeare">Insert Shakespeare poetry here</p>` <br/>
+  The paragraph above has two classnames - poetry and shakespeare, split by space.
+
+
 
 
 ### Semantic elements (10-16)
