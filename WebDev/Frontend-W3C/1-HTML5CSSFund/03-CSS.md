@@ -267,7 +267,37 @@ p {
 
 ### Activity - use CSS
 
+Use CSS on the following HTML code. Try various styles, experiment, and have fun. We have a live coding demonstration below working with the same source.
 
+You are welcome to edit the following [CodePen](https://codepen.io/w3devcampus/pen/QvQgbr) sample file.
+
+... or work from the lines of code below (to paste in your favorite Web editor):
+
+```html
+<!DOCTYPE html>
+   <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <title>On the Inventor of Gunpowder</title>
+         <style>
+            /* CSS */
+      </style>
+    </head>
+ 
+   <body>
+      <h1>On the Inventor of Gunpowder.</h1>
+ 
+      <address rel="author">By John Milton</address>
+ 
+      <p>Praise in old time the sage Prometheus won,<br>
+      Who stole ethereal radiance from the sun;<br>
+      But greater he, whose bold invention strove<br>
+      To emulate the fiery bolts of Jove.</p>
+   </body>
+</html>
+```
+
+You could also take another short text (such as a poem) and apply the styles you like on it.
 
 
 ### CSS rules
