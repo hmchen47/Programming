@@ -553,7 +553,87 @@ Quicker than the lengthy rgb() function is simply providing an [hexadecimal (hex
 
 ### Units
 
+`font-size`, `line-height`, `margins` and many other CSS properties expect some sort of dimension value. Dimension values support a wide variety of units. But the most common and useful ones are: <span style="color: #008000;">px, em, rem, %, vh</span> and <span style="color: #008000;">vw</span>.
 
+
+#### px
+
+'px' is short for 'pixel', which is a single dot on the screen.   So text with `font-size:20px` is 20 pixels tall on-screen. In actuality, due to browser zooming, retina displays, or other factors, this may or may not match to 20 physical on-screen pixels.
+
+px are useful for both horizontal and vertical dimensions.
+
+
+#### em
+
+'em' is a typographic term that has come to the Web. On the Web, em units are usually used for vertical dimensions.  One 'em' maps to the height of one capital letter in the parent context.
+
+```csss
+li { font-size: 0.9em; }  /* text in a list item is smaller than its parents */
+h1 { font-size: 1.2em; }  /* but an h1 will be bigger than the parent */
+i  { font-size: 0.5em; }  /* and any italicized text will be half as big. */
+```
+
+All the text sizes above are relative to the pages base sizes.  You'll see radically different results on the rest of the page from either of these rules applied to the body, but relative to one another they'll remain sized correctly.
+
+<table style="border-spacing: 0px; table-layout: auto; line-height: 22.4px; width: 100%; margin: 20px 0px; color: #222222; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;">
+<tbody style="line-height: 1.4em;">
+  <tr style="line-height: 1.4em;">
+    <td style="vertical-align: top; line-height: 1.4em; border-color: #c8c8c8;"><code style="font-size: 1em; line-height: 1.4em;"><span style="font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; color: #0000ff;">html, body</span>&nbsp;{&nbsp;<span style="font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; color: #333399;">font-size</span>:&nbsp;<span style="font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; color: #008080;">50px</span>; }&nbsp;<span style="font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; color: #808080;">/* 50 px&nbsp;base text size */</span></code></td>
+    <td style="vertical-align: top; line-height: 1.4em; border-color: #c8c8c8;"><code style="font-size: 1em; line-height: 1.4em;"><span style="font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; color: #0000ff;">html, body</span>&nbsp;{&nbsp;<span style="font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; color: #333399;">font-size</span>:&nbsp;<span style="font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; color: #008080;">20px</span>; }&nbsp;<span style="font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; color: #808080;">/* 20 px&nbsp;base text size */</span></code></td>
+  </tr>
+</tbody>
+</table>
+
+
+
+#### rem
+
+'rem' is much like 'em', except that 'em' sizes an element relative to its parent, and 'rem' always derives its size relative to the root.  In an HTML document with lots of nested elements, 'rem' will generally prove to be more reliable than 'em'.  'rem' is supported in all modern day browsers, including mobile, but not older ones. 
+
+Using the CSS rules from the em section immediately above, nested list items (`<li>birds<ul><li>hawk</li></ul></li>`)would get increasingly smaller. And if 'rem' units were used, they would be the same size.
+
+Note: to ensure you are setting the root size, use __both__ the `html` and `body` selectors.
+
+```css
+html, body { font-size: 20px; }
+```
+
+
+#### %
+
+Whereas em is a measure relative to the parents text size, the percentage unit (%) is relative to the parent dimension.  This is a useful unit for both horizontal and vertical dimensions, though often more useful in the horizontal.  
+
+```css
+p {
+  margin-left:  10%;
+  margin-right: 10%;  /* 10% of parent width will be spent on the two side margins */
+ }
+```
+
+Initially, the percentage unit may seem very handy (and it is), and many developers fall in love with it. But the love affair is usually short lived. One of the limitations of this rule is that for it to work correctly, the parent must have an explicit width or height set. This limitation is particularly noticeable in the vertical dimension. If the parent element doesn't have an explicit height set then child percentages may be percentages of 0. 
+
+
+#### vh / vw
+
+'vh' stands for viewport height, and 'vw' for viewport width.  The vh and vw units work much like the percentage ( % ) unit. But instead of percentage of the parent, it is percentage of the screen (aka viewport).  Obviously, vh is for vertical dimensions, and vw for horizontal dimensions.
+
+vh and vw do not suffer the parent limitation that the % unit does.  Most modern browsers support these units, but there are some exceptions on older mobile browsers. 
+
+```css
+p { 
+  margin-left:  10vw;
+  margin-right: 10vw;  /* 10% of screen width will be spent on the two side margins */
+ }
+ ```
+
+
+#### External Resources
+
+The list of CSS units above is not exhaustive. There are various tutorials and explanations about CSS units on the internet. Here are a few that you might find helpful.
+
++ This CSS Tricks article from March 2016: "[Use rem for Global Sizing; Use  em  for Local Sizing](https://css-tricks.com/rem-global-em-local/)"
++ New CSS3 Units: [Root EM and Viewport Units](http://www.cssmine.com/css3-units)
++ From the W3C specification: [Viewport-percentage lengths](https://www.w3.org/TR/css3-values/#viewport-relative-lengths)
 
 
 ### Accessible typography
