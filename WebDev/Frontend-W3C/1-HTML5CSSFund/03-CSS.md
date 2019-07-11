@@ -315,7 +315,177 @@ You could also take another short text (such as a poem) and apply the styles you
 
 ### Common CSS properties
 
+There are hundreds of CSS properties for you to use. The [complete list](https://www.w3.org/Style/CSS/all-properties.en.html) is available on the W3C Web site (or also, see the [CSS reference page on the MDN Web site](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)).
 
+Below we've gathered a more manageable list of the most useful and common CSS properties: `font-size`, `line-height`, `text-align`, `text-decoration`, `font-weight`, `font-style` and `font-family`.
+
+
+#### font-size
+
+`font-size` can be used to size the text of a tag.  The value for the font-size has two parts: a number and a unit.  Some of the most common units are: `px`, `em`, `%`, `vh`.  For example:
+
+```css
+p { font-size: 18px; }
+q { font-size: .8em; }
+blockquote { font-size: 10vh; }
+```
+
+These units are discussed below.
+
+Additionally, `font-size` supports a more readable set of values that many authors prefer: <span style="color: #ff6600;">xx-small</span>, <span style="color: #ff6600;">x-small</span>, <span style="color: #ff6600;">small</span>, <span style="color: #ff6600;">medium</span>, <span style="color: #ff6600;">large</span>, <span style="color: #ff6600;">x-large</span>, <span style="color: #ff6600;">xx-large</span><br/>
+and relative sizing (relative to the text of the parent): <span style="color: #ff6600;">larger</span>, <span style="color: #ff6600;">smaller</span>. For example:
+
+```css
+p { font-size: medium; }
+q { font-size: small; }
+blockquote { font-size: larger; }
+```
+
+
+#### line-height
+
+Whereas `font-size` may drive the size of the text itself, the `line-height` property drives the height of the space it is drawn into.  A large `line-height` will give the text more spacing. A small line-height will smash the text lines together.  
+
+For example, all of the Middlemarch text below has `font-size:16px;` <br/>
+But on the left, we see `line-height:0.5;` and on the right, `line-height:3;` 
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr><th style="text-align: left;"><span style="color: #333399;">line-height</span>: <span style="color: #008000;">0.5</span>;</th><th style="text-align: left;"><span style="color: #333399;">line-height</span>: <span style="color: #008000;">3</span>;</th></tr>
+  <tr>
+    <td style="font-size: 16px !important; line-height: 8px !important;">Miss Brooke had that kind of beauty which seems to be thrown into relief by poor dress.</td>
+    <td style="font-size: 16px !important; line-height: 30px !important;">Miss Brooke had that kind of beauty which seems to be thrown into relief by poor dress.</td>
+  </tr>
+</tbody>
+</table>
+
+
+The used value is this unitless `<number>` multiplied by the element's font size. The computed value is the same as the specified `<number>`. In most cases __this is the preferred way__ to set `line-height` with no unexpected results in case of inheritance. Read more on the MDN Web site.
+
+
+#### text-align
+
+Anyone familiar with a text editor will be familiar with this property. It can be used to align the text <span style="color: #ff6600;">left</span>, <span style="color: #ff6600;">center</span> or <span style="color: #ff6600;">right</span>.  There are additional possible values like justify and justify-all . It usually defaults to left. However, remember that you shouldn't  use text-align unnecessarily.
+
+Note that text-align may __not__ work as expected if applied to elements that are the same width as their text, or whose width is determined by the text within them (i.e., inline elements).  The tags `<span>`, `<a>`, `<i>`, `<b>`, `<q>` and others are considered "inline" because they do not receive their own new line when used. And text-align is often not useful on these tags.
+
+But it is useful on block level text tags, such as `<p>`, `<li>`, `<ul>`, `<ol>`, `<div>`, and `<blockquote>`
+
+```css
+p { text-align: left; }
+blockquote { text-align: right; }
+```
+
+Bear in mind, also, that you should only use `text-align` when the alignment really needs to be changed, since it can cause additional work to reverse all the values when translating into languages that use Arabic, Hebrew, Thaana scripts, scripts (the default alignment for those languages is right).  The new values <span style="color: #ff6600; font-weight: bold;">start</span> and <span style="color: #ff6600; font-weight: bold;">end</span> are currently being implemented in browsers, and those will be a much better choice than <span style="color: #ff6600;">left</span> and <span style="color: #ff6600;">right</span> once Internet Explorer supports them.
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr><th style="background-color: lightgray;">left</th><th style="background-color: lightgray;">center</th></tr>
+  <tr>
+    <td style="text-align: left;">It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.</td>
+    <td  style="text-align: center;">It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.</td>
+  </tr>
+  <tr><th style="background-color: lightgray;">right</th><th style="background-color: lightgray;">justify</th></tr>
+  <tr>
+    <td  style="text-align: right;">It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.</td>
+    <td  style="text-align: justify;">It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.</td>
+  </tr>
+</tbody>
+</table>
+
+Note that CSS will in the future provide better support for justification in languages where words are not separated by spaces, such as Chinese and Thai, or languages where words are separated by special marks, such as in Amharic. For more information about different approaches to justification see [this article](https://www.w3.org/International/articles/typography/justification). Once you finish this course, look out for these and other international features of CSS as you explore its features further.
+
+
+#### Text-decoration (underline)
+
+How do I underline text? This is a common question. In CSS, this is done via the text-decoration property.  The values for this are: `underline`, `overline`, `line-through`, and `none`;  They can combined.
+
+```css
+p { text-decoration: underline; }
+a { text-decoration: none; } /* hyperlinks are underlined by default, but that can be removed */ 
+span { text-decoration: overline; }
+span { text-decoration: underline overline; } /* apply two with just a space between the values */
+span { text-decoration: underline overline line-through; } /* everything */
+```
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr><th style="background-color: lightgray; width: 10%; text-align: left;">underline</th><th style="background-color: lightgray; width: 10%; text-align: left;">overline</th><th style="background-color: lightgray; width: 10%; text-align: left;">line-through</th><th style="background-color: lightgray; width: 10%; text-align: left;"><span>underline overline line-through</span></th></tr>
+  <tr>
+    <td style="text-decoration: underline;">Middlemarch</td>
+    <td style="text-decoration: overline;">Middlemarch</td>
+    <td style="text-decoration: strike;">Middlemarch</td>
+    <td style="text-decoration: underline overline line-through;">Middlemarch</td>
+  </tr>
+</tbody>
+</table>
+
+Note: there are other properties that can help customize the text decoration, such as `text-decoration-color` and `text-decoration-style`, but they are not well supported across browsers (see [related caniuse table](https://caniuse.com/#search=text-decoration))
+
+
+#### font-weight (bold)
+
+Earlier we saw that the `<b>` and `<strong>` tags would make text bold-faced. However, semantically speaking, that is a mere side-effect of the tag. Any tag can make the text bolder (or less bold) via the `font-weight` CSS property.  While common values are <span style="color: #ff6600;">normal</span> and <span style="color: #ff6600;">bold</span>, text can also be made bolder (or less bold) than its parent with the values bolder and lighter. Lastly, the font-weight can be set explicitly as a numeric value. The choices are: <span style="color: #ff6600;">100, 200, 300, 400, 500, 600, 700, 800</span> and <span style="color: #ff6600;">900</span>.
+
+<span style="color: #ff6600;">normal</span> maps to <span style="color: #ff6600;">400</span> and <span style="color: #ff6600;">bold</span> to <span style="color: #ff6600;">700</span>. However, the different numeric choices will only work for fonts that support a full range of font-weights. Many times the numeric weights will simply be mapped back to bold or normal.
+
+```css
+p { font-weight: bold; }
+blockquote { font-weight: 900; }
+```
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr><th style="background-color: lightgray; width: 10%; text-align: left; line-height: 1.2rem;">normal</th><th style="background-color: lightgray; width: 10%; text-align: left; line-height: 1.2rem;">bold</th><th style="background-color: lightgray; width: 10%; text-align: left; line-height: 1.2rem;">200</th><th style="background-color: lightgray; width: 10%; text-align: left; line-height: 1.2rem;">500</th><th style="background-color: lightgray; width: 10%; text-align: left; line-height: 1.2rem;">700</th><th style="background-color: lightgray; width: 10%; text-align: left; line-height: 1.2rem;">900</th></tr>
+  <tr>
+    <td style="font-weight: norm">A Tale of Two Cities</td>
+    <td style="font-weight: bold">A Tale of Two Cities</td>
+    <td style="font-weight: 200">A Tale of Two Cities</td>
+    <td style="font-weight: 500">A Tale of Two Cities</td>
+    <td style="font-weight: 700">A Tale of Two Cities</td>
+    <td style="font-weight: 900">A Tale of Two Cities</td>
+  </tr>
+</tbody>
+</table>
+
+
+#### FONT-STYLE (italic)
+
+Earlier we saw that the `<i>` and `<em>` tags could make text italicized. But, just as we saw when discussing font-weight, this can be changed with CSS, and any tag can make its text italic or oblique with the font-style property.  The choices of values for this property are <span style="color: #ff6600;">normal</span> and <span style="color: #ff6600;">italic</span>.  
+
+<table  table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th>font-style: normal;</th><th>font-style: italic;</th></tr>
+  <tr>
+    <td style="font-style: normal;">Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.</td>
+    <td style="font-style: italic;">Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.</td>
+  </tr>
+</tbody>
+</table>
+
+
+
+#### font-family
+
+Want to set the font for an item on the page?   The `font-family` is the correct property for the task, but there are caveats:
+
++ the various browsers only guarantee a few standard choices: <span style="color: #008080;">serif</span>, <span style="color: #008080;">sans-serif</span>, <span style="color: #008080;">monospace</span>, <span style="color: #008080;">cursive</span>, and <span style="color: #008080;">fantasy</span>.
++ any other choice must be already installed on the users machine.
++ or you may use a "Web font", but your choices, while plentiful, may not match the choices you are used to.  
++ your favorite font on your machine is probably encumbered by licensing limitations and is not available. You can certainly specify it to be used, but if the end user doesn't have it themselves, they won't see it. And you can't "give" it to them. Again, "Web fonts" are the alternative here. 
+
+To help ameliorate these limitations, the font-family property accepts a list of possible font choices.  The browser will start with trying the first font listed, and if not available (or not having a needed glyph) it will then proceed to the next font in the list, and so on.  Here is a typical font-family declaration:
+
+```css
+p { font-family: "Helvetica", "Verdana", "Arial", sans-serif; }
+```
+
+The rule above says to first try the font named "Helvetica". If it isn't available, try "Verdana", failing that "Arial", and lastly fall back to the built in `sans-serif` browser font.
+
++ each of the named font families is separated by a comma ( , )
++ if the font family name contains any spaces (or certain other characters) it __must__ be surrounded by quotes. Font names tend to be complex, and the exact rules for when quotes are required are arcane, so the simplest and best practice is to __always surround the font family name in quotes__, excepting the five built-ins (serif, sans-serif, etc.)
+
+Web fonts are outside the scope of this course. Google provides a nice selection of licensed free Web fonts. Type "_google Web font tutorial_" into any search engine to learn more.  
 
 
 ### Margin and color
