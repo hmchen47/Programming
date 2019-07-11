@@ -88,7 +88,58 @@ Both of these use the exact same HTML. It is the CSS that makes them so differen
 
 ### Style and link tags
 
+#### 'style' tag
 
+Style tag in the XDK code editor
+
+The best practice when working with CSS is to keep it in an external file using the `<link>` tag, however, when starting, it is simpler to merely place it directly into the document under edit.  
+
+To place CSS directly into an HTML document, we use the `<style>` tag.  This tag can appear anywhere in an HTML document, however, the most common practice is to place it in the `<head>` section.  Such as:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+ 
+  <head>
+    <meta charset="UTF-8">
+    <title>Style and link tags</title>
+    <style>
+      /* CSS will go in this area */
+    </style>
+  </head>
+ 
+  <body>
+  </body>
+</html>
+```
+
+#### 'link' tag
+
+While `<style>` is convenient, the better practice is to put the CSS into a separate file. One of the key advantages of using a separate file is that the CSS styles can easily be re-used between your different .html pages.  Many authors further divide their CSS up into different files (for example: one for text styles and another one for layout).  
+
+Simply put your CSS into a separate file. This file does not need any HTML markup (i.e., no `<style>` tag required).  Use the .css file extension and use a `<link>` tag to bind it in. The `<link>` tag must appear in the `<head>` section.  By convention, css files are kept in a directory named css.
+
+Use this `<link>` as a template:
+
+```html
+<link rel="stylesheet" href="css/my_styles.css">
+```
+
+Here is an example HTML document.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+ 
+  <head>
+    <meta charset="UTF-8">
+    <title>Style and link tags</title>
+    <link rel="stylesheet" href="css/my_styles.css">
+  </head>
+  <body>
+  </body>
+</html>
+```
 
 
 ### Selectors and declarations
