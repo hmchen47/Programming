@@ -144,7 +144,47 @@ Here is an example HTML document.
 
 ### Selectors and declarations
 
+At its simplest, CSS is just a list of rules.  Each rule consists of a selector and a declaration.  Here is an example:
 
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/93b25250542a4c7898d9184a93558f59/5ca9519c008c4fe7b6ada01210cae4bf/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%404331dbb577ba4efc97fb9fff6686037b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7aeb1eae7e4bc674083b56e47c0fa9f1/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/select-declare.jpg" style="margin: 0.1em;" alt="selector declaration diagram" title="selector declaration diagram" width=250>
+  </a></div>
+</div>
+
+
+#### Selector
+
+In the above, the selector is __p__.  When a selector appears unprefixed by any punctuation, then it is assumed to match to an HTML tag.  Thus, the __p__ selector will apply the CSS rule to all `<p>` tags in the document. 
+
+We will cover more selector possibilities in the future.
+
+
+#### Declaration
+
+The declaration part of a CSS rule opens and closes with curly braces: __{  }__<br>
+_And between them, you can put any number of property value pairs._
+
+
+#### Properties and Values
+
+There are hundreds of different visual properties that may be set via CSS.  And each property has a range of possible values that it can be set to.  Syntactically, property value pairs are simple. Each pair consists of a _property_, followed by a colon : followed by a _value_ and terminated by a semi-colon ;
+
+<p><code><span style="color: #333399;">font-size</span>: <span style="color: #008000;">12px</span>;</code></p>
+
+
+#### Best practice
+
+In the example above, the entire CSS rule is written on one line.  This is not uncommon when the declaration of the CSS rule only has one property.  If a CSS rule has several properties, then it should be written to use one line per property value pair. For example:
+
+```css
+p {
+  font-size: 12px;
+  line-height: 15px;
+  color: #223344;
+}
+```
+ 
 
 
 ### Comments
