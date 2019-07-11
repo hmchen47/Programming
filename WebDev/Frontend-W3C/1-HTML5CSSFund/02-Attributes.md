@@ -1914,8 +1914,97 @@ Try to make good use of semantic elements, images and hash links to get somethin
   Explanation: The details element contains `<summary>` and other content. Only `summary` will be displayed and it should be expanded to view all other content.
 
 
-
 ### Images (17-24)
+
+17. Image info
+
+  Which attribute do you use when you want to provide more information about a complicated image?
+
+  1. alt
+  2. info
+  3. src
+  4. id
+  5. title
+
+  Ans: 5 <br/>
+  Explanation: Title attribute creates a tooltip with additional information when you hover the mouse over the image. This should not be confused with the alt attribute which is a source of alternate information for the image.
+
+
+18. Best image path
+
+  Which of the following image paths follow the best practice for a relative URL?
+
+  1. package\assets\Images\example.PNG
+  2. images/example.png
+  3. Package/Assets/Images/Example.png
+  4. images\example.png
+
+  Ans: 2 <br/>
+  Explanation: An image path should use the unix path name separator (/). For any path relative to the file, the simplest is to always keep the images directory at the same level, or one level down. The recommended practice is to use lower case for all directories, file names and file extensions because mixed case is prone to cause mismatched capitalization (directory name is 'Images' but your path uses 'images') which doesn't always work.
+
+
+19. Half image
+
+  True or False? You need to use both height and width attributes to shrink your image by half.
+
+  Ans: False <br/>
+  Explication: Specifying either one is sufficient and the aspect ratio will be maintained.
+
+
+20. Adding images
+
+  True or False? Images can be added to your Web page in more than one way.
+
+  Ans: True <br/>
+  Explication: Other than the image tag, they can also be added through CSS which is the recommended way to add images that serve a decorative purpose.
+
+
+21. Closing tag
+
+  True or False? The closing tag for image is `</img>`.
+
+  Ans: False  <br/>
+  Explanation: The image tag has no closing tag.
+
+
+22. What does the 'alt' attribute do?
+
+  What does the 'alt' attribute do?
+
+  1. used to distinguish image and text links by a screen reader
+  2. describes the information the image conveys or its function
+  1. display information about an ambiguous image as a tooltip
+  4. links to a URL
+
+  Ans: 2 <br/>
+  Explanation: The 'alt' attribute is used to provide a short description of the image or the function it serves for users who use assistive technology like screen readers, for search engines or if the image cannot be displayed for some reason. For a longer description, either add a link to the description after the image, describe the location of the longer description in the alt attribute, or use figure to structurally associate the image with its longer description.
+
+
+23. Background image
+
+  If you have an image you want to add as a background to your Web page, your 'alt' attribute's value should be:
+
+  1. no alt attribute is needed
+  2. empty - ""
+  3. a background image
+  4. a decorative image
+
+  Ans: b <br/>
+  Explanation: Images used for decoration or presentation purposes should have an empty value for alt. `<img alt="">`
+
+
+24. Give me an alt!
+
+  Which of the following is a good alt attribute value for the following image: [alt attribute image](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b6a326d9198fb5b5d72a7a7205537a05/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/surprise.jpg)?
+
+  1. Image 3
+  2. Boy looking at his school computer overjoyed and surprised by his exam results
+  3. Surprised boy
+  4. "" - no value
+
+  Ans: 2 <br/>
+  Explanation: This looks like an informational image so some text that describes the information displayed visually is appropriate. <br/>
+  Empty alt value is typically used for decorative images.
 
 
 
