@@ -206,11 +206,62 @@ p {
   */
 }
 ```
- 
 
 
 ### Knowledge checks
 
+
+1. Tag support
+
+  Which tag supports CSS code between its opening and closing tag?
+
+  1. `<div> ... </div>`
+  2. `<css> ... </css>`
+  3. `<style> ... </style>`
+  4. `<link> ... </link>`
+
+  Ans: 3 <br/>
+  Explanation: The `<style>` tag is used to place CSS code directly into an HTML document. While not considered a best practice it is convenient, especially for testing or exploration.
+
+
+2. Link use
+
+  Which of the following uses of the `<link>` tag is correct?
+
+  1. `<link rel="stylesheet" href="css/my_styles.css" >`
+  2. `<link rel="stylesheet" src="css/my_styles.css" >`
+  3. `<link rel="css" >`
+  4. `<link href="css/my_styles.css" >`
+
+  Ans: 1 <br/>
+  Explanation: The `<link>` tag needs two attributes specified, `rel` which must be "stylesheet" and `href` which names the CSS file.
+
+
+3. Leveraging CSS
+
+  What is the general best practice for leveraging CSS from a Web page?
+
+  1. Bind in CSS from an external file with a `<link>` tag
+  2. Enter CSS directly into a `<style>` block
+
+  Ans: 1 <br/>
+  Explanation: Keeping CSS in an external file is generally considered the best practice. CSS in an external file can be used by several different Web pages.
+
+
+4. External CSS file
+
+  Does the CSS in an external CSS file, like `my_file.css`, need to be surrounded by `<style> ... </style>` tags?
+
+  Ans: No <br/>
+  Explanation: An external `.css` file is not an HTML document and needs no tagged markup. The CSS can be included directly. Though, a good practice is to leave a comment at the top of the CSS file.
+
+  ```css
+  /* 
+  my_styles.css 
+  Jan 1, 2016 -- defining basic styles for website. 
+  Jan 9, 2016 -- client wants color scheme changed to match favorite sports team (Go Barca!). 
+  */
+  ```
 
 
 
