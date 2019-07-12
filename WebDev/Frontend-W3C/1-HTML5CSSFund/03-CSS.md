@@ -831,6 +831,89 @@ Note that the browser will do little more than draw the image.  There is no guar
 
 ### Selectors
 
+Earlier, we learned that a CSS rule is made up of two parts: the selector and the declaration. We've seen quite a few different declarations, but the only selector we've learned is the tag selector. There are other choices, and they can be composed together in interesting and useful ways. So let's learn some more CSS selectors.
+
+
+#### Tag selector
+
+We've already seen this one. A CSS selector that consists solely of a single tag (without punctuation or spacing) will be applied to any matching tag on the page.
+
+```css
+li { list-style-type: circle; }
+```
+
+
+#### id selector
+
+You may remember the `id` attribute (short for "identifier"). This attribute can be applied to an HTML tag to uniquely identify the element. Recall that the value for any given `id` attribute can only appear once in a document. No two tags are allowed to have the same id. You may also recall that the id cannot contain spaces, nor most punctuation, nor begin with numbers.
+
+In the HTML below, there are two paragraph tags. So, to style them individually, we can apply unique `id` attributes to the paragraphs (`id="p18"` and `id="p19"`). In the CSS, we will use the id selector.  The id selector is simply a hash sign (#) followed directly by the id.  
+
+CSS:
+
+```css
+#p18 { color: blue; }
+#p19 { color: green; }
+```
+
+HTML:
+
+```html
+<p id="p18">He is Ulysses, a man of great craft, son of Laertes. He was born in 
+  rugged Ithaca, and excels in all manner of stratagems and subtle cunning.</p> 
+<p id="p19">Madam, you have spoken truly.</p>
+```
+
+Result
+
+<table style="border: 1px lightgray solid;" width="100%">
+<tbody>
+  <tr>
+    <td>
+      <p style="color: blue;">He is Ulysses, a man of great craft, son of Laertes. He was born in rugged Ithaca, and excels in all manner of stratagems and subtle cunning.</p>
+      <p style="color: green;">Madam, you have spoken truly.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Class selector
+
+The `class` attribute is similar to the id. However, whereas the `id` must be unique and singular, the values of the `class` attribute can be shared by multiple tags. And, multiple classes can be assigned to a tag by simply separating them with spaces.  
+
+HTML
+
+```html
+<ul>
+  <li class="bird flying">eagle</li>
+  <li class="bird">ostrich</li>
+  <li class="insect">ant</li>
+  <li class="insect flying">moth</li>
+</ul>
+```
+
+The class selector is simply a period (.) followed by the class name itself.
+
+CSS
+
+```css
+.bird   { color: blue; }
+.insect { color: green; }
+.flying { text-decoration: underline; }
+```
+
+Result
+
+<table>
+<tbody>
+  <tr>
+    <td>
+    <ul><li style="color: blue; text-decoration: underline;">eagle</li><li style="color: blue;">ostrich</li><li style="color: green;">ant</li><li style="color: green; text-decoration: underline;">moth</li></ul>
+    </td>
+  </tr>
+</tbody>
+</table>
 
 
 
