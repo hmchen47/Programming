@@ -1347,10 +1347,29 @@ We'll use this block of HTML for the next few questions.
   in this case the tag selector for the paragraph is more specific than the inheritable selector
 
 
-
-
 ### Activity - Lists
 
+The HTML that follows is for a simple list.  Insert it into a properly formed HTML file and format it.  Try to ensure the following are done:
+
++ space the list items at least 20 pixels from the left edge of the page
++ space the list items at least 10 pixels from each other
++ center the header
++ keep the list at least 50 pixels from the header
++ the book titles in the list should not be displayed in a serif font
++ the header should use a different font than the list
++ the text of header should be dark red
++ break the CSS rules into two different .css files. One file should contain any spacing rules, the other any rules governing font faces or coloring.  Bind both into your HTML document
++ instead of numbers, have the list items indexed by the alphabet
++ change the `<ol>` tag to `<ul>` (and the closing `</ol>` to `</ul>`) and style the list items to have square bullet points
++ download this [simple triangle shape](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/073e0b55b08d259174c48c569c6696d9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/my_triangle.png) <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/073e0b55b08d259174c48c569c6696d9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/my_triangle.png" alt="Simple triangle shape" height=10> and style the list items to use it
+
+Please work on the following CodePen and implement the instructions above - do not hesitate to tweak and test!
+
+[Sample code](src/3.4.6-Lists.html)
+
+[Sample Spacing code](src/3.4.6-spacing.css)
+
+[Sample color code](src/3.4.6-color.css)
 
 
 
