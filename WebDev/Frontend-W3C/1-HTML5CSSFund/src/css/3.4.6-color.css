@@ -2,5 +2,6 @@ li {
     font-style: italic;
     color: blue;
     list-style-type: square;
+    list-style-image: url("https://prod-edxapp.edx-cdn.org/assets/courseware/v1/073e0b55b08d259174c48c569c6696d9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/my_triangle.png")
 }
 
