@@ -1375,7 +1375,20 @@ Please work on the following CodePen and implement the instructions above - do n
 
 ### Activity - CSS selectors
 
+Using the HTML below (in this [CodePen](https://codepen.io/w3devcampus/pen/JNpJpX)), please style the two lists by following these instructions:
 
++ The female characters are in blue text, and the male characters are red
++ Dorothea Brooke and Sydney Carton are bold text
++ Joshua Rigg and Madame Defarge are italicized
++ The list for Middlemarch is enumerated with roman numerals
++ The list for A Tale of Two Cities is enumerated with alpha characters
++ The list items for Middlemarch are spaced out more
++ The list for Middlemarch has been moved rightward
++ Serif font is not used anywhere on the page
+
+Can you achieve the same styling without adding any new tags (i.e., without adding `<i>` or `<b>` or `<span>`) ? Feel free to modify the HTML, but try not to add any new `id` attributes, if possible.
+
+[Sample code](src/3.4.7-selector.html)
 
 
 ### Recipe project - Module3
