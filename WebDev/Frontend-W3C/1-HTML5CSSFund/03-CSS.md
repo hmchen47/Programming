@@ -1198,8 +1198,153 @@ This may seem like an attractive option, but using it is not recommended. Once y
 
 
 
-### Knowledge checks
+### Cascading: inheritance and precedence
 
+
+
+Here are some questions for a self check to make sure you understand everything. These questions are not graded.
+
+1. My CSS declaration
+
+  The list items (li) in a unordered list (ul) each have bullet points next to them by default. What is the CSS declaration you would use to remove them?
+  
+  Ans: `list-style-type:none` or `list-style-type:none;` or `list-style-type: none` or `list-style-type: none;`
+
+
+2. List-style-position values
+
+  Which of the following are acceptable values for the list-style-position property?
+
+  1. within
+  2. inside
+  3. near
+  4. outside
+  5. baseline
+
+  Ans: 24
+
+
+3. id selection
+
+  Given the HTML below, how would you select it by id?
+
+  ```html
+  <p id="dorothea">Perhaps we don't always discriminate between sense and nonsense.</p>
+  ```
+
+  Ans: `#dorothea`
+
+
+4. class selection
+
+  Given the HTML below, how would you select it by class?
+
+  ```html
+  <p id="dorothea" class="brooks" >Perhaps we don't always discriminate between sense and nonsense.</p> 
+  ```
+
+  Ans: `.brooks`<br/>
+  While you have constructed a class selector using dot (.), that does not match any class held by the node in question. You have mixed the class selector dot with the id, which will not work
+
+
+We'll use this block of HTML for the next few questions.
+
+```html
+<ul id="forest">
+    <li class="evergreen"><a>pine</a></li>
+    <li class="evergreen"><a>lodgepole</a></li>
+    <li class="evergreen fruit"><a>holly</a></li>
+    <li class="leaf fruit"><a>apple</a></li>
+    <li class="leaf"><a>oak</a></li>
+    <li class="leaf"><a>maple</a></li>
+</ul>
+```
+
+5. What selector would you use...
+
+  There may be other lists on the page, in addition to the one above. Given that, what selector would you use to select all the list items in the forest's unordered list?
+
+  Ans: `#forest li` <br/>
+  Hints: Just provide the selector itself; Try constructing a __descendent selector__ <br/>
+  `#forest`: This selects the forest `ul`, but we want to select the `li` elements below it. <br/>
+  `li`: `li` would certainly select every list item under the forest unordered list, but it would also select every other list item on the page. <br/>
+  `ul`: This might select other unordered lists on the page. Additionally, it does not exactly select the list items (li) themselves.
+
+
+6. Selecting the apple tree
+
+  Assume that the evergreen, fruit and leaf classes are not used elsewhere on the page. What selector will select the apple tree, but none of the others?
+  
+  Ans: `li.leaf.fruit` <br/>
+  Hint: No need to qualify by id; Try constructing a __specialized selector__; Make a specialized selector with two class names
+
+
+7. CSS selector and hyperlinks
+
+  ```html
+  <p>The proud-mooded <a href="#wederchief">Wederchief</a> replied to his question,
+  <q>Hardy 'neath helmet: <q><a href="#higelac">Higelac's</a> mates are we;
+  <a href="beowulf">Beowulf</a> hight I. To the bairn of Healfdene,
+  The famous folk-leader, I freely will tell
+  To thy prince my commission, if pleasantly hearing
+  He’ll grant we may greet him so gracious to all men
+  </q>
+  </p>
+  ```
+
+  In the HTML above, there are hyperlink tags both in a paragraph and within a nested quote. What CSS selector will select any hyperlink at the top of the paragraph, but not hyperlinks in the quotation?
+
+  Ans: `p > a` <br/>
+  Hint: We want to select the hyperlink with "Wederchief" but not the hyperlinks for "Higelac" or "Beowulf"; Try constructing a __direct descendent selector__; Use the caret (>) to make a direct descendent selector
+
+
+8. Color of the rainbow
+
+  Examine this HTML and CSS:
+
+  ```html
+  <p id="physics" class="rainbow">Rainbows result from refraction of sunlight in  falling 
+  water droplets plus reflection of the light from the back of the droplet.</p>
+  ```
+
+  ```css
+  #physics { color: red; }
+  .rainbow { color: green; }
+  ```
+
+  With which color will the paragraph appear?
+
+  1. black (no change)
+  2. blue
+  3. red
+  4. green
+
+  Ans: 3 <br/>
+  the id selector (using #) takes precedence over other selectors, regardless of order
+
+
+9. With which color will the paragraph appear?
+
+  Examine this HTML and CSS:
+
+  ```html
+  <p id="physics" class="rainbow">Rainbows result from refraction of sunlight in falling water droplets plus reflection of the light from the back of the droplet.</p>
+  ```
+
+  ```css
+  p { color: blue; }
+  html, body { color: black; }
+  ```
+
+  With which color will the paragraph appear?
+
+  1. black
+  2. blue
+  3. red
+  4. green
+
+  Ans: 2 <br/>
+  in this case the tag selector for the paragraph is more specific than the inheritable selector
 
 
 
