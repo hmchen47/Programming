@@ -814,7 +814,7 @@ The little markers on a list can also be customized to be an image of your choos
 li { list-style-image: url("my_triangle.png"); }
 ```
 
-<table  table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width="40%">
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width="40%">
 <tbody>
   <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th>list-style-image</th></tr>
   <tr>
@@ -919,15 +919,164 @@ Result
 
 ### Combining selectors
 
+Being able to define a CSS selector in terms of a tag, class or id is very powerful. But it's not practical to place classes on every tag in your document, much less to put unique ids throughout.  It's also inconvenient to constantly repeat CSS rules. But by combining composing selectors, all that can be avoided.  
 
+
+#### Comma separated selectors
+
+Let's say we want to make all our `<blockquote>` tags, `<q>` tags, and anything with "speech" in it's class string, to be red italic text.  How might we do that?  We could make three separate rule sets.  Or, better, we can separate our selectors with commas (,) before one rule set.  Like so:
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width="70%">
+<tbody>
+  <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th style="width: 20%;">separate</th><th style="width: 20%;">joined</th></tr>
+  <tr>
+    <td><code><span style="color: #0000ff;">blockquote</span> {<br>&nbsp; color: <span style="color: #ff6600;">red</span>;<br>&nbsp; <span style="color: #333399;">font-style</span>: <span style="color: #ff6600;">italic</span>;<br> }<br><span style="color: #0000ff;">q</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{<br>&nbsp; <span style="color: #333399;">color</span>: <span style="color: #ff6600;">red</span>;<br>&nbsp; <span style="color: #333399;">font-style</span>: <span style="color: #ff6600;">italic</span>;<br> }<br><span style="color: #0000ff;">.speech</span> &nbsp; &nbsp;{<br>&nbsp; <span style="color: #333399;">color</span>: <span style="color: #ff6600;">red</span>;<br>&nbsp; <span style="color: #333399;">font-style</span>: <span style="color: #ff6600;">italic</span>;<br> }</code></td>
+    <td><code><span style="color: #0000ff;">blockquote</span>, <br><span style="color: #0000ff;">q</span>, <br><span style="color: #0000ff;">.speech</span> {<br>&nbsp; &nbsp;<span style="color: #333399;">color</span>: <span style="color: #ff6600;">red</span>;<br>&nbsp; &nbsp;<span style="color: #333399;">font-style</span>: <span style="color: #ff6600;">italic</span>; &nbsp;&nbsp;<br>}</code></td>
+  </tr>
+</tbody>
+</table>
+
+
+The joined version on the right is much easier to read and maintain.  
+
+If the "speech" items need to also be bold, that can simply be added by an additional rule:
+
+```css
+blockquote, 
+q, 
+.speech {
+   color: red;
+   font-style: italic;   
+} 
+.speech { font-weight: bold; }
+```
+
+
+#### Specialized selectors
+
+If two selectors of different types (like tag and class) appear next to each other with no spacing separating them, then they form a specialized selector. To match, a candidate must match __both__ rules.  If a tag selector is used, it must appear first.  
+
+This is most useful with class and tag selectors, like so:
+
+```css
+blockquote.speech { font-color: green; }
+```
+
+In the example above, the `blockquote.speech` selector is a blockquote tag selector combined with a .speech class selector.  So this rule will not necessarily apply to every `blockquote`, nor every element with the speech class. Instead, it will only apply to those blockquotes that also have the speech class.
+
+It isn't unusual to see multiple classes joined this way as well:
+
+```css
+.insect.flying { text-decoration: underline; font-weight:bold; }
+```
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width="70%">
+<tbody>
+  <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th>html</th><th>css</th><th>result</th></tr>
+  <tr>
+    <td>
+    <pre>       &lt;ul&gt;
+          &lt;li class="bird flying"&gt;parrot&lt;/li&gt;
+          &lt;li class="bird"&gt;ostrich&lt;/li&gt;
+          &lt;li class="insect"&gt;ant&lt;/li&gt;
+          &lt;li class="insect flying"&gt;wasp&lt;/li&gt;
+          &lt;li class="insect flying"&gt;moth&lt;/li&gt;
+          &lt;li class="flying"&gt;airplane&lt;/li&gt;
+        &lt;/ul&gt;
+       </pre>
+    </td>
+    <td>
+    <pre><span style="color: #0000ff;">    .insect.flying</span> {
+          <span style="color: #333399;">text-decoration</span>: <span style="color: #ff6600;">underline</span>; 
+          <span style="color: #333399;">font-weight</span>: <span style="color: #ff6600;">bold</span>; 
+    }
+     </pre>
+    </td>
+    <td>
+    <ul>
+      <li style="color: blue; text-decoration: underline;">parrot</li>
+      <li style="color: blue;">ostrich</li>
+      <li style="color: green;">ant</li>
+      <li style="color: green; text-decoration: underline;">wasp</li>
+      <li style="color: green; text-decoration: underline;">moth</li>
+      <li style="text-decoration: underline;">airplane</li>
+    </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Descendant selectors
+
+In the following HTML, we see some paragraphs that have some links (`<a>`) inside. The link tags are inside the paragraphs, but not necessarily direct children.  
+
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;section</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"intro"</span><span class="tag">&gt;</span><span class="pln">Welcome to </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#palaceland"</span><span class="tag">&gt;</span><span class="pln">PalaceLand</span><span class="tag">&lt;/a&gt;</span><span class="pln">, world renown </span><span class="tag">&lt;q&gt;</span><span class="pln">Land of endless palaces and </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#delight"</span><span class="tag">&gt;</span><span class="pln">delights</span><span class="tag">&lt;/a&gt;&lt;/q&gt;</span><span class="pln">. As you make your way about, remember the words of our founder </span><span class="tag">&lt;blockquote&gt;</span><span class="pln">Shouldn't we have </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#chairs"</span><span class="tag">&gt;</span><span class="pln">chairs</span><span class="tag">&lt;/a&gt;</span><span class="pln">? Never made much sense wandering room a room looking for a place to sit a spell. Folk that don't sit are not likely all right in the </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#head"</span><span class="tag">&gt;</span><span class="pln">head</span><span class="tag">&lt;/a&gt;&lt;/blockquote&gt;&lt;/section&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;section</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"guideline"</span><span class="tag">&gt;</span><span class="pln">There are guidelines to follow while in </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#palaceland"</span><span class="tag">&gt;</span><span class="pln">PalaceLand</span><span class="tag">&lt;/a&gt;</span><span class="pln">. They are outlined on the back of your </span><span class="tag">&lt;q&gt;</span><span class="pln">Daring Footman </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#trademark"</span><span class="tag">&gt;</span><span class="pln">(tm)</span><span class="tag">&lt;/a&gt;&lt;/q&gt;</span><span class="pln"> card. But the spirit of the guidelines are best summed up by our founder </span><span class="tag">&lt;blockquote&gt;</span><span class="pln">Don't just </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#standthere"</span><span class="tag">&gt;</span><span class="pln">stand there</span><span class="tag">&lt;/a&gt;</span><span class="pln"> with your mouth hanging open waiting for a pair of nesting birds.</span><span class="tag">&lt;/blockquote&gt;</span><span class="pln"> (and no </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#camera_policy"</span><span class="tag">&gt;</span><span class="pln">flash photography</span><span class="tag">&lt;/a&gt;</span><span class="pln"> please.)</span><span class="tag">&lt;/section&gt;</span><span class="pln"> </span></li>
+</ol></div>
+
+What if we wanted all the links in the introductory section to be red, but all the link in the guideline section to be green?  That is what descendant selectors are for. Here is an example for the problem we are facing:
+
+```css
+#intro a { color: red; }
+#guideline a { color: #00FF00; }
+```
+
+We merely separate the tag, identifier, or class selectors by a space.
+
+So, in the first rule, we see that the selector will match to any `<a>` tag that is a descendant of `#intro`.  The `<a>` tag can appear directly within `#intro`, or be buried within its children.  Here is the result:
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<tbody>
+  <tr>
+    <td>
+      <div id="intro">Welcome to <a href="#palaceland">PalaceLand</a>, world renown <q>Land of endless palaces and <a href="#delight">delights</a></q>. As you make your way about, remember the words of our founder
+      <blockquote>Shouldn't we have <a href="#chairs">chairs</a>? Never made much sense wandering room a room looking for a place to sit a spell. Folk that don't sit are not likely all right in the <a href="#head">head</a></blockquote>
+      </div>
+      <div id="guideline">There are guidelines to follow while in <a href="#palaceland">PalaceLand</a>. They are outlined on the back of your <q>Daring Footman <a href="#trademark">(tm)</a></q> card. But the spirit of the guidelines are best summed up by our founder
+      <blockquote>Don't just <a href="#standthere">stand there</a> with your mouth hanging open waiting for a pair of nesting birds.</blockquote>
+      (and no <a href="#camera_policy">flash photography</a> please.)</div>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+But what if we want the links in the founder blockquote in the intro section to be bold?  Again, a descendant selector will work.  We add this:
+
+```css
+#intro blockquote a { font-weight: bold; } 
+```
+
+Any `<a>` tags anywhere inside a `<blockquote>` anywhere inside the #intro section will now be bold.
+
+
+#### Direct descendant selectors ( > )
+
+Sometimes you don't want to apply a style to any _possible_ child, but to only to the direct children.  This can be done with the > symbol.  Use it between selectors to limit the application to the direct children of the parent. For example, this rule, if applied to the HTML of the previous selector, would cause the links in the intro section to be larger, but not the links in any nested quotes or blockquotes. :
+
+```css
+#intro > a { font-size: large; }
+```
+
+
+#### Everything selector (*)
+
+The asterisk (*) can be used to match any tag. By itself, this is only marginally useful. But combined with other selectors into a descendant selector, it can be pretty useful.
+
+```css
+body > * { margin-left: 10px; } /* all the _direct_ children of the body receive the margin */
+p * { text-decoration: underline; } /* the text of the paragraph will be normal, but any children anywhere inside it will be underlined */
+```
 
 
 ### Cascading: inheritance and precedence
 
 
 
-
 ### Knowledge checks
+
 
 
 
