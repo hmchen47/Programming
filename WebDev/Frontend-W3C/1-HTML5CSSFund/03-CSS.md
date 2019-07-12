@@ -1393,7 +1393,17 @@ Can you achieve the same styling without adding any new tags (i.e., without addi
 
 ### Recipe project - Module3
 
+We're going to make our Recipe Web page look a lot better using the CSS that you've been learning.  See what you can do with backgrounds, margins and size settings to get your Web page looking more like [this](src/3.4.8-ProjectSample.html)
 
+If you'd like to see what we did for Module 2, you can find it [here](src/2.5.7-Recipe.html).
+
+[Example code](src/3.4.8-Recipe.html)
+
+
+<video src="https://edx-video.net/W3CHTM502016-V008900_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@ca1d1804e4a04db9bc74aad1f79a6fc8/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ## 3.5 Exercises - Module 3
