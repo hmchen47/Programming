@@ -163,10 +163,10 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#tools"> Tools </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#usage"> Usage </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-syntax"> Syntax </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#comment"> Comment </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#measurement-units"> Measurement </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
