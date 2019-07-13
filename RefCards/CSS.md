@@ -15,7 +15,6 @@
 + Accessibility
 
 
-
 ## [Effective Use of Style Sheets][002]
 
 + Generalized Style
@@ -25,13 +24,13 @@
   + active evangelism program
   + plenty of examples
   + page authors should be allowed to create additional embedded styles for their own pages
+
 + Implementation advice
   + continue to work when style sheets are disabled
   + Do not use more than two fonts
   + Do not use absolute font sizes
   + Do not use the !important attribute
   + use the same CLASS names for the same concept in all of the style sheets
-
 
 
 ## [CSS Best Practice][056]
@@ -98,6 +97,36 @@
 + [CSS Zen Garden][003]
 
 
+## Usage
+
++ &lt;style&gt;: to place CSS directly into an HTML document within &lt;head&gt; and &lt;/head&gt;
+
+  ```html
+  <head>
+    <meta charset="UTF-8">
+    <title>Style and link tags</title>
+    <style>
+      /* CSS will go in this area */
+    </style>
+  </head>
+  ```
+
++ &lt;link&gt;:
+  + the better practice
+  + easily be re-used between your different `.html` pages
+  + put your CSS into a separate file
+  + must appear in the `<head>` section
+  + usually kept in a directory named css
+
+  ```html
+  <head>
+    <meta charset="UTF-8">
+    <title>Style and link tags</title>
+    <link rel="stylesheet" href="css/my_styles.css">
+  </head>
+  ```
+
+
 ## [CSS Syntax][004]
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -127,18 +156,55 @@
   + [complete list of latest CSS properties][005] at the W3C
 
 
+## Comment
+
++ Comments
+  + begin with /* and must end with */
+  + able to span several lines
+  + not nested
+
+  ```css
+  p {
+    font-size: 8px; /* client insists small text makes them more 'professional'. */
+
+    /* none of the stuff below is working. I don't know why.
+    margin-top: 5%;
+    margin-bottom:6%;
+    */
+  }
+  ```
 
 ## Measurement Units
 
-| Unit | Specification | Link |
-|------|---------------|------|
-| `px` | pixel, a single dot on the screen | [Units][081] |
-| `em` | vertical dimensions, height of capital letter in the _parent_ context | [Units][082] |
-| `rem` | vertical dimensions, size relative to the _root_ | [Units][083] |
-| `%` | relative to the _parent_ dimension | [Units][084] |
-| `vh` | viewport height, percentage of the screen | [Units][085] |
-| `vw` | viewport width, percentage of the screen | [Units][085] |
-
+<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=50%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">Unit</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 20%;">Specification</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>px</code></a></td><td>pixel, a single dot on the screen</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#px">Unit</a></td>
+  </tr>
+  <tr>
+    <td><code>em</code></a></td><td>vertical dimensions, height of capital letter in the _parent_ context</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#em">Unit</a></td>
+  </tr>
+  <tr>
+    <td><code>rem</code></a></td><td>vertical dimensions, size relative to the <em>root</em></td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rem">Unit</a></td>
+  </tr>
+  <tr>
+    <td><code>%</code></a></td><td>relative to the <em>parent</em> dimension</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#-">Unit</a></td>
+  </tr>
+  <tr>
+    <td><code>vh</code></a></td><td>viewport height, percentage of the screen</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
+  </tr>
+  <tr>
+    <td><code>vw</code></a></td><td>viewport width, percentage of the screen</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 ## Selectors
