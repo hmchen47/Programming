@@ -188,22 +188,34 @@
   </thead>
   <tbody>
   <tr>
-    <td><code>px</code></a></td><td>pixel, a single dot on the screen</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#px">Unit</a></td>
+    <td><code>px</code></a></td>
+    <td>pixel, a single dot on the screen</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#px">Unit</a></td>
   </tr>
   <tr>
-    <td><code>em</code></a></td><td>vertical dimensions, height of capital letter in the _parent_ context</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#em">Unit</a></td>
+    <td><code>em</code></a></td>
+    <td>vertical dimensions, height of capital letter in the _parent_ context</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#em">Unit</a></td>
   </tr>
   <tr>
-    <td><code>rem</code></a></td><td>vertical dimensions, size relative to the <em>root</em></td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rem">Unit</a></td>
+    <td><code>rem</code></a></td>
+    <td>vertical dimensions, size relative to the <em>root</em></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rem">Unit</a></td>
   </tr>
   <tr>
-    <td><code>%</code></a></td><td>relative to the <em>parent</em> dimension</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#-">Unit</a></td>
+    <td><code>%</code></a></td>
+    <td>relative to the <em>parent</em> dimension</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#-">Unit</a></td>
   </tr>
   <tr>
-    <td><code>vh</code></a></td><td>viewport height, percentage of the screen</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
+    <td><code>vh</code></a></td>
+    <td>viewport height, percentage of the screen</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
   </tr>
   <tr>
-    <td><code>vw</code></a></td><td>viewport width, percentage of the screen</td><td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
+    <td><code>vw</code></a></td>
+    <td>viewport width, percentage of the screen</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
   </tr>
   </tbody>
 </table>
@@ -220,61 +232,278 @@
   </tr>
   </thead>
   <tbody>
-  <tr><td><a href="sel_class.asp">.<i>class</i></a></td>    <td>.intro</td>    <td>Selects all elements with class="intro"</td></tr>
-  <tr><td><a href="sel_id.asp">#<i>id</i></a></td>    <td>#firstname</td>    <td>Selects the element with id="firstname"</td></tr>  
-  <tr><td><a href="sel_all.asp">*</a></td>    <td>*</td>    <td>Selects all elements</td></tr>
-  <tr><td><i><a href="sel_element.asp">element</a></i></td>    <td>p</td>    <td>Selects all &lt;p&gt; elements</td></tr>
-  <tr><td><i><a href="sel_element_comma.asp">element,element</a></i></td>    <td>div, p</td>    <td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td></tr>
-  <tr><td><a href="sel_element_element.asp"><i>element</i> <i>element</i></a></td>    <td>div p</td>    <td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td></tr>
-  <tr><td><a href="sel_element_gt.asp"><i>element</i>&gt;<i>element</i></a></td>    <td>div &gt; p</td>    <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td></tr>
-  <tr><td><a href="sel_element_pluss.asp"><i>element</i>+<i>element</i></a></td>    <td>div + p</td>    <td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td></tr>
-  <tr><td><a href="sel_gen_sibling.asp"><i>element1</i>~<i>element2</i></a></td>    <td>p ~ ul</td>    <td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td></tr>
-  <tr><td><a href="sel_attribute.asp">[<i>attribute</i>]</a></td>    <td>[target]</td>    <td>Selects all elements with a target attribute</td></tr>
-  <tr><td><a href="sel_attribute_value.asp">[<i>attribute</i>=<i>value</i>]</a></td>    <td>[target=_blank]</td>    <td>Selects all elements with target="_blank"</td></tr>
-  <tr><td><a href="sel_attribute_value_contains.&#x24;asp">[<i>attribute</i>~=<i>value</i>]</a></td>    <td>[title~=flower]</td>    <td>Selects all elements with a title attribute containing the word "flower"</td></tr>
-  <tr><td><a href="sel_attribute_value_lang.asp">[<i>attribute</i>|=<i>value</i>]</a></td>    <td>[lang|=en]</td>    <td>Selects all elements with a lang attribute value starting with "en"</td></tr>
-  <tr><td><a href="sel_attr_begin.asp">[<i>attribute</i>^=<i>value</i>]</a></td>    <td>a[href^="https"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td></tr>
-  <tr><td><a href="sel_attr_end.asp">[<i>attribute</i>&#x24;=<i>value</i>]</a></td>    <td>a[href$=".pdf"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td></tr>
-  <tr><td><a href="sel_attr_contain.asp">[<i>attribute</i>*=<i>value</i>]</a></td>    <td>a[href*="w3schools"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value contains the substring "w3schools"</td></tr>
-  <tr><td><a href="sel_active.asp">:active</a></td>    <td>a:active</td>    <td>Selects the active link</td></tr>
-  <tr><td><a href="sel_after.asp">::after</a></td>    <td>p::after</td>    <td>Insert something after the content of each &lt;p&gt; element</td></tr>
-  <tr><td><a href="sel_before.asp">::before</a></td>    <td>p::before</td>    <td>Insert something before&nbsp;the content of each &lt;p&gt; element</td></tr>
-  <tr><td><a href="sel_checked.asp">:checked</a></td>    <td>input:checked</td>    <td>Selects every checked &lt;input&gt; element</td></tr>
-  <tr><td><a href="sel_default.asp">:default</a></td>    <td>input:default</td>    <td>Selects the default &lt;input&gt; element</td></tr>
-  <tr><td><a href="sel_disabled.asp">:disabled</a></td>    <td>input:disabled</td>    <td>Selects every disabled &lt;input&gt; element</td></tr>
-  <tr><td><a href="sel_empty.asp">:empty</a></td>    <td>p:empty</td>    <td>Selects every &lt;p&gt; element that has no children (including text nodes)</td></tr>
-  <tr><td><a href="sel_enabled.asp">:enabled</a></td>    <td>input:enabled</td>    <td>Selects every enabled &lt;input&gt; element</td></tr>
-  <tr><td><a href="sel_firstchild.asp">:first-child</a></td>    <td>p:first-child</td>    <td>Selects every &lt;p&gt; element that is the first child of its parent</td></tr>
-  <tr><td><a href="sel_firstletter.asp">::first-letter</a></td>    <td>p::first-letter</td>    <td>Selects the first letter of every &lt;p&gt; element</td></tr>
-  <tr><td><a href="sel_firstline.asp">::first-line</a></td>    <td>p::first-line</td>    <td>Selects the first line of every &lt;p&gt; element</td></tr>
-  <tr><td><a href="sel_first-of-type.asp">:first-of-type</a></td>    <td>p:first-of-type</td>    <td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td></tr>
-  <tr><td><a href="sel_focus.asp">:focus</a></td>    <td>input:focus</td>    <td>Selects the input element which has focus</td></tr>
-  <tr><td><a href="sel_hover.asp">:hover</a></td>    <td>a:hover</td>    <td>Selects links on mouse over</td></tr>
-  <tr><td><a href="sel_in-range.asp">:in-range</a></td>    <td>input:in-range</td>    <td>Selects input elements with a value within a specified range</td></tr>
-  <tr><td><a href="sel_indeterminate.asp">:indeterminate</a></td>    <td>input:indeterminate</td>    <td>Selects input elements that are in an indeterminate state</td></tr>
-  <tr><td><a href="sel_invalid.asp">:invalid</a></td>    <td>input:invalid</td>    <td>Selects all input elements with an invalid value</td></tr>
-  <tr><td><a href="sel_lang.asp">:lang(<i>language</i>)</a></td>    <td>p:lang(it)</td>    <td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td></tr>
-  <tr><td><a href="sel_last-child.asp">:last-child</a></td>    <td>p:last-child</td>    <td>Selects every &lt;p&gt; element that is the last child of its parent</td></tr>
-  <tr><td><a href="sel_last-of-type.asp">:last-of-type</a></td>    <td>p:last-of-type</td>    <td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td></tr>
-  <tr><td><a href="sel_link.asp">:link</a></td>    <td>a:link</td>    <td>Selects all unvisited links</td></tr>
-  <tr><td><a href="sel_not.asp">:not(<i>selector</i>)</a></td>    <td>:not(p)</td>    <td>Selects every element that is not a &lt;p&gt; element</td></tr>
-  <tr><td><a href="sel_nth-child.asp">:nth-child(<i>n</i>)</a></td>    <td>p:nth-child(2)</td>    <td>Selects every &lt;p&gt; element that is the second child of its parent</td></tr>
-  <tr><td><a href="sel_nth-last-child.asp">:nth-last-child(<i>n</i>)</a></td>    <td>p:nth-last-child(2)</td>    <td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td></tr>
-  <tr><td><a href="sel_nth-last-of-type.asp">:nth-last-of-type(<i>n</i>)</a></td>    <td>p:nth-last-of-type(2)</td>    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td></tr>
-  <tr><td><a href="sel_nth-of-type.asp">:nth-of-type(<i>n</i>)</a></td>    <td>p:nth-of-type(2)</td>    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td></tr>
-  <tr><td><a href="sel_only-of-type.asp">:only-of-type</a></td>    <td>p:only-of-type</td>    <td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td></tr>
-  <tr><td><a href="sel_only-child.asp">:only-child</a></td>    <td>p:only-child</td>    <td>Selects every &lt;p&gt; element that is the only child of its parent</td></tr>
-  <tr><td><a href="sel_optional.asp">:optional</a></td>    <td>input:optional</td>    <td>Selects input elements with no "required" attribute</td></tr>
-  <tr><td><a href="sel_out-of-range.asp">:out-of-range</a></td>    <td>input:out-of-range</td>    <td>Selects input elements with a value outside a specified range</td></tr>
-  <tr><td><a href="sel_placeholder.asp">::placeholder</a></td>    <td>input::placeholder</td>    <td>Selects input elements with placeholder text</td></tr>
-  <tr><td><a href="sel_read-only.asp">:read-only</a></td>    <td>input:read-only</td>    <td>Selects input elements with the "readonly" attribute specified</td></tr>
-  <tr><td><a href="sel_read-write.asp">:read-write</a></td>    <td>input:read-write</td>    <td>Selects input elements with the "readonly" attribute NOT specified</td></tr>
-  <tr><td><a href="sel_required.asp">:required</a></td>    <td>input:required</td>    <td>Selects input elements with the "required" attribute specified</td></tr>
-  <tr><td><a href="sel_root.asp">:root</a></td>    <td>:root</td>    <td>Selects the document's root element</td></tr>
-  <tr><td><a href="sel_selection.asp">::selection</a></td>    <td>::selection</td>    <td>Selects the portion of an element that is selected by a user</td></tr>
-  <tr><td><a href="sel_target.asp">:target</a></td>    <td>#news:target </td>    <td>Selects the current active #news element (clicked on a URL containing that anchor name)</td></tr>
-  <tr><td><a href="sel_valid.asp">:valid</a></td>    <td>input:valid</td>    <td>Selects all input elements with a valid value</td></tr>
-  <tr><td><a href="sel_visited.asp">:visited</a></td>    <td>a:visited</td>    <td>Selects all visited links</td></tr>
+  <tr>
+    <td><a href="sel_class.asp">.<i>class</i></a></td>
+    <td>.intro</td>
+    <td>Selects all elements with class="intro"</td>
+  </tr>
+  <tr>
+    <td><a href="sel_id.asp">#<i>id</i></a></td>
+    <td>#firstname</td>
+    <td>Selects the element with id="firstname"</td>
+  </tr>  
+  <tr>
+    <td><a href="sel_all.asp">*</a></td>
+    <td>*</td>
+    <td>Selects all elements</td>
+  </tr>
+  <tr>
+    <td><i><a href="sel_element.asp">element</a></i></td>
+    <td>p</td>
+    <td>Selects all &lt;p&gt; elements</td>
+  </tr>
+  <tr>
+    <td><i><a href="sel_element_comma.asp">element,element</a></i></td>
+    <td>div, p</td>
+    <td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td>
+  </tr>
+  <tr>
+    <td><a href="sel_element_element.asp"><i>element</i> <i>element</i></a></td>
+    <td>div p</td>
+    <td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td>
+  </tr>
+  <tr><td><a href="sel_element_gt.asp"><i>element</i>&gt;<i>element</i></a></td>
+    <td>div &gt; p</td>
+    <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_element_pluss.asp"><i>element</i>+<i>element</i></a></td>
+    <td>div + p</td>
+    <td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td>
+  </tr>
+  <tr>
+    <td><a href="sel_gen_sibling.asp"><i>element1</i>~<i>element2</i></a></td>
+    <td>p ~ ul</td>
+    <td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attribute.asp">[<i>attribute</i>]</a></td>
+    <td>[target]</td>
+    <td>Selects all elements with a target attribute</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attribute_value.asp">[<i>attribute</i>=<i>value</i>]</a></td>
+    <td>[target=_blank]</td>
+    <td>Selects all elements with target="_blank"</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attribute_value_contains.&#x24;asp">[<i>attribute</i>~=<i>value</i>]</a></td>
+    <td>[title~=flower]</td>
+    <td>Selects all elements with a title attribute containing the word "flower"</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attribute_value_lang.asp">[<i>attribute</i>|=<i>value</i>]</a></td>
+    <td>[lang|=en]</td>
+    <td>Selects all elements with a lang attribute value starting with "en"</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attr_begin.asp">[<i>attribute</i>^=<i>value</i>]</a></td>
+    <td>a[href^="https"]</td>
+    <td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td>
+  </tr>
+  <tr>  
+    <td><a href="sel_attr_end.asp">[<i>attribute</i>&#x24;=<i>value</i>]</a></td>
+    <td>a[href$=".pdf"]</td>
+    <td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attr_contain.asp">[<i>attribute</i>*=<i>value</i>]</a></td>
+    <td>a[href*="w3schools"]</td>
+    <td>Selects every &lt;a&gt; element whose href attribute value contains the substring "w3schools"</td>
+  </tr>
+  <tr>
+    <td><a href="sel_active.asp">:active</a></td>
+    <td>a:active</td>
+    <td>Selects the active link</td>
+    </tr>
+  <tr>
+    <td><a href="sel_after.asp">::after</a></td>
+    <td>p::after</td>
+    <td>Insert something after the content of each &lt;p&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_before.asp">::before</a></td>
+    <td>p::before</td>
+    <td>Insert something before&nbsp;the content of each &lt;p&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_checked.asp">:checked</a></td>
+    <td>input:checked</td>
+    <td>Selects every checked &lt;input&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_default.asp">:default</a></td>
+    <td>input:default</td>
+    <td>Selects the default &lt;input&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_disabled.asp">:disabled</a></td>
+    <td>input:disabled</td>
+    <td>Selects every disabled &lt;input&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_empty.asp">:empty</a></td>
+    <td>p:empty</td>
+    <td>Selects every &lt;p&gt; element that has no children (including text nodes)</td>
+  </tr>
+  <tr>
+    <td><a href="sel_enabled.asp">:enabled</a></td>
+    <td>input:enabled</td>
+    <td>Selects every enabled &lt;input&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_firstchild.asp">:first-child</a></td>
+    <td>p:first-child</td>
+    <td>Selects every &lt;p&gt; element that is the first child of its parent</td>
+  </tr>
+  <tr>
+    <td><a href="sel_firstletter.asp">::first-letter</a></td>
+    <td>p::first-letter</td>
+    <td>Selects the first letter of every &lt;p&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_firstline.asp">::first-line</a></td>
+    <td>p::first-line</td>
+    <td>Selects the first line of every &lt;p&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_first-of-type.asp">:first-of-type</a></td>
+    <td>p:first-of-type</td>
+    <td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td>
+  </tr>
+  <tr>
+    <td><a href="sel_focus.asp">:focus</a></td>
+    <td>input:focus</td>
+    <td>Selects the input element which has focus</td>
+  </tr>
+  <tr>
+    <td><a href="sel_hover.asp">:hover</a></td>
+    <td>a:hover</td>   
+     <td>Selects links on mouse over</td>
+  </tr>
+  <tr>
+    <td><a href="sel_in-range.asp">:in-range</a></td>
+    <td>input:in-range</td>
+    <td>Selects input elements with a value within a specified range</td>
+  </tr>
+  <tr>
+    <td><a href="sel_indeterminate.asp">:indeterminate</a></td>
+    <td>input:indeterminate</td>
+    <td>Selects input elements that are in an indeterminate state</td>
+  </tr>
+  <tr>
+    <td><a href="sel_invalid.asp">:invalid</a></td>
+    <td>input:invalid</td>
+    <td>Selects all input elements with an invalid value</td>
+  </tr>
+  <tr>
+    <td><a href="sel_lang.asp">:lang(<i>language</i>)</a></td>
+    <td>p:lang(it)</td>
+    <td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td>
+  </tr>
+  <tr>
+    <td><a href="sel_last-child.asp">:last-child</a></td>
+    <td>p:last-child</td>
+    <td>Selects every &lt;p&gt; element that is the last child of its parent</td>
+  </tr>
+  <tr>
+    <td><a href="sel_last-of-type.asp">:last-of-type</a></td>
+    <td>p:last-of-type</td>
+    <td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td>
+  </tr>
+  <tr>
+    <td><a href="sel_link.asp">:link</a></td>
+    <td>a:link</td>
+    <td>Selects all unvisited links</td>
+  </tr>
+  <tr>
+    <td><a href="sel_not.asp">:not(<i>selector</i>)</a></td><td>:not(p)</td><td>Selects every element that is not a &lt;p&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_nth-child.asp">:nth-child(<i>n</i>)</a></td>
+    <td>p:nth-child(2)</td>
+    <td>Selects every &lt;p&gt; element that is the second child of its parent</td>
+  </tr>
+  <tr>
+    <td><a href="sel_nth-last-child.asp">:nth-last-child(<i>n</i>)</a></td>
+    <td>p:nth-last-child(2)</td>
+    <td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td>
+  </tr>
+  <tr>
+    <td><a href="sel_nth-last-of-type.asp">:nth-last-of-type(<i>n</i>)</a></td>
+    <td>p:nth-last-of-type(2)</td>
+    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td>
+  </tr>
+  <tr>
+    <td><a href="sel_nth-of-type.asp">:nth-of-type(<i>n</i>)</a></td>
+    <td>p:nth-of-type(2)</td>
+    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td>
+  </tr>
+  <tr>
+    <td><a href="sel_only-of-type.asp">:only-of-type</a></td>
+    <td>p:only-of-type</td>
+    <td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td>
+  </tr>
+  <tr>
+    <td><a href="sel_only-child.asp">:only-child</a></td>
+    <td>p:only-child</td>
+    <td>Selects every &lt;p&gt; element that is the only child of its parent</td>
+  </tr>
+  <tr>
+    <td><a href="sel_optional.asp">:optional</a></td>
+    <td>input:optional</td>
+    <td>Selects input elements with no "required" attribute</td>
+  </tr>
+  <tr>
+    <td><a href="sel_out-of-range.asp">:out-of-range</a></td>
+    <td>input:out-of-range</td>
+    <td>Selects input elements with a value outside a specified range</td><
+    /tr>
+  <tr>
+    <td><a href="sel_placeholder.asp">::placeholder</a></td>
+    <td>input::placeholder</td>
+    <td>Selects input elements with placeholder text</td>
+  </tr>
+  <tr>
+    <td><a href="sel_read-only.asp">:read-only</a></td>   
+    <td>input:read-only</td>
+    <td>Selects input elements with the "readonly" attribute specified</td>
+  </tr>
+  <tr>
+    <td><a href="sel_read-write.asp">:read-write</a></td>
+    <td>input:read-write</td>
+    <td>Selects input elements with the "readonly" attribute NOT specified</td>
+  </tr>
+  <tr>
+    <td><a href="sel_required.asp">:required</a></td>
+    <td>input:required</td>
+    <td>Selects input elements with the "required" attribute specified</td>
+  </tr>
+  <tr>
+    <td><a href="sel_root.asp">:root</a></td>
+    <td>:root</td>
+    <td>Selects the document's root element</td>
+  </tr>
+  <tr>
+    <td><a href="sel_selection.asp">::selection</a></td>
+    <td>::selection</td>
+    <td>Selects the portion of an element that is selected by a user</td>
+  </tr>
+  <tr>
+    <td><a href="sel_target.asp">:target</a></td>
+    <td>#news:target </td>   
+    <td>Selects the current active #news element (clicked on a URL containing that anchor name)</td>
+  </tr>
+  <tr>
+    <td><a href="sel_valid.asp">:valid</a></td>
+    <td>input:valid</td>
+    <td>Selects all input elements with a valid value</td>
+  </tr>
+  <tr>
+    <td><a href="sel_visited.asp">:visited</a></td>
+    <td>a:visited</td>
+    <td>Selects all visited links</td>
+  </tr>
 </tbody></table>
 
 <br/>
@@ -293,13 +522,48 @@
   </tr>
   </thead>
   <tbody>
-  <tr><td>tag</td><td>&lt;li&gt;</td><td>li {list-style_type: circle;}</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#tag-selector">Selector</a></td></tr>
-  <tr><td>id</td><td>&lt;p id="p18"&gt; Ulysses &lt;/p&gt;</td><td>#p18 {color: blue;}</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#id-selector">Selector</a></td></tr>
-  <tr><td>class</td><td>&lt;li class="bird flying"&gt;eagle&lt;/li&gt;</td><td>.bird   { color: blue; } <br/>.flying { text-decoration: underline; }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#class-selector">Selector</a></td></tr>
-  <tr><td>Comma separated</td><td>,</td><td>blockquote, <br/> q, <br/> .speech { <br/> &nbsp;&nbsp;&nbsp;&nbsp; color: red; <br/>&nbsp;&nbsp;&nbsp;&nbsp; font-style: italic; <br/> } <br/> .speech { font-weight: bold; }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#comma-separated-selectors">Selector</a></td></tr>
-  <tr><td>Specialized</td><td>&gt;li class="insect flying"&lt;wasp&lt;/li&gt;</td><td>.insect.flying { <br/> &nbsp;&nbsp;&nbsp;&nbsp; text-decoration: underline; <br/> &nbsp;&nbsp;&nbsp;&nbsp; font-weight: bold; <br/>   }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors">Selector</a></td></tr>
-  <tr><td>Descendant</td><td>&lt;section id="intro"&gt;Welcome to &lt;a href="#palaceland"&gt;PalaceLand&lt;/a&gt;</td><td>#intro a { color: red; }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors">Selector</a></td></tr>
-  <tr><td>Direct descendant</td><td>&lt;section id="intro"&gt;Welcome to &lt;a href="#palaceland"&gt;PalaceLand&lt;/a&gt;</td><td>#intro > a { font-size: large; }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---">Selector</a></td></tr>
+  <tr>
+    <td>tag</td>
+    <td>&lt;li&gt;</td>
+    <td>li {list-style_type: circle;}</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#tag-selector">Selector</a></td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>&lt;p id="p18"&gt; Ulysses &lt;/p&gt;</td>
+    <td>#p18 {color: blue;}</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#id-selector">Selector</a></td>
+  </tr>
+  <tr>
+    <td>class</td>
+    <td>&lt;li class="bird flying"&gt;eagle&lt;/li&gt;</td>
+    <td>.bird   { color: blue; } <br/>.flying { text-decoration: underline; }</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#class-selector">Selector</a></td>
+  </tr>
+  <tr>
+    <td>Comma separated</td>
+    <td>,</td>
+    <td>blockquote, <br/> q, <br/> .speech { <br/> &nbsp;&nbsp;&nbsp;&nbsp; color: red; <br/>&nbsp;&nbsp;&nbsp;&nbsp; font-style: italic; <br/> } <br/> .speech { font-weight: bold; }</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#comma-separated-selectors">Selector</a></td>
+  </tr>
+  <tr>
+    <td>Specialized</td>
+    <td>&gt;li class="insect flying"&lt;wasp&lt;/li&gt;</td>
+    <td>.insect.flying { <br/> &nbsp;&nbsp;&nbsp;&nbsp; text-decoration: underline; <br/> &nbsp;&nbsp;&nbsp;&nbsp; font-weight: bold; <br/>   }</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors">Selector</a></td>
+  </tr>
+  <tr>
+    <td>Descendant</td>
+    <td>&lt;section id="intro"&gt;Welcome to &lt;a href="#palaceland"&gt;PalaceLand&lt;/a&gt;</td>
+    <td>#intro a { color: red; }</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors">Selector</a></td>
+  </tr>
+  <tr>
+    <td>Direct descendant</td>
+    <td>&lt;section id="intro"&gt;Welcome to &lt;a href="#palaceland"&gt;PalaceLand&lt;/a&gt;</td>
+    <td>#intro > a { font-size: large; }</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---">Selector</a></td>
+  </tr>
   </tbody>
 </table>
 
@@ -307,11 +571,36 @@
 
 ### Styling with Pseudo Class
 
-| Class | Description | Possible Property/Values | Link |
-|-------|-------------|-------------------|------|
-| `tr:nth-child(even)`, `tr:nth-child(odd)` | alternating colors for table rows making it easier to differentiate data between rows | `background-color: color;` | [Zebra][095] |
-| `tr.hover` | mouse over rows in your table to highlight them in the color specified | `background-color: black;` | [Hover][094] |
-| `tr.visted` | usually put on a selector that resolves to an `<a>` tag | None | [Visted][096] |
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Class</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties/Values</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>tr:nth-child(even), tr:nth-child(odd)</td>
+    <td>alternating colors for table rows making it easier to differentiate data between rows</td>
+    <td>background-color: color;</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-nth-child">Zebra</a></td>
+  </tr>
+  <tr>
+    <td>tr.hover</td>
+    <td>mouse over rows in your table to highlight them in the color specified</td>
+    <td>background-color: black;</td>
+    <td><a href="..WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-hover-active">Hover</a></td>
+  </tr>
+  <tr>
+    <td>tr.visted</td>
+    <td>usually put on a selector that resolves to an &lt;a&gt; tag</td>
+    <td>None</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-visited">Visted</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 
@@ -368,10 +657,28 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 
 ## Color Properties
 
-| Property | Description | Link |
-|----------|-------------|------|
-| `color` | the foreground color of an element's text content | [W3C][006], [Color][007] |
-| `background-color` | background color of an element | [W3C][008], [Color][009] |
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>color</td>
+    <td>the foreground color of an element's text content</td>
+    <td><a href="https://www.w3.org/TR/css3-color/#foreground">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#color">Color18</a></td>
+  </tr>
+  <tr>
+    <td>background-color</td>
+    <td>background color of an element</td>
+    <td><a href="https://www.w3.org/TR/css3-background/#the-background-color">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#background-color">BGColor18</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 ### HTML Color Names and Values
@@ -391,20 +698,92 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 
 ## [Font Property][010]
 
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `font-family` | font face, a collection of Web safe fonts that generally each browser has agreed to support | `Verdana`, `New Time Roman`, `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, etc. | [W3C][011], [Fonts][012], [Common Prty][077] |
-| `font-size` | overall scale of the text | `em`, `%`, `px`, `vh` | [W3C][013], [Fonts][014], [Common Prty][072] |
-| `font-weight` | thickness of the letters | 100~900, `bold`=700, `normal` = 400, `bolder`, `lighter`, `normal`, `bold`, `bolder`, `lighter`, `<number>` | [W3C][015], [Fonts][016], [Common Prty][076] |
-| `font-style` | adjust the angle of the letters in relation to the horizontal plane | `italic`, `normal`, `oblique <angle>` | [W3C][017], [Fonts][018] |
-| `text_decoration` | add a line across text | `underline` | [W3C][019], [Fonts][020] |
-| `color` | text color | `blue`, `lightblue`, `darkblue`, `red`, etc. | |
-| `line-height` | height of the space | `<number>` | [Common Prty][073] |
-| `text-align` | alignment | `left`, `center`, `right`, `justify`, `justify-all` | [Common Prty][074] |
-| `text-decoration` | the decoration added to text | `underline`, `overline`, `line-through`, `none` | [Common Prty][075] |
-| `list-style-type` | list marker, usually positioned to the left of any list item | ul: `disc`, `circle`, `square`, `none`; <br/>ol: `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `armenian`, `georgian`, `simp-chinese-formal`, etc. | [List][078] |
-| `list-style-position` | how closely it is positioned to the list itself | `inside`, `outside` | [List][079] |
-| `list-style-image` | customized little markers on a list | `url("path/fig.png")` | [List][080] |
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>font-family</td>
+    <td>font face, a collection of Web safe fonts that generally each browser has agreed to support</td>
+    <td>Verdana, New Time Roman, serif, sans-serif, monospace, cursive, fantasy, etc.</td>
+    <td><a href="https://www.w3.org/TR/css-fonts/#font-family-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-family">Font18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-family">Common</a></td>
+  </tr>
+  <tr>
+    <td>font-size</td>
+    <td>overall scale of the text</td>
+    <td>em, %, px, vh</td>
+    <td><a href="https://www.w3.org/TR/css-fonts/#font-size-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-size">Font18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-size">Common</a></td>
+  </tr>
+  <tr>
+    <td>font-weight</td>
+    <td>thickness of the letters</td>
+    <td>&lt;number&gt;, 100~900, bold=700, normal = 400, bolder, lighter, normal</td>
+    <td><a href="https://www.w3.org/TR/css-fonts/#font-weight-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-weight">Font18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-weight-bold">Common</a></td>
+  </tr>
+  <tr>
+    <td>font-style</td>
+    <td>adjust the angle of the letters in relation to the horizontal plane</td>
+    <td>italic, normal, oblique &lt;angle&gt;</td>
+    <td><a href="https://www.w3.org/TR/CSS2/box.html#propdef-padding-top">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#padding">Font18</a></td>
+  </tr>
+  <tr>
+    <td>text_decoration</td>
+    <td>add a line across text</td>
+    <td>underline</td>
+    <td><a href="https://www.w3.org/TR/css3-background/#borders">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#border">Font</a></td>
+  </tr>
+  <tr>
+    <td>color</td>
+    <td>text color</td>
+    <td>blue, lightblue, darkblue, red, etc.</td>
+    <td><a href="HTML-color.md">Color</a></td>
+  </tr>
+  <tr>
+    <td>line-height</td>
+    <td>height of the space</td>
+    <td>&lt;number&gt;</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#line-height">Common</a></td>
+  </tr>
+  <tr>
+    <td>text-align</td>
+    <td>alignment</td>
+    <td>left, center, right, justify, justify-all</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-align">Common</a></td>
+  </tr>
+  <tr>
+    <td>text-decoration</td>
+    <td>the decoration added to text</td>
+    <td>underline, overline, line-through, none</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-decoration-underline">Common</a></td>
+  </tr>
+  <tr>
+    <td>list-style-type</td>
+    <td>list marker, usually positioned to the left of any list item</td>
+    <td>ul: disc, circle, square, none; <br/>ol: decimal, decimal-leading-zero, lower-roman, upper-roman, lower-alpha, upper-alpha, armenian, georgian, simp-chinese-formal, etc.</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-type">List</a></td>
+  </tr>
+  <tr>
+    <td>list-style-position</td>
+    <td>how closely it is positioned to the list itself</td>
+    <td>inside, outside</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-position">List</a></td>
+  </tr>
+  <tr>
+    <td>list-style-image</td>
+    <td>customized little markers on a list</td>
+    <td>url("path/fig.png")</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-image">List</a></td>
+  </tr>
+  </tbody>
+</table>
+
 
 
 ### [Typography][066]
@@ -416,7 +795,6 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 + fantasy - the most diverse category of fonts including all of those that are particularly decorative
 
 
-
 ## Image Property
 
 See [Image Attributes][]
@@ -424,30 +802,110 @@ See [Image Attributes][]
 
 ## Alignment Property
 
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `text-align` | set the content's alignment horizontally | `left`, `right`, `center`, `justify` | [W3C][038], [Alignment][039] |
-| `line-height` | HTML element block grows and the text will vertically center within it | [W3C][040], [Alignment][041] |
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>  
+    <td>text-align</td>
+    <td>set the content's alignment horizontally</td>
+    <td>left, right, center, justify</td>
+    <td><a href="https://www.w3.org/TR/CSS22/text.html#alignment-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align">Alignment</a></td>
+  </tr>
+  <tr>
+    <td>line-height</td>
+    <td>HTML element block grows and the text will vertically center within it</td>
+    <td>em, rem, %, px</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#line-height">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#line-height">Alignment</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 ## Element width and height
 
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `width` | element width | `<length>`, `<percentage>`, `auto`, `inherit`  | [W3C][043] [Element][047] |
-| `height` | element height | `<length>`, `<percentage>`, `auto`, `inherit` | [W3C][044] [Element][047] |
-| `min-width` | minimum width of the element | `<length>`, `<percentage>`, `inherit` | [W3C][045] [Element][048] |
-| `min-width` | maximum width of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][045] [Element][048] |
-| `min-height` | minimum height of the element |`<length>`, `<percentage>`, `inherit` | [W3C][046] [Element][048] |
-| `max-width` | maximum height of the element |`<length>`, `<percentage>`, `none`, `inherit` | [W3C][046] [Element][048] |
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>width</td>
+    <td>element width</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, auto, inherit</td>
+    <td><a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Element18</a></td>
+  </tr>
+  <tr>
+    <td>height</td>
+    <td>element height</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, auto, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Element18</a></td>
+  </tr>
+  <tr>
+    <td>min-width</td>
+    <td>minimum width of the element</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
+  </tr>
+  <tr>
+    <td>min-width</td>
+    <td>maximum width of the element</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
+  </tr>
+  <tr>
+    <td>min-height</td>
+    <td>minimum height of the element</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>maximum height of the element</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 ## Floating Property
 
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `float` | liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction specified | `left`, `right`, `none`, `inherit` | [W3C][050], [Float][050] |
-| `clear` | indicate which sides of an element's box(es) may not be adjacent to an earlier floating box | `none`, `left`, `right`, `both`, `inherit` | [W3C][051], [Float][052] |
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>float</td>
+    <td>liberates an element from its automatic position and lifts it up to "float" on top of other elements in the direction specified</td>
+    <td>left, right, none, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visuren.html#float-position">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-float-property">Float52</a></td>
+  </tr>
+  <tr>
+    <td>clear</td>
+    <td>indicate which sides of an element's box(es) may not be adjacent to an earlier floating box</td>
+    <td>none, left, right, both, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visuren.html#propdef-clear">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-clear-property">Color18</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 ### CSS Website Layout - Example
@@ -482,11 +940,11 @@ See [Image Attributes][]
     <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Link</th>
   </tr></thead>
   <tbody>
-  <tr>
+  <tr> 
     <td>border</td>
     <td> &lt;table&gt;, &lt;th&gt;, &lt;td&gt;</td>
     <td>sets border-width, border-style and border-color in order</td>
-    <td> <ul><li> &lt;width, style, color&gt; <ul><li>width = pixel </li> <li>style = none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset </li> <li>color = color name or color values, transparent</li> </ul></li> <li><a href="https://www.w3schools.com/cssref/pr_border-width.asp">border-width</a>: medium, thin, thick, length, initial, inherit, pixel, (left-pixel, right-pixel)</li> <li><a href="https://www.w3schools.com/cssref/pr_border-style.asp">border-style</a> (required): none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset, initial, inherit</li> <li><a href="https://www.w3schools.com/cssref/pr_border-color.asp">border-color</a>: <i>color value</i>, transparent</li></ul></td>
+    <td> <ul><li> &lt;width, style, color&gt; <ul><li>width = pixel </li> <li>style = none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset </li>    <li>color = color name or color values, transparent</li> </ul></li> <li><a href="https://www.w3schools.com/cssref/pr_border-width.asp">border-width</a>: medium, thin, thick, length, initial, inherit, pixel, (left-pixel, right-pixel)</li> <li><a href="https://www.w3schools.com/cssref/pr_border-style.asp">border-style</a> (required): none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset, initial, inherit</li> <li><a href="https://www.w3schools.com/cssref/pr_border-color.asp">border-color</a>: <i>color value</i>, transparent</li></ul></td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#border">Table</a>, <a href="https://www.w3schools.com/cssref/pr_border.asp">W3S</a></td>
   </tr>
   <tr>
@@ -494,7 +952,7 @@ See [Image Attributes][]
     <td>&lt;th&gt;, &lt;td&gt;</td>
     <td>set borders to individual sides</td>
     <td> <ul> &lt;width, style, color&gt; <ul><li>width = pixel </li> <li>style = none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset </li> <li>color = color name or color values, transparent</li> </ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#side-borders"></a>, <a href="https://www.w3schools.com/cssref/pr_border-top.asp">Top</a>, <a href="https://www.w3schools.com/cssref/pr_border-right.asp">Right</a>, <a href="https://www.w3schools.com/cssref/pr_border-bottom.asp">Bottom</a>, <a href="https://www.w3schools.com/cssref/pr_border-left.asp">Left</a></td>
+    <td><a href="../WebDev/Frontend-W<td3C/1.HTML5CSS/05.HTMLCSS.md#side-borders"></a>, <a href="https://www.w3schools.com/cssref/pr_border-top.asp">Top</a>, <a href="https://www.w3schools.com/cssref/pr_border-right.asp">Right</a>, <a href="https://www.w3schools.com/cssref/pr_border-bottom.asp">Bottom</a>, <a href="https://www.w3schools.com/cssref/pr_border-left.asp">Left</a></td>
   </tr>
   <tr>
     <td>border-collapse</td>
@@ -554,11 +1012,38 @@ See [Image Attributes][]
   </a></div>
 </div>
 
-| Property | Description | Value | Link |
-|----------|-------------|------|-------|
-| `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left` | the white space that sits closest to an HTML element | `px`, `em` | [W3C][021], [Space][022] |
-| `border`, `border-top`, `border-right`, `border-bottom`, `border-left` | the area outside the padding of an HTML element | `1px black solid` | [W3C][023], [Space][024] |
-| `margin`, `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | the white space that sits outside the border | `auto`, `em`, `px` | [W3C][025], [Space][026] |
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>padding, padding-top, padding-right, padding-bottom, padding-left</td>
+    <td>the white space that sits closest to an HTML element</td>
+    <td>px, em</td>
+    <td><a href="https://www.w3.org/TR/CSS2/box.html#propdef-margin">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#margin">Space18</a></td>
+  </tr>
+  <tr>
+    <td>border, border-top, border-right, border-bottom, border-left</td>
+    <td>the area outside the padding of an HTML element</td>
+    <td>1px black solid</td>
+    <td><a href="https://www.w3.org/TR/html52/dom.html#classes">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#classes">Space18</a></td>
+  </tr>
+  <tr>
+    <td>margin, margin-top, margin-right, margin-bottom, margin-left</td>
+    <td>the white space that sits outside the border</td>
+    <td>auto, em, px</td>
+    <td><a href="https://www.w3.org/TR/html52/dom.html#the-id-attribute">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#ids">Space18</a></td>
+  </tr>
+  </tbody>
+</table>
+
+
 
 
 ### Model Properties
@@ -675,7 +1160,6 @@ See [Image Attributes][]
     + in-line elements can start anywhere in a line
 
 +  [Display Elements](../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#display-property)
-
 
 
 <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -806,7 +1290,6 @@ display: inline-grid;
 
 
 ## Positioned Property
-
 
 ### Position Property
 
