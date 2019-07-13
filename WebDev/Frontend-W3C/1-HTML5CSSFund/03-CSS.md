@@ -39,8 +39,6 @@ For instance, if you originally wrote your document with all the paragraphs inde
 
 ### The W3C CSS WG
 
-The W3C CSS Working Group
-
 The CSS Working Group (Cascading Style Sheets Working Group) is a [working group](https://en.wikipedia.org/wiki/Working_group) created by the W3C in 1997 to tackle issues that had not been addressed with [CSS](https://en.wikipedia.org/wiki/CSS) level 1. The [number of members](https://www.w3.org/Style/CSS/members) reaches 126 in December 2017!
 
 <figure>
@@ -89,8 +87,6 @@ Both of these use the exact same HTML. It is the CSS that makes them so differen
 ### Style and link tags
 
 #### 'style' tag
-
-Style tag in the XDK code editor
 
 The best practice when working with CSS is to keep it in an external file using the `<link>` tag, however, when starting, it is simpler to merely place it directly into the document under edit.  
 
@@ -155,7 +151,7 @@ At its simplest, CSS is just a list of rules.  Each rule consists of a selector 
 
 #### Selector
 
-In the above, the selector is __p__.  When a selector appears unprefixed by any punctuation, then it is assumed to match to an HTML tag.  Thus, the __p__ selector will apply the CSS rule to all `<p>` tags in the document. 
+In the above, the selector is <strong>p</strong>.  When a selector appears unprefixed by any punctuation, then it is assumed to match to an HTML tag.  Thus, the <strong>p</strong> selector will apply the CSS rule to all `<p>` tags in the document. 
 
 We will cover more selector possibilities in the future.
 
