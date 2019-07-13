@@ -96,6 +96,8 @@
 
 + [CSS Zen Garden][003]
 
++ [WC3 complete list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html)
+
 
 ## Usage
 
@@ -211,177 +213,68 @@
 
 ### [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp)
 
-<table  style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%">Selector</th>    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%">Example</th>    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;">Example description</th>
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td><a href="sel_class.asp">.<i>class</i></a></td>    <td>.intro</td>    <td>Selects all elements with class="intro"</td>
-  </tr>
-  <tr>
-    <td><a href="sel_id.asp">#<i>id</i></a></td>    <td>#firstname</td>    <td>Selects the element with id="firstname"</td>
-  </tr>  <tr>
-    <td><a href="sel_all.asp">*</a></td>    <td>*</td>    <td>Selects all elements</td>
-  </tr>
-  <tr>
-    <td><i><a href="sel_element.asp">element</a></i></td>    <td>p</td>    <td>Selects all &lt;p&gt; elements</td>
-  </tr>
-  <tr>
-    <td><i><a href="sel_element_comma.asp">element,element</a></i></td>    <td>div, p</td>    <td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td>
-  </tr>
-  <tr>
-    <td><a href="sel_element_element.asp"><i>element</i> <i>element</i></a></td>    <td>div p</td>    <td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td>
-  </tr>
-  <tr>
-    <td><a href="sel_element_gt.asp"><i>element</i>&gt;<i>element</i></a></td>    <td>div &gt; p</td>    <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_element_pluss.asp"><i>element</i>+<i>element</i></a></td>    <td>div + p</td>    <td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td>
-  </tr>
-  <tr>
-    <td><a href="sel_gen_sibling.asp"><i>element1</i>~<i>element2</i></a></td>    <td>p ~ ul</td>    <td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_attribute.asp">[<i>attribute</i>]</a></td>    <td>[target]</td>    <td>Selects all elements with a target attribute</td>
-  </tr>
-  <tr>
-    <td><a href="sel_attribute_value.asp">[<i>attribute</i>=<i>value</i>]</a></td>    <td>[target=_blank]</td>    <td>Selects all elements with target="_blank"</td>
-  </tr>
-  <tr>
-    <td><a href="sel_attribute_value_contains.&#x24;asp">[<i>attribute</i>~=<i>value</i>]</a></td>    <td>[title~=flower]</td>    <td>Selects all elements with a title attribute containing the word "flower"</td>
-  </tr>
-  <tr>
-    <td><a href="sel_attribute_value_lang.asp">[<i>attribute</i>|=<i>value</i>]</a></td>    <td>[lang|=en]</td>    <td>Selects all elements with a lang attribute value starting with "en"</td>
-  </tr>
-  <tr>
-    <td><a href="sel_attr_begin.asp">[<i>attribute</i>^=<i>value</i>]</a></td>    <td>a[href^="https"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td>
-  </tr>
-  <tr>
-    <td><a href="sel_attr_end.asp">[<i>attribute</i>&#x24;=<i>value</i>]</a></td>    <td>a[href$=".pdf"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td>
-  </tr>
-  <tr>
-    <td><a href="sel_attr_contain.asp">[<i>attribute</i>*=<i>value</i>]</a></td>    <td>a[href*="w3schools"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value contains the substring "w3schools"</td>
-  </tr>
-  <tr>
-    <td><a href="sel_active.asp">:active</a></td>    <td>a:active</td>    <td>Selects the active link</td>
-  </tr>
-  <tr>
-    <td><a href="sel_after.asp">::after</a></td>    <td>p::after</td>    <td>Insert something after the content of each &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_before.asp">::before</a></td>    <td>p::before</td>    <td>Insert something before&nbsp;the content of each &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_checked.asp">:checked</a></td>    <td>input:checked</td>    <td>Selects every checked &lt;input&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_default.asp">:default</a></td>    <td>input:default</td>    <td>Selects the default &lt;input&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_disabled.asp">:disabled</a></td>    <td>input:disabled</td>    <td>Selects every disabled &lt;input&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_empty.asp">:empty</a></td>    <td>p:empty</td>    <td>Selects every &lt;p&gt; element that has no children (including text nodes)</td>
-  </tr>
-  <tr>
-    <td><a href="sel_enabled.asp">:enabled</a></td>    <td>input:enabled</td>    <td>Selects every enabled &lt;input&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_firstchild.asp">:first-child</a></td>    <td>p:first-child</td>    <td>Selects every &lt;p&gt; element that is the first child of its parent</td>
-  </tr>
-  <tr>
-    <td><a href="sel_firstletter.asp">::first-letter</a></td>    <td>p::first-letter</td>    <td>Selects the first letter of every &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_firstline.asp">::first-line</a></td>    <td>p::first-line</td>    <td>Selects the first line of every &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_first-of-type.asp">:first-of-type</a></td>    <td>p:first-of-type</td>    <td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td>
-  </tr>
-  <tr>
-    <td><a href="sel_focus.asp">:focus</a></td>    <td>input:focus</td>    <td>Selects the input element which has focus</td>
-  </tr>
-  <tr>
-    <td><a href="sel_hover.asp">:hover</a></td>    <td>a:hover</td>    <td>Selects links on mouse over</td>
-  </tr>
-  <tr>
-    <td><a href="sel_in-range.asp">:in-range</a></td>    <td>input:in-range</td>    <td>Selects input elements with a value within a specified range</td>
-  </tr>
-  <tr>
-    <td><a href="sel_indeterminate.asp">:indeterminate</a></td>    <td>input:indeterminate</td>    <td>Selects input elements that are in an indeterminate state</td>
-  </tr>
-  <tr>
-    <td><a href="sel_invalid.asp">:invalid</a></td>    <td>input:invalid</td>    <td>Selects all input elements with an invalid value</td>
-  </tr>
-  <tr>
-    <td><a href="sel_lang.asp">:lang(<i>language</i>)</a></td>    <td>p:lang(it)</td>    <td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td>
-  </tr>
-  <tr>
-    <td><a href="sel_last-child.asp">:last-child</a></td>    <td>p:last-child</td>    <td>Selects every &lt;p&gt; element that is the last child of its parent</td>
-  </tr>
-  <tr>
-    <td><a href="sel_last-of-type.asp">:last-of-type</a></td>    <td>p:last-of-type</td>    <td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td>
-  </tr>
-  <tr>
-    <td><a href="sel_link.asp">:link</a></td>    <td>a:link</td>    <td>Selects all unvisited links</td>
-  </tr>
-  <tr>
-    <td><a href="sel_not.asp">:not(<i>selector</i>)</a></td>    <td>:not(p)</td>    <td>Selects every element that is not a &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_nth-child.asp">:nth-child(<i>n</i>)</a></td>    <td>p:nth-child(2)</td>    <td>Selects every &lt;p&gt; element that is the second child of its parent</td>
-  </tr>
-  <tr>
-    <td><a href="sel_nth-last-child.asp">:nth-last-child(<i>n</i>)</a></td>    <td>p:nth-last-child(2)</td>    <td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td>
-  </tr>
-  <tr>
-    <td><a href="sel_nth-last-of-type.asp">:nth-last-of-type(<i>n</i>)</a></td>    <td>p:nth-last-of-type(2)</td>    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td>
-  </tr>
-  <tr>
-    <td><a href="sel_nth-of-type.asp">:nth-of-type(<i>n</i>)</a></td>    <td>p:nth-of-type(2)</td>    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td>
-  </tr>
-  <tr>
-    <td><a href="sel_only-of-type.asp">:only-of-type</a></td>    <td>p:only-of-type</td>    <td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td>
-  </tr>
-  <tr>
-    <td><a href="sel_only-child.asp">:only-child</a></td>    <td>p:only-child</td>    <td>Selects every &lt;p&gt; element that is the only child of its parent</td>
-  </tr>
-  <tr>
-    <td><a href="sel_optional.asp">:optional</a></td>    <td>input:optional</td>    <td>Selects input elements with no "required" attribute</td>
-  </tr>
-  <tr>
-    <td><a href="sel_out-of-range.asp">:out-of-range</a></td>    <td>input:out-of-range</td>    <td>Selects input elements with a value outside a specified range</td>
-  </tr>
-  <tr>
-    <td><a href="sel_placeholder.asp">::placeholder</a></td>    <td>input::placeholder</td>    <td>Selects input elements with placeholder text</td>
-  </tr>
-  <tr>
-    <td><a href="sel_read-only.asp">:read-only</a></td>    <td>input:read-only</td>    <td>Selects input elements with the "readonly" attribute specified</td>
-  </tr>
-  <tr>
-    <td><a href="sel_read-write.asp">:read-write</a></td>    <td>input:read-write</td>    <td>Selects input elements with the "readonly" attribute NOT specified</td>
-  </tr>
-  <tr>
-    <td><a href="sel_required.asp">:required</a></td>    <td>input:required</td>    <td>Selects input elements with the "required" attribute specified</td>
-  </tr>
-  <tr>
-    <td><a href="sel_root.asp">:root</a></td>    <td>:root</td>    <td>Selects the document's root element</td>
-  </tr>
-  <tr>
-    <td><a href="sel_selection.asp">::selection</a></td>    <td>::selection</td>    <td>Selects the portion of an element that is selected by a user</td>
-  </tr>
-  <tr>
-    <td><a href="sel_target.asp">:target</a></td>    <td>#news:target </td>    <td>Selects the current active #news element (clicked on a URL containing that anchor name)</td>
-  </tr>
-  <tr>
-    <td><a href="sel_valid.asp">:valid</a></td>    <td>input:valid</td>    <td>Selects all input elements with a valid value</td>
-  </tr>
-  <tr>
-    <td><a href="sel_visited.asp">:visited</a></td>    <td>a:visited</td>    <td>Selects all visited links</td>
-  </tr>
+  <tr><td><a href="sel_class.asp">.<i>class</i></a></td>    <td>.intro</td>    <td>Selects all elements with class="intro"</td></tr>
+  <tr><td><a href="sel_id.asp">#<i>id</i></a></td>    <td>#firstname</td>    <td>Selects the element with id="firstname"</td></tr>  
+  <tr><td><a href="sel_all.asp">*</a></td>    <td>*</td>    <td>Selects all elements</td></tr>
+  <tr><td><i><a href="sel_element.asp">element</a></i></td>    <td>p</td>    <td>Selects all &lt;p&gt; elements</td></tr>
+  <tr><td><i><a href="sel_element_comma.asp">element,element</a></i></td>    <td>div, p</td>    <td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td></tr>
+  <tr><td><a href="sel_element_element.asp"><i>element</i> <i>element</i></a></td>    <td>div p</td>    <td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td></tr>
+  <tr><td><a href="sel_element_gt.asp"><i>element</i>&gt;<i>element</i></a></td>    <td>div &gt; p</td>    <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td></tr>
+  <tr><td><a href="sel_element_pluss.asp"><i>element</i>+<i>element</i></a></td>    <td>div + p</td>    <td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td></tr>
+  <tr><td><a href="sel_gen_sibling.asp"><i>element1</i>~<i>element2</i></a></td>    <td>p ~ ul</td>    <td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td></tr>
+  <tr><td><a href="sel_attribute.asp">[<i>attribute</i>]</a></td>    <td>[target]</td>    <td>Selects all elements with a target attribute</td></tr>
+  <tr><td><a href="sel_attribute_value.asp">[<i>attribute</i>=<i>value</i>]</a></td>    <td>[target=_blank]</td>    <td>Selects all elements with target="_blank"</td></tr>
+  <tr><td><a href="sel_attribute_value_contains.&#x24;asp">[<i>attribute</i>~=<i>value</i>]</a></td>    <td>[title~=flower]</td>    <td>Selects all elements with a title attribute containing the word "flower"</td></tr>
+  <tr><td><a href="sel_attribute_value_lang.asp">[<i>attribute</i>|=<i>value</i>]</a></td>    <td>[lang|=en]</td>    <td>Selects all elements with a lang attribute value starting with "en"</td></tr>
+  <tr><td><a href="sel_attr_begin.asp">[<i>attribute</i>^=<i>value</i>]</a></td>    <td>a[href^="https"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td></tr>
+  <tr><td><a href="sel_attr_end.asp">[<i>attribute</i>&#x24;=<i>value</i>]</a></td>    <td>a[href$=".pdf"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td></tr>
+  <tr><td><a href="sel_attr_contain.asp">[<i>attribute</i>*=<i>value</i>]</a></td>    <td>a[href*="w3schools"]</td>    <td>Selects every &lt;a&gt; element whose href attribute value contains the substring "w3schools"</td></tr>
+  <tr><td><a href="sel_active.asp">:active</a></td>    <td>a:active</td>    <td>Selects the active link</td></tr>
+  <tr><td><a href="sel_after.asp">::after</a></td>    <td>p::after</td>    <td>Insert something after the content of each &lt;p&gt; element</td></tr>
+  <tr><td><a href="sel_before.asp">::before</a></td>    <td>p::before</td>    <td>Insert something before&nbsp;the content of each &lt;p&gt; element</td></tr>
+  <tr><td><a href="sel_checked.asp">:checked</a></td>    <td>input:checked</td>    <td>Selects every checked &lt;input&gt; element</td></tr>
+  <tr><td><a href="sel_default.asp">:default</a></td>    <td>input:default</td>    <td>Selects the default &lt;input&gt; element</td></tr>
+  <tr><td><a href="sel_disabled.asp">:disabled</a></td>    <td>input:disabled</td>    <td>Selects every disabled &lt;input&gt; element</td></tr>
+  <tr><td><a href="sel_empty.asp">:empty</a></td>    <td>p:empty</td>    <td>Selects every &lt;p&gt; element that has no children (including text nodes)</td></tr>
+  <tr><td><a href="sel_enabled.asp">:enabled</a></td>    <td>input:enabled</td>    <td>Selects every enabled &lt;input&gt; element</td></tr>
+  <tr><td><a href="sel_firstchild.asp">:first-child</a></td>    <td>p:first-child</td>    <td>Selects every &lt;p&gt; element that is the first child of its parent</td></tr>
+  <tr><td><a href="sel_firstletter.asp">::first-letter</a></td>    <td>p::first-letter</td>    <td>Selects the first letter of every &lt;p&gt; element</td></tr>
+  <tr><td><a href="sel_firstline.asp">::first-line</a></td>    <td>p::first-line</td>    <td>Selects the first line of every &lt;p&gt; element</td></tr>
+  <tr><td><a href="sel_first-of-type.asp">:first-of-type</a></td>    <td>p:first-of-type</td>    <td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td></tr>
+  <tr><td><a href="sel_focus.asp">:focus</a></td>    <td>input:focus</td>    <td>Selects the input element which has focus</td></tr>
+  <tr><td><a href="sel_hover.asp">:hover</a></td>    <td>a:hover</td>    <td>Selects links on mouse over</td></tr>
+  <tr><td><a href="sel_in-range.asp">:in-range</a></td>    <td>input:in-range</td>    <td>Selects input elements with a value within a specified range</td></tr>
+  <tr><td><a href="sel_indeterminate.asp">:indeterminate</a></td>    <td>input:indeterminate</td>    <td>Selects input elements that are in an indeterminate state</td></tr>
+  <tr><td><a href="sel_invalid.asp">:invalid</a></td>    <td>input:invalid</td>    <td>Selects all input elements with an invalid value</td></tr>
+  <tr><td><a href="sel_lang.asp">:lang(<i>language</i>)</a></td>    <td>p:lang(it)</td>    <td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td></tr>
+  <tr><td><a href="sel_last-child.asp">:last-child</a></td>    <td>p:last-child</td>    <td>Selects every &lt;p&gt; element that is the last child of its parent</td></tr>
+  <tr><td><a href="sel_last-of-type.asp">:last-of-type</a></td>    <td>p:last-of-type</td>    <td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td></tr>
+  <tr><td><a href="sel_link.asp">:link</a></td>    <td>a:link</td>    <td>Selects all unvisited links</td></tr>
+  <tr><td><a href="sel_not.asp">:not(<i>selector</i>)</a></td>    <td>:not(p)</td>    <td>Selects every element that is not a &lt;p&gt; element</td></tr>
+  <tr><td><a href="sel_nth-child.asp">:nth-child(<i>n</i>)</a></td>    <td>p:nth-child(2)</td>    <td>Selects every &lt;p&gt; element that is the second child of its parent</td></tr>
+  <tr><td><a href="sel_nth-last-child.asp">:nth-last-child(<i>n</i>)</a></td>    <td>p:nth-last-child(2)</td>    <td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td></tr>
+  <tr><td><a href="sel_nth-last-of-type.asp">:nth-last-of-type(<i>n</i>)</a></td>    <td>p:nth-last-of-type(2)</td>    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td></tr>
+  <tr><td><a href="sel_nth-of-type.asp">:nth-of-type(<i>n</i>)</a></td>    <td>p:nth-of-type(2)</td>    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td></tr>
+  <tr><td><a href="sel_only-of-type.asp">:only-of-type</a></td>    <td>p:only-of-type</td>    <td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td></tr>
+  <tr><td><a href="sel_only-child.asp">:only-child</a></td>    <td>p:only-child</td>    <td>Selects every &lt;p&gt; element that is the only child of its parent</td></tr>
+  <tr><td><a href="sel_optional.asp">:optional</a></td>    <td>input:optional</td>    <td>Selects input elements with no "required" attribute</td></tr>
+  <tr><td><a href="sel_out-of-range.asp">:out-of-range</a></td>    <td>input:out-of-range</td>    <td>Selects input elements with a value outside a specified range</td></tr>
+  <tr><td><a href="sel_placeholder.asp">::placeholder</a></td>    <td>input::placeholder</td>    <td>Selects input elements with placeholder text</td></tr>
+  <tr><td><a href="sel_read-only.asp">:read-only</a></td>    <td>input:read-only</td>    <td>Selects input elements with the "readonly" attribute specified</td></tr>
+  <tr><td><a href="sel_read-write.asp">:read-write</a></td>    <td>input:read-write</td>    <td>Selects input elements with the "readonly" attribute NOT specified</td></tr>
+  <tr><td><a href="sel_required.asp">:required</a></td>    <td>input:required</td>    <td>Selects input elements with the "required" attribute specified</td></tr>
+  <tr><td><a href="sel_root.asp">:root</a></td>    <td>:root</td>    <td>Selects the document's root element</td></tr>
+  <tr><td><a href="sel_selection.asp">::selection</a></td>    <td>::selection</td>    <td>Selects the portion of an element that is selected by a user</td></tr>
+  <tr><td><a href="sel_target.asp">:target</a></td>    <td>#news:target </td>    <td>Selects the current active #news element (clicked on a URL containing that anchor name)</td></tr>
+  <tr><td><a href="sel_valid.asp">:valid</a></td>    <td>input:valid</td>    <td>Selects all input elements with a valid value</td></tr>
+  <tr><td><a href="sel_visited.asp">:visited</a></td>    <td>a:visited</td>    <td>Selects all visited links</td></tr>
 </tbody></table>
 
 <br/>
@@ -389,15 +282,26 @@
 
 ### [Selector in Lecture][086]
 
-| Selector | HTML | CSS | Link |
-|----------|------|-----|------|
-| tag | `<li>` | `li {list-style_type: circle;}` | [Selector][087] |
-| id | `<p id="p18"> Ulysses </p>` | `#p18 {color: blue;}` | [Selector][088] |
-| class | `<li class="bird flying">eagle</li>` | `.bird   { color: blue; }` <br/> `.flying { text-decoration: underline; }` | [Selector][089] |
-| Comma separated | `,` | `blockquote,` <br/> `q,` <br/> `.speech {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `color: red;` <br/>&nbsp;&nbsp;&nbsp;&nbsp; `font-style: italic;` <br/> `}` <br/> `.speech { font-weight: bold; }` | [Selector][090] |
-| Specialized | `<li class="insect flying">wasp</li>` | `.insect.flying {` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `text-decoration: underline;` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `font-weight: bold;` <br/>   `}` | [Selector][091] |
-| Descendant  | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro a { color: red; }` | [Selector][092] |
-| Direct descendant | `<section id="intro">Welcome to <a href="#palaceland">PalaceLand</a>` | `#intro > a { font-size: large; }` | [Selector][093] |
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Selector</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">HTML</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">CSS</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>tag</td><td>&lt;li&gt;</td><td>li {list-style_type: circle;}</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#tag-selector">Selector</a></td></tr>
+  <tr><td>id</td><td>&lt;p id="p18"&gt; Ulysses &lt;/p&gt;</td><td>#p18 {color: blue;}</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#id-selector">Selector</a></td></tr>
+  <tr><td>class</td><td>&lt;li class="bird flying"&gt;eagle&lt;/li&gt;</td><td>.bird   { color: blue; } <br/>.flying { text-decoration: underline; }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#class-selector">Selector</a></td></tr>
+  <tr><td>Comma separated</td><td>,</td><td>blockquote, <br/> q, <br/> .speech { <br/> &nbsp;&nbsp;&nbsp;&nbsp; color: red; <br/>&nbsp;&nbsp;&nbsp;&nbsp; font-style: italic; <br/> } <br/> .speech { font-weight: bold; }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#comma-separated-selectors">Selector</a></td></tr>
+  <tr><td>Specialized</td><td>&gt;li class="insect flying"&lt;wasp&lt;/li&gt;</td><td>.insect.flying { <br/> &nbsp;&nbsp;&nbsp;&nbsp; text-decoration: underline; <br/> &nbsp;&nbsp;&nbsp;&nbsp; font-weight: bold; <br/>   }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors">Selector</a></td></tr>
+  <tr><td>Descendant</td><td>&lt;section id="intro"&gt;Welcome to &lt;a href="#palaceland"&gt;PalaceLand&lt;/a&gt;</td><td>#intro a { color: red; }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors">Selector</a></td></tr>
+  <tr><td>Direct descendant</td><td>&lt;section id="intro"&gt;Welcome to &lt;a href="#palaceland"&gt;PalaceLand&lt;/a&gt;</td><td>#intro > a { font-size: large; }</td><td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---">Selector</a></td></tr>
+  </tbody>
+</table>
 
 
 
@@ -461,8 +365,6 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
   #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
   #s12:not(FOO)   /* a=1 b=0 c=1 -> specificity = 101 */
   ```
-
-
 
 ## Color Properties
 
