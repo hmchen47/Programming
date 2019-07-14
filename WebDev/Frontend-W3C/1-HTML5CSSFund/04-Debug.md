@@ -99,6 +99,7 @@ Just click in between the two curly braces on the "Inline style" rule at the top
 
 It's important to know that any changes you make in the developer tools will have no effect on the original Web page. They only affect that particular instance of that page during that debugging session. If you navigate to another page and come back, you'll need to make the same changes again if you want to get back to where you were. It's not that easy to break the Web!
 
+
 #### Live coding video: modifying elements
 
 <video src="https://edx-video.net/W3CHTM502016-V009000_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
@@ -108,6 +109,45 @@ It's important to know that any changes you make in the developer tools will hav
 
 
 ### Knowledge checks
+
+Here are some questions for a self check to make sure you understand everything. These questions are not graded.
+
+Use this screenshot for the questions below:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/37f15009345846f391d7ac4d5bf06520/9567029b13454d0181141361837b2b96/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%4023e86990270640c284ab3748e3dc43a2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4e013ef8d1453b878dd25544a4b2ff0f/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/week-4-kc-1take22.png" style="margin: 0.1em;" alt="screenshot of a web page" title="Screenshot of developer tools showing example" width=100%>
+  </a></div>
+</div>
+
+1. 'id' of the element
+
+    Given the picture above: one element on the right screen is highlighted and another has been modified...
+
+    What is the id of the element that has been modified? (without any quotes)
+
+    Ans: cumulus <br/>
+    Explanation: The cumulus element has been selected, though the mouse is hovering over a different element which is highlighted on the page.
+
+
+2. Width in pixels?
+
+    Given the picture above:
+
+    What is the width, in pixels, of the highlighted element? (write just the number of pixels, not the units)
+
+    Ans: 144 <br/>
+    Explanation: Like an x-y graph, x is horizontal and comes before y which is vertical, thus the pixels are written as width x height.
+
+
+3. text-decoration property?
+
+    Given the picture above:
+
+    For the modified element, what value does the text-decoration property have? (no quotes)
+
+    Ans: underline <br/>
+    Explanation: The text decoration used on this element comes from the file 'third.css' from a rule on li elements.
 
 
 
