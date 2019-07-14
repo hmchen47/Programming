@@ -755,7 +755,7 @@ li { list-style-type: disc; }
   <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th style="width: 10%;">html</th><th style="width: 5%;">default</th><th style="width: 5%;">disc</th><th style="width: 5%;">circle</th><th style="width: 5%;">square</th><th style="width: 5%;">none</th></tr>
   <tr>
     <td>
-    <pre>&lt;ul&gt;
+    <pre style="border: none;">&lt;ul&gt;
      &lt;li&gt;eggs&lt;/li&gt;
      &lt;li&gt;milk&lt;/li&gt;
      &lt;li&gt;bread&lt;/li&gt;
@@ -971,7 +971,7 @@ It isn't unusual to see multiple classes joined this way as well:
   <tr style="background-color: lightgray; text-align: left; line-height: 1.2rem;"><th>html</th><th>css</th><th>result</th></tr>
   <tr>
     <td>
-    <pre>       &lt;ul&gt;
+    <pre style="border: none;">       &lt;ul&gt;
           &lt;li class="bird flying"&gt;parrot&lt;/li&gt;
           &lt;li class="bird"&gt;ostrich&lt;/li&gt;
           &lt;li class="insect"&gt;ant&lt;/li&gt;
@@ -982,7 +982,7 @@ It isn't unusual to see multiple classes joined this way as well:
        </pre>
     </td>
     <td>
-    <pre><span style="color: #0000ff;">    .insect.flying</span> {
+    <pre style="border: none;"><span style="color: #0000ff;">    .insect.flying</span> {
           <span style="color: #333399;">text-decoration</span>: <span style="color: #ff6600;">underline</span>; 
           <span style="color: #333399;">font-weight</span>: <span style="color: #ff6600;">bold</span>; 
     }
