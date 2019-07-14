@@ -1063,7 +1063,8 @@ The asterisk (*) can be used to match any tag. By itself, this is only marginall
 
 ```css
 body > * { margin-left: 10px; } /* all the _direct_ children of the body receive the margin */
-p * { text-decoration: underline; } /* the text of the paragraph will be normal, but any children anywhere inside it will be underlined */
+p * { text-decoration: underline; } 
+/* the text of the paragraph will be normal, but any children anywhere inside it will be underlined */
 ```
 
 
@@ -1324,7 +1325,8 @@ We'll use this block of HTML for the next few questions.
   Examine this HTML and CSS:
 
   ```html
-  <p id="physics" class="rainbow">Rainbows result from refraction of sunlight in falling water droplets plus reflection of the light from the back of the droplet.</p>
+  <p id="physics" class="rainbow">Rainbows result from refraction of sunlight in falling water 
+    droplets plus reflection of the light from the back of the droplet.</p>
   ```
 
   ```css
