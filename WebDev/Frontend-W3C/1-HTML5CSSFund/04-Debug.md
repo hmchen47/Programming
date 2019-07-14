@@ -76,6 +76,35 @@ Check the video below to see how to do that with Microsoft Edge developer tools:
 
 ### Modifying HTML5 elements
 
+Another handy feature of the developer tools is the ability to make temporary modifications to your code to try out different things and see what works the way you want it to.  When you have a visible element selected in the DOM explorer tab, you can make style changes in the "Styles" panel, or use the "Computed" panel to see the values for each property and how they were determined.
+
+It's possible to change things a few different ways.  If you double click on an element in your HTML5 source code, you can change the source code.  For example you could click on an attribute to modify it or it's value, or you can change the type of the tag or even the contents of an element.
+
+You can use this same approach to add a "style" attribute to a particular element, which should override any other settings, there is also an easier way to do that.  In the panel just to the right of the elements panel is the another panel with tabs including "Styles" and "Computed" and a few others.  Most of the time we'll want the "Styles" tab activated.  Once you do that, you can modify CSS properties of the current element by adding them to the "element.style" box at the top of the "Styles" panel.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/9567029b13454d0181141361837b2b96/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4023e86990270640c284ab3748e3dc43a2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/fb3a3f5292f058e8ad1d5ee2bfef9114/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/changestylevalue.png" style="margin: 0.1em;" alt="Screenshot of MS Edge showing modifying in the developers tools" title="Screenshot of MS Edge showing modifying in the developers tools" width=350>
+  </a></div>
+</div>
+
+Just click in between the two curly braces on the "Inline style" rule at the top of the Styles panel.  After clicking you should see a little text entry box with which you can type property value pairs that will then effect the currently active element.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/9567029b13454d0181141361837b2b96/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4023e86990270640c284ab3748e3dc43a2">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/3b490286433826da4adeedc091090036/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/MSEdgeeditstyle.PNG" style="margin: 0.1em;" alt="Screenshot of MSEdge developer tools showing changing text color in developers tools" title="Screenshot of MSEdge developer tools showing changing text color in developers tools" width=350>
+  </a></div>
+</div>
+
+
+It's important to know that any changes you make in the developer tools will have no effect on the original Web page. They only affect that particular instance of that page during that debugging session. If you navigate to another page and come back, you'll need to make the same changes again if you want to get back to where you were. It's not that easy to break the Web!
+
+#### Live coding video: modifying elements
+
+<video src="https://edx-video.net/W3CHTM502016-V009000_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@9b135f759c7b48cca1709d71291d0ed7/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ### Knowledge checks
