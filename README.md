@@ -171,14 +171,14 @@ Contents
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Selector </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#definition-of-selectors"> Definition </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-selector-reference"> Reference </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#lecture-note"> Lecture Note </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#typical-selectors"> Typical </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#tree-presentation-inheritance"> Inheritance </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-precedence"> Precedence </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-precedence"> Precedence </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#styling-with-pseudo-class"> Pseudo class </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
