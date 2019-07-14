@@ -13,6 +13,15 @@
 
 ### Module 4 - Content
 
+4.1 __Introduction__: You will now begin learning how to fix your Web page when it's not doing what you hoped it would do.
+
+4.2 __Tools__: Learn about tools and accessibility and how they relate to debugging.
+
+4.3 __The Box Model__: Understanding the CSS Box Model and how to control the spacing of elements on the page.
+
+4.4 __Precedence__: Which style controls what? — using the debugger in the browser to understand conflicting rules.
+
+4.5 __Give Your Mind a Workout__: Lets see what you have learned about debugging your code.
 
 
 ## 4.2 Debugging tools and HTML5
