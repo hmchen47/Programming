@@ -56,9 +56,22 @@ Every browser is a bit different, but most of them have ways to examine the vari
 
 
 
-
 ### Identifying HTML5 elements
 
+Remember that elements are the intangible parts of your Web page, which are described by the text in tags and are rendered on the screen of whatever device you're looking at your Web page with. The two things (the text code and the pixels on the screen) correspond to each other, but it's not always obvious which bit of the screen corresponds to which bit of text.
+
+There are two opposite directions in which you might need to figure out in these two different things that both correspond to an element. You might have some HTML5 code that you've written and want to find out where on the Web page that code shows up. The other direction can be needed as well, i.e. given a particular part of the page, what part of your code produced it?
+
+When you hover over an element in the DOM Explorer window in your browser developer tools, the corresponding element on the displayed page is highlighted:
+
+It is also possible to go the other direction, i.e. click on a point on the displayed page and it will highlight the code in the source that corresponds to that element. This is helpful when you want to figure out where something came from and what might be affecting it's styling (size, color, font, any number of other characteristics).  To do that in your browser developer tools, use the DOM explorer pane and the "select element" option, you can also right click on the section on your page you want to inspect and select "Inspect element" which will bring up the developers tools and highlights the HTML element or code for that section on the page.
+
+Check the video below to see how to do that with Microsoft Edge developer tools:
+
+<video src="https://edx-video.net/W3CHTM502016-V013600_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@13f49d5521214d95bf39ba2cce51d40b/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ### Modifying HTML5 elements
