@@ -221,6 +221,17 @@
 </table>
 
 
+## Accessibility
+
++ Guidelines
+  + not too small on font size
+  + not too tight on line height
+  + good color contrast for foregrounbd and background
+  + not irregularly space text or make it jump around
+
+
+
+
 ## Selectors
 
 ### [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp)
@@ -657,6 +668,39 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 
 ## Color Properties
 
+### Format of Color
+
++ [Named colors](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#named-colors): the most common English names for colors; e.g., `color: transparent;`
+
++ [rgb/rgba](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rgb-rgba):
+  + rgb(): 
+    + any color on a computer is exactly specified by mixing three components together: red, green, and blue
+    + the amount of each component falls within a range between 0 and 255
+    + syntax: `rgb( red, green, blue);`
+    + e.g., `p { color: rgb(10, 200, 255); }`
+  + rgba(): 
+    + used for semi-transparent colors
+    + the fourth value: the "alpha channel", the opacity
+    + alpha: a number between 0 and 1
+    + e.g., `b { color: rgba(10, 200, 255, 0.5); }`
+
++ [Hex code](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#hex-code)
+  + providing an hexadecimal (hex) code w.r.t. [0, 255]
+  + start with the pound sign (#) and is followed by three pairs of hex number, ranging 00 to FF
+  + e.g., `p { color: #3A2BFF; }`
+
++ A `<color>` is either a keyword or a numerical RGB specification.
+
++ Complementary and Triadic colour schemes
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.w3.org/wiki/Colour_theory">
+      <img src="https://www.w3.org/wiki/images/4/49/50000000.jpg" style="margin: 0.1em;" alt="the complementary scheme, where you match up colours that lie directly opposite each other on the colour wheel." title="Complementary colour schemes" width="450">
+      <img src="https://www.w3.org/wiki/images/e/e5/80000001.jpg" style="margin: 0.1em;" alt="A triadic colour scheme is created when you pick one colour and then pick two other colours that lie equidistant from each other around the circle." title="Triadic colour schemes" width="300">
+    </a></div>
+  </div>
+
+### List of Color properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
   <thead>
@@ -681,23 +725,17 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 </table>
 
 
-### HTML Color Names and Values
+### Important References
 
-+ A `<color>` is either a keyword or a numerical RGB specification.
 + [Color names and sRGB values](HTML-Color.md)
 
-+ Complementary and Triadic colour schemes
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.w3.org/wiki/Colour_theory">
-      <img src="https://www.w3.org/wiki/images/4/49/50000000.jpg" style="margin: 0.1em;" alt="the complementary scheme, where you match up colours that lie directly opposite each other on the colour wheel." title="Complementary colour schemes" width="450">
-      <img src="https://www.w3.org/wiki/images/e/e5/80000001.jpg" style="margin: 0.1em;" alt="A triadic colour scheme is created when you pick one colour and then pick two other colours that lie equidistant from each other around the circle." title="Triadic colour schemes" width="300">
-    </a></div>
-  </div>
++ [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/)
 
 
-## [Font Property][010]
 
+## Font Property
+
+### [List of Font Properties][010]
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
   <thead>
@@ -713,25 +751,25 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
     <td>font-family</td>
     <td>font face, a collection of Web safe fonts that generally each browser has agreed to support</td>
     <td>Verdana, New Time Roman, serif, sans-serif, monospace, cursive, fantasy, etc.</td>
-    <td><a href="https://www.w3.org/TR/css-fonts/#font-family-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-family">Font18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-family">Common</a></td>
+    <td><a href="https://www.w3.org/TR/css-fonts/#font-family-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-family">Font</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#font-family">Common</a></td>
   </tr>
   <tr>
     <td>font-size</td>
     <td>overall scale of the text</td>
     <td>em, %, px, vh</td>
-    <td><a href="https://www.w3.org/TR/css-fonts/#font-size-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-size">Font18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-size">Common</a></td>
+    <td><a href="https://www.w3.org/TR/css-fonts/#font-size-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-size">Font</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#font-size">Common</a></td>
   </tr>
   <tr>
     <td>font-weight</td>
     <td>thickness of the letters</td>
     <td>&lt;number&gt;, 100~900, bold=700, normal = 400, bolder, lighter, normal</td>
-    <td><a href="https://www.w3.org/TR/css-fonts/#font-weight-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-weight">Font18</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-weight-bold">Common</a></td>
+    <td><a href="https://www.w3.org/TR/css-fonts/#font-weight-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-weight">Font</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#font-weight-bold">Common</a></td>
   </tr>
   <tr>
     <td>font-style</td>
     <td>adjust the angle of the letters in relation to the horizontal plane</td>
     <td>italic, normal, oblique &lt;angle&gt;</td>
-    <td><a href="https://www.w3.org/TR/CSS2/box.html#propdef-padding-top">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#padding">Font18</a></td>
+    <td><a href="https://www.w3.org/TR/CSS2/box.html#propdef-padding-top">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#padding">Font</a></td>
   </tr>
   <tr>
     <td>text_decoration</td>
@@ -749,41 +787,21 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
     <td>line-height</td>
     <td>height of the space</td>
     <td>&lt;number&gt;</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#line-height">Common</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#line-height">Common</a></td>
   </tr>
   <tr>
     <td>text-align</td>
     <td>alignment</td>
     <td>left, center, right, justify, justify-all</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-align">Common</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#text-align">Common</a></td>
   </tr>
   <tr>
     <td>text-decoration</td>
     <td>the decoration added to text</td>
     <td>underline, overline, line-through, none</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-decoration-underline">Common</a></td>
-  </tr>
-  <tr>
-    <td>list-style-type</td>
-    <td>list marker, usually positioned to the left of any list item</td>
-    <td>ul: disc, circle, square, none; <br/>ol: decimal, decimal-leading-zero, lower-roman, upper-roman, lower-alpha, upper-alpha, armenian, georgian, simp-chinese-formal, etc.</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-type">List</a></td>
-  </tr>
-  <tr>
-    <td>list-style-position</td>
-    <td>how closely it is positioned to the list itself</td>
-    <td>inside, outside</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-position">List</a></td>
-  </tr>
-  <tr>
-    <td>list-style-image</td>
-    <td>customized little markers on a list</td>
-    <td>url("path/fig.png")</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-image">List</a></td>
-  </tr>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#text-decoration-underline">Common</a></td>
   </tbody>
 </table>
-
 
 
 ### [Typography][066]
@@ -793,6 +811,43 @@ Four categories which define the [specificity level](https://www.w3schools.com/c
 + monospace - all letters have the same fixed width; `Courier New`
 + cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
 + fantasy - the most diverse category of fonts including all of those that are particularly decorative
+
+
+## List Property
+
+### List of List Styling
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>list-style-type</td>
+    <td>list marker, usually positioned to the left of any list item</td>
+    <td>ul: disc, circle, square, none; <br/>ol: decimal, decimal-leading-zero, lower-roman, upper-roman, lower-alpha, upper-alpha, armenian, georgian, simp-chinese-formal, etc.</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-type">List</a></td>
+  </tr>
+  <tr>
+    <td>list-style-position</td>
+    <td>how closely it is positioned to the list itself</td>
+    <td>inside, outside</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-position">List</a></td>
+  </tr>
+  <tr>
+    <td>list-style-image</td>
+    <td>customized little markers on a list</td>
+    <td>url("path/fig.png")</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-image">List</a></td>
+  </tr>
+  </tbody>
+</table>
+
 
 
 ## Image Property
@@ -1012,39 +1067,6 @@ See [Image Attributes][]
   </a></div>
 </div>
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
-  <thead>
-  <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>padding, padding-top, padding-right, padding-bottom, padding-left</td>
-    <td>the white space that sits closest to an HTML element</td>
-    <td>px, em</td>
-    <td><a href="https://www.w3.org/TR/CSS2/box.html#propdef-margin">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#margin">Space18</a></td>
-  </tr>
-  <tr>
-    <td>border, border-top, border-right, border-bottom, border-left</td>
-    <td>the area outside the padding of an HTML element</td>
-    <td>1px black solid</td>
-    <td><a href="https://www.w3.org/TR/html52/dom.html#classes">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#classes">Space18</a></td>
-  </tr>
-  <tr>
-    <td>margin, margin-top, margin-right, margin-bottom, margin-left</td>
-    <td>the white space that sits outside the border</td>
-    <td>auto, em, px</td>
-    <td><a href="https://www.w3.org/TR/html52/dom.html#the-id-attribute">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#ids">Space18</a></td>
-  </tr>
-  </tbody>
-</table>
-
-
-
 
 ### Model Properties
 
@@ -1114,7 +1136,7 @@ See [Image Attributes][]
     <td>margin</td>
     <td>space around elements, outside of any defined borders</td>
     <td>#px, auto <br/><br/> Example: <br/><ul><li>margin: top right bottom left;</li>  <li>margin: top right bottom</li> <li>margin: top right</li></ul></td>
-    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="https://www.w3schools.com/css/css_margin.asp">W3S</a></td>
+    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="https://www.w3schools.com/css/css_margin.asp">W3S</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#margin">Common</a></td>
   </tr>
   <tr>
     <td>margin-top</td>
