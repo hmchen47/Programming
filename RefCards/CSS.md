@@ -230,300 +230,243 @@
   + not irregularly space text or make it jump around
 
 
-
-
 ## Selectors
 
-### [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp)
+### Definition of Selectors
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
++ CSS rule is made up of two parts: the selector and the declaration
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="http://gottheknack.com/a_htmlCss/weeks/week8/cssRuleStructure/cssRuleStructure.html">
+      <img src="http://gottheknack.com/a_htmlCss/weeks/week8/cssRuleStructure/images/ruleParts.gif" style="margin: 0.1em;" alt="text" title="caption" width=350>
+    </a></div>
+  </div>
+
++ Selectors
+  + tag selecctor
+    + consist solely of a single tag (without punctuation or spacing) will be applied to any matching tag on the page
+    + e.g., `li { list-style-type: circle; }`
+  + id selector
+    + applied to an HTML tag to uniquely identify the element
+    + the value for any given id attribute can only appear once in a document
+    + no spaces, nor most punctuation, nor begin with numbers
+    + e.g., declartion: `#p19 { color: green; }`; use: `<p id="p19">Madam, you have spoken truly.</p>`
+  + Class selector
+    + similar to the id, but shared by multiple tags
+    + assigned to a tag by simply separating them with spaces
+    + simply a period (.) followed by the class name itself
+    + e.g., declaration: `.insect { color: green; }` & `.flying { text-decoration: underline; }`; use: `<li class="insect flying">moth</li>`
+
++ Combining selectors
+  + comma separated selectors: `blockquote, q, .speech {color: red; font-style: italic;}`
+  + specialized selectors: 
+    + two selectors of different types (like tag and class) appear next to each other with no spacing separating them
+    + e.g., `blockquote.speech {font-color: green;}` -> only apply to those blockquotes that also have the speech class
+  + descant selectors:
+    + separate the tag, identifier, or class selectors by a space
+    + e.g., `#intro a { color: red; }` -> the selector will match to any &lt;a&gt; tag that is a descendant of #intro
+  + direct descendant selectors ( &gt; )
+    + only to the direct children
+    + Use it between selectors to limit the application to the direct children of the parent.
+    + e.g., `#intro > a { font-size: large; }`
+  + everything selector ( * )
+    + used to match any tag
+    + e.g., `body > * { margin-left: 10px; } /* all the _direct_ children of the body receive the margin */`
+
++ [!important](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#-important)
+  + take precedence over all others
+  + not recommended
+  + fix conflict directly, rather than using !important
+  + e.g., `p { color: orange !important; }`
+
+
+
+### CSS Selector Reference
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
+  <caption style="font-size: 1.5em; color: darkblue; font-weight: bold;"><a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS Selectors</a></caption>
   <thead>
   <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%">Selector</th>    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%">Example</th>    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;">Example description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%">Selector</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%">Example</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%">Example description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><a href="sel_class.asp">.<i>class</i></a></td>
-    <td>.intro</td>
-    <td>Selects all elements with class="intro"</td>
+    <td><strong>.<i>class</i></strong></td><td>.intro</td><td>Selects all elements with class="intro"</td>
   </tr>
   <tr>
-    <td><a href="sel_id.asp">#<i>id</i></a></td>
-    <td>#firstname</td>
-    <td>Selects the element with id="firstname"</td>
+    <td><strong>#<i>id</i></strong></td><td>#firstname</td><td>Selects the element with id="firstname"</td>
   </tr>  
   <tr>
-    <td><a href="sel_all.asp">*</a></td>
-    <td>*</td>
-    <td>Selects all elements</td>
+    <td><strong>*</strong></td><td>*</td><td>Selects all elements</td>
   </tr>
   <tr>
-    <td><i><a href="sel_element.asp">element</a></i></td>
-    <td>p</td>
-    <td>Selects all &lt;p&gt; elements</td>
+    <td><strong><i>element</i></strong></td><td>p</td><td>Selects all &lt;p&gt; elements</td>
   </tr>
   <tr>
-    <td><i><a href="sel_element_comma.asp">element,element</a></i></td>
-    <td>div, p</td>
-    <td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td>
+    <td><strong><i>element,element</i></strong></td><td>div, p</td><td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td>
   </tr>
   <tr>
-    <td><a href="sel_element_element.asp"><i>element</i> <i>element</i></a></td>
-    <td>div p</td>
-    <td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td>
-  </tr>
-  <tr><td><a href="sel_element_gt.asp"><i>element</i>&gt;<i>element</i></a></td>
-    <td>div &gt; p</td>
-    <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
+    <td><strong><i>element</i> <i>element</i></strong></td><td>div p</td><td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td>
   </tr>
   <tr>
-    <td><a href="sel_element_pluss.asp"><i>element</i>+<i>element</i></a></td>
-    <td>div + p</td>
-    <td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td>
+    <td><strong><i>element</i>&gt;<i>element</i></strong></td><td>div &gt; p</td><td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_gen_sibling.asp"><i>element1</i>~<i>element2</i></a></td>
-    <td>p ~ ul</td>
-    <td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td>
+    <td><strong><i>element</i>+<i>element</i></strong></td><td>div + p</td><td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td>
   </tr>
   <tr>
-    <td><a href="sel_attribute.asp">[<i>attribute</i>]</a></td>
-    <td>[target]</td>
-    <td>Selects all elements with a target attribute</td>
+    <td><strong><i>element1</i>~<i>element2</i></strong></td><td>p ~ ul</td><td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_attribute_value.asp">[<i>attribute</i>=<i>value</i>]</a></td>
-    <td>[target=_blank]</td>
-    <td>Selects all elements with target="_blank"</td>
+    <td><strong>[<i>attribute</i>]</strong></td><td>[target]</td><td>Selects all elements with a target attribute</td>
   </tr>
   <tr>
-    <td><a href="sel_attribute_value_contains.&#x24;asp">[<i>attribute</i>~=<i>value</i>]</a></td>
-    <td>[title~=flower]</td>
-    <td>Selects all elements with a title attribute containing the word "flower"</td>
+    <td><strong>[<i>attribute</i>=<i>value</i>]</strong></td><td>[target=_blank]</td><td>Selects all elements with target="_blank"</td>
   </tr>
   <tr>
-    <td><a href="sel_attribute_value_lang.asp">[<i>attribute</i>|=<i>value</i>]</a></td>
-    <td>[lang|=en]</td>
-    <td>Selects all elements with a lang attribute value starting with "en"</td>
+    <td><strong>[<i>attribute</i>~=<i>value</i>]</strong></td><td>[title~=flower]</td><td>Selects all elements with a title attribute containing the word "flower"</td>
   </tr>
   <tr>
-    <td><a href="sel_attr_begin.asp">[<i>attribute</i>^=<i>value</i>]</a></td>
-    <td>a[href^="https"]</td>
-    <td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td>
+    <td><strong>[<i>attribute</i>|=<i>value</i>]</strong></td><td>[lang|=en]</td><td>Selects all elements with a lang attribute value starting with "en"</td>
+  </tr>
+  <tr>
+    <td><strong>[<i>attribute</i>^=<i>value</i>]</strong></td><td>a[href^="https"]</td><td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td>
   </tr>
   <tr>  
-    <td><a href="sel_attr_end.asp">[<i>attribute</i>&#x24;=<i>value</i>]</a></td>
-    <td>a[href$=".pdf"]</td>
-    <td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td>
+    <td><strong>[<i>attribute</i>&#x24;=<i>value</i>]</strong></td><td>a[href$=".pdf"]</td><td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td>
   </tr>
   <tr>
-    <td><a href="sel_attr_contain.asp">[<i>attribute</i>*=<i>value</i>]</a></td>
-    <td>a[href*="w3schools"]</td>
-    <td>Selects every &lt;a&gt; element whose href attribute value contains the substring "w3schools"</td>
+    <td><strong>[<i>attribute</i>*=<i>value</i>]</strong></td><td>a[href*="w3schools"]</td><td>Selects every &lt;a&gt; element whose href attribute value contains the substring "w3schools"</td>
   </tr>
   <tr>
-    <td><a href="sel_active.asp">:active</a></td>
-    <td>a:active</td>
-    <td>Selects the active link</td>
-    </tr>
-  <tr>
-    <td><a href="sel_after.asp">::after</a></td>
-    <td>p::after</td>
-    <td>Insert something after the content of each &lt;p&gt; element</td>
+    <td><strong>:active</strong></td><td>a:active</td><td>Selects the active link</td>
   </tr>
   <tr>
-    <td><a href="sel_before.asp">::before</a></td>
-    <td>p::before</td>
-    <td>Insert something before&nbsp;the content of each &lt;p&gt; element</td>
+    <td><strong>::after</strong></td><td>p::after</td><td>Insert something after the content of each &lt;p&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_checked.asp">:checked</a></td>
-    <td>input:checked</td>
-    <td>Selects every checked &lt;input&gt; element</td>
+    <td><strong>::before</strong></td><td>p::before</td><td>Insert something before&nbsp;the content of each &lt;p&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_default.asp">:default</a></td>
-    <td>input:default</td>
-    <td>Selects the default &lt;input&gt; element</td>
+    <td><strong>:checked</strong></td><td>input:checked</td><td>Selects every checked &lt;input&gt; element</td>
+  <tr>
+  <tr>
+    <td><strong>:default</strong></td><td>input:default</td><td>Selects the default &lt;input&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_disabled.asp">:disabled</a></td>
-    <td>input:disabled</td>
-    <td>Selects every disabled &lt;input&gt; element</td>
+    <td><strong>:disabled</strong></td><td>input:disabled</td><td>Selects every disabled &lt;input&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_empty.asp">:empty</a></td>
-    <td>p:empty</td>
-    <td>Selects every &lt;p&gt; element that has no children (including text nodes)</td>
+    <td><strong>:empty</strong></td><td>p:empty</td><td>Selects every &lt;p&gt; element that has no children (including text nodes)</td>
   </tr>
   <tr>
-    <td><a href="sel_enabled.asp">:enabled</a></td>
-    <td>input:enabled</td>
-    <td>Selects every enabled &lt;input&gt; element</td>
+    <td><strong>:enabled</strong></td><td>input:enabled</td><td>Selects every enabled &lt;input&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_firstchild.asp">:first-child</a></td>
-    <td>p:first-child</td>
-    <td>Selects every &lt;p&gt; element that is the first child of its parent</td>
+    <td><strong>:first-child</strong></td><td>p:first-child</td><td>Selects every &lt;p&gt; element that is the first child of its parent</td>
   </tr>
   <tr>
-    <td><a href="sel_firstletter.asp">::first-letter</a></td>
-    <td>p::first-letter</td>
-    <td>Selects the first letter of every &lt;p&gt; element</td>
+    <td><strong>::first-letter</strong></td><td>p::first-letter</td><td>Selects the first letter of every &lt;p&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_firstline.asp">::first-line</a></td>
-    <td>p::first-line</td>
-    <td>Selects the first line of every &lt;p&gt; element</td>
+    <td><strong>::first-line</strong></td><td>p::first-line</td><td>Selects the first line of every &lt;p&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_first-of-type.asp">:first-of-type</a></td>
-    <td>p:first-of-type</td>
-    <td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td>
+    <td><strong>:first-of-type</strong></td><td>p:first-of-type</td><td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td>
   </tr>
   <tr>
-    <td><a href="sel_focus.asp">:focus</a></td>
-    <td>input:focus</td>
-    <td>Selects the input element which has focus</td>
+    <td><strong>:focus</strong></td><td>input:focus</td><td>Selects the input element which has focus</td>
   </tr>
   <tr>
-    <td><a href="sel_hover.asp">:hover</a></td>
-    <td>a:hover</td>   
-     <td>Selects links on mouse over</td>
+    <td><strong>:hover</strong></td><td>a:hover</td><td>Selects links on mouse over</td>
   </tr>
   <tr>
-    <td><a href="sel_in-range.asp">:in-range</a></td>
-    <td>input:in-range</td>
-    <td>Selects input elements with a value within a specified range</td>
+    <td><strong>:in-range</strong></td><td>input:in-range</td><td>Selects input elements with a value within a specified range</td>
   </tr>
   <tr>
-    <td><a href="sel_indeterminate.asp">:indeterminate</a></td>
-    <td>input:indeterminate</td>
-    <td>Selects input elements that are in an indeterminate state</td>
+    <td><strong>:indeterminate</strong></td><td>input:indeterminate</td><td>Selects input elements that are in an indeterminate state</td>
   </tr>
   <tr>
-    <td><a href="sel_invalid.asp">:invalid</a></td>
-    <td>input:invalid</td>
-    <td>Selects all input elements with an invalid value</td>
+    <td><strong>:invalid</strong></td><td>input:invalid</td><td>Selects all input elements with an invalid value</td>
   </tr>
   <tr>
-    <td><a href="sel_lang.asp">:lang(<i>language</i>)</a></td>
-    <td>p:lang(it)</td>
-    <td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td>
+    <td><strong>:lang(<i>language</i>)</strong></td><td>p:lang(it)</td><td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td>
   </tr>
   <tr>
-    <td><a href="sel_last-child.asp">:last-child</a></td>
-    <td>p:last-child</td>
-    <td>Selects every &lt;p&gt; element that is the last child of its parent</td>
+    <td><strong>:last-child</strong></td><td>p:last-child</td><td>Selects every &lt;p&gt; element that is the last child of its parent</td>
   </tr>
   <tr>
-    <td><a href="sel_last-of-type.asp">:last-of-type</a></td>
-    <td>p:last-of-type</td>
-    <td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td>
+    <td><strong>:last-of-type</strong></td><td>p:last-of-type</td><td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td>
   </tr>
   <tr>
-    <td><a href="sel_link.asp">:link</a></td>
-    <td>a:link</td>
-    <td>Selects all unvisited links</td>
+    <td><strong>:link</strong></td><td>a:link</td><td>Selects all unvisited links</td>
   </tr>
   <tr>
-    <td><a href="sel_not.asp">:not(<i>selector</i>)</a></td><td>:not(p)</td><td>Selects every element that is not a &lt;p&gt; element</td>
+    <td><strong>:not(<i>selector</i>)</strong></td><td>:not(p)</td><td>Selects every element that is not a &lt;p&gt; element</td>
   </tr>
   <tr>
-    <td><a href="sel_nth-child.asp">:nth-child(<i>n</i>)</a></td>
-    <td>p:nth-child(2)</td>
-    <td>Selects every &lt;p&gt; element that is the second child of its parent</td>
+    <td><strong>:nth-child(<i>n</i>)</strong></td><td>p:nth-child(2)</td><td>Selects every &lt;p&gt; element that is the second child of its parent</td>
   </tr>
   <tr>
-    <td><a href="sel_nth-last-child.asp">:nth-last-child(<i>n</i>)</a></td>
-    <td>p:nth-last-child(2)</td>
-    <td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td>
+    <td><strong>:nth-last-child(<i>n</i>)</strong></td><td>p:nth-last-child(2)</td><td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td>
   </tr>
   <tr>
-    <td><a href="sel_nth-last-of-type.asp">:nth-last-of-type(<i>n</i>)</a></td>
-    <td>p:nth-last-of-type(2)</td>
-    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td>
+    <td><strong>:nth-last-of-type(<i>n</i>)</strong></td><td>p:nth-last-of-type(2)</td><td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td>
   </tr>
   <tr>
-    <td><a href="sel_nth-of-type.asp">:nth-of-type(<i>n</i>)</a></td>
-    <td>p:nth-of-type(2)</td>
-    <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td>
+    <td><strong>:nth-of-type(<i>n</i>)</strong></td><td>p:nth-of-type(2)</td><td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td>
   </tr>
   <tr>
-    <td><a href="sel_only-of-type.asp">:only-of-type</a></td>
-    <td>p:only-of-type</td>
-    <td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td>
+    <td><strong>:only-of-type</strong></td><td>p:only-of-type</td><td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td>
   </tr>
   <tr>
-    <td><a href="sel_only-child.asp">:only-child</a></td>
-    <td>p:only-child</td>
-    <td>Selects every &lt;p&gt; element that is the only child of its parent</td>
+    <td><strong>:only-child</strong></td><td>p:only-child</td><td>Selects every &lt;p&gt; element that is the only child of its parent</td>
   </tr>
   <tr>
-    <td><a href="sel_optional.asp">:optional</a></td>
-    <td>input:optional</td>
-    <td>Selects input elements with no "required" attribute</td>
+    <td><strong>:optional</strong></td><td>input:optional</td><td>Selects input elements with no "required" attribute</td>
   </tr>
   <tr>
-    <td><a href="sel_out-of-range.asp">:out-of-range</a></td>
-    <td>input:out-of-range</td>
-    <td>Selects input elements with a value outside a specified range</td><
-    /tr>
-  <tr>
-    <td><a href="sel_placeholder.asp">::placeholder</a></td>
-    <td>input::placeholder</td>
-    <td>Selects input elements with placeholder text</td>
+    <td><strong>:out-of-range</strong></td><td>input:out-of-range</td><td>Selects input elements with a value outside a specified range</td>
   </tr>
   <tr>
-    <td><a href="sel_read-only.asp">:read-only</a></td>   
-    <td>input:read-only</td>
-    <td>Selects input elements with the "readonly" attribute specified</td>
+    <td><strong>::placeholder</strong></td><td>input::placeholder</td><td>Selects input elements with placeholder text</td>
   </tr>
   <tr>
-    <td><a href="sel_read-write.asp">:read-write</a></td>
-    <td>input:read-write</td>
-    <td>Selects input elements with the "readonly" attribute NOT specified</td>
+    <td><strong>:read-only</strong></td><td>input:read-only</td><td>Selects input elements with the "readonly" attribute specified</td>
   </tr>
   <tr>
-    <td><a href="sel_required.asp">:required</a></td>
-    <td>input:required</td>
-    <td>Selects input elements with the "required" attribute specified</td>
+    <td><strong>:read-write</strong></td><td>input:read-write</td><td>Selects input elements with the "readonly" attribute NOT specified</td>
   </tr>
   <tr>
-    <td><a href="sel_root.asp">:root</a></td>
-    <td>:root</td>
-    <td>Selects the document's root element</td>
+    <td><strong>:required</strong></td><td>input:required</td><td>Selects input elements with the "required" attribute specified</td>
   </tr>
   <tr>
-    <td><a href="sel_selection.asp">::selection</a></td>
-    <td>::selection</td>
-    <td>Selects the portion of an element that is selected by a user</td>
+    <td><strong>:root</strong></td><td>:root</td><td>Selects the document's root element</td>
   </tr>
   <tr>
-    <td><a href="sel_target.asp">:target</a></td>
-    <td>#news:target </td>   
-    <td>Selects the current active #news element (clicked on a URL containing that anchor name)</td>
+    <td><strong>::selection</strong></td><td>::selection</td><td>Selects the portion of an element that is selected by a user</td>
   </tr>
   <tr>
-    <td><a href="sel_valid.asp">:valid</a></td>
-    <td>input:valid</td>
-    <td>Selects all input elements with a valid value</td>
+    <td><strong>:target</strong></td><td>#news:target </td><td>Selects the current active #news element (clicked on a URL containing that anchor name)</td>
   </tr>
   <tr>
-    <td><a href="sel_visited.asp">:visited</a></td>
-    <td>a:visited</td>
-    <td>Selects all visited links</td>
+    <td><strong>:valid</strong></td><td>input:valid</td><td>Selects all input elements with a valid value</td>
+  </tr>
+  <tr>
+    <td><strong>:visited</strong></td><td>a:visited</td><td>Selects all visited links</td>
   </tr>
 </tbody></table>
 
 <br/>
 
 
-### [Selector in Lecture][086]
-
+### Typical Selectors
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <caption style="font-size: 1.5em; color: darkblue; font-weight: bold;"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors">CSS Selectors</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Selector</th>
@@ -623,48 +566,79 @@
   </a></div>
 </div>
 
++ [Inheritance](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#inheritance): the cascading of a CSS property from parent to child
+
 + CSS property values set on one element will be transferred down the tree to that element's children.
-+ Not every property is inherited, but many are.
+
++ Not every property is inherited, but many are, e.g., the layout properties (margin, padding, position, width, etc.) and the decorative properties (border, background, etc.)
+
++ Inheritance can be explicitly leveraged.
+
++ Reducing repetition in CSS rules and make project easier to maintain by smartly leveraging
+
++ No reliable rule for which CSS properties are inheritable by default and which are not
+
++ Generally, the properties associated with positioning and layout are not inherited. Likewise, the decorative properties (borders, background images, etc.) do not inherit.
+
++ Most properties that begin with text- or font- inherit.
 
 
 
 ### CSS Precedence
 
-Rules:
++ [Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#precedence)
+  + most CSS properties are orthogonal to one another
+  + organize the CSS properties in rules in ways that make sense to developers
+  
++ [Guidelines](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#precedence) to resolve conflicting rules
+  1. Most specific rule
+    + A more specific rule takes precedence over a less specific rule.
+    + A rule that more tightly matches a particular element than a general rule will be applied.
+    + e.g., `ul li span {color: red;}` > `span {color: blue;}`
+  2. #id selector is the most specific
+    + an id selector (e.g. #someid) considered more specific than rules without
+  3. .class selector is more specific than a tag selector
+    + a class selector (e.g. .someclass) are considered more specific than rules without except for the id selector
+  4. Rules that come later override those that come earlier
+    + guideline for two CSS rulesets with the same selector
 
-1. __inline > style/css file__: inline css ( html style attribute ) overrides css rules in style tag and css file
-2. __specific > less-specific__: a more specific selector takes precedence over a less specific one
-3. __later > earlier__: rules that appear later in the code override earlier rules if both have the same specificity.
-4. __`!important`__ highest: A css rule with `!important` always takes precedence.
+
++ [Rules](https://stackoverflow.com/questions/25105736/what-is-the-order-of-precedence-for-css):
+
+  1. __inline > style/css file__: inline css ( html style attribute ) overrides css rules in style tag and css file
+  2. __specific > less-specific__: a more specific selector takes precedence over a less specific one
+  3. __later > earlier__: rules that appear later in the code override earlier rules if both have the same specificity.
+  4. __`!important`__ highest: A css rule with `!important` always takes precedence.
 
 
-Four categories which define the [specificity level](https://www.w3schools.com/css/css_specificity.asp) of a selector:
++ Four categories which define the [specificity level](https://www.w3schools.com/css/css_specificity.asp) of a selector:
 
-1. __Inline styles__ - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
-2. __IDs__ - An ID is a unique identifier for the page elements, such as `#navbar`.
-3. __Classes, attributes and pseudo-classes__ - This category includes `.classes`, `[attributes]` and pseudo-classes such as `:hover`, `:focus` etc.
-4. __Elements__ and __pseudo-elements__ - This category includes element names and pseudo-elements, such as `h1`, `div`, `:before` and `:after`.
+  1. __Inline styles__ - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
+  2. __IDs__ - An ID is a unique identifier for the page elements, such as `#navbar`.
+  3. __Classes, attributes and pseudo-classes__ - This category includes `.classes`, `[attributes]` and pseudo-classes such as `:hover`, `:focus` etc.
+  4. __Elements__ and __pseudo-elements__ - This category includes element names and pseudo-elements, such as `h1`, `div`, `:before` and `:after`.
 
-[selector's specificity calculation](https://www.w3.org/TR/selectors-3/#specificity):
++ [selector's specificity calculation](https://www.w3.org/TR/selectors-3/#specificity):
 
-+ count the number of ID selectors in the selector (= a)
-+ count the number of class selectors, attributes selectors, and pseudo-classes in the selector (= b)
-+ count the number of type selectors and pseudo-elements in the selector (= c)
-+ ignore the universal selector
+  + count the number of ID selectors in the selector (= a)
+  + count the number of class selectors, attributes selectors, and pseudo-classes in the selector (= b)
+  + count the number of type selectors and pseudo-elements in the selector (= c)
+  + ignore the universal selector
 
-  Examples:
+    + Examples:
+      <pre style="border: none; font-family: 'Courier New'; font-weight: bold;">
+        *               /* a=0 b=0 c=0 -> specificity =   0 */
+        LI              /* a=0 b=0 c=1 -> specificity =   1 */
+        UL LI           /* a=0 b=0 c=2 -> specificity =   2 */
+        UL OL+LI        /* a=0 b=0 c=3 -> specificity =   3 */
+        H1 + *[REL=up]  /* a=0 b=1 c=1 -> specificity =  11 */
+        UL OL LI.red    /* a=0 b=1 c=3 -> specificity =  13 */
+        LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
+        #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
+        #s12:not(FOO)   /* a=1 b=0 c=1 -> specificity = 101 */
+      </pre>
 
-  ```ssh
-  *               /* a=0 b=0 c=0 -> specificity =   0 */
-  LI              /* a=0 b=0 c=1 -> specificity =   1 */
-  UL LI           /* a=0 b=0 c=2 -> specificity =   2 */
-  UL OL+LI        /* a=0 b=0 c=3 -> specificity =   3 */
-  H1 + *[REL=up]  /* a=0 b=1 c=1 -> specificity =  11 */
-  UL OL LI.red    /* a=0 b=1 c=3 -> specificity =  13 */
-  LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
-  #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
-  #s12:not(FOO)   /* a=1 b=0 c=1 -> specificity = 101 */
-  ```
+
 
 ## Color Properties
 
