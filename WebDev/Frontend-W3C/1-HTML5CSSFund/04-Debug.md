@@ -153,6 +153,13 @@ Use this screenshot for the questions below:
 
 ### Activity - Debugger
 
+Using your favorite browser, navigate to [Wikipedia.org](https://www.wikipedia.org/). Using the developers tools, change the title and header of the page to "My Wikipedia" and change the background to light green.
+
+(Hint: use "Inspect" or "Inspect Element").
+
+In another browser window, open up [Wikipedia.org](https://www.wikipedia.org/). Does it look like the one you've modified? Why or why not? Did you just break Wikipedia for the rest of the world?
+
+Ans: the change on `<title>` only display on the browser tab not the contents. Meanwhile there is not header in text but in image.  We cannot change anything on image.  The question supposed is designed for old version of the page. When add background color to `<body>`, the page background color changed to the specified color.
 
 
 ## 4.3 Debugging and the CSS box model
