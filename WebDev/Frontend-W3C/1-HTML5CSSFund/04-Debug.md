@@ -537,6 +537,63 @@ That looks better: [Result Code](src/4.4.3-Cloud3.html)
 
 ### Shrinking text
 
+For this section you can play with the [CodePen](http://codepen.io/w3devcampus/pen/wdxegK) below. The main content is an outline for an essay and it should look something like [this](src/4.4.4-Shrink.html).
+
+As with the cloud pictures, we want the listed items a bit smaller than the regular text, so we add this styling:
+
+```css
+section {
+  font-size: 24px;
+}
+section h1 {
+  font-size: 28px;
+}
+li {
+  font-size: 0.5em;
+}
+```
+
+The outermost level is fine, the next level is almost readable but the innermost level is ridiculously small.  Let's check what's wrong in the debugger.
+
+
+#### Computed tab
+
+Looking into the style settings in the chrome browser debugger, at first glance we don't see anything unusual.  The font-size is .5em as expected.  One odd thing is that below the user agent stylesheet panels is the over-ridden font-size setting identical to the current one, i.e. .5em on `<li>` elements.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/4bc228e91d0f414eb80c9bdcf3fdf356/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%401e671f9dbfc44419a801bb40d931d8f0">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/957741ff82f21e9c2fd51da53e4e1aef/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/P21.png" style="margin: 0.1em;" alt="Debugging font-size" title="Debugging font-size" width=450>
+  </a></div>
+</div>
+
+
+The styles panel doesn't tell us a lot about the actually font-size in absolute terms.  To determine that we can use the "Computed" tab. 
+
+The "Computed" tab contains the values of all the CSS properties that apply to the current element.  There are a lot of them, and they're listed in alphabetical order.  Since the computer considers the character '-' as coming before 'a' in the alphabet, the first thing you'll see is a long list of properties starting with '-webkit'.  We're going to scroll down past those to "font-size" which reveals this:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/4bc228e91d0f414eb80c9bdcf3fdf356/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%401e671f9dbfc44419a801bb40d931d8f0">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a9e8e8f2500f14bd7d7232bb7f1aa78e/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/P22.png" style="margin: 0.1em;" alt="Debugging font-size" title="Debugging font-size" width=250>
+  </a></div>
+</div>
+
+
+This tells us that the font-size on the innermost list item is only 3px.  No wonder it's unreadable!
+
+When we click on the triangle we can expand the details on font-size, which makes a little more clear what's going on.  We see that the font-size on the body is 24px, but there are several repetitions of the li .5em.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/4bc228e91d0f414eb80c9bdcf3fdf356/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%401e671f9dbfc44419a801bb40d931d8f0">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/88e9ed6b414690f10dd08d5d21819359/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/P39.png" style="margin: 0.1em;" alt="Computed tab for font-size" title="Computed tab for font-size" width=250>
+  </a></div>
+</div>
+
+
+If we look at the next outer list item, we see that the font-size is 6px, and the one outside of that is 12px.  This doubling makes it clear what's happening.  Each nested `<li>` element has a font-size 1/2 the size of its parent, because the em unit is relative measurement, depending on the current font-size.
+
+Now that we know what's happening, we can fix it in a few different ways.  We could use an absolute unit like px or pt, but a better solution would be rem.  This would make the size relative to the html font-size (the default font-size for the page), not to it's surroundings.
+
+
 
 
 ### Recipe project - Module 4
