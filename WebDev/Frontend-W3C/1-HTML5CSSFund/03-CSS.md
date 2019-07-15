@@ -1651,3 +1651,66 @@ Source code for the next four questions:
 
 ### CSS properties (12-15)
 
+
+12. Underline with CSS
+
+  Which CSS property will let you apply an underline to the text of an element?
+
+  Ans: `text-decoration` <br/>
+  Explanation: The `text-decoration` property will let you apply an underline to an element.
+
+
+13. Underline property values
+
+  The property that applies an underline accepts which of the values below  (select all that apply - 3 correct answers!)
+
+  1. underline
+  2. italic
+  3. overline
+  4. line-through
+  5. bold
+  6. red
+
+  Ans: 134 <br/>
+  Explanation: The property that can apply an underline is text-decoration and three of its possible values appear above: `underline`, `overline`, and `line-through`
+
+
+14. Which color?
+
+  Examine the HTML and accompanying CSS below.
+
+  ```html
+  <p id="opening-paragraph" class="dorothea">Miss Brooke had that kind of beauty 
+  which seems to be thrown into relief by poor dress.</p>
+  ```
+
+  ```css
+  #opening-paragraph { color: blue; }
+  .dorothea { color: red; }
+  ```
+
+  With which color will the paragraph appear on the page?
+
+  1. green
+  2. blue
+  3. red
+  4. black (the default)
+
+  Ans: 2 <br/>
+  Explanation: An id selector (#opening-paragraph) takes precedence over a class selector (.dorothea).
+
+
+15. For which is CSS an acronym?
+
+  For which is CSS an acronym?
+
+  1. Canvas Styling System
+  2. Cascading Style Sheets
+  3. Control and Show Symbolic language
+  4. Color Size Selectors
+
+  Ans: 2
+
+
+
+
