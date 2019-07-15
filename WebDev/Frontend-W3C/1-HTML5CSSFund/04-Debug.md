@@ -595,8 +595,17 @@ Now that we know what's happening, we can fix it in a few different ways.  We co
 
 
 
-
 ### Recipe project - Module 4
+
+We are now going to do some more "beautifying" of our Web page using what we've learned in the debugger and the CSS box model to figure out where and what we need to change to tighten things up a bit and add a little more flair.
+
+Try to make changes to get something like [this](src/4.4.5-Project.html).
+
+Use the debugger to experiment with settings of margins, padding and borders, to figure out what needs to change to eliminate some of the gaps between elements and the side of the window and frame the images.
+
+If you'd like to see what we did for the module 3, you can find it [here](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7c96010a1f16e016801677c17f103d1a/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/recipe-project-week-3v.zip) or in the CodePen below.
+
+[Response Code](src/4.4.5-Recipe.html)
 
 
 
