@@ -376,11 +376,49 @@ Improvement steps:
   padding: 5px;
   ```
 
-Though not perfect, the Web page looks a bit better now, with more space and a frame around each picture! See the [resulting]() CodePen below:
+Though not perfect, the Web page looks a bit better now, with more space and a frame around each picture! See the [resulting](src/4.3.5-BirdsResult.html) CodePen.
 
 
 
 ### Activity - Rectangles
+
+Create a simple Web page with some rectangles distinguished by their background color so you can see them.  You can create the rectangles using spans and/or divs, and explicitly setting the width and height.  They need to have some content or else they'll be of size 0, so you need to put some text or at least an &nbsp; inside, but then you should be able to adjust the height and width using CSS.
+
+In your browser's debugger, try modifying the padding, border and margin settings using the arrow keys to modify numerical values so you can see how the changing number affects the element. Be sure to try border-radius and see if you can create a circle or oval.  Be sure to try out some other border attributes like style and color.  If you're feeling brave, you could even try [border-gradient](https://css-tricks.com/examples/GradientBorder/).
+
+For example, these lines of codes draw 2 rectangles:
+
+```html
+<!DOCTYPE html>
+  <html lang="en">
+ 
+    <head>
+      <meta charset="UTF-8">
+      <title>Activity - Rectangles</title>
+      <style>
+        #first{
+          background-color: blue;
+          width: 250px;
+          height: 100px;
+         }
+        #second{
+         border: 5px solid red;
+         width: 50px;
+         height: 200px;
+         }
+      </style>
+   </head>
+ 
+   <body>
+      <div id="first"></div>
+      <div id="second"></div>
+   </body>
+</html>
+```
+
+... and the associated [CodePen](https://codepen.io/w3devcampus/pen/qPNYbJ) gives the resulting displayed image:
+
+[Sample Result code](src/src/4.3.6-Rectangles.html)
 
 
 
