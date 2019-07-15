@@ -426,6 +426,18 @@ For example, these lines of codes draw 2 rectangles:
 
 ### CSS precedence
 
+As we learned in the last module, in order for the computer to decide which of several rules may apply to a given element in a particular context, there is a well defined "precedence" to define which rule should apply. Theoretically, we should be able to always figure out which rule applies by using the precedence rules, but in practice, it can be quite complicated, especially when conflicting rules are in different .css files.
+
+Nevertheless, that can cause problems when you have different rules that could apply to the same element. Consider the [example](src/4.4.1-Precedence.html)
+
+Looking at the style rules we see there are three different possibilities for the size and color of an `<h1>` element. In this case the application of the rules seems pretty intuitive. The outermost heading is neither in a Article or a Section, so it is blue and largest of the three. The one that's in the Article, but not in the section is black and of medium size.
+
+Finally, the heading in the section is the smallest and shows up as grey.
+
+Your intuition may be thinking along these lines - "section h1" is more specific than "article h1" or "h1", and therefore it takes precedence resulting in smaller gray text.  However, when you re-arrange the rules you get a different [result](src/4.4.1-PrecedenceH1.html).
+
+What happened? To answer that question, we'll turn to the browser's debugger.
+
 
 
 ### Debugging CSS precedence
