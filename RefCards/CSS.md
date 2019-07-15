@@ -759,7 +759,7 @@
   </tr>
   <tr>
     <td>line-height</td>
-    <td>height of the space</td>
+    <td>height of the space; the one that makes the area given to each line of text larger or smaller, without changing the actual size of the individual characters themselves</td>
     <td>&lt;number&gt;</td>
     <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#line-height">Common</a></td>
   </tr>
