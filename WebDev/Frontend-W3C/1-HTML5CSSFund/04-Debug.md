@@ -264,6 +264,26 @@ Using these three settings in combination provides quite a bit of flexibility in
 
 ### Debugging with the box model
 
+In any browser's debugger, you will see a box model diagram. It looks like this:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/063b584da882baac3e39e088c4c9dc80/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/Screen_Shot_2016-03-08_at_8.19.27_PM.png" style="margin: 0.1em;" alt="image of a CSS Box Model" title="image of a CSS Box Model" width=350>
+  </a></div>
+</div>
+
+
+This is an example of a diagram of the box model information for a selected element.  
+The innermost box gives the dimensions of the element, outside of that is the padding, then the border around which is the margin.  On each side of each corresponding rectangle is the width in pixels of that side, with "-" when it is 0 (essentially non-existent).  Also, when you hover over one of the rectangles, that portion of element is highlighted on the rendered page, so you can see exactly where the margin, the border, the padding and the element are.
+
+So, in the example above:
+
++ the centered blue box corresponds to the size of the inspected element: width is 536 pixels and height is 118 pixels
++ padding is only defined by padding-left which value is 40 pixels
++ there is a border of 5 pixels on each side
++ margin-left and margin-right are undefined (default value is 0 pixel)
++ margin-top and margin-bottom are equal to 16 pixels
+
 
 
 ### Box model
