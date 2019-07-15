@@ -332,6 +332,52 @@ So, in the example above:
 
 ### Activity - Birds
 
+Let's see what we can do to improve the look of the following [Web page](src/4.3.5-BirdsOrigin.html) (this [CodePen](https://codepen.io/w3devcampus/pen/ybvXqd)) showing various sea birds common to the San Francisco Bay Area.
+
+First, the pictures and names are a little cramped, it would be good to have some space there. It would also be helpful to have some vertical space between the pictures. Finally, it would look nicer with some sort of frame around the pictures. We'll start by examining the box model measurements of the images in the browser's debugger.
+
+In the case of our birds page, when we select one of the images: the box model diagram shows us that margin, padding and border are all 0:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f3cb82f487e8498fcf2a11aa344e5e61/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/box-model-0.png" style="margin: 0.1em;" alt="Box model showing an inspecting element of 500.00 x 332.812" title="Box model showing an inspecting element of 500.00 x 332.812" width=350>
+  </a></div>
+</div>
+
+
+Improvement steps:
+1. First, we'll add some space between the names and pictures of each bird.  For that we'll want to use a margin, particularly on the left:
+
+  ```css
+  img {margin-left: 1rem;}
+  ```
+
+2. To increase the vertical space, we can add a margin on the top of each img:
+
+  ```css
+  margin-top: 3rem;
+  ```
+
+3. The placement of the words at the very bottom of each picture is a bit awkward as well.  We can improve that by moving each image down using a negative bottom margin:
+
+  ```css
+  margin-bottom: -1rem;
+  ```
+
+4. Next, we can add a frame around it.  Using a border, provide a simple frame around each picture:
+
+  ```css
+  border: 5px solid navy;
+  ```
+
+4. Finally, to make the border a little more "frame" like, we can add some padding to separate the border from the image itself:
+
+  ```css
+  padding: 5px;
+  ```
+
+Though not perfect, the Web page looks a bit better now, with more space and a frame around each picture! See the [resulting]() CodePen below:
+
 
 
 ### Activity - Rectangles
