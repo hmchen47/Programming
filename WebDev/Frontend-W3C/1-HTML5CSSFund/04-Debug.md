@@ -486,6 +486,53 @@ We could fix it by just making sure things are in the right order (which is impo
 
 ### Cloud images
 
+We're working on a Web page about clouds in the CodePen below, and we have some beautiful pictures we'd like to use: one for the top of the page, and others as examples of different types of clouds.  We include the pictures but the result is unwieldy.
+
+[Sample Code](https://codepen.io/w3devcampus/pen/ybqbwJ)
+
+When you see the pictures, the text is so small it's unreadable.  Clearly we have a solution for this.  We can just specify the width of <img> elements.  We can use the debugger to try different sizes, modifying it in the "Styles" panel and we decide on this:
+
+```css
+img {
+   width: 10rem;
+}
+```
+
+Giving a much [more reasonable page](src/4.4.3-Cloud2.html).
+
+So far so good, but we want our top image to be a bit bigger without changing the other images.  Recall  that an <img> tag includes a width attribute, so we can special case this image accordingly in the HTML code:
+
+```css
+<img alt="Clouds" width=500 src="images/clouds.jpg">
+```
+
+We look at our page again, and it hasn't changed!  Time to try the debugger again.
+
+
+#### Debugging image size
+
+We open up the debugger and choose the `<img>` tag corresponding to our first picture, then we see this in the Styles section:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/4bc228e91d0f414eb80c9bdcf3fdf356/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%401e671f9dbfc44419a801bb40d931d8f0">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0ee32d3cac4d313f1c9e641721d3f26a/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/clouds-1.png" style="margin: 0.1em;" alt="Img width precedence in debugger" title="Img width precedence in debugger" width=250>
+  </a></div>
+</div>
+
+
+The specialized width setting that we added as an img attribute isn't quite the same as setting the style.  Any style setting for the img width will take precedence over the attribute setting, so our img settings intended for the other images will change that one too.  You could fix this by adding an inline "style" setting, but that's generally discouraged.  It's better to sit back and think for a moment.  The images below are in a list, and we want smaller pictures there so we can scan the list easily.  The banner picture at the top should be big for more visual impact.  One reasonable way to address this would be to special case the smaller pictures, and use a larger width by default.  This would recognize that we really want small images when they are list elements, otherwise they should be bigger.  So we can change our code like this:
+
+```css
+img {
+   width: 25rem;
+}
+li img {
+   width: 10rem;
+}
+```
+
+That looks better: [Result Code](src/4.4.3-Cloud3.html)
+
 
 
 ### Shrinking text
