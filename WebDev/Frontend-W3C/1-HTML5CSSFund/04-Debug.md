@@ -612,7 +612,6 @@ If you'd like to see what we did for the module 3, you can find it [here](https:
 ### Recipe Project - Module 4
 
 
-
 ## 4.5 Exercises - Module 4
 
 ### CSS box model (1-14)
