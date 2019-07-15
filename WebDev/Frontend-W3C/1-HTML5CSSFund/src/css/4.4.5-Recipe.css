@@ -2,11 +2,13 @@
 body {
     font-size: 1.2rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
 }
 
 h1 {
     background-color: #4c6d48;
     text-align: center;
+    margin: 0px;
 }
 
 h2 {
@@ -18,10 +20,16 @@ nav {
     background-color: lightgreen;
 }
 
+nav ul {
+    padding-left: 2em;
+}
+
 article {
     margin-left: 2em;
 }
 
 img {
     width: 350px;
+    border: 5px solid lightblue;
+    padding: 0.2em;
 }
