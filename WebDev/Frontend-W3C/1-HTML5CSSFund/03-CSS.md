@@ -1440,14 +1440,14 @@ Source code for the following question (1):
 
   The CSS rules in the code above are not correctly displaying. Please identify all the errors: (select all that apply - 5 correct answers!)
 
-  1. The CSS selector `#subtitle` is incorrect. It should be `.subtitle` <br/>
-  2. `<css>` is not a valid tag <br/>
-  3. The CSS selector `.swann-way` is incorrect. It should be `#swann-way` <br/>
-  4. No element has the class of subtitle. This prevents one of the CSS rules from working <br/>
-  5. The CSS selector `h` is incorrect. It should be `.h` <br/>
-  6. `pm` is not a valid unit <br/>
-  7. `h3.h` is reversed, it should be `h.h3`. <br/>
-  8. font-base is not a valid CSS property <br/>
+  1. The CSS selector `#subtitle` is incorrect. It should be `.subtitle`
+  2. `<css>` is not a valid tag
+  3. The CSS selector `.swann-way` is incorrect. It should be `#swann-way`
+  4. No element has the class of subtitle. This prevents one of the CSS rules from working
+  5. The CSS selector `h` is incorrect. It should be `.h`
+  6. `pm` is not a valid unit
+  7. `h3.h` is reversed, it should be `h.h3`.
+  8. font-base is not a valid CSS property
   9. larger is not an acceptable value for font-size
 
   Note that this question is worth 5 points!
@@ -1505,14 +1505,14 @@ Source code for the following question (1):
 
   Which of the following are valid CSS units? (select all that apply - 6 correct answers!)
 
-  1. `vh` <br/>
-  2. `px` <br/>
-  3. `pix` <br/>
-  4. `perc` <br/>
-  5. `em` <br/>
-  6. `rem` <br/>
-  7. `sem` <br/>
-  8. `%` <br/>
+  1. `vh`
+  2. `px`
+  3. `pix`
+  4. `perc`
+  5. `em`
+  6. `rem`
+  7. `sem`
+  8. `%`
   9. `vw`
 
   Ans: 125689
@@ -1552,10 +1552,10 @@ Source code for the following question (7):
 
   Which is the most likely cause of this problem?
 
-  1. `li { font-size: .5em; }` <br/>
-  2. `ul > li { font-size: 14px; }` <br/>
-  3. `li { font-size: .5rem; }` <br/>
-  4. `ul li { font-size: 14px; }` <br/>
+  1. `li { font-size: .5em; }`
+  2. `ul > li { font-size: 14px; }`
+  3. `li { font-size: .5rem; }`
+  4. `ul li { font-size: 14px; }`
   5. `li { margin-top: 10%; }`
 
   Ans: 1 <br/>
@@ -1565,11 +1565,88 @@ Source code for the following question (7):
   And so on.
 
 
-
-
 ### CSS selectors (8-11)
 
+Source code for the next four questions:
 
+```html
+<body>
+  <h1>Birds and Not Birds</h1>
+  <h2>A compendium of flying and not flying things</h2>
+  <p>While walking through the woods with my daughter she asked me <q>Papa, what kind of bird is that?</q> and was pointing to an <a href="#ok">oesterkirche</a>. (A huge one!)</p>
+  <p>I told her its name and explained that while an oesterkirche flies like a bird and eats bugs and worms (<sup><a href="#footnote">*</a></sup>) like a bird, it is not, in fact, a bird. This lead us to a discussion of other flying things that might or might not be birds, and birds that don't fly. Here is our list:</p>
+   <ul>
+     <li class="bird">penguin</li>
+     <li class="bird flying">hawk</li>
+     <li class="flying">oesterkirche</li>
+     <li class="insect flying">butterfly</li>
+     <li class="bird">ostrich</li>
+     <li class="insect flying">wasp</li>
+     <li class="bird flying">sparrow</li>
+     <li class="insect">ant</li>
+    </ul>
+  
+  <hr>
+  <p id="footnote">(*) - Does anyone know exactly what oesterkirche eat? Don't they also eat fish?</p>
+  <img id="ok" src="oesterkirche.jpg" alt="scary oesterkirche, don't get close!">
+</body>
+```
+
+8. CSS selectors
+
+  Which of the following assertions are true about the code above? (select all that apply - 2 correct answers!)
+
+  1. `li { color: red; }` will make all the list items red
+  2. `p > * { font-weight:bold; }` will make the three paragraphs, the quotation and the list bold faced
+  3. `.insect.flying {list-style-type: square; }` would put a square marker to the left of the _wasp_ and _butterfly_ list items
+  4. `.insect { font-style:italic; }` would italicize the ant list item and no others
+  5. `p > a {color: orange; }` would make both links orange
+
+  Ans: ac <br/>
+  Explanation: The first rule will turn all `<li>` red. The second rule will only turn the HTML elements included in a paragraph: the element between `<q>` and `</q>` and the two links. The third rule will affect only list items with class "insect" and "flying" together: the wasp and butterfly items. The fourth rule will italicize all items with the "insect" class: three of them, not only the ant list item. The last rule will only turn orange the link that is directly in a paragraph: the first one, not the second one. Here is a [JsBin with the running code](http://jsbin.com/laleram/edit?html,css,output).
+
+
+9. Headings
+
+  Pretend you have a rule that needs to be applied to both headings. What selector would you use?
+
+  Ans: `h1,h2` or `h2,h1` or `h1, h2` or `h2, h1`; x class; x comma separate selector <br/>
+  Explanation: Use a comma (,) to apply the same rule set to a variety of selectors.
+
+  ```css
+  h1, h2 {
+      color: blue;
+  }
+  ```
+
+
+10. List items
+
+  If you need to apply a rule to the hawk and the sparrow list items, what selector would you write?
+
+  Ans: `.bird.flying` or `.flying.bird` or `li.bird.flying` or `li.flying.bird`
+  Explanation: If you examine the code you'll see that the entries for hawk and sparrow both have the flying class as well as the bird class, and they are the only two that have both classes. So the solution is to make a selector that selects for both: `.flying.bird`
+
+  ```css
+  .flying.bird {
+      color: red;
+  }
+  ```
+
+
+11. Links
+
+  There is a rule that must be applied to the link to the #footnote, and not the other link. Please provide a selector:
+
+  Ans: `sup a` or `sup>a` or `sup` or `sup > a` or `sup> a` or `sup >a` or `p sup a` or `p sup>a` or `p sup > a` or `p > sup a` or `p > sup>a` or `p > sup > a` or `p>sup a` or `p>sup>a` or `p>sup > a` <br/>
+  Explanation: If you examine the two links (`<a>`) in the code above, you'll notice that one of them is in the paragraph (`<p>`) while the one that links to the #footnote is nested in a `<sup>` block. <br/>
+  So, a descendent selector can be used to uniquely select the `<a>` inside the `<sup>: sup a` or perhaps: `sup > a`
+
+  ```css
+   sup a { 
+    color: green;
+  }
+  ```
 
 
 ### CSS properties (12-15)
