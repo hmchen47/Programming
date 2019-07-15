@@ -296,6 +296,38 @@ So, in the example above:
 
 ### Knowledge checks
 
+<div>
+<h3 style="margin-left: -5rem; background: lightblue; z-index: -100;">What is my margin?</h3>
+</div>
+
+1. Likely setting?
+
+  The blue banner above should say "What is my margin?", though some of it may be obscured.
+
+  Assuming the margin-right, margin-top and margin-bottom are 0, what is the likely setting for margin-left? (choose the best answer)
+
+  1. 5%
+  2. 5rem
+  3. -5rem
+  4. 0
+  
+  Ans: 3 <br/>
+  Explanation: Since the box is further to the left than it should be (likely overlapping another element) margin-left must be negative, and there's only one answer for which that's true.
+
+
+2. Which of these would you set?
+
+  If you wanted to move the banner to the right instead of the left, which of these would you set? (choose the best answer)
+
+  1. margin-bottom:
+  2. margin-left:
+  3. margin-top:
+  4. margin-right:
+
+  Ans: 2 <br/>
+  Explanation: Changing the right margin essentially changes the width of the element, but changing the left margin changes where it starts. To 'move' the element either left or right, you need to set the left margin.
+
+
 
 
 ### Activity - Birds
