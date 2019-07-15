@@ -1409,6 +1409,162 @@ If you'd like to see what we did for Module 2, you can find it [here](src/2.5.7-
 ### CSS rules (1-7)
 
 
+Source code for the following question (1):
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <css>
+       .swann-way { font-size: 2pm; }
+       h { font-base: monospace; }
+       h3.h { font-size: larger; }
+       #subtitle { color: blue; }
+    </css>
+  </head>
+  <body>
+    <h1 id="swann-way" class="h">Swann's Way</h1>
+    <h2 id="subtitle" class="h">Remembrance of Things Past, Volume One</h2>
+    <author>By Marcel Proust</author>
+    <h3 class="h">Overture</h3>
+    <p>For a long time I used to go to bed early. Sometimes, when I had put out my
+    candle, my eyes would close so quickly that I had not even time to say <q>I'm 
+    going to sleep.</q></p>
+   </body>
+</html>
+```
+
+1. Error identification
+
+  Examine the HTML and CSS above. It has several problems.
+
+  The CSS rules in the code above are not correctly displaying. Please identify all the errors: (select all that apply - 5 correct answers!)
+
+  1. The CSS selector `#subtitle` is incorrect. It should be `.subtitle` <br/>
+  2. `<css>` is not a valid tag <br/>
+  3. The CSS selector `.swann-way` is incorrect. It should be `#swann-way` <br/>
+  4. No element has the class of subtitle. This prevents one of the CSS rules from working <br/>
+  5. The CSS selector `h` is incorrect. It should be `.h` <br/>
+  6. `pm` is not a valid unit <br/>
+  7. `h3.h` is reversed, it should be `h.h3`. <br/>
+  8. font-base is not a valid CSS property <br/>
+  9. larger is not an acceptable value for font-size
+
+  Note that this question is worth 5 points!
+
+  Ans: 23568, x23468
+
+
+2. External parent
+
+  What tag will let you bind an external .css file to a parent .html file?
+
+  Ans: `link` or `<link>` <br/>
+  Explanation: `<link>` is the tag that will let you include an external style sheet.
+
+  ```html
+  <link href="my_stylesheet.css" rel="stylesheet">
+  ```
+
+3. CSS in HTML
+
+  What tag will let you place CSS code directly into an HTML file?
+
+  Ans: style or `<style>`<br/>
+  Explanation: `<style>` or `style` <br/>
+  The `<style>` tag will let you put CSS directly into an HTML document.
+
+  ```html
+  <style>
+      p { color: blue; }
+  </style>
+  ```
+
+4. Cramped lines
+
+  You have a long paragraph of text. You have already adjusted the font-size and are happy with it. But the lines of text in the paragraph are simply too cramped and you want to space them out more.
+
+  What CSS property should you use to make the text less cramped?
+
+  Ans: line-height <br/>
+  Explanation: While the `font-size` property will make the text larger, the line-height property is the one that makes the area given to each line of text larger or smaller, without changing the actual size of the individual characters themselves.
+
+
+5. More space, please
+
+  Your `<article>` contains several paragraphs of text (`<p>`). You want more space between the individual paragraphs.
+
+  What CSS property should you use to put more space between the paragraphs?
+
+  Ans: margin or margin-top or margin-bottom or margin: or margin-top: or margin-bottom <br/>
+  margin or margin-top or margin-bottom or margin: or margin-top: or margin-bottom <br/>
+  Explanation: Your "go to" property when needing to adjust positioning should always be margin. In this situation, simply adjusting the top or bottom margins ( margin-top margin-bottom) would suffice.
+
+
+6. Valid CSS units
+
+  Which of the following are valid CSS units? (select all that apply - 6 correct answers!)
+
+  1. `vh` <br/>
+  2. `px` <br/>
+  3. `pix` <br/>
+  4. `perc` <br/>
+  5. `em` <br/>
+  6. `rem` <br/>
+  7. `sem` <br/>
+  8. `%` <br/>
+  9. `vw`
+
+  Ans: 125689
+
+
+Source code for the following question (7):
+
+```html
+<ul>
+  <li>birds
+    <ul>
+      <li>flying
+        <ul>
+          <li>hawk</li>
+          <li>sparrow</li>
+        </ul>
+      </li>
+      <li>flightless
+        <ul>
+          <li>penguin</li>
+          <li>ostrich</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>bugs
+    [ ... MORE BUGS ... ]
+  </li>
+</ul>
+```
+
+7. Which is the cause of this problem?
+
+  Your page contains a nested list, an excerpt of which is above.
+
+  However, there is a problem. Each more deeply nested item is smaller than the parent. The most deeply nested items (like hawks, sparrows, penguins and ostrich) are so small as to be unreadable.
+
+  Which is the most likely cause of this problem?
+
+  1. `li { font-size: .5em; }` <br/>
+  2. `ul > li { font-size: 14px; }` <br/>
+  3. `li { font-size: .5rem; }` <br/>
+  4. `ul li { font-size: 14px; }` <br/>
+  5. `li { margin-top: 10%; }`
+
+  Ans: 1 <br/>
+  Explanation: The em unit is used to size text relative to the parent text. So in the case of nested lists, if the list items have font-size: .5em; then the outermost list items are half the font size of the main page. <br/>
+  But the second level in are half the size of that, because they are half the size of their parent (which are already half sized). So that second level is a quarter size. <br/>
+  And the third nested level is half again, so only 12% of the original page font size. <br/>
+  And so on.
+
+
 
 
 ### CSS selectors (8-11)
