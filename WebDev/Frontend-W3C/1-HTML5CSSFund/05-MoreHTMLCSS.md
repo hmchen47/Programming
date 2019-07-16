@@ -614,10 +614,10 @@ The 'nth-child' selector matches every element that is the nth child of the tabl
 tr:nth-child(3n) { background-color: grey; }
 ```
 
-will make the every third list item grey.
-
-[Sample Code](src/5.2.4-Table7.html)
-
+solidm grey.
+solid
+solidl)
+solid
 
 #### hover to highlight
 
@@ -696,6 +696,57 @@ Try the code above in an HTML editor and view the output. The border spacing pro
 
 ### Activities - Tables
 
+1. Create a simple 3x3 table with the first row containing header cells. You may choose not to add any styling including border. 
+2. Create the following table with same cell content:
+
+  <table style="font-family: arial,helvetica,sans-serif;" align="center" border="1" cellpadding="5" cellspacing="0">
+  <tbody>
+    <tr style="font-weight: bold;">
+      <td style="text-align: center;">Attribute</td>
+      <td style="text-align: center;">Description</td>
+      <td style="text-align: center;">Usage</td>
+    </tr>
+    <tr>
+      <td>src</td>
+      <td>Used to specify the URL of the image</td>
+      <td>src=“images/test.png"</td>
+    </tr>
+    <tr>
+      <td>alt</td>
+      <td>Used to specify replacement text for the image</td>
+      <td>alt=“Test image for HTML5 course”</td>
+    </tr>
+  </tbody>
+  </table>
+
+3. Create the following table structure using HTML and CSS following the style as closely as possible noting table border, colors, etc. Insert dummy text values for table.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/5854bfc005394517ae62fc55fd58242e/83268eeaa4bf474e9aca8dcfb3f02da1/4?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40e121ad32033442f9a8580c8f3f1edbb5">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/29bf635c377d4a265529ec8ecc838ec7/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/table-activity-2.PNG" style="margin: 0.1em;" alt="Tables activity example 2" title="Tables activity example 2" width=350>
+    </a></div>
+  </div>
+
+4. Create the following table structure using HTML and CSS following the style as closely as possible noting table border, colors, etc. Make the table cover the entire width of the screen. Insert dummy text values for the table.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/5854bfc005394517ae62fc55fd58242e/83268eeaa4bf474e9aca8dcfb3f02da1/4?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40e121ad32033442f9a8580c8f3f1edbb5">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/df7e23ac8107fee9c284e3d9f5976ea2/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/table-activity-1.PNG" style="margin: 0.1em;" alt="Tables activity example" title="Tables activity example" width=350>
+    </a></div>
+  </div>
+
+5. Find a table used in a real Web page whose table body can be scrolled. 
+6. Create a simple hover to highlight table that makes the background color of a row 'yellow' when you hover over a table row. 
+
+__Note__: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
+
++ JS Bin: http://jsbin.com ([JS Bin tutorial](http://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843))
++ CodePen: http://codepen.io ([CodePen tutorial](https://css-tricks.com/video-screencasts/112-using-codepen/))
+
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, realtime remote pair programming.
+
+
+[Sample Code](src/5.2.6-Tables.html)
 
 
 
