@@ -161,7 +161,7 @@ There are two types of cells in a table - header and standard. <th> creates tabl
 <table style="font-family: arial,helvetica,sans-serif;" auto="" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
 <tbody>
   <tr>
-    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attributes for &lt;th&gt;</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attributes for &lt;th&gt;</td>
     <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Purpose</td>
     <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Usage</td>
     <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Output</td>
@@ -225,7 +225,7 @@ With these tags we can create a simple table.
 <table style="font-family: arial,helvetica,sans-serif;" auto="" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
 <tbody>
   <tr>
-    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attributes for &lt;td&gt;</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attributes for &lt;td&gt;</td>
     <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Purpose</td>
     <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%">Usage</td>
     <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Output</td>
@@ -424,6 +424,179 @@ True or False? By specifying the header, body and footer for the table, you can 
 
 ### Styling your table
 
+We now know how to put a basic table together. However, the tables we have looked at so far could really use some work in terms of how they look.
+
+Here, we will look at some useful CSS elements to style your table. All examples below are using CodePen. Each CodePen has three tabs - Result, HTML and CSS. Make sure to view each tab to get the HTML and CSS code for examples. You are also welcome to modify the code for each example by clicking on 'Edit on CodePen' on the top right corner of the CodePen (click on "RUN" when you completed your changes).
+
+
+#### border
+
+Though `border` is a valid attribute of the table element, it is best specified in CSS. It is a shorthand property meaning you can set several CSS properties simultaneously.
+
+The CSS `border` property sets `border-width`, `border-style` and `border-color` in order:
+
+```css
+table { border: 1px solid black; }
+```
+
+<table style="font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="1" align="center" width=90%">
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #0021fd; color: #ffffff; width: 10%">Property Value</td>
+    <td style="text-align: center; background-color: #0021fd; color: #ffffff; width: 40%">Possible values</td>
+  </tr>
+  <tr>
+    <td>border-width</td>
+    <td>thin, medium, thick, in pixels</td>
+  </tr>
+  <tr>
+    <td>border-style</td>
+    <td>none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset</td>
+  </tr>
+  <tr>
+    <td>border-color</td>
+    <td>color name or color values, transparent</td>
+  </tr>
+  <tr>
+    <td>initial</td>
+    <td>sets the property to the default value. Defaults for width, style and color are 'medium none current-color-of-element'</td>
+  </tr>
+  <tr>
+    <td>inherit</td>
+    <td>inherits property from parent element</td>
+  </tr>
+</tbody>
+</table>
+
+To give a border to `<table>`, `<th>` and `<td>`:
+
+```css
+table, th, td { border: 1px solid black; }
+```
+
+[Sample Code](5.2.4-Table1.html)
+
+
+#### border-collapse
+
+We gave a border to the table, table-header and table-data above. This creates two borders creating a double line. In order to collapse them all into a single border, we use the `border-collapse` CSS property:
+
+```css
+table { border-collapse: collapse; }
+```
+
+Possible values of this property are:
+
++ `separate` - default value where borders are detached like in the example above
++ `collapse` - border are collapsed into a single border
++ `initial` - sets to default value (separate)
+
+[Sample Code](src/5.2.4-Table2.html)
+
+
+#### Table width and height
+
+Browsers automatically set the width and height for the rows and columns for your table based on the content in your cells. Cells with most content usually set the height and width of all cells adjacent to themselves.
+
+With CSS, you can also explicitly set the dimensions of your cells. Width and height can be specified in:
+
++ units of length like pixels, percentage - relative to the table width, etc
++ auto: the browser will calculate and select a width for the specified element (default value)
+
+It also supports initial (sets property to default value) and inherit (from parent element).
+
+`width`/`height` of `<td>` of one cell will not only affect that cell but the whole column/row. If two cells in one column/row have different widths/heights specified, the larger value is set.
+
+[Sample Code](src/5.2.4-Table3.html)
+
+
+#### text-align
+
+This property is used to align the text of `<th>` and `<td>` cells left, right or center (week 3 recap).
+
+Default:
+
++ `<th>` - center
++ `<td>` - left
+
+
+```css
+td { text-align: right;}
+```
+
+
+#### vertical-align
+
+This property is used to align the text of `<th>` and `<td>` cells top, bottom or middle.
+
+Default:
+
++ `<th>` - middle
++ `<td>` - middle
+
+```css
+th { vertical-align: top; }
+```
+
+
+#### padding
+
+Right now our table looks quite cramped. We use the `padding` property on `<th>` and `<td>` to provide some space between border and content in cell. It takes its value in units of length like px, cm, % - relative to parent container's width, etc.
+
+```css
+th, td { padding: 15px; }
+```
+
+This will add 15px space around the content on all sides.
+
+You can also apply different padding styles for four individual sides by using:
+
++ padding-top: th, td { padding-top: 15px; }
++ padding-right: th, td { padding-right: 25px; }
++ padding-bottom: th, td { padding-bottom: 35px; }
++ padding-left: th, td { padding-left: 45px; }
+
+Alternatively, `padding` can also be provided as a shorthand property where you can specify all four sides in one go:
+
+```css
+th, td { padding: 20px 30px 40px 50px; }
+```
+
+It is specified in the order: top, right, bottom and left padding.
+
+[Sample Code](src/5.2.4-Table4.html)
+
+
+#### border-spacing
+
+`border-spacing` specifies the distance between two cell borders in pixels. This is different from padding which is space between content in cell and border. It takes its value in units of length like px, cm, % - relative to parent container's width, etc. 
+
+It has the inherit property whose default value is 0.
+
+It takes two values for horizontal and vertical spacing. If only one value is provided, it is used for both horizontal and vertical spacing: 
+
+```css
+table { border-spacing: 25px 50px; }
+table, td, th (border-spacing: 25px; }
+```
+
+Some things to keep in mind:
+
++ If you try to provide spacing for only `<th>` and `<td>`, make sure there is space from the table border or you will not see a difference. 
++ You have to set - `table { border-collapse: separate; }` for it to take effect.
+
+[Sample Code](src/5.2.4-Table5.html)
+
+
+#### Side-borders
+
+The first property `border` will set a border to all four sides. You can also set borders to individual sides - top, right, bottom, left:
+
+```css
+th, td { border-right: 1px solid black; }
+```
+
+[Sample Code](src/5.2.4-Table6.html)
 
 
 
