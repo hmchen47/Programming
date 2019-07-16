@@ -719,6 +719,9 @@ Try the code above in an HTML editor and view the output. The border spacing pro
   </tbody>
   </table>
 
+
+  [Sample Code](src/5.2.6-Tables.html)
+
 3. Create the following table structure using HTML and CSS following the style as closely as possible noting table border, colors, etc. Insert dummy text values for table.
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -726,6 +729,8 @@ Try the code above in an HTML editor and view the output. The border spacing pro
       <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/29bf635c377d4a265529ec8ecc838ec7/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/table-activity-2.PNG" style="margin: 0.1em;" alt="Tables activity example 2" title="Tables activity example 2" width=350>
     </a></div>
   </div>
+
+  [Sample Code](src/5.2.6-Tables3.html)
 
 4. Create the following table structure using HTML and CSS following the style as closely as possible noting table border, colors, etc. Make the table cover the entire width of the screen. Insert dummy text values for the table.
 
@@ -735,7 +740,9 @@ Try the code above in an HTML editor and view the output. The border spacing pro
     </a></div>
   </div>
 
-5. Find a table used in a real Web page whose table body can be scrolled. 
+  [Sample Code](src/5.2.6-Tables4.html)
+
+5. Find a table used in a real Web page whose table body can be scrolled.
 6. Create a simple hover to highlight table that makes the background color of a row 'yellow' when you hover over a table row. 
 
 __Note__: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
@@ -745,8 +752,6 @@ __Note__: If you wish to share your HTML code in the discussions, you can paste 
 
 These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, realtime remote pair programming.
 
-
-[Sample Code](src/5.2.6-Tables.html)
 
 
 
