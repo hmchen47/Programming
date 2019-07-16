@@ -40,7 +40,98 @@ Putting this all together to form a coherent Web page with the addition of CSS p
 
 ### Introduction to tables
 
+Using tables to organize information goes back a ways.  A long ways. Three or four thousand years ago, Sumerians were using [tables to calculate compound interest](http://www.storyofmathematics.com/sumerian.html).  Even so, tables are not obsolete, in fact HTML5 includes extensive facilities for describing/building tables. 
 
+Tables are used to arrange data in tabular format - rows and columns of cells. You can put a variety of data like text, images, forms, links and even other tables in your table.
+
+You may hear experienced Web developers decrying the use of tables, giving the impression that tables should be avoided at all costs.  It might seem off-putting at first, but they're not really talking about using tables for tabular information.  In earlier days, when layout options were limited, many developers resorted to tables as a means of layout.  There's really no need to do that anymore, there are plenty of layout capabilities in CSS3.  You really don't want to use tables that way, but there absolutely nothing wrong with using them for their intended purpose - making tables.
+
+
+#### Separating content and style
+
+Look at [this site](http://create.adobe.com/) that is laid out with CSS. You might be tempted to do this via tables instead. Or you might want to just make your whole Web page into one big table: site header in a table row, left navigation bar on the second row, left column, etc.
+
+Bad idea! Here's why:
+
++ They are semantically incorrect for layout because they represent presentation and not content.
++ It puts presentation data in your content making your HTML larger. The user must download this unnecessary presentation data for every page they visit.
++ Accessibility: tables are not very screen reader friendly. Using tables for layout will clutter your HTML making it harder for assistive technology to parse your Web page.
++ Redesigns are harder when your HTML is cluttered with presentational code that should go into CSS. To change the layout of the page, you shouldn't be editing your content. Instead, you should just have to make CSS related changes.
++ Using CSS (one or two external stylesheets for your whole Web site) is easier to maintain consistency among pages.
+
+Tables were not intended as a layout tool, so it is best to stick to them only for tabular data.
+
+
+#### Table elements
+
+Here is a list of all the  table elements we will be learning in this section:
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1px solid black" align="center" width=50%>
+  <tbody>
+    <tr>
+      <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Type</td>
+      <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Element</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>&lt;table&gt;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>&lt;caption&gt;</td>
+    </tr>
+    <tr>
+      <td>Row groups</td>
+      <td>&lt;thead&gt;, &lt;tfoot&gt;, &lt;tbody&gt;</td>
+    </tr>
+    <tr>
+      <td>Column groups</td>
+      <td>&lt;colgroup&gt;, &lt;col&gt;</td>
+    </tr>
+    <tr>
+      <td>Table row</td>
+      <td>&lt;tr&gt;</td>
+    </tr>
+    <tr>
+      <td>Table cells</td>
+      <td>&lt;th&gt;, &lt;td&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+We will use these elements to build our table as we go.
+
+#### The 'table' tag
+
+This tag defines a table in HTML5.
+
+Attribute:
+
+border - has two values, 0 and 1. It is used to specify a border around table cells. 0 - no border, 1 - add border. 0 also suggests that it is a layout table.
+Other attributes have been deprecated as the same can be achieved through CSS.
+
+```css
+<table border=1></table>
+```
+
+The code above will not provide any major visual change to your website yet because we don't have any cells defined.
+
+Note: Though there is an attribute for border, the table elements should be styled using CSS. You can use the CSS border property to do that instead. 
+
+#### 'caption' tag
+
+It is used to give a title to the table and should be used as the first child element of <table>. It can be used to provide more context to the table if its content is ambiguous. As a summary of the table content, a caption can also be helpful for people who have difficulty understanding the content or use assistive technology.
+
+```html
+<table border=1>
+  <caption>
+    <p>Table 1.0</p>
+    <p>Student's final exam results 2016</p>
+  </caption>
+</table>
+```
+
+[Sample Code](src/5.2.1-Table.html)
 
 
 ### The tr, th, td, colgroup, col tags
