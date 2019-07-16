@@ -120,7 +120,7 @@ Note: Though there is an attribute for border, the table elements should be styl
 
 #### 'caption' tag
 
-It is used to give a title to the table and should be used as the first child element of <table>. It can be used to provide more context to the table if its content is ambiguous. As a summary of the table content, a caption can also be helpful for people who have difficulty understanding the content or use assistive technology.
+It is used to give a title to the table and should be used as the first child element of `<table>`. It can be used to provide more context to the table if its content is ambiguous. As a summary of the table content, a caption can also be helpful for people who have difficulty understanding the content or use assistive technology.
 
 ```html
 <table border=1>
@@ -136,6 +136,184 @@ It is used to give a title to the table and should be used as the first child el
 
 ### The tr, th, td, colgroup, col tags
 
+Let's now create the most basic table with a few cells.
+
+#### 'tr' tag
+
+Creates a table row.
+
+#### 'th' tag
+
+There are two types of cells in a table - header and standard. <th> creates table header cells. The content of table header cells is bold and centered by default.
+
+```thml
+<table border=1>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+</table>
+```
+
+[Sample Code](src/5.2.2-th.html)
+
+
+<table style="font-family: arial,helvetica,sans-serif;" auto="" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attributes for &lt;th&gt;</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Purpose</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Usage</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Output</td>
+  </tr>
+  <tr>
+    <td>colspan</td>
+    <td>
+      <p>Specifies the number of cells you want that column to span (cover)</p>
+      <p>Possible values: positive integer number</p>
+    </td>
+    <td>&lt;th colspan="2"&gt;</td>
+    <td><a href="https://codepen.io/w3devcampus/pen/xXERVo" target="_blank">View example</a></td>
+  </tr>
+  <tr>
+    <td>rowspan</td>
+    <td>
+      <p>Specifies the number of cells you want the row to span (cover)</p>
+      <p>Possible values: positive integer number</p>
+    </td>
+    <td>&lt;th rowspan="2"&gt;</td>
+    <td><a href="https://codepen.io/w3devcampus/pen/WZGojz" target="_blank">View example</a></td>
+  </tr>
+  <tr>
+    <td>scope</td>
+    <td>
+      <p>Specifies if a header cell is the header for a row, column, rowgroup or colgroup</p>
+      <p>Possible values: row, col, rowgroup, colgroup, auto</p>
+    </td>
+    <td>&lt;th scope="row"&gt;</td>
+    <td><a href="https://codepen.io/w3devcampus/pen/YrGpEG" target="_blank">View example</a></td>
+  </tr>
+</tbody>
+</table>
+
+
+#### 'td' tag
+
+Creates table data (standard) cells. Content of table data cells is regular and left-aligned by default.
+
+With these tags we can create a simple table.
+
+```html
+<table border=1>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+  </tr>
+  <tr>
+    <td>Alexa</td>
+    <td>23</td>
+  </tr>
+  <tr>
+    <td>James</td>
+    <td>35</td>
+  </tr>
+</table>
+```
+
+[Sample Code](src/5.2.2-td.html)
+
+<table style="font-family: arial,helvetica,sans-serif;" auto="" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attributes for &lt;td&gt;</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Purpose</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%">Usage</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Output</td>
+  </tr>
+  <tr>
+    <td>colspan</td>
+    <td>
+      <p>Specifies the number of cells you want that column to span (cover)</p>
+      <p>Possible values: positive integer number</p>
+    </td>
+    <td>&lt;td colspan="2"&gt;</td>
+    <td><a href="https://codepen.io/w3devcampus/pen/zEKoRg" target="_blank">View example</a></td>
+  </tr>
+  <tr>
+    <td>rowspan</td>
+    <td>
+      <p>Specifies the number of cells you want the row to span (cover)</p>
+      <p>Possible values: positive integer number</p>
+    </td>
+    <td>&lt;td rowspan="2"&gt;</td>
+    <td><a href="https://codepen.io/w3devcampus/pen/PJGbeJ" target="_blank">View example</a></td>
+  </tr>
+  <tr>
+    <td>headers</td>
+    <td>Value is the 'id' of the &lt;th&gt; tag it corresponds to if any</td>
+    <td>&lt;tr&gt;<br>&nbsp; &lt;th id="header-id"&gt;<br>&lt;/tr&gt;<br>&lt;tr&gt;<br>&nbsp; &lt;td headers="header-id"&gt;<br>&nbsp; &lt;td headers="header-id"&gt;<br>&lt;/tr&gt;</td>
+    <td><a href="https://codepen.io/w3devcampus/pen/KXgNxr" target="_blank">View example</a></td>
+  </tr>
+</tbody>
+</table>
+
+
+#### The 'colgroup' and 'col' tags
+
+##### 'colgroup' tag
+
+This tag allows you to group columns in a table. Grouping columns is useful if you want to specify properties for a group of columns like applying styles to the whole column instead of repeating it for each cell.
+
+Attribute:
+
++ `span` - takes a positive integer value. It specifies the number of columns you want your colgroup to span (cover). The colgroup element shares its attributes like style and width with all the columns it spans.  Essentially it allows a single cell to stretch to cover multiple columns on a particular row.
+
+
+##### 'col' tag
+
+Used within `<colgroup>`, the `<col>` tag specifies the column property for each column within a colgroup. The only element a `<colgroup>` can contain is `<col>`.
+
+Attribute:
+
++ `span` - takes a positive integer value. It specifies the number of columns you want the col element to span (cover). 
+Consider the table above we created using `<tr>`, `<th>` and `<td>`. Let's say I want the 'name' column to be in green and the 'age' column to be orange. You need to use the `<colgroup>` and `<col>` tags to achieve styling effects specific to a column.
+
+```html
+<body>
+  <table border=1>
+    <colgroup>
+      <col span="1" style="background-color:green">
+      <col span="1" style="background-color:orange">
+    </colgroup>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>Alexa</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>James</td>
+      <td>35</td>
+    </tr>
+  </table>
+</body>
+```
+
+[Sample Code](src/5.2.2-tdColor.html)
+
+#### Knowledge check 5.2.1
+
+Which of the following tags will you use to add cells to the table header?
+
+  1. < head >
+  2. < td >
+  3. < th >
+  4. < tr >
+
+  Ans: 3<br/>
+  Explanation: th is for table header. th cell's content is bolded and centered by default.
 
 
 
