@@ -866,6 +866,75 @@ Around the second list item below, 'Oranges', there are: a 2px border, paddings 
 ### Debugging (18-25)
 
 
+18. Finding CSS rules
+
+  True or False? While it’s possible to examine html elements in the debugger, it is impossible to see CSS Rules.
+
+  Ans: False <br/>
+  Explication: You can definitely see CSS rules, either by looking at the source or by using the right pane (the one with tabs like 'Rules', or 'Styles' or 'Computed')
+
+
+19. CSS properties
+
+  True or False? You can use the debugger (or inspector) to see the computed CSS properties, and you can also see rules that have been overridden by more specific rules.
+
+  Ans: True <br/>
+  Explication: The debugger has a "Computed" tab which shows the computed value of each property, and under the "Styles" or "Rules" tab, overridden rules are listed with strike-through lines through them.
+
+
+20. Debugger
+
+  Which of the following can be modified in the debugger? (Select all that apply, there are 4 correct answers!)
+
+  1. the color of text on your Web page
+  2. background image of your Web page
+  3. background of your desktop on the machine you're using
+  4. text content of an element
+  5. class and id attributes
+
+  Ans: 1245
+
+
+21. Multiple elements selection
+
+  True or False? Using the settings in the right pane, it is possible to select multiple different, unrelated elements and change them all at once.
+
+  Ans: False <br/>
+  Explanation: While you cannot select an arbitrary set of elements, you can modify settings of groups of elements indicated by tag or class.
+
+
+22. Color settings
+
+  True or False? When in the debugger, if you change color settings for a Web site you are visiting, other people will see the changes, allowing you to effectively hack any Web site.
+
+  Ans: False <br/>
+  Explication: While you can make changes that will be visible in your debug session, they won't be reflected elsewhere, even in other browser windows on the same machine.
+
+
+23. Named colors
+
+  True or False? Using the debugger, I can find all the named colors that start with 'c'.
+
+  Ans: True <br/>
+  Explication: Thanks to completion of property names and values, if you modify a color, typing 'c' will show all of the color choices that start with 'c'.
+
+
+24. CSS changes
+
+  True or False? I can use the debugger to make CSS changes, but I can't otherwise affect HTML elements.
+
+  Ans: False <br/>
+  Explication: Making changes in the larger left pane allows me to edit attributes, reorder elements, add or delete elements or make arbitrary changes to the HTML code.
+
+
+25. Inline style settings
+
+  True or False? It is possible to override style settings associated with a specific tag type and 'id', like 'article#first', using the 'styles' tab in the rightpanel.
+
+  Ans: True <br/>
+  Explication: Modifications in the top box of the Styles pane are equivalent to (and mirrored by) inline style settings, which take precedence over other CSS settings.
+
+
 
 
 
