@@ -7,5 +7,14 @@ table {
 }
 
 th, td {
-  padding: 0.2em;
+  padding: 0.3em;
 }
+
+thead, tfoot {
+  background-color: antiquewhite;
+}
+
+tbody {
+  background-color: floralwhite;
+}
+
