@@ -202,20 +202,20 @@ There are many other shortcuts to learn, but this one is fairly common.  To draw
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ebbf5b8bead6014e108c5be1df38d824/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/boxmodel.jpg" style="margin: 0.1em;" alt="text" title="caption" width=250>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ebbf5b8bead6014e108c5be1df38d824/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/boxmodel.jpg" style="margin: 0.1em;" alt="Illustration of CSS Box Model" title="Illustration of CSS Box Model" width=250>
   </a></div>
 </div>
-Illustration of CSS Box Model
+
 
 The margin, as we learned earlier, specifies the position of the element relative to whatever is adjacent to it, either to the right or left, or top or bottom.  The margin is always transparent, and each side can be set individually.  The unique thing about the margin is that the values for any of the sides can be negative, even if that means that it overlaps with another element on the page.  This can be useful when you want to control where an element is placed on a page.  In the following pictures, the black rectangles encompass the content:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d96a4d58ef317a49b577ad255625f642/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/P25.png" style="margin: 0.1em;" alt="text" title="caption" width=150>
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/98a468c9a83a1abe03d657270e298813/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/P26.png" style="margin: 0.1em;" alt="text" title="caption" width=150>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d96a4d58ef317a49b577ad255625f642/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/P25.png" style="margin: 0.1em;" alt="0 margin" title="0 margin" width=150>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/98a468c9a83a1abe03d657270e298813/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/P26.png" style="margin: 0.1em;" alt="positive and negative margins" title="positive and negative margins" width=150>
   </a></div>
 </div>
-0 margin positive and negative margins
+
 
 On the left, we see three blocks with no margins between them. On the right are the same 3 blocks, but now block 2 has a positive margin-left, creating space between blocks 1 and 2.  Block 3 has a negative margin-left, causing its left side to overlap with block 2.
 
@@ -268,12 +268,13 @@ In any browser's debugger, you will see a box model diagram. It looks like this:
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/063b584da882baac3e39e088c4c9dc80/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/Screen_Shot_2016-03-08_at_8.19.27_PM.png" style="margin: 0.1em;" alt="image of a CSS Box Model" title="image of a CSS Box Model" width=350>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/063b584da882baac3e39e088c4c9dc80/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/Screen_Shot_2016-03-08_at_8.19.27_PM.png" style="margin: 0.1em;" alt="image of a CSS Box Model" title="image of a CSS Box Model" width=250>
   </a></div>
 </div>
 
 
 This is an example of a diagram of the box model information for a selected element.  
+
 The innermost box gives the dimensions of the element, outside of that is the padding, then the border around which is the margin.  On each side of each corresponding rectangle is the width in pixels of that side, with "-" when it is 0 (essentially non-existent).  Also, when you hover over one of the rectangles, that portion of element is highlighted on the rendered page, so you can see exactly where the margin, the border, the padding and the element are.
 
 So, in the example above:
@@ -297,7 +298,7 @@ So, in the example above:
 ### Knowledge checks
 
 <div>
-<h3 style="margin-left: -5rem; background: lightblue; z-index: -100;">What is my margin?</h3>
+<h3 style="margin-left: -3rem; background: lightblue; z-index: -100;">What is my margin?</h3>
 </div>
 
 1. Likely setting?
@@ -340,7 +341,7 @@ In the case of our birds page, when we select one of the images: the box model d
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f3cb82f487e8498fcf2a11aa344e5e61/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/box-model-0.png" style="margin: 0.1em;" alt="Box model showing an inspecting element of 500.00 x 332.812" title="Box model showing an inspecting element of 500.00 x 332.812" width=350>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f3cb82f487e8498fcf2a11aa344e5e61/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/box-model-0.png" style="margin: 0.1em;" alt="Box model showing an inspecting element of 500.00 x 332.812" title="Box model showing an inspecting element of 500.00 x 332.812" width=250>
   </a></div>
 </div>
 
