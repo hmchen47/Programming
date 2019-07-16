@@ -316,9 +316,102 @@ Which of the following tags will you use to add cells to the table header?
   Explanation: th is for table header. th cell's content is bolded and centered by default.
 
 
-
 ### The thead, tbody and tfoot tags
 
+Similar to an HTML document, a table in HTML can be split into header, body and footer. We use these three tags - `<thead>`, `<tbody>` and `<tfoot>` - to specify parts of a table.
+
+It is very useful to define parts of a table as header, body and footer because once browsers are able to identify which cells are header and footer, the body can be allowed to scroll independently of header and footer catering to a good table viewing experience in small screens. This is one such example. Apart from this, these elements can also be used to style header, body and footer rows individually using CSS.
+
+
+#### 'thead' tag
+
+Just like how we use `<colgroup>` to group columns, `<thead>` is used to group the header content in a HTML table. 
+
+As we learned in the previous unit, header cells are specified using `<th>` as a child of `<tr>`. Rows specified within `<thead>` indicate that they are header rows. See the code below:
+
+```html
+<thead style="color:white">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+  </tr>
+</thead>
+```
+
+
+#### 'tbody' tag
+
+Following `<thead>`, subsequent rows are considered body rows in a table. Regular cells are specified using `<td>` as a child of `<tr>`:
+
+```html
+<tbody>
+  <tr>
+    <td>Alexa</td>
+    <td>23</td>
+  </tr>
+  <tr>
+    <td>James</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>Trisha</td>
+    <td>23</td>
+  </tr>
+</tbody>
+```
+
+
+#### 'tfoot' tag
+
+The footer is the last to be specified and rows within `<tfoot>` are considered footer rows at the end of a table:
+
+```html
+<tfoot>
+  <tr>
+    <td>3 Unique Name</td>
+    <td>2 Unique Ages</td>
+  </tr>
+</tfoot>
+```
+
+Putting it all together:
+
+```html
+<table border=1>
+  <colgroup>
+    <col span="1" style="background-color:green">
+    <col span="1" style="background-color:orange">
+  </colgroup>
+  <thead style="color:white">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alexa</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>James</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>Trisha</td>
+      <td>23</td>
+    </tr>
+  </tbody>
+  <tfoot style="font-style: italic;">
+    <tr>
+      <td>3 Unique Names</td>
+      <td>2 Unique Ages</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+[Sample Code](src/5.2.3-tbody.html)
 
 
 
