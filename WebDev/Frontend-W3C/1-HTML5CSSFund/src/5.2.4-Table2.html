@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Styling your table</title> 
+  <style>
+    table.no-collapse, th.no-collapse, td.no-collapse 
+    {
+      border: 1px solid black; 
+    }
+    
+    table.collapse
+    {
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+<table class="no-collapse">
+    <tr><th class="no-collapse">Names</th><th class="no-collapse">Age</th></tr>
+    <tr><td class="no-collapse">Michael</td><td class="no-collapse">21</td></tr>        
+</table>
+<br>
+<table class="collapse">
+    <tr><th class="no-collapse">Names</th><th class="no-collapse">Age</th></tr>
+    <tr><td class="no-collapse">Michael</td><td class="no-collapse">21</td></tr>        
+</table>
+</body>
+</html>
+
