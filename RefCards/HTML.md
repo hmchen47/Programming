@@ -15,7 +15,8 @@
 + <p style="color: darkred; font-weight: 900;"><a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#javascript">Javascript</a></p>
   + The actions a page can take such as interaction with the user, and customizing and changing the page according to any number of parameters
   + Allow a Web page to be more than just a document, but potentially a Web application, with nearly unlimited possibilities
-  + 
+
+
 
 ### Template
 
@@ -165,6 +166,22 @@
 + Always declare the language of your page in the `<html>` tag
 
 
+### Debugging
+
++ [Two opposite directions](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#identifying-html5-elements) correspond to an element
+  + HTML5 code written and want to find out where on the Web page that code shows up
+  + given a particular part of the page, what part of your code produced it
+
++ [Browsers Developer tool](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#modifying-html5-elements)
+  + F12 or right click on mouse bu selecting `Inspect`
+  + mouse hovers over an element -> highlight the corresponding element on the displayed page
+  + ability to make temporary modifications to your code to try out different things and see what works the way you want it to
+  + make style changes in the "Styles" panel, or use the "Computed" panel to see the values for each property and how they were determined
+  + click on an element in your HTML5 source code to change the source code
+  + add a "style" attribute to a particular element, which should override any other settings
+  + 
+
+
 
 ## Element, Tag & Attribute
 
@@ -182,6 +199,8 @@
 #### Definition and Characteristics of Elements
 
 + The pieces themselves, i.e. a paragraph is an element, or a header is an element, even the body is an element
+
++ [Elements](/WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#identifying-html5-elements): the intangible parts of your Web page, described by the text in tags and rendered on the screen of whatever device you're looking at your Web page with
 
 + Tree structure:
   + parent element: an element wholely containing any given element (except for the outermost 'html' element)
@@ -1604,6 +1623,10 @@ Web Components is an HTML-related technology which makes it possible to, essenti
   + decorative images
 
 + Images used for decoration or presentation purposes should have an empty value for alt. `<img alt="">`
+
++ The alt attribute is meant to be an alternate source of information while the title attribute should provide additional information about the image.
+
++ 
 
 
 ### List of Attributes for Image Element

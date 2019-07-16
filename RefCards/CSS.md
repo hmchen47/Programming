@@ -98,6 +98,8 @@
 
 + [WC3 complete list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html)
 
++ [Web Accessibility Evaluations Tools List](https://www.w3.org/WAI/ER/tools/)
+
 
 ## Usage
 
@@ -223,11 +225,55 @@
 
 ## Accessibility
 
++ [Accessibility](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#accessibility): designing Web page with various disabilities in mind
+
 + Guidelines
   + not too small on font size
   + not too tight on line height
   + good color contrast for foregrounbd and background
   + not irregularly space text or make it jump around
+
+
+## Debugging
+
++ [Programming languages](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging)
+  + Javascript: procedure programming
+  + HTML and CSS: declarative
+
++ Every browser is a bit different, but most of them have ways to examine the various elements and their properties.
+
++ [Box Model](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-with-the-box-model)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/063b584da882baac3e39e088c4c9dc80/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/Screen_Shot_2016-03-08_at_8.19.27_PM.png" style="margin: 0.1em;" alt="image of a CSS Box Model" title="image of a CSS Box Model" width=250>
+    </a></div>
+  </div>
+
+  + the centered blue box corresponds to the size of the inspected element: width is 536 pixels and height is 118 pixels
+  + padding is only defined by padding-left which value is 40 pixels
+  + there is a border of 5 pixels on each side
+  + margin-left and margin-right are undefined (default value is 0 pixel)
+  + margin-top and margin-bottom are equal to 16 pixels
+
++ [CSS Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#4-4-debugging-css-precedence)
+  + "Styles" and "Computed" are helpful in sorting out where a particular style setting is coming from
+  + a sequence of the panels under "Style" that helps understand just where a particular CSS rule is coming from
+  + from top, rules applied specifically to the currently active element
+  + overridden rule shown as striked out ones
+  + default ruke: grayed out tules
+
++ [Image Size](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-image-size)
+  + Any style setting for the img width will take precedence over the attribute setting.
+  + special case the smaller pictures and use a larger width by default
+
++ [Computed tab](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#computed-tab)
+  + The styles panel doesn't tell us a lot about the actually font-size in absolute terms. 
+  + The "Computed" tab contains the values of all the CSS properties that apply to the current element.
+  + click on the triangle to expand the details on font-size, which makes a little more clear what's going on
+  + the em unit is relative measurement, depending on the current font-size
+
+
 
 
 ## Selectors
@@ -1031,6 +1077,27 @@ See [Image Attributes][]
 
 
 ## Box Model
+
+### Model and Characteristics
+
++ [CSS Box Model](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#css-box-model)
+  + All elements in an html document end up being treated as rectangles somewhere in the window.
+  + 3 important spacing features
+    + Padding: just outside the content
+    + Border: go around the content and the padding
+    + Margin: specifies the position of the element relative to whatever is adjacent to it, either to the right or left, or top or bottom
+  + Padding separates the contents from the border.
+  + The border property has a lot more options than the padding or margin
+    + visible
+    + size, shape, color and style
+    + completely or partially transparent border
+    + color of the border to the color of the background
+  + Default border properties
+    + border-width (the size of your imaginary pen)
+    + border-style (dashed, dotted, solid, etc.)
+    + border-color (the color of your pen)
+  + Negative margin: overlap with another element on the page
+
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.w3.org/TR/CSS22/box.html">
