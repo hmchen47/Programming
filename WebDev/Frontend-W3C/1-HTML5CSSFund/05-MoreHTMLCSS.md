@@ -12,7 +12,19 @@
 
 ### Module 5 - Content
 
+5.1 __Introduction__: You will be combining HTML and CSS to create more complex pages.
 
+5.2 __Tables__: Tables can be a great way of organizing your content — learn when to use tables, and when to avoid them.
+
+5.3 __Multimedia__: Learn the best methods for including audio and video in your page.
+
+5.4 __Embedding content__: Learn about iframes and some advanced image tag attributes, ismap and usemap. Note: This section is optional material included for the curious. It will not appear on any graded question.
+
+5.5 __CSS tricks__: Here, we will introduce some next level methods for making awesome Web pages.
+
+5.5 __Recipe project__: Separate your CSS and HTML into their own files for cleaner, easier coding.
+
+5.6 __Exercises - Module 5__: Test your knowledge of this module's material.
 
 
 ### A world of possibilities
