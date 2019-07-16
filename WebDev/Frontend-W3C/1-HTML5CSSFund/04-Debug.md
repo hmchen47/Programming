@@ -807,6 +807,61 @@ Around the second list item below, 'Oranges', there are: a 2px border, paddings 
 ### CSS precedence (15-17)
 
 
+15. What color?
+
+  ```css
+  html, body { color: blue;  }
+  p          { color: black; }
+  #first     { color: green; }
+  ```
+
+  ```html
+  <p id="first" style="color: red">What color am I?</p>
+  ```
+
+  Given the code above, what would be the color of the text in the paragraph?
+
+  1. red
+  2. black
+  3. green
+  4. blue
+
+  Ans: 1 <br/>
+  Explanation: The more specific the rule, the higher the priority, so the inline style elements has the highest priority, making it red.
+
+
+16. So tall
+
+  Given the following CSS rules: (Enter number of pixels, but don't write any units, just the number)
+
+  ```css
+  box-sizing: content-box; 
+  border: 3px solid black; 
+  padding: 5px; 
+  padding-top: 10px; 
+  height: 100px; 
+  background: red;
+  ```
+
+  When it is rendered in the browser, how tall will the red part be?
+
+  Ans: 115 <br/>
+  Explanation: The content and the padding will have a red background. Since 'height' is the height of the content without padding, border or margin, when you add in the vertical padding, 10 for top and 5 for bottom, you get 115 pixels.
+
+
+17. Padding values
+
+  Which of the following are valid padding values? (Select all that apply - 3 correct answers!)
+
+  1. 3px;
+  2. -3em;
+  3. 3in;
+  4. 3mm;
+
+  Ans: 134 <br/>
+  Explanation: While it is possible to have negative margins, it is not possible to have negative padding.
+
+
 
 ### Debugging (18-25)
 
