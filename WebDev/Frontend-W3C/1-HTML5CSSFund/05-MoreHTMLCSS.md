@@ -599,9 +599,85 @@ th, td { border-right: 1px solid black; }
 [Sample Code](src/5.2.4-Table6.html)
 
 
+#### zebra table
 
-### Styling your table (continued)
+A zebra table has alternating colors for table rows making it easier to differentiate data between rows. You can specify which rows you want to differentiate using a different color. Typically, you apply this property to a set of even or odd table rows to created a striped effect. You can set odd or even rows a particular color and leave the other rows white (default color).
 
+```css
+tr:nth-child(even) { background-color: grey; }
+tr:nth-child(odd) { background-color: #ccff99; }
+```
+
+The 'nth-child' selector matches every element that is the nth child of the table or any parent element. Therefore,
+
+```css
+tr:nth-child(3n) { background-color: grey; }
+```
+
+will make the every third list item grey.
+
+[Sample Code](src/5.2.4-Table7.html)
+
+
+#### hover to highlight
+
+Using the hover property on your `<tr>`, you can mouse over rows in your table to highlight them in the color you specify. This is useful to help users differentiate data between rows.
+
+```css
+tr:hover {background-color: #ccff99; }
+```
+
+Hover over these tables: [Sample Code](src/5.2.4-Table8.html)
+
+
+#### overflow
+
+With padding, additional columns and rows, your table can easily grow rather big overflowing out of the `<div>` you had planned for your table in your Web page. You can use the CSS overflow property to resolve this. It has four values other than initial (sets the default value) and inherit (from parent element).
+
++ visible - Content that has overflowed is visible outside the parent element. Eg: Text in a box overflows outside box and is visible.
++ hidden - Content that has overflowed is hidden. This makes the overflowed content inaccessible.
++ scroll - Content that has overflowed is hidden but a scroll bar is added to make it accessible.
++ auto - Content that has overflowed is hidden but a scroll bar is automatically added to view hidden content.
+
+To address left and right edges of content, you can use overflow-x and to address top and bottom edges of content, you can use overflow-y.
+
+[Sample Code](src/5.2.4-Table9.html)
+
+
+#### In summary: a fancy table
+
+As a conclusion to this tables section, here is a complete table design: [Sample Code](src/5.2.4-Table0.html)
+
+Note: This table contains multi-line headers. You can find more information on the right way to design tables of different header types on this W3C [Tables Concepts](https://www.w3.org/WAI/tutorials/tables/) page.
+
+
+
+#### Knowledge check 5.2.3
+
+Source code for the following knowledge check:
+
+```css
+<style>
+ table, th, td { border: 1px solid black; border-spacing: 50px; }
+ table { border-collapse: collapse; }
+</style>
+```
+```html
+<table>
+ <tr><th>Names</th><th>Age</th></tr>
+ <tr><td>Michael</td><td>21</td></tr>
+</table>
+```
+
+Try the code above in an HTML editor and view the output. The border spacing property is supposed to create a space between two border cells. There should be a 50px space between table border and cell borders and between cell borders. In this example, that is not the case. Why?
+
+  1. table border is not set
+  2. border-collapse should be set to separate
+  3. border-spacing should not be specified in pixels
+  4. There is a syntax error in the code above
+
+  Ans: 2<br/>
+  Explanation: For border spacing to take effect, border-collapse must be set to 'separate'. Setting border-collapse to 'collapse' will merge cell and table borders into one so as to avoid double borders. Revisit the Border Spacing section in the 'Styling your table' unit.
 
 
 
