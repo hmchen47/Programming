@@ -329,8 +329,6 @@ So, in the example above:
   Explanation: Changing the right margin essentially changes the width of the element, but changing the left margin changes where it starts. To 'move' the element either left or right, you need to set the left margin.
 
 
-
-
 ### Activity - Birds
 
 Let's see what we can do to improve the look of the following [Web page](src/4.3.5-BirdsOrigin.html) (this [CodePen](https://codepen.io/w3devcampus/pen/ybvXqd)) showing various sea birds common to the San Francisco Bay Area.
@@ -621,6 +619,188 @@ If you'd like to see what we did for the module 3, you can find it [here](https:
 ## 4.5 Exercises - Module 4
 
 ### CSS box model (1-14)
+
+
+1. Rounded corners
+
+  What CSS property would you set to create rounded corners on a border?
+
+  Ans: border-radius or border-radius: <br/>
+  Explication: By default border-radius is 0, making the border a sharp rectangle. Values greater than 0 provide rounded borders. The higher the number, the more rounded the corners are..
+
+
+2. Too close for comfort
+
+  If an image is too close to the text next to it, what property is best to fix the problem?
+
+  Ans: margin or margin: or margin-left or margin-right or margin-top or margin-bottom or margin-left: or margin-right: or margin-top: or margin-bottom: <br/>
+  Explication: Margin controls spacing between elements. If your image element has a border, only margin will separate that border from whatever is next to it.
+
+
+3. Move it!
+
+  If you wanted to move an element up 10px (relative to the top of the page) by adjusting the margin, which side of the margin would you set?
+
+  Ans: margin-top or margin-top: or top <br/>
+  Explication: To move it up without moving it left or right, we need to isolate its top margin, and the property for that is margin-top.
+
+
+4. Border shorthand
+
+  ```css
+  border: 1px solid red;
+  ```
+
+  True or False? The code above is a shorthand way to set border-width, border-style and border-color.
+
+  Ans: True <br/>
+  Explication: This shorthand is often used because it contains the minimal information needed to create a border.
+
+
+5. Interchangeable?
+
+  True or False? Margin and padding are interchangeable.
+
+  Ans: False <br/>
+  Explication: Margin governs the spacing relative to other elements outside the border while padding is about the spacing of the contents relative to the inside of the border.
+
+
+6. Margin color
+
+  True or False? 'margin-color' is the correct property to set to change the color of the margin.
+
+  Ans: False <br/>
+  Explication: Margins are always transparent and there is no 'margin-color' property.
+
+
+7. Margin values
+
+  Which of the following are valid margin values? (select all that apply - 3 correct answers!)
+
+  1. 3px;
+  2. -3em;
+  3. 3rem;
+  4. 3ft
+
+  Ans: 123 <br/>
+  Explanation: Feet (ft) is not a valid unit in CSS.
+
+
+8. Left move
+
+  Which of the following would move an element 12 pixels to the left?
+
+  1. margin-left: -12px;
+  2. margin-left: 12px;
+  3. margin-right: -12px;
+  4. margin-right: 12px;
+
+  Ans: 1<br/>
+  Explication: Assuming that you're working with a left-to-right language, language, changing the left margin will adjust the placement of the element, while changing the right margin will affect what comes after that element.
+
+
+9. It doesn't move!
+
+  Suppose you're debugging an element on your page. You notice that if you increase padding-left, your content will move to the right, but if you increase padding-right, it doesn't move. Why?
+
+  1. The text is right aligned (text-align: right) so space added to the right affects the contents
+  2. The text is left aligned (text-align: left) so space added to the left affects the contents
+  3. The text is right aligned (text-align: right) so space added to the left affects the contents
+
+  Ans: 2<br/>
+
+
+#### Reference image 1A
+
+Use this image for the following 3 questions (10, 11 and 12):
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/37f15009345846f391d7ac4d5bf06520/32042e5f81d146bca42c442bae4bbb97/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%407f4f510d425e4a08a781f9911be2c29b">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/5bf305f7bed5052a9f6bb0b905b21b7c/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/quiz-1a.png" style="margin: 0.1em;" alt="This is the picture of a debugger panel highlighting the style of ul. It also shows the box model with the following parameters: margin-top and margin-bottom are 16px large ; there are no borders, the padding-left is 40px. The size of the inspected element is 100 x 180 pixels." title="Fig. 1A" width="400">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/0ef9039eacfcff0986158741b9105d38/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/quiz-1b.png" style="margin: 0.1em;" alt="This is the resulting image of the example showing 3 images of the same size in a bulleted list (ul). The image in the first bullet is inspected and it displays the following info.: img 100px x 56px" title="Fig. 1B" width="150">
+  </a></div>
+</div>
+
+10. Which CSS rule?
+
+  In reference image 1A above, assuming the original image files are all different sizes, can you guess which CSS rule is used?
+
+  1. body {width: 100px}
+  2. img {width: 100px}
+  3. ul {width: 100px}
+  4. li {width: 100px}
+
+  Ans: 2 <br/>
+  Explication: We can see from the second image that all the image widths are 100px, while setting the others would not restrict the image size.
+
+
+11. Padding-left
+
+  What is the padding-left on the ul element?
+
+  1. 40px
+  2. 40pt
+  3. Cannot tell from the info provided
+  4. 16px
+
+  Ans: 1 <br/>
+  Explanation: From the highlighting in the left panel, ul is currently selected. <br/>
+  From the box model diagram, we see that the padding-left is 40. The units in that diagram are in px, not pt.
+
+
+12. Height of each element
+
+  In reference image 1A, assuming there is no padding, margin or border on the li elements, what is the height of each element?
+
+  1. 180px
+  2. 60px
+  3. 56px
+
+  Ans: 2 <br/>
+  Explanation: From the box-model diagram, the contents of the ul element has a height of 180px. Since there are 3 li elements with no spacing around them, they must be 60px.
+
+
+
+#### Code for the following 2 questions (13 and 14)
+
+Reference code 1B
+
+Around the second list item below, 'Oranges', there are: a 2px border, paddings of 0 or 20px, and margins of 0, 20 or -20px.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/37f15009345846f391d7ac4d5bf06520/32042e5f81d146bca42c442bae4bbb97/2?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%400d180ba4472d4efbb4ee4205b1e39c35">
+    <img src="img/m04-01.png" style="margin: 0.1em;" alt="Reference code 1B" title="Fig. 1B" width="700">
+  </a></div>
+</div>
+
+13. Margin settings (choose the best answer)
+
+  Looking at padding and the margin, which settings for the margins of list item 2, Oranges, are consistent with reference code's result 1B above?
+
+  1. margin-left: 0; margin-right: 0; margin-top: -20px; margin-bottom: 0;
+  2. margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: -20px;
+  3. margin-left: 0; margin-right: 0; margin-top: 20px; margin-bottom: 0;
+  4. margin-left: -20px; margin-right: 0; margin-top: 0; margin-bottom: -20px;
+
+  Ans: 2 <br/>
+  border: 2px solid red; padding: 20px; padding-left: 0; padding-top: 0; margin: 0; margin-bottom: -20px; <br/>
+  Explanation: While you can't tell what the top and right margins are, you know the bottom must be negative and the left 0, and there's only one answer in which that is true. <br/>
+  The bottom of the rectangle has been pushed down so margin-bottom must be negative, i.e. pulling away from it's normal placement. When you account for the 2px border, the left side lines up with the other elements, so its margin must be 0.
+
+
+14. Padding settings (choose the best answer)
+
+  Looking at padding and the margin, which padding settings for list item 2, Oranges, are consistent with reference code's result 1B above?
+
+  1. padding-left: 20px; padding-right: 20px; padding-top: 0; padding-bottom: 20px;
+  2. padding-left: 0; padding-right: 20px; padding-top: 0; padding-bottom: 20px;
+  3. padding-left: 0; padding-right: 0; padding-top: 20px; padding-bottom: 20px;
+  4. padding-left: 20px; padding-right: 0; padding-top: 0; padding-bottom: 20px;
+
+  Ans: 2 <br/>
+  border: 2px solid red; padding: 20px; padding-left: 0; padding-top: 0; margin: 0; margin-bottom: -20px; <br/>
+  Explanation: We know the left and top must be 0 because those borders are right up against the content and there is only one choice in which that is true.
+
 
 
 
