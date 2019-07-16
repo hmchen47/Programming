@@ -200,7 +200,6 @@
     + [The tr, th, td, colgroup, col tags](05-MoreHTMLCSS.md#)
     + [The thead, tbody and tfoot tags](05-MoreHTMLCSS.md#)
     + [Styling your table](05-MoreHTMLCSS.md#)
-    + [Styling your table (continued)](05-MoreHTMLCSS.md#)
     + [Create a table](05-MoreHTMLCSS.md#)
     + [Activities - Tables](05-MoreHTMLCSS.md#)
 + 5.3 [Multimedia](05-MoreHTMLCSS.md#)
