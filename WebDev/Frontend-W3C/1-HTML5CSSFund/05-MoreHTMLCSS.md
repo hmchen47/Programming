@@ -414,6 +414,13 @@ Putting it all together:
 [Sample Code](src/5.2.3-tbody.html)
 
 
+#### Knowledge check 5.2.3
+
+True or False? By specifying the header, body and footer for the table, you can scroll these sections independent of each other.
+
+  Ans: True, xFalse<br/>
+  Explication: This is typically done when you want to display a large table in a small space. The body can be allowed to scroll independently of header and footer catering to a good table viewing experience in small screens. You can achieve this using pure CSS or JavaScript.
+
 
 ### Styling your table
 
