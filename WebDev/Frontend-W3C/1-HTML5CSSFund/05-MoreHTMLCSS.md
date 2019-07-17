@@ -1216,7 +1216,33 @@ The following table lists the `<track>` element's attributes:
 
 ### Activities - Multimedia
 
+1. Embed an audio file in an HTML page with the following requirements:
+  + Player has controls to play, pause, seek, etc.
+  + Audio must automatically start playing when page loads
+  + Audio must be muted when playback begins
 
+  [Sample code]()
+
+2. Create an HTML audio player that plays an audio file of your choice in Google Chrome, Internet Explorer and Mozilla Firefox. Use multiple sources if you have to.
+
+  [Sample code]()
+
+3. Create an HTML video player that plays a video file of your choice in Google Chrome, Internet Explorer and Mozilla Firefox. Use multiple sources if you have to.
+
+  [Sample code]()
+
+4. Create a WebVTT file for [this video](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/5315ef6081b631a89442c13f916325c2/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/cat__online-video-cutter.com_.mp4). Then embed this video in an HTML page with the captions you created.
+
+  [Sample code]()
+
+__Note 1:__ If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
+
++ JS Bin: http://jsbin.com ([JS Bin tutorial](http://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843))
++ CodePen: http://codepen.io ([CodePen tutorial](https://css-tricks.com/video-screencasts/112-using-codepen/))
+
+These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, realtime remote pair programming.
+
+__Note 2__: If you miss the "pizza cats" video already, don't worry! This video is extensively used in the next HTML5 courses: [HTML5 Coding Essentials and Best Practices](https://www.edx.org/course/html5-coding-essentials-w3cx-html5-1x-2) and [HTML5 Apps and Games](https://www.edx.org/course/html5-apps-games-advanced-techniques-w3cx-html5-2x))
 
 
 ## 5.4 Embedding content
