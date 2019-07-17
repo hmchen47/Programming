@@ -1384,6 +1384,129 @@ If you want to embed a video that can be viewed in full screen mode, which attri
 
 ### The ismap and usemap attributes
 
+__Important__: The attributes we will see in this unit - `ismap` and `usemap` are __image attributes__. Since they use the `<link>` tag, having learned hyperlinks, now would be a good time to explore them. Be sure to watch the video at the end of this unit. 
+
+Adding the `ismap` or `usemap` attributes to the `<img>` tag means that the picture is an image with clickable areas. Imagine a picture of a world map where different countries on the map can be clicked and it navigates to another page like the country's wikipedia page. Simply put, we say such an image is mapped. [Here is an example](http://html.cita.illinois.edu/text/map/map-example.php) of an image-map.
+
+
+#### The 'ismap' attribute
+
+```html
+<img src="images/logo.png" alt="ismap tutorial" ismap>
+```
+
+`ismap` is a __boolean attribute__ i.e. its value is either true or false. Thus, just the presence of the attribute indicates that it is a mapped image. To be more precise, we say it is a server-side image-map.
+
+An `<img>` tag with the src  and ismap attributes creates an image with the image source file and indicates it is a server-side image-map. How will your code know that if you click on a part of your image, i.e. 'Australia in a world map', it should navigate to the country's Wikipedia page? We need to create a map file with these details and then add the location of this map file using the anchor element. Here is a code sample:
+
+```html
+<a href="/ismap-image/ismap.cgi" target="_self">
+   <img src="images/logo.png" alt="ismap tutorial" ismap>
+</a>
+```
+
+Here, the `href` attribute points to the location of the map file. The `target` attribute indicates where the page it navigates to should open. '_self' will open in the same page whereas '_blank' will open it in a new tab or window. 
+
+`ismap` only works if the `<img>` tag is used within the anchor element like in the code above. This is important because without a link to the target map file, it has no idea what to do with your `ismap` specification.
+
+Let's look at how the code above works.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/5854bfc005394517ae62fc55fd58242e/2ccb5b1d17534407918e7f2d963617d9/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40fd6fc633e26d417290e6e78df5bb300d">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e9ac0c6a8e11be57f47e7b43dca6ffa3/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/2.4-ismap3.jpg" style="margin: 0.1em;" alt="Image illustrating how an image map works, how it processes mouse click coordinates using a map file that define target areas" title="Image illustrating how an image map works, how it processes mouse click coordinates using a map file that define target areas" width=350>
+  </a></div>
+</div>
+
+Let's go back to our world map example where clicking on different parts of the image will take you to a page about the country you clicked on. The map file <strong>'/ismap-image/ismap.cgi'</strong> defines target areas. We can define the image in terms of coordinates. When a user clicks on a part of the image, we can calculate the exact 'x' and 'y' coordinates of the image that was clicked. When the user clicks, the browser will consult with the map file on the server (specified in the anchor tag), by sending these mouse click coordinates to the server. Based on these coordinates, the map file will return the Web page it should navigate to, to the browser. 
+
+Read more about image maps [on wikipedia](https://en.wikipedia.org/wiki/Image_map). You might be inclined to assume an image map will only be used for an actual map. However, there are a lot more use cases for it. The [Atlas Magazine](http://www.atlasmagazine.com/win98r.html) is a good example.
+
+Try this: Navigate to the Atlas magazine and explore the header image with a 'laughing budha' like image. The image acts as a site navigator. Clicking on different parts of the image will bring you to different parts of the Web page. You can use image maps in many creative ways. 
+
+
+#### The 'usemap' attribute
+
+`usemap` is a lot like `ismap` and is more widely used. `ismap` deals with server-side image-maps whereas `usemap` deals with client-side image-maps. 
+
++ Server-side image-maps: use separate map files that have to be downloaded. They depend on the server for translating the request. They also create additional network traffic.
++ Client-side image-maps: reside within an HTML document. The browser takes care of the translation (translating mouse coordinates clicked to corresponding Web pages).
+
+Client-side maps are becoming increasingly popular. usemap is NOT of type boolean. It takes in the name of the map with a '#' character preceding it.
+
+```html
+<img src="navigator.jpg" alt="Pages in this Web site" usemap="#navigatormap">
+```
+
+Like `ismap`, `usemap` cannot be used by itself. In `ismap`, we used the anchor tag to specify the map file. In usemap, we use the `<area>` element as a child of `<map>` element to specify the coordinates and the page it should navigate to. The `usemap` value should match the map element's name or id attribute. 
+
+```html
+<img src="images/crossroads.jpg" alt="Crossroads" usemap="#navigatormap">
+<map name="navigatormap">
+  <area shape="rect" coords="0,0,195,439" href="https://en.wikipedia.org/wiki/Millery" alt="Millery">
+  <area shape="rect" coords="196,0,390,439" href="https://en.wikipedia.org/wiki/Nomeny" alt="Nomeny">
+</map>
+```
+
+`<map>` - defines a client-side image map and is used to create a relationship between the image and the map by matching the map name and usemap's value. It contains a set of area elements.
+
+`<area>` - defines the areas that can be clicked and the pages it should navigate to. Typically takes the shape of the area, coordinates of the area, URL of the page it should redirect to and the alt attribute (short description). 
+
+The `shape` attribute in the `<area>` tag has four values:
+
++ circle - The clickable area is a circle. You need to specify three coordinates. E.g. coords="89,52,6". The first two is the coordinate center of the circle and the last is the radius.
++ rect - The clickable area is a rectangle. You need to specify four coordinates. E.g. coords="0,0,195,439". This is the x & y coordinates of the top left corner and the x & y coordinates of the bottom right corner.
++ poly - The clickable area is a polygon of any number of sides. This shape is very flexible and takes as many pairs of coordinates as you need to form your polygon.  E.g. coords="277,85,322,87,275,173,269,138". The last set of coordinates can match the first set. If it doesn't, the browser will automatically match it for you to close the polygon.
++ default - The clickable area is the whole image.
+
+Read more about the [area tag here](https://www.w3.org/wiki/HTML/Elements/area).
+
+Here is a working example of usemap.
+
+```html
+<img src="images/crossroads.jpg" alt="Crossroads" usemap="#navigatormap">
+<map name="navigatormap">
+  <area shape="rect" coords="0,0,195,439" href="https://en.wikipedia.org/wiki/Millery" alt="Millery">
+  <area shape="rect" coords="196,0,390,439" href="https://en.wikipedia.org/wiki/Nomeny" alt="Nomeny">
+</map>
+```
+
+Result:
+
+Try this: Click on the left and right side of the images to check out how usemap works :) Remember to navigate back to the course!
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/5854bfc005394517ae62fc55fd58242e/2ccb5b1d17534407918e7f2d963617d9/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40fd6fc633e26d417290e6e78df5bb300d">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6b92cf65974c9fc413cb88abc50b5360/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/img-usemap.jpg" style="margin: 0.1em;" alt="Signpost in France. Select to find out more information about each town." title="Signpost in France. Select to find out more information about each town." width=250>
+  </a></div>
+</div>
+
+
+Note: If the `<img>` is inside an `<a>` or `<button>` element, clicking on it will be interpreted as clicking on the link or button and usemap will not work.
+
+
+#### 'ismap' & 'usemap' Attributes Activity
+
+To get a better understanding on the usemap attribute, edit this project on [CodePen](http://codepen.io/w3devcampus/pen/BROBwG/) shown below.
+
+[Sample code](src/5.4.2-IsmapUsemap.html)
+
+It showcases two image maps that can be used for page navigation with the areas mapped using 'rect' and 'poly' shapes. The coordinates were generated using an online image map generator tool.
+
+Experiment with it and try your own image map variations. 
+
+
+#### Knowledge check 2.5.4
+
+The map element's name or id attribute should match the ______ attribute's value.
+
+  1. ismap
+  2. coord
+  3. usemap
+  4. href
+
+  Ans: 3<br/>
+  Explanation: Usemap cannot be used by itself and should be associated with the map element. Matching the map element's name/id with the usemap attribute's value creates a relationship between the map and the image.
+
 
 
 
