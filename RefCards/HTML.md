@@ -29,7 +29,7 @@
   <title> My Web Page Title </title>
 
   <!-- CSS Usage: link preferred ~ comment for HTML-->
-  <link rel="stylesheet" href="css/my_styles.css">
+  <link rel="stylesheet" type="text/css" href="css/my_styles.css">
   <style>
     /* CSS will go in this area ~ comment for CSS */
   </style>
