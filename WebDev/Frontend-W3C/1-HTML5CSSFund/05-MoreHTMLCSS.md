@@ -947,7 +947,137 @@ How do you handle browsers that do not support the audio element?
 
 ### Video element
 
+Video is fairly new in HTML5. Previously, the most reliable way to add video was the Adobe Flash Player for example. 
 
+You can use the video element to embed video in your page. You can specify the location of your video file using the src attribute or source element (for multiple source files).
+
+```html
+<video src="multimedia/running.mp4">
+  Your browser does not support the HTML5 video element.
+</video>
+```
+
+Any text within the `<video>` tags will be displayed if the browser does not support the `video` element. You should add such a message to provide better user experience for your page as it will be viewed in all types of devices and browsers.
+
+Similar to the `audio` element, the `video` element has several attributes that can be used to configure playback. The following table lists the video element's attributes:
+
+<table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attribute</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%">Description</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Usage</td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>specifies the URL or location of the media file</td>
+    <td width="40%">&lt;video&nbsp;src="multimedia/running.mp4"&gt;&lt;/video&gt;</td>
+  </tr>
+  <tr>
+    <td>autoplay</td>
+    <td>Boolean attribute when specified will automatically begin playing source file as soon as it can without waiting for the entire video&nbsp;file to finish downloading. Note: Some versions of chrome support autostart instead of autoplay</td>
+    <td width="40%">
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;autoplay&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>controls</td>
+    <td>
+      <p>Boolean attribute when specified provides controls for the user like play, pause, seek bar and volume</p>
+      <p><img alt="Image of HTML5 video controls" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b30f1164c96da183a2c339b152ebe472/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/video-controls.PNG" type="saveimage" target="[object Object]" isimmediatepropagationstopped="function t(){return!1}" ispropagationstopped="function t(){return!1}" isdefaultprevented="function t(){return!1}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" stoppropagation="function (){r.isPropagationStopped=n}" preventdefault="function (){r.isDefaultPrevented=n}" width="232" height="26"></p>
+    </td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;controls&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>loop</td>
+    <td>Boolean attribute when specified loops media content</td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;controls&nbsp;loop&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>muted</td>
+    <td>Boolean attribute when specified mutes media when playback begins</td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;controls&nbsp;muted&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>preload</td>
+    <td>Allows author to communicate to the browser which settings will work best - video&nbsp;should not be preloaded (none), only video&nbsp;metadata is fetched (metadata), video&nbsp;file can be downloaded (auto)<br>values: none, metadata, auto</td>
+    <td>
+      <p>&lt;video&gt; src="multimedia/running.mp4"&nbsp;controls&nbsp;preload="auto"&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>poster</td>
+    <td>Specifies the URL of the frame you want to display as&nbsp;the video cover until the user starts or seeks the video. By default, the first frame is considered the poster frame. &nbsp;The poster can also be an arbitrary image, not necessarily in any frame of the video.</td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;poster="/images/video-screenshot.png" controls&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>height, width</td>
+    <td>height and width of the video's play area in pixels. Always set height and width for a video so the browser can allocate the specified space for it when it loads the page.&nbsp;</td>
+    <td>
+      <p>&lt;video&nbsp;src="multimedia/running.mp4"&nbsp;controls&nbsp;width="320" height="240"&gt;&lt;/video&gt;</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+```html
+<video src="multimedia/running.mp4" controls width="320" height="240"></video>
+
+<video src="http://techslides.com/demos/sample-videos/small.mp4" controls loop muted preload="none" poster="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T_2016+type@asset+block@badgehtml5.png" height="320" width="240">
+  Your browser does not support the HTML5 video element.
+</video>
+```
+
+Output for code above (try playing):
+
+<p><video src="http://techslides.com/demos/sample-videos/small.mp4" preload="none" loop="loop" controls="controls" muted="" poster="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+1T2016+type@asset+block@badgehtml5.png" width="180" height="270">
+  Your browser does not support the HTML5 video element.
+</video></p>
+
+
+#### Poster attribute
+
+The `<video>` tag has an important attribute that you don't find on the audio element.  The poster attribute is used to specify what picture is shown before the video starts playing.  By default, the poster shown is simply the first frame of the video, but the poster attribute can be used to specify a different image.  It can specify a particular frame of the video or, like a real movie poster, it can be an image that doesn't actually appear in the video.
+
+
+#### Video file formats
+
+Just like audio file formats, not all video file formats are supported by all browsers. You should use common video file formats for browser compatibility ensuring the highest probability that your video file will play.
+
+The most common ones are MP4, WebM and Ogg.
+
+[This page](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats) under 'Browser Compatibility' lists the video formats supported by the `video` element and their browser support for both desktop and mobile. Using the `source` element, you will have to provide a combination of video formats to target most browsers.
+
+Here is some information regarding different types of video formats and their compression techniques that can help you decide which video format to choose apart from `video` element and browser compatibility:
+
++ Most videos go through some form of compression to reduce redundancy in video files and make them smaller, allowing them to download faster. Most also use audio compression techniques to compress sound in video files.
++ Like audio, there are three major groups of video file formats - uncompressed, lossless compressed ([list of lossless video compression formats](https://en.wikipedia.org/wiki/List_of_codecs#Lossless_video_compression)) and lossy compressed ([list of lossy video compression formats](https://en.wikipedia.org/wiki/List_of_codecs#Lossy_compression_2)).
++ In uncompressed video file formats, no compression is applied to the video file.
++ In lossless compression, no data is lost. If you were to uncompress a file compressed using the lossless technique, you will get back the exact same data you started with.
++ Most videos use lossy compression as it results in significantly smaller video files. Lossy compression provides compression by simplifying the data and removing video information resulting in some loss of quality. There are techniques in place to ensure that the parts of the video that are lost have little effect on quality. You can also select a range of compression rates. The larger the rate of compression, the bigger the loss in quality and smaller the file size. However, if you uncompress a video file that was compressed using the lossy technique, you will not be able to retrieve the same data you put in. With text or spreadsheets, loss of data might be a significant problem. However, with images and video losing a bit of quality is not going to affect the file because you can still make out what the video is about.
++ The video format 'H.264 and MP3 in MP4' has three parts to it. H.264 is a video compression standard. MP3 is an audio coding format that uses lossy compression for sound in the video. MP4, like Ogg, is a digital container format. It stores audio and video data rather than code the information. A program that opens a container file like MP4 might not know how to decode it. So it requires other standards like H.264 and MP3 to dictate how the video will be coded and possibly compressed.
++ If you have a video file in one format and wish to convert it to another, there are a lot of software applications available to help you do that.
+
+
+#### Knowledge check 5.3.2
+
+Which of the following attributes is used to provide a placeholder frame before user starts or seeks the video?
+
+  1. muted
+  2. controls
+  3. poster
+  4. frame
+  
+  Ans: 3<br/>
+  Explanation: A placeholder frame can be any image you can add to display before the user plays or seeks the video. This can be added using the 'poster' attribute. Refer to the first code snippet on this video unit to see its usage.
 
 
 ### Video - Source/Track elements
