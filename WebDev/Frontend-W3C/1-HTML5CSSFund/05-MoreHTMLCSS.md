@@ -1250,7 +1250,136 @@ __Note 2__: If you miss the "pizza cats" video already, don't worry! This video 
 
 ### The iframes tag
 
+There are tags for all kinds of content in your Web page, text, images, videos, animations.  There's even a tag that allows you to put another Web page in your Web page - the `<iframe>` tag (HTML Inline Frame Element).  Why would you want to do this?  Well, it enables a lot of possibilities.
 
+The popular online code editor CodePen has several iframes in it to display html, css, javascript and output together. Iframes are generally used in Web pages to show external content/resources. The type of content is not limited to other Web pages. You can add YouTube videos or display a PDF file (some browsers will display the file inline while some older browsers will try to download it instead). 
+
+An `<iframe>` tag can be as simple as this:
+
+```html
+<p>This is a parent page that will host the iframe.</p>
+<iframe src="https://www.w3.org/">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+```
+
+[Sample code](src/5.4.1-iframe.html)
+
+Because iframes are HTML elements, they can be styled just like other elements, with borders, margins, sizes specified with CSS rules:
+
+<p><iframe src="https://www.youtube.com/embed/YE7VzlLtp-4" style="border: 10px solid red; padding: .5rem; margin: 1rem; box-shadow: 20px 20px 10px #888888; width: 355; height: 200;"></iframe></p>
+
+Here, we've embedded a YouTube video with an iframe like this:
+
+```html
+<iframe src="https://www.youtube.com/embed/YE7VzlLtp-4"></iframe>
+```
+
+And we've added styling like this to get the border and drop-shadow:
+
+```css
+iframe {
+  border: 10px solid red;
+  padding: .5rem;
+  margin: 1rem;
+  box-shadow: 20px 20px 10px #888888;
+  width: 355;
+  height: 200;
+}
+```
+
+There is one significant problem with iframes. Suppose you create your Web page, containing only an iframe with `src="http://foo.com"`, with no borders, padding or margin. By all appearances, you would seem to be on the Web site foo.com. If you don't look at the URL, it might be difficult to tell. For reasons like this, some Web sites disallow their inclusion, so if you create an iframe with `src="https://google.com"`, you'll get a blank frame and an error message in the console.  This isn't a bug, it's a feature.
+
+There are a number of important attributes for an `<iframe>` tag, but for now we'll just look at a few of them:
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attribute</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Description</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="25%">Value</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="25%">Example</td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>Specifies the address of the page you want to display in your frame. This is the primary attribute of interest in the iframe.</td>
+    <td>URL</td>
+    <td>&lt;iframe src="https://www.w3.org/"&gt;&lt;/iframe&gt;</td>
+  </tr>
+  <tr>
+    <td>allowfullscreen</td>
+    <td>This will allow the iframe to open "Full screen mode", often used with videos. Without this attribute, full screen mode is disabled for the iframe.</td>
+    <td>no value</td>
+    <td><span style="line-height: 22.4px;">&lt;iframe src="https://www.w3.org/" allowfullscreen&gt;&lt;/iframe&gt;</span></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>Specifies a name for the iframe. Using the name attribute, the iframe can act as a target for a link. Just as the 'self' target will replace the current window with  the site at the href URL, and "_blank" will open a new window at that URL, if you set the name attribute, that name can be used as a target so that when you click on it,   the new page will open up in that iframe.</td>
+    <td>text</td>
+    <td>
+      <p>&lt;iframe name="frame-one" src="https://www.w3.org/"&gt;&lt;/iframe&gt;</p>
+      <p>&lt;a href="https://www.wikipedia.org/" target="frame-one"&gt;&lt;/a&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>sandbox</td>
+    <td>
+      <p>This can&nbsp;apply a number of restrictions on the iframe, preventing the site in the iframe from using pop-ups, running scripts, automatically running videos and  numerous other things. &nbsp;This helps avoid some of the potential security issues that iframes may be prone to.</p>
+    </td>
+    <td><no value="">no value (applies all restrictions)  <br>allow-forms<br>allow-modals<br>allow-orientation-lock<br>allow-pointer-lock<br>allow-popups<br>allow-same-origin<br>allow-scripts<br>allow-top-navigation<br></no></td>
+    <td>
+      <p>&lt;iframe src="https://www.w3.org/" sandbox&gt;&lt;/iframe&gt;</p>
+      <p>OR</p>
+      <p>&lt;iframe src="https://www.w3.org/" sandox="allow-popups"&gt;&lt;/iframe&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>width, height</td>
+    <td>While width and height are valid attributes for an iframe, they should be avoided in favor of CSS properties.</td>
+    <td>pixels</td>
+    <td>&lt;iframe src="https://www.w3.org/" width="500"&gt;&lt;/iframe&gt;</td>
+  </tr>
+</tbody>
+</table>
+
+Notes:
+
+1. Certain Web sites like Google and Yahoo disallow embedding their Web pages in iframes. So you will not be able to use these pages in an iframe.
+2. Not all attributes are supported in all browsers. You are encouraged to explore their browser support before adding to your HTML.
+3. You can find more details about iframes from the [W3C Specification](https://www.w3.org/TR/html5/embedded-content-0.html#the-iframe-element).
+
+<hr/>
+Iframes can be very useful:
+
++ Iframes load separately from the main page. However, they do block the main page's load command until its content finishes loading. You can avoid this by applying some Javascript. This allows them to load independently. Then, if the embedded page you are displaying loads slower, you can use your parent page to keep the reader occupied.
++ Sandboxing provides security.
++ Great for third party content like ads.
++ It is convenient to use if you need to have one part of your page static while the other is changed - i.e. navigation menus. Helps reduce bandwidth and server load because we can avoid loading the same content every time a new page is visited in your webpage.
+
+However, there can be some disadvantages:
+
++ It is easy to misuse them. It should be considered a piece of content in the webpage and not as an integral part of it.
++ Accessibility of iframes is poor. Screenreaders do not process them well but you can proceed to use iframes with a notice for the reader.
++ You have no control over the content in an iframe if you display external content. That content can change anytime or can upload malicious content without your permission.
++ Search engines have trouble accessing and in turn indexing the content in your iframes. This doesn't help your search ranking.
+
+
+#### Knowledge check 5.4.1
+
+If you want to embed a video that can be viewed in full screen mode, which attribute would you use?
+
+  1. sandbox
+  2. name
+  3. allowfullscreen
+  4. src
+
+  Ans: 3 <br/>
+  Explanation:
+  + sandbox by default provides a bunch of restriction to your iframe. You can change these restrictions by providing the appropriate value for this attribute.
+  + Using the name attribute you can make the iframe the target of a link
+  + allowfullscreen: This will permit the web page in the iframe to request full screen mode
+  + src gives the address of the page you want to display in your frame.
+  + Submit Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.
 
 
 ### The ismap and usemap attributes
