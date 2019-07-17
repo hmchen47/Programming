@@ -1217,11 +1217,12 @@ The following table lists the `<track>` element's attributes:
 ### Activities - Multimedia
 
 1. Embed an audio file in an HTML page with the following requirements:
+
   + Player has controls to play, pause, seek, etc.
   + Audio must automatically start playing when page loads
   + Audio must be muted when playback begins
 
-  [Sample code]()
+  [Sample code](src/5.3.5-Multimedia1.html)
 
 2. Create an HTML audio player that plays an audio file of your choice in Google Chrome, Internet Explorer and Mozilla Firefox. Use multiple sources if you have to.
 
