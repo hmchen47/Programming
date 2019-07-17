@@ -1210,6 +1210,9 @@ The following table lists the `<track>` element's attributes:
   Your browser does not support the HTML5 video element.
 </video><br/>
 
+[Example code](src/5.3.4-AudioVideo.html)
+
+
 
 ### Activities - Multimedia
 
