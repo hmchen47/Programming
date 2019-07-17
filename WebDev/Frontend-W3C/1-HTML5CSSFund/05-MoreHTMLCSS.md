@@ -747,7 +747,9 @@ Try the code above in an HTML editor and view the output. The border spacing pro
   Ans: [Table scroll](https://mdbootstrap.com/docs/jquery/tables/scroll/)
 
 
-6. Create a simple hover to highlight table that makes the background color of a row 'yellow' when you hover over a table row. 
+6. Create a simple hover to highlight table that makes the background color of a row 'yellow' when you hover over a table row.
+
+  [Sample Code](src/5.2.6-Tables6.html)
 
 __Note__: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
 
