@@ -1226,7 +1226,7 @@ The following table lists the `<track>` element's attributes:
 
 2. Create an HTML audio player that plays an audio file of your choice in Google Chrome, Internet Explorer and Mozilla Firefox. Use multiple sources if you have to.
 
-  [Sample code]()
+  [Sample code](src/5.3.5-Multimedia2.html)
 
 3. Create an HTML video player that plays a video file of your choice in Google Chrome, Internet Explorer and Mozilla Firefox. Use multiple sources if you have to.
 
