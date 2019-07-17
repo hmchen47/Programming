@@ -1031,7 +1031,9 @@ Similar to the `audio` element, the `video` element has several attributes that 
 ```html
 <video src="multimedia/running.mp4" controls width="320" height="240"></video>
 
-<video src="http://techslides.com/demos/sample-videos/small.mp4" controls loop muted preload="none" poster="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T_2016+type@asset+block@badgehtml5.png" height="320" width="240">
+<video src="http://techslides.com/demos/sample-videos/small.mp4" controls loop muted preload="none" 
+  poster="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T_2016+type@asset+block@badgehtml5.png" 
+  height="320" width="240">
   Your browser does not support the HTML5 video element.
 </video>
 ```
@@ -1082,7 +1084,123 @@ Which of the following attributes is used to provide a placeholder frame before 
 
 ### Video - Source/Track elements
 
+#### Source element for multiple source files
 
+The source element that we saw in the previous unit is also used to specify multiple source files for the video element. The `<source>` tag is self-closing and so does not require a closing tag.
+
+```html
+<video controls height="320" width="240">
+  <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+  <source src="http://techslides.com/demos/sample-videos/small.webm" type="video/webm">
+  <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+  Your browser does not support the HTML5 video element.
+</video>
+```
+
+<video src="http://techslides.com/demos/sample-videos/small.mp4" controls="controls" width="240" height="320">
+  <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+  <source src="http://techslides.com/demos/sample-videos/small.webm" type="video/wemb">
+  <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+  Your browser does not support the HTML5 video element.
+</video>
+
+The advantage of providing multiple source files in different formats is that if the browser doesn't support the first format, it will try the second source file. The browser can select from the list based on its file format or codec support. There is no one format that is supported by all browsers. So you will have to use the `source` element to list a combination of formats.
+
+The following table lists the `source` element's attributes:
+
+<table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff; min-width: 5em;">Attribute</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;">Description</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff; min-width: 13em;">Usage</td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>Specifies the URL or location of the media file</td>
+    <td>&lt;source src="multimedia/small.mp4"&gt;&lt;/source&gt;</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>
+      <p>Specifies the internet media type, also known as the MIME type for the audio/video resource. A media type is an identifier for file formats and format contents transmitted over the internet like text and audio files.</p>
+      <p>It consists of a type and a sub-type. Eg: "video/mp4" - <b>video</b>&nbsp;is the type and <strong>mp4</strong>&nbsp;is the subtype. It can also take optional parameters that can be specified after a semicolon - "video/mp4; codecs="avc1.42E01E, mp4a.40.2"" means the video&nbsp;is in the mp4 format and uses the codecs -&nbsp;avc1.42E01E, mp4a.40.2. If the browser supports the mp4&nbsp;format but none of the&nbsp;avc1.42E01E, mp4a.40.2&nbsp;codecs, the video file will not load.</p>
+      <p>If the type attribute is not specified, the media type is retrieved from the server.</p>
+    </td>
+    <td>&lt;source src="multimedia/small.mp4" type="video/mp4"&gt;&lt;/source&gt;</td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Track element for captions and subtitles
+
+The `<video>` element is very similar to the HTML5 `<audio>` element except for one addition - the `<track>` element. The `<track>` element is used to add timed text like subtitles, captions or any text you would like to display to the user when the video is playing.
+
++ Web Video Text Tracks (WebVTT) files are the standard to include subtitles or captions. You can learn [how to create them here](https://w3c.github.io/webvtt/).
++ Captions and subtitles are not the same. Subtitles are meant to translate the language (for those who do not understand the language being spoken in the video). Captions are meant for the deaf or people who have difficulty hearing. It includes sound effects and other significant audio like music and lyrics and is usually in the same language as the audio. Read more about their difference [here](https://www.alsintl.com/blog/subtitles-captions-difference/).
++ Like the `<source>` tag, you can add multiple `<track>` tags in your video element to add multiple subtitle/caption tracks. This is commonly done when providing them in different languages. 
+
+The `<track>` tag is self-closing and so does not require a closing tag. You specify the `<track>` element as a child element of your `<video>` tag like this:
+
+```html
+<video width="320" height="240" controls>
+  <source src="module.mp4" type="video/mp4">
+  <track src="module-captions.vtt" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video>
+```
+
+The following table lists the `<track>` element's attributes:
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attribute</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%">Description</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Usage</td>
+  </tr>
+  <tr>
+    <td>default</td>
+    <td>It is a boolean attribute. If you have multiple tracks for the same video file, you can specify which one is the default using this attribute. It can be used on one  track element in a video. If you only have one track element, default should still be added to deliver the video with captions turned on in most browsers.</td>
+    <td>
+      <p>&lt;video src="multimedia/small.mp4" controls&gt;</p>
+      <p>&nbsp; &lt;track src="captions/small-en.vtt" label="english" default&gt;</p>
+      <p>&nbsp; &lt;track src="captions/small-fr.vtt" label="French"&gt;</p>
+      <p>&lt;/video&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>kind</td>
+    <td>Specifies the kind of the source&nbsp;file. <br>Values: subtitles (default value), captions, descriptions (textual description of the video best suited for the   blind who cannot be seen), chapters (meant for chapter titles), metadata (kind of track that is used by scripts and is not visible to the user).</td>
+    <td>
+      <p>&lt;track src="captions/small-en.vtt" kind="captions"&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>Label of the track.&nbsp;Browser uses the label value to display track options for user to select.&nbsp;</td>
+    <td>
+      <p>&lt;track src="captions/small-en.vtt" label="English"&gt;</p>
+      <p><span style="line-height: 22.4px;">&lt;track src="captions/small-fr.vtt" label="French"&gt;</span></p>
+    </td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>URL of track. The <strong>file must be on a Web server</strong>. The .vtt file cannot be loaded from a file (file://) protocol.</td>
+    <td>
+      <p>&lt;track src="http://www.xyz.org/small-en.vtt"&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>srclang</td>
+    <td>Language of text track. Eg: en, fr. <br>If kind&nbsp;is 'subtitles', then the srclang attribute must be specified.</td>
+    <td>
+      <p>&lt;track src="captions/small-en.vtt" kind="subtitles" srclang="en"&gt;</p>
+    </td>
+  </tr>
+</tbody>
+</table>
 
 
 ### Audio and video elements
