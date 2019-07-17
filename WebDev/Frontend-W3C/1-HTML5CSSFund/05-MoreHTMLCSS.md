@@ -719,7 +719,6 @@ Try the code above in an HTML editor and view the output. The border spacing pro
   </tbody>
   </table>
 
-
   [Sample Code](src/5.2.6-Tables.html)
 
 3. Create the following table structure using HTML and CSS following the style as closely as possible noting table border, colors, etc. Insert dummy text values for table.
@@ -759,13 +758,191 @@ __Note__: If you wish to share your HTML code in the discussions, you can paste 
 These are HTML, CSS, and JavaScript code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, realtime remote pair programming.
 
 
-
-
 ## 5.3 Multimedia
 
 ### Audio element
 
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/5854bfc005394517ae62fc55fd58242e/5224d810e43e41ceabf2598f5c711456/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40b9f42abd24844832aa1e62748dfdc4e8">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/183281b7132e8ad2fb27599527c0719c/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/video.jpg" style="margin: 0.1em;" alt="Picture of an embedded video" title="Picture of an embedded video" width=200>
+  </a></div>
+</div>
 
+`audio` and `video` are new HTML 5 elements that were highly anticipated. With HTML5 support for multimedia, this has become much easier, than previous methods. 
+
+
+#### Audio tag
+
+You can use the `<audio>` tag to embed audio in your page.
+
+```html
+<audio src="sounds/flute.mp3">
+  Your browser does not support the audio file.
+</audio>
+```
+
+Any text within the `<audio>` tags will be displayed if the browser does not support the audio element. You should add such a message to provide better user experience for your page as it will be viewed in all types of devices and browsers.
+
+The audio element has several attributes that can be used to configure audio playback. The following table lists the audio element's attributes:
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attribute</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%">Description</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Usage</td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Used to specify the URL of the audio file to embed.</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Values:</span></p>
+      <ul>
+        <li><span style="font-family: arial,helvetica,sans-serif;">absolute URL (file residing somewhere on the Web)</span></li>
+        <li><span style="font-family: arial,helvetica,sans-serif;">relative URL (within your Web site)</span></li>
+      </ul>
+    </td>
+    <td>
+    <p><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3"&gt;&lt;/audio&gt;</span></p>
+    </td>
+  </tr>
+  <tr>
+    <td>controls</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Boolean attribute when specified provides controls for the user like play, pause, seek bar and volume</span></p>
+      <p><img alt="Controls from HTML5 audio" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/327f2b7346ed0f5b804d41e3d49dd8ea/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/audio-controls.PNG" type="saveimage" target="[object Object]" isimmediatepropagationstopped="function t(){return!1}" ispropagationstopped="function t(){return!1}" isdefaultprevented="function t(){return!1}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" stoppropagation="function (){r.isPropagationStopped=n}" preventdefault="function (){r.isDefaultPrevented=n}" width="263" height="26"></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls&gt;&lt;/audio&gt;</span></td>
+  </tr>
+  <tr>
+    <td>loop</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Boolean attribute when specified loops media content</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls loop&gt;&lt;/audio&gt;</span></td>
+  </tr>
+  <tr>
+    <td>muted</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Boolean attribute when specified mutes media when playback begins</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls muted&gt;&lt;/audio&gt;</span></td>
+  </tr>
+  <tr>
+    <td>preload</td>
+    <td>
+    <p><span style="font-family: arial,helvetica,sans-serif;">Allows author to communicate to the browser which settings will work best - audio should not be preloaded (none), only audio metadata is fetched (metadata), audio file can be downloaded when page loads (auto)</span><br><span style="font-family: arial,helvetica,sans-serif;">values: none, metadata, auto</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls preload="auto"&gt;&lt;/audio&gt;</span></td>
+  </tr>
+  <tr>
+    <td>autoplay</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Boolean attribute when specified will automatically begin playing the source file as soon as it can without waiting for the entire audio file to finish downloading</span></p>
+      <p></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;audio src="sounds/flute.mp3" controls autoplay&gt;&lt;/audio&gt;</span><audio autoplay="autoplay"></audio></td>
+  </tr>
+</tbody>
+</table>
+
+Here is an example code:
+
+```html
+<audio src="https://archive.org/download/Music_Calgary_PD_1/The.good.the.bad.and.the.ashy.mp3" controls loop muted preload="none">
+  Your browser does not support the audio file.
+</audio>
+```
+
+Output for the code above (try playing):
+
+<p><audio src="https://archive.org/download/Music_Calgary_PD_1/The.good.the.bad.and.the.ashy.mp3" preload="none" loop="loop" controls="controls" muted="">
+  Your browser does not support the audio file.
+</audio></p>
+
+If you hit play and didn't hear anything, remember that we have added the muted attribute. So the audio will be muted when playback begins. Increase the volume to hear the music.
+
+
+#### Audio file formats
+
+Just like image file formats, not all audio file formats are supported by all browsers. You will want to use common audio file formats for browser compatibility ensuring the highest probability that your audio file will play. 
+
+The most common ones are MP3, WAV and Ogg. 
+
+[This page](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats) under 'Browser Compatibility' lists the `audio` formats supported by the audio element and their browser support.
+
+Here is some information regarding different types of audio formats and their compression techniques that can help you decide which audio format to choose apart from `audio` element and browser compatibility:
+
++ There are three major groups of audio file formats - uncompressed (eg: WAV), lossless compressed (eg: MPEG-4, WMA Lossless) and lossy compressed (eg: Opus, MPC, AAC, WMA Lossy).
++ In uncompressed audio file formats, no compression is applied to the audio file. The memory used for both sound and silence is the same though silence contains less information/data.
++ In lossless compression, no data is lost but the file is compressed as silence is designed to take up very little space. Compared to uncompressed, lossless compression's compression ratio is approximately 2:1.
++ Lossy compression provides the greatest compression by simplifying the data and removing some audio information resulting in some loss of quality. It is also the most popular. There are techniques in place to ensure that the parts of sound that is lost has little effect on quality. You can also select a range of compression rates. The larger the rate of compression, the bigger the loss in quality and smaller the file size. 
++ The audio format Ogg Opus has two parts to it. 'Ogg' is a digital container format. It is a specification that describes how different elements of data and metadata work in an audio file. However, it provides no information on how the data is compressed. So a program that opens a container file like 'Ogg' might not know how to decode it. 'Opus', the second part of the audio format, represents the encoding or decoding mechanism for that stream of audio. Opus is a lossy audio coding format.
++ If you have an audio file in one format and wish to convert it to another, there are a lot of software applications available to help you do that.
+
+
+#### Source element for multiple source files
+
+The `source` element, also new in HTML5, serves the same purpose as the `src` attribute in an `audio` element. It is used to specify source files for the `audio` and `video` elements. Using the source element, you can specify multiple source files. The `<source>` tag is self-closing, therefore, it does not require a closing tag.
+
+Example:
+
+```html
+<audio controls>
+  <source src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2016+type@asset+block@splash.wav" type="audio/wav">
+  <source src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2016+type@asset+block@splash.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+```
+
+Output for code above (try playing):
+
+<p><audio controls="controls">
+  <source src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+1T2016+type@asset+block@splash.wav" type="audio/wav">
+  <source src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+1T2016+type@asset+block@splash.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio></p>
+
+The advantage of providing multiple source files in different formats is that if the browser doesn't support the first format, it will try the second source file. The browser can select from the list based on its file format or codec support. In the code snippet example above, Internet Explorer does not support .wav files. So if you tried to play the file above in Internet Explorer, the browser would have tried to play .wav, failed and played the .mp3 version instead. 
+
+The following table lists the `<source>` element's attributes:
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attribute</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%">Description</td>
+    <td style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Usage</td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">Specifies the URL of the media file</span></td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;source src="sounds/flute.mp3"&gt;</span></td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Specifies the internet media type, also known as the MIME type for the audio resource. A media type is an identifier for file formats and format contents transmitted over the internet like text and audio files.</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">It consists of a type and a sub-type. Eg: "audio/mpeg" - <strong>audio</strong> is the type and <strong>mpeg</strong> is the subtype. It can also take optional parameters that can be specified after a semicolon - "audio/ogg; codecs=opus" means the audio is in the ogg format and uses the opus codec. If the browser supports the Ogg format but not the Opus codec, the audio file will not load.</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">If the type attribute is not specified, the media type is retrieved from the server.</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;source src="sounds/flute.mp3" type="audio/mpeg"&gt;</span></td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Knowledge check 5.3.1
+
+How do you handle browsers that do not support the audio element?
+
+  1. Don't do anything
+  2. Add text in your audio element with a message stating that your browser does not support the audio element or audio format
+  3. Do not include the 'autoplay' attribute so as to avoid an error being displayed
+  4. Add multiple source elements
+
+  Ans: 2 <br/>
+  Explanation: You can add text within your audio tags that will be displayed if a browser does not support the audio element. This is highly recommended as your page will be viewed by a variety of browsers. Learn more about audio element support in browsers [here](http://caniuse.com/#search=%3Caudio%3E)
 
 
 ### Video element
