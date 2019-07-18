@@ -2028,6 +2028,80 @@ Furthermore, there are other issues associated with the `width` and `height` pro
 
 ### Knowledge checks
 
+The following questions are ungraded. They are here to self-check your understanding of the concepts.
+
+Style rule for questions 1 and 2:
+
+```css
+p {
+  border: 2px solid black;
+  background-color: rgb(150, 50, 20);
+}
+```
+
+1. Color flush
+
+  Examine the style rule above. Will the color always run flush to the border or will there sometimes be a gap?
+
+  1. Always flush
+  2. Sometimes a gap
+
+  Ans: 1
+
+
+2. Extend flush
+
+  We add a second style rule: `p { padding: 20px; }`. Will the background color still extend flush without a gap to the border?
+
+  1. Yes, always flush
+  2. No, there will be a gap
+
+  Ans: 1, x2
+
+
+3. Which of these statements are true?
+
+  ```css
+  div {
+  border: 2px solid black;
+  background-image: url('images/sumptuous_eyes.jpg');
+  }
+  ```
+
+  Which of these statements are true? Check all that qualify.
+  
+  1. As written above, the image would fill the `<div>` flush to the border without gaps. The image will tile/repeat if necessary.
+  2. As written above, the image will stretch as necessary to fill the `<div>` flush to the border without gaps.
+  3. With the additional style rule of background-repeat:no-repeat; we could potentially introduce a gap between the image and the border.
+
+  Ans: 13
+
+
+4. Larger
+
+  If you need to make an element a little larger, which property should you use?
+
+  Ans: padding or padding-left or padding-top or padding-right or padding-bottom
+
+
+5. Extra space
+
+  If a border or box-shadow is too snug to the content, what property can you use to get some extra space?
+
+  Ans: padding or padding-left or padding-top or padding-right or padding-bottom
+
+
+6. Padding property
+
+  Will the padding property have any effect on the text-shadow property?
+
+  Ans: No
+
+7. Negative padding
+
+  Can negative padding be used to make an element smaller?
+
+  Ans: No
 
 
 
