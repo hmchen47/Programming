@@ -44,3 +44,29 @@ nav li:hover {
     color: #ff6000;
     background-color: #4c6d40;
 }
+
+table, th, td {
+    border-collapse: collapse;
+    table-layout: auto;
+    border: 1px solid wheat;
+    cellspacing: 0px;
+    cellpadding: 5px;
+}
+
+table {
+    margin-left: 2em;
+}
+
+th {
+    background-color: rgb(71, 255, 194);
+    font-size: 1.2em;
+    color: darkgreen;
+}
+
+tr {
+    background-color: blanchedalmond;
+}
+
+tr:nth-child(odd) {
+    background-color: lightyellow;
+}
