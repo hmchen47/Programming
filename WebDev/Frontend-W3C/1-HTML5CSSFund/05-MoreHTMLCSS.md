@@ -1746,6 +1746,174 @@ The most useful is the `center` value.  It is position the center of the image i
 
 ### Decorative borders and shadows
 
+In the previous sub-section, we looked at decorative backgrounds and images. We will continue this theme by examining decorative borders and shadows.  Like background colors, once we start using borders we will be directly facing the underpinnings of HTML. Where does a span inside a paragraph begin and end? How far does it extend? We'll see how the various techniques for managing decorative CSS in the following sub-section.
+
+For now, let's look at these new properties: `border-style`, `border-color`, `border-width`, border abbreviations, `border-radius` and `text-shadow`.
+
+
+#### border-style
+
+```css
+p { border-style: solid; }
+```
+
+This property sets the style of a border.  Possible values include <span style="color: #ff6000;">none, hidden, solid, dotted, dashed, double, groove, ridge, inset</span>, and <span style="color: #ff6000;">outset</span>. Here the visible border styles displayed on a gray border:
+
+<table style="border-collapse: separate; border-spacing: 4px;" width=100%>
+<tbody>
+  <tr>
+    <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: solid;">solid</td>
+    <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: dotted;">dotted</td>
+    <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: dashed;">dashed</td>
+    <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: double;">double</td>
+    <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: groove;">groove</td>
+    <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: ridge;">ridge</td>
+    <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: inset;">inset</td>
+    <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: outset;">outset</td>
+  </tr>
+</tbody>
+</table>
+
+
+Note that the <span style="color: #ff6000;">groove, ridge, inset</span> and <span style="color: #ff6000;">outset</span> borders all use black in addition to any explicit border-color.  So if the border-color is also black they won't be effective.  Also <span style="color: #ff6000;">double, groove</span> and <span style="color: #ff6000;">ridge</span> are usually not satisfactory on thin borders.  They'll require a fat `border-width`.
+
+The difference between <span style="color: #ff6000;">none</span> and <span style="color: #ff6000;">hidden</span> has to do with the sizing and positioning of the element. An item with a hidden border is positioned as if it had a border, but the border is not drawn. Whereas with border-style of none, no space is allocated for the border at all.
+
+
+#### border-color
+
+Sets the color of the border.  
+
+
+#### border-width
+
+Sets the width of the border.  Supports a variety of units (px, em, rem ).  
+
+
+#### border abbreviations
+
+All border styles just introduced are actually abbreviations that can be broken out if needed. For example, here we set four different styles for a border:  
+
+```css
+p { 
+   border-left-style: solid; 
+   border-right-style: dotted; 
+   border-bottom-style: dashed; 
+   border-left-style: hidden; 
+}
+```
+
+This same thing can be done with `border-width` and `border-color` (`border-left-color`, `border-top-width`, etc).
+
+Or, going in the other direction, the CSS property border can help abbreviate even further.  Use the formula  border: `<width> <style> <color>`;   separating the values with spaces:
+
+```css
+p { border: 1px solid gray; }
+```
+
+
+#### border-radius
+
+Sometimes it seems that the whole of the World Wide Web consists of round cornered rectangles.  Join the fun by using the border-radius property:  
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none;"><span style="color: #0000ff;"> .rrect</span> { 
+   <span style="color: #333399;">border-width</span>: <span style="color: #008000;">4px</span>;
+   <span style="color: #333399;">border-style</span>: <span style="color: #ff6600;">double</span>;
+   <span style="color: #333399;">border-radius</span>: <span style="color: #008000;">20px</span>;  <span style="color: #808080;">/* round corners */</span>
+   <span style="color: #333399;">padding</span>: <span style="color: #008000;">15px</span>;
+   <span style="color: #333399;">text-align</span>: <span style="color: #ff6600;">center</span>;
+  }  
+</pre>
+    </td>
+    <td>
+      <p style=" border-width: 4px; border-style: double; border-radius: 20px; padding: 15px; text-align: center;">Silence is Golden</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+Note this is fun to use with a background color or background image and no border at all:
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none;"><span style="color: #0000ff;"> .rrectbg</span> { 
+   <span style="color: #333399;">border-style</span>: <span style="color: #ff6600;">none</span>; <span style="color: #808080;">/* no border at all */</span>
+   <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">beige</span>;
+   <span style="color: #333399;">border-radius</span>: <span style="color: #008000;">20px</span>;
+   <span style="color: #333399;">padding</span>: <span style="color: #008000;">15px</span>;
+   <span style="color: #333399;">text-align</span>: <span style="color: #ff6600;">center</span>;
+  }  
+</pre>
+    </td>
+    <td>
+      <p style="border-style: none; background-color: beige; border-radius: 20px; padding: 15px; text-align: center;">Silence is Golden</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### box-shadow
+
+A shadow effect can be applied to the outlining rectangle of an element with the `box-shadow` CSS property.  The `box-shadow` property is typically controlled with four values separated by spaces:
+
+<code><span style="color: #333399; margin-left: 2em;">box-shadow</span>: <span style="color: #ff6600;">&lt;x-offset&gt; &lt;y-offset&gt; &lt;blur&gt; &lt;color&gt;</span>;</code>
+
+The offset values are dimension units (px, em, etc) can be positive or negative. Positive x values place the shadow to the right, and negative values place the shadow to the left. Similarly positive y values place the shadow vertically lower than the element and negative values move it up.
+
+The `blur` value is also a dimension unit, but can only be 0 or positive.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none;"><span style="color: #0000ff;">  
+.illuminati</span> { <span style="color: #333399;">box-shadow</span>: <span style="color: #008000;">1px 1px 2px</span> <span style="color: #ff6600;">black</span>; }<br>
+<span style="color: #0000ff;">.urakai</span> { <span style="color: #333399;">box-shadow</span>: <span style="color: #008000;">0px 0px 6px</span> <span style="color: #ff6600;">black</span>; }<br>
+<span style="color: #0000ff;">p</span> { 
+    <span style="color: #333399;">text-align</span>: <span style="color: #ff6600;">center</span>;
+    <span style="color: #333399;">padding</span>: <span style="color: #008000;">10px</span>; <span style="color: #808080;">/* make the box a little bigger */</span>
+}
+</pre>
+    </td>
+    <td>
+      <p style="box-shadow: 1px 1px 2px black; text-align: center; padding: 10px;">Illuminati</p>
+      <p style="box-shadow: 0px 0px 6px black; text-align: center; padding: 10px;">Urakai</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### text-shadow
+
+This CSS property takes the same values as box-shadow, however, the shadow is applied directly to the text shapes:
+
+<code><span style="color: #333399; margin-left: 2em;">text-shadow</span>: &nbsp;<span style="color: #ff6600;">&lt;x-offset&gt; &lt;y-offset&gt; &lt;blur&gt; &lt;color&gt;</span>;</code>
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none;"><span style="color: #0000ff;">  .majestic-12</span> { <span style="color: #333399;">text-shadow</span>: <span style="color: #008080;">1px 1px 3px</span> <span style="color: #ff6600;">black</span>; }
+</pre>
+    </td>
+    <td>
+      <p style="text-shadow: 1px 1px 3px black;">Majestic-12</p>
+    </td>
+  </tr>
+</tbody>
+</table>
 
 
 
