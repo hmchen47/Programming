@@ -220,7 +220,7 @@
     + [Pseudo classes and cursor](05-MoreHTMLCSS.md#)
     + [CSS best practices](05-MoreHTMLCSS.md#)
     + [Recipe project - Module 5](05-MoreHTMLCSS.md#)
-    + [Recipe project - Module 5](05-MoreHTMLCSS.md#)
+    + [Video: Recipe project - Module 5](05-MoreHTMLCSS.md#)
 + 5.6 [Exercises - Module 5](05-MoreHTMLCSS.md#)
     + [Tables exercises (1-12)](05-MoreHTMLCSS.md#)
     + [Multimedia exercises (13-20)](05-MoreHTMLCSS.md#)
