@@ -1526,12 +1526,221 @@ The map element's name or id attribute should match the ______ attribute's value
 Ans: www.facebook.com refused to connect.
 
 
-
-
 ## 5.5 CSS tricks
 
 ### Decorative images and backgrounds
 
+As we saw earlier, the `<img>` tag is meant to be used for semantically important imagery.  For example, the pictures that accompany a news story are important to understanding the news story and therefore should be displayed with the `<img>` tag.  The example of the cool banner with teletypes and coffee was meant to evoke competence and urgency, however, that image is __not__ essential to understanding the news story. That image is decorative.
+
+Decorative images are incorporated via CSS.
+
+There are quite a few CSS properties for controlling borders, background images and colors. Let's look at the most common. Take notice that as you leverage borders and backgrounds that you will begin to see the underside of the Web. How big is the area around a link? You might have never thought about it before, now it'll be visible. Can we make it larger or smaller? Are these items butted against each other? Can we space them out, or bring them closer? We will touch on these things as well.
+
+Let's look at the most common CSS properties: `background-color`, `background-image`, `background-repeat`, `background-size`, and `background-position`.
+
+
+#### background-color
+
+The `background-color` CSS property will fill the rectangle of the given element with a solid background color. In addition to the values of <span style="color: #ff6000;">transparent</span> and <span style="color: #ff6000;">none</span>, there are all the values of  that we saw applicable to the color property.
+
+In the example below we apply a variety of background colors to a hyperlink (`<a>`), paragraph (`<p>`), unordered list (`<ul>`) and list items (`<li>`):
+
+<div>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">HTML</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">CSS</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Result</th>
+  </tr>
+  <tr>
+    <td>
+      <pre style="border: none;">&lt;p class="p-blue"&gt;This is the list of critters<br/>&lt;a href="#req"&gt;requested&lt;/a&gt; by the owners&lt;/p&gt;<br/>&lt;ul&gt;
+    &lt;li&gt;Wasp&lt;/li&gt;<br/>  &lt;li&gt;Ant&lt;/li&gt;<br/>  &lt;li&gt;Moth&lt;/li&gt;<br/>  &lt;li&gt;Ostritch&lt;/li&gt;<br/>&lt;/ul&gt;</pre>
+  </td>
+    <td style="white-space: nowrap;">
+      <pre style="border: none;"><span style="color: #0000ff;">   p</span> { <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">#3E3F67</span>; }<br/><span style="color: #0000ff;">p a</span> { <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">#6E7099</span>; }<br/><span style="color: #0000ff;">  ul </span>{ <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">#FFC592</span>; }<br/><span style="color: #0000ff;">   li </span>{ <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">#CC602D</span>; }<br/><br/></pre>
+    </td>
+    <td>
+      <p style="background-color: #3E3F67; color: #52B3FF !important;">This is the list of critters <a href="#req">requested</a> by the owners</p>
+      <ul style="background-color: #FFC592;">
+        <li style="background-color: #CC602D; color: #52B3FF;">Wasp</li>
+        <li style="background-color: #CC602D; color: #52B3FF;">Ant</li>
+        <li style="background-color: #CC602D; color: #52B3FF;">Moth</li>
+        <li style="background-color: #CC602D; color: #52B3FF;">Ostritch</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+#### background-image
+
+The `background-image` property is used to set an external image file as the background to a particular HTML element.  To bind in an external file, the value is <span style="color: #ff6000;">url</span>, followed by an open parenthesis <span style="color: #ff6000;">(</span>, followed by a quote <span style="color: #ff6000;">"</span>, then the path, a closing quote <span style="color: #ff6000;">"</span> and a closing parentheses <span style="color: #ff6000;">)</span>.  The path can be a URL, or a path relative from the file the CSS is in.
+
+<code><span style="color: #0000ff; margin: 1em;">div</span> { <span style="color: #333399;">background-image</span>: <span style="color: #ff6600;">url</span>(<span style="color: #ff6600;">"https://www.w3.org/2008/site/images/logo-w3c-mobile-lg"</span>); } <br><span style="color: #0000ff;  margin: 1em;">div</span> { <span style="color: #333399;">background-image</span>: <span style="color: #ff6600;">url</span>(<span style="color: #ff6600;">"images/kitten.png"</span>); }</code>
+
+As these are decorative images, there are quite a few different usage scenarios that can leverage background images. For instance, an image can be used as repeating tile, or a background image can fit its parent element, or be a large panoramic image not fully viewed.  These scenarios can be constructed with other CSS properties, like background-repeat, background-size, and background-attach (as well as several others). 
+
+<div>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">HTML</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">CSS</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Result</th>
+  </tr>
+  <tr>
+    <td>
+      <pre style="border: none;">&lt;p class="kitten"&gt;Women and cats will do as they please, and men and dogs should relax and get used to the idea. &lt;br /&gt;- Robert A. Heinlein&lt;/p& gt;</pre>
+    </td>
+    <td style="width: 320px;">
+<pre style="border: none;"><span style="color: #0000ff;"> 
+.kitten</span> { <br><span style="color: #333399;">   background-image</span>: <span style="color: #ff6600;">url</span>(<span style="color: #ff6600;">"kittens.jpg"</ span>); <br> }
+
+</pre>
+    </td>
+    <td style="width: 320px;">
+      <p style="background-image: url(https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2f19da73069f153ebe3d3ca51ce8a3f/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/kitten2.jpg); background-size: cover; font-size: 24px; padding: 30px; color: white; font-family: serif;">Women and cats will do as they please, and men and dogs should relax and get used to the idea. <br>- Robert A. Heinlein</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+#### background-repeat
+
+By default, if the rectangular area of an element is bigger than the image itself, then the image will repeat and fill the space, like tiles.  For example:
+
+<div>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>CSS</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=30%>Result</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;">
+<pre style="border: none;"><span style="color: #0000ff;"> 
+.tile</span> { <br><span style="color: #333399;">   background-image</span>: <span style="color: #ff6600;">url</span>(<span style="color: #ff6600;">"https://www.w3.org/2008/site/images/logo-w3c-mobile-lg"</span>); 
+  <span style="color: #808080;">/* use padding to keep the text away from the edges of the paragraph box */</span>
+  <span style="color: #333399;">padding-top</span>:    <span style="color: #ff6600;">15px</span>;
+  <span style="color: #333399;">padding-right</span>:  <span style="color: #ff6600;">50px</span>;
+  <span style="color: #333399;">padding-bottom</span>: <span style="color: #ff6600;">30px</span>;
+  <span style="color: #333399;">padding-left</span>:  <span style="color: #ff6600;">100px</span>;
+}
+
+</pre>
+    </td>
+    <td class="tile-img">
+      <p style="background-image: url(https://www.w3.org/2008/site/images/logo-w3c-mobile-lg); font-size: 24px !important; line-height: 48px !important; padding: 15px 50px 30px 100px; text-shadow: 1px 1px 1px black, -1px -1px 1px black; color: yellow; font-family: serif;">The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff, and the public work together to develop Web standards.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+The background-repeat property can be used to control this.  It's more commonly used values are: <span style="colot: #ff6000;">repeat</span>, <span style="colot: #ff6000;">repeat-x</span>, <span style="colot: #ff6000;">repeat-y</span>, and <strong><span style="colot: #ff6000;">no-repeat</span></strong>. The no-repeat value is very useful, and bears repeating.
+
+There are advanced uses of this property.  Notice in the above example, that if the size of the parent element is not exactly a multiple of the tile, then the image may be "cropped" and bleed off the side.  That can be managed by centering the tile (with `background-position: center;`).  Additionally the background-repeat property can also be used to control how it repeats. The <span style="colot: #ff6000;">space</span> value will result in cropped images; it means "repeat, and add space between the elements so there is no cropping".  Note that this property does not let you directly manipulate the amount of spacing. That is calculated for you.
+
+<div>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+<tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;">background-repeat: space</th><thstyle="text-align: center; background-color: #3d64ff; color: #ffffff;"></th></tr>
+<tr>
+<td style="width: 50%;">
+<p style="background-image: url(https://www.w3.org/2008/site/images/logo-w3c-mobile-lg); font-size: 24px; padding: 15px 50px 30px 100px; text-shadow: 1px 1px 1px black, -1px -1px 1px black; color: yellow; font-family: serif;">The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff, and the public work together to develop Web standards.</p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+#### background-size
+
+When _not_ repeating, it is very useful to size a background image to fit its element.  The `background-size` can be used for this.  There are two very useful values:  `contain` and `cover`.   The `contain` value will put the entire image into the space of the element, however, the space of the element may not be completely filled if the aspect ratio of the element and the image do not match.  The `cover` value is the opposite. It will completely fill the element but the image may be cropped off two opposite sides.  Neither contain or cover will distort or squish the image.  Its aspect ratio is maintained.
+
+Here we demonstrate the difference. A border has been applied to the paragraph to clearly show the bounds of the parent `<p>` element.
+
+<div>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=50%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>background-size: contain</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">background-size: cover</th></tr>
+  <tr>
+    <td style="color: rgb(211, 211, 211);">
+      <p style="background-image: url(https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2f19da73069f153ebe3d3ca51ce8a3f/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/kitten2.jpg); background-repeat: no-repeat; font-size: 20px !important; padding: 15px; color: lightgray !important; font-family: serif; width: 180px; height: 180px; border: 2px solid black; background-size: contain;">Women and cats will do as they please, and men and dogs should relax and get used to the idea. <br>- Robert A. Heinlein</p>
+    </td>
+    <td style="color: rgb(211, 211, 211);">
+      <p style="background-image: url(https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2f19da73069f153ebe3d3ca51ce8a3f/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/kitten2.jpg); background-repeat: no-repeat; font-size: 20px !important; padding: 15px; color: lightgray !important; font-family: serif; width: 180px; height: 180px; border: 2px solid black; background-size: cover;">Women and cats will do as they please, and men and dogs should relax and get used to the idea. <br>- Robert A. Heinlein</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+The `background-size` property can also be used to more exactly size the image.  When used in this fashion, it takes two values separated by a space. The first governs the width, the second the height.  Examples:
+
+```css
+.kittens  { background-size: 100px 120px; } /* might distort */
+.puppies  { background-size: 100px auto; }  /* auto preserves aspect ratio, no distorting */
+.munchies { background-size: 50% auto; }    /* % is of percentage of parent (not of image). */
+```
+
+ The px and % units were covered in the units section. Note that other units (rem, vh, etc.) have no guarantee of support.  
+
+When specifying exact sizes, the <span style="color: #ff6000;">auto</span> value is extremely useful. It allows you to worry only about one dimension, and then the other will handle it for you. Otherwise there is a risk of stretching/distorting images.
+
+<div>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>background-size: 140px 100px;<br>/* will distort */</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>background-size: 130px auto;</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>background-size: 50% auto;</th></tr>
+  <tr>
+    <td style="color: rgb(211, 211, 211);">
+      <p style="background-image: url(https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2f19da73069f153ebe3d3ca51ce8a3f/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/kitten2.jpg); background-repeat: no-repeat; font-size: 20px !important; padding: 15px; color: lightgray !important; font-family: serif; width: 180px; height: 180px; border: 2px solid black; background-size: 140px 100px;">Women and cats will do as they please, and men and dogs should relax and get used to the idea. <br>- Robert A. Heinlein</p>
+    </td>
+    <td style="color: rgb(211, 211, 211);">
+      <p style="background-image: url(https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2f19da73069f153ebe3d3ca51ce8a3f/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/kitten2.jpg); background-repeat: no-repeat; font-size: 20px !important; padding: 15px; color: lightgray !important; font-family: serif; width: 180px; height: 180px; border: 2px solid black; background-size: 130px auto;">Women and cats will do as they please, and men and dogs should relax and get used to the idea. <br>- Robert A. Heinlein</p>
+    </td>
+    <td style="color: rgb(211, 211, 211);">
+      <p style="background-image: url(https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2f19da73069f153ebe3d3ca51ce8a3f/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/kitten2.jpg); background-repeat: no-repeat; font-size: 20px !important; padding: 15px; color: lightgray !important; font-family: serif; width: 180px; height: 180px; border: 2px solid black; background-size: 50% auto;">Women and cats will do as they please, and men and dogs should relax and get used to the idea. <br>- Robert A. Heinlein</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+#### background-position
+
+Like `background-size`, `background-position` can be used to place or offset a background image in the element. It takes two values (x and y) separated by a space when used to exactly specify a position. 
+
+The most useful is the `center` value.  It is position the center of the image in the center of the element. This is useful even with repeating tiles. 
+
+<div>
+<table style="font-family: arial,helvetica,sans-serif; border-collapse: collapse" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=60%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; font-size: 1.3em;" width=100% colspan="2">background-position:center</th></tr>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>background-size: contain</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>background-size: cover</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black;">
+      <p style="background-image: url(https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2f19da73069f153ebe3d3ca51ce8a3f/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/kitten2.jpg); background-repeat: no-repeat; font-size: 20px !important; padding: 15px; color: lightgray !important; font-family: serif; width: 180px; height: 180px; border: 2px solid black; background-size: contain; background-position: center;">Women and cats will do as they please, and men and dogs should relax and get used to the idea. <br>- Robert A. Heinlein</p>
+    </td>
+    <td class="cover">
+      <p style="background-image: url(https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e2f19da73069f153ebe3d3ca51ce8a3f/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/kitten2.jpg); background-repeat: no-repeat; font-size: 20px !important; padding: 15px; color: lightgray !important; font-family: serif; width: 180px; height: 180px; border: 2px solid black; background-size: cover; background-position: center;">Women and cats will do as they please, and men and dogs should relax and get used to the idea. <br>- Robert A. Heinlein</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
 
 
 
