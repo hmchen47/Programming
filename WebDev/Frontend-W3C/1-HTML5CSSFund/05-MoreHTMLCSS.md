@@ -1521,7 +1521,9 @@ The map element's name or id attribute should match the ______ attribute's value
 
   What happens? Why does it behave the way it does?
 
-Please post your observations and findings in the discussion below.
+[Sample code](src/5.4.3-Embedding.html)
+
+Ans: www.facebook.com refused to connect.
 
 
 
