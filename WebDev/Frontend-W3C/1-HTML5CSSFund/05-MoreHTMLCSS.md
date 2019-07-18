@@ -2107,6 +2107,121 @@ p {
 
 ### Pseudo classes and cursor
 
+#### Refined CSS selectors - pseudo classes
+
+If you have a page with some links on it, and you look at them carefully, you may notice that some of the links that you've visited before are a different color than those you haven't (purple versus blue, typically). Plus, if the mouse is brought over a link, it may change color again, or highlight in some other way. In addition, if you click down and don't let the mouse down, then maybe the link may change yet again. Lastly, if you visit some other sites and make these same explorations, you may observe visual differences from site to site. You may conclude that the styling of the elements are being changed, and you will be right. How did the author of the style sheet know which links you've been to already?
+
+"Pseudo Classes" is a fancy term for simply being able to refine our CSS selection to something that isn't just another element. Pseudo Classes allow us to apply styles to the different states of an element. Or to various children of an element based on their index, or to other interactions with the browser. Best of all, pseudo classes are easy to use.
+
+```css
+a:visited { color: purple; }
+```
+
+Above us we see a tag selector (`a`) followed by a pseudo class, which consists of a colon and a word (e.g. `:visited`). This particular CSS rule will be applied to any `<a>` tag that the user has already visited. There can be no spaces on either side of the colon. Pseudo classes can be amended onto _any_ CSS selector, not just tag selectors.
+
+A full list of pseudo classes can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes). Let's look at some of the most common ones.
+
+
+#### :visited
+
+```css
+a:visited { color: purple; }
+```
+
+The `:visited` pseudo class is usually put on a selector that resolves to an `<a>` tag. It enables you to define a style for the visited state of the link. For example, if the user has already been to that Web site, the :visited style will be applied.
+
+
+#### :hover / :active
+
+```css
+li:hover  { background-color: red; }
+li:active { background-color: green; }
+```
+
+The `:hover` pseudo class lets you change the style for an element when the mouse is hovering above it.  The `:active` pseudo class is applied when the mouse is depressed into its area.  Note that the mouse is rarely hovering or clicking over/into "just one" item. At any given moment, the mouse is usually over several elements, because if it is over a child element, it will be over the parent, grandparent, and great grandparent.  Therefore, if you have two different style rules, such as `li:hover` and `ul:hover`, then they will both be activated,  when the mouse is over one of the list items.  
+
+<table style="font-family: arial,helvetica,sans-serif; word-break: normal;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=20%>CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>Result (Try It!)</th></tr>
+  <tr>
+    <td>
+<pre style="border: none;"><span style="color: #3366ff;">li</span>:hover  { <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>; }
+<span style="color: #3366ff;">li</span>:active { <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">red</span>;  }
+<span style="color: #3366ff;">ul</span>:active { <span style="color: #333399;">border</span>: <span style="color: #339966;">1px</span> <span style="color: #ff6600;">solid pink</span>; }
+ </pre>
+    </td>
+    <td>
+      <ul style="list-style: none;">
+        <li style="margin-bottom: 0.70788em;">shark</li>
+        <li style="margin-bottom: 0.70788em;">marlin</li>
+        <li style="margin-bottom: 0.70788em;">tuna</li>
+        <li style="margin-bottom: 0.70788em;">whale</li>
+        <li style="margin-bottom: 0.70788em;">koi</li>
+        <li style="margin-bottom: 0.70788em;">barracuda</li>
+        <li style="margin-bottom: 0.70788em;">octopus</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### :nth-child
+
+```css
+tr:nth-child(odd)  { background-color: lightgray; }
+tr:nth-child(even) { background-color: white; }
+```
+
+The `:nth-child` pseudo class is very handy.  Unlike the pseudo classes we've seen so far, it expects a parameter. The pseudo class always ends with a pair of parentheses with an expression inside.  This expression is simply the term odd or even, however, there are other more advanced possibilities with mathematical equations containing the term `n`.
+
+This selector is most commonly used to apply "transaction ledger" styles to tables or lists.
+
+<table style="font-family: arial,helvetica,sans-serif; word-break: normal;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=60%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=20%>Example: nth-child(even)</th></tr>
+    <tr>
+    <td>
+      <ul style="list-style: none;">
+        <li style="margin-bottom: 0.70788em; padding: 4px 15px; ">shark</li>
+        <li style="margin-bottom: 0.70788em; padding: 4px 15px; background-color: whitesmoke;">marlin</li>
+        <li style="margin-bottom: 0.70788em; padding: 4px 15px; ">tuna</li>
+        <li style="margin-bottom: 0.70788em; padding: 4px 15px; background-color: whitesmoke;">whale</li>
+        <li style="margin-bottom: 0.70788em; padding: 4px 15px; ">koi</li>
+        <li style="margin-bottom: 0.70788em; padding: 4px 15px; background-color: whitesmoke;">barracuda</li>
+        <li style="margin-bottom: 0.70788em; padding: 4px 15px; ">octopus</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Cursor property
+
+```css
+li { cursor: pointer; }
+```
+
+Since we've broached the topic of mouse-responding pseudo classes, it makes sense to also cover the `cursor` CSS property.
+
+The cursor CSS property lets you change the cursor that is displayed when the mouse is over the element in question.  This does not have to be relegated to a :hover style, it can be applied anywhere. Though, if you want to change the cursor when an element is depressed,  set the `cursor` property in the context of an `:active` style.
+
+There are many possible values for the cursor property.  Their exact representation may vary slightly from browser to browser.  Common values include: `default`, `pointer`, `text`, `move` and `grab`. (Hover over each value to see). In addition, some browsers support a custom image as well  (`cursor: url("images/my_pointer.png");`).
+
+For more information, please visit the [MDN page on cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor).
+
+
+#### Knowledge check 5.5.5
+
+You are developing a Web page, and desire that the hyperlinks italicize as the mouse is over them. Which of these rules will achieve that?
+
+  1. This cannot be achieved without JavaScript
+  2. mouseover { font-style: italic; }
+  3. a:hover { font-style:italic; }
+  4. a { font-style: italic; }
+  
+  Ans: 
 
 
 
