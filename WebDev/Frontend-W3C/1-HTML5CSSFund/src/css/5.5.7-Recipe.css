@@ -70,3 +70,8 @@ tr {
 tr:nth-child(odd) {
     background-color: lightyellow;
 }
+
+.amount {
+    text-align: center;
+}
+
