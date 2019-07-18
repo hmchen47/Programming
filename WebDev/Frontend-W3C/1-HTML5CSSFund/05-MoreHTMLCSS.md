@@ -2318,10 +2318,18 @@ Absolute units are usually the wrong answer.
 
 ### Recipe project - Module 5
 
+Let's up some of our code, as well as improve the look and feel of our Web page! Try moving all of your CSS code to a separate file (don't forget to link to it).
+
+We're also going to make the nav element move out of the way when we're not using it, so that it only slides out when we're hovering on it.
+
+Finally, we'll convert the Ingredients list to a table with ingredients and amounts.
+
+Give it a try, and when you're done (or if you get stuck), watch the video below to see what we did.
+
+[Sample code](src/5.5.7-Recipe.html)
 
 
-
-### Recipe project - Module 5
+### Vido: Recipe project - Module 5
 
 
 
