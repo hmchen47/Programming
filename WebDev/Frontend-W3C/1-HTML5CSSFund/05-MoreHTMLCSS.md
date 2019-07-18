@@ -1919,6 +1919,110 @@ This CSS property takes the same values as box-shadow, however, the shadow is ap
 
 ### Managing element size
 
+As you start to leverage borders, background colors, and the other decorative CSS properties we have seen in the previous sections you will need to become more aware of the element size and how to manage it.
+
+
+#### The wrong way
+
+A common trap that newbies fall into is to discover the `width`, `height`, `left` and `top` CSS properties and to start blindly using them.
+
+These are useful properties, however, they should __not__ be your first choice.  These CSS properties depend upon other properties before they can even be used, and they can have unintended consequences. We'll explore them more in next module when covering Layout.  
+
+Here is a simple example of a common error:
+
+<table style="font-family: arial,helvetica,sans-serif; word-break: normal;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=60%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>Result</th></tr>
+  <tr>
+    <td>
+<pre><span style="color: #0000ff;">div</span> {
+  <span style="color: #333399;">width</span>: <span style="color: #008000;">40px</span>;
+  <span style="color: #333399;">border</span>: <span style="color: #008000;">2px</span> <span style="color: #ff6600;">solid red</span>;
+  <span style="color: #333399;">font-size</span>: <span style="color: #008000;">18px</span>;
+ }
+</pre>
+    </td>
+    <td>
+      <div style="    display: block; width: 40px; border: 2px solid red; font-size: 18px;">
+        <p>CSS is Awesome</p>
+      </div>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Padding - The right way
+
+The best way to control an element's size for the purpose of controlling how a border or background extends relative to the item itself is with the padding properties.
+
+Padding is a way of making an element a little bigger than it would normally be.  Similar to margin, there are four padding properties.  The values are dimension units that can be 0 or a positive value; negative values are not allowed.
+
+<pre style="padding-left: 30px; border: none;"><span style="color: #333399;">padding-top</span>:    <span style="color: #008000;">0</span>;
+<span style="color: #333399;">padding-right</span>:  <span style="color: #008000;">1em</span>;
+<span style="color: #333399;">padding-bottom</span>: <span style="color: #008000;">10px</span>;
+<span style="color: #333399;">padding-left</span>:   <span style="color: #008000;">12px</span>;</pre>
+
+Similar to margin, this can be abbreviated with the `padding` property.
+
+<pre style="padding-left: 30px; border: none;"><span style="color: #333399;">padding</span>: <span style="color: #ff6600;">&lt;top&gt; &lt;right&gt; &lt;bottom&gt; &lt;left&gt;</span>;
+<span style="color: #333399;">padding</span>: <span style="color: #ff6600;">&lt;top and bottom&gt; &lt;right and left&gt;</span>;
+<span style="color: #333399;">padding</span>: <span style="color: #ff6600;">&lt;all&gt;</span>;</pre>
+
+When decorative CSS is not used by many CSS newbies, use padding like margin, to space things out. Note: That is not correct. Margins make space between elements and padding makes an element larger.
+
+In this example, note that the use of padding does not make the text deviate from the baseline.  In addition, note that in the first paragraph we apply the same padding to all four sides. However, in the second paragraph we use different padding for different sides, thus placing the rectangle of the element relative to the text itself.
+
+<table style="font-family: arial,helvetica,sans-serif; word-break: normal;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" colspan="2">HTML</th></tr>
+  <tr>
+    <td colspan="2">
+<pre style="border: none;">&lt;p class="even-pad"&gt;My friends &lt;span&gt;Mr. Thomas&lt;/span&gt; and &lt;span&gt;Mr. Joyce&lt;/span&gt; both hail from Ireland.&lt;/p&gt;
+
+&lt;p&gt;But &lt;span class="proust"&gt;Mssr. Proust&lt;/span&gt; and &lt;span class="voltaire"&gt;Mssr. Arouet&lt;/span&gt; are from France.&lt;/p&gt;
+</pre>
+    </td>
+  </tr>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>Result</th></tr>
+
+  <tr>
+    <td>
+<pre style="border: none;"><span style="color: #0000ff;">span</span> {
+  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">tan</span>;
+}
+<span style="color: #0000ff;">.even-pad span</span> {
+  <span style="color: #333399;">padding</span>: <span style="color: #008000;">15px</span>;
+ }
+<span style="color: #0000ff;">.proust</span> {
+  <span style="color: #333399;">padding</span>: <span style="color: #008000;">2px 15px 15px 2px</span>;
+}
+<span style="color: #0000ff;">.voltaire</span> {
+  <span style="color: #333399;">padding</span>: <span style="color: #008000;">15px 2px 2px 15px</span>;
+}
+  </pre>
+    </td>
+    <td>
+      <p>My friends <span style="background-color: tan; padding: 15px;">Mr. Thomas</span> and <span style="background-color: tan; padding: 15px;">Mr. Joyce</span> both hail from Ireland.</p>
+      <p>&nbsp;</p>
+      <p style="font-size: 12px; margin-top: 20px;">But <span style="padding: 2px 15px 15px 2px; background-color: tan;">Mssr. Proust</span> and <span style="background-color: tan; padding: 15px 2px 2px 15px;">Mssr. Arouet</span> are from France.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+I'm confused - are you saying that I shouldn't use the width property to change the width?
+
+Essentially yes. Let's qualify that a bit so there is no confusion.
+
+This section has been about the decorative CSS properties, like borders, background colors, background images, and shadows. In the context of these things users often want to make an element "bigger", or keep the border a bit away. And in this context the `padding` property is absolutely the correct property that should be used to increase the elements size.  Do not use the `width` or `height` properties for this.
+
+Furthermore, there are other issues associated with the `width` and `height` properties. We will discuss these in-depth in the next module. Here is a quick rundown:
+
++ `height` and `width` properties do not work on inline elements.
++ Many elements have natural behaviors that occur when height and width are __not__ set. These are generally advantageous. However, by setting the width and height you __lose__ those advantages. We'll understand this in next module.
+= Most Web pages are viewed in a variety of browser sizes, especially on mobile devices like phones or tablets. Overuse of explicit width and height can make your page unviewable on smaller devices.
+= The flexbox layout system (which we will see next) is incredibly powerful, but by over-determining explicit heights and widths you reduce its usefulness to you and your viewer.
 
 
 
