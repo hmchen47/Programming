@@ -1413,7 +1413,7 @@ Let's look at how the code above works.
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/5854bfc005394517ae62fc55fd58242e/2ccb5b1d17534407918e7f2d963617d9/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40fd6fc633e26d417290e6e78df5bb300d">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e9ac0c6a8e11be57f47e7b43dca6ffa3/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/2.4-ismap3.jpg" style="margin: 0.1em;" alt="Image illustrating how an image map works, how it processes mouse click coordinates using a map file that define target areas" title="Image illustrating how an image map works, how it processes mouse click coordinates using a map file that define target areas" width=350>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e9ac0c6a8e11be57f47e7b43dca6ffa3/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/2.4-ismap3.jpg" style="margin: 0.1em;" alt="Image illustrating how an image map works, how it processes mouse click coordinates using a map file that define target areas" title="Image illustrating how an image map works, how it processes mouse click coordinates using a map file that define target areas" width=250>
   </a></div>
 </div>
 
@@ -1476,7 +1476,7 @@ Try this: Click on the left and right side of the images to check out how usemap
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/5854bfc005394517ae62fc55fd58242e/2ccb5b1d17534407918e7f2d963617d9/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40fd6fc633e26d417290e6e78df5bb300d">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6b92cf65974c9fc413cb88abc50b5360/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/img-usemap.jpg" style="margin: 0.1em;" alt="Signpost in France. Select to find out more information about each town." title="Signpost in France. Select to find out more information about each town." width=250>
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6b92cf65974c9fc413cb88abc50b5360/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/img-usemap.jpg" style="margin: 0.1em;" alt="Signpost in France. Select to find out more information about each town." title="Signpost in France. Select to find out more information about each town." width=200>
   </a></div>
 </div>
 
@@ -1508,9 +1508,20 @@ The map element's name or id attribute should match the ______ attribute's value
   Explanation: Usemap cannot be used by itself and should be associated with the map element. Matching the map element's name/id with the usemap attribute's value creates a relationship between the map and the image.
 
 
-
-
 ### Activities - Embedding content
+
+1. How can you inform screen readers that you are using an iframe in your Web page since iframes have poor accessibility?
+2. Try the following code in your HTML editor:
+
+  ```html
+  <iframe src="http://facebook.com">
+    <p>Your browser does not support iframes.</p>
+  </iframe>
+  ```
+
+  What happens? Why does it behave the way it does?
+
+Please post your observations and findings in the discussion below.
 
 
 
