@@ -152,9 +152,9 @@ Contents
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Image Elements </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#characteristics-of-image-element"> Characteristics </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-attributes-for-image-element"> Attributes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-attributes-for-image-element"> Image Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-map-tag"> Map Attribute </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-area-tag"> Area Attributes </a> </td>
     <td style="padding: 0.3em;"> </td>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
