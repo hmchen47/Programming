@@ -2282,11 +2282,11 @@ content in a header cell</td>
 </table>
 
 
-### Source Tag
+### Attributes of the source Tag
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-tag">Attributes of &lt;table&gt; tag</a></caption>">
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-tag">Attributes of &lt;table&gt; tag</a></caption>
 <tbody>
   <tr>
     <th style="text-align: left; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
@@ -2360,7 +2360,7 @@ content in a header cell</td>
   + self-closing elemnt
 
 
-### Video Tag
+### Attributes of the video Tag
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#video-element">Attributes of &lt;video&gt; tag</a></caption>
@@ -2433,7 +2433,7 @@ content in a header cell</td>
 </table>
 
 
-### Source Tag
+### Attributes of the source Element
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#source-element-for-multiple-source-files-1">Attributes of &lt;source&gt; tag</a></caption>
@@ -2463,30 +2463,51 @@ content in a header cell</td>
 </table>
 
 
-### Track Element
+### Attributes of the track Element
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#track-element-for-captions-and-subtitles">Attributes of &lt;track&gt; tag</a></caption>
-  <thead>
-  <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Description</td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Usage</td>
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_track.asp">Attributes of &lt;track&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
   </tr>
-  </thead>
-  <tbody>
-  <tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_default.asp">default</a></td>
     <td>default</td>
-    <td>It is a boolean attribute. If you have multiple tracks for the same video file, you can specify which one is the default using this attribute. It can be used on one track element in a video. If you only have one track element, default should still be added to deliver the video with captions turned on in most browsers.</td>
     <td>
-      <p>&lt;video src="multimedia/small.mp4" controls&gt; <br/>
+      <p>Specifies that the track is to be enabled if the user's preferences do not indicate that another track would be more appropriate</p>
+      <p>It is a boolean attribute. If you have multiple tracks for the same video file, you can specify which one is the default using this attribute. It can be used on one track element in a video. If you only have one track element, default should still be added to deliver the video with captions turned on in most browsers.</p>
+      <p><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#track-element-for-captions-and-subtitles">Usage</a><br/>
+      &lt;video src="multimedia/small.mp4" controls&gt; <br/>
       &nbsp; &lt;track src="captions/small-en.vtt" label="english" default&gt;<br/>
       &nbsp; &lt;track src="captions/small-fr.vtt" label="French"&gt;<br/>
       &lt;/video&gt;</p>
     </td>
   </tr>
-  </tbody>
-</table>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_kind.asp">kind</a></td>
+    <td>captions<br>chapters<br>descriptions<br>metadata<br>subtitles</td>
+    <td>Specifies the kind of text track</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_label.asp">label</a></td>
+    <td><em>text</em></td>
+    <td>Specifies the title of the text track</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_src.asp">src</a></td>
+    <td><em>URL</em></td>
+    <td>Required. Specifies the URL of the track file</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_srclang.asp">srclang</a></td>
+    <td><i>language_code</i></td>
+    <td>Specifies the language of the track text data (required if kind="subtitles")</td>
+  </tr>
+</tbody></table>
+
 
 
 ## Embedded Content
@@ -2495,7 +2516,7 @@ content in a header cell</td>
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-tag">Attributes of &lt;table&gt; tag</a></caption>">
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-tag">Attributes of &lt;table&gt; tag</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
