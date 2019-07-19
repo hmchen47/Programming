@@ -1,6 +1,8 @@
 # Module 5: More HTML and CSS
 
+
 ## 5.1 Introduction to Module 5
+
 
 ### Welcome to Module 5
 
@@ -118,7 +120,7 @@ The code above will not provide any major visual change to your website yet beca
 
 Note: Though there is an attribute for border, the table elements should be styled using CSS. You can use the CSS border property to do that instead. 
 
-#### 'caption' tag
+#### The 'caption' tag
 
 It is used to give a title to the table and should be used as the first child element of `<table>`. It can be used to provide more context to the table if its content is ambiguous. As a summary of the table content, a caption can also be helpful for people who have difficulty understanding the content or use assistive technology.
 
@@ -138,11 +140,11 @@ It is used to give a title to the table and should be used as the first child el
 
 Let's now create the most basic table with a few cells.
 
-#### 'tr' tag
+#### The 'tr' tag
 
 Creates a table row.
 
-#### 'th' tag
+#### The 'th' tag
 
 There are two types of cells in a table - header and standard. <th> creates table header cells. The content of table header cells is bold and centered by default.
 
@@ -197,7 +199,7 @@ There are two types of cells in a table - header and standard. <th> creates tabl
 </table>
 
 
-#### 'td' tag
+#### The 'td' tag
 
 Creates table data (standard) cells. Content of table data cells is regular and left-aligned by default.
 
@@ -260,7 +262,7 @@ With these tags we can create a simple table.
 
 #### The 'colgroup' and 'col' tags
 
-##### 'colgroup' tag
+##### The 'colgroup' tag
 
 This tag allows you to group columns in a table. Grouping columns is useful if you want to specify properties for a group of columns like applying styles to the whole column instead of repeating it for each cell.
 
@@ -269,7 +271,7 @@ Attribute:
 + `span` - takes a positive integer value. It specifies the number of columns you want your colgroup to span (cover). The colgroup element shares its attributes like style and width with all the columns it spans.  Essentially it allows a single cell to stretch to cover multiple columns on a particular row.
 
 
-##### 'col' tag
+##### The 'col' tag
 
 Used within `<colgroup>`, the `<col>` tag specifies the column property for each column within a colgroup. The only element a `<colgroup>` can contain is `<col>`.
 
@@ -323,7 +325,7 @@ Similar to an HTML document, a table in HTML can be split into header, body and 
 It is very useful to define parts of a table as header, body and footer because once browsers are able to identify which cells are header and footer, the body can be allowed to scroll independently of header and footer catering to a good table viewing experience in small screens. This is one such example. Apart from this, these elements can also be used to style header, body and footer rows individually using CSS.
 
 
-#### 'thead' tag
+#### The 'thead' tag
 
 Just like how we use `<colgroup>` to group columns, `<thead>` is used to group the header content in a HTML table. 
 
@@ -339,7 +341,7 @@ As we learned in the previous unit, header cells are specified using `<th>` as a
 ```
 
 
-#### 'tbody' tag
+#### The 'tbody' tag
 
 Following `<thead>`, subsequent rows are considered body rows in a table. Regular cells are specified using `<td>` as a child of `<tr>`:
 
@@ -361,7 +363,7 @@ Following `<thead>`, subsequent rows are considered body rows in a table. Regula
 ```
 
 
-#### 'tfoot' tag
+#### The 'tfoot' tag
 
 The footer is the last to be specified and rows within `<tfoot>` are considered footer rows at the end of a table:
 
@@ -849,14 +851,16 @@ The audio element has several attributes that can be used to configure audio pla
 Here is an example code:
 
 ```html
-<audio src="https://archive.org/download/Music_Calgary_PD_1/The.good.the.bad.and.the.ashy.mp3" controls loop muted preload="none">
+<audio src="https://archive.org/download/Music_Calgary_PD_1/The.good.the.bad.and.the.ashy.mp3"
+    controls loop muted preload="none">
   Your browser does not support the audio file.
 </audio>
 ```
 
 Output for the code above (try playing):
 
-<p><audio src="https://archive.org/download/Music_Calgary_PD_1/The.good.the.bad.and.the.ashy.mp3" preload="none" loop="loop" controls="controls" muted="">
+<p><audio src="https://archive.org/download/Music_Calgary_PD_1/The.good.the.bad.and.the.ashy.mp3" 
+    preload="none" loop="loop" controls="controls" muted="">
   Your browser does not support the audio file.
 </audio></p>
 
@@ -889,8 +893,10 @@ Example:
 
 ```html
 <audio controls>
-  <source src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2016+type@asset+block@splash.wav" type="audio/wav">
-  <source src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2016+type@asset+block@splash.mp3" type="audio/mpeg">
+  <source src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2016+type@asset+block@splash.wav" 
+    type="audio/wav">
+  <source src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2016+type@asset+block@splash.mp3" 
+    type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 ```
