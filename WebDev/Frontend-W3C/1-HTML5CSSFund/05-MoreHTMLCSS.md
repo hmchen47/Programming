@@ -1427,7 +1427,7 @@ Let's go back to our world map example where clicking on different parts of the 
 
 Read more about image maps [on wikipedia](https://en.wikipedia.org/wiki/Image_map). You might be inclined to assume an image map will only be used for an actual map. However, there are a lot more use cases for it. The [Atlas Magazine](http://www.atlasmagazine.com/win98r.html) is a good example.
 
-Try this: Navigate to the Atlas magazine and explore the header image with a 'laughing budha' like image. The image acts as a site navigator. Clicking on different parts of the image will bring you to different parts of the Web page. You can use image maps in many creative ways. 
+Try this: Navigate to the [Atlas magazine](http://www.atlasmagazine.com/win98r.html) and explore the header image with a 'laughing budha' like image. The image acts as a site navigator. Clicking on different parts of the image will bring you to different parts of the Web page. You can use image maps in many creative ways. 
 
 
 #### The 'usemap' attribute
@@ -1480,11 +1480,10 @@ Result:
 
 Try this: Click on the left and right side of the images to check out how usemap works :) Remember to navigate back to the course!
 
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/5854bfc005394517ae62fc55fd58242e/2ccb5b1d17534407918e7f2d963617d9/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40fd6fc633e26d417290e6e78df5bb300d">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6b92cf65974c9fc413cb88abc50b5360/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/img-usemap.jpg" style="margin: 0.1em;" alt="Signpost in France. Select to find out more information about each town." title="Signpost in France. Select to find out more information about each town." width=200>
-  </a></div>
-</div>
+<p><map name="navigatormap"> 
+  <area href="https://en.wikipedia.org/wiki/Millery" shape="rect" coords="0,0,195,439" target="_blank" alt="Millery">
+  <area href="https://en.wikipedia.org/wiki/Nomeny" shape="rect" coords="196,0,390,439" target="_blank" alt="Nomeny">
+</map></p>
 
 
 Note: If the `<img>` is inside an `<a>` or `<button>` element, clicking on it will be interpreted as clicking on the link or button and usemap will not work.
