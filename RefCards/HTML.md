@@ -43,9 +43,10 @@
 ### Useful References & Tool Links
 
 + Specifications
+  + [MDN HTML elements reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+  + [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
   + [W3C HTML5 specification](https://www.w3.org/TR/html5/)
   + [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/)
-  + [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 
 + Tools
   + [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
@@ -56,10 +57,13 @@
 
 + Editors
   + [CodePen](http://codepen.io/)
-  + 
+  + [JS Bin](http://jsbin.com)
 
 + References
   + [Browser Compatibility]()
+  + [WC3 Named character references](https://www.w3.org/TR/2011/WD-html5-20110113/named-character-references.html)
+  + [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html)
+
 
 
 ### HTML Layout Elements
@@ -922,11 +926,12 @@ HTML offers a selection of elements which help to create interactive user interf
 </table>
 
 
-#### [Web Component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Web_Components)
+#### Web Component
 
 Web Components is an HTML-related technology which makes it possible to, essentially, create and use custom elements as if it were regular HTML. In addition, you can create custom versions of standard HTML elements.
 
 <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.6em; padding-bottom: 0.3em;"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Web_Components">Table of Web Components</a></caption>
  <thead>
   <tr style="border-bottom: double black;">
    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
@@ -2048,7 +2053,6 @@ content in a header cell</td>
 
 ### Attributes of the 'tfoot' tag
 
-
 <table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
   <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_tfoot.asp">Attributes of &lt;tfoot&gt; tag</a></caption>
   <tbody><tr>
@@ -2115,12 +2119,47 @@ content in a header cell</td>
 
 + The alt attribute is meant to be an alternate source of information while the title attribute should provide additional information about the image.
 
-+ 
++ The ['ismap' & 'usemap'](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-ismap-and-usemap-attributes) attributes
+  + the picture is an image with clickable areas
+  + e.g., a world map where different countries on the map can be clicked and navigates to another page like the country's wikipedia page
+  + 'ismap' attribute
+    + a boolean attribute
+    + create an image with the image source file and indicate a server-side image-map
+    + if click on a part of your image, navigate to the link indicated
+    + require to create a map file with these details and then add the location of this map file using the anchor element
+    + the href attribute points to the location of the map file
+    + used within the anchor element
+  + 'usemap' attribute
+    + like ismap but more widely used
+    + client-side image-maps
+    + NOT of type boolean but the name of the map with a '#' character preceding it
+    + use the `<area>` element as a child of `<map>` element to specify the coordinates and the page it should navigate to
+    + `<map>`: define a client-side image map
+    + `<area>`:
+      + define the areas clicked and naviated page
+      + shape of the area, coordinates of the area, and URL of the pag to redirect
+      + 'shape' attribute values: circle, rect, poly, and default
+      + [MND Specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
+  + cgi file:
+    + target areas within the image in terms of coordinates
+    + clicks on a part of the image, then calculate the exact 'x' and 'y' coordinates of the image that was clicked
+    + the browser will consult with the map file on the server (specified in the anchor tag) after clicking, by sending these mouse click coordinates to the server
+    + based on the coordination, return the target web page
+  + client-side image-maps vs. Client-side image-maps
+    + Server-side image-maps:
+      + use separate map files that have to be downloade
+      + depend on the server for translating the request
+      + depend on the server for translating the request
+    + Client-side image-maps
+      + reside within an HTML document
+      + the browser takes care of the translation (translating mouse coordinates clicked to corresponding Web pages)
+
 
 
 ### List of Attributes for Image Element
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-img-tag">Attributes of &lt;img&gt; tag</a></caption>
 <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attribute</td>
@@ -2139,7 +2178,7 @@ content in a header cell</td>
       </ul>
     </td>
     <td>
-      <p><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="example.png" alt="Example Tutorial Image"&gt;</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">&lt;img <span style="color: $ff6000; font-eright: bold;">src</span>="example.png" alt="Example Tutorial Image"&gt;</span></p>
     </td>
     <td>
       <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#image-src-attribute">Source18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-img-tag">src19</a></p>
@@ -2152,7 +2191,7 @@ content in a header cell</td>
     <td>
       <p><span style="font-family: arial,helvetica,sans-serif;">Provide a short description of what the image is about (must have)<br/>offer meaning to the image and suggests the purpose of the image content</span></p>
     </td>
-    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here"&gt;</span></td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" <span style="color: $ff6000; font-eright: bold;">alt</span>="Add a short text description of the image here"&gt;</span></td>
     <td>
       <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-alt-attribute">Alt Text</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#attribute-alt">alt</a></p>
     </td>
@@ -2162,9 +2201,9 @@ content in a header cell</td>
     <td>
       <p><span style="font-family: arial,helvetica,sans-serif;">A global attribute to provide the title of the image</span></p>
     </td>
-    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" title="Add a title of the image"&gt;</span></td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" <span style="color: $ff6000; font-eright: bold;">title</span>="Add a title of the image"&gt;</span></td>
     <td>
-      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-title-attribute">Ttitle</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#global-attribute-title-">Global Ttitle</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-title-attribute">title</a></p>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-title-attribute">Ttitle</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#global-attribute-title-">Global Ttitle</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-title-attribute">title</a></p>
     </td>
   </tr>
   <tr>
@@ -2172,14 +2211,120 @@ content in a header cell</td>
     <td>
       <p><span style="font-family: arial,helvetica,sans-serif;">Resize the image in pixels without using an external editor</span></p>
     </td>
-    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" height="hhh"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" width="www"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" width="www" height="hhh"&gt;</span></td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" <span style="color: $ff6000; font-eright: bold;">height</span>="hhh"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" <span style="color: $ff6000; font-eright: bold;">width</span>="www"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" <span style="color: $ff6000; font-eright: bold;">width</span>="www" <span style="color: $ff6000; font-eright: bold;">height</span>="hhh"&gt;</span></td>
     <td>
       <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-height-width-attributes">Size</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-height-width-attributes">width&height</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>ismap</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Specifies an image as a server-side image-map</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="images/logo.png" alt="ismap tutorial" <span style="color: $ff6000; font-eright: bold;">ismap</span>&gt;</span></td>
+    <td>
+      <p><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-ismap-attribute">ismap</a>, <a href="https://www.w3schools.com/tags/att_img_ismap.asp">W3S</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>usemap</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Specifies an image as a client-side image-map</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="navigator.jpg" alt="Pages in this Web site" <span style="color: $ff6000; font-eright: bold;">usemap</span>="#navigatormap"&gt;</span></td>
+    <td>
+      <p><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-usemap-attribute">usemap</a>, <a href="https://www.w3schools.com/tags/att_img_usemap.asp">W3S</a></p>
     </td>
   </tr>
 </tbody>
 </table>
 
+
+### Attributes of the 'map' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_map.asp">Attributes of &lt;map&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_map_name.asp">name</a></td>
+    <td><i>mapname</i></td>
+    <td>Required. Specifies the name of an image-map</td>
+  </tr>
+</tbody></table>
+
+
+### Attributes of the 'area' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_area.asp">Attributes of &lt;area&gt; tag</a></caption>
+  <thead><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="att_area_alt.asp">alt</a></td>
+    <td><i>text</i></td>
+    <td>Specifies an alternate text for the area. Required if the href attribute is present</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_coords.asp">coords</a></td>
+    <td><i>coordinates</i></td>
+    <td>Specifies the coordinates of the area</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_download.asp">download</a></td>
+    <td><i>filename</i></td>
+    <td>Specifies that the target will be downloaded when a user clicks on the hyperlink</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_href.asp">href</a></td>
+    <td><i>URL</i></td>
+    <td>Specifies the hyperlink target for the area</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_hreflang.asp">hreflang</a></td>
+    <td><i>language_code</i></td>
+    <td>Specifies the language of the target URL</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_media.asp">media</a></td>
+    <td><i>media query</i></td>
+    <td>Specifies what media/device the target URL is optimized for</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_nohref.asp" class="notsupported">nohref</a></td>
+    <td><i>value</i></td>
+    <td><span class="deprecated">Not supported in HTML5.</span><br>Specifies that an area has no associated link</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_rel.asp">rel</a></td>
+    <td>alternate, author, bookmark<br>help, license, next<br>nofollow, noreferrer, prefetch<br>prev, search, tag</td>
+    <td>Specifies the relationship between the current document and the target URL</td>
+      </tr>
+  <tr>
+    <td><a href="att_area_shape.asp">shape</a></td>
+    <td>default, rect<br>circle, poly</td>
+    <td>Specifies the shape of the area</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_target.asp">target</a></td>
+    <td>_blank, _parent<br>_self, _top<br>
+ <em>framename</em></td>
+    <td>Specifies where to open the target URL</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_type.asp">type</a></td>
+    <td><i>media_type</i></td>
+    <td>Specifies the media type of the target URL</td>
+    </tr>
+</tbody></table>
 
 
 ## Audio Element
@@ -2512,11 +2657,38 @@ content in a header cell</td>
 
 ## Embedded Content
 
-### [The iframe Tag][043]
+### Characteristics of Embedded Elements
+
++ The [iframe](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-iframes-tag) tag
+  + HTML Inline Frame Element
+  + generally used in Web pages to show external content/resources
+  + content not limited to other Web pages
+  + ablt to styled just like other elements, with borders, margins, sizes specified with CSS rules
+  + unable to identify if no borders, paddings, or margins specified
+  + accessibility: some Web sites disallow their inclusion, including facebook, google
+  + [W3C Specification](https://www.w3.org/TR/html5/embedded-content-0.html#the-iframe-element)
+  + [W3S Specification](https://www.w3schools.com/tags/tag_iframe.asp)
+  + Pros:
+    + Iframes load separately from the main page.
+      + block the main page's load command until its content finishes loading
+      + overcome with JS script
+    + Sandboxing provides security.
+    + Great for third party content.
+    + Convenient to use if requiring one part of a page static while the other changed
+  + Cons: 
+    + easy to misuse them
+    + poor accessibility:
+      + Screenreaders do not process them well
+      + overcome by notices for tthe reader
+    + no control over the content in an iframe to display
+    + search engines having trouble to access
+
+
+### The iframe Tag
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-tag">Attributes of &lt;table&gt; tag</a></caption>
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-iframes-tag">Attributes of &lt;iframe&gt; tag</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
