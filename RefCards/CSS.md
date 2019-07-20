@@ -1444,6 +1444,37 @@
 </div>
 
 
++ [MDN Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
+  + CSS determines the size, position, and properties (color, background, border size, etc.) of these boxes.
+  + composed of four parts (or areas), defined by their respective edges: the content edge, padding edge, border edge, and margin edge.
+  + content area:
+    + bounded by the content edge, contains the "real" content of the element, such as text, an image, or a video player
+    + dimensions: the content width (or content-box width) and the content height (or content-box height)
+    + box-sizing property: explicitly defined with the width, min-width, max-width, height, min-height, and max-height properties
+  + padding area
+    + bounded by the padding edge, extends the content area to include the element's padding
+    + dimensions: the padding-box width and the padding-box height
+    + determined by the padding-top, padding-right, padding-bottom, padding-left, and shorthand padding properties
+  + border area
+    + bounded by the border edge, extends the padding area to include the element's borders
+    + dimensions: the border-box width and the border-box height
+    + thickness of the borders: the border-width and shorthand border properties
+    + box-sizing property: set to border-box
+    + explicitly defined with the width, min-width, max-width, height, min-height, and max-height properties
+    + a background (background-color or background-image) set on a box, it extends to the outer edge of the border
+  + margin area
+    + bounded by the margin edge, extends the border area to include an empty area used to separate the element from its neighbors
+    + dimensions: the margin-box width and the margin-box height
+    + determined by the margin-top, margin-right, margin-bottom, margin-left, and shorthand margin properties
+    + margin collapsing: not clearly defined since margins are shared between boxes
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" ismap target="_blank">
+    <img src="https://mdn.mozillademos.org/files/8685/boxmodel-(3).png" style="margin: 0.1em;" alt="MDN Box Model" title="MDN Box Model" width=350>
+  </a>
+</div>
+
+
 ### Model Properties
 
 <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
