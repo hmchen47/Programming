@@ -182,7 +182,118 @@
 
 
 
-### Property Values
+### CSS Values and Units
+
++ [Textual data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Textual_data_types)
+  + [&lt;custome-ident&gt](https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident)
+    + an arbitrary user-defined string used as an identifier
+    + case-sensitive
+    + characters: alphabetical character (-Z, a-z); decimal digit (0-9); hyphen (-); underscore (_); escape character (\); Unicode character (\ + 1-6 hexadecimal digits)
+  + Pre-defined keywords as an &lt;ident&gt;
+    + text values defined by the specification for that property
+    + e.g., float: `left | right | none | inline-start | inline-end`
+    + CSS-wide property values: `initial`, `inherit`, and `unset`
+      + initial: the value specified as the property’s initial value
+      + inherit: the computed value of the property on the element’s parent
+      + unset: either inherit or initial, depending on whether the property is inherited or not
+  + [&lt;string&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/string)
+    + a sequence of characters
+    + composed of any number of Unicode characters surrounded by either double (") or single (') quotes
+    + Unicode points in hexadecimal: `\22` = double quote; `\27` = single quote; `\A9` = copyright symbol
+  + [&lt;url&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/url)
+    + a pointer to a resource
+    + specified using the url() functional notation
+    + e.g., `url("http://mysite.example.com/mycursor.png")`, `url('http://mysite.example.com/mycursor.png')` or `url(http://mysite.example.com/mycursor.png)`
+
++ [Numeric data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Numeric_data_types)
+  + [&lt;integer&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/integer)
+    + a special type of &lt;number&gt; that represents a whole number, whether positive or negative
+    + consists of one or several decimal digits, 0 through 9 inclusive, optionally preceded by a single + or - sign
+    + no unit associated with integers
+  + [&lt;number&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/number)
+    + a number, being either an integer or a number with a fractional component
+    + maybe preceded by a + or - symbol
+  + [&lt;dimension&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/dimension)
+    + a &lt;number&gt; with a unit attached to it
+    + [&lt;length&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/length):Distance units
+    + [&lt;angle&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/angle): an angle value expressed in degrees, gradians, radians, or turns
+    + [&lt;time&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/time): a time value expressed in seconds or milliseconds
+    + [&lt;frequency&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/frequency): a frequency dimension, such as the pitch of a speaking voice
+    + [&lt;resolution&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/resolution): used for describing resolutions in media queries, denote the pixel density of an output device
+  + [&lt;Percentag&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Percentages)
+    + a fraction of some other value
+    + used to define a size as relative to an element's parent object
+    + consist of a &lt;number&gt; followed by the percentage sign (%)
+    + may be preceded by a single + or - sign, although negative values are not valid for all properties
+
++ [Mixing percentages and dimensions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Mixing_percentages_and_dimensions)
+  + [&lt;frequency-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/frequency-percentage): a value that can be either a &lt;frequency&gt; or a &lt;percentage&gt; 
+  + [&lt;angle-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/angle-percentage): a value that can be either a &lt;angle&gt; or a &lt;percentage&gt;
+  + [&lt;time-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/time-percentage): a value that can be either a &lt;time&gt; or a &lt;percentage&gt;
+
++ [Special data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Special_data_types_(defined_in_other_specs))
+  + [&lt;color&gt;]()
+    + specify the color of an element feature
+    + a color in the sRGB color space
+    + may include an alpha-channel transparency value
+    + ways to define:
+      + keyword (e.g., blue or transparent)
+      + RGB cubic-coordinate system (via the #-hexadecimal or the rgb() and rgba() functional notations)
+      + HSL cylindrical-coordinate system (via the hsl() and hsla() functional notations)
+    + [Color Name & sRGB Values](HTML-Color.md)
+  + [&lt;image&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/image)
+    + two-dimensional image
+    + two kinds of images
+      + plain images, referenced with a &lt;url&gt;
+      + dynamically-generated images, generated with &lt;gradient&gt; or element()
+    + handle the following kinds of images
+      + Images with intrinsic dimensions (a natural size), e.g., JPEG, PNG
+      + Images with multiple intrinsic dimensions, existing in multiple versions inside a single file, like some .ico formats
+      + Images with no intrinsic dimensions but with an intrinsic aspect ratio between its width and height, e.g., SVG
+      + Images with neither intrinsic dimensions, nor an intrinsic aspect ratio, e.g., CSS gradient
+  + [&lt;position&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/position_value)
+    + a two-dimensional coordinate used to set a location relative to an element box
+    + used in the `background-position` property
+    + specified with one or two keywords, with optional offsets
+    + keyword values: `center`, `top`, `right`, `bottom`, and `left`
+
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position_value" ismap target="_blank">
+        <img src="https://mdn.mozillademos.org/files/12215/position_type.png" style="margin: 0.1em;" alt="Syntax of position property" title="Syntax of position property" width=350>
+      </a>
+    </div>
+
+
++ [Functional notation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Functional_notation)
+  + [calc() CSS function](https://developer.mozilla.org/en-US/docs/Web/CSS/calc)
+    + perform calculations when specifying CSS property values
+    + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt;
+    + function takes a single expression as its parameter, with the expression's result used as the value
+    + operators used: +, -, * , /
+    + e.g., `width: calc(100% - 80px);`
+  + [min()](https://developer.mozilla.org/en-US/docs/Web/CSS/min):
+    + set the smallest (most negative) value from a list of comma-separated expressions as the value of a CSS property value
+    + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;,&lt;number&gt;, or &lt;integer&gt;
+    + e.g., `width: min(10vw, 4em, 80px);`
+  + [max()](https://developer.mozilla.org/en-US/docs/Web/CSS/max)
+    + set the largest (most positive) value from a list of comma-separated expressions as the value of a CSS property value
+    + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;,&lt;number&gt;, or &lt;integer&gt;
+    + e.g., `width: max(10vw, 4em, 80px);`
+  + [clamp()](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
+    + clamp a value between an upper and lower bound
+    + enable selecting a middle value within a range of values between a defined minimum and maximum
+    + three parameters: a minimum value, a preferred value, and a maximum allowed value
+    + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt;
+    + e.g., `width: clamp(10px, 4em, 80px);`
+  + toggle(): ?
+  + [attr()](https://developer.mozilla.org/en-US/docs/Web/CSS/attr)
+    + used to retrieve the value of an attribute of the selected element and use it in the stylesheet
+    + used on pseudo-elements, in which case the value of the attribute on the pseudo-element's originating element is returned
+    + e.g., Simple usage: `attr(data-count);`, With type: `attr(src url);`, With fallback: `attr(data-count number, 0);`
+
+
+
+<!-- A version based on W3C Specification
 
 + [Integers and real numbers](https://www.w3.org/TR/CSS22/syndata.html#numbers)
   + Real numbers and Integers: decimal notation only
@@ -316,6 +427,85 @@
     <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
   </tr>
   </tbody>
+</table>
+
+-->
+
+#### Relative Length
+
+<br/>
+<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=60%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Relative Length Units</a></caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">Unit</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 40%;">Related to</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>em</code></td><td>Font size of the element.</td></tr>
+  <tr><td><code>ex</code></td><td>x-height of the element's font.</td></tr>
+  <tr><td><code>cap</code></td><td>Cap height (the nominal height of capital letters) of the element's font.</td></tr>
+  <tr><td><code>ch</code></td><td>Average character advance of a narrow glyph in the element’s font, as represented by the “0” (ZERO, U+0030) glyph.</td></tr>
+  <tr><td><code>ic</code></td><td>Average character advance of a full width glyph in the element’s font, as represented by the “水” (CJK water ideograph, U+6C34) glyph.</td></tr>
+  <tr><td><code>rem</code></td><td>Font size of the root element.</td></tr>
+  <tr><td><code>lh</code></td><td>Line height of the element.</td></tr>
+  <tr><td><code>rlh</code></td><td>Line height of the root element.</td></tr>
+  <tr><td><code>vw</code></td><td>1% of viewport's width.</td></tr>
+  <tr><td><code>vh</code></td><td>1% of viewport's height.</td></tr>
+  <tr><td><code>vi</code></td><td>1% of viewport's size in the root element's inline axis.</td></tr>
+  <tr><td><code>vb</code></td><td>1% of viewport's size in the root element's block axis.</td></tr>
+  <tr><td><code>vmin</code></td><td>1% of viewport's smaller dimension.</td></tr>
+  <tr><td><code>vmax</code></td><td>1% of viewport's larger dimension.</td></tr>
+ </tbody>
+</table><br/>
+
+
+#### Absolute Length
+
+<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=60%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Absolute Length Units</a></caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">Unit</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">Name</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">Equivalent to</th>
+  </tr>
+  </thead>
+ <tbody>
+  <tr> <td><code>cm</code></td> <td>Centimeters</td> <td>1cm = 96px/2.54</td></tr>
+  <tr> <td><code>mm</code></td> <td>Millimeters</td> <td>1mm = 1/10th of 1cm</td></tr>
+  <tr> <td><code>Q</code></td> <td>Quarter-millimeters</td> <td>1Q = 1/40th of 1cm</td></tr>
+  <tr> <td><code>in</code></td> <td>Inches</td> <td>1in = 2.54cm = 96px</td></tr>
+  <tr> <td><code>pc</code></td> <td>Picas</td> <td>1pc = 1/16th of 1in</td></tr>
+  <tr> <td><code>pt</code></td> <td>Points</td> <td>1pt = 1/72th of 1in</td></tr>
+  <tr><td><code>px</code></td><td>Pixels</td><td>1px = 1/96th of 1in</td></tr>
+ </tbody>
+</table><br/>
+
+
+
+#### Image Related Properties
+
+<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Relative Length Units</a></caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 15%;">Kind of Object (CSS Property)</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 40%;">Default object size</th>
+  </tr>
+  </thead>
+ <tbody>
+  <tr><td><a href="/en-US/docs/Web/CSS/background-image" title="The background-image CSS property sets one or more background images on an element."><code>background-image</code></a></td> <td>The size of the element's background positioning area</td></tr>
+  <tr><td><a href="/en-US/docs/Web/CSS/list-style-image" title="The list-style-image CSS property sets an image to be used as the list item marker."><code>list-style-image</code></a></td> <td>The size of a <code>1em</code> character</td></tr>
+  <tr><td><a href="/en-US/docs/Web/CSS/border-image-source" title="The border-image-source CSS property sets the source image used to create an element's border image."><code>border-image-source</code></a></td> <td>The size of the element's border image area</td></tr>
+  <tr><td><a href="/en-US/docs/Web/CSS/cursor" title="The cursor CSS property sets the type of cursor, if any, to show when the mouse pointer is over an element."><code>cursor</code></a></td> <td>The browser-defined size matching the usual cursor size on the client's system</td></tr>
+  <tr><td><a href="/en-US/docs/Web/CSS/mask-image" title="The mask-image CSS property sets the image that is used as mask layer for an element."><code>mask-image</code></a></td> <td>?</td></tr>
+  <tr><td><a href="/en-US/docs/Web/CSS/shape-outside" title="The shape-outside CSS property defines a shape—which may be non-rectangular—around which adjacent inline content should wrap."><code>shape-outside</code></a></td> <td>?</td></tr>
+  <tr><td><a href="/en-US/docs/Web/CSS/mask-border-source" title="The mask-border-source CSS property sets the source image used to create an element's mask border."><code>mask-border-source</code></a></td> <td>?</td></tr>
+  <tr><td><a href="/en-US/docs/Web/CSS/symbols" title="The symbols() CSS function lets you define counter styles inline, directly as the value of a property such as list-style. Unlike @counter-style, symbols() is anonymous (i.e., it can only be used once). Although less powerful, it is shorter and easier to write than @counter-style."><code>symbols</code></a> for @counter-style</td> <td>At risk feature. If supported, the browser-defined size matching the usual cursor size on the client's system</td></tr>
+  <tr><td><a href="/en-US/docs/Web/CSS/content" title="The content CSS property replaces an element with a generated value. Objects inserted using the content property are anonymous replaced elements."><code>content</code></a> for a pseudo-element (<a href="/en-US/docs/Web/CSS/::after" title="In CSS, ::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::after</code></a>/<a href="/en-US/docs/Web/CSS/::before" title="In CSS, ::before creates a pseudo-element that is the first child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::before</code></a>)</td> <td>A 300px × 150px rectangle</td></tr>
+ </tbody>
 </table>
 
 
@@ -963,7 +1153,7 @@
 
 
 
-## Background Properties
+## Background Image Properties
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
