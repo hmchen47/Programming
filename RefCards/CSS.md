@@ -966,11 +966,12 @@
 ## Background Properties
 
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3.org/TR/CSS22/colors.html#background-properties">List of Background properties</a></caption>
   <thead>
   <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
   </tr>
@@ -978,12 +979,45 @@
   <tbody>
   <tr>  
     <td>background-color</td>
-    <td>&lt;color&gt; | transparent | inherit</td>
-    <td>sets the background color of an element, either a &lt;color&gt;> value or the keyword 'transparent', to make the underlying colors shine through.</td>
-    <td><a href="https://www.w3.org/TR/CSS22/text.html#alignment-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align">Alignment</a></td>
+    <td>&lt;color&gt;<br/>transparent<br/>inherit</td>
+    <td>set the background color of an element, either a &lt;color&gt;> value or the keyword 'transparent', to make the underlying colors shine through</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-color">Color</a></td>
+  </tr>
+  <tr>  
+    <td>background-image</td>
+    <td>&lt;uri&gt;<br/>none<br/>inherit</td>
+    <td>set the background image of an element</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-image">Image</a></td>
+  </tr>
+  <tr>  
+    <td>background-repeat</td>
+    <td>repeat<br/>repeat-x<br/>repeat-y<br/>no-repeat<br/>inherit</td>
+    <td>specify whether the image is repeated (tiled), and how</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-repeat">Repeat</a></td>
+  </tr>
+  <tr>  
+    <td>background-attachment</td>
+    <td>scroll<br/>fixed<br/>inherit</td>
+    <td>specifies whether it is fixed with regard to the viewport ('fixed') or scrolls along with the containing block ('scroll')</td>
+    <td><a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align">Alignment</a></td>
+  </tr>
+  <tr>  
+    <td>background-size</td>
+    <td>[&lt;length&gt; &ltlength&gt]<br/>[&lt;length&gt;  auto]<br/>[&lt;percentag&gt; auto]</td>
+    <td>size a background image to fit its element</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-size">Size</a></td>
+  </tr>
+  <tr>  
+    <td>background-position</td>
+    <td>[[ &lt;percentage&gt; | &lt;length&gt; | left | center | right ] [ &lt;percentage&gt; | &lt;length&gt; | top | center | bottom ]? ] <br/> [ [ left | center | right ] || [ top | center | bottom ] ]<br/>inherit</td>
+    <td>specifies background image's initial position</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-position">Position</a></td>
   </tr>
   </tbody>
 </table>
+
+
+
 
 
 ## Alignment Property
