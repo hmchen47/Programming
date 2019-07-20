@@ -1,7 +1,9 @@
 # Cascading Style Sheet (CSS)
 
 
-## [CSS design principles(CSS 2.2)][001]
+## General Information
+
+### [CSS design principles(CSS 2.2)][001]
 
 + Forward and backward compatibility.
 + Complementary to structured documents.
@@ -15,7 +17,7 @@
 + Accessibility
 
 
-## [Effective Use of Style Sheets][002]
+### [Effective Use of Style Sheets][002]
 
 + Generalized Style
   + single style sheet for all of the pages on your site
@@ -33,7 +35,7 @@
   + use the same CLASS names for the same concept in all of the style sheets
 
 
-## [CSS Best Practice][056]
+### [CSS Best Practice][056]
 
 + [Executive summary][057]
   + Logical source order: accessibility, mobile optimization, device adaptability, and long-term maintainability.
@@ -90,7 +92,7 @@
   + Provide fallbacks / use @supports.
 
 
-## Tools
+### Tools
 
 + [CSS Validator][000]
 
@@ -101,7 +103,7 @@
 + [Web Accessibility Evaluations Tools List](https://www.w3.org/WAI/ER/tools/)
 
 
-## Usage
+### Usage
 
 + &lt;style&gt;: to place CSS directly into an HTML document within &lt;head&gt; and &lt;/head&gt;
 
@@ -131,7 +133,7 @@
   ```
 
 
-## [CSS Syntax][004]
+### [CSS Syntax][004]
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div>
@@ -160,7 +162,7 @@
   + [complete list of latest CSS properties][005] at the W3C
 
 
-## Comment
+### Comment
 
 + Comments
   + begin with /* and must end with */
@@ -178,9 +180,103 @@
   }
   ```
 
-## Measurement Units
 
-<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=50%>
+
+### Property Values
+
++ [Integers and real numbers](https://www.w3.org/TR/CSS22/syndata.html#numbers)
+  + Real numbers and Integers: decimal notation only
+  + &lt;integer&gt; : one or more digits "0" to "9"
+  + &lt;number&gt; : either an &lt;integer&gt; or zero or more digits followed by a dot (.) followed by one or more digits
+  + preceded by a "-" or "+" to indicate the sign
+  + '-0' = 0: not a negative number
+
++ [Lrngths](https://www.w3.org/TR/CSS22/syndata.html#length-units)
+  + refer to distance measurements
+  + &gt;length&lt; : a &lt;number&gt; (with or without a decimal point) immediately followed by a unit identifier (e.g., px, em, etc.)
+  + negative length values
+    + allowed for some properties
+    + converted to the nearest value if not supported
+  + Relative length units
+    + specify a length relative to another length property
+    + more easily scale from one output environment to another
+    + <span style="font-weight: bold; color: #ff6000;">em</span>: the 'font-size' of the relevant font
+      + equal to the computed value of the 'font-size' property of the element on which it is used
+      + EXCEPTIOn: when the value of the 'font-size' property itself refers to the font size of the parent element
+      + used for vertical or horizontal measurement
+    + <span style="font-weight: bold; color: #ff6000;">ex</span> : the 'x-height' of the relevant font
+      + defined by the element's first available font
+      + often equal to the height of the lowercase "x"
+      + EXCEPTIOn: when the value of the 'font-size' property itself refers to the 'ex' of the parent element
+  + Absolute length units
+    + <span style="font-weight: bold; color: #ff6000;">in</span>: inches — 1in is equal to 2.54cm.
+    + <span style="font-weight: bold; color: #ff6000;">cm</span>: centimeters
+    + <span style="font-weight: bold; color: #ff6000;">mm</span>: millimeters
+    + <span style="font-weight: bold; color: #ff6000;">pt</span>: points — the points used by CSS are equal to 1/72nd of 1in.
+    + <span style="font-weight: bold; color: #ff6000;">pc</span>: picas — 1pc is equal to 12pt.
+    + <span style="font-weight: bold; color: #ff6000;">px</span>: pixel units — 1px is equal to 0.75pt.
+
+
++ [Percentages](https://www.w3.org/TR/CSS22/syndata.html#percentage-units)
+  + a &lt;number&gt; immediately followed by '%'
+  + always relative to another value
+  + be that of another property for the same element, a property for an ancestor element, or a value of the formatting context
+  + set for a property of the root element: percentage times the initial value of that property
+
++ [URLs and URIs](https://www.w3.org/TR/CSS22/syndata.html#uri)
+  + Uniform Resource Identifiers
+  + used to designate URIs in property values
+
++ [Counters](https://www.w3.org/TR/CSS22/syndata.html#counter)
+  + denoted by case-sensitive identifiers
+  + 'counter(&lt;identifier&gt;)' or 'counter(&lt;identifier&gt;, &lt;'list-style-type'&gt;)': the value of a counter
+  + 'counters(&lt;identifier&gt;, &lt;string&gt;)' or 'counters(&lt;identifier&gt;, &lt;string&gt;, &lt;'list-style-type'&gt;)': a sequence of nested counters of the same name
+  + optional white space separating the tokens
+
++ [Colors](https://www.w3.org/TR/CSS22/syndata.html#color-units)
+  + A &lt;color&gt; is either a keyword or a numerical RGB specification.
+  + color keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, and yellow
+  + The RGB color model
+    + used in numerical color specifications
+    + hexadecimal notation: a '#' immediately followed by either three or six hexadecimal characters; e.g., #f60 (#rgb) or  #ff66000 (#rrggbb)
+    + functional notation: 'rgb(x, y, z)', where x, y, x in [0, 255] or [0, 100%]; e.g, rgb(255,0,0) or rgb(100%, 0%, 0%)
+
+    <div style="width: 25em; height: 20em; margin: 1em auto; font-family: Verdana,sans-serif; font-size: 12px;" id="TanteksColorDiagram20020613">
+    <div style="height: 5em;">
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: maroon; color:white"><span style="font-weight: bold;">maroon</span> #800000
+    </span><span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: red"><span style="font-weight: bold;">red</span> #ff0000
+    </span><span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: orange"><span style="font-weight: bold;">orange</span> #ffA500
+    </span><span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: yellow"><span style="font-weight: bold;">yellow</span> #ffff00
+    </span><span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: olive;color:white"><span style="font-weight: bold;">olive</span> #808000</span>
+    </div>
+    <div style="height: 5em;">
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: purple;color:white"><span style="font-weight: bold;">purple</span> #800080</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: fuchsia"><span style="font-weight: bold;">fuchsia</span> #ff00ff</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: white"><span style="font-weight: bold;">white</span> #ffffff</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: lime"><span style="font-weight: bold;">lime</span> #00ff00</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: green;color:white"><span style="font-weight: bold;">green</span> #008000</span>
+    </div>
+    <div style="height: 5em; padding:0 2.5em">
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: navy;color:white"><span style="font-weight: bold;">navy</span> #000080</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: blue"><span style="font-weight: bold;">blue</span> #0000ff</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: aqua"><span style="font-weight: bold;">aqua</span> #00ffff</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: teal;color:white"><span style="font-weight: bold;">teal</span> #008080</span>
+    </div>
+    <div style="height: 5em; padding:0 5em">
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background:black;color:white"><span style="font-weight: bold;">black</span> #000000</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background:silver"><span style="font-weight: bold;">silver</span> #c0c0c0</span>
+    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background:gray;color:white"><span style="font-weight: bold;">gray</span> #808080</span>
+    </div>
+    </div>
+
++ [Strings](https://www.w3.org/TR/CSS22/syndata.html#strings)
+  + either be written with double quotes or with single quotes
+  + double quotes cannot occur inside double quotes, unless escaped (e.g., as '\"' or as '\22')
+  + e.g., "this is a 'string'" = "this is a \"string\"" = 'this is a "string"' = 'this is a \'string\''
+
+
+<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=70%>
+  <caption style="font-size: 1.5em;"><a href="url">Measurement Units</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">Unit</th>
@@ -223,7 +319,8 @@
 </table>
 
 
-## Accessibility
+
+### Accessibility
 
 + [Accessibility](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#accessibility): designing Web page with various disabilities in mind
 
@@ -234,7 +331,7 @@
   + not irregularly space text or make it jump around
 
 
-## Debugging
+### Debugging
 
 + [Programming languages](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging)
   + Javascript: procedure programming
@@ -272,7 +369,6 @@
   + The "Computed" tab contains the values of all the CSS properties that apply to the current element.
   + click on the triangle to expand the details on font-size, which makes a little more clear what's going on
   + the em unit is relative measurement, depending on the current font-size
-
 
 
 
@@ -324,7 +420,6 @@
   + not recommended
   + fix conflict directly, rather than using !important
   + e.g., `p { color: orange !important; }`
-
 
 
 ### CSS Selector Reference
@@ -602,8 +697,6 @@
   </tbody>
 </table>
 
-
-
 ### Tree Presentation - Inheritance
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
@@ -627,7 +720,6 @@
 + Generally, the properties associated with positioning and layout are not inherited. Likewise, the decorative properties (borders, background images, etc.) do not inherit.
 
 + Most properties that begin with text- or font- inherit.
-
 
 
 ### CSS Precedence
@@ -747,17 +839,18 @@
 
 ### Important References
 
-+ [Color names and sRGB values](HTML-Color.md)
-
-+ [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/)
++ Color
+  + [Color names and sRGB values](HTML-Color.md)
+  + [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/)
 
 
 
 ## Font Property
 
-### [List of Font Properties][010]
+### List of Font Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3.org/Style/Examples/007/fonts">Font properties</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
@@ -870,9 +963,27 @@
 
 
 
-## Image Property
+## Background Properties
 
-See [Image Attributes][]
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>  
+    <td>background-color</td>
+    <td>&lt;color&gt; | transparent | inherit</td>
+    <td>sets the background color of an element, either a &lt;color&gt;> value or the keyword 'transparent', to make the underlying colors shine through.</td>
+    <td><a href="https://www.w3.org/TR/CSS22/text.html#alignment-prop">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align">Alignment</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 ## Alignment Property
@@ -946,7 +1057,7 @@ See [Image Attributes][]
     <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
   </tr>
   <tr>
-    <td></td>
+    <td>max-height</td>
     <td>maximum height of the element</td>
     <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
     <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
