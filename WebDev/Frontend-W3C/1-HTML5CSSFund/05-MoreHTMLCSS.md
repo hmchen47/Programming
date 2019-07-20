@@ -1653,14 +1653,13 @@ The background-repeat property can be used to control this.  It's more commonly 
 There are advanced uses of this property.  Notice in the above example, that if the size of the parent element is not exactly a multiple of the tile, then the image may be "cropped" and bleed off the side.  That can be managed by centering the tile (with `background-position: center;`).  Additionally the background-repeat property can also be used to control how it repeats. The <span style="colot: #ff6000;">space</span> value will result in cropped images; it means "repeat, and add space between the elements so there is no cropping".  Note that this property does not let you directly manipulate the amount of spacing. That is calculated for you.
 
 <div>
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=50%>
 <tbody>
-<tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;">background-repeat: space</th><thstyle="text-align: center; background-color: #3d64ff; color: #ffffff;"></th></tr>
+<tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;">background-repeat: space</th></tr>
 <tr>
 <td style="width: 50%;">
 <p style="background-image: url(https://www.w3.org/2008/site/images/logo-w3c-mobile-lg); font-size: 24px; padding: 15px 50px 30px 100px; text-shadow: 1px 1px 1px black, -1px -1px 1px black; color: yellow; font-family: serif;">The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff, and the public work together to develop Web standards.</p>
 </td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -2026,8 +2025,8 @@ Furthermore, there are other issues associated with the `width` and `height` pro
 
 + `height` and `width` properties do not work on inline elements.
 + Many elements have natural behaviors that occur when height and width are __not__ set. These are generally advantageous. However, by setting the width and height you __lose__ those advantages. We'll understand this in next module.
-= Most Web pages are viewed in a variety of browser sizes, especially on mobile devices like phones or tablets. Overuse of explicit width and height can make your page unviewable on smaller devices.
-= The flexbox layout system (which we will see next) is incredibly powerful, but by over-determining explicit heights and widths you reduce its usefulness to you and your viewer.
++ Most Web pages are viewed in a variety of browser sizes, especially on mobile devices like phones or tablets. Overuse of explicit width and height can make your page unviewable on smaller devices.
++ The flexbox layout system (which we will see next) is incredibly powerful, but by over-determining explicit heights and widths you reduce its usefulness to you and your viewer.
 
 
 
@@ -2124,7 +2123,7 @@ a:visited { color: purple; }
 
 Above us we see a tag selector (`a`) followed by a pseudo class, which consists of a colon and a word (e.g. `:visited`). This particular CSS rule will be applied to any `<a>` tag that the user has already visited. There can be no spaces on either side of the colon. Pseudo classes can be amended onto _any_ CSS selector, not just tag selectors.
 
-A full list of pseudo classes can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes). Let's look at some of the most common ones.
+A full list of pseudo classes can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#Index_of_standard_pseudo-classes). Let's look at some of the most common ones.
 
 
 #### :visited
