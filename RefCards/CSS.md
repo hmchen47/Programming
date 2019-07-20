@@ -35,9 +35,9 @@
   + use the same CLASS names for the same concept in all of the style sheets
 
 
-### [CSS Best Practice][056]
+### CSS Best Practice
 
-+ [Executive summary][057]
++ [Executive summary](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#executive-summary)
   + Logical source order: accessibility, mobile optimization, device adaptability, and long-term maintainability.
   + Liquid layouts and relativity: Use smart relative sizing
   + Media queries: get font size adaptation free by using `em`s
@@ -46,7 +46,7 @@
   + Don't use proprietary features! Don't rely on the latest -WebKit- invention.
   + Turn off CSS: A well-coded page will be understandable without it.
 
-+ [Foundations][058]
++ [Foundations](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#foundations)
   + Indent your code for readability ease
   + Learn how to code CSS before relying on frameworks (such as Bootstrap, etc.)
   + Separate content and style
@@ -60,7 +60,7 @@
       + as a foundation for device adaptation (media queries)
   + Linguistic variations: set the language correctly for better typography
 
-+ [Testing][059]
++ [Testing]/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#testing
   + Test without CSS: turn off CSS, and if the page makes no sense, fix your markup.
   + Test in multiple environments:
     + Resize the window
@@ -69,7 +69,7 @@
     + Navigate by keyboard
   + Test in multiple browsers: remember that just testing in Chrome does not work for everyone! ;)
 
-+ [Adaptability][060]
++ [Adaptability](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#adaptability)
   + Media queries: set media query breakpoints in `em` or `ch`, not always in `px`.
   + Liquid layouts and relativity: what is your sizing based on?
     + Containing block size? → Use percents.
@@ -79,7 +79,7 @@
     + Content size? → Use auto or min-content/max-content.
     + Combination of the above? → Use the appropriate layout formulas: `flex`, `min-width`, `max-width`, etc.
 
-+ [Defensive Coding][061]
++ [Defensive Coding](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#defensive-coding)
   + `!important` means never override- to use with caution
   + Use !important to define overriding rules, not for fixups
   + Duplicate selectors if you need to increase specificity, or
@@ -488,7 +488,7 @@
 #### Image Related Properties
 
 <table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Relative Length Units</a></caption>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image">Relative Length Units</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 15%;">Kind of Object (CSS Property)</th>
@@ -496,15 +496,15 @@
   </tr>
   </thead>
  <tbody>
-  <tr><td><a href="/en-US/docs/Web/CSS/background-image" title="The background-image CSS property sets one or more background images on an element."><code>background-image</code></a></td> <td>The size of the element's background positioning area</td></tr>
-  <tr><td><a href="/en-US/docs/Web/CSS/list-style-image" title="The list-style-image CSS property sets an image to be used as the list item marker."><code>list-style-image</code></a></td> <td>The size of a <code>1em</code> character</td></tr>
-  <tr><td><a href="/en-US/docs/Web/CSS/border-image-source" title="The border-image-source CSS property sets the source image used to create an element's border image."><code>border-image-source</code></a></td> <td>The size of the element's border image area</td></tr>
-  <tr><td><a href="/en-US/docs/Web/CSS/cursor" title="The cursor CSS property sets the type of cursor, if any, to show when the mouse pointer is over an element."><code>cursor</code></a></td> <td>The browser-defined size matching the usual cursor size on the client's system</td></tr>
-  <tr><td><a href="/en-US/docs/Web/CSS/mask-image" title="The mask-image CSS property sets the image that is used as mask layer for an element."><code>mask-image</code></a></td> <td>?</td></tr>
-  <tr><td><a href="/en-US/docs/Web/CSS/shape-outside" title="The shape-outside CSS property defines a shape—which may be non-rectangular—around which adjacent inline content should wrap."><code>shape-outside</code></a></td> <td>?</td></tr>
-  <tr><td><a href="/en-US/docs/Web/CSS/mask-border-source" title="The mask-border-source CSS property sets the source image used to create an element's mask border."><code>mask-border-source</code></a></td> <td>?</td></tr>
-  <tr><td><a href="/en-US/docs/Web/CSS/symbols" title="The symbols() CSS function lets you define counter styles inline, directly as the value of a property such as list-style. Unlike @counter-style, symbols() is anonymous (i.e., it can only be used once). Although less powerful, it is shorter and easier to write than @counter-style."><code>symbols</code></a> for @counter-style</td> <td>At risk feature. If supported, the browser-defined size matching the usual cursor size on the client's system</td></tr>
-  <tr><td><a href="/en-US/docs/Web/CSS/content" title="The content CSS property replaces an element with a generated value. Objects inserted using the content property are anonymous replaced elements."><code>content</code></a> for a pseudo-element (<a href="/en-US/docs/Web/CSS/::after" title="In CSS, ::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::after</code></a>/<a href="/en-US/docs/Web/CSS/::before" title="In CSS, ::before creates a pseudo-element that is the first child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::before</code></a>)</td> <td>A 300px × 150px rectangle</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image" title="The background-image CSS property sets one or more background images on an element."><code>background-image</code></a></td> <td>The size of the element's background positioning area</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image" title="The list-style-image CSS property sets an image to be used as the list item marker."><code>list-style-image</code></a></td> <td>The size of a <code>1em</code> character</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-source" title="The border-image-source CSS property sets the source image used to create an element's border image."><code>border-image-source</code></a></td> <td>The size of the element's border image area</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor" title="The cursor CSS property sets the type of cursor, if any, to show when the mouse pointer is over an element."><code>cursor</code></a></td> <td>The browser-defined size matching the usual cursor size on the client's system</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image" title="The mask-image CSS property sets the image that is used as mask layer for an element."><code>mask-image</code></a></td> <td>?</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside" title="The shape-outside CSS property defines a shape—which may be non-rectangular—around which adjacent inline content should wrap."><code>shape-outside</code></a></td> <td>?</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-source" title="The mask-border-source CSS property sets the source image used to create an element's mask border."><code>mask-border-source</code></a></td> <td>?</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/symbols" title="The symbols() CSS function lets you define counter styles inline, directly as the value of a property such as list-style. Unlike @counter-style, symbols() is anonymous (i.e., it can only be used once). Although less powerful, it is shorter and easier to write than @counter-style."><code>symbols</code></a> for @counter-style</td> <td>At risk feature. If supported, the browser-defined size matching the usual cursor size on the client's system</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content" title="The content CSS property replaces an element with a generated value. Objects inserted using the content property are anonymous replaced elements."><code>content</code></a> for a pseudo-element (<a href="/en-US/docs/Web/CSS/::after" title="In CSS, ::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::after</code></a>/<a href="/en-US/docs/Web/CSS/::before" title="In CSS, ::before creates a pseudo-element that is the first child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::before</code></a>)</td> <td>A 300px × 150px rectangle</td></tr>
  </tbody>
 </table>
 
@@ -796,12 +796,12 @@
 
 ### Typical Selectors
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
   <caption style="font-size: 1.5em; color: darkblue; font-weight: bold;"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors">CSS Selectors</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Selector</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">HTML</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">HTML</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">CSS</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
   </tr>
@@ -833,19 +833,19 @@
   </tr>
   <tr>
     <td>Specialized</td>
-    <td>&gt;li class="insect flying"&lt;wasp&lt;/li&gt;</td>
+    <td>&lt;li class="insect flying"&gt;wasp&lt;/li&gt;</td>
     <td>.insect.flying { <br/> &nbsp;&nbsp;&nbsp;&nbsp; text-decoration: underline; <br/> &nbsp;&nbsp;&nbsp;&nbsp; font-weight: bold; <br/>   }</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors">Selector</a></td>
   </tr>
   <tr>
     <td>Descendant</td>
-    <td>&lt;section id="intro"&gt;Welcome to &lt;a href="#palaceland"&gt;PalaceLand&lt;/a&gt;</td>
+    <td>&lt;section id="intro"&gt; Welcome to &lt;a href="#palaceland"&gt; PalaceLand &lt;/a&gt;</td>
     <td>#intro a { color: red; }</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors">Selector</a></td>
   </tr>
   <tr>
     <td>Direct descendant</td>
-    <td>&lt;section id="intro"&gt;Welcome to &lt;a href="#palaceland"&gt;PalaceLand&lt;/a&gt;</td>
+    <td>&lt;section id="intro"&gt; Welcome to &lt;a href="#palaceland"&gt; PalaceLand &lt;/a&gt;</td>
     <td>#intro > a { font-size: large; }</td>
     <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---">Selector</a></td>
   </tr>
@@ -856,33 +856,35 @@
 
 ### Styling with Pseudo Class
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Class</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties/Values</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td>tr:nth-child(even), tr:nth-child(odd)</td>
-    <td>alternating colors for table rows making it easier to differentiate data between rows</td>
-    <td>background-color: color;</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-nth-child">Zebra</a></td>
+    <td>tr:nth-child(even)<br/>tr:nth-child(odd)<br/>tr:nth-cjild(An+B)</td>
+    <td><ul><li>alternating colors for table rows making it easier to differentiate data between rows</li><li> specified with a single argument, which represents the pattern for matching elements</li><li>Examples:<ul><li><strong>tr:nth-child(odd)</strong> = <strong>tr:nth-child(2n+1)</strong></li><li><strong>tr:nth-child(even)</strong> = <strong>tr:nth-child(2n)</strong></li><li><strong>:nth-child(7)</strong>: the seventh element</li><li><strong>:nth-child(5n)</strong>: elements 5 [=5×1], 10 [=5×2], 15 [=5×3], etc.</li><li><strong>:nth-child(3n+4)</strong>: elements 4 [=(3×0)+4], 7 [=(3×1)+4], 10 [=(3×2)+4], 13 [=(3×3)+4], etc.</li><li><strong>:nth-child(-n+3)</strong>: the first three elements. [=-0+3, -1+3, -2+3]</li></ul></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#-nth-child">Zebra</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">MDN</a></td>
   </tr>
   <tr>
-    <td>tr.hover</td>
-    <td>mouse over rows in your table to highlight them in the color specified</td>
-    <td>background-color: black;</td>
-    <td><a href="..WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-hover-active">Hover</a></td>
+    <td>tr:hover</td>
+    <td><ul><li>interact with an element with a pointing device</li><li>generally triggered when the user hovers over an element with the cursor (mouse pointer)</li><li>overridden by any subsequent link-related pseudo-class (:link, :visited, or :active) that has at least equal specificity</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#-hover-active">Hover</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:hover">MDN</a></td>
   </tr>
   <tr>
-    <td>tr.visted</td>
-    <td>usually put on a selector that resolves to an &lt;a&gt; tag</td>
-    <td>None</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-visited">Visted</a></td>
+    <td>tr:visted</td>
+    <td><ul><li>usually put on a selector that resolves to an &lt;a&gt; tag</li><li>represent links that the user has already visited</li><li>overridden by any subsequent link-related pseudo-class (:link, :hover, or :active) that has at least equal specificity</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#-visited">Visted</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:visited">MDN</a></td>
+  </tr>
+  <tr>
+    <td>tr:active</td>
+    <td><ul><li>an element (such as a button) that is being activated by the user</li><li>typically starts when the user presses down the primary mouse button</li></<li>commonly used on &lt;a&gt; and &lt;button&gt; elements</li><li>overridden by any subsequent link-related pseudo-class</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#-hover-active">Active</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:active">MDN</a></td>
   </tr>
   </tbody>
 </table>
@@ -1160,48 +1162,54 @@
   <caption style="font-size: 1.5em;"><a href="https://www.w3.org/TR/CSS22/colors.html#background-properties">List of Background properties</a></caption>
   <thead>
   <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Value</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Link</th>
   </tr>
   </thead>
   <tbody>
   <tr>  
+    <td>background</td>
+    <td>&lt;attachment&gt;<br/>&lt;box&gt;<br/>&lt;background-color&gt;<br/>&lt;bg-image&gt;<br/>&lt;position&gt;<br/>&lt;repeat-style&gt;<br/>&lt;bg-size&gt;</td>
+    <td>a shorthand that sets the following properties in a single declaration: background-clip, background-color, background-image, background-origin, background-position, background-repeat, background-size, and background-attachment</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background">MDN</a></td>
+  </tr>
+  <tr>  
     <td>background-color</td>
     <td>&lt;color&gt;<br/>transparent<br/>inherit</td>
     <td>set the background color of an element, either a &lt;color&gt;> value or the keyword 'transparent', to make the underlying colors shine through</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-color">Color</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-color">Color</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color">MDN</a></td>
   </tr>
   <tr>  
     <td>background-image</td>
     <td>&lt;uri&gt;<br/>none<br/>inherit</td>
     <td>set the background image of an element</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-image">Image</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-image">Image</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image">MDN</a></td>
   </tr>
   <tr>  
     <td>background-repeat</td>
     <td>repeat<br/>repeat-x<br/>repeat-y<br/>no-repeat<br/>inherit</td>
     <td>specify whether the image is repeated (tiled), and how</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-repeat">Repeat</a></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-repeat">Repeat</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat">MDN</a></td>
   </tr>
   <tr>  
     <td>background-attachment</td>
     <td>scroll<br/>fixed<br/>inherit</td>
     <td>specifies whether it is fixed with regard to the viewport ('fixed') or scrolls along with the containing block ('scroll')</td>
-    <td><a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align">Alignment</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment">MDN</a></td>
   </tr>
   <tr>  
     <td>background-size</td>
     <td>[&lt;length&gt; &ltlength&gt]<br/>[&lt;length&gt;  auto]<br/>[&lt;percentag&gt; auto]</td>
-    <td>size a background image to fit its element</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-size">Size</a></td>
+    <td>size a background image to fit its element<br/>auto preserves aspect ratio, no distorting</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-size">Size</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">MDN</a></td>
   </tr>
   <tr>  
     <td>background-position</td>
-    <td>[[ &lt;percentage&gt; | &lt;length&gt; | left | center | right ] [ &lt;percentage&gt; | &lt;length&gt; | top | center | bottom ]? ] <br/> [ [ left | center | right ] || [ top | center | bottom ] ]<br/>inherit</td>
-    <td>specifies background image's initial position</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-position">Position</a></td>
+    <td><strong>1-value syntax</strong>: <br/>&nbsp;&nbsp;&nbsp;&nbsp;center<br/>&nbsp;&nbsp;&nbsp;&nbsp;top<br/>&nbsp;&nbsp;&nbsp;&nbsp;left<br/>&nbsp;&nbsp;&nbsp;&nbsp;bottom<br/>&nbsp;&nbsp;&nbsp;&nbsp;right<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;length-percentage&gt; <br/><strong>2-value syntax</strong>: <br/>&nbsp;&nbsp;&nbsp;&nbsp;top<br/>&nbsp;&nbsp;&nbsp;&nbsp;right<br/>&nbsp;&nbsp;&nbsp;&nbsp;bottom<br/>&nbsp;&nbsp;&nbsp;&nbsp;left<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;length-percentage&gt;</td>
+    <td>specifies background image's initial position<br/>1 value: the 2nd value = center<br/>2 calues: (horizontal, vertical) position</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#background-position">Position</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">MDN</a></td>
   </tr>
   </tbody>
 </table>
@@ -1474,6 +1482,29 @@
   </a>
 </div>
 
++ [Border style](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#border-style)
+
+  <table style="border-collapse: separate; border-spacing: 4px;" width=90%>
+  <tbody>
+    <tr>
+      <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: solid;">solid</td>
+      <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: dotted;">dotted</td>
+      <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: dashed;">dashed</td>
+      <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: double;">double</td>
+      <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: groove;">groove</td>
+      <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: ridge;">ridge</td>
+      <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: inset;">inset</td>
+      <td style="width: 10%; padding: 0.5em; text-align: center;  border-style: outset;">outset</td>
+    </tr>
+  </tbody>
+  </table>
+
++ [Element Size Control](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#managing-element-size)
+  + control an element's size for the purpose of controlling how a border or background extends relative to the item itself
+  + not recommended: width, height, left and top CSS properties
+  + best practice: padding properties
+  + Margins make space between elements and padding makes an element larger.
+
 
 ### Model Properties
 
@@ -1519,13 +1550,13 @@
     <td>border</td>
     <td>the style, width, and color of an element's border</td>
     <td>border-width, border-style (required), border-color</td>
-    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="https://www.w3schools.com/css/css_border.asp">W3S</a></td>
+    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#border-abbreviations">Border</a>, <a href="https://www.w3schools.com/css/css_border.asp">W3S</a></td>
   </tr>
   <tr>
     <td>border-style</td>
     <td>what kind of border to display</td>
-    <td>dotted, dashed, solid, double, groove, ridge, inset, outset, none, hidden <br/><br/>Examples: <br/><ul><li>border-style: dotted solid double dashed;</li>  <li>border-style: dotted solid double;</li>, <li>border-style: dotted solid;</li>,  <li>border-style: dotted;</li></ul></td>
-    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="https://www.w3schools.com/css/css_border.asp">W3S</a></td>
+    <td>dotted, dashed, solid, double, groove, ridge, inset, outset, none, hidden <br/><br/>Examples: <br/><ul><li>border-style: dotted solid double dashed;</li>  <li>border-style: dotted solid double;</li> <li>border-style: dotted solid;</li> <li>border-style: dotted;</li></ul></td>
+    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#border-style">Border</a>, <a href="https://www.w3schools.com/css/css_border.asp">W3S</a></td>
   </tr>
   <tr>
     <td>border-width</td>
@@ -1538,6 +1569,24 @@
     <td>the color of the four borders</td>
     <td>name, Hex, RGB, transparent</td>
     <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="https://www.w3schools.com/css/css_border.asp">W3S</a></td>
+  </tr>
+  <tr>
+    <td>border-radius</td>
+    <td>round the corners of an element's outer border edge</td>
+    <td>&lt;length&gt; <br/>&lt;percentage&gt; </td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#border-radius">Border</a>, <a href="https://www.w3schools.com/cssref/css3_pr_border-radius.asp">W3S</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">MDN</a></td>
+  </tr>
+  <tr>
+    <td>box-shadow</td>
+    <td>add shadow effects around an element's frame<br/><br/>Example: <br/>box-shadow: &lt;x-offset&gt; &lt;y-offset&gt; &lt;blur&gt; &lt;color&gt;;</td>
+    <td>none: no shadow<br/>[&lt;offset-x&gt; &lt;offset-y&gt;](required): set the shadow offset<br/>&lt;blur-radius&gt;: the larger this value, the bigger the blur<br/>&lt;spread-radius&gt;: cause the shadow to expand and grow bigger (positive) or shrink (negative)<br/>&lt;color&gt;: keywords or notations</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#box-shadow">Border</a>, <a href="https://www.w3schools.com/cssref/css3_pr_box-shadow.asp">W3S</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">MDN</a></td>
+  </tr>
+  <tr>
+    <td>text-shadow</td>
+    <td>add shadows to text<br/><br/>Example: <br/>box-shadow: &lt;x-offset&gt; &lt;y-offset&gt; &lt;blur&gt; &lt;color&gt;;</td>
+    <td>[&lt;offset-x&gt; &lt;offset-y&gt;](required): set the shadow offset<br/>&lt;blur-radius&gt;: the larger this value, the bigger the blur<br/>&lt;color&gt;: keywords or notations</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#text-shadow">Border</a>, <a href="https://www.w3schools.com/cssref/css3_pr_text-shadow.asp">W3S</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow">MDN</a></td>
   </tr>
   <tr>
     <td>margin</td>
@@ -1588,7 +1637,7 @@
     + block-level elements begin on new lines
     + in-line elements can start anywhere in a line
 
-+  [Display Elements](../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#display-property)
++ [Display Elements](../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#display-property)
 
 
 <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
