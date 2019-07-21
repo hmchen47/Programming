@@ -182,7 +182,62 @@
 
 
 
-### CSS Values and Units
+
+### Accessibility
+
++ [Accessibility](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#accessibility): designing Web page with various disabilities in mind
+
++ Guidelines
+  + not too small on font size
+  + not too tight on line height
+  + good color contrast for foregrounbd and background
+  + not irregularly space text or make it jump around
+
+
+### Debugging
+
++ [Programming languages](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging)
+  + Javascript: procedure programming
+  + HTML and CSS: declarative
+
++ Every browser is a bit different, but most of them have ways to examine the various elements and their properties.
+
++ [Box Model](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-with-the-box-model)
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/063b584da882baac3e39e088c4c9dc80/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/Screen_Shot_2016-03-08_at_8.19.27_PM.png" style="margin: 0.1em;" alt="image of a CSS Box Model" title="image of a CSS Box Model" width=250>
+    </a></div>
+  </div>
+
+  + the centered blue box corresponds to the size of the inspected element: width is 536 pixels and height is 118 pixels
+  + padding is only defined by padding-left which value is 40 pixels
+  + there is a border of 5 pixels on each side
+  + margin-left and margin-right are undefined (default value is 0 pixel)
+  + margin-top and margin-bottom are equal to 16 pixels
+
++ [CSS Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#4-4-debugging-css-precedence)
+  + "Styles" and "Computed" are helpful in sorting out where a particular style setting is coming from
+  + a sequence of the panels under "Style" that helps understand just where a particular CSS rule is coming from
+  + from top, rules applied specifically to the currently active element
+  + overridden rule shown as striked out ones
+  + default ruke: grayed out tules
+
++ [Image Size](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-image-size)
+  + Any style setting for the img width will take precedence over the attribute setting.
+  + special case the smaller pictures and use a larger width by default
+
++ [Computed tab](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#computed-tab)
+  + The styles panel doesn't tell us a lot about the actually font-size in absolute terms. 
+  + The "Computed" tab contains the values of all the CSS properties that apply to the current element.
+  + click on the triangle to expand the details on font-size, which makes a little more clear what's going on
+  + the em unit is relative measurement, depending on the current font-size
+
+
+
+## CSS Values and Units
+
+### CSS Value Types & Functions
 
 + [Textual data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Textual_data_types)
   + [&lt;custome-ident&gt](https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident)
@@ -431,7 +486,7 @@
 
 -->
 
-#### Relative Length
+### Relative Length
 
 <br/>
 <table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=60%>
@@ -461,7 +516,7 @@
 </table><br/>
 
 
-#### Absolute Length
+### Absolute Length
 
 <table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=60%>
   <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Absolute Length Units</a></caption>
@@ -482,83 +537,6 @@
   <tr><td><code>px</code></td><td>Pixels</td><td>1px = 1/96th of 1in</td></tr>
  </tbody>
 </table><br/>
-
-
-
-#### Image Related Properties
-
-<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image">Relative Length Units</a></caption>
-  <thead>
-  <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 15%;">Kind of Object (CSS Property)</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 40%;">Default object size</th>
-  </tr>
-  </thead>
- <tbody>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image" title="The background-image CSS property sets one or more background images on an element."><code>background-image</code></a></td> <td>The size of the element's background positioning area</td></tr>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image" title="The list-style-image CSS property sets an image to be used as the list item marker."><code>list-style-image</code></a></td> <td>The size of a <code>1em</code> character</td></tr>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-source" title="The border-image-source CSS property sets the source image used to create an element's border image."><code>border-image-source</code></a></td> <td>The size of the element's border image area</td></tr>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor" title="The cursor CSS property sets the type of cursor, if any, to show when the mouse pointer is over an element."><code>cursor</code></a></td> <td>The browser-defined size matching the usual cursor size on the client's system</td></tr>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image" title="The mask-image CSS property sets the image that is used as mask layer for an element."><code>mask-image</code></a></td> <td>?</td></tr>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside" title="The shape-outside CSS property defines a shape—which may be non-rectangular—around which adjacent inline content should wrap."><code>shape-outside</code></a></td> <td>?</td></tr>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-source" title="The mask-border-source CSS property sets the source image used to create an element's mask border."><code>mask-border-source</code></a></td> <td>?</td></tr>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/symbols" title="The symbols() CSS function lets you define counter styles inline, directly as the value of a property such as list-style. Unlike @counter-style, symbols() is anonymous (i.e., it can only be used once). Although less powerful, it is shorter and easier to write than @counter-style."><code>symbols</code></a> for @counter-style</td> <td>At risk feature. If supported, the browser-defined size matching the usual cursor size on the client's system</td></tr>
-  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content" title="The content CSS property replaces an element with a generated value. Objects inserted using the content property are anonymous replaced elements."><code>content</code></a> for a pseudo-element (<a href="/en-US/docs/Web/CSS/::after" title="In CSS, ::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::after</code></a>/<a href="/en-US/docs/Web/CSS/::before" title="In CSS, ::before creates a pseudo-element that is the first child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::before</code></a>)</td> <td>A 300px × 150px rectangle</td></tr>
- </tbody>
-</table>
-
-
-
-### Accessibility
-
-+ [Accessibility](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#accessibility): designing Web page with various disabilities in mind
-
-+ Guidelines
-  + not too small on font size
-  + not too tight on line height
-  + good color contrast for foregrounbd and background
-  + not irregularly space text or make it jump around
-
-
-### Debugging
-
-+ [Programming languages](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging)
-  + Javascript: procedure programming
-  + HTML and CSS: declarative
-
-+ Every browser is a bit different, but most of them have ways to examine the various elements and their properties.
-
-+ [Box Model](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-with-the-box-model)
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
-      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/063b584da882baac3e39e088c4c9dc80/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/Screen_Shot_2016-03-08_at_8.19.27_PM.png" style="margin: 0.1em;" alt="image of a CSS Box Model" title="image of a CSS Box Model" width=250>
-    </a></div>
-  </div>
-
-  + the centered blue box corresponds to the size of the inspected element: width is 536 pixels and height is 118 pixels
-  + padding is only defined by padding-left which value is 40 pixels
-  + there is a border of 5 pixels on each side
-  + margin-left and margin-right are undefined (default value is 0 pixel)
-  + margin-top and margin-bottom are equal to 16 pixels
-
-+ [CSS Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#4-4-debugging-css-precedence)
-  + "Styles" and "Computed" are helpful in sorting out where a particular style setting is coming from
-  + a sequence of the panels under "Style" that helps understand just where a particular CSS rule is coming from
-  + from top, rules applied specifically to the currently active element
-  + overridden rule shown as striked out ones
-  + default ruke: grayed out tules
-
-+ [Image Size](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-image-size)
-  + Any style setting for the img width will take precedence over the attribute setting.
-  + special case the smaller pictures and use a larger width by default
-
-+ [Computed tab](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#computed-tab)
-  + The styles panel doesn't tell us a lot about the actually font-size in absolute terms. 
-  + The "Computed" tab contains the values of all the CSS properties that apply to the current element.
-  + click on the triangle to expand the details on font-size, which makes a little more clear what's going on
-  + the em unit is relative measurement, depending on the current font-size
 
 
 
@@ -1004,7 +982,7 @@
     </a></div>
   </div>
 
-### List of Color properties
+### List of Color Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
   <thead>
@@ -1118,48 +1096,76 @@
 + fantasy - the most diverse category of fonts including all of those that are particularly decorative
 
 
-## List Property
+## List Properties
 
-### List of List Styling
-
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters">List Properties</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Value</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
   </tr>
   </thead>
   <tbody>
   <tr>
+    <td>list-style</td>
+    <td>a shorthand to set list style properties list-style-type, list-style-image, and list-style-position</td>
+    <td>list-style-type<br/>list-style-image<br/>list-style-position</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style">MDN</a></td>
+  </tr>
+  <tr>
     <td>list-style-type</td>
-    <td>list marker, usually positioned to the left of any list item</td>
-    <td>ul: disc, circle, square, none; <br/>ol: decimal, decimal-leading-zero, lower-roman, upper-roman, lower-alpha, upper-alpha, armenian, georgian, simp-chinese-formal, etc.</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-type">List</a></td>
+    <td><ul><li>sets the marker (such as a disc, character, or custom counter style) of a list item element</li><li>color of the marker the same as the computed color of the element it applies to</li><li>applied to any element whose display value is set to list-item</li></ul></td>
+    <td><ul><li>&lt;custom-ident&gt;: an identifier matching the value of a @counter-style or one of the predefined styles</li><li>symbols(): defines an anonymous style of the list<ul><li>ul: disc, circle, square, none </li><li>ol: decimal, decimal-leading-zero, lower-roman, upper-roman, lower-alpha, upper-alpha, armenian, georgian, simp-chinese-formal, etc.</li></ul></li><li>&lt;string&gt;: used as the item's marker</li><li>none</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-type">List</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type">MDN</a></td>
   </tr>
   <tr>
     <td>list-style-position</td>
     <td>how closely it is positioned to the list itself</td>
-    <td>inside, outside</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-position">List</a></td>
+    <td>inside<br/>outside</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-position">List</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position">MDN</a></td>
   </tr>
   <tr>
     <td>list-style-image</td>
     <td>customized little markers on a list</td>
-    <td>url("path/fig.png")</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-image">List</a></td>
+    <td>&lt;url&gt<br/>none</td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#list-style-image">List</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image">MDN</a></td>
   </tr>
   </tbody>
 </table>
 
 
+## Image Related Properties
 
-## Background Image Properties
+<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image">Image Properties</a></caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 15%;">Kind of Object (CSS Property)</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 40%;">Default object size</th>
+  </tr>
+  </thead>
+ <tbody>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image" title="The background-image CSS property sets one or more background images on an element."><code>background-image</code></a></td> <td>The size of the element's background positioning area</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image" title="The list-style-image CSS property sets an image to be used as the list item marker."><code>list-style-image</code></a></td> <td>The size of a <code>1em</code> character</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-source" title="The border-image-source CSS property sets the source image used to create an element's border image."><code>border-image-source</code></a></td> <td>The size of the element's border image area</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor" title="The cursor CSS property sets the type of cursor, if any, to show when the mouse pointer is over an element."><code>cursor</code></a></td> <td>The browser-defined size matching the usual cursor size on the client's system</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image" title="The mask-image CSS property sets the image that is used as mask layer for an element."><code>mask-image</code></a></td> <td>?</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside" title="The shape-outside CSS property defines a shape—which may be non-rectangular—around which adjacent inline content should wrap."><code>shape-outside</code></a></td> <td>?</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-source" title="The mask-border-source CSS property sets the source image used to create an element's mask border."><code>mask-border-source</code></a></td> <td>?</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/symbols" title="The symbols() CSS function lets you define counter styles inline, directly as the value of a property such as list-style. Unlike @counter-style, symbols() is anonymous (i.e., it can only be used once). Although less powerful, it is shorter and easier to write than @counter-style."><code>symbols</code></a> for @counter-style</td> <td>At risk feature. If supported, the browser-defined size matching the usual cursor size on the client's system</td></tr>
+  <tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content" title="The content CSS property replaces an element with a generated value. Objects inserted using the content property are anonymous replaced elements."><code>content</code></a> for a pseudo-element (<a href="/en-US/docs/Web/CSS/::after" title="In CSS, ::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::after</code></a>/<a href="/en-US/docs/Web/CSS/::before" title="In CSS, ::before creates a pseudo-element that is the first child of the selected element. It is often used to add cosmetic content to an element with the content property."><code>::before</code></a>)</td> <td>A 300px × 150px rectangle</td></tr>
+ </tbody>
+</table>
+
+
+## Background Properties
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="https://www.w3.org/TR/CSS22/colors.html#background-properties">List of Background properties</a></caption>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3.org/TR/CSS22/colors.html#background-properties">List of Background properties</a> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders">MDN</a>)</caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Property</th>
@@ -1213,8 +1219,6 @@
   </tr>
   </tbody>
 </table>
-
-
 
 
 
@@ -1769,6 +1773,45 @@ display: inline-grid;
 
 ## Positioned Property
 
+
+### Position Characteristics
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
+  <thead><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>static</td>
+    <td><ul> <li>follow the "flowing text" model of layout </li> <li>influenced by margins, padding</li> <li>block level layout, inline or inline-block</li> <li>default value</li> </ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#static">Static</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
+  </tr>
+  <tr>
+    <td>fixed</td>
+    <td><ul><li>positioned against the window rectangle (aka the viewport) </li> <li>Best practice: use both a horizontal and a vertical positioning property on every fixed positioned element</li> <li> etermined by the values of top, right, bottom, and left</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#fixed">Fixed</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
+  </tr>
+  <tr>
+    <td>relative</td>
+    <td><ul><li>exactly like static in that the "flowing text" model of layout is setting the initial position for the element (including margins and display) but move the named edge of the element from its initial position </li> <li>positioned according to the normal flow of the document is positioned relative to its normal position, and then offset relative to itself based on the values of top, right, bottom, and left</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#relative">Relative</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
+  </tr>
+  <tr>
+    <td>absolute</td>
+    <td><ul><li>taken out of the normal text "flow" that governs elements positioned statically or relatively </li> <li>positioned by the left, top, right, and/or bottom properties </li> <li>relative to the closest positioned ancestor, if there is any; otherwise, it is placed relative to the initial containing block and its final position is determined by the values of top, right, bottom, and left</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#absolute">Absolute</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
+  </tr>
+  <tr>
+    <td>sticky</td>
+    <td><ul><li>positioned corresponding to the normal flow of the document, and then offset relative to its closest ascending block-level, including table-related elements, according to the values of top, right, bottom, and left</td>
+    <td><a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
+  </tr>
+  </tbody>
+</table>
+
+
 ### Position Property
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
@@ -1812,43 +1855,6 @@ display: inline-grid;
   </tbody>
 </table>
 
-
-### Position Characteristics
-
-<table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
-  <thead><tr>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Value</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
-  </tr></thead>
-  <tbody>
-  <tr>
-    <td>static</td>
-    <td><ul> <li>follow the "flowing text" model of layout </li> <li>influenced by margins, padding</li> <li>block level layout, inline or inline-block</li> <li>default value</li> </ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#static">Static</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  <tr>
-    <td>fixed</td>
-    <td><ul><li>positioned against the window rectangle (aka the viewport) </li> <li>Best practice: use both a horizontal and a vertical positioning property on every fixed positioned element</li> <li> etermined by the values of top, right, bottom, and left</li></ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#fixed">Fixed</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  <tr>
-    <td>relative</td>
-    <td><ul><li>exactly like static in that the "flowing text" model of layout is setting the initial position for the element (including margins and display) but move the named edge of the element from its initial position </li> <li>positioned according to the normal flow of the document is positioned relative to its normal position, and then offset relative to itself based on the values of top, right, bottom, and left</li></ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#relative">Relative</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  <tr>
-    <td>absolute</td>
-    <td><ul><li>taken out of the normal text "flow" that governs elements positioned statically or relatively </li> <li>positioned by the left, top, right, and/or bottom properties </li> <li>relative to the closest positioned ancestor, if there is any; otherwise, it is placed relative to the initial containing block and its final position is determined by the values of top, right, bottom, and left</li></ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#absolute">Absolute</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  <tr>
-    <td>sticky</td>
-    <td><ul><li>positioned corresponding to the normal flow of the document, and then offset relative to its closest ascending block-level, including table-related elements, according to the values of top, right, bottom, and left</td>
-    <td><a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  </tbody>
-</table>
 
 
 ## Sizing Properties
