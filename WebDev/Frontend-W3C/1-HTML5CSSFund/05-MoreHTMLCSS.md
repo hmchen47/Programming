@@ -2149,7 +2149,7 @@ The `:hover` pseudo class lets you change the style for an element when the mous
   <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=20%>CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width=10%>Result (Try It!)</th></tr>
   <tr>
     <td>
-<pre style="border: none;"><span style="color: #3366ff;">li</span>:hover  { <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>; }
+<pre style="border: none; box-shadow: none;"><span style="color: #3366ff;">li</span>:hover  { <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>; }
 <span style="color: #3366ff;">li</span>:active { <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">red</span>;  }
 <span style="color: #3366ff;">ul</span>:active { <span style="color: #333399;">border</span>: <span style="color: #339966;">1px</span> <span style="color: #ff6600;">solid pink</span>; }
  </pre>
@@ -2344,6 +2344,157 @@ Give it a try, and when you're done (or if you get stuck), watch the video below
 ## 5.6 Exercises - Module 5
 
 ### Tables exercises (1-12)
+
+
+1. Table vs layout?
+
+  Why shouldn't tables be used for layout? (select all that apply - 2 correct answers!)
+
+  1. Though tables were initially designed for layout, the new specification encourages it only for tabular data
+  2. Tables are not screen reader friendly
+  3. Tables take a long time to create
+  4. Tables are harder to style
+  5. Redesigning your page is harder
+
+  Ans: 25 <br/>
+  Explanation: Since layout is considered presentation code, your HTML will be cluttered with code other than content. To change the page style, you have to edit the entire HTML including table structure and content. Sceen readers also find it harder to read content in tables. Tables were never designed for layout. They were being misused for a while for layout but that is changing.
+
+
+2. I'm first!
+
+  Which one of these open tags should come before the others in a table element? (`<table>`)?
+
+  1. th
+  2. tr
+  3. td
+  4. tc
+
+  Ans: 2 <br/>
+  Explanation: Tables in HTML5 are described by defining rows, 'td' and 'th' are elements within rows and there is no 'tc'.
+
+
+3. Organization
+
+  How are HTML5 elements of a table organized?
+
+  1. A figure contains a table which contains data cells
+  2. A table contains rows and each row contains data cells
+  3. A table contains a div which contains rows or columns
+  4. A table contains columns and each column contains rows
+
+  Ans: 2 <br>
+  Explanation: In HTML5, rows are specified and cells in each row correspond to columns.
+
+
+4. Size matters
+
+  True or False? Every data cell in a table will be the same size (same height and width).
+
+  Ans: False <br/>
+  Explanation: Different cells can be different widths and heights, depending on content and CSS styling.
+
+
+5. Same?
+
+  True or False? `<th>` is just a shorter way to write `<thead>`
+
+  Ans: False <br/>
+  Explanation: 'thead', 'tbody' and 'tfoot' describe different portions of the table, while 'th' is typically for column names and usually styled different from 'td'.
+
+
+6. Order is important
+
+  Which of these is the correct order of elements in a table?
+
+  1. `<tr>` goes inside `<th>`
+  2. `<thead>` goes inside `<th>`
+  3. `<th>` goes inside `<tr>`
+  4. `<thead>` goes inside `<tr>`
+
+  Ans: 3 <br/>
+  Explanation: Like 'td' elements, 'th' cells go in rows, described by 'tr'.
+
+
+7. Table title
+
+  Which tag do you use to give your table a title?
+
+  1. `<thead>`...`</thead>`
+  2. `<caption>`...`</caption>`
+  3. `<table>`...`</table>`
+  4. `<title>`...`</title>`
+
+  Ans: 2 <br/>
+  Explanation: The caption element that takes one or more lines of text is used to give title to a table.
+
+
+8. Using 'span'
+
+  What is the `span` attribute in 'colgroup' and 'col' elements used for?
+
+  1. Indicates that any styles applied to the elements will be applied to the rest of the table
+  2. To specify the number of rows you want the cell element to span or cover
+  3. To specify the number of columns you want the colgroup or col element to span or cover
+  4. To specify that the column will be a header column
+
+  Ans: 3 <br/>
+  Explanation: 'span' as the name suggests, when used in 'colgroup' and 'col', specifies the number of columns you want the element to span.
+
+
+9. Table split
+
+  Why should you split your table into header, body and footer using the `thead`, `tbody` and `tfoot` elements? (check all that apply - 2 correct answers!)
+
+  1. Header, body and footer rows can be styled individually
+  2. Browser needs to know header, body and footer of a table to display a table correctly
+  3. Body can be scrolled independently of header and footer
+  4. You cannot use `<th>` without `<thead>`
+
+  Ans: 13 <br/>
+  Explanation: Not only can table head, body and footer be styled individually but using CSS/JavaScript you can also design the body of your table to be scrolled independently of the table header and footer. The `<th>` and `<td>` tags can be used regardless of whether `<thead>`, `<tbody>` and `<tfoot>` are used in a table. The browser also does not depend on the `<thead>`, `<tbody>` and `<tfoot>` tags to display a table.
+
+
+10. 'th' tag
+
+  By default, contents of the `<th>` tag are displayed as?
+
+  1. regular and center aligned
+  2. regular and left aligned
+  3. bold and center aligned
+  4. bold and left aligned
+
+  Ans: 3 <br/>
+  Explanation: Contents `<th>` tags are bold and centered by default. They are header cells. Contents of regular data cells using `<td>` are regular and left aligned by default.
+
+
+11. Header and data cells
+
+  ```html
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <td>Alice</td>
+    <td>15</td>
+  </tr>
+  ```
+
+  True or False? The `<th>` and `<td>` tags can be used in the same row. (Refer to code above)
+
+  Ans: True <br/>
+  Explanation: You can mix table header and data cells in the same row. It is valid though very uncommon.
+
+
+12. Border-Collapse
+
+  Why is the CSS 'border-collapse' property used in tables?
+
+  1. There is no such CSS property
+  2. They were specifially created to allow tables to have double borders
+  3. For multiple tables to share borders with each other
+  4. If table and cells have individual borders, they can be kept separate or combined into one border between them
+
+  Ans: 4 <br/>
+  Explanation: If a table and its cells both have borders, it will create a double border. The 'separate' value keeps the double border. The 'collapse' value combines them into a single border.
 
 
 
