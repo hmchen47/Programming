@@ -315,10 +315,10 @@ position: fixed;
 
 A fixed positioned element respects the positioning properties (`left`, `top`, `right`, and `bottom`).  A fixed positioned element is positioned against the _window_ rectangle (aka the viewport).  This means that fixed position elements will not scroll with the rest of the page.  Fixed position elements can easily "stick" to the side or bottom or top of the browser. To observe this better, see the Fixed position activity in the next section.
 
-+ Fixed position elements are positioned against the viewport. 
++ Fixed position elements are positioned against the viewport.
 + Best practice: use both a horizontal and a vertical positioning property on every fixed positioned element.
 + Fixed positioned elements do not contribute to size of the parent.
-+ Fixed positioned block level elements do not get the width of their parent. 
++ Fixed positioned block level elements do not get the width of their parent
 + Margins do not work the same.
 + Opposite properties can be used to size an element.
 
@@ -504,7 +504,231 @@ This is one of the nicer features. Working with preset dimension properties (`he
 
 
 
-### Positioning
+### Absolute and relative position
+
+#### Positioned elements
+
+We read about the positioned elements in an earlier section. There are five positioning properties (`left`, `top`, `right`, `bottom`, and `z-index`) that can be used to influence the position of an element. But these properties, by default, will have no effect on any element.  This is because all elements are `position:static` by default, and static elements ignore those positioning properties.  Only positioned elements, which are elements where the position property is set to something besides static, respect the properties.
+
+We saw `position:fixed`, which is fairly simple: the positioning properties cause the fixed elements to be positioned relative to the browser window; they don't even scroll with the content.  Besides `fixed` and `static`, the `position` property can also be set to `relative` and `absolute`. For these values, the positioning properties have different interpretations.   
+
+
+#### relative
+
+```css
+position: relative;
+```
+
+The relative value is exactly like static in that the "flowing text" model of layout is setting the initial position for the element (including margins and display). However, unlike static, elements with relative position respect the positioning  properties (`left`, `top`, `right`, and `bottom`).  These properties will move the named edge of the element __from__ its initial position. So a value of `top: 20px;` will move the top edge of the element 20 pixels further down the page.  And similarly, a value of left: 20px; will move an element 20 pixels from its original left edge, which means move it 20 pixels to the right.
+
+The `relative` position property has three primary gotchas of which you should be aware:
+
++ Items are moved independently of siblings.
++ Opposite positioning properties (like left and right) cannot be used simultaneously.
++ There are no automatic size adjustments.
+
+
+##### Independence - margin-top vs top
+
+IMPORTANT: The positioning properties (`left`, `top`, `right`, and `bottom`) adjust the placement of the element <strong><em>independently of its siblings</em></strong>.  What does this mean?   Let's imagine we have a list and we want to move one of the items a little further down the page. Should we use `margin-top` to move it? Or `position:relative` in conjunction with the top property?  The answer to this question depends on whether you want any of the other list items to move as well.  If you want the siblings to move down as well, then use `margin-top`.
+
+Here is an example. Suppose we have two lists. We want the third item in the list to have a background color and to be moved down by 30 pixels. Compare what happens when we use  `margin-top` to move it, versus a positioning property (`top`). When we use `top`, the "Third" item appears overlapping the Fourth and Fifth items, as they did not move at all.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;" colspan="2">margin-top</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;" colspan="2">top</th></tr>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">.third</span> {
+  <span style="color: #333399;">margin-top</span>: <span style="color: #339966;">30px</span>;
+  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>;
+}</pre>
+    </td>
+    <td><ul><li>First</li><li>Second</li><li style="margin-top: 30px; background-color: lightblue;">Third</li><li>Fourth</li><li>Fifth</li></ul></td>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">.third</span> {
+  <span style="color: #333399;">position</span>: <span style="color: #ff6600;">relative</span>;
+  <span style="color: #333399;">top</span>: <span style="color: #339966;">30px</span>;
+  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>;
+}</pre>
+    </td>
+    <td><ul><li>First</li><li>Second</li><li style="position: relative; top: 30px; background-color: lightblue;">Third</li><li>Fourth</li><li>Fifth</li></ul></td>
+  </tr>
+</tbody>
+</table>
+
+
+This is why, in our introduction to CSS, we said that margin should be your "go to" property when you want to adjust position. 
+
+
+##### Cannot use opposite properties
+
+When using `position:relative` if you use the `left` property you cannot also use the `right` property.  And, if you use the `top` property you cannot also use the `bottom` property. If both properties are applied, then the CSS precedence rules will determine the "winner", which is usually just the last one applied.
+
+Again, this is unlike margins, where both `margin-right` and `margin-left` can be meaningfully used.
+
+
+##### No automatic size adjustments
+
+This follows from the previous limitation. You may recall that block level elements take the width of their parent (when no width is specified).  And when using left or right margins on a block level element that does not have an explicit width, the browser will smartly size the element down for you to make it fit.  But this size adjustment does not happen when you use `position:relative` and the `left` or `right` positional properties. This is easily illustrated with an example. Below is a block level paragraph with a border applied to it.  When a `margin-left` is applied to it, the paragraph is made smaller and no part goes outside its parent.  But when it is `position:relative` and moved with the `left` property, it can leave the bounds of its parent, or go offscreen.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;" colspan="2">margin-left</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;" colspan="2">left</th></tr>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">p</span> {
+  <span style="color: #333399;">margin-left</span>: <span style="color: #339966;">40px</span>;
+}</pre>
+    </td>
+    <td>
+      <p style="margin-left: 40px; font-family: monospace;font-size: 12px;line-height: 24px;border: 2px solid darkblue;">Dorothea was altogether captivated by the wide embrace of this conception.</p>
+    </td>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">p</span> {
+  <span style="color: #333399;">position</span>: <span style="color: #ff6600;">relative</span>;
+  <span style="color: #333399;">left</span>: <span style="color: #339966;">40px</span>;
+}</pre>
+    </td>
+    <td>
+      <p style="position: relative; left: 40px;    font-family: monospace; font-size: 12px; line-height: 24px; border: 2px solid darkblue;">Dorothea was altogether captivated by the wide embrace of this conception.</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+Admittedly, this is not necessarily a "limitation", for many layout situations preserving the size is exactly what is wanted. 
+
+
+#### Absolute
+
+```css
+position: absolute;
+```
+
+Absolute positioning, as it is realized in the browsers via CSS, can be very powerful and that ease and power is very seductive to many CSS newbies. But there are some big trade-offs incurred that are often not appreciated. Many experienced professional CSS developers completely forswear absolute positioning - they will not use it under any circumstances. 
+
+An element that is positioned absolutely is taken out of the normal text "flow" that governs elements positioned statically or relatively.  Instead, an absolutely positioned element is positioned by the `left`, `top`, `right`, and/or `bottom` properties. The size or position of siblings have no effect on an absolutely positioned element that has some positioning properties set (`left`, `top`, etc.)
+
+Let's take a simple example.  Here we have a paragraph that contains some text and an inner `<q>`.  For a better illustration, the paragraph has its height set and a border applied.  The `<q>` is positioned absolutely.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">HTML</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th></tr>
+  <tr>
+    <td>&lt;p&gt;She bethought herself now of the condemned criminal. &lt;q&gt;What news have you brought about the sheep-stealer, uncle?&lt;/q&gt;&lt;/p&gt;</td>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">p</span> { 
+  <span style="color: #333399;">height</span>: <span style="color: #339966;">200px</span>;
+  <span style="color: #333399;">border</span>: <span style="color: #339966;">2px</span> <span style="color: #ff6600;">solid black</span>;  
+ }
+<span style="color: #0000ff;">q</span> { 
+    <span style="color: #333399;">position</span>: <span style="color: #ff6600;">absolute</span>;
+    <span style="color: #333399;">left</span>: <span style="color: #339966;">50px</span>;
+    <span style="color: #333399;">top</span>: <span style="color: #339966;">50px</span>;
+    <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>;
+    <span style="color: #333399;">padding</span>: <span style="color: #339966;">10px</span>;<br>    <span style="color: #333399;">display</span>: <span style="color: #ff6600;">block</span>; 
+    <span style="color: #333399;">width</span>: <span style="color: #339966;">70px</span>;
+ }
+</pre>
+    </td>
+    <td>
+      <p style="height: 200px; border: 2px solid black; position: relative;">She bethought herself now of the condemned criminal. <q style="position: absolute; display: block; left: 50px; top: 50px; background-color: lightblue; padding: 10px; width: 70px;">What news have you brought about the sheep-stealer, uncle?</q></p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+So that seems fairly straightforward and useful. But there are some subtle caveats and trade-offs of which you must be wary:
+
++ Interpretation of positioning depends upon parent/grandparent elements being positioned elements.
++ Best practice: use both a horizontal and a vertical positioning property on every absolute element.
++ Absolutely positioned elements do not contribute to size of the parent.
++ Absolute positioned block level elements do not get the width of their parent.
++ Margins do not work the same.
++ Opposite properties can be used to size element.
+
+
+##### Interpretation of positioning properties (top, left, etc.) depends ON parent/grandparent being positioned elements (or not).
+
+_IMPORTANT_: For an absolutely positioned element, <strong><em>where</em></strong> the left, top, etc. are calculated <strong><em>from</em></strong> depends upon the `position` property of the parent and grandparents of the element in question. If the parent of the element is a positioned element (meaning its position is set to anything except `position:static`), then an absolutely positioned child  is positioned relative to that parents rectangle (or grandparent, or great-grandparent, etc).  But if none of the parents are positioned elements, the child is positioned relative to the bounds of the document.  
+
+This means that how the position properties of an absolutely positioned element are interpreted depends upon the position property of its parent (and grandparents). For many developers, this is a spooky action at a distance. Changing the position property on an element may not affect that element at all, but can cause it children (or great great grandchildren) to suddenly jump to another part of the page.  
+
+In the example below, someone who did not read the section in the module 3 about how to style list items has decided to use arbitrary numbers. There are four list items each containing child spans which are absolutely positioned. Two of the list items are position:relative, so the spans are positioned starting from their rectangle.  But two of the list items are `position:static` (the default), so the spans are moved up to the `<ul>` (which is also `position:relative`) where they overlap each other. (The red 1 is hidden behind the red 2). Borders have been added in the result below, so you can easily see the rectangle for `<li>` versus `<ul>`.
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+<tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">HTML</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none">&lt;ul&gt;
+&lt;li&gt;First &lt;span&gt;1&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Second &lt;span&gt;2&lt;/span&gt;&lt;/li&gt;
+&lt;li class="rel"&gt;Third &lt;span&gt;3&lt;/span&gt;&lt;/li&gt;
+&lt;li class="rel"&gt;Fourth &lt;span&gt;4&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+<pre  style="border: none; box-shadow: none"><span style="color: #0000ff;">ul</span>   { <span style="color: #333399;">position</span>: <span style="color: #ff6600;">relative</span>;  }
+ 
+<span style="color: #0000ff;">.rel</span> { <span style="color: #333399;">position: <span style="color: #ff6600;">relative</span></span>; }
+ 
+ <span style="color: #0000ff;">span</span> {
+   <span style="color: #333399;">position</span>: <span style="color: #ff6600;">absolute</span>;
+   <span style="color: #333399;">left</span>: <span style="color: #339966;">0px</span>;
+   <span style="color: #333399;">top</span>: <span style="color: #339966;">0px</span>;
+ }</pre>
+    </td>
+    <td><ul style="position: relative; border: 1px solid dimgray; line-height: 1.4em;"><li style="border: 1px dashed gray; padding-left: 10px; list-style-type: none; line-height: 1.4em; margin-bottom: 0.70788em;">First <span style="position: absolute; left: 0px; top: 0px; font-size: 1.1em; color: red; font-weight: bold; background-color: lightblue; margin-bottom: 0.70788em;">1</span></li><li style="border: 1px dashed gray; padding-left: 10px; list-style-type: none; line-height: 1.4em; margin-bottom: 0.70788em;">Second <span style="position: absolute; left: 0px; top: 0px; font-size: 1.1em; color: red; font-weight: bold; background-color: lightblue;">2</span></li><li style="position: relative; border: 1px dashed gray; padding-left: 10px; list-style-type: none; line-height: 1.4em; margin-bottom: 0.70788em;">Third <span style="position: absolute; left: 0px; top: 0px; font-size: 1.1em; color: red; font-weight: bold; background-color: lightblue;">3</span></li><li style="position: relative; border: 1px dashed gray; padding-left: 10px; list-style-type: none; line-height: 1.4em; margin-bottom: 0.70788em;">Fourth <span style="position: absolute; left: 0px; top: 0px; font-size: 1.1em; color: red; font-weight: bold; background-color: lightblue;">4</span></li></ul></td>
+  </tr>
+</tbody>
+</table>
+
+
+###### Best practice: use both horizontal and vertical positioning property on every absolute element
+
+There is a very subtle extension to the previous interpretation problem: if an element is set to be `position:absolute` but has no horizontal positioning property (that is, `left` or `right`), then it will be displayed in the flow exactly as it would have been.  Except, later, if `left:0px;` were added (for example), then the element may jump to the left edge of the first parent/grandparent that is a positioned element. The same applies vertically. This is a bewildering behavior, as most users do not expect there to be a difference between `left:0px` and no `left` property at all.
+
+Therefore, for any absolutely positioned element, the best practice is to ensure that one of the horizontal positioning properties (that is, `left` or `right`) and one of the vertical properties (`top` or `bottom`) are set.
+
+
+##### Absolutely positioned elements do not contribute to size of parent
+
+Whether you realize it or not, one of the most useful default behaviors is that the height of a parent element is automatically extended to include all its children, its content. Designers working in CSS unconsciously lean on this fact as they plan layouts and adjust element positions. But this is __not__ true for children that are positioned absolutely.  Absolutely positioned children do not contribute to the size of the parent element. A parent element that contains only absolutely positioned children will have a height of 0, has no "measurable" content and will behave as if it is empty.
+
+A consequence of this is that as a design starts to use absolute positioning, it may also have to start explicitly setting the dimensions of containers, which makes the overall design brittle and less adaptable.
+
+In the example below, there are two lists (`<ul>`) each with a fat border. The list on the left is normal - its children contribute to making the `<ul>` taller and the fat border extends around, enclosing everything correctly. But the list items (`<li>`) on the right are positioned absolutely.  So those list items on the right do not contribute to the height of the parent. As a result, it ends up with a height of 0, as if it were empty. The fat border just becomes a fat flat line, and the list items themselves are not enclosed. 
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">default</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">absolute</th></tr>
+  <tr>
+    <td><ul style="border: 4px outset gray; padding: 0 0 0 1em; margin: 1em 0; color: #313131; padding-left: 1em; list-style: disc outside none;"><li style="background-color: lightblue; margin-bottom: 0.70788em;">First</li><li style="background-color: lightblue; margin-bottom: 0.70788em;">Second</li><li style="background-color: lightblue; margin-bottom: 0.70788em;">Third</li></ul></td>
+    <td><ul style="padding-left: 1em; list-style: disc outside none; padding: 0 0 0 1em; margin: 1em 0; color: #313131; border: 4px outset gray; line-height: 1.4em;     position: relative;"><li style="margin-bottom: 0.70788em; line-height: 1.4em; background-color: lightblue; position: absolute; top: 0px;">First</li><li style="margin-bottom: 0.70788em; line-height: 1.4em; background-color: lightblue; position: absolute; top: 20px;">Second</li><li style="margin-bottom: 0.70788em; line-height: 1.4em; background-color: lightblue; position: absolute; top: 40px;">Third</li></ul></td>
+  </tr>
+</tbody>
+</table>
+
+##### Absolute positioned block level elements do not get the width of their parent
+
+Earlier we learned that block level elements automatically get the width of their parent, that is, they extend to become full width. But this is only true for static and relative positioned elements. Elements that are absolute positioned (or fixed) do not exhibit this behavior. If you look at the table above, from the previous point, the individual list items have a light blue background color. All the list items are block level elements, and the ones on the left, which are `position:static`, extend their rectangle rightward to fill the entire line. But the right column of absolutely positioned items does not. Their initial size is simply the size of their content.
+
+
+##### Margins do not work the same
+
+For static and relative positioned items, margins can be used to adjust an element position and keep neighboring siblings "away". We make this quick assumption about margins.  But when an element is absolutely positioned, a given margin might be able to move the element but will not move any siblings. Margins cannot be used to keep siblings "away", to fight crowding.
+
+ As a general rule, if a positioning property is being used (like `left`), then the matching margin (`margin-left`) can also be used to additionally adjust the position of the element. Otherwise, the margin will unlikely have any effect.
+
+
+##### Opposite properties can be used to size element
+
+This is one of the nicer features. Working with preset dimension properties (`height` and `width`) can make your design brittle and reduce its adaptability. However, absolutely positioned items can instead set the opposite positioning properties (like `left` and `right`) and leave the matching dimensional property (width) unspecified.  The element will grow or shrink based on the size of the ancestor it is positioning against.  Note that this feature is only available to absolute and fixed positioned elements.
 
 
 
