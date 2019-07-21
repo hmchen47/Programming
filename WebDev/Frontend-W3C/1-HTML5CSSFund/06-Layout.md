@@ -14,7 +14,20 @@
 
 ### Module 6 - Content
 
+6.1 __Introduction__: Understanding what "layout" means to your Web programming.
 
+6.2 __Concepts__: Get an understanding of "display" versus "position" & "block" versus "inline". 
+Note: Positioning and z-index are OPTIONAL material.
+
+6.3 __Flexbox__: There is more to understand about positioning and sizing.
+Note: Calc is OPTIONAL.
+
+6.4 __More flexbox__: Main axis & cross axis, justification, alignment and order — more flexbox concepts.
+Note: This ENTIRE section is OPTIONAL.
+
+6.5 __Recipe project__: Let's get "responsive" — how to make your Web page look good on differently sized devices.
+
+6.6 __Where to from here?__: Considering what you now know — what do you want to learn next?
 
 
 ### History of layout
