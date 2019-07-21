@@ -2502,6 +2502,101 @@ Give it a try, and when you're done (or if you get stuck), watch the video below
 ### Multimedia exercises (13-20)
 
 
+13. Cats and dogs
+
+  Suppose I've got a cat video but I want to trick people into thinking it's a dog video. Is it possible to set it up so that the 'cover' picture is a picture of a dog for my cat video?
+
+  1. Yes, by using multiple `<source>` attributes
+  2. No, there's no way to do that
+  3. Yes, by setting the 'poster' attribute to point to a picture of a dog
+  4. Yes, but the only way to do it is to edit the video so that the first frame is a picture of a dog
+
+  Ans: 3 <br/>
+  Explanation: The 'poster' attribute determines the 'cover' picture, and it can be a frame from the video or an arbitrary image.
+
+
+14. Auto play
+
+  True or False? To make the video start playing automatically when visiting your Web site, you would use the 'preload' attribute.
+
+  Ans: False <br/>
+  Explication: 'preload' downloads the video so there is less delay when the user plays it, sort of like getting a head start.
+
+
+15. Audio Controls
+
+  Which of the following is correct if you want your audio to have controls, play sound once playback begins and indicate to the browser that the audio file should be loaded when the page loads?
+
+  1. `<audio src="sounds/guitar.mp3" controls muted preload="metada"></audio>`
+  2. `<audio src="sounds/guitar.mp3" controls preload="auto"></audio>`
+  3. `<audio src="sounds/guitar.mp3" controls muted preload="auto"></audio>`
+  4. `<audio src="sounds/guitar.mp3" controls preload="none"></audio>`
+
+  Ans: 2 <br/>
+  Explanation: 'controls' is a boolean attribute that will add controls to the multimedia player. 'muted' is also a boolean attribute that will mute that audio when playback begins. So in this case, it should not be specified. The preload value 'auto' will indicate the file should be loaded when page loads while 'none' indicates file should not loaded.
+
+
+16. Lossy compression
+
+  The most common compression technique for multimedia on the Web is lossy compression. Why? (select all that apply - 3 correct answers!)
+
+  1. It is the easiest to work with providing most number of tools for compression
+  2. It offers the smallest file size decreasing load time
+  3. Loss in quality can be made insignificant by selecting different compression rates
+  4. Browsers prefer working with files that are heavily compressed
+  5. Loss in quality is not as significant in multimedia as it is in documents
+
+  Ans: 235 <br/>
+  Explanation: Using lossy compression, file size is the smallest as it is more compressed. Using tools for compression, you can customize the rate of compression and decide on the final quality. Loss in some quality in audio and video is mostly reducing redundant data which is often not noticed by the user. In documents, it is more of a concern if text is lost.
+
+
+17. Track element
+
+  Which attribute do you use to specify the type of source file you are using in your track element? i.e. captions, subtitles, descriptions, etc.
+
+  1. srclang
+  2. srctype
+  3. kind
+  4. type
+
+  Ans: 3 <br/>
+  Explanation: You use the 'kind' attribute to specify the purpose of source file in your track element.
+
+
+18. Different sources
+
+  Why would a `<video>` tag contain 3 different `<source>` tags?
+
+  1. To provide close captioning
+  2. To allow for different format capabilities. Not every browser can play every type of video format.
+  3. So the user can choose between the three
+  4. So it can play three videos in sequence
+
+  Ans: 2 <br/>
+  Explanation: Because there is no universally accepted video format, the `<source>` tag provides 'fallback' alternatives in case the browser doesn't support a particular video format or codec.
+
+
+19. Multiple tracks
+
+  True or False? You can add multiple `<track>` tags in your video element.
+
+  Ans: True <br/>
+  Explanation: You can add multiple `<track>` tags in your 'video' element for multiple subtitle/caption tracks.
+
+
+
+20. Captions file type
+
+  Which of the following file types is the standard for captions and subtitles for your video using the 'track' element?
+
+  1. Structured Subtitle Format
+  2. Web Video Text Tracks
+  3. MPSub
+  4. SubRip
+
+  Ans: 2 <br/>
+  Explanation: For use in the 'track' element, Web Video Text Tracks (WebVTT) with the file extension .vtt is the standard. Files of other formats can often be converted to WebVTT.
+
 
 
 ### CSS exercises (21-25)
