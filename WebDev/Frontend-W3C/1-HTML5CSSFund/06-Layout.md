@@ -224,7 +224,59 @@ At long last we arrive at the `display` property. We have now seen three of its 
 A key to not getting confounded by the display property is to have a grasp on which elements default to which display value and appreciating the differences between block, inline, and inline-block display.
 
 
-### Horizontal centering
+### Horizontal and vertical centering
+
+#### Horizontal centering
+
+Now that we've covered inline versus block display, we can intelligently discuss centering. Let's start with inline elements.
+
+
+##### inline
+
+How do you center an inline element?  As we recall, inline elements are positioned along the baseline, in the natural flow of the text or content. So for any individual inline element, there is _no CSS property_ you can apply directly to cause this element to center. You may apply some padding evenly or unevenly to position its content relative to its own box. But that's not centering the element itself.
+
+To center an inline element, we use the `text-align` property of its parent.
+
+```css
+p { text-align: center; } /* the text and any inline children of this element will be centered */
+```
+
+If this isn't satisfactory, consider changing the element to be inline-block or block.
+
+
+##### block
+
+How do you center a block level element? First, you may recall that block level elements take the width of their parent by default. If the element is the same width as its parent, it is already centered.  So the first step is to limit the width of the element.  Setting the width property directly is not generally a good practice, but we'll just do that and discuss sizing at length later.
+
+```css
+div { width: 200px; }
+```
+
+Now that we've sized the element, how to center it?
+
+
+##### margin magic
+
+If set to auto, then the left and right margins will center the element.  This is the simplest and best way of centering a block level element.  So the full solution is to set the width and apply auto to the left and right margins (or to all margins).
+
+```css
+div { width: 200px; margin: auto; }
+```
+
+Horizontal centering - a better way
+Do auto margins seem spooky to you?  There is a better way to achieve centering and its name is flexbox.  We'll read more about it later.
+
+
+#### Vertical centering
+
+##### inline
+
+Inline elements respect the vertical-align property. This determines how the inline element is aligned relative to the baseline it is being laid upon. This may or may not solve your vertical centering conundrum.
+
+
+##### block
+
+There is no `margin:auto` approach to vertical centering. There are some complicated systems that folk have developed, but the shortest and best answer to vertical centering: use flexbox.
 
 
 
