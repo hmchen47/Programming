@@ -735,6 +735,113 @@ This is one of the nicer features. Working with preset dimension properties (`he
 
 ### 'z-index'
 
+In the previous sections, we named four positioning properties: `left`, `top`, `right`, and `bottom`.   With these properties, we can govern the placement of positioned elements in both the x and y axis.  But there is a fifth positioning property: `z-index`.
+
+```css
+z-index: 3;
+```
+
+Like the other positioning properties, `z-index` only applies to positioned elements (elements that have their position property set to relative, absolute,or fixed, but not static).  With the z-index you can control overlapping - whether or not an element is in front of or behind other sibling positioned elements.  The z-index can be an integer 0 or higher. The higher the number, the more "topmost" or "overlapping" the element will be.  
+
+In the sample below, we have two lists with relatively positioned list items and background colors. We are forcing them to overlap by making them position relative and using negative margins (`margin-bottom:-20px;`). The list on the left has no z-index values set, so the later elements overlap the earlier ones.  But on the right, we govern the overlapping with the z-index property.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th></tr>
+  <tr>
+    <td><pre style="border: none; box-shadow: none">/* no z-index set */</pre></td>
+    <td>
+      <ul style="padding: 0 0 0 1em; margin: 1em 0; color: #313131; padding-left: 1em;">
+        <li style="background-color: lightblue; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none;">First</li>
+        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: lightgreen;">Second</li>
+        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: pink;">Third</li>
+        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: plum;">Fourth</li>
+      </ul>
+    </td>
+    <td>
+<pre style="border: none; box-shadow: none">.first { z-index: 4; }
+.second { z-index: 3; }
+.third { z-index: 2; }
+.fourth { z-index: 1; }</pre>
+    </td>
+    <td>
+      <ul style="padding-left: 1em; list-style: disc outside none; padding: 0 0 0 1em; margin: 1em 0; color: #313131;">
+        <li style="z-index: 4; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: lightblue;">First</li>
+        <li style="z-index: 3; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: lightgreen;">Second</li>
+        <li style="z-index: 2; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: pink;">Third</li>
+        <li style="z-index: 1; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: plum;">Fourth</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+
++ z-index has no effect on position:static (the default) elements.
++ If z-index is not set, siblings that appear later in the HTML document overlap (are "higher than") earlier siblings.
++ z-index is relative between siblings, not any arbitrary elements.
+
+
+#### Siblings and nesting
+
+It is entirely possible that one element with z-index:100 could appear __below__ another element with z-index:1;  
+
+This can happen because the z-index is used to figure out which sibling is higher than another. But if two elements are not siblings, then the z-index of their respective sibling ancestors will need to be calculated to figure out which is higher.
+
+Below is a simple example: there are two overlapping sibling divs, "Albert" and "Betty". Albert has a red border and is  z-index:1.  Betty has a blue border, and is z-index:2.  Therefore, Betty and her child Bernice are _higher_ than Albert and his child Alan. Albert's child Alan has a z-index of 100, which is the highest z-index of any of them, but because Alan's parent Albert is lower than Betty, Alan remains behind. Alan's high z-index is only relevant to his siblings, not to cousins further out in the document.
+
+<table>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">HTML</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none">&lt;div class="albert"&gt;
+&lt;div class="alan"&gt;Alan&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="betty"&gt;
+&lt;div class="bernice"&gt;Bernice&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </td>
+    <td>
+<pre style="border: none; box-shadow: none"><span style="color: #0000ff;">.albert</span> { <span style="color: #333399;">z-index</span>: <span style="color: #339966;">1</span>; }
+<span style="color: #0000ff;">.betty</span>  { <span style="color: #333399;">z-index</span>: <span style="color: #339966;">2</span>; }
+
+<span style="color: #0000ff;">.alan</span> { <span style="color: #333399;">z-index</span>: <span style="color: #339966;">100</span>; }
+<span style="color: #0000ff;">.bernice</span> { <span style="color: #333399;">z-index</span>:<span style="color: #339966;">0</span>; }
+</pre>
+    </td>
+    <td>
+      <div style="position: relative; width: 210px; height: 210px; margin: 0px;">
+        <div style="border: 2px solid red; position: absolute; left: 00px; top: 10px; width: 200px; height: 200px; z-index: 1;">
+          <div style="z-index: 100; position: relative; height: 95px; background-color: pink; margin: 0px 0px 10px 0px;">&nbsp;&nbsp;Alan</div>
+        </div>
+        <div style="border: 2px solid blue; position: absolute; left: 10px; top: 00px; width: 200px; height: 200px; z-index: 2;">
+          <div style="z-index: 0; display: inline-block !important; position: relative; width: 90px; height: 200px; background-color: lightblue; margin: 0px 0px 0px 110px;">&nbsp;&nbsp;Bernice</div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Knowledge checks
+
+1. Will the z-index property work...
+
+  Will the z-index property work on an item with `position:relative;`?
+
+  Ans: Yes <br/>
+  the z-index property will apply to all positioned elements. So every position option except position:static.
+  
+
+2. On an item with 'position:static;' ...
+
+  Will the z-index property work on an item with `position:static;`?
+
+  Ans: No <br/>
+  z-index will not work on a position:static element.
+
 
 
 
