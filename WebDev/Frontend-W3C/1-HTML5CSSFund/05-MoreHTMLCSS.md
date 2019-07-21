@@ -2602,5 +2602,62 @@ Give it a try, and when you're done (or if you get stuck), watch the video below
 ### CSS exercises (21-25)
 
 
+21. Mirror, beautiful mirror
+
+  The Web page you are developing needs to include a picture of the author. How should that image be incorporated into the page?
+
+  1. `<img>` in HTML
+  2. background-image in CSS
+
+  Ans: 1 <br/>
+  Explanation: The picture of the author is substantive: it is semantically important, it is content. It is not merely decoration that could be re-used with a different page. Therefore, it should be included via the HTML, not the CSS. And to place an image on the page with HTML we use the `<img>` tag.
+
+
+22. Stage curtains
+
+  The Web site you are developing needs to place an image of stage curtains behind each article. How should that image be incorporated into the page?
+
+  1. background-image in CSS
+  2. `<img>` in HTML
+
+  Ans: 1 <br/>
+  Explanation: The picture of stage curtains are not substantive to understanding the article, they are entirely decorative. As decorative images, they should put on the page using CSS. And when using CSS, we include images via the background-image property.
+
+
+23. Give me some space
+
+  If the border you are applying is too close to the content, what property can you use to give it some extra space?
+  
+  Ans: padding or padding-top or padding-left or padding-right or padding-bottom <br/>
+  Explanation: The padding property will make an element larger that its base content. And this will also put space between the content of an element and its border.
+
+
+24. Is that acceptable?
+
+  Which of the following are acceptable values for the background-color property? (select all that apply - 5 correct answers!)
+
+  1. rgba(100, 200, 0, 0.5) 
+  2. #5580F2
+  3. orange
+  4. rgb(1000, 200, 100)
+
+  Ans: 12356 <br/>
+  Explanation: There are many different ways of defining a color for CSS. The only option above that isn't correct is rgb(1000, 200, 100) because 1000 is out side the range of rgb values, which should be from 0 to 255.
+
+
+25. Border style
+
+  Which of the following is NOT a valid setting for border-style?
+
+  1. double
+  2. triple
+  1. groove
+  4. solid
+  5. dotted
+
+  Ans: 2 <br/>
+  Explanation: There is no 'triple' border-style. You can do interesting things with gradients though.
+
+
 
 
