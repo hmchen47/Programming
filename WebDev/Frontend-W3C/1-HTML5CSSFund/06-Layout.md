@@ -1566,6 +1566,280 @@ The resulting layout should look like this:
 
 ### Activity - Holy grail with flexbox
 
+Among CSS aficionados, the "holy grail" was considered to be a simple page layout of a header, footer, and three columns specified with CSS and without any hacks or complications.  In other words, CSS as a language would not be considered ready for performing layout until such a task could be accomplished.
+
+With flexbox this goal is finally achievable. And it doesn't require much flexbox knowledge. We've already covered everything we need. So let's see how to do it.
+
+
+#### Semantic sections
+
+You may recall from week 2 several semantic tags for denoting the different parts of a page:
+
++ header
++ footer
++ aside
++ article
++ main
++ section
++ nav
+
+Several of those tags like `<header>`, `<footer>`, and `<aside>` have tantalizingly promising names that suggest they provide some sort of layout assistance.  However, the HTML5 newcomer may be disappointed to discover that those tags are just basic block level elements, functioning no different than `<p>` or `<div>`.   Flexbox comes to the rescue and helps those tags realize their potential.
+
+
+__Step 1 - choose tags__
+
+Let us imagine that we are working on a three-column page with header and footer. So the `<header>` and `<footer>` tags are obvious choices.  Let's pick 3 others. We'll start with something like this:
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">HTML</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;">&lt;body&gt;
+  &lt;header&gt;the header&lt;/header&gt;
+  &lt;aside&gt;first column&lt;/aside&gt;
+  &lt;main&gt;the main content should be here&lt;/main&gt;
+  &lt;section&gt;this is the third column&lt;/section&gt;
+  &lt;footer&gt;the footer&lt;/footer&gt;
+&lt;/body&gt;</pre>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+NOTE:  A better practice is to use longer text content for the dummy text.  This will help us verify sizing and scrolling, etc. Instead of simple text like "first column", insert a long paragraph of text.
+
+
+__Step 2 - surround with flexbox container__
+
+Our five tags will be the flexbox items. They need to be nested in a flexbox container. So we'll surround them with a simple div, since the flexbox container serves no semantic purpose - it is only used to achieve a layout goal, and we'll apply a class to the div so we can easily apply the CSS we want.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">HTML</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;">&lt;body&gt;
+  &lt;div class="fc"&gt;
+    &lt;header&gt;the header&lt;/header&gt;
+    &lt;aside&gt;first column&lt;/aside&gt;
+    &lt;main&gt;the main content should be here&lt;/main&gt;
+    &lt;section&gt;this is the third column&lt;/section&gt;
+    &lt;footer&gt;the footer&lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</pre>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+__Step 3 - add visualization CSS__
+
+This can be removed later, but when working with layout it is often handy to temporarily apply a border or background color to our main elements to be able to see them fully.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">body</span> { margin:0px; }
+
+<span style="color: #0000ff;">.fc</span> &gt; * {
+  <span style="color: #333399;">margin</span>: <span style="color: #339966;">10px</span>;
+  <span style="color: #333399;">padding</span>: <span style="color: #339966;">20px</span>; 
+  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightgray</span>;
+  <span style="color: #333399;">border-radius</span>: <span style="color: #339966;">10px</span>;
+}</pre>
+    </td>
+    <td style="text-align: center;"><img alt="initial layout" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b3f9514fae73a184a82908fde05f97b0/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/holy_grail_initial_300.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="300" height="245"></td>
+  </tr>
+</tbody>
+</table>
+
+
+__Step 4 - add flexbox CSS__
+
+We need to set the div to be a flex-container and set its flex-flow as well as initialize the flex property on all the flex items.  We saw this earlier and it is very simple. The sections will line up across as a row if your browser is wide enough.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">.fc</span> { 
+  <span style="color: #333399;">display</span>: <span style="color: #ff6600;">flex</span>;
+  <span style="color: #333399;">flex-flow</span>: <span style="color: #ff6600;">row wrap</span>;
+}
+<span style="color: #0000ff;">.fc</span> &gt; * { 
+  <span style="color: #333399;">flex</span>: <span style="color: #339966;">1</span>; 
+}</pre>
+    </td>
+    <td style="text-align: center;"><img alt="first flex properties applied" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b719bc73c1ac80e6a7ac5d77ef5070dc/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/holy_grail_flex_300.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="300" height="176"></td>
+  </tr>
+</tbody>
+</table>
+
+
+__Step 5 - set header and footer widths__
+
+We want to get the header and the footer into the correct position. To do that, we simply need to make them full width. There are two possible approaches to accomplishing this:
+
++ explicitly set one or more of the width properties (width, min-width, max-width) to the desired value
++ set the flex-basis  
+
+Either approach will work, though if you go with the first approach you might also need to set the box-sizing property to be border-box.   We'll use the flex-basis, since that is simpler and participatory.
+
+Since this is the layout for the entire page, we'll use the vw units to set the width to be 100 percent of the viewport width. 
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">.fc header</span>,
+<span style="color: #0000ff;">.fc footer</span> { 
+  <span style="color: #333399;">flex</span>: <span style="color: #339966;">0 1 100vw</span>;
+}</pre>
+    </td>
+    <td style="text-align: center;"><img alt="header and footer full width" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/defe36ced89e46f7af23614781aa6a91/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/holy_grail_header_300.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="300" height="193"></td>
+  </tr>
+</tbody>
+</table>
+
+
+__Step 6 - increase flexbox container height__
+
+You may notice that if there is little content of the sections, then the footer is not at the bottom of the viewport.  For many designs and situations, that is not a problem. However, for many designs, we want the footer to be either at the bottom of the viewport, or at the bottom of the page content, whichever is lower.  Meaning, that if the content of the page exceeds the viewport height, we should have to scroll down to see the bottom of the content, and then the footer would immediately follow. 
+
+So how can we get that footer down there when there isn't enough content?  Think for a minute about this before continuing to read.
+
+...[thinking]...
+
+Have you figured it out? The solution is simple: just make the minimum height of the flex container be the viewport height.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #808080;">/* ensure flex-container is always at least as tall as the viewport. 
+   Keeps footer from coming up*/</span>
+<span style="color: #0000ff;">.fc</span> { <span style="color: #333399;">min-height</span>: <span style="color: #339966;">100vh</span>; }
+</pre>
+    </td>
+    <td style="text-align: center;"><img alt="completed layout" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/14ed0170294836374ebc6bd9c86b4078/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/holy_grail_complete_300.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="300" height="180"></td>
+  </tr>
+</tbody>
+</table>
+
+
+__Congratulations__ - we are done!  So simple.  Go and try increasing the content of one of the middle sections by adding several paragraphs of text. Check that the behavior of the footer is correct.  
+
+For reference, here is the final CSS, with comments. This does not include the visualization CSS for the background colors and rounded corners.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">CSS</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #808080;">/* initialize flexbox container and flexbox items */</span>
+<span style="color: #0000ff;">.fc</span> { 
+  <span style="color: #333399;">display</span>: <span style="color: #ff6600;">flex</span>;
+  <span style="color: #333399;">flex-flow</span>: <span style="color: #ff6600;">row wrap</span>;
+}
+<span style="color: #0000ff;">.fc</span> &gt; * { 
+  <span style="color: #333399;">flex</span>: <span style="color: #339966;">1</span>; 
+}
+
+<span style="color: #808080;">/* header and footer should be full width */</span>
+<span style="color: #0000ff;">.fc header</span>,
+<span style="color: #0000ff;">.fc footer</span> {
+  <span style="color: #333399;">flex</span>:<span style="color: #339966;"> 0 1 100vw</span>; 
+}
+
+<span style="color: #808080;">/* ensure flex-container is always at least as tall as the viewport. 
+   Keeps footer from coming up*/</span>
+<span style="color: #0000ff;">.fc</span> { <span style="color: #333399;">min-height</span>: <span style="color: #339966;">100vh</span>; }</pre>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+__Hey - the header and footer height changes__
+
+That is a great observation!  The flexbox container will manage the header and footer height as a function of managing its vertical space.   If you don't want the footer or header to be vertically resized, then the solution is to simply set their height. However, if you do this, you may notice that the flexbox container still gives their row extra height which they simply don't use. So the resulting layout is not optimal.
+
+BUT, reflect for a moment: if the header and the footer are full width and they are fixed height, what is the flexbox container doing for them? Are they participating in the layout of their siblings in any way? They are not. If the header and footer are set to a constant height and the width of the viewport, they don't need any help from the flexbox container.  So, in this case, the solution is to remove them from the flexbox.
+
+
+__Step 7 - (optional) remove header and footer from flexbox container__
+
+The HTML change is trivial, and for the CSS we simply set header and footer width and height as desired (and we will likely want to set their box-sizing as well).
+
+The only trick is that we must also adjust the height of the flexbox container. It is no longer the full height of the viewport. Instead, it is the full height of the viewport minus the combined height of the header and footer.  For that, we'll use calc() 
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;">&lt;body&gt;
+  &lt;header&gt;the header&lt;/header&gt;
+  &lt;div class="fc"&gt;
+    &lt;aside&gt;first column&lt;/aside&gt;
+    &lt;main&gt;the main content should be here&lt;/main&gt;
+    &lt;section&gt;this is the third column&lt;/section&gt;
+  &lt;/div&gt;
+  &lt;footer&gt;the footer&lt;/footer&gt;
+&lt;/body&gt;</pre>
+    </td>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #808080;">/* ensure flex-container is always at least as tall as the viewport, 
+   minus the height of the header and footer combined. 
+*/</span>
+<span style="color: #0000ff;">.fc</span> { <span style="color: #333399;">min-height</span>: <span style="color: #ff6600;">calc</span>(<span style="color: #339966;">100vh - 200px</span>); } 
+
+<span style="color: #808080;">/* size header and footer to be full width and 100px tall each */</span>
+<span style="color: #0000ff;">header</span>,
+<span style="color: #0000ff;">footer</span> {
+  <span style="color: #333399;">box-sizing</span>: <span style="color: #ff6600;">border-box</span>;
+  <span style="color: #333399;">width</span>: <span style="color: #339966;">100vw</span>;
+  <span style="color: #333399;">height</span>: <span style="color: #339966;">100px</span>;
+}</pre>
+    </td>
+  </tr>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;" colspan="2">Result</th></tr>
+  <tr>
+    <td style="text-align: center;" colspan="2"><img alt="optional fixed header/footer height" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/dc93deee2b71d70002d941161aa25cfe/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/holy_grail_optional_400.png" type="saveimage" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" target="[object Object]" width="400" height="340"></td>
+  </tr>
+</tbody>
+</table>
+
+
+#### Try it!
+
+You are encouraged to follow these steps yourself. It is very satisfying seeing everything come together step by step.  But the two completed versions are available for direct download.
+
++ Holy grail variable height header and footer: [Sample Code](src/6.3.8-Variable.html)
++ Holy grail fixed height header and footer: [Sample code](src/6.3.8-Fixed.html)
+
+
+#### Amendment
+
+At the beginning of this section, the "holy grail" of layout was described as a three-column layout with header and footer. However, that representation wasn't quite complete. The holy grail is all that plus being responsive, meaning that on small devices the three columns should collapse to one.
+
+How might you do this?  Experiment and see if you can figure it out.  (Answer below).
+
+Here is a possible approach to make the columns more responsive.  
+
+```css
+.fc > * { min-width: 200px; }
+```
+
+Do you see why this works?
 
 
 
