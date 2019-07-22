@@ -323,14 +323,14 @@ A fixed positioned element respects the positioning properties (`left`, `top`, `
 + Opposite properties can be used to size an element.
 
 
-##### Best practice: use both horizontal and vertical positioning property on every fixed element
+__Best practice: use both horizontal and vertical positioning property on every fixed element__
 
 There is a very subtle extension to the previous interpretation problem: if an element is set to be `position:fixed`, but has no horizontal positioning property (that is, `left` or `right`), then it will be displayed in the flow exactly as it would have been.  Except, later, if `left:0px;` is added (for example), then the element may jump to the left edge of the browser window. The same applies vertically. This is a bewildering behavior, as most users do not expect there to be a difference between `left:0px` and no `left` property at all.
 
 Therefore, for any fixed positioned element, the best practice is to ensure that one of the horizontal positioning properties (that is, `left` or `right`) and one of the vertical properties (top or bottom) are both set.
 
 
-##### Fixed positioned block level elements do not get the width of their parent
+__Fixed positioned block level elements do not get the width of their parent__
 
 Earlier we learned that the block level element automatically gets the width of its parent, that is, they extend to become full width. But this is only true for `static` and `relative` positioned elements. Elements that are `fixed` positioned (or `absolute`) do not exhibit this behavior. Their initial width is simply the width of their content. Though it can be changed.
 
@@ -651,7 +651,7 @@ So that seems fairly straightforward and useful. But there are some subtle cavea
 + Opposite properties can be used to size element.
 
 
-##### Interpretation of positioning properties (top, left, etc.) depends ON parent/grandparent being positioned elements (or not).
+__Interpretation of positioning properties (top, left, etc.) depends ON parent/grandparent being positioned elements (or not).__
 
 _IMPORTANT_: For an absolutely positioned element, <strong><em>where</em></strong> the left, top, etc. are calculated <strong><em>from</em></strong> depends upon the `position` property of the parent and grandparents of the element in question. If the parent of the element is a positioned element (meaning its position is set to anything except `position:static`), then an absolutely positioned child  is positioned relative to that parents rectangle (or grandparent, or great-grandparent, etc).  But if none of the parents are positioned elements, the child is positioned relative to the bounds of the document.  
 
@@ -689,14 +689,14 @@ In the example below, someone who did not read the section in the module 3 about
 </table>
 
 
-###### Best practice: use both horizontal and vertical positioning property on every absolute element
+__Best practice: use both horizontal and vertical positioning property on every absolute element__
 
 There is a very subtle extension to the previous interpretation problem: if an element is set to be `position:absolute` but has no horizontal positioning property (that is, `left` or `right`), then it will be displayed in the flow exactly as it would have been.  Except, later, if `left:0px;` were added (for example), then the element may jump to the left edge of the first parent/grandparent that is a positioned element. The same applies vertically. This is a bewildering behavior, as most users do not expect there to be a difference between `left:0px` and no `left` property at all.
 
 Therefore, for any absolutely positioned element, the best practice is to ensure that one of the horizontal positioning properties (that is, `left` or `right`) and one of the vertical properties (`top` or `bottom`) are set.
 
 
-##### Absolutely positioned elements do not contribute to size of parent
+__Absolutely positioned elements do not contribute to size of parent__
 
 Whether you realize it or not, one of the most useful default behaviors is that the height of a parent element is automatically extended to include all its children, its content. Designers working in CSS unconsciously lean on this fact as they plan layouts and adjust element positions. But this is __not__ true for children that are positioned absolutely.  Absolutely positioned children do not contribute to the size of the parent element. A parent element that contains only absolutely positioned children will have a height of 0, has no "measurable" content and will behave as if it is empty.
 
@@ -714,19 +714,20 @@ In the example below, there are two lists (`<ul>`) each with a fat border. The l
 </tbody>
 </table>
 
-##### Absolute positioned block level elements do not get the width of their parent
+
+__Absolute positioned block level elements do not get the width of their parent__
 
 Earlier we learned that block level elements automatically get the width of their parent, that is, they extend to become full width. But this is only true for static and relative positioned elements. Elements that are absolute positioned (or fixed) do not exhibit this behavior. If you look at the table above, from the previous point, the individual list items have a light blue background color. All the list items are block level elements, and the ones on the left, which are `position:static`, extend their rectangle rightward to fill the entire line. But the right column of absolutely positioned items does not. Their initial size is simply the size of their content.
 
 
-##### Margins do not work the same
+__Margins do not work the same__
 
 For static and relative positioned items, margins can be used to adjust an element position and keep neighboring siblings "away". We make this quick assumption about margins.  But when an element is absolutely positioned, a given margin might be able to move the element but will not move any siblings. Margins cannot be used to keep siblings "away", to fight crowding.
 
  As a general rule, if a positioning property is being used (like `left`), then the matching margin (`margin-left`) can also be used to additionally adjust the position of the element. Otherwise, the margin will unlikely have any effect.
 
 
-##### Opposite properties can be used to size element
+__Opposite properties can be used to size element__
 
 This is one of the nicer features. Working with preset dimension properties (`height` and `width`) can make your design brittle and reduce its adaptability. However, absolutely positioned items can instead set the opposite positioning properties (like `left` and `right`) and leave the matching dimensional property (width) unspecified.  The element will grow or shrink based on the size of the ancestor it is positioning against.  Note that this feature is only available to absolute and fixed positioned elements.
 
@@ -871,10 +872,19 @@ Play some more with the elements, trying to appreciate how block and inline elem
 NOTE: Please do not upload HTML code to the discussion forum.
 
 
-
-
 ### Activity - Cornerpiece
 
+For this activity, use this [CodePen](http://codepen.io/w3devcampus/pen/aWaORJ).
+
+[Sample code](src/6.2.8-ConerPiece.html)
+
+The project file consists of a very long bit of prose and at the end has a single <img> tag.  
+
++ Get the cornerpiece `<img>` element to appear in the lower right of the viewport.  It should not scroll with the rest of the document.
++ That cornerpiece likely obscures any text that it overlaps. Try to get the document text to be on top of the cornerpiece. You will have to adjust the HTML to achieve this. 
++ That cornerpiece is definitely a decorative graphic. Remove the `<img>` tag and use decorative CSS. Again, you will have to change the HTML to achieve this.
+
+NOTE: Please do not upload HTML code to the discussion forum.
 
 
 
