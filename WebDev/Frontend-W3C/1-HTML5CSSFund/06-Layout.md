@@ -1539,10 +1539,21 @@ The next four questions are about the CSS needed to size the article as describe
 
 
 
-
 ### Activity - Basic flexbox
 
+There are several more flexbox related properties that we will learn. However, there is a lot already that can be accomplished with only display:flex, flex-flow, and flex. So let's explore.
 
+You can edit in this [CodePen](http://codepen.io/w3devcampus/pen/mmGeda).
+
+[Sample Code](src/6.3.6-Flexbox.html)
+
+The resulting layout should look like this:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/3?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%409aed5d083fa44945885e2945292e3aee" ismap target="_blank">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/07b4af5c81f90dafe6e40a9036ef9ae9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/resultflexbox.PNG" style="margin: 0.1em;" alt="Result of 6.3.6 Activity - Basic flexbox" title="Result of 6.3.6 Activity - Basic flexbox" width=350>
+  </a>
+</div>
 
 
 ### Basic flexbox
