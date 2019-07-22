@@ -1352,6 +1352,192 @@ __External resources__
 
 
 
+### Knowledge checks (9-13)
+
+#### Units
+
+Recall from Week 3 the different units that are available in CSS for specifying dimensions:
+
+  + px
+  + em
+  + rem
+  + %
+  + vh / vw
+
+These are all convenient for sizing text and images and videos as might befit the need.  However, when pursuing page layout we often want to mix units. Examine this simple situation:
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">HTML</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;">&lt;body&gt;
+  &lt;header&gt;Header&lt;/header&gt;
+  &lt;main&gt;Content Goes Here&lt;/main&gt;
+&lt;/body&gt;
+  </pre>
+    </td>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">body</span>{
+  <span style="color: #333399;">margin</span>: <span style="color: #339966;">0px</span>; 
+  }
+<span style="color: #0000ff;">header</span> {
+  <span style="color: #333399;">height</span>: <span style="color: #339966;">100px</span>;
+  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">lightblue</span>;
+  }
+<span style="color: #0000ff;">main</span> {
+  <span style="color: #333399;">background-color</span>: <span style="color: #ff6600;">whitesmoke</span>;
+  <span style="color: #333399;">overflow-y</span>: <span style="color: #ff6600;">scroll</span>;
+  }
+  </pre>
+    </td>
+  </tr>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;" colspan="2">Result</th></tr>
+  <tr>
+    <td colspan="2"><img alt="image shows a browser window with a large header. In the main element, it is written &quot;Content Goes Here&quot;. The content is not extending down (i.e., there is a little scrolling bar)" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ae8c8eaae966eba6c448fcf4a210fb37/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/unhappy.png" type="saveimage" target="[object Object]" width="404" align="middle"></td>
+  </tr>
+</tbody>
+</table>
+
+Because `<header>` and `<main>` are both block level elements, they extend full width.  Great.  And the `height` of the header has been set to `100px`.  But the main does not yet have a height set, so it takes the height of its content. However, for this design, we want it to scroll its content, and we want it to extend to the bottom of the browser window.  The scrolling is easily accomplished with the `overflow-y:scroll;` declaration.
+
+So what should the height of the `<main>` section be to make it extend down?  
+
+
+#### calc()
+
+The ideal height for the main section is that of the viewport minus the height of the header.  You may remember that the vh unit is a percentage of the viewport.  So `100vh` is one hundred percent of the viewport.  And we can see that the height of the header in the CSS above is `100px`.
+
+Wherever a CSS dimension unit is accepted we can also provide the `calc()` expression. This expression lets us mix units of different types. It looks like this:
+
+```css
+main { height: calc(100vh - 100px); }
+```
+
+And if we try adding that to the CSS above, we get the result we wanted:
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/3?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%409aed5d083fa44945885e2945292e3aee" ismap target="_blank">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b96b9edc87d4895b8a307caf8e85a27e/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/happy.png" style="margin: 0.1em;" alt="image shows a browser window with a large header. In the main element, it is written "Content Goes Here". The main is extending to bottom (i.e., there is a big scrolling bar)" title="image shows a browser window with a large header. In the main element, it is written "Content Goes Here". The main is extending to bottom (i.e., there is a big scrolling bar)" width=250>
+  </a>
+</div>
+
+You can download the final result here.
+
+So that's `calc()`, another weapon in your ever strengthening CSS arsenal.
+
+
+__Notes__
++ The parentheses for `calc()` are required.   
++ The standard arithmetic operations are supported, addition, subtraction, multiplication, and division:  +  -  *  / 
++ Overuse of `calc()` can make your page slow. 
++ Using `calc()` for sizing flexbox items (the items inside a flexbox container) may not always work as desired. In particular, `calc()` along the cross axis may not work in every situation.
+
+
+__Exploration Activity__
+Go back to the original situation posed above.  Can you think of any other solutions that will end up with the desired result that don't use calc() and do not use flexbox?  We have already discussed quite a few layout concepts. Might some be leveraged to otherwise solve this problem?
+
+<hr/>
+
+9. calc() declarations
+
+  Which of the 'calc()' declarations are correct? (select all that apply -- 3 correct answers!)
+
+  1. calc 100vh - 80px;
+  2. calc(100vh - 80px);
+  3. calc(80px + 120px);
+  4. calc(75vw * 2);
+  
+  Ans: 234
+
+<hr/>
+
+
+Examine the following HTML code FOR questions 10 through 13:
+
+```html
+<body>
+  <header>Header</header>
+  <article>Article</article>
+  <footer>Footer</footer>
+</body>
+```
+
+##### Situation
+
+For this design, you are asked to make the header and footer each have a height of 80px. The content of the article may vary in height. It could be a long series of paragraphs, or it could be just a sentence.
+
+What is the CSS that will size the article height such that it will keep the footer at the bottom of the viewport if the article content is small? However, if the content is long, it will let the article just size to the content (meaning the footer may be offscreen until the user scrolls the entire page down).  
+
+<hr/>
+
+The next four questions are about the CSS needed to size the article as described.
+
+10. Which property for the height of the article
+
+  Examine the code and situation above. Think about the CSS required to acheive it.
+
+  ```css
+  article { property:value; }
+  ```
+
+  What property should be set to control the overall height of the article as described?
+
+  1. min-height
+  2. max-height
+  3. height
+
+  Ans: 1 <br/>
+  + Setting the height of the article could help fix the footer to the bottom, but if the content of the article is long, it will overflow.
+  + Setting the minimum height for the article can help keep it sized so that the footer, which follows it, stays at the bottom of the browser window.
+
+
+11. Desired value
+
+  Examine the code and situation above. In Question 10, you selected the property that should be used to control the height of the article. But what should its value be set to?
+
+  Which of these sentences describes the desired value most accurately?
+
+  1. the maximum height of the article should be no more than twice the viewport height.
+  2. at minimum, the height of the article should be the height of the viewport minus the combined heights of the header and footer.
+  3. the minimum height of the article should be the height of the viewport plus the height of the header and the footer
+  4. the height of the article should be the same as the height of the viewport
+
+  Ans: 2 <br>
+  + (1) There is no reason to set an upper bound on the article height.
+  + (3) Adding all three heights together is not the size we want.
+  + (4) For this, we do not want to set the height of the article, but its min-height. And setting it to be the same as the viewport will fail to take into consideration the heights of the footer and header
+
+
+12. Height of the viewport
+
+  Which of these unit declarations represents the height of the viewport?
+
+  1. 100vw
+  2. 100vh
+  3. 720px
+  4. 100%
+
+  Ans: 2 <br/>
+  + vw is the viewport _width_, not its height
+  + 100vh means one hundred percent of the viewport height.
+  + There is no guarantee that the browser window will be any given pixel size.
+  + 100% means the height of the parent. In our context, that is the height of the body, which would be limited to the height of its content. This is not the same as the height of the viewport, as the content of the document could be shorter or taller than the viewport.
+
+
+13. What value should be set...
+
+  Examine the code and situation above. In question 10, you selected the property we need to control the height of the article as described. In question 11, you selected a description of its value. In question 12, you selected the declaration that represents the overall height of the viewport. Lastly, observe that the height of the footer and header are each 80 pixels. So, finally, what value should be set for the property?
+
+  ```css
+  article { property:value; }
+  ```
+
+  What value should be set for the property?
+
+  Ans: calc(100vh - 160px)
+
+
 
 
 ### Activity - Basic flexbox
