@@ -847,6 +847,29 @@ Below is a simple example: there are two overlapping sibling divs, "Albert" and 
 
 ### Activity - Block vs. inline
 
+We've provided you with a starter project file. The [code](src/6.2.7-BlockInline.html) is included below in this CodePen.
+
+This simple file has two block level elements (the paragraphs) and two spans, which are inline. Additionally, there are several classes defined for you. 
+
+Try the following:
+
++ Notice immediately each paragraph gets its own line.
++ Notice the inline span that follows the paragraph (`</p>`) starts on its own line. However, the second inline span directly follows its predecessor - it does not get a new line, it continues on the same line.
++ Try applying the `brect` and `prect` classes to the elements. (via `class="brect"` ). When applied to the paragraphs, you can see that the classes make the width of the paragraph stretch to the edge of the window. It is the same as its parent width.  Note that its height is no more than its content.  But the background colors and borders are tight to the spans.
++ Try applying the `w` class to each of the elements. This class sets the `width` property. It works on both paragraphs, but it has no effect on the two spans.
++ Try applying the `h` class to each element. This class sets the `height` property. Again, the paragraphs are affected, but the spans are not.
++ Apply the pad class to each element. This class sets the `padding` property. The paragraphs are clearly padded. The spans are also padded, but the extra padding does not space them out. So if the background colors are still being applied, the padded background of one inline element may overlap the other.  Can you think of a solution that would prevent the overlap?
++ Apply the `marg-vert` class to each element. This class sets the top and bottom margins. Note that it works on the block level paragraphs well enough, but has no effect on the inline spans.
++ Apply the `marg-horiz` class to each element. This class sets the left and right margins.  It works on everything.
+
+Play some more with the elements, trying to appreciate how block and inline elements differ.
+
++ Try changing the HTML so that the inline elements are inside the block level ones.  
++ Put a `margin:0` on the body.
++ Have fun!
+
+NOTE: Please do not upload HTML code to the discussion forum.
+
 
 
 
