@@ -1228,7 +1228,128 @@ __External resources__
 
 
 
-### Knowledge checks 
+### Knowledge checks (1-8)
+
+1. Compatibility of combinations
+
+  Which of the following combinations are NOT compatible? Which of the following will not work?
+
+  1. display:inline; min-width:200px;
+  2. display:inline-block; max-width:100px;
+  3. display:block; width:200px;
+
+  Ans: 1<br/>
+  Inline elements do not respond to the sizing properties.
+
+
+2. Default sizing
+
+  Which of the following statements correctly describe the default sizing of a block level element? How does a block level element behave when no sizing properties are applied?
+
+  1. horizontally sizes to its own content, takes the height of its parent
+  2. vertically sizes to own content, takes the width of parent
+  3. sized horizontally and vertically to its content
+  4. takes height and width of parent
+
+  Ans: 2<br/>
+  A block level element defaults to the width of its parent but vertically is sized by its content.
+
+
+3. Flexbox container
+
+  How do you designate an element as a flexbox container? (select all that apply -- 2 correct answers!)
+
+  1. display:flex
+  2. flex:1
+  3. display:inline-flex
+  4. display:block; flex:1
+
+  Ans: 13<br/>
+  The flex property is applied to flexbox children, not the flexbox container.
+
+
+4. What is needed to designate its children?
+
+  If a parent has been designated as a flexbox container, then what is needed to designate its children as a flexbox items?
+
+  1. display:flex
+  2. nothing. All direct children of a flexbox container are automatically made into flexbox items.
+  3. position:static
+  4. flex:1
+
+  Ans: 2<br/>
+  It is recommended that every flexbox item have its flex property initialized, but this is not strictly required.
+
+
+5. Flexbox layout
+
+  Examine this image of a flexbox layout:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/3?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%409aed5d083fa44945885e2945292e3aee" ismap target="_blank">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bd6de0e3780ce3303f225bfaedf61d23/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/three_and_one_30.png" style="margin: 0.1em;" alt="image shows a browser window with three flexbox items of the same size layouted as 3 columns, and one flewbox item below that is as wide as the sum of the 3 items above" title="image shows a browser window with three flexbox items of the same size layouted as 3 columns, and one flewbox item below that is as wide as the sum of the 3 items above" width=150>
+    </a>
+  </div>
+
+  Which of the following is true?
+
+  1. the flexbox container has flex-flow:row wrap;
+  2. the last flexbox item has clear:both
+  3. the flexbox container has flex-flow:row;
+  4. the flexbox container has flex-flow: column;
+  
+  Ans: 1<br/>
+  The flex-flow specifies both a row flex-direction and wrapping
+
+
+6. Flexbox container with three children
+
+  There is a flexbox container with three children with identical content.
+
+  The flexbox container has `flex-flow:row;`
+
+  The first child has `flex:1` applied to it, the second `flex:2`, and the third `flex:3`.
+
+  `flex:1` is the same as which of the following?
+
+  1. flex-basis:1px;
+  2. flex-grow:1
+  3. flex-shrink:1
+
+  Ans: 1
+
+
+7. Which of the following are possible...
+
+  There is a flexbox container with three children with _identical content_.
+
+  The flexbox container has `flex-flow:row;`
+
+  The first child has `flex:1` applied to it, the second `flex:2`, and the third `flex:3`.
+
+  When examined in the browser, which of the following are possible? (select all that apply - 2 correct answers!)
+
+  1. all three elements are the same width.
+  2. the first item is wider than the others.
+  3. the first item is the narrowest and the third item the widest.
+  4. the first item is much narrower, and the second and third items are the same width.
+
+  Ans: 13<br/>
+  + if there is extra space to be applied to the various children, then no two of them will be the same width.
+  + flex:1 determines the relative growth of an item, with a smaller number meaning less relative growth than a larger number.
+
+
+8. Full flex property
+
+  Which of the following is the correct description of the full flex property?
+
+  1. `flex: <flex-grow> <flex-basis> <flex-shrink>`
+  2. `flex: <flex-grow> <flex-shrink> <flex-basis>`
+  3. `flex: <flex-shrink> <flex-grow>`
+  4. `flex: <flex-grow> <flex-start> <flex-end>`
+  
+  Ans: 2
+
 
 
 
