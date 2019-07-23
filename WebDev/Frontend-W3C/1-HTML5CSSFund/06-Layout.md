@@ -1845,7 +1845,27 @@ Do you see why this works?
 
 ### Activity - Flex columns
 
+Using the previous activity as a starting place, try setting the flex-flow of the flex container to `flex-flow: column wrap;`
 
+Try to lay out something like this, where the header is a narrow column on the left and the footer is a narrow column on the right.
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/432fe5c1283c420ea9df95e888578cac/3?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%409aed5d083fa44945885e2945292e3aee" ismap target="_blank">
+    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/33fc647c20a8c85cc02c715d8268d72a/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/flex_column_400.png" style="margin: 0.1em;" alt="text" title="caption" width=250>
+  </a>
+</div>
+ brower window showing 5 flebox items: 2 are vertical and surround 3 horizontal ones
+
+Some notes:
+
++ Don't use the optional approach from the previous section. 
++ The default block level behavior of taking the width of the parent will work a bit against you. 
++ You will have to explicitly set width properties (width, min-width, and/or max-width) on all the children and the flexbox container.
++ Best results are achieved by sizing the flexbox container in both dimensions.
++ The margins between flexbox items are 10px per column. So you may need to account for that when performing dimension calculations to avoid a scroll bar appearing.  
++ Putting box-sizing: border-box on the flex items may help as well.
+
+[Sample Code](src/6.3.9-Flex.html)
 
 
 ## 6.4 More flexbox
