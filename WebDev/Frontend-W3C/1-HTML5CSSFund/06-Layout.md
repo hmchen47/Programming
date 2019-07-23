@@ -2270,7 +2270,14 @@ The order property, when applied to an individual flexbox item, lets you set its
 
 ### CSS Grid
 
+Have a look at how CSS Grid Layout went from an idea to a reality. The video below has been shot in August 2017 by the Microsoft team. It features some of the [CSS Working Group participants](https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2017/courseware/12e8f1585d88470e95f54cf0ff6a1a00/6c9058a29dc5493fbb43332c6bc3b550/4?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2017%2Btype%40vertical%2Bblock%40beac75cf51c34b51a0ac0f6e5fad70cc):
 
+  Rossen Atanassov (Microsoft) ; Tab Atkins Jr. (Google) ; Sergio Villar Senin (Igalia) ; Bo Cupp (Microsof) ; Elika Etemad, aka fantasai (W3C Invited Expert to the CSS WG) ; Greg Whitworth (Microsoft) ; Dr. Bert Bos (W3C & Co-Creator of CSS) ; Rachel Andrew (W3C Invited Expert to the CSS WG).
+
+<video src="https://youtu.be/z-TXKGF9B-0" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@b11fb3c1c328460890ef734f91235e13/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ### New layout techniques
