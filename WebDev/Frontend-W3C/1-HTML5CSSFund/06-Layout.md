@@ -2221,6 +2221,47 @@ In the example below, we have a flex container with `flex-flow:row;` and `align-
 
 ### Order
 
+One of the most exciting flexbox properties is also its simplest: order.
+
+```css
+.item { order: 2; }
+```
+
+The order property allows you to determine the order in which the item appears in the flexbox.  This allows you to present the information in the flexbox layout independent of its order in the HTML itself. This is very useful, as there are many factors competing to drive the order of an HTML file.    
+
+For example, semantically, for SEO (Search Engine Optimization), and for accessibility for disabled visitors, the best practice is to put the title of an article before the article itself. While that seems simple enough, if your flexbox layout uses a flex-direction value of column-reverse, this could be a problem.  
+
+The order property, when applied to an individual flexbox item, lets you set its order. By default, the first item in a flexbox container has the order value of 1, the second is 2, etc.  And you can override it.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+<tbody>
+  <tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">HTML</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">CSS</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Result</th></tr>
+  <tr>
+    <td>
+<pre style="border: none; box-shadow: none;">&lt;div class="fc"&gt;
+&lt;p class="one"&gt;One&lt;/p&gt;
+&lt;p class="two"&gt;Two&lt;/p&gt;
+&lt;p class="three"&gt;Three&lt;/p&gt;
+&lt;p class="four"&gt;Four&lt;/p&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>
+<pre style="border: none; box-shadow: none;"><span style="color: #0000ff;">.four</span>  { <span style="color: #333399;">order</span>: <span style="color: #339966;">1</span>; }
+<span style="color: #0000ff;">.two</span>   { <span style="color: #333399;">order</span>: <span style="color: #339966;">2</span>; }
+<span style="color: #0000ff;">.one</span>   { <span style="color: #333399;">order</span>: <span style="color: #339966;">3</span>; }
+<span style="color: #0000ff;">.three</span> { <span style="color: #333399;">order</span>: <span style="color: #339966;">4</span>; }</pre>
+    </td>
+    <td>
+      <div style="display: flex; flex-flow: column;">
+        <p style=" order: 3; padding: 5px; background-color: lightgray; border-radius: 5px; margin: 5px;">One</p>
+        <p style=" order: 2; padding: 5px; background-color: lightgray; border-radius: 5px; margin: 5px;">Two</p>
+        <p style=" order: 4; padding: 5px; background-color: lightgray; border-radius: 5px; margin: 5px;">Three</p>
+        <p style=" order: 1; padding: 5px; background-color: lightgray; border-radius: 5px; margin: 5px;">Four</p>
+      </div>
+    </td>
+  </tr>
+</tbody>
+</table>
 
 
 
