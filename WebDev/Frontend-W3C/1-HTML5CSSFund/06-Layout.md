@@ -753,10 +753,10 @@ In the sample below, we have two lists with relatively positioned list items and
     <td><pre style="border: none; box-shadow: none">/* no z-index set */</pre></td>
     <td>
       <ul style="padding: 0 0 0 1em; margin: 1em 0; color: #313131; padding-left: 1em;">
-        <li style="background-color: lightblue; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none;">First</li>
-        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: lightgreen;">Second</li>
-        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: pink;">Third</li>
-        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: plum;">Fourth</li>
+        <li style="background-color: lightblue; position: relative; padding: 10px; margin: 0px 0px -20px 0px; border: 1px dotted gray; list-style-type: none;">First</li>
+        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px; border: 1px dotted gray; list-style-type: none; background-color: lightgreen;">Second</li>
+        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px; border: 1px dotted gray; list-style-type: none; background-color: pink;">Third</li>
+        <li style="position: relative; padding: 10px; margin: 0px 0px -20px 0px; border: 1px dotted gray; list-style-type: none; background-color: plum;">Fourth</li>
       </ul>
     </td>
     <td>
@@ -767,10 +767,10 @@ In the sample below, we have two lists with relatively positioned list items and
     </td>
     <td>
       <ul style="padding-left: 1em; list-style: disc outside none; padding: 0 0 0 1em; margin: 1em 0; color: #313131;">
-        <li style="z-index: 4; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: lightblue;">First</li>
-        <li style="z-index: 3; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: lightgreen;">Second</li>
-        <li style="z-index: 2; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: pink;">Third</li>
-        <li style="z-index: 1; position: relative; padding: 10px; margin: 0px 0px -20px 0px !important; border: 1px dotted gray; list-style-type: none; background-color: plum;">Fourth</li>
+        <li style="z-index: 4; position: relative; padding: 10px; margin: 0px 0px -20px 0px; border: 1px dotted gray; list-style-type: none; background-color: lightblue;">First</li>
+        <li style="z-index: 3; position: relative; padding: 10px; margin: 0px 0px -20px 0px; border: 1px dotted gray; list-style-type: none; background-color: lightgreen;">Second</li>
+        <li style="z-index: 2; position: relative; padding: 10px; margin: 0px 0px -20px 0px; border: 1px dotted gray; list-style-type: none; background-color: pink;">Third</li>
+        <li style="z-index: 1; position: relative; padding: 10px; margin: 0px 0px -20px 0px; border: 1px dotted gray; list-style-type: none; background-color: plum;">Fourth</li>
       </ul>
     </td>
   </tr>
@@ -817,7 +817,7 @@ Below is a simple example: there are two overlapping sibling divs, "Albert" and 
           <div style="z-index: 100; position: relative; height: 95px; background-color: pink; margin: 0px 0px 10px 0px;">&nbsp;&nbsp;Alan</div>
         </div>
         <div style="border: 2px solid blue; position: absolute; left: 10px; top: 00px; width: 200px; height: 200px; z-index: 2;">
-          <div style="z-index: 0; display: inline-block !important; position: relative; width: 90px; height: 200px; background-color: lightblue; margin: 0px 0px 0px 110px;">&nbsp;&nbsp;Bernice</div>
+          <div style="z-index: 0; display: inline-block; position: relative; width: 90px; height: 200px; background-color: lightblue; margin: 0px 0px 0px 110px;">&nbsp;&nbsp;Bernice</div>
         </div>
       </div>
     </td>
@@ -1937,6 +1937,285 @@ We will begin to see the values `flex-start` and `flex-end` in the next section 
 
 ### Justification and alignment
 
+#### justify-content
+
+```css
+.fc { justify-content: space-around; }
+```
+
+When all the flex items in a flexbox container are fully resizable, then there will not be any extra space to put between the items.  However, when the flex items are fixed size, or cannot grow anymore, then the flexbox container will put the extra space between or outside the items. The closest analogue from typography is called "justifying".  Thus, the `justify-content` property serves a similar function for flexbox containers.
+
+The `justify-content` property is applied to the flex container.  It governs how any extra space along the main layout axis is distributed between the flexbox items.  The possible values are: `flex-start`, `flex-end`, `center`, `space-between`, and `space-around`.  The `flex-start`, `flex-end`, and `center` values do not distribute any space between the flex items. Instead, these values determine where the flex items should be positioned within the flex container, and any extra space is outside them. The `space-between` and `space-around` values both put space evenly between the flex items, but space-between places the flex items flush against the main start and main ends of the flexbox container.  Remember that this is only spacing in the direction of the main axis. `justify-content` does not affect any spacing or placement in the direction of the cross axis.
+
+The table below should help illustrate this. It shows the justification options for a flexbox container with `flex-flow:row;`
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=60%>
+<tbody>
+  <tr><th style="text-align: left; color: black; background: #eee; font-weight: bold; width: 20%;">flex-start</th>
+    <td style="margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px;">
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; justify-content: flex-start;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+      </div>
+    </td>
+  </tr>
+  <tr><th style="text-align: left; color: black; background: #eee; font-weight: bold; width: 20%;">center</th>
+    <td style="margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px;">
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; justify-content: center;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+      </div>
+    </td>
+  </tr>
+  <tr><th style="text-align: left; color: black; background: #eee; font-weight: bold; width: 20%;">flex-end</th>
+    <td style="margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px;">
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; justify-content: flex-end;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+      </div>
+    </td>
+  </tr>
+  <tr><th style="text-align: left; color: black; background: #eee; font-weight: bold; width: 20%;">space-between</th>
+    <td style="margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px;">
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; justify-content: space-between;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+      </div>
+    </td>
+  </tr>
+  <tr><th style="text-align: left; color: black; background: #eee; font-weight: bold; width: 20%;">space-around</th>
+    <td style="margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px;">
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; justify-content: space-around;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue;">item</p>
+      </div>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+If the `flex-direction` were `row-reverse`, then the only thing to change in the table above would be that the appearances of `flex-start` and `flex-end` would be reversed.
+
+If the `flex-direction` were `column`, then remember that, if the flexbox container is a block level element, its default size would be that of its content. Which means there would be no extra vertical space to distribute. So all the five options above would be identical (a tight stack of items) unless the height of the flexbox container were explicitly made larger. 
+
+
+#### align-content and align-items
+
+The `align-content` and `align-items` are often confused for one another. But they are very different.  Both properties only apply if there is extra space in the cross axis direction. This is important to remember, because in many situations there isn't any cross axis space. In the example above (used for `justify-content`), none of the flexbox containers has any extra cross axis space (vertical space).  
+
+
+#### align-items
+
+```css
+.fc { align-items: stretch; }
+```
+
+The align-items determines how items are aligned in the cross axis direction. This is applied to the flexbox container.  The possible values are `stretch`, `flex-start`, `flex-end`, `center`, and `baseline`.    In the context of alignment, `flex-start` and `flex-end` refer to the cross start and cross end sides, which may be swapped if the `flex-wrap:wrap-reverse` option is elected.  `align-items` defaults to `stretch`, if it is not set. The table below should help illustrate this. It shows a flex container with `flex-flow:row;` and a `min-height` value that is greater than the height of any of the items.  
+
+In the example below, each item has a different `line-height` value, so you can see how they align to each other.
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=70%>
+<tbody>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <th style="width: unset; background-color: #eee;">Notes</th></tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">stretch</th>
+    <td>
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-items: stretch;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 60px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 80px;">item</p>
+      </div>
+    </td>
+    <td>stretch will not work on flex items&nbsp;that have a fixed dimension. Use min-width or min-height instead of width or height, if you want the item to actually stretch.</td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">flex-start</th>
+    <td>
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-items: flex-start;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 60px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 80px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">center</th>
+    <td>
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-items: center;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 60px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 80px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">flex-end</th>
+    <td>
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-items: flex-end;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 60px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 80px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">baseline</th>
+    <td>
+      <div style="display: flex; flex-flow: row; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-items: baseline;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 60px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 80px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+
+#### align-content
+
+```css
+.fc { align-content: space-between; }
+```
+
+`align-content` is only relevant when the flexbox container supports wrapping and the flex items are, in fact, wrapping.  The `align-content` determines how the wrapped lines are positioned or spaced.  `Align-content` is not applied to individual items, but rather to the wrapped lines. The align-content property supports the stretch value, as well as the same values as `justify-content` (`flex-start`, `center`, `flex-end`, `space-between`, `space-around`). This is easier to understand from an example. Below we have a flex container with `flex-flow:row wrap;` and a height value that is greater than the height of any of the items.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=70%>
+<tbody>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <th style="width: unset; background-color: #eee;" class="notes">Notes</th></tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">stretch</th>
+    <td>
+      <div style="display: flex; flex-flow: row wrap; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-content: stretch;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+      </div>
+    </td>
+    <td>stretch will not work on flex items&nbsp;that have a fixed dimension. Use min-width or min-height instead of width or height, if you want the item to actually stretch.</td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">flex-start</th>
+    <td>
+      <div style="display: flex; flex-flow: row wrap; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-content: flex-start;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">center</th>
+    <td>
+      <div style="display: flex; flex-flow: row wrap; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-content: center;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">flex-end</th>
+    <td>
+      <div style="display: flex; flex-flow: row wrap; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-content: flex-end;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">space-between</th>
+    <td>
+      <div style="display: flex; flex-flow: row wrap; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-content: space-between;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+  <tr><th style="text-align: left; color: black; margin: 20px 0; padding: 10px; border: 1px solid #c8c8c8; font-size: 14px; background: #eee; font-weight: bold; width: 15%;">space-around</th>
+    <td>
+      <div style="display: flex; flex-flow: row wrap; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 200px; align-content: space-around;">
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+        <p style="width: 40px; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 40px;">item</p>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+
+##### align-self
+
+```css
+.item { align-self: center; }
+```
+
+Unlike the other flexbox align properties, `align-self` is applied to an individual flex item, not to a flexbox container.  This allows an individual flex item to be aligned differently than its siblings.  Again, this is only true for cross axis alignment, and will only come into play, if there is extra space in the cross axis direction to be exploited. 
+
+The values for `align-self` are `stretch`, `flex-start`, `center`, flex-end`, and `baseline`.
+
+`align-self` is ignored, if any of the four margins on the item is set to auto.
+
+In the example below, we have a flex container with `flex-flow:row;` and `align-items:center;`.  The individual items have their `align-self` property set.
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=70%>
+<tbody>
+<tr><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 10%;">align-self</th><th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 32%;">Notes</th></tr>
+<tr>
+<td style="">
+<div style="display: flex; flex-flow: row; background-color: whitesmoke; height: 150px; border: 2px dotted black; width: 500px; align-items: center;">
+<p style="min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">item</p>
+<p style="min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">item</p>
+<p style="align-self: stretch; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">stretch</p>
+<p style="align-self: flex-start; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">flex-start</p>
+<p style="align-self: center; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">center</p>
+<p style="align-self: flex-end; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">flex-end</p>
+<p style="align-self: baseline; min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">baseline</p>
+<p style="min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">item</p>
+<p style="min-height: 40px; border: 1px solid gray; margin: 0px; text-align: center; vertical-align: center; line-height: 40px; font-size: 9px; color: dimgray; border-radius: 5px; background-color: lightblue; line-height: 1.6em; width: 80px;">item</p>
+</div>
+</td>
+<td>stretch will not work on flex items&nbsp;that have a fixed dimension. Use min-width or min-height instead of width or height, if you want the item to actually stretch.</td>
+</tr>
+</tbody>
+</table>
 
 
 
