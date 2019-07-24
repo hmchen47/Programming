@@ -2350,6 +2350,43 @@ Give it a try. Good luck!
 
 ### Where to from here?
 
+We hope you've enjoyed this course.  We've covered a lot of material and hopefully you are feeling comfortable working with HTML and CSS. One of the wonderful things about these technologies is that there is so many directions to go from here.  
+
+If you want to learn more about the Web accessibility and Web Internationalization guidelines, the next two pages list useful resources.
+
+Below are not topics that you must learn, only areas of interest that you could learn more about if you are inclined to do so. Most of them are covered in the other W3Cx courses, part of the W3C ["Front-End Web Developer](https://www.edx.org/professional-certificate/front-end-web-developer-9" Professional Certificate program. We encourage you to enroll in:
+
++ "[HTML5 Coding Essentials and Best Practices](https://www.edx.org/course/html5-coding-essentials-w3cx-html5-1x-2)" is an intermediate level course requiring basic HTML5 and CSS knowledge.
++ [CSS Basics](https://www.edx.org/course/css-basics-w3cx-css-0x-0) is a complementary course that covers best practices in Web design, and shows the current design trends.
++ "[HTML5 Apps and Games](https://www.edx.org/course/html5-apps-games-advanced-techniques-w3cx-html5-2x)" offers advanced techniques for creating apps and games.
++ "[JavaScript Introduction](https://www.edx.org/course/javascript-introduction-w3cx-js-0x)" is an introductory course that will teach you how to add interactivity to your Web pages and become an expert Web developer.
+
+
+#### Forms
+
+There are series of HTML tags for making on-page Web forms.  (`<form>`, `<fieldset>`, `<input>`, `<button>` and others). If you want a search box or a log-in control, then the form tags are worth exploring. On their own, they are very simple. But to make them function you'll need JavaScript or at least some server side development.
+
+
+#### Mobile Application Development
+
+Did you know that mobile apps that can be downloaded via the Apple iTunes store or Google Play could be created with HTML, CSS and Javascript? Many Web developers are unaware that they possess this super power.
+
+
+#### Page Serving
+
+So far we've been working with HTML and CSS files, which are both fundamentally "client side" technologies (also known as the "front end"). By this we mean that they are executed by the browser on the machine of the person viewing the Web page. That browser running on their machine is the "client". But those HTML and CSS files are stored on a Web server. There is a lot to learn about the various aspects of serving files. MIME type, HTTP codes, HTTP requests and headers, HTTP vs HTTPS, access privileges, AJAX, and more.
+
+
+#### Server Side Programming
+
+Extending the previous topic, the Web server itself can be programmed. It can dynamically serve or generate HTML, limit who can access what, handle routing, access databases, and much more. This is the "backend" side and for many applications the backend is where the core logic resides while the front end is little more than a display.
+
+
+#### More CSS
+
+There are nearly 300 CSS properties in the CSS3 specification. We did not cover them all in this course. Areas of possible interest include CSS Transformations, CSS Animations, and media queries.
+
+Happy exploring!
 
 
 
