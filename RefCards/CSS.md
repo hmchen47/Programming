@@ -1224,6 +1224,29 @@
 
 ## Alignment Property
 
+### Characteristics of Alignment
+
++ [Horizontal centering](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#horizontal-centering)
+  + inline elements
+    + positioned along the baseline
+    + no CSS property directly applied to cause this element to center
+    + using `text-align` to centerize an inline element
+  + block level elements
+    + take the width of their parent by defaut
+    + NOT recommended: limiting the width of the element
+    + RECOMMENDED: `margin: auto;`: center the element
+
++ [Vertical centering](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#vertical-centering)
+  + Inline elements:
+    + respect the vertical-align property
+    + aligned relative to the baseline
+  + Block level elements
+    + no margin:auto approach
+    + flexbox: the best practice to centerize vertically
+
+
+### List of Alignment Properties
+
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
   <thead>
   <tr>
@@ -1627,13 +1650,25 @@
 
 
 
-## Display Flow Layout
+## Display Property
+
++ Display property
+  + different default values for different tags
+  + Some tags start with display:block, and others are display:inline.
+
++ [Baseline](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#baseline)
+  + a key concept to understanding how the browser makes its layout decisions
+    <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/1fe35eaba7534b5d86b69fa0e09494a3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4065eedf84e09a4619a4152d1cdcadc73a" ismap target="_blank" style="padding-left: 0.5em;">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/03a5c30240869b1400f96ca51fc2eb19/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/baseline2.png" style="margin: 0.1em;" alt="baseline" title="baseline" width=70></a>
+  + the blue line indicating the baseline
+  + determine how and where the characters are positioned
+  + govern the placement of all inline elements
 
 + Normal Flow / Flow Layout
   + the way that Block and Inline elements are displayed on a page before any changes are made to their layout
   + essentially a set of things that are all working together and know about each other in your layout
 
-+ Block-level vs. inline
++ [Block-level vs. inline](/WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#display-block-versus-inline)
   + Content model:
     + block-level element may contain inline elements and other block-level elements
     + block elements create "larger" structures than inline elements
@@ -1641,96 +1676,107 @@
     + block-level elements begin on new lines
     + in-line elements can start anywhere in a line
 
-+ [Display Elements](../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#display-property)
++ [Display properties](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#display-block-versus-inline)
+
+  <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements"> Block-level Element </a></td>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements">Inline Element</a></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>&lt;address&gt;: Contact information<br/>&lt;article&gt;: Article content<br/>&lt;aside&gt;: Aside content<br/>&lt;blockquote&gt;: Long ("block") quotation<br/>&lt;details&gt;: Disclosure widget<br/>&lt;dialog&gt;: Dialog box<br/>&lt;dd&gt;: Describes a term in a description list<br/>&lt;div&gt;: Document division<br/>&lt;dl&gt;: Description list<br/>&lt;dt&gt;: Description list term<br/>&lt;fieldset&gt;: Field set label<br/>&lt;figcaption&gt;: Figure caption<br/>&lt;figure&gt;: Groups media content with a caption (see &lt;figcaption&gt;)<br/>&lt;footer&gt;: Section or page footer<br/>&lt;form&gt;: Input form<br/>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;: Heading levels 1-6<br/>&lt;header&gt;: Section or page header; &lt;hgroup&gt;: Groups header information<br/>&lt;hr&gt;: Horizontal rule (dividing line)<br/>&lt;li&gt;: List item<br/>&lt;main&gt;: Contains the central content unique to this document<br/>&lt;nav&gt;: Contains navigation links<br/>&lt;ol&gt;: Ordered list<br/>&lt;p&gt;: Paragraph<br/>&lt;pre&gt;: Preformatted text<br/>&lt;section&gt;: Section of a web page<br/>&lt;table&gt;: Table<br/>&lt;ul&gt;: Unordered list</td>
+      <td>&lt;a&gt;: create a hyperlink<br/> &lt;abbr&gt; &amp; &lt;acronym&gt;: an abbreviation or acronym<br/> &lt;audio&gt;: embed sound content in documents<br/> &lt;b&gt;: HTML Bring Attention To element; draw the reader's attention to the element's contents<br/>&lt;bdi&gt;: Bidirectional Isolate element; tell the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text<br/>&lt;bdo&gt;: Bidirectional Text Override element; override the current directionality of text<br/>&lt;big&gt;: render the enclosed text at a font size one level larger than the surrounding text<br/>&lt;br&gt;: produce a line break in text (carriage-return)<br/>&lt;button&gt;: represent a clickable button<br/>&lt;canvas&gt;: either the canvas scripting API or the WebGL API to draw graphics and animations<br/>&lt;cite&gt;: Citation element; used to describe a reference to a cited creative work, and must include the title of that work<br/>&lt;code&gt;: display its contents styled in a fashion intended to indicate that the text is a short fragment of computer code<br/>&lt;data&gt;: link a given content with a machine-readable translation<br/>&lt;datalist&gt;: contain a set of &lt;option&gt; elements that represent the values available for other controls<br/>&lt;del&gt;: represent a range of text that has been deleted from a document<br/>&lt;dfn&gt;: Definition element; used to indicate the term being defined within the context of a definition phrase or sentence<br/>&lt;em&gt;: used to indicate the term being defined within the context of a definition phrase or sentence<br/>&lt;embed&gt;: embed external content at the specified point in the document<br/>&lt;i&gt;: represent a range of text that is set off from the normal text for some reason<br/>&lt;iframe&gt;: Inline Frame element; represent a nested browsing context, embedding another HTML page into the current one<br/>&lt;img&gt;: embed an image into the document<br/>&lt;input&gt;: used to create interactive controls for web-based forms<br/>&lt;ins&gt;: represent a range of text that has been added to a document<br/>&lt;kbd&gt;: Keyboard Input element; represent a span of inline text denoting textual user input<br/>&lt;label&gt;: represent a caption for an item in a user interface<br/>&lt;map&gt;: used with &lt;area&gt; element to define an image map (a clickable link area)<br/>&lt;mark&gt;: Mark Text element; represent text which is marked or highlighted for reference or notation purposes<br/>&lt;meter&gt;: represent either a scalar value within a known range or a fractional value<br/>&lt;noscript&gt;: define a section of HTML to be inserted<br/>&lt;object&gt;: represent an external resource<br/>&lt;output&gt;: a container element into which a site or app can inject the results of a calculation or the outcome of a user action<br/>&lt;picture&gt;: contain zero or more &lt;source^gt; elements and one &lt;img&gt; element to provide versions of an image for different display/device scenarios<br/>&lt;progress&gt;: display an indicator showing the completion progress of a task<br/>&lt;q&gt;: the enclosed text is a short inline quotation<br/>&lt;ruby&gt;: represent a ruby, showing pronunciation of East Asian characters, annotation<br/>&lt;s&gt;: render text with a strikethrough<br/>&lt;samp&gt;: Sample Element; used to enclose inline text<br/>&lt;script&gt;: used to embed or reference executable code<br/>&lt;select&gt;: represent a control that provides a menu of options<br/>&lt;slot&gt;: a placeholder inside a web component<br/>&lt;small&gt;: make the text font size one size smaller down to the browser's minimum font size<br/>&lt;span&gt;: a generic inline container for phrasing content<br/>&lt;strong&gt;: indicate that its contents have strong importance, seriousness, or urgency<br/>&lt;sub&gt;: specify inline text displayed as subscript<br/>&lt;sup&gt;: specify inline text displayed as superscript<br/>&lt;svg&gt;: <br/>&lt;template&gt;: a mechanism for holding HTML that is not to be rendered immediately<br/>&lt;textarea&gt;: represent a multi-line plain-text editing control<br/>&lt;time&gt;: represent a specific period in time<br/>&lt;u&gt;: Unarticulated Annotation Element; a simple solid underline<br/>&lt;tt&gt;: Teletype Text element; obsolete HTML Teletype Text element<br/>&lt;var&gt;: Variable element; the name of a variable in a mathematical expression or a programming contex<br/>&lt;video&gt;: embed a media player<br/>&lt;wbr&gt;: represent a word break opportunity</td>
+    </tr>
+    </tbody>
+  </table>
+
++ [Block Level](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#block-level)
+  + appear __below__ and to the __left__ of their block level neighbors
+  + expand to fill the __width of the parent container__ by default
+  + respect all __margin__ properties
+  + has its __width__ property set
+  + takes on the __height__ of all its children
+  + ignores the __vertical-align__ property
+
++ [Inline Elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-elements)
+  + appear to the right of their preceding __inline neighbor__
+  + the __width__ of the content of the element, plus any padding, by default
+  + ignore __top and bottom__ margin settings
+  + ignore __width and height__ properties
+  + subject to __vertical-align__ property as well as CSS __white-space__ settings
+  + padding, but not padding-top or padding-bottom
+  + cleave to the baseline
+
++ [Inline-Block Elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-block)
+  + cleave to the text baseline
+  + adjust to the room if top or bottom margins or paddings used
+  + respect margin-top and margin-bottom
+  + the height of th eline including the vertical padding for inline-block elements
+  + inline-block elements respect width and height properties
 
 
-<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+
+### Values of Display Property
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#Syntax">Display Properties</a></caption>
   <thead>
   <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements"> Block-level Element </a></td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements">Inline Element</a></td>
-  </tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Category</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Value</th>
   </thead>
   <tbody>
   <tr>
-    <td>&lt;address&gt;: Contact information<br/>&lt;article&gt;: Article content<br/>&lt;aside&gt;: Aside content<br/>&lt;blockquote&gt;: Long ("block") quotation<br/>&lt;details&gt;: Disclosure widget<br/>&lt;dialog&gt;: Dialog box<br/>&lt;dd&gt;: Describes a term in a description list<br/>&lt;div&gt;: Document division<br/>&lt;dl&gt;: Description list<br/>&lt;dt&gt;: Description list term<br/>&lt;fieldset&gt;: Field set label<br/>&lt;figcaption&gt;: Figure caption<br/>&lt;figure&gt;: Groups media content with a caption (see &lt;figcaption&gt;)<br/>&lt;footer&gt;: Section or page footer<br/>&lt;form&gt;: Input form<br/>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;: Heading levels 1-6<br/>&lt;header&gt;: Section or page header; &lt;hgroup&gt;: Groups header information<br/>&lt;hr&gt;: Horizontal rule (dividing line)<br/>&lt;li&gt;: List item<br/>&lt;main&gt;: Contains the central content unique to this document<br/>&lt;nav&gt;: Contains navigation links<br/>&lt;ol&gt;: Ordered list<br/>&lt;p&gt;: Paragraph<br/>&lt;pre&gt;: Preformatted text<br/>&lt;section&gt;: Section of a web page<br/>&lt;table&gt;: Table<br/>&lt;ul&gt;: Unordered list</td>
-    <td>&lt;a&gt;, &lt;abbr&gt;, &lt;acronym&gt;, &lt;audio&gt;, &lt;b&gt;<br/>&lt;bdi&gt;, &lt;bdo&gt;, &lt;big&gt;, &lt;br&gt;, &lt;button&gt;<br/>&lt;canvas&gt;, &lt;cite&gt;, &lt;code&gt;, &lt;data&gt;, &lt;datalist&gt;<br/>&lt;del&gt;, &lt;dfn&gt;, &lt;em&gt;, &lt;embed&gt;, &lt;i&gt;<br/>&lt;iframe&gt;, &lt;img&gt;, &lt;input&gt;, &lt;ins&gt;, &lt;kbd&gt;<br/>&lt;label&gt;, &lt;map&gt;, &lt;mark&gt;, &lt;meter&gt;, &lt;noscript&gt;<br/>&lt;object&gt;, &lt;output&gt;, &lt;picture&gt;, &lt;progress&gt;, &lt;q&gt;<br/>&lt;ruby&gt;, &lt;s&gt;, &lt;samp&gt;, &lt;script&gt;, &lt;select&gt;<br/>&lt;slot&gt;, &lt;small&gt;, &lt;span&gt;, &lt;strong&gt;, &lt;sub&gt;<br/>&lt;sup&gt;, &lt;svg&gt;, &lt;template&gt;, &lt;textarea&gt;, &lt;time&gt;<br/>&lt;u&gt;, &lt;tt&gt;, &lt;var&gt;, &lt;video&gt;, &lt;wbr&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-outside">&lt;display-outside&gt;</a></td>
+    <td>specify the element’s outer display type, which is essentially its role in flow layout</td>
+    <td>display: block;<br/>display: inline;<br/>display: run-in;</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside">&lt;display-inside&gt;</a></td>
+    <td>pecify the element’s inner display type, which defines the type of formatting context that its contents are laid out in (assuming it is a non-replaced element)</td>
+    <td>display: flow;<br/>display: flow-root;<br/>display: table;<br/>display: flex;<br/>display: grid;<br/>display: ruby;</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-outside">&lt;display-outside&gt;</a> + <br/><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside">&lt;display-inside&gt;</a></td>
+    <td>specify the element’s outer display type, which is essentially its role in flow layout</td>
+    <td>display: block flow;<br/>display: inline table;<br/>display: flex run-in;</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-listitem">&lt;display-listitem&gt;</a></td>
+    <td>generate a block box for the content and a separate list-item inline box</td>
+    <td>display: list-item;<br/>display: list-item block;<br/>display: list-item inline;<br/>display: list-item flow;<br/>display: list-item flow-root;<br/>display: list-item block flow;<br/>display: list-item block flow-root;<br/>display: flow list-item block;</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-internal">&lt;display-internal&gt;</a></td>
+    <td>some layout models such as table and ruby have a complex internal structure, with several different roles that their children and descendants can fill</td>
+    <td>display: table-row-group;<br/>display: table-header-group;<br/>display: table-footer-group;<br/>display: table-row;<br/>display: table-cell;<br/>display: table-column-group;<br/>display: table-column;<br/>display: table-caption;<br/>display: ruby-base;<br/>display: ruby-text;<br/>display: ruby-base-container;<br/>display: ruby-text-container;</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-box">&lt;display-box&gt;</a></td>
+    <td>define whether an element generates display boxes at all</td>
+    <td>display: contents;<br/>display: none;</td>
+  </tr>
+  <tr>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-legacy">&lt;display-legacy&gt;</a></td>
+    <td>used a single-keyword syntax for the display property, requiring separate keywords for block-level and inline-level variants of the same layout mode</td>
+    <td>display: inline-block;<br/>display: inline-table;<br/>display: inline-flex;<br/>display: inline-grid;</td>
   </tr>
   </tbody>
 </table>
 
 
-### [Display Syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/display#Syntax)
-
-```css
-/* <display-outside> values */
-display: block;
-display: inline;
-display: run-in;
-
-/* <display-inside> values */
-display: flow;
-display: flow-root;
-display: table;
-display: flex;
-display: grid;
-display: ruby;
-
-/* <display-outside> plus <display-inside> values */
-display: block flow;
-display: inline table;
-display: flex run-in;
-
-/* <display-listitem> values */
-display: list-item;
-display: list-item block;
-display: list-item inline;
-display: list-item flow;
-display: list-item flow-root;
-display: list-item block flow;
-display: list-item block flow-root;
-display: flow list-item block;
-
-/* <display-internal> values */
-display: table-row-group;
-display: table-header-group;
-display: table-footer-group;
-display: table-row;
-display: table-cell;
-display: table-column-group;
-display: table-column;
-display: table-caption;
-display: ruby-base;
-display: ruby-text;
-display: ruby-base-container;
-display: ruby-text-container;
-
-/* <display-box> values */
-display: contents;
-display: none;
-
-/* <display-legacy> values */
-display: inline-block;
-display: inline-table;
-display: inline-flex;
-display: inline-grid;
-```
-
-+ Categories
-  1. `<display-outside>`: specify the element’s outer display type, which is essentially its role in flow layout
-  2. `<display-inside>`: specify the element’s inner display type, which defines the type of formatting context that its contents are laid out in (assuming it is a non-replaced element)
-  3. `<display-listitem>`: generate a block box for the content and a separate list-item inline box
-  4. `<display-internal>`: Some layout models such as table and ruby have a complex internal structure, with several different roles that their children and descendants can fill
-  5. `<display-box>`: define whether an element generates display boxes at all
-  6. `<display-legacy>`: used a single-keyword syntax for the display property, requiring separate keywords for block-level and inline-level variants of the same layout mode.
-
 
 ### Display Characteristics
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
   <thead>
   <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Property</td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="5%">Property</td>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#block-level">Block Level</a></td>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#inline-elements">Inline Element</a></td>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#nline-block">Inline-Block</a></td>
@@ -1776,9 +1822,9 @@ display: inline-grid;
 
 ### Position Characteristics
 
-<table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
   <thead><tr>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Value</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
   </tr></thead>
@@ -1814,9 +1860,9 @@ display: inline-grid;
 
 ### Position Property
 
-<table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center">
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
   <thead><tr>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Property</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 15%">Possible Value</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Link</th>
