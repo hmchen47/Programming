@@ -2342,6 +2342,7 @@ Give it a try. Good luck!
   Your browser does not support the HTML5 video element.
 </video><br/>
 
+[Sample code](src/6.6.1-Recipe.html.html#tea) : need to improve
 
 
 ## 6.7 Where to from here?
