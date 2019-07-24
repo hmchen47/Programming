@@ -2495,6 +2495,26 @@ Don't use CSS to apply direction for [bidirectional](https://www.w3.org/Internat
 
 ### Internationalization resources
 
+This page lists links to resources available from the [W3C Internationalization Activity site](http://www.w3.org/International/) that will help you author HTML and CSS for internationalization.
+
+
+#### Declaring the character encoding
+
++ [Character encodings for beginners](http://www.w3.org/International/questions/qa-what-is-encoding): What is a character encoding, and why should I care?
++ [Handling character encodings in HTML and CSS](http://www.w3.org/International/tutorials/tutorial-char-enc/Overview): Articles that help you understand the essentials for characters and character encodings.
+
+
+#### Declaring the language of content
+
++ [Language on the Web](http://www.w3.org/International/getting-started/language): An overview of language topics for newcomers to HTML authoring.
++ [Language tags in HTML and XML](http://www.w3.org/International/articles/language-tags/): A simple overview of the syntax for language tags in BCP 47.
++ [Setting language preferences in a browser](http://www.w3.org/International/questions/qa-lang-priorities): How do I use the language settings of my browser to specify the language in which a server should send me pages?
++ [Choosing a Language Tag](http://www.w3.org/International/questions/qa-choosing-language-tags): Which language tag is right for me? How do I choose language and other subtags?
+
+
+#### Other HTML internationalization topics
+
++ [Internationalization Techniques, Authoring HTML & CSS](http://www.w3.org/International/techniques/authoring-html-dynamic): Links from this page help you find information about many other important ways to write HTML that works for an international audience.
 
 
 
