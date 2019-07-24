@@ -2331,9 +2331,16 @@ When considering the CSS Grid module, also look at the CSS Flexible Box module. 
 
 ## 6.6 Recipe project
 
+We'll put to use some of the layout techniques that we've learned.
 
-### Recipe project - Module 6
+We'll improve our Web page by making it more responsive, so it's easily readable whether wide or narrow. And we'll fix the banner and nav element in place, so it's always where we need it.
 
+Give it a try. Good luck!
+
+<video src="https://edx-video.net/W3CHTM502016-V012400_DTH.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/xblock/block-v1:W3Cx+HTML5.0x+1T2019+type@video+block@b987130ccff34badb17d926072e6e370/handler/transcript/download" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 
