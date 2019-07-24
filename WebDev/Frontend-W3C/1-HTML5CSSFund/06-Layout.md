@@ -2422,6 +2422,74 @@ The W3C [Web Accessibility Initiative (WAI)](http://www.w3.org/WAI/) develops st
 
 ### Internationalization and CSS: use cases
 
+People who use non-Latin writing systems or use the Latin script for certain languages, often have specific typographic needs that differ from text in, say, English.
+
+Whereas HTML markup provides structure for the content of your page, CSS bring the expressive power to make the page look the way a person from particular a culture would expect.
+
+
+#### Examples
+
+Here are some examples of things that can be done with CSS.
+
++ It is already possible to make text run vertically in CSS for languages such as Chinese, Japanese, Korean and Mongolian. For more information see [Styling vertical Chinese, Japanese, Korean and Mongolian text](https://www.w3.org/International/articles/vertical-text/).
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/9e43ed41a1da42a0aa3fc458e4692be2/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40dc34b67a5e4f4f3582516d2cfec7bd7e" ismap target="_blank">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@mongolian.png" style="margin: 0.1em;" alt="Vertically set Mongolian text." title="Vertically set Mongolian text." width=150>
+    </a>
+  </div>
+
+
++ You can also style counters for lists or chapter headings and such like according to local preferences. Here we see lists using Georgian and Japanese labels.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/9e43ed41a1da42a0aa3fc458e4692be2/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40dc34b67a5e4f4f3582516d2cfec7bd7e" ismap target="_blank">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@counterstyles1.png" style="margin: 0.1em;" alt="Georgian counter styles." title="Georgian counter styles." width=150>
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@counterstyles2.png" style="margin: 0.1em;" alt="Japanese counter styles." title="Japanese counter styles." width=143>
+    </a>
+  </div>
+
+
++ When you want to justify text so that the lines are straight on both sides of your column, different strategies are used for different scripts. Most Western typography puts an emphasis on adjusting inter-word spaces, but Chinese doesn't use spaces between words, so you generally do inter-character spacing. In text written using the arabic script it is common to stretch the baseline that joins letters, or use other techniques to balance the line.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/9e43ed41a1da42a0aa3fc458e4692be2/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40dc34b67a5e4f4f3582516d2cfec7bd7e" ismap target="_blank">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@justified_arabic.png" style="margin: 0.1em;" alt="Arabic justification." title="Arabic justification." width=250>
+    </a>
+  </div>
+
+
+  Some scripts allow words to be hyphenated in order to improve the visual effect of a paragraph, but note that the way in which words are hyphenated depends on the language. (And in arabic script, the CSS specification requires that both parts of the word retain their joining line during hyphenation.)
+
++ Text decoration and text style features can vary in applicability from script to script. For example, Japanese characters are fairly complicated so, rather than italicise their text for emphasis, which can make it harder to read at small sizes, they have a tradition of placing special marks alongside the emphasised text (see the middle line of the Japanese example below). Also, it may be important to avoid underlines running over descenders in some scripts, since it can obscure important marks attached to a base character, so CSS allows you to skip 'ink' as shown in the Burmese example below.
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/9e43ed41a1da42a0aa3fc458e4692be2/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%40dc34b67a5e4f4f3582516d2cfec7bd7e" ismap target="_blank">
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@boten.png" style="margin: 0.1em;" alt="Emphasis in Japanese." title="Emphasis in Japanese." width=100>
+      <img src="https://courses.edx.org/asset-v1:W3Cx+CSS.0x+1T2017+type@asset+block@decoration-skip-ink.png" style="margin: 0.1em;" alt="Skipping descenders in Burmese." title="Skipping descenders in Burmese." width=100>
+    </a>
+  </div>
+
+These are just a few examples. There are many more.
+
+
+#### CSS & Language
+
+__An important point to bear in mind is that for many of these features to work as expected, you need to declare the language of the content.__ For example:
+
++ Hyphenation won't work unless the content is labelled for language. This is because the way that hyphenation works, and the dictionaries it uses, are language-specific.
++ If you want to convert Turkish or Azeri text to uppercase or vice versa, you will get incorrect results unless the browser knows that the text is in that language, because they have a dotted i and a non-dotted ı which do case conversion differently from European languages.
++ If text wraps to a new line, by default it does so differently dependent on whether you are dealing with Chinese or Japanese.
++ And we could continue...
+
+Therefore, you should always ensure that the correct language is specified in the __lang__ attribute on the __html__ tag, to indicate the default language of the page. And if you have passages in another language inside the page, you should put a __lang__ attribute on markup that surrounds them, too.
+
+
+#### Localization
+
+In addition, CSS provides tremendous help if you have to translate content from one language to another. Being able to change a single line in a style sheet to appy a change to all the pages being translated, rather than having to edit every page, saves a massive amount of time. However, this works best when you keep the distinction between semantics (markup) and presentation (styling) clear.
+
+Don't use CSS to apply direction for [bidirectional](https://www.w3.org/International/questions/qa-bidi-css-markup) or right-to-left scripts, such as content in Arabic, Hebrew, Persian, Urdu, Divehi, etc. Use HTML markup instead.
 
 
 
