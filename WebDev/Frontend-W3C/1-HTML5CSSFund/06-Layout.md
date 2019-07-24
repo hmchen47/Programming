@@ -2392,7 +2392,32 @@ Happy exploring!
 
 ### WAI resources
 
+The W3C [Web Accessibility Initiative (WAI)](http://www.w3.org/WAI/) develops standards for Web accessibility, and educational resources to help you understand and implement them. For those who are curious and for future reference, please find below a few resources from W3C/WAI.
 
+
+#### Essential background
+
++ [W3C Accessibility Overview](https://www.w3.org/standards/webdesign/accessibility)
++ [Web Accessibility Perspective Videos](https://www.w3.org/WAI/perspectives/)
++ [Introduction to Web Accessibility](https://www.w3.org/WAI/intro/accessibility.php)
++ [How People with Disabilities Use the Web](https://www.w3.org/WAI/intro/people-use-web/Overview.html)
++ [Business Case for Web Accessibility](https://www.w3.org/WAI/bcase/Overview.html)
+
+
+#### Accessibility Standards
+
++ [Web Content Accessibility Guidelines (WCAG) Overview](https://www.w3.org/WAI/intro/wcag.php)
++ [Authoring Tool Accessibility Guidelines (ATAG) Overview](https://www.w3.org/WAI/intro/atag.php)
++ [User Agent Accessibility Guidelines (UAAG) Overview](https://www.w3.org/WAI/intro/uaag.php)
++ [Accessible Rich Internet Applications (WAI-ARIA) Overview](https://www.w3.org/WAI/intro/aria.php)
+
+
+#### Implementing and Checking
+
++ [Tips for Getting Started with Web Accessibility](http://www.w3.org/WAI/gettingstarted/tips/)
++ [Easy Checks - A First Review of Web Accessibility](https://www.w3.org/WAI/eval/preliminary.html)
++ [Web Accessibility Tutorials](http://www.w3.org/WAI/tutorials/)
++ [Before and After Demonstration (BAD)](https://www.w3.org/WAI/demos/bad/)
 
 
 ### Internationalization and CSS: use cases
