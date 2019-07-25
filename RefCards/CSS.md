@@ -1817,68 +1817,30 @@
 </table>
 
 
-## Positioned Property
+## Positioning Properties
 
-
-### Position Characteristics
-
-<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
-  <thead><tr>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Value</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
-  </tr></thead>
-  <tbody>
-  <tr>
-    <td>static</td>
-    <td><ul> <li>follow the "flowing text" model of layout </li> <li>influenced by margins, padding</li> <li>block level layout, inline or inline-block</li> <li>default value</li> </ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#static">Static</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  <tr>
-    <td>fixed</td>
-    <td><ul><li>positioned against the window rectangle (aka the viewport) </li> <li>Best practice: use both a horizontal and a vertical positioning property on every fixed positioned element</li> <li> etermined by the values of top, right, bottom, and left</li></ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#fixed">Fixed</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  <tr>
-    <td>relative</td>
-    <td><ul><li>exactly like static in that the "flowing text" model of layout is setting the initial position for the element (including margins and display) but move the named edge of the element from its initial position </li> <li>positioned according to the normal flow of the document is positioned relative to its normal position, and then offset relative to itself based on the values of top, right, bottom, and left</li></ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#relative">Relative</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  <tr>
-    <td>absolute</td>
-    <td><ul><li>taken out of the normal text "flow" that governs elements positioned statically or relatively </li> <li>positioned by the left, top, right, and/or bottom properties </li> <li>relative to the closest positioned ancestor, if there is any; otherwise, it is placed relative to the initial containing block and its final position is determined by the values of top, right, bottom, and left</li></ul></td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#absolute">Absolute</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  <tr>
-    <td>sticky</td>
-    <td><ul><li>positioned corresponding to the normal flow of the document, and then offset relative to its closest ascending block-level, including table-related elements, according to the values of top, right, bottom, and left</td>
-    <td><a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html"> Positioning </a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"> MDN </a></td>
-  </tr>
-  </tbody>
-</table>
-
-
-### Position Property
+### List of Positioning Properties
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning">CSS Positioned Layout</a></caption>
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Property</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 15%">Possible Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Possible Value</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Link</th>
   </tr></thead>
   <tbody>
   <tr>
     <td>left, top, right, bottom</td>
     <td><ul> <li>adjust or set the position of an element</li> <li>determine the final location of positioned elements</li></ul></td>
-    <td>length-value, percentage, auto</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-left-top-right-and-bottom-properties">Position</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/left">Left</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/top">Top</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/bottom">Bottom</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/right">Right</a>, <a href="https://www.w3.org/TR/CSS22/visuren.html#position-props">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property"> Positioning </a> </td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, auto</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/left">Left</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/top">Top</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/bottom">Bottom</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/right">Right</a>, <a href="https://www.w3.org/TR/CSS22/visuren.html#position-props">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property"> Positioning </a> </td>
   </tr>
   <tr>
     <td>z-index</td>
-    <td><ul> <li>control overlapping - whether or not an element is in front of or behind other sibling positioned elements</li> <li>The higher the number, the more "topmost" or "overlapping" the element will be.</li></ul></td>
-    <td>auto, integer</td>
-    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#-z-index-">Z-Index</a></td>
+    <td><ul><li>control overlapping - whether or not an element is in front of or behind other sibling positioned elements</li><li>apply to positioned elements, except for static</li><li>used to figure out which sibling is higher than another</li><li>The higher the number, the more "topmost" or "overlapping" the element will be.</li><li>relative between siblings, not any arbitrary elements</li></ul></td>
+    <td>auto, &lt;integer&gt;</td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#-z-index-">Z-Index</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index">MDN</a></td>
   </tr>
   <tr>
     <td>float</td>
@@ -1895,8 +1857,112 @@
   <tr>
     <td>position</td>
     <td><ul> <li>applied to floating and non-floating elements</li></ul></td>
-    <td>none, left, right, both, inline-start, inline-end</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Position</a>, <a href="https://www.w3.org/TR/CSS22/visuren.html#choose-position">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property"> Positioning </a></td>
+    <td>static, relative, absolute, sticky, fixed</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Position</a>, <a href="https://www.w3.org/TR/CSS22/visuren.html#choose-position">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-position-property">Positioning</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#the-position-property">Concept</a></td>
+  </tr>
+  </tbody>
+</table>
+
+
+### Characteristics of Position Property
+
++ [Types of positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Types_of_positioning)
+  + positioned element: an element whose computed position value is either relative, absolute, fixed, or sticky
+  + relatively positioned element
+    + an element whose computed position value is relative
+    + top and bottom properties: the vertical offset from its normal position
+    + left and right properties: the horizontal offset
+  + absolutely positioned element
+    + an element whose computed position value is absolute or fixed
+    + top, right, bottom, and left properties: offsets from the edges of the element's containing block
+    + margins added to the offset
+  + stickily positioned element
+    + an element whose computed position value is sticky
+    + treated as relatively positioned until its containing block crosses a specified threshold within its flow root
+
++ [Margin with psitioned values](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#margins-do-not-work-the-same)
+  + static / relative:
+    + used to adjust an element position
+    + keeping neighboring siblings "away"
+  + fixed
+    + able to move the element
+    + not move any siblings
+  + general rule: if a positioning property is being used (like left), then the matching margin (margin-left) can also be used to additionally adjust the position of the element
+
++ [Opposite properties](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#opposite-properties-can-be-used-to-size-element)
+  + preset dimensional properties (height and width): make design brittle and reduce its adaptability
+  + fixed/absolute positioned + positioned properties (left, right):
+    + leave the matching dimensional property (width) unspecified
+    + grow or shrink based on the size of the browser window
+
++ [positioning properties](/WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#positioned-elements)
+  + left, top, right, bottom, and z-index
+  + used to influence the position of an element
+  + Positioned values
+    + static: no effect on any element (default positioned value)
+    + fixed: positioned relative to the browser window
+    + relative: as static, the "flowing text" model of layout is setting the initial position for the element (including margins and display)
+
++ [Relative position property](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#relative)
+  + Items are moved independently of siblings.
+    + positioning properties adjust the placement of the element independently of its siblings
+    + `margin-top` instead of `top` to move the sibilings downward
+  + Opposite positioning properties (like left and right) cannot be used simultaneously.
+    + not using left and right properties simultaneously
+    + not using top and bottom properties simultaneously
+    + the CSS precedence rules determining the "winner" id both used (last order)
+  + There are no automatic size adjustments.
+    + block level elements take the width of their parent (when no width is specified)
+    + using left or right margins on block level element, the browser adjust the width to fit
+    + using relative & positioning properties: no adjustment applied
+
++ [Absolute position property](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#absolute)
+  + ease and power is very seductive to many CSS newbies
+  + not use it under any circumstances
+  + taken out of the normal text "flow" that governs elements positioned statically or relatively
+  + positioned by the left, top, right, and/or bottom properties
+  + The size or position of siblings have no effect on an absolutely positioned element that has some positioning properties set (left, top, etc.).
+  + caveats and trade-offs
+    + Interpretation of positioning depends upon parent/grandparent elements being positioned elements.
+    + Best practice: use both a horizontal and a vertical positioning property on every absolute element.
+    + Absolutely positioned elements do not contribute to size of the parent.
+    + Absolute positioned block level elements do not get the width of their parent.
+    + Margins do not work the same.
+    + Opposite properties can be used to size element.
+
+
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Position property</a></caption>
+  <thead><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Link</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td>static</td>
+    <td><ul> <li>follow the "flowing text" model of layout </li> <li>influenced by margins, padding</li> <li>block level layout, inline or inline-block</li> <li>default value</li><li>margins used to adjust an element position and keep neighboring siblings "away"</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#static">Static</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html">Positioning</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN</a></td>
+  </tr>
+  <tr>
+    <td>fixed</td>
+    <td><ul><li>respect the positioning properties (left, top, right, and bottom)</li><li>not scroll with the rest of the page</li><li>positioned against the window rectangle (aka the viewport)</li><li>not contribute to size of the parent</li><li>not get the width of their parent</li><li>determined by the values of top, right, bottom, and left</li><li>Best practice: use both a horizontal and a vertical positioning property on every fixed positioned element</li><li>margin able to move the element but not move any siblings</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#fixed">Fixed</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html">Positioning</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN</a></td>
+  </tr>
+  <tr>
+    <td>relative</td>
+    <td><ul><li>exactly like static in that the "flowing text" model of layout is setting the initial position for the element (including margins and display) but move the named edge of the element from its initial position</li><li>positioned according to the normal flow of the document is positioned relative to its normal position, and then offset relative to itself based on the values of top, right, bottom, and left</li><li>margins used to adjust an element position and keep neighboring siblings "away"</li><li>Items are moved independently of siblings.</li><li>Opposite positioning properties (like left and right) cannot be used simultaneously.</li><li>no automatic size adjustments</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#relative">Relative</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html">Positioning</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN</a></td>
+  </tr>
+  <tr>
+    <td>absolute</td>
+    <td><ul><li>RECOMMENDED: not use it under any circumstances</li><li>taken out of the normal text "flow" that governs elements positioned statically or relatively </li> <li>positioned by the left, top, right, and/or bottom properties </li> <li>relative to the closest positioned ancestor, if there is any; otherwise, it is placed relative to the initial containing block and its final position is determined by the values of top, right, bottom, and left</li></ul></td>
+    <td><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#absolute">Absolute</a>, <a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html">Positioning</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN</a></td>
+  </tr>
+  <tr>
+    <td>sticky</td>
+    <td><ul><li>positioned corresponding to the normal flow of the document, and then offset relative to its closest ascending block-level, including table-related elements, according to the values of top, right, bottom, and left</td>
+    <td><a href="https://www.htmlgoodies.com/html5/css/positioning-html-elements-using-css.html">Positioning</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN</a></td>
   </tr>
   </tbody>
 </table>
