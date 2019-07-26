@@ -2161,7 +2161,21 @@
 
 ### Basic Concepts of flexbox
 
-+ Layout and Axes
++ [Flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flexbox)
+  + performing layout tasks like columnar layout or anything responsive requires coordinating multiple elements
+  + flex container:
+    + CSS properties that are applied to a parent element
+    + handle laying out of its children
+    + making the best use of the screen size available to children
+    + still following the general guidelines laid down
+  + flex items: CSS properties that are applied to the direct children of that parent
+
++ [minimum scenario for using flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#the-minimum)
+  1. flex container: `display:flex;`
+  2. flex items: `flex:1;`
+  3. flex container (better): `flex-flow: row wrap;`
+
++ [Layout and Axes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_two_axes_of_flexbox)
   + __main axis__:
     + the axis running in the direction the flex items are being laid out in
     + __main start__ and __main end__: the start and end of main axis
@@ -2171,7 +2185,7 @@
   + __flex container__: set parent element w/ `display: fex`
   + __flex items__: the items being laid out as flexible boxes inside the flex container
 
-+ main axis defined by __flex-direction__
++ [main axis defined by __flex-direction__](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_main_axis)
   + row: along the row in the inline direction from left to right
   + row-reverse: along the row in the inline direction from right to left
   + column: from the top of the page to the bottom
@@ -2197,12 +2211,83 @@
     + The items will stretch to fill the size of the cross axis.
     + The `flex-basis` property is set to `auto`.
     + The `flex-wrap `property is set to `nowrap`.
+  + changing `flex-direction`:
+    + change the direction that flex items display
+    + values: row, row-reverse, column, column-reverse
 
 + [Multi-line flex containers with flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
   + While flexbox is a one dimensional model, it is possible to cause our flex items to wrap onto multiple lines.
   + To cause wrapping behaviour add the property `flex-wrap` with a value of `wrap`.
   + guide to wrap flex items: [Mastering Wrapping of Flex Items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items)
 
++ [Aligning Items in a Flex Container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container)
+  + use the `align-items` property to align items on the cross axis
+  + use `justify-content` to align the item on the main axis
+  + Properties
+    + `justify-content`: control alignment of all items on the main axis
+    + `align-items`: control alignment of all items on the cross axis
+    + `align-self`: control alignment of an individual flex item on the cross axis
+    + `align-content`: control space between flex lines on the cross axis 
+
++ [flex-flow](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)
+  + lay out children both horizontally and vertically at the same time
+  + an abbreviation that replaces two other flexbox container properties: `flex-direction` and `flex-wrap`
+  + Syntax: `flex-flow: <flex-direction> <flex-wrap>;`
+
++ [Flex items](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-items)
+  + the direct children of a flex container
+  + exception: items with `position-fixed` or `position-absolute`
+  + empty flex items are automatically removed from the flex container
+  + interrelatted properties: `flex-grow`, `flex-shrin`k, and `flex-basis`
+  + abbreviation: `flex: <flex-grow> <flex-shrink> <flex-basis>;`
+
++ [Utilizing flex-grow](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-grow_and_flex-basis)
+  + `flex: 1 1 auto;`:
+    + auto sized as items without width settings
+    + retain the max-content size of the items (the size of each item)
+    + lay out the items with some free space (aggregated size smaller than teh container))
+    + remant space evenly distributed for the items
+    + items' final size not the same
+  + `flex: 1 1 0`
+    + basis = 0: all the space is up for grabs
+    + grow factor (1): each get an equal amount of space distributed
+    + items: equal width
+
++ [Utilizing flex-shrink](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-shrink_and_flex-basis)
+  + use as the total size of the items larger than the the flex container
+  + min-content size: the size that items become if they take advantage of any soft wrapping opportunities available to them (according to the content of the item)
+  + set the min-content floor of the items (never smaller than min-content)
+  + tend to give you reasonable results
+
++ [Algorithm to decide flex item calculation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-shrink_and_flex-basis)
+  + What sets the base size of the item?
+    1. `flex-basis: auto` & width set: based on the given width
+    2. `flex-basis: auto` or `flex-basis: content`: based on the item's size
+    3. `flex-basis` > 0: the size of the item
+    4. `flex-basis` = 0: item size not considered for space-sharing calculation
+  + Are there available aspace?
+    1. total item size < container size: positive free space & `flex-grow` involved
+    2. total item size > container size: negative free space & `flex-shrink` involved
+
++ [Best Practice](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flexbox-advice-and-best-practices)
+  + the minimum use
+  + Use variable dimensions on flex items instead of explicit ones
+  + Do not overconstrain your flex items. Let the browser work for you.
+  + Using flexbox instead of inline-block
+  + Using flexbox for centering
+  + AVOID `margin: auto` on flex items
+  + keep simple
+
++ [Typical use cases of Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox)
+  + Navigation
+    + space distributed outside the items
+    + space distributed within the items
+  + Spalit navigation
+  + Center item
+  + Car layout pushing footer down
+  + Media objects
+    + flippin the media object
+  + Form controls
 
 
 ### Flexbox Property
@@ -2219,44 +2304,51 @@
   <tr>
     <td>flex</td>
     <td>specified using one, two, or three values:<ul> <li><strong>One-value syntax:</strong><ul><li>&lt;number&gt;: interpreted as &lt;flex-grow&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li><li>keywords: none, auto, or initial</li></ul></li> <li><strong>Two-value syntax</strong>: the first value, &lt;number&gt;, interpreted as &lt;flex-grow&gt;. The second value must be one of: <ul><li>&lt;number&gt;: interpreted as &lt;flex-shrink&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li></ul></li><li><strong>Three-value syntax</strong> (order): <ol><li>&lt;number&gt; for &lt;flex-grow&gt;</li><li>&lt;number&gt; for &lt;flex-shrink&gt;</li><li>value for width: interpreted as &lt;flex-basis&gt;</li></ol></li></ul></td>
-    <td>init, auto, none, &lt;flex-grow&gt;, &lt;flex-shrink&gt;, &lt;flex-basis&gt;</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-minimum">Lecture</a></td>
+    <td>&lt;flex-grow&gt;, &lt;flex-shrink&gt;, &lt;flex-basis&gt;, init, auto, none</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex">MDN</a>, <a href="../Programming/WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-property">Flex</a></td>
   </tr>
   <tr>
-    <td>flex-direction</td>
-    <td>set how flex items placed in the flex container defining the main axis and the direction (normal or reversed)</td>
-    <td>row, row-reverse, column, column-reverse</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+    <td>flex-grow</td>
+    <td><ul><li>set how much of the remaining space, related to its siblings, in the flex container should be assigned to that item (the flex grow factor)</li><li>remaining space: the size of the flex container minus the size of all flex items together</li><li>sibling items: <ul><li>all items with the same share of remaining space with the same grow factor</li><li>distributed according tot he ratio defined by the different flex grow factors</li><li>e.g., item with 2 will be twice larger than the the items with 1</li><li>space proportional to the aggregated values with the assigned space</li><li>flex-grow=0: prevent the flex item from growing, as the original item space</li></ul><li>determine how much the flex item will grow relative to the rest of the flex items in the flex container when the positive free space is distributed</li></ul></td>
+    <td>&lt;number&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-grow">Grow</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#The_flex-grow_property">Example</a></td>
   </tr>
   <tr>
-    <td>flex-wrap</td>
-    <td>set whether flex items are forced onto one line or can wrap onto multiple lines</td>
-    <td>nowrap, wrap, wrap-reverse</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+    <td>flex-shrink</td>
+    <td><ul><li>set the flex shrink factor of a flex item</li><li>the opposite of flex-grow</li><li>compared to its sibling flex-shrink values</li><li>only occur in the situation where the flex-container might need some space from its children</li></ul></td>
+    <td>&lt;number&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-shrink">Shrink</a></td>
+  </tr>
+  <tr>
+    <td>flex-basis</td>
+    <td><ul><li>set the initial main size of a flex item</li><li>used instead of the sizing properties on a flex item</li><li>gorvern the withd with firection as row or row-reverse</li><li>govern the height with direction as column or column-reverse</li><li>specify the initial size of the flex item before any space distribution happens</li><li>innitial value: auto</li><li></li></ul></td>
+    <td>&lt;'width'&gt; (auto, &lt;length&gt;, &lt;percentag&gt;), content (fill, max-xontent, min-content, fit-content)</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-basis">Basis</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#The_flex-basis_property">Example</a></td>
   </tr>
   <tr>
     <td>flex-flow</td>
     <td>a shorthand property for <strong>flex-direction</strong> and <strong>flex-wrap</strong> properties</td>
     <td>nowrap, wrap, wrap-reverse</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-flow">Flow</a></td>
+  </tr>
+  <tr>
+    <td>flex-direction</td>
+    <td>>set how flex items placed in the flex container defining the main axis and the direction (normal or reversed)</td>
+    <td>row, row-reverse, column, column-reverse</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-flow">Direction</a></td>
+  </tr>
+  <tr>
+    <td>flex-wrap</td>
+    <td>set whether flex items are forced onto one line or can wrap onto multiple lines</td>
+    <td>nowrap, wrap, wrap-reverse</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-flow">Wrap</a></td>
+  </tr>
   </tr>
   <tr>
     <td>flex-basis</td>
     <td><ul><li>set the initial main size of a flex item</li><li>content: automatic sizing, based on the flex item’s content</li></ul></td>
     <td>&lt;width&gt;, content</td>
     <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
-  </tr>
-  <tr>
-    <td>flex-grow</td>
-    <td><ul><li>set how much of the remaining space in the flex container should be assigned to that item (the flex grow factor)</li><li>remaining space: the size of the flex container minus the size of all flex items together</li><li>sibling items: <ul><li>all items with the same share of remaining space with the same grow factor</li><li>distributed according tot he ratio defined by the different flex grow factors</li></ul></ul></td>
-    <td>&lt;number&gt;</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
-  </tr>
-  <tr>
-    <td>flex-shrink</td>
-    <td>set the flex shrink factor of a flex item</td>
-    <td>&lt;number&gt;</td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#flex-container">Lecture</a></td>
   </tr>
   </tbody>
 </table>
