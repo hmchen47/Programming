@@ -83,7 +83,7 @@ The baseline is never drawn by the browser, it is not exposed directly to you as
 
 #### display: block versus inline
 
-As the browser is rendering your page, every time it encounters the next tag it has a simple question: "Do I give this element its own line?"   For example, every <p> tag gets a new line, but `<a>` tags do not.
+As the browser is rendering your page, every time it encounters the next tag it has a simple question: "Do I give this element its own line?"   For example, every `<p>` tag gets a new line, but `<a>` tags do not.
 
 This is the key distinction between the "block" level elements (like the `<p>` tag) and the "inline" elements (like the `<a>` tag).   Here is a quick table of the default values for some of the tags we've already learned.
 
@@ -304,7 +304,7 @@ As of today, the position property has four different values it can take: `stati
 position: static; /* the default */
 ```
 
-A position property of static is the default for all elements. It simply means that all elements follow the "flowing text"model of layout and the only properties influencing their position are margins, padding, and the display property that selects block level layout, inline or inline-block. Static elements ignore the positioning properties we read about earlier (`left`, `top`, `right`, and `bottom`).
+A position property of static is the default for all elements. It simply means that all elements follow the "flowing text" model of layout and the only properties influencing their position are margins, padding, and the display property that selects block level layout, inline or inline-block. Static elements ignore the positioning properties we read about earlier (`left`, `top`, `right`, and `bottom`).
 
 
 #### Fixed
@@ -1067,13 +1067,13 @@ All the layout properties we've looked at have all applied to an _individual_ el
 
 The minimum scenario for using flexbox is to make use of two CSS rules, and better results are achieved with a third.
 
-1. display:flex; on the flex container
-2. flex:1; on the flex items (the children of the flex container)
-3. (better)   flex-flow: row wrap; on the flex container.
+1. `display:flex;` on the flex container
+2. `flex:1;` on the flex items (the children of the flex container)
+3. (better)   `flex-flow: row wrap;` on the flex container.
 
 Here is a series of screen captures showing these minimum options applied to a parent `<div>` and four identical paragraphs at various browser sizes, with no other properties applied except some small margin and padding on the paragraph, and a background color and a border radius to help visualize.
 
-<p style="border: 2px solid dimgray;"><img style="margin: 5px; vertical-align: top;" alt="Flexbox image with four columns wide" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/12adc51449bbe643629a3a37c8464cae/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/four_across_wide_30.png" type="saveimage" target="[object Object]" width="251" height="94"><img class="three" alt="Flexbox image with three columns and one beneath" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bd6de0e3780ce3303f225bfaedf61d23/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/three_and_one_30.png" type="saveimage" target="[object Object]" width="157" height="148"><img style="margin: 5px; vertical-align: top;"  alt="Flexbox image with two lines of two" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/741852181e2467cb6c6cdd5a067e9ee9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/two_and_two_30.png" type="saveimage" target="[object Object]" width="122" height="152"><img style="margin: 5px; vertical-align: top;"  alt="Flexbox image with one column and four lines" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4e8158ad51651509b53f35439557859e/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/one_30.png" type="saveimage" target="[object Object]" width="87" height="206"></p>
+<p style="border: 2px solid dimgray; width: 40.5vw;"><img style="margin: 5px; vertical-align: top;" alt="Flexbox image with four columns wide" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/12adc51449bbe643629a3a37c8464cae/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/four_across_wide_30.png" type="saveimage" target="[object Object]" width="251" height="94"><img class="three" alt="Flexbox image with three columns and one beneath" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bd6de0e3780ce3303f225bfaedf61d23/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/three_and_one_30.png" type="saveimage" target="[object Object]" width="157" height="148"><img style="margin: 5px; vertical-align: top;"  alt="Flexbox image with two lines of two" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/741852181e2467cb6c6cdd5a067e9ee9/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/two_and_two_30.png" type="saveimage" target="[object Object]" width="122" height="152"><img style="margin: 5px; vertical-align: top;"  alt="Flexbox image with one column and four lines" src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4e8158ad51651509b53f35439557859e/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/one_30.png" type="saveimage" target="[object Object]" width="87" height="206"></p>
 
 Flexbox image with four columns wideFlexbox image with three columns and one beneathFlexbox image with two lines of twoFlexbox image with one column and four lines
 
