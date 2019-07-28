@@ -326,6 +326,8 @@
     + function takes a single expression as its parameter, with the expression's result used as the value
     + operators used: +, -, * , /
     + e.g., `width: calc(100% - 80px);`
+    + [overuse makes page slow](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#calc-)
+    + used for sizing flexbox items nor always as desired, in particular along the cross axis
   + [min()](https://developer.mozilla.org/en-US/docs/Web/CSS/min):
     + set the smallest (most negative) value from a list of comma-separated expressions as the value of a CSS property value
     + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;,&lt;number&gt;, or &lt;integer&gt;
@@ -2176,14 +2178,43 @@
   3. flex container (better): `flex-flow: row wrap;`
 
 + [Layout and Axes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_two_axes_of_flexbox)
+  + __flex container__: set parent element w/ `display: flex`
+  + __flex items__: the items being laid out as flexible boxes inside the flex container
   + __main axis__:
     + the axis running in the direction the flex items are being laid out in
     + __main start__ and __main end__: the start and end of main axis
   + __cross axis__:
     + the axis running perpendicular to the direction the flex items are being laid out in
     + __cross start__ and __cross end__:  start and end of cross axis
-  + __flex container__: set parent element w/ `display: fex`
-  + __flex items__: the items being laid out as flexible boxes inside the flex container
+
++ [Combinations of flex-flow and the Start and End Points](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#start-and-end)
+  + Illustration of flexbox axes and start & end points for `flex-flow: row wrap;` setting
+    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+      <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" ismap target="_blank">
+        <img src="https://developer.mozilla.org/files/3739/flex_terms.png" style="margin: 0.1em;" alt="flexbox axes and points with flex-flow: row wrap;" title="Illustration of flexbox axes and points with flex-flow: row wrap;" width=450>
+      </a>
+    </div>
+
+  + `Flex-flow` combinations
+    + row wrap (above diagram)
+    + row wrap-reverse
+    + row-reverse wrap
+    + row-reverse wrap-reverse
+    + column wrap
+    + column wrap-reverse
+    + column-reverse wrap
+    + column-reverse wrap-reverse
+  + main axis for sizing, cross axis for alignment
+  + properties control the main axis: 
+    + how a flexbox container spaces out and positions flex items
+    + list of properties: `flex`, `flex-grow`, `flex-shrink`, `flex-basis`, `justify-content`
+  + properties control alignment: 
+    + govern how a flex item might be aligned or positioned along the cross axis
+    + list of properties: `align-content`, `align-items`, `align-self`
+  + flexbox items incluence their sizes and position on main axis but only position on the across axis (except for coarse stretch option)
+  + `flex-start` and `flex-end`:
+    + refer to the "main start" and "main end" sides with justify-content property
+    + refer to the "cross start" and "cross end" sides with flexbox align properties
 
 + [main axis defined by __flex-direction__](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_main_axis)
   + row: along the row in the inline direction from left to right
@@ -2203,7 +2234,6 @@
 + [The flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
   + An area of a document laid out using flexbox
   + set the value of the area's container's display property to `flex` or `inline-flex`
-  + flex items: the direct children of that container
   + ways to create a flex container all of the contained flex items
     + Items display in a row (the `flex-direction` property's default is `row`).
     + The items start from the start edge of the main axis.
@@ -2289,6 +2319,11 @@
     + flippin the media object
   + Form controls
 
++ [Order](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#order)
+  + determine the order in which the item appears in the flexbox
+  + present the information in the flexbox layout independent of its order in the HTML itself
+  + Syntax: `order: <integer>`
+
 
 ### Flexbox Property
 
@@ -2354,10 +2389,77 @@
 </table>
 
 
+### Alignment Properties
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="top" width=100%>
+  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">Alignment Properties</a></caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:50%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td valign="top">justify-content</td>
+    <td valign="top"><ul><li>define how the browser distributes space between and around content items along the <span style="color: #ff6000; font-weight: bold;">main-axis</span> of a flex container, and the inline axis of a grid container</li><li>alignment done after the lengths and auto margins applied</li><li>flex-direction = row-reverse: reverse the appearances of flex-start and flex-end</li><li>flex-direction = column: <ul><li>no extra vertical space to distribute with block level element</li><li>flex-start, flex-end, center, space-between & space-around options are identical</li><li>exception:  larger flex contailer height defined</li></ul></li></ul></td>
+    <td rowspan="2"><ul><li><span style="color: #ff6000; font-weight: bold;">start</span>: packed flush to each other toward the start edge of the alignment container</li><li><span style="color: #ff6000; font-weight: bold;">end</span>: packed flush to each other toward the end edge of the alignment container</li><li><span style="color: #ff6000; font-weight: bold;">flex-start</span>: <ul><li>packed flush to each other toward the edge of the alignment container depending on the flex container's main-start side</li><li>only applies to flex layout items</li><li>items not children of a flex container act as start</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">flex-end</span>: <ul><li>packed flush to each other toward the edge of the alignment container depending on the flex container's main-end side</li><li>only applies to flex layout items</li><li>items not children of a flex container act as end</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">center</span>: packed flush to each other toward the center of the alignment container</li><li><span style="color: #ff6000; font-weight: bold;">left</span> (justify only): <ul><li>packed flush to each other toward the left edge of the alignment container</li><li>if not parallel with the inline axis, behave like start</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">right</span> (justify only): <ul><li>packed flush to each other toward the right edge of the alignment container</li><li>if not parallel with the inline axis, behave like start</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">normal</span>: <ul><li>packed in their default position as if no justify-content value was set</li><li>behave as stretch in grid and flex containers</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">baseline, first baseline, last baselinbe</span> (justify only): <ul><li>align the alignment baseline of the box’s first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group</li><li>fallback alignment for first baseline is start, the one for last baseline is end</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">space-between</span>: <ul><li>evenly distributed within the alignment container along the main axis</li><li>same spacing between each pair of adjacent items</li><li>first item is flush with the main-start edge; the last item is flush with the main-end edge</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">space-around</span>: <ul><li>evenly distributed within the alignment container along the main axis</li><li>same spacing between each pair of adjacent items</li><li>empty space before the first and after the last item equals half of the space between each pair of adjacent items</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">space-evenly</span>: <ul><li>evenly distributed within the alignment container along the main axis</li><li>same spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">stretch</span>: <ul><li>total size of items < size of alignment container: auto-sized items have their size increased equally (not proportionally), while still respecting the constraints imposed by max-height/max-width (or equivalent functionality)</li><li>combined size exactly fills the alignment container along the main axis</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">safe</span>: if the item overflows the alignment container causing data loss, then behave as start</li><li><span style="color: #ff6000; font-weight: bold;">unsafe</span>: regardless of the relative sizes of the item and alignment container, and regardless of whether overflow which causes data loss, floow the gieven align value</li><br/><li><span style="color: #ff6000; font-weight: bold;">baseline, first baseline, last baselinbe</span> (align only): <br/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Typography_Line_Terms.svg/410px-Typography_Line_Terms.svg.png" style="margin: 0.5em; margin-left: 4em;" alt="vertical baseline" title="vertical baseline" width=350><br/><ul><li>specify participation in first- or last-baseline alignment: align the alignment baseline of the box’s first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group</li><li>fallback alignment for first baseline is start, the one for last baseline is end</li></ul></li></ul></td>
+    <td valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#justify-content">Justify</a></td>
+  </tr>
+  <tr>
+    <td valign="top">align-content</td>
+    <td valign="top"><ul><li>set the distribution of space between and around content items along a flexbox's <span style="color: #ff6000; font-weight: bold;">cross-axis</span> or a grid's <span style="color: #ff6000; font-weight: bold;">block axis</span></li><li>no effect on single line flex containers, i.e., ones with flex-wrap: nowrap;</li></ul></td>
+    <td valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#align-content">Align</a></td>
+  </tr>
+  <tr>
+    <td valign="top">justify-self</td>
+    <td valign="top"><ul><li>set the way a box is justified inside its alignment container along the appropriate axis</li><li>layout mode effects: <ul><li>block-level layouts: align an item inside its containing block on the inline axis</li><li>absolutely-positioned elements: align an item inside its containing block on the inline axis, accounting for the offset values of top, left, bottom, and right</li><li>table cell layouts: ignored</li><li>flexbox layouts: ignored</li><li>grid layouts: align an item inside its grid area on the inline axis</li></ul></li><li>forms: <ul><li>basic keywords: normal, auto, or stretch</li><li>baseline alignment: baseline, first baseline, or last baseline</li><li>positional alignment: <ul><li>center, start, end, flex-start, flex-end, self-start, self-end, left, or right</li><li>(optional) safe or unsafe</li></ul></li></ul></ul></td>
+    <td valign="top" rowspan="2"><ul><li><span style="color: #ff6000; font-weight: bold;">auto</span>: compute to the parent's align-items value</li><li><span style="color: #ff6000; font-weight: bold;">normal</span>: <ul><li>absolutely-positioned layouts: behave like start on replaced absolutely-positioned boxes, and as stretch on all other absolutely-positioned boxes</li><li>static position of absolutely-positioned layouts: behave as stretch</li><li>flex items: behave as stretch</li><li>grid items: behave similar to stretch, except for boxes with an aspect ratio or an intrinsic sizes where it behaves like start</li><li>NOT apply to block-level boxes, and to table cells</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">start</span> (justify only): packed flush to each other toward the start edge of the alignment container in the appropriate axis</li><li><span style="color: #ff6000; font-weight: bold;">end</span> (justify only): packed flush to each other toward the end edge of the alignment container in the appropriate axis</li><li><span style="color: #ff6000; font-weight: bold;">self-start</span>: flush with the edge of the alignment container corresponding to the item's start side</li><li><span style="color: #ff6000; font-weight: bold;">self-end</span>: flush with the edge of the alignment container corresponding to the item's end side</li><li><span style="color: #ff6000; font-weight: bold;">flex-start</span>: cross-start margin edge of the flex item flushed with the cross-start edge of the line</li><li><span style="color: #ff6000; font-weight: bold;">flex-end</span>: cross-end margin edge of the flex item is flushed with the cross-end edge of the line</li><li><span style="color: #ff6000; font-weight: bold;">center</span>: <ul><li>margin box centered within the line on the cross-axis</li><li>cross-size of the item > the flex container: overflow equally in both directions</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">baseline, first baseline, last baseline</span>: <ul><li>specify participation in first- or last-baseline alignment: aligns the alignment baseline of the box’s first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group</li><li>fallback alignment: first baseline is start, last baseline is end</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">stretch</span>: <ul><li>total size of items < size of alignment container: auto-sized items have their size increased equally (not proportionally), while still respecting the constraints imposed by max-height/max-width (or equivalent functionality)</li><li>combined size exactly fills the alignment container along the main axis</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">safe</span>: if the item overflows the alignment container causing data loss, then behave as start</li><li><span style="color: #ff6000; font-weight: bold;">unsafe</span>: regardless of the relative sizes of the item and alignment container, and regardless of whether overflow which causes data loss, floow the gieven align value</li></ul></td>
+    <td valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self">MDN</a></td>
+  </tr>
+  <tr>
+    <td valign="top">align-self</td>
+    <td valign="top"><ul><li>override a grid or flex item's align-items value</li><li>Flexbox: align the item on the cross axis</li><li>Grid: align the item inside the grid area</li><li>NOT apply to block-level boxes, or to table cells</li><li>ignore if a flexbox item's cross-axis margin is auto</li></ul></td>
+    <td valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#align-self">Self</a></td>
+  </tr>
+  <tr>
+    <td valign="top">justify-items</td>
+    <td valign="top"><ul><li>define the default justify-self for all items of the box, giving them all a default way of justifying each box along the appropriate axis</li><li>layout mode effects: <ul><li>block-level layouts: align an item inside its containing block on the inline axis</li><li>absolutely-positioned elements: align an item inside its containing block on the inline axis, accounting for the offset values of top, left, bottom, and right</li><li>table cell layouts: ignored</li><li>flexbox layouts: ignored</li><li>grid layouts: align an item inside its grid area on the inline axis</li></ul></li><li>forms: <ul><li>basic keywords: normal, auto, or stretch</li><li>baseline alignment: baseline, first baseline, or last baseline</li><li>positional alignment: <ul><li>center, start, end, flex-start, flex-end, self-start, self-end, left, or right</li><li>(optional) safe or unsafe</li><li>legacy alignment: legacy, followed by left or right</li></ul></li></ul></td>
+    <td valign="top" rowspan="2"><ul><li><span style="color: #ff6000; font-weight: bold;">auto</span> (justify only): compute to the parent's align-items value</li><li><span style="color: #ff6000; font-weight: bold;">normal</span>: <ul><li>absolutely-positioned layouts: behave like start on replaced absolutely-positioned boxes, and as stretch on all other absolutely-positioned boxes</li><li>static position of absolutely-positioned layouts: behave as stretch</li><li>flex items: behave as stretch</li><li>grid items: behave similar to stretch, except for boxes with an aspect ratio or an intrinsic sizes where it behaves like start</li><li>NOT apply to block-level boxes, and to table cells</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">start</span> (justify only): packed flush to each other toward the start edge of the alignment container in the appropriate axis</li><li><span style="color: #ff6000; font-weight: bold;">end</span> (justify only): packed flush to each other toward the end edge of the alignment container in the appropriate axis</li><li><span style="color: #ff6000; font-weight: bold;">self-start</span>: flush with the edge of the alignment container corresponding to the item's start side</li><li><span style="color: #ff6000; font-weight: bold;">self-end</span>: flush with the edge of the alignment container corresponding to the item's end side</li><li><span style="color: #ff6000; font-weight: bold;">flex-start</span>: cross-start margin edge of the flex item flushed with the cross-start edge of the line</li><li><span style="color: #ff6000; font-weight: bold;">flex-end</span>: cross-end margin edge of the flex item is flushed with the cross-end edge of the line</li><li><span style="color: #ff6000; font-weight: bold;">center</span>: <ul><li>margin box centered within the line on the cross-axis</li><li>cross-size of the item > the flex container: overflow equally in both directions</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">left</span> (justify only): <ul><li>packed flush to each other toward the left edge of the alignment container</li><li>if not parallel with the inline axis, behave like start</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">right</span> (justify only): <ul><li>packed flush to each other toward the right edge of the alignment container</li><li>if not parallel with the inline axis, behave like start</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">baseline, first baseline, last baseline</span>: <ul><li>specify participation in first- or last-baseline alignment: aligns the alignment baseline of the box’s first or last baseline set with the corresponding baseline in the shared first or last baseline set of all the boxes in its baseline-sharing group</li><li>fallback alignment: first baseline is start, last baseline is end</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">stretch</span>: <ul><li>total size of items < size of alignment container: auto-sized items have their size increased equally (not proportionally), while still respecting the constraints imposed by max-height/max-width (or equivalent functionality)</li><li>combined size exactly fills the alignment container along the main axis</li></ul></li><li><span style="color: #ff6000; font-weight: bold;">safe</span>: if the item overflows the alignment container causing data loss, then behave as start</li><li><span style="color: #ff6000; font-weight: bold;">unsafe</span>: regardless of the relative sizes of the item and alignment container, and regardless of whether overflow which causes data loss, floow the gieven align value</li><li><span style="color: #ff6000; font-weight: bold;">legacy</span> (justify only): <ul><li>inherited by the box descendants</li><li>if descendant with 'justify-self: auto' value, not considered by the descend</li><li>only descend with only the left, right, or center associated to it</li></ul></li></ul></td>
+    <td valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items">MDN</a></td>
+  </tr>
+  <tr>
+    <td valign="top">align-items</td>
+    <td valign="top"><ul><li>set the align-self value on all direct children as a group</li><li>flexbox: control the alignment of items on the Cross Axis</li><li>Grid Layout: controls the alignment of items on the Block Axis within their grid area</li></ul></td>
+    <td valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#align-items">Items</a></td>
+  </tr>
+  <tr>
+    <td  valign="top">place-content</td>
+    <td  valign="top"><ul><li>a shorthand for align-content and justify-content</li><li>used in any layout method which utilizes both of these alignment values</li></ul></td>
+    <td  valign="top">start<br/>flex-start<br/>flex-end<br/>center<br/>left<br/>right<br/>space-between<br/>baseline<br/>first baseline, last baseline, space-around<br/>space evenly<br/>stretch</td>
+    <td  valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-content">MDN</a></td>
+  </tr>
+  <tr>
+    <td  valign="top">place-self</td>
+    <td  valign="top"><ul><li>a shorthand for align-self and justify-self</li><li>1st value for align-self; 2nd vlue for justify-self</li></ul></td>
+    <td  valign="top">auto<br/>normal<br/>self-start<br/>self-end<br/>flex-start<br/>flex-end<br/>baseline, first baseline, last baseline<br/>stretch</td>
+    <td  valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-self">MDN</a></td>
+  </tr>
+  <tr>
+    <td  valign="top">place-items</td>
+    <td  valign="top"><ul><li>a shorthand for align-items and justify-items</li><li>1st value for align-items; 2nd vlue for justify-items</li></ul></td>
+    <td  valign="top">auto<br/>normal<br/>start<br/>end<br/>flex-start<br/>flex-end<br/>self-start<br/>self-end<br/>center<br/>left<br/>right<br/>baseline, first baseline, last baeline<br/>stretch</td>
+    <td  valign="top"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-items">MDN</a></td>
+  </tr>
+  </tbody>
+</table>
 
 
 
-
+<br/><hr/><br/>
 -------------------------------------------
 <!--
 [097]: 
