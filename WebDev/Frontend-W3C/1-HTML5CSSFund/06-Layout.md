@@ -1463,7 +1463,7 @@ Examine the following HTML code FOR questions 10 through 13:
 </body>
 ```
 
-##### Situation
+__Situation__
 
 For this design, you are asked to make the header and footer each have a height of 80px. The content of the article may vary in height. It could be a long series of paragraphs, or it could be just a sentence.
 
@@ -2181,7 +2181,7 @@ In the example below, each item has a different `line-height` value, so you can 
 </table>
 
 
-##### align-self
+#### align-self
 
 ```css
 .item { align-self: center; }
