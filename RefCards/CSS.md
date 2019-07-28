@@ -492,7 +492,7 @@
 
 <br/>
 <table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=60%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Relative Length Units</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Relative Length Units</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">Unit</th>
@@ -521,7 +521,7 @@
 ### Absolute Length
 
 <table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=60%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Absolute Length Units</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Dimensions">Absolute Length Units</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">Unit</th>
@@ -595,7 +595,7 @@
 ### CSS Selector Reference
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
-  <caption style="font-size: 1.5em; color: darkblue; font-weight: bold;"><a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS Selectors</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em; color: darkblue; font-weight: bold;"><a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS Selectors</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%">Selector</th>
@@ -777,7 +777,7 @@
 ### Typical Selectors
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
-  <caption style="font-size: 1.5em; color: darkblue; font-weight: bold;"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors">CSS Selectors</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em; color: darkblue; font-weight: bold;"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors">CSS Selectors</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Selector</th>
@@ -1022,7 +1022,7 @@
 ### List of Font Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
-  <caption style="font-size: 1.5em;"><a href="https://www.w3.org/Style/Examples/007/fonts">Font properties</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.w3.org/Style/Examples/007/fonts">Font properties</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
@@ -1101,7 +1101,7 @@
 ## List Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters">List Properties</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters">List Properties</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
@@ -1142,7 +1142,7 @@
 ## Image Related Properties
 
 <table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image">Image Properties</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image">Image Properties</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 15%;">Kind of Object (CSS Property)</th>
@@ -1167,7 +1167,7 @@
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="https://www.w3.org/TR/CSS22/colors.html#background-properties">List of Background properties</a> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders">MDN</a>)</caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.w3.org/TR/CSS22/colors.html#background-properties">List of Background properties</a> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders">MDN</a>)</caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">Property</th>
@@ -1283,7 +1283,7 @@
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:11%;">Link</th>
   </tr>
   </thead>
   <tbody>
@@ -1291,37 +1291,37 @@
     <td>width</td>
     <td>element width</td>
     <td>&lt;length&gt;, &lt;percentage&gt;, auto, inherit</td>
-    <td><a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Element18</a></td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width">MDN</a></td>
   </tr>
   <tr>
     <td>height</td>
     <td>element height</td>
     <td>&lt;length&gt;, &lt;percentage&gt;, auto, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Element18</a></td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height">MDN</a></td>
   </tr>
   <tr>
     <td>min-width</td>
     <td>minimum width of the element</td>
     <td>&lt;length&gt;, &lt;percentage&gt;, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width">MDN</a></td>
   </tr>
   <tr>
     <td>min-width</td>
     <td>maximum width of the element</td>
     <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width">MDN</a></td>
   </tr>
   <tr>
     <td>min-height</td>
     <td>minimum height of the element</td>
     <td>&lt;length&gt;, &lt;percentage&gt;, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-height">MDN</a></td>
   </tr>
   <tr>
     <td>max-height</td>
     <td>maximum height of the element</td>
     <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Element18</a></td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-height">MDN</a></td>
   </tr>
   </tbody>
 </table>
@@ -1417,6 +1417,7 @@
 ### Box Sizing
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">Values of box-sizing property</a></caption>
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Value</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 30%">Description</th>
@@ -1425,16 +1426,17 @@
   </tr></thead>
   <tbody>
   <tr>
+  <tr>
     <td>content-box</td>
     <td><ul> <li>the default CSS box-sizing behavior</li> <li>including width and height, but not padding, border, or margin</li><li> the dimensions of the element: width = width of the content; height = height of the content</li></ul></td>
     <td><div>box-sizing: content-box;<br/>width: 100%</div><br/><div>box-sizing: content-box;<br/>width: 100%;<br/>border: solid #5B6DCD 10px;</div></td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">MDN</a>, <a href="/WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-box-model-and-box-sizing">Box-sizing</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-box-model-and-box-sizing">Box-sizing</a></td>
   </tr>
   <tr>
     <td>border-box</td>
     <td><ul><li>telling the browser to account for any border and padding in the values specified for an element's width and height</li><li>including width and height, padding & border, but not margin</li><li> the dimensions of the element: width = border + padding + width of the content, height = border + padding + height of the content</li></ul></td>
     <td><div>box-sizing: content-box;<br/>width: 100%</div><div>box-sizing: content-box;<br/>width: 100%;<br/>border: solid #5B6DCD 10px;</div></td>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">MDN</a>, <a href="/WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-box-model-and-box-sizing">Box-sizing</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">MDN</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#the-box-model-and-box-sizing">Box-sizing</a></td>
   </tr>
   </tbody>
 </table>
@@ -1443,7 +1445,8 @@
 
 ### Box Model Properties
 
-<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model#Box_properties">Box Properties</a></caption>
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Description</th>
@@ -1452,10 +1455,22 @@
   </tr></thead>
   <tbody>
   <tr>
+    <td>width</td>
+    <td>set an element's width; override by 'min-width' and 'max-width'</td>
+    <td><ul><li>&lt;length&gt;</li> <li>&lt;percentag&gt;</li> <li>auto: browser caclulate</li><ul></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width">MDN</a>, <a href="#element-width-and-height">Element</a>, </td>
+  </tr>
+  <tr>
+    <td>height</td>
+    <td>specify the height of an elementh; override by 'min-height' and 'max-height'</td>
+    <td><ul><li>&lt;length&gt;</li> <li>&lt;percentag&gt;</li> <li>auto: browser caclulate</li><ul></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height">MDN</a>, <a href="#element-width-and-height">Element</a>, </td>
+  </tr>
+  <tr>
     <td>padding</td>
     <td>padding for all sides of an element</td>
     <td><ul><li>length (`px`, `em`, `cm`, etc.)</li> <li>% (% of the width of the containing element)</li> <li>inherit (inherited from the parent element)</li><ul></td>
-    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="">Space</a>, <a href="https://www.w3schools.com/css/css_padding.asp">W3S</a>, </td>
+    <td><a href="../1.HTML5CSS/04.Debug.md#43-debugging-and-the-css-box-model">Box</a>, <a href="https://www.w3schools.com/css/css_padding.asp">W3S</a>, </td>
   </tr>
   <tr>
     <td>padding-top</td>
@@ -1636,7 +1651,7 @@
 ### List of Overflow Properties
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#cropping-and-scrolling-overflow">Overflow Properties</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#cropping-and-scrolling-overflow">Overflow Properties</a></caption>
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
@@ -1681,7 +1696,7 @@
 ### Values of Overflow Propery
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=70%>
-  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#cropping-and-scrolling-overflow">Values of Overflow Property</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#cropping-and-scrolling-overflow">Values of Overflow Property</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Values</th>
@@ -1911,7 +1926,7 @@
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#Syntax">Display Properties</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#Syntax">Display Properties</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Category</th>
@@ -2010,7 +2025,7 @@
 ### List of Positioning Properties
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning">CSS Positioned Layout</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning">CSS Positioned Layout</a></caption>
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Property</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
@@ -2120,7 +2135,7 @@
 
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Position property</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">Position property</a></caption>
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Value</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
@@ -2328,7 +2343,8 @@
 ### Flexbox Property
 
 
-<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em; margin: 0.2em; margin-bottom: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout#CSS_Properties">Flexbox CSS Properties</a></caption>
   <thead><tr>
     <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Property</th>
     <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
@@ -2393,7 +2409,7 @@
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="top" width=100%>
-  <caption style="font-size: 1.5em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">Alignment Properties</a></caption>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout#Alignment_Properties">Alignment Properties</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
