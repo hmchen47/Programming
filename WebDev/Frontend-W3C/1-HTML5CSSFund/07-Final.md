@@ -563,4 +563,149 @@
 ## Final exam (44-52)
 
 
+Source code for the following question (44):
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confessions</title>
+  <style>
+    q {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    .stammer {
+      left: 50px;
+      top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <p>I stared into the fridge disbelieving my eyes.
+    <q>I ate the last piece of cake,</q> she said, her head poking around the door.
+  </p>
+  <p class="stammer"><q>But whose head is this?</q> I stammered.</p>
+  <p><q>Oh that? - I think it belongs to my ex.</q> she stepped from behind the door, a knife in her hand.
+  <q> Sorry about the cake. You aren't mad, are you?</q> her lashes raised up and I fell into her sumptuous 
+  eyes, for not the first time. Those eyes!</p>
+</body>
+</html>
+```
+
+44. Error identification
+
+  Examine the CSS and HTML above.
+
+  The CSS above is not working as intended. Identify all the problems: (select all that apply -- 2 correct answers!)
+
+  1. `<q>` is an inline element. As such, the margin-left will have no effect upon it.
+  2. `<q>` is an inline element. As such, the margin-top will have no effect upon it.
+  3. `<p>` is an inline element. As such, the left and top properties will have no effect upon it.
+  4. `<p>` is position:static by default. As such, it is not a positioned element and the left and top properties will have no effect upon it.
+  
+  Ans: 24 <br/>
+  Explanation
+  + 'q' is an inline element and thus top-margin and bottom-margin have no effect.
+  + 'Static position' elements are not affected by top or left (or bottom or right) settings.
+
+
+45. Positioned element
+
+  What does it mean to be a positioned element?
+
+  1. Positioned elements are "smart" elements and fix all problems
+  2. Unlike non-positioned elements, a positioned element can have its position adjusted/set by the positioning properties (top, left, bottom, right, and z-index )
+  3. Positioned elements ignore font- and text- properties
+  4. Unlike non-positioned elements, a positioned element can have its position adjusted by the margin property (and margin-top, margin-left, margin-bottom, and margin-right )
+  
+  Ans: 2 <br/>
+  Explanation: Positioned elements, where position value is either absolute, fixed, or relative, can be "positioned" with attributes like 'top' and 'left'.
+
+
+46. Sizing - block width
+
+  Which describes the default width of a block level element?
+
+  1. Sized to width of parent
+  2. Sized to width of content, plus padding
+  
+  Ans: 1 (x2) <br/>
+  Explanation: Block level elements normally appear on their own line (horizontal space) within the parent, e.g. a paragraph that is the direct child of the body would take up the entire width of the body.
+
+
+47. Sizing - inline width
+
+  Which describes the default width of an inline element?
+
+  1. Sized to width of content, plus padding
+  2. Sized to width of parent
+  
+  Ans: 1<br/>
+  Explanation: Because inline elements typically occur on the same line with other elements, their width is determined by the contents plus any horizontal (left or right) padding.
+
+
+48. Sizing - block height
+
+  Which describes the default height of a block level element?
+
+  1. Sized to height of content
+  2. Sized to height of parent
+  
+  Ans: 1 (x2) <br/>
+  Explanation: Height includes the height of the content plus the top and bottom padding.
+
+
+49. Sizing - inline height
+
+  Which describes the height of an inline level element?
+
+  1. Sized to height of content, plus padding
+  2. Sized to height of parent
+  
+  Ans: 1 <br/>
+  Explanation: While the padding top or bottom won't change the positioning of an element, it does affect the height, as can be seen by setting a background-color or border on the element.
+
+
+50. Flexbox
+
+  How cool is flexbox?
+
+  1. Pretty Cool
+  2. Cool
+  3. Very Cool
+  4. Awesome
+
+  Ans: 1/2/3/4<br/>
+  Explanation: It's really cool :-)
+
+
+51. Flexbox container
+
+  How do you designate an element as a flexbox container? (select all that apply - 2 correct answers!)
+
+  1. `display:flex`
+  2. `flex:1`
+  3. `display:inline-flex`
+  4. `display:block; flex:1`
+  
+  Ans: 13 <br/>
+  Explanation: display: flex will make an element a 'flex container', influencing the layout of its child elements.
+
+
+52. 'flex-basis'
+
+  What does the flex-basis property do?
+  
+  1. tells the parent flexbox container the ideal starting size (main-axis size) for the flexbox item
+  2. sets the maximum amount of space that can be given to or taken from the flexbox item
+  3. sets the cross axis size for the flexbox item
+  
+  Ans: 1 <br/>
+  Explanation: Starting with the basis, its size may flex in our out depending on layout considerations and other flex elements.
+
+
+
+
+
 
