@@ -220,6 +220,16 @@
   + the em unit is relative measurement, depending on the current font-size
 
 
+### Accessibility
+
++ [WAI resources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#wai-resources)
+
+### Internationalization
+
++ [Internationalization and CSS](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-and-css-use-cases)
+
++ [Internationalization Resoources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-resources)
+
 
 ## CSS Values and Units
 
