@@ -1971,9 +1971,9 @@
 </table>
 
 
-## Positioning Properties
+## Positioned Properties
 
-### List of Positioning Properties
+### List of Positioned Properties
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning">CSS Positioned Layout</a></caption>
@@ -2021,7 +2021,7 @@
 ### Characteristics of Position Property
 
 + [Types of positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Types_of_positioning)
-  + positioned element: an element whose computed position value is either relative, absolute, fixed, or sticky
+  + __positioned element__: an element whose computed position value is either relative, absolute, fixed, or sticky
   + relatively positioned element
     + an element whose computed position value is relative
     + top and bottom properties: the vertical offset from its normal position
