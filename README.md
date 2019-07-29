@@ -268,9 +268,9 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Position Properties </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#position-characteristics"> Concepts </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#position-property"> Properties </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Positioning Properties </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#list-of-positioned-properties"> Positioned Properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#characteristics-of-position-property"> Position Property </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
