@@ -180,20 +180,6 @@
   }
   ```
 
-
-
-
-### Accessibility
-
-+ [Accessibility](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#accessibility): designing Web page with various disabilities in mind
-
-+ Guidelines
-  + not too small on font size
-  + not too tight on line height
-  + good color contrast for foregrounbd and background
-  + not irregularly space text or make it jump around
-
-
 ### Debugging
 
 + [Programming languages](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging)
@@ -592,7 +578,7 @@
   + e.g., `p { color: orange !important; }`
 
 
-### CSS Selector Reference
+### List of CSS Selectors
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
   <caption style="font-size: 1.5em; margin: 0.2em; color: darkblue; font-weight: bold;"><a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS Selectors</a></caption>
@@ -774,7 +760,7 @@
 <br/>
 
 
-### Typical Selectors
+### Commonly Used Selectors
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
   <caption style="font-size: 1.5em; margin: 0.2em; color: darkblue; font-weight: bold;"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors">CSS Selectors</a></caption>
@@ -950,73 +936,6 @@
 
 
 
-## Color Properties
-
-### Format of Color
-
-+ [Named colors](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#named-colors): the most common English names for colors; e.g., `color: transparent;`
-
-+ [rgb/rgba](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rgb-rgba):
-  + rgb(): 
-    + any color on a computer is exactly specified by mixing three components together: red, green, and blue
-    + the amount of each component falls within a range between 0 and 255
-    + syntax: `rgb( red, green, blue);`
-    + e.g., `p { color: rgb(10, 200, 255); }`
-  + rgba(): 
-    + used for semi-transparent colors
-    + the fourth value: the "alpha channel", the opacity
-    + alpha: a number between 0 and 1
-    + e.g., `b { color: rgba(10, 200, 255, 0.5); }`
-
-+ [Hex code](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#hex-code)
-  + providing an hexadecimal (hex) code w.r.t. [0, 255]
-  + start with the pound sign (#) and is followed by three pairs of hex number, ranging 00 to FF
-  + e.g., `p { color: #3A2BFF; }`
-
-+ A `<color>` is either a keyword or a numerical RGB specification.
-
-+ Complementary and Triadic colour schemes
-
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://www.w3.org/wiki/Colour_theory">
-      <img src="https://www.w3.org/wiki/images/4/49/50000000.jpg" style="margin: 0.1em;" alt="the complementary scheme, where you match up colours that lie directly opposite each other on the colour wheel." title="Complementary colour schemes" width="450">
-      <img src="https://www.w3.org/wiki/images/e/e5/80000001.jpg" style="margin: 0.1em;" alt="A triadic colour scheme is created when you pick one colour and then pick two other colours that lie equidistant from each other around the circle." title="Triadic colour schemes" width="300">
-    </a></div>
-  </div>
-
-### List of Color Properties
-
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
-  <thead>
-  <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>color</td>
-    <td>the foreground color of an element's text content</td>
-    <td><a href="https://www.w3.org/TR/css3-color/#foreground">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#color">Color18</a></td>
-  </tr>
-  <tr>
-    <td>background-color</td>
-    <td>background color of an element</td>
-    <td><a href="https://www.w3.org/TR/css3-background/#the-background-color">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#background-color">BGColor18</a></td>
-  </tr>
-  </tbody>
-</table>
-
-
-### Important References
-
-+ Color
-  + [Color names and sRGB values](HTML-Color.md)
-  + [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/)
-
-
-
 ## Font Property
 
 ### List of Font Properties
@@ -1098,7 +1017,75 @@
 + fantasy - the most diverse category of fonts including all of those that are particularly decorative
 
 
-## List Properties
+
+
+## Color Properties
+
+### Format of Color
+
++ [Named colors](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#named-colors): the most common English names for colors; e.g., `color: transparent;`
+
++ [rgb/rgba](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rgb-rgba):
+  + rgb(): 
+    + any color on a computer is exactly specified by mixing three components together: red, green, and blue
+    + the amount of each component falls within a range between 0 and 255
+    + syntax: `rgb( red, green, blue);`
+    + e.g., `p { color: rgb(10, 200, 255); }`
+  + rgba(): 
+    + used for semi-transparent colors
+    + the fourth value: the "alpha channel", the opacity
+    + alpha: a number between 0 and 1
+    + e.g., `b { color: rgba(10, 200, 255, 0.5); }`
+
++ [Hex code](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#hex-code)
+  + providing an hexadecimal (hex) code w.r.t. [0, 255]
+  + start with the pound sign (#) and is followed by three pairs of hex number, ranging 00 to FF
+  + e.g., `p { color: #3A2BFF; }`
+
++ A `<color>` is either a keyword or a numerical RGB specification.
+
++ Complementary and Triadic colour schemes
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.w3.org/wiki/Colour_theory">
+      <img src="https://www.w3.org/wiki/images/4/49/50000000.jpg" style="margin: 0.1em;" alt="the complementary scheme, where you match up colours that lie directly opposite each other on the colour wheel." title="Complementary colour schemes" width="450">
+      <img src="https://www.w3.org/wiki/images/e/e5/80000001.jpg" style="margin: 0.1em;" alt="A triadic colour scheme is created when you pick one colour and then pick two other colours that lie equidistant from each other around the circle." title="Triadic colour schemes" width="300">
+    </a></div>
+  </div>
+
+### List of Color Properties
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>color</td>
+    <td>the foreground color of an element's text content</td>
+    <td><a href="https://www.w3.org/TR/css3-color/#foreground">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#color">Color18</a></td>
+  </tr>
+  <tr>
+    <td>background-color</td>
+    <td>background color of an element</td>
+    <td><a href="https://www.w3.org/TR/css3-background/#the-background-color">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#background-color">BGColor18</a></td>
+  </tr>
+  </tbody>
+</table>
+
+
+### Important References
+
++ Color
+  + [Color names and sRGB values](HTML-Color.md)
+  + [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/)
+
+
+## Item List Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters">List Properties</a></caption>
@@ -1275,58 +1262,6 @@
 </table>
 
 
-## Element width and height
-
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
-  <thead>
-  <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:11%;">Link</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>width</td>
-    <td>element width</td>
-    <td>&lt;length&gt;, &lt;percentage&gt;, auto, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width">MDN</a></td>
-  </tr>
-  <tr>
-    <td>height</td>
-    <td>element height</td>
-    <td>&lt;length&gt;, &lt;percentage&gt;, auto, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height">MDN</a></td>
-  </tr>
-  <tr>
-    <td>min-width</td>
-    <td>minimum width of the element</td>
-    <td>&lt;length&gt;, &lt;percentage&gt;, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width">MDN</a></td>
-  </tr>
-  <tr>
-    <td>min-width</td>
-    <td>maximum width of the element</td>
-    <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width">MDN</a></td>
-  </tr>
-  <tr>
-    <td>min-height</td>
-    <td>minimum height of the element</td>
-    <td>&lt;length&gt;, &lt;percentage&gt;, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-height">MDN</a></td>
-  </tr>
-  <tr>
-    <td>max-height</td>
-    <td>maximum height of the element</td>
-    <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
-    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-height">MDN</a></td>
-  </tr>
-  </tbody>
-</table>
-
-
 ## Box Model
 
 ### Box Model and Characteristics
@@ -1440,7 +1375,6 @@
   </tr>
   </tbody>
 </table>
-
 
 
 ### Box Model Properties
@@ -1605,38 +1539,55 @@
 
 ### Global Sizing
 
-<table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=70%>
-  <thead><tr>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Property</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 40%">Description</th>
-  </tr></thead>
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:11%;">Link</th>
+  </tr>
+  </thead>
   <tbody>
   <tr>
+    <td>width</td>
+    <td>element width</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, auto, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#the-width-property">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width">MDN</a></td>
+  </tr>
+  <tr>
     <td>height</td>
-    <td>Sets the height of an element</td>
-  </tr>
-  <tr>
-    <td>max-height</td>
-    <td>Sets the maximubox-sizingent</td>
-  </tr>
-  <tr>
-    <td>max-width</td>
-    <td>Sets the maximum width of an element</td>
-  </tr>
-  <tr>
-    <td>min-height</td>
-    <td>Sets the minimum height of an element</td>
+    <td>element height</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, auto, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#the-height-property">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height">MDN</a></td>
   </tr>
   <tr>
     <td>min-width</td>
-    <td>Sets the minimum width of an element</td>
+    <td>minimum width of the element</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width">MDN</a></td>
   </tr>
   <tr>
-    <td>width</td>
-    <td>Sets the width of an element</td>
+    <td>min-width</td>
+    <td>maximum width of the element</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-widths">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width">MDN</a></td>
+  </tr>
+  <tr>
+    <td>min-height</td>
+    <td>minimum height of the element</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-height">MDN</a></td>
+  </tr>
+  <tr>
+    <td>max-height</td>
+    <td>maximum height of the element</td>
+    <td>&lt;length&gt;, &lt;percentage&gt;, none, inherit</td>
+    <td><a href="https://www.w3.org/TR/CSS22/visudet.html#min-max-heights">W3C</a>, <a href="../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height">Layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-height">MDN</a></td>
   </tr>
   </tbody>
 </table>
+
 
 
 ### Characteristics of Overflow
@@ -1878,24 +1829,6 @@
   + Default formating:
     + block-level elements begin on new lines
     + in-line elements can start anywhere in a line
-
-+ [Display properties](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#display-block-versus-inline)
-
-  <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <thead>
-    <tr>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements"> Block-level Element </a></td>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements">Inline Element</a></td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>&lt;address&gt;: Contact information<br/>&lt;article&gt;: Article content<br/>&lt;aside&gt;: Aside content<br/>&lt;blockquote&gt;: Long ("block") quotation<br/>&lt;details&gt;: Disclosure widget<br/>&lt;dialog&gt;: Dialog box<br/>&lt;dd&gt;: Describes a term in a description list<br/>&lt;div&gt;: Document division<br/>&lt;dl&gt;: Description list<br/>&lt;dt&gt;: Description list term<br/>&lt;fieldset&gt;: Field set label<br/>&lt;figcaption&gt;: Figure caption<br/>&lt;figure&gt;: Groups media content with a caption (see &lt;figcaption&gt;)<br/>&lt;footer&gt;: Section or page footer<br/>&lt;form&gt;: Input form<br/>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;: Heading levels 1-6<br/>&lt;header&gt;: Section or page header; &lt;hgroup&gt;: Groups header information<br/>&lt;hr&gt;: Horizontal rule (dividing line)<br/>&lt;li&gt;: List item<br/>&lt;main&gt;: Contains the central content unique to this document<br/>&lt;nav&gt;: Contains navigation links<br/>&lt;ol&gt;: Ordered list<br/>&lt;p&gt;: Paragraph<br/>&lt;pre&gt;: Preformatted text<br/>&lt;section&gt;: Section of a web page<br/>&lt;table&gt;: Table<br/>&lt;ul&gt;: Unordered list</td>
-      <td>&lt;a&gt;: create a hyperlink<br/> &lt;abbr&gt; &amp; &lt;acronym&gt;: an abbreviation or acronym<br/> &lt;audio&gt;: embed sound content in documents<br/> &lt;b&gt;: HTML Bring Attention To element; draw the reader's attention to the element's contents<br/>&lt;bdi&gt;: Bidirectional Isolate element; tell the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text<br/>&lt;bdo&gt;: Bidirectional Text Override element; override the current directionality of text<br/>&lt;big&gt;: render the enclosed text at a font size one level larger than the surrounding text<br/>&lt;br&gt;: produce a line break in text (carriage-return)<br/>&lt;button&gt;: represent a clickable button<br/>&lt;canvas&gt;: either the canvas scripting API or the WebGL API to draw graphics and animations<br/>&lt;cite&gt;: Citation element; used to describe a reference to a cited creative work, and must include the title of that work<br/>&lt;code&gt;: display its contents styled in a fashion intended to indicate that the text is a short fragment of computer code<br/>&lt;data&gt;: link a given content with a machine-readable translation<br/>&lt;datalist&gt;: contain a set of &lt;option&gt; elements that represent the values available for other controls<br/>&lt;del&gt;: represent a range of text that has been deleted from a document<br/>&lt;dfn&gt;: Definition element; used to indicate the term being defined within the context of a definition phrase or sentence<br/>&lt;em&gt;: used to indicate the term being defined within the context of a definition phrase or sentence<br/>&lt;embed&gt;: embed external content at the specified point in the document<br/>&lt;i&gt;: represent a range of text that is set off from the normal text for some reason<br/>&lt;iframe&gt;: Inline Frame element; represent a nested browsing context, embedding another HTML page into the current one<br/>&lt;img&gt;: embed an image into the document<br/>&lt;input&gt;: used to create interactive controls for web-based forms<br/>&lt;ins&gt;: represent a range of text that has been added to a document<br/>&lt;kbd&gt;: Keyboard Input element; represent a span of inline text denoting textual user input<br/>&lt;label&gt;: represent a caption for an item in a user interface<br/>&lt;map&gt;: used with &lt;area&gt; element to define an image map (a clickable link area)<br/>&lt;mark&gt;: Mark Text element; represent text which is marked or highlighted for reference or notation purposes<br/>&lt;meter&gt;: represent either a scalar value within a known range or a fractional value<br/>&lt;noscript&gt;: define a section of HTML to be inserted<br/>&lt;object&gt;: represent an external resource<br/>&lt;output&gt;: a container element into which a site or app can inject the results of a calculation or the outcome of a user action<br/>&lt;picture&gt;: contain zero or more &lt;source^gt; elements and one &lt;img&gt; element to provide versions of an image for different display/device scenarios<br/>&lt;progress&gt;: display an indicator showing the completion progress of a task<br/>&lt;q&gt;: the enclosed text is a short inline quotation<br/>&lt;ruby&gt;: represent a ruby, showing pronunciation of East Asian characters, annotation<br/>&lt;s&gt;: render text with a strikethrough<br/>&lt;samp&gt;: Sample Element; used to enclose inline text<br/>&lt;script&gt;: used to embed or reference executable code<br/>&lt;select&gt;: represent a control that provides a menu of options<br/>&lt;slot&gt;: a placeholder inside a web component<br/>&lt;small&gt;: make the text font size one size smaller down to the browser's minimum font size<br/>&lt;span&gt;: a generic inline container for phrasing content<br/>&lt;strong&gt;: indicate that its contents have strong importance, seriousness, or urgency<br/>&lt;sub&gt;: specify inline text displayed as subscript<br/>&lt;sup&gt;: specify inline text displayed as superscript<br/>&lt;svg&gt;: <br/>&lt;template&gt;: a mechanism for holding HTML that is not to be rendered immediately<br/>&lt;textarea&gt;: represent a multi-line plain-text editing control<br/>&lt;time&gt;: represent a specific period in time<br/>&lt;u&gt;: Unarticulated Annotation Element; a simple solid underline<br/>&lt;tt&gt;: Teletype Text element; obsolete HTML Teletype Text element<br/>&lt;var&gt;: Variable element; the name of a variable in a mathematical expression or a programming contex<br/>&lt;video&gt;: embed a media player<br/>&lt;wbr&gt;: represent a word break opportunity</td>
-    </tr>
-    </tbody>
-  </table>
-
 + [Block Level](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#block-level)
   + appear __below__ and to the __left__ of their block level neighbors
   + expand to fill the __width of the parent container__ by default
@@ -1920,6 +1853,24 @@
   + the height of th eline including the vertical padding for inline-block elements
   + inline-block elements respect width and height properties
 
+
+### Display Type of Elements
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#display-block-versus-inline">Categories of Elements</a></caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements"> Block-level Element </a></td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="50%"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements">Inline Element</a></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td valign="top" style="line-height:1.5em;"><strong>&lt;address&gt;</strong>: Contact information<br/><strong>&lt;article&gt;</strong>: Article content<br/><strong>&lt;aside&gt;</strong>: Aside content<br/><strong>&lt;blockquote&gt;</strong>: Long ("block") quotation<br/><strong>&lt;details&gt;</strong>: Disclosure widget<br/><strong>&lt;dialog&gt;</strong>: Dialog box<br/><strong>&lt;dd&gt;</strong>: Describes a term in a description list<br/><strong>&lt;div&gt;</strong>: Document division<br/><strong>&lt;dl&gt;</strong>: Description list<br/><strong>&lt;dt&gt;</strong>: Description list term<br/><strong>&lt;fieldset&gt;</strong>: Field set label<br/><strong>&lt;figcaption&gt;</strong>: Figure caption<br/><strong>&lt;figure&gt;</strong>: Groups media content with a caption (see &lt;figcaption&gt;)<br/><strong>&lt;footer&gt;</strong>: Section or page footer<br/><strong>&lt;form&gt;</strong>: Input form<br/><strong>&lt;h1&gt;</strong>, <strong>&lt;h2&gt;</strong>, <strong>&lt;h3&gt;</strong>, <strong>&lt;h4&gt;</strong>, <strong>&lt;h5&gt;</strong>, <strong>&lt;h6&gt;</strong>: Heading levels 1-6<br/><strong>&lt;header&gt;</strong>: Section or page header<br/><strong>&lt;hgroup&gt;</strong>: Groups header information<br/><strong>&lt;hr&gt;</strong>: Horizontal rule (dividing line)<br/><strong>&lt;li&gt;</strong>: List item<br/><strong>&lt;main&gt;</strong>: Contains the central content unique to this document<br/><strong>&lt;nav&gt;</strong>: Contains navigation links<br/><strong>&lt;ol&gt;</strong>: Ordered list<br/><strong>&lt;p&gt;</strong>: Paragraph<br/><strong>&lt;pre&gt;</strong>: Preformatted text<br/><strong>&lt;section&gt;</strong>: Section of a web page<br/><strong>&lt;table&gt;</strong>: Table<br/><strong>&lt;ul&gt;</strong>: Unordered list</td>
+    <td style="line-height:1.5em;"><strong>&lt;a&gt;</strong>: create a hyperlink<br/> <strong>&lt;abbr&gt;</strong> &amp; <strong>&lt;acronym&gt;</strong>: an abbreviation or acronym<br/> <strong>&lt;audio&gt;</strong>: embed sound content in documents<br/> <strong>&lt;b&gt;</strong>: HTML Bring Attention To element; draw the reader's attention to the element's contents<br/><strong>&lt;bdi&gt;</strong>: Bidirectional Isolate element; tell the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text<br/><strong>&lt;bdo&gt;</strong>: Bidirectional Text Override element; override the current directionality of text<br/><strong>&lt;big&gt;</strong>: render the enclosed text at a font size one level larger than the surrounding text<br/><strong>&lt;br&gt;</strong>: produce a line break in text (carriage-return)<br/><strong>&lt;button&gt;</strong>: represent a clickable button<br/><strong>&lt;canvas&gt;</strong>: either the canvas scripting API or the WebGL API to draw graphics and animations<br/><strong>&lt;cite&gt;</strong>: Citation element; used to describe a reference to a cited creative work, and must include the title of that work<br/><strong>&lt;code&gt;</strong>: display its contents styled in a fashion intended to indicate that the text is a short fragment of computer code<br/><strong>&lt;data&gt;</strong>: link a given content with a machine-readable translation<br/><strong>&lt;datalist&gt;</strong>: contain a set of &lt;option&gt; elements that represent the values available for other controls<br/><strong>&lt;del&gt;</strong>: represent a range of text that has been deleted from a document<br/><strong>&lt;dfn&gt;</strong>: Definition element; used to indicate the term being defined within the context of a definition phrase or sentence<br/><strong>&lt;em&gt;</strong>: used to indicate the term being defined within the context of a definition phrase or sentence<br/><strong>&lt;embed&gt;</strong>: embed external content at the specified point in the document<br/><strong>&lt;i&gt;</strong>: represent a range of text that is set off from the normal text for some reason<br/><strong>&lt;iframe&gt;</strong>: Inline Frame element; represent a nested browsing context, embedding another HTML page into the current one<br/><strong>&lt;img&gt;</strong>: embed an image into the document<br/><strong>&lt;input&gt;</strong>: used to create interactive controls for web-based forms<br/><strong>&lt;ins&gt;</strong>: represent a range of text that has been added to a document<br/><strong>&lt;kbd&gt;</strong>: Keyboard Input element; represent a span of inline text denoting textual user input<br/><strong>&lt;label&gt;</strong>: represent a caption for an item in a user interface<br/><strong>&lt;map&gt;</strong>: used with &lt;area&gt; element to define an image map (a clickable link area)<br/><strong>&lt;mark&gt;</strong>: Mark Text element; represent text which is marked or highlighted for reference or notation purposes<br/><strong>&lt;meter&gt;</strong>: represent either a scalar value within a known range or a fractional value<br/><strong>&lt;noscript&gt;</strong>: define a section of HTML to be inserted<br/><strong>&lt;object&gt;</strong>: represent an external resource<br/><strong>&lt;output&gt;</strong>: a container element into which a site or app can inject the results of a calculation or the outcome of a user action<br/><strong>&lt;picture&gt;</strong>: contain zero or more &lt;source&gt; elements and one &lt;img&gt; element to provide versions of an image for different display/device scenarios<br/><strong>&lt;progress&gt;</strong>: display an indicator showing the completion progress of a task<br/><strong>&lt;q&gt;</strong>: the enclosed text is a short inline quotation<br/><strong>&lt;ruby&gt;</strong>: represent a ruby, showing pronunciation of East Asian characters, annotation<br/><strong>&lt;s&gt;</strong>: render text with a strikethrough<br/><strong>&lt;samp&gt;</strong>: Sample Element; used to enclose inline text<br/><strong>&lt;script&gt;</strong>: used to embed or reference executable code<br/><strong>&lt;select&gt;</strong>: represent a control that provides a menu of options<br/><strong>&lt;slot&gt;</strong>: a placeholder inside a web component<br/><strong>&lt;small&gt;</strong>: make the text font size one size smaller down to the browser's minimum font size<br/><strong>&lt;span&gt;</strong>: a generic inline container for phrasing content<br/><strong>&lt;strong&gt;</strong>: indicate that its contents have strong importance, seriousness, or urgency<br/><strong>&lt;sub&gt;</strong>: specify inline text displayed as subscript<br/><strong>&lt;sup&gt;</strong>: specify inline text displayed as superscript<br/><strong>&lt;svg&gt;</strong>: <br/><strong>&lt;template&gt;</strong>: a mechanism for holding HTML that is not to be rendered immediately<br/><strong>&lt;textarea&gt;</strong>: represent a multi-line plain-text editing control<br/><strong>&lt;time&gt;</strong>: represent a specific period in time<br/><strong>&lt;u&gt;</strong>: Unarticulated Annotation Element; a simple solid underline<br/><strong>&lt;tt&gt;</strong>: Teletype Text element; obsolete HTML Teletype Text element<br/><strong>&lt;var&gt;</strong>: Variable element; the name of a variable in a mathematical expression or a programming contex<br/><strong>&lt;video&gt;</strong>: embed a media player<br/><strong>&lt;wbr&gt;</strong>: represent a word break opportunity</td>
+  </tr>
+  </tbody>
+</table>
 
 
 ### Values of Display Property
@@ -1982,7 +1933,7 @@
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="5%">Property</td>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#block-level">Block Level</a></td>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#inline-elements">Inline Element</a></td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%"><a href="../WebDev/Frontend-W3C/1.HTML5CSS/06-Layout.md#nline-block">Inline-Block</a></td>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="20%"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-block">Inline-Block</a></td>
   </tr>
   </thead>
   <tbody>
@@ -2476,7 +2427,7 @@
 
 ## CSS Grid Layout
 
-### Characteristics of CSS Grid
+### Concepts of CSS Grid
 
 + [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
   + dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives
