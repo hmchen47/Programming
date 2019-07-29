@@ -54,6 +54,7 @@
   + [Unicorn](http://validator.w3.org/unicorn/)  
   + [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/)
   + [W3C Link Checker](http://validator.w3.org/checklink)
+  + [Web Accessibility Evaluations Tools List](https://www.w3.org/WAI/ER/tools/)
 
 + Editors
   + [CodePen](http://codepen.io/)
@@ -148,6 +149,16 @@
     </tbody>
   </table>
 
+
+### Accessibility
+
++ [Accessibility](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#accessibility): designing Web page with various disabilities in mind
+
++ Guidelines
+  + not too small on font size
+  + not too tight on line height
+  + good color contrast for foregrounbd and background
+  + not irregularly space text or make it jump around
 
 
 ### Recommendations & Misc.
