@@ -2474,6 +2474,221 @@
 </table>
 
 
+## CSS Grid Layout
+
+### Characteristics of CSS Grid
+
++ [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+  + dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives
+  + enables an author to align elements into columns and rows
+  + able to be used to lay out major page areas or small user interface elements
+  + a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning
+  + Display property: `display: grid;` or `display: inline-grid;`
+
++ [Grid features](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#What_is_a_grid)
+  + fixed an flexible track sizes
+    + fixed track sizes: specify pixel which fits to the layout desired
+    + flexible sizes: percentages or `fr` unit
+  + item placement
+    + place items into a precise location on the grid using line numbers, names or by targeting an area of the grid
+    + contain an algorithm to control the placement of items not given an explicit position on the grid
+  + creation of additional tracks to hold content
+    + define an explicit grid with grid layout
+    + flexible enough to add additional rows and columns when needed
+  + alignment control: control how the items align
+  + control of overlapping content
+    + more than one item able to be placed into a grid cell or area
+    + control with `z-index` property
+
++ [The Grid container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#The_Grid_container)
+  + Declare: `display: grid;` or `display: inline-grid;`
+  + grid items: all direct children
+
++ [Grid Tracks](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_Tracks)
+  + the space between any two lines on the grid
+  + define rows and columns (explicit): `grid-template-columns` and `grid-template-rows`
+  + defined using any length unit
+  + `fr` unit: a fraction of the available space in the grid container
+    + `grid-template-columns: 1fr 1fr 1fr;`: equally divided into three columns
+    + `grid-template-columns: 2fr 1fr 1fr;`: divided into 4 portiona while the first column occupies 2 portions
+    + `grid-template-columns: 500px 1fr 1fr;`: first column with 500px while the last two columns evenly share the remaint
+  + `repeat()` notation
+    + repeat all or a section of the track listing
+    + e..g., `grid-template-columns: repeat(3, 1fr);`; `grid-template-columns: 20px repeat(6, 1fr) 20px;`; `grid-template-columns: repeat(5, 1fr 2fr);`
+  + implicit grid
+    + rows creat on its own
+    + defined with `grid-auto-rows` and `grid-auto-columns`
+  + track sizing
+    + minimum size given by explicit grid or automatically created rows or columns
+    + `minmax()` notation
+      + given the minmun and maximum values
+      + e.g., `grid-auto-rows: minmax(100px, auto);`
+
++ [Grid lines](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_lines)
+  + define a grid defined the grid tracks, not the actual lines
+  + numbering the lines to use when positioning items
+  + numbered according to the writing mode of the document: left-to-right language or right-to-left language
+  + Positioning items against lines
+    + properties: `grid-column-start`, `grid-column-end`, `grid-row-start` and `grid-row-end`
+    + e.g., `grid-column-start: 1; grid-column-end: 4; grid-row-start: 1; grid-row-end: 3;`
+
++ [Grid Cells](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_cells): the smallest unit on a grid, like a table cell
+
++ [Grid areas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_areas): 
+  + rectangular are to place items which can span one or more cells both by row or by column
+  + L-shaped area not allowed
+
++ [Gutters or alleys](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Gutters)
+  + space between grid cells
+  + created using the `column-gap` and `row-gap` properties, or the shorthand `gap`
+  + e.g., `row-gap: 1em;`
+
++ [Nesting grids](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Nesting_grids)
+  + A grid item as a grid container
+  + defined as a grid container 
+  + `grid-gap` not inherited
+  + subgrid
+    + creating nested grids that use the track definition of the parent grid
+    + e.g., `grid-template-columns: subgrid;`
+
++ [Layering items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Layering_items_with_z-index)
+  + grid items can occupy the same cell
+  + later items cover the previous ones
+  + `z-index`: controlling the order
+
++ [CSS Grid](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#css-grid)
+  + Grid arranges in two dimensions, while Flexbox lays out in one. 
+  + a CSS module that defines a two-dimensional grid-based layout system, optimized for user interface design
+  + children of an element (the ‘grid container’) can be positioned into arbitrary slots in a predefined flexible or fixed-size layout grid
+  + split the box that makes up an element into many individual ‘slots’, arranged in a matrix, and separated from each other by (invisible) horizontal and vertical lines
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <a href="https://webkit.org/blog/7434/css-grid-layout-a-new-layout-module-for-the-web/" ismap target="_blank">
+      <img src="https://webkit.org/wp-content/uploads/grid-concepts.svg" style="margin: 0.1em;" alt="concepts of CSS Grid layout" title="Definitions of CSS Grid Layout" width=350>
+    </a>
+  </div>
+
+
+### List of CSS Grid Properties
+
+
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout#CSS_properties">Grid Properties</a></caption>
+  <thead>
+  <tr>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>grid-template-columns</td>
+    <td>defines the line names and track sizing functions of the grid columns</td>
+    <td rowspan="2">none<br/>&lt;length&gt;<br/>&lt;percentage&gt;<br/>&lt;flex&gt;<br/>max-content<br/>min-content<br/>minmax(min, max)<br/>auto<br/>fit-content(args)<br/>repeat(args)</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-template-rows</td>
+    <td>define the line names and track sizing functions of the grid rows</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-template-areas</td>
+    <td>specify named grid areas</td>
+    <td>none<br/>&lt;string&gt;+</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-template</td>
+    <td>a shorthand property for defining grid columns, rows, and areas</td>
+    <td>none<br/>&lt;'grid-template-rows'&gt; / &lt;'grid-template-columns'&gt;<br/>[ &lt;line-names&gt;? &lt;string&gt; &lt;track-size&gt;? &lt;line-names&gt;? ]+ [ / &lt;explicit-track-list&gt; ]?</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-auto-columns</td>
+    <td>specify the size of an implicitly-created grid column track</td>
+    <td rowspan="2">&lt;length&gt;<br/>&lt;percentage&gt;<br/>&lt;flex&gt;<br/>max-content<br/>min-content<br/>minmax(min, max)<br/>fit-content(args)<br/>auto</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-auto-rows</td>
+    <td>specify the size of an implicitly-created grid row track</td>
+    <td><a href="">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-auto-flow</td>
+    <td><ul><li>control how the auto-placement algorithm works</li><li>specifying exactly how auto-placed items get flowed into the grid</li></ul></td>
+    <td>roe<br/>column<br/>dense</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid</td>
+    <td>a shorthand property that sets all of the explicit grid properties ('grid-template-rows', 'grid-template-columns', and 'grid-template-areas'), and all the implicit grid properties ('grid-auto-rows', 'grid-auto-columns', and 'grid-auto-flow'), in a single declaration</td>
+    <td>&lt;'grid-template'&gt;<br/>&lt;'grid-template-rows'&gt; / [ auto-flow && dense? ] &lt;'grid-auto-columns'&gt;?<br/>[ auto-flow && dense? ] &lt;'grid-auto-rows'&gt;? / &lt;'grid-template-columns'&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-row-start</td>
+    <td>specify a grid item’s start position within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start edge of its grid area</td>
+    <td rowspan="3">auto<br/>&lt;custom-ident&gt;<br/>&lt;integer&gt; && &lt;custom-ident&gt;?<br/>span && [ &lt;integer&gt; || &lt;custom-ident&gt; ]</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-row-end</td>
+    <td>specify a grid item’s end position within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-end edge of its grid area</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-row</td>
+    <td>a shorthand property for 'grid-row-start' and 'grid-row-end specifying' a grid item’s size and location within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the 'inline-start' and 'inline-end edge' of its grid area</td>
+    <td><a href="">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-column-start</td>
+    <td><ul><li>specify a grid item’s start position within the grid column by contributing a line, a span, or nothing (automatic) to its grid placement</li><li>define the block-start edge of the grid area</li></ul></td>
+    <td rowspan="3">auto<br/>&lt;custom-ident&gt;<br/>&lt;integer&gt; && &lt;custom-ident&gt;?<br/>span && [ &lt;integer&gt; || &lt;custom-ident&gt; ]</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-column-end</td>
+    <td>specify a grid item’s end position within the grid column by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the block-end edge of its grid area</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-column</td>
+    <td>a shorthand property for grid-column-start and grid-column-end specifying a grid item's size and location within the grid column by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start and inline-end edge of its grid area</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column">MDN</a></td>
+  </tr>
+  <tr>
+    <td>grid-area</td>
+    <td>a shorthand property for grid-row-start, grid-column-start, grid-row-end and grid-column-end, specifying a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the edges of its grid area</td>
+    <td>auto<br/>&lt;custom-ident&gt;<br/>&lt;integer&gt; && &lt;custom-ident&gt;?<br/>span && [ &lt;integer&gt; || &lt;custom-ident&gt; ]</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area">MDN</a></td>
+  </tr>
+  <tr>
+    <td>row-gap</td>
+    <td>set the size of the gap (gutter) between an element's grid rows</td>
+    <td>&lt;length-percentage&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap">MDN</a></td>
+  </tr>
+  <tr>
+    <td>column-gap</td>
+    <td>set the size of the gap (gutter) between an element's columns</td>
+    <td>normal<br/>&lt;length&gt;<br/>&lt;percentage&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap">MDN</a></td>
+  </tr>
+  <tr>
+    <td>gap</td>
+    <td>a shorthand for 'row-gap' and 'column-gap'</td>
+    <td>&lt;length&gt;<br/>&lt;percentage&gt;</td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gap">MDN</a></td>
+  </tr>
+  </tbody>
+</table>
+
+
 
 <br/><hr/><br/>
 -------------------------------------------
