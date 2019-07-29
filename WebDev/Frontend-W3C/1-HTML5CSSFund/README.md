@@ -269,13 +269,13 @@
 
 ## Module 7: Final exam
 
-+ [Final exam](.07-Final.md#)
-+ [Final exam (1-7)](.07-Final.md#)
-+ [Final exam (8-16)](.07-Final.md#)
-+ [Final exam (17-24)](.07-Final.md#)
-+ [Final exam (25-35)](.07-Final.md#)
-+ [Final exam (36-43)](.07-Final.md#)
-+ [Final exam (44-52)](.07-Final.md#)
++ [Final exam](07-Final.md#)
++ [Final exam (1-7)](07-Final.md#)
++ [Final exam (8-16)](07-Final.md#)
++ [Final exam (17-24)](07-Final.md#)
++ [Final exam (25-35)](07-Final.md#)
++ [Final exam (36-43)](07-Final.md#)
++ [Final exam (44-52)](07-Final.md#)
 
 
 
