@@ -54,6 +54,7 @@
   + [Unicorn](http://validator.w3.org/unicorn/)  
   + [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/)
   + [W3C Link Checker](http://validator.w3.org/checklink)
+  + [Web Accessibility Evaluations Tools List](https://www.w3.org/WAI/ER/tools/)
 
 + Editors
   + [CodePen](http://codepen.io/)
@@ -63,7 +64,8 @@
   + [Browser Compatibility]()
   + [WC3 Named character references](https://www.w3.org/TR/2011/WD-html5-20110113/named-character-references.html)
   + [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html)
-
+  + [Web Content Accessibility Guidelines (WCAG) Overview](https://www.w3.org/WAI/intro/wcag.php)
+  + [Setting language preferences in a browser](http://www.w3.org/International/questions/qa-lang-priorities)
 
 
 ### HTML Layout Elements
@@ -148,6 +150,16 @@
   </table>
 
 
+### Accessibility
+
++ [Accessibility](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#accessibility): designing Web page with various disabilities in mind
+
++ Guidelines
+  + not too small on font size
+  + not too tight on line height
+  + good color contrast for foregrounbd and background
+  + not irregularly space text or make it jump around
+
 
 ### Recommendations & Misc.
 
@@ -185,6 +197,9 @@
 
 + Always declare the language of your page in the `<html>` tag
 
++ [Accessibility Resources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#wai-resources)
+
++ [International Language Resurces](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-resources)
 
 ### Debugging
 
