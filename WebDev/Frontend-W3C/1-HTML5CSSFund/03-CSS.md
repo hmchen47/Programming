@@ -1195,8 +1195,7 @@ This may seem like an attractive option, but using it is not recommended. Once y
 
 
 
-### Cascading: inheritance and precedence
-
+### Knowledge checks
 
 
 Here are some questions for a self check to make sure you understand everything. These questions are not graded.
