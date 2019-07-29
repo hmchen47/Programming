@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Styling your table</title>
+  <style>
+    table { border-collapse: collapse; }
+    div { height: 200px; width: 200px; border: 1px solid blue; }
+    table, th, td { padding: 30px; border-bottom: 1px solid black; }
+
+    div.overflow-hidden { overflow: hidden; }
+    div.overflow-scroll { overflow: scroll; }
+    div.overflow-auto { overflow: auto; }
+    div.overflow-x-auto { overflow-x: auto; overflow-y:hidden; }
+  </style>
+</head>
+<body>
+<p>To better illustrate this property, we are going to place our tables inside div elements with width and height set to 200px</p>
+<h4>Overflow-hidden</h4>
+<div class="overflow-hidden">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Occupation</th>
+        </tr>
+        <tr>
+            <td>Amy</td>
+            <td>33</td>
+            <td>Female</td>
+            <td>Fitness Trainer</td>
+        </tr>
+            <tr>
+            <td>Mike</td>
+            <td>52</td>
+            <td>Male</td>
+            <td>Engineer</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+<h4>Overflow-scroll</h4>
+<div class="overflow-scroll">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Occupation</th>
+        </tr>
+        <tr>
+            <td>Amy</td>
+            <td>33</td>
+            <td>Female</td>
+            <td>Fitness Trainer</td>
+        </tr>
+            <tr>
+            <td>Mike</td>
+            <td>52</td>
+            <td>Male</td>
+            <td>Engineer</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+<h4>Overflow-auto</h4>
+<div class="overflow-auto">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Occupation</th>
+        </tr>
+        <tr>
+            <td>Amy</td>
+            <td>33</td>
+            <td>Female</td>
+            <td>Fitness Trainer</td>
+        </tr>
+            <tr>
+            <td>Mike</td>
+            <td>52</td>
+            <td>Male</td>
+            <td>Engineer</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+<h4>Overflow-x-auto</h4>
+<div class="overflow-x-auto">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Occupation</th>
+        </tr>
+        <tr>
+            <td>Amy</td>
+            <td>33</td>
+            <td>Female</td>
+            <td>Fitness Trainer</td>
+        </tr>
+            <tr>
+            <td>Mike</td>
+            <td>52</td>
+            <td>Male</td>
+            <td>Engineer</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+
