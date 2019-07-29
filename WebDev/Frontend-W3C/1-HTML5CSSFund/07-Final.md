@@ -212,7 +212,7 @@
 
   1. They do nothing special
   2. Define a hyperlink that will jump between the two sections
-  3. Show a disclosure triangle that can be "opened" to see the other contents of the <details>
+  3. Show a disclosure triangle that can be "opened" to see the other contents of the `<details>`
   4. Display a caption that accompanies an image
 
   Ans: 3 <br/>
@@ -221,6 +221,105 @@
 
 
 ## Final exam (17-24)
+
+
+17. Basic CSS properties - size
+
+  What is the CSS property that adjusts the size of text?
+  
+  Ans: font-size<br/>
+  Explanation: The font-size property will adjust the text size of an element.
+
+
+18. Basic CSS properties - color
+
+  What CSS property lets us change the text color?
+  
+  Ans: color<br/>
+  Explication: The color property will change the text color of an element.
+
+
+19. Basic CSS properties - space
+
+  What CSS property puts spacing between elements?
+  
+  Ans: margin or margin-top or margin-bottom or margin-left or margin-right<br/>
+  Explanation: The margin property is used to put space between elements.
+
+
+
+20. CSS selectors - article
+
+  `article { line-height: 16px; }`
+
+  In the CSS above, the CSS selector used is an example of which type?
+
+  1. pseudo selector
+  2. class selector
+  3. tag selector
+  4. id selector
+  
+  Ans: 3<br/>
+  Explanation: Tag selector meaning that the selector uses a tag.
+
+
+21. CSS selectors - first paragraph
+
+  `#first-paragraph { line-height: 16px; }`
+
+  In the CSS above, the CSS selector used is an example of which type?
+
+  1. pseudo selector
+  2. id selector
+  3. tag selector
+  4. class selector
+
+  Ans: 2<br/>
+  Explanation #idName indicates an element with the id idName.
+
+
+22. CSS selectors
+
+  `.dorothea { line-height: 16px; }`
+
+  In the CSS above, the CSS selector used is an example of which type?
+
+  1. pseudo selector
+  2. class selector
+  3. tag selector
+  4. id selector
+  
+  Ans: 2<br/>
+  Explanation: .className indicates an element with the class className.
+
+
+23. CSS comments
+
+  Which of the following demonstrate correctly how to include a comment into CSS?
+
+  1. `;; Put your CSS below`
+  1. `/* Put your CSS below */`
+  1. `// Put your CSS below`
+  1. `<!-- Put your CSS below -->`
+
+  Ans: 2<br/>
+  Explication
+  + CSS only supports one notation for comments, and that is the /* ... */ notation.
+  + In HTML, comments are denoted with `<!-- ... -->`
+  + And in Javascript, both /* ... */ and // .... can denote comments.
+
+
+24. Inherit
+
+  What does the `inherit` value mean?
+
+  1. Override any other competing CSS rules and apply this value no matter what.
+  2. The value of the CSS property in question being applied to this child element should be gotten from its parent element.
+  3. For the property in question, use the same value as in the preceding CSS rule, ie from earlier in the CSS file.
+  4. Just use the default value for the CSS property in question.
+
+  Ans: 2 <br/>
+  Explication: The inherit value means that the value for a given property should be inherited from the parent element.
 
 
 
