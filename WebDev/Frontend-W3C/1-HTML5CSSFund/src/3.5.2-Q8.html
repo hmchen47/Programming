@@ -1,0 +1,38 @@
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> My Web Page Title </title>
+
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+    li { color: red; } /* make all the list items red -> True */
+    p > * { font-weight:bold; } /* make the three paragraphs, the quotation and the list bold faced -> False */
+    .insect.flying {list-style-type: square; } /* put a square marker to the left of the _wasp_ and _butterfly_ list items -> True */
+    .insect { font-style:italic; } /* would italicize the ant list item and no others -> False (butterfly, wasp, ant)*/
+    p > a {color: orange; } /* would make both links orange -> False (only oesterkirche)  */
+  </style>
+</head>
+<body>
+  <h1>Birds and Not Birds</h1>
+  <h2>A compendium of flying and not flying things</h2>
+  <p>While walking through the woods with my daughter she asked me <q>Papa, what kind of bird is that?</q> and was pointing to an <a href="#ok">oesterkirche</a>. (A huge one!)</p>
+  <p>I told her its name and explained that while an oesterkirche flies like a bird and eats bugs and worms (<sup><a href="#footnote">*</a></sup>) like a bird, it is not, in fact, a bird. This lead us to a discussion of other flying things that might or might not be birds, and birds that don't fly. Here is our list:</p>
+   <ul>
+     <li class="bird">penguin</li>
+     <li class="bird flying">hawk</li>
+     <li class="flying">oesterkirche</li>
+     <li class="insect flying">butterfly</li>
+     <li class="bird">ostrich</li>
+     <li class="insect flying">wasp</li>
+     <li class="bird flying">sparrow</li>
+     <li class="insect">ant</li>
+    </ul>
+  <hr>
+  <p id="footnote">(*) - Does anyone know exactly what oesterkirche eat? Don't they also eat fish?</p>
+  <img id="ok" src="oesterkirche.jpg" alt="scary oesterkirche, don't get close!">
+</body>
+</html>

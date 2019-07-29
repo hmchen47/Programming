@@ -1,0 +1,31 @@
+
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> 5.3.5 Multimedia Q3 </title>
+
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" type="text/css" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+  </style>
+</head>
+<body>
+  <p>Requirements: Create an HTML video player that plays a video file of your choice in Google Chrome, Internet Explorer and Mozilla Firefox. Use multiple sources if you have to. 
+  </p>
+
+  <p> The file is an <a href="https://thepaciellogroup.github.io/AT-browser-tests/test-files/video.html">video test file</a> with WebVTT subtitles. <br/> <br/>
+    <video controls width=800>
+      <source src="https://thepaciellogroup.github.io/AT-browser-tests/video/ElephantsDream.mp4" type="video/mp4"/>
+      <source src="https://thepaciellogroup.github.io/AT-browser-tests/video/ElephantsDream.webm" type="video/webm"/>
+      <track src="assets/5.3.5-Q3subtitles-en.vtt" kind="captions" srclang="en" label="English" default/>
+      Your browser does not support the HTML5 <code>video</code> element.
+    </video>
+  </p>
+
+  <p style="color: red; font-size: 1.5em; font-weight: bold;">The &lt;track&gt; element added but now working!!!</p>
+</body>
+</html>
+

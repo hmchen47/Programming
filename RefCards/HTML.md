@@ -15,7 +15,8 @@
 + <p style="color: darkred; font-weight: 900;"><a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/01-FirstPage.md#javascript">Javascript</a></p>
   + The actions a page can take such as interaction with the user, and customizing and changing the page according to any number of parameters
   + Allow a Web page to be more than just a document, but potentially a Web application, with nearly unlimited possibilities
-  + 
+
+
 
 ### Template
 
@@ -28,7 +29,7 @@
   <title> My Web Page Title </title>
 
   <!-- CSS Usage: link preferred ~ comment for HTML-->
-  <link rel="stylesheet" href="css/my_styles.css">
+  <link rel="stylesheet" type="text/css" href="css/my_styles.css">
   <style>
     /* CSS will go in this area ~ comment for CSS */
   </style>
@@ -41,15 +42,30 @@
 
 ### Useful References & Tool Links
 
-+ [W3C HTML5 specification](https://www.w3.org/TR/html5/)
-+ [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/)
-+ [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
-+ [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
-+ [CSS validator](https://jigsaw.w3.org/css-validator/)
-+ [Unicorn](http://validator.w3.org/unicorn/)  
-+ [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/)
-+ [W3C Link Checker](http://validator.w3.org/checklink)
-+ [CodePen](http://codepen.io/)
++ Specifications
+  + [MDN HTML elements reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+  + [MDN attribute reference list](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
+  + [W3C HTML5 specification](https://www.w3.org/TR/html5/)
+  + [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/)
+
++ Tools
+  + [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
+  + [CSS validator](https://jigsaw.w3.org/css-validator/)
+  + [Unicorn](http://validator.w3.org/unicorn/)  
+  + [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/)
+  + [W3C Link Checker](http://validator.w3.org/checklink)
+  + [Web Accessibility Evaluations Tools List](https://www.w3.org/WAI/ER/tools/)
+
++ Editors
+  + [CodePen](http://codepen.io/)
+  + [JS Bin](http://jsbin.com)
+
++ References
+  + [Browser Compatibility]()
+  + [WC3 Named character references](https://www.w3.org/TR/2011/WD-html5-20110113/named-character-references.html)
+  + [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html)
+  + [Web Content Accessibility Guidelines (WCAG) Overview](https://www.w3.org/WAI/intro/wcag.php)
+  + [Setting language preferences in a browser](http://www.w3.org/International/questions/qa-lang-priorities)
 
 
 ### HTML Layout Elements
@@ -70,6 +86,13 @@
 + `<summary>` - Defines a heading for the `<details>` element
 
 + Ref: [Web page structure](../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#web-page-structure)
+
++ Make whole Web page into one big table: [BAD IDEA](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#separating-content-and-style)
+  + semantically incorrect for layout
+  + making HTML larger
+  + Accessibility: tables are not very screen reader friendly
+  + harder to redesign
+  + css easier to maintain consistency among pages
 
 
 ### UTF-8: `<meta charset="utf-8">` in `head` section
@@ -127,6 +150,16 @@
   </table>
 
 
+### Accessibility
+
++ [Accessibility](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#accessibility): designing Web page with various disabilities in mind
+
++ Guidelines
+  + not too small on font size
+  + not too tight on line height
+  + good color contrast for foregrounbd and background
+  + not irregularly space text or make it jump around
+
 
 ### Recommendations & Misc.
 
@@ -164,6 +197,25 @@
 
 + Always declare the language of your page in the `<html>` tag
 
++ [Accessibility Resources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#wai-resources)
+
++ [International Language Resurces](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-resources)
+
+### Debugging
+
++ [Two opposite directions](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#identifying-html5-elements) correspond to an element
+  + HTML5 code written and want to find out where on the Web page that code shows up
+  + given a particular part of the page, what part of your code produced it
+
++ [Browsers Developer tool](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#modifying-html5-elements)
+  + F12 or right click on mouse bu selecting `Inspect`
+  + mouse hovers over an element -> highlight the corresponding element on the displayed page
+  + ability to make temporary modifications to your code to try out different things and see what works the way you want it to
+  + make style changes in the "Styles" panel, or use the "Computed" panel to see the values for each property and how they were determined
+  + click on an element in your HTML5 source code to change the source code
+  + add a "style" attribute to a particular element, which should override any other settings
+  + 
+
 
 
 ## Element, Tag & Attribute
@@ -182,6 +234,8 @@
 #### Definition and Characteristics of Elements
 
 + The pieces themselves, i.e. a paragraph is an element, or a header is an element, even the body is an element
+
++ [Elements](/WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#identifying-html5-elements): the intangible parts of your Web page, described by the text in tags and rendered on the screen of whatever device you're looking at your Web page with
 
 + Tree structure:
   + parent element: an element wholely containing any given element (except for the outermost 'html' element)
@@ -887,11 +941,12 @@ HTML offers a selection of elements which help to create interactive user interf
 </table>
 
 
-#### [Web Component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Web_Components)
+#### Web Component
 
 Web Components is an HTML-related technology which makes it possible to, essentially, create and use custom elements as if it were regular HTML. In addition, you can create custom versions of standard HTML elements.
 
 <table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 70vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.6em; padding-bottom: 0.3em;"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Web_Components">Table of Web Components</a></caption>
  <thead>
   <tr style="border-bottom: double black;">
    <th style="background-color: #3d64ff; color: #ffffff; width: 5%">Element</th>
@@ -1508,67 +1563,539 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 
 
 
-## Table Element
+## Table Elements
 
-<table style="font-family: arial,helvetica,sans-serif; margin: auto; width: 50vw" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+### List of Table Elements
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
   <thead><tr>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Type</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 10%">Element</th>
-    <th style="background-color: #3d64ff; color: #ffffff; width: 20%">Link</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 20%;">Type</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 20%;">Element</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 40%;">Characteristics</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width: 10%;">Link</th>
   </tr></thead>
   <tbody>
   <tr>
     <td>Table</td>
     <td> &lt;table&gt; </td>
-    <td> <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-table-tag"> Table </a></td>
+    <td>defines a table in HTML5</td>
+    <td> <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-table-tag"> Table </a></td>
   </tr>
   <tr>
     <td>Caption</td>
     <td> &lt;caption&gt; </td>
-    <td> <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-caption-tag"> Table Caption </a></td>
+    <td>give a title to the table and used as the first child element of &lt;table&gt;</td>
+    <td> <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-caption-tag"> Caption </a></td>
   </tr>
   <tr>
     <td>Row groups</td>
     <td> &lt;thead&gt;, &lt;tfoot&gt;, &lt;tbody&gt; </td>
-    <td> <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-thead-tag"> Table Header </a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tfoot-tag"> Table Footer </a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tbody-tag"> Table Body </a></td>
+    <td><ul><li>define parts of a table</li><li>browsers able to identify which cells are header, body and footer</li><li>allowed browser to scroll independently of header and footer</li></ul></td>
+    <td> <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-thead-tag"> Header </a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-tfoot-tag"> Footer </a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-tbody-tag"> Body </a></td>
   </tr>
   <tr>
     <td>Column groups</td>
     <td> &lt;colgroup&gt;, &lt;col&gt; </td>
-    <td> <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-colgroup-and-col-tags"> Table Column </a></td>
+    <td><ul><li>group columns in a table</li><li>specify properties for a group of columns</li><li>using &lt;col&gt; within &lt;colgroup&gt;</li></ul></td>
+    <td> <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-colgroup-and-col-tags"> Column </a></td>
   </tr>
   <tr>
     <td>Table row</td>
     <td> &lt;tr&gt; </td>
-    <td> <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-tr-tags"> Table Row </a></td>
+    <td>creates a table row</td>
+    <td> <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-tr-tag"> Row </a></td>
   </tr>
   <tr>
     <td>Table cells</td>
     <td> &lt;th&gt;, &lt;td&gt; </td>
-    <td> <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-th-tags"> Row Heading </a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#the-td-tags"> Table Data </a></td>
+    <td><ul><li>types of cells in a table - header and standard</li><li>table header cells: bold</li><li>standard cells: by default</li></ul></td>
+    <td> <a href="..//WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-th-tag"> Row Heading </a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-td-tag"> Data </a></td>
   </tr>
   </tbody>
 </table>
 
 
-
-### The th tag
-
-| Attributes for `<th>` | Purpose | Usage | Output | 
-|-----------------------|---------|-------|--------|
-| `colspan` | Specifies the number of cells you want that column to span (cover) <br/> Possible values: positive integer number | `<th colspan="2">` | [View example](https://codepen.io/w3devcampus/pen/xXERVo) |
-| `rowspan` | Specifies the number of cells you want the row to span (cover) <br/> Possible values: positive integer number | `<th rowspan="2">` | [View example](https://codepen.io/w3devcampus/pen/WZGojz) |
-| `scope` | Specifies if a header cell is the header for a `row`, `column`, `rowgroup` or `colgroup` <br/> Possible values: `row`, `col`, `rowgroup`, `colgroup`, `auto` | `<th scope="row">` | [View example](https://codepen.io/w3devcampus/pen/YrGpEG) |
+### Attributes of the 'table' tag
 
 
-### The td tag
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_table.asp">Attributes of &lt;table&gt; tag</a></caption>
+  <thead><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+  </tr></thead>
+  <tbody>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_table_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>left<br>center<br>right</td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>
+ Specifies the alignment of a table according to surrounding text</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tagsatt_table_bgcolor.asp" style="color: rgb(197,128,128);">bgcolor</a></td>
+    <td><i>rgb(x,x,x)<br>#xxxxxx<br>colorname</i></td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>
+ Specifies the background color for a table</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tagsatt_table_border.asp" style="color: rgb(197,128,128);">border</a></td>
+    <td>1<br>0</td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>
+ Specifies whether or not the table is being used for layout purposes</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tagsatt_table_cellpadding.asp" style="color: rgb(197,128,128);">cellpadding</a></td>
+    <td><i>pixels</i></td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>Specifies the space between the cell wall and the cell content</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tagsatt_table_cellspacing.asp" style="color: rgb(197,128,128);">cellspacing</a></td>
+    <td><i>pixels</i></td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>Specifies the space between cells</td>
+  </tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/tagsatt_table_frame.asp" style="color: rgb(197,128,128);">frame</a></td>
+    <td>void<br>above<br>below<br>hsides<br>lhs<br>rhs<br>vsides<br>box<br>border</td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>Specifies which parts of the outside borders that should be visible</td>
+      </tr>
+      <tr>
+    <td><a href="https://www.w3schools.com/tagsatt_table_rules.asp" style="color: rgb(197,128,128);">rules</a></td>
+    <td>none<br>groups<br>rows<br>cols<br>all</td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>Specifies which parts of the inside borders that should be visible</td>
+      </tr>
+      <tr>
+    <td><a href="https://www.w3schools.com/tagsatt_table_summary.asp" style="color: rgb(197,128,128);">summary</a></td>
+    <td><i>text</i></td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>Specifies a summary of the content of a table</td>
+      </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tagsatt_table_width.asp" style="color: rgb(197,128,128);">width</a></td>
+    <td><i>pixels<br>
+      %</i></td>
+    <td><span style="color: #ff6000; background-color: transparent;">Not supported in HTML5.</span><br>Specifies the width of a table</td>
+  </tr>
+  </tbody></table>
 
-| Attributes for `<td>` | Purpose | Usage | Output |
-|-----------------------|---------|-------|--------|
-| `colspan` | Specifies the number of cells you want that column to span (cover) <br/> Possible values: positive integer number | `<td colspan="2">` | [View example](https://codepen.io/w3devcampus/pen/zEKoRg) | 
-| `rowspan` | Specifies the number of cells you want the row to span (cover) <br/> Possible values: positive integer number | `<td rowspan="2">` | [View example](https://codepen.io/w3devcampus/pen/PJGbeJ) | 
-| `headers` | Value is the 'id' of the `<th>` tag it corresponds to if any | `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<th id="header-id">` <br/> `</tr>` <br/> `<tr>` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> &nbsp;&nbsp;&nbsp;&nbsp; `<td headers="header-id">` <br/> `</tr>` | [View example](https://codepen.io/w3devcampus/pen/KXgNxr) | 
 
+### Attributes of the 'caption' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_caption.asp">Attributes of &lt;caption&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_caption_align.asp" style="color: #ff6000; background-color: transparent;">align</a></td>
+    <td>left<br>right<br>top<br>bottom</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>
+    Defines the alignment of the caption</td>
+  </tr>
+  </tbody></table>
+
+
+### Attributes of the 'tr' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_tr.asp">Attributes of &lt;tr&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tr_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>right<br>left<br>center<br>justify<br>char</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content in a table row</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tr_bgcolor.asp" style="color: rgb(197,128,128);">bgcolor</a></td>
+    <td><i>rgb(x,x,x)<br>#xxxxxx<br>colorname</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>
+ Specifies a background color for a table row</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tr_char.asp" style="color: rgb(197,128,128);">char</a></td>
+    <td><i>character</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content in a table row to a character</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tr_charoff.asp" style="color: rgb(197,128,128);">charoff</a></td>
+    <td><i>number</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Sets the number of characters the content will be aligned from the character specified by the char attribute</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tr_valign.asp" style="color: rgb(197,128,128);">valign</a></td>
+    <td>top<br>middle<br>bottom<br>baseline</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Vertical aligns the content in a table row</td>
+  </tr>
+</tbody></table>
+
+
+### Attributes of the 'th' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_th.asp">Attributes of &lt;th&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_abbr.asp">abbr</a></td>
+    <td><i>text</i></td>
+    <td>Specifies an abbreviated version of the content in a header cell</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>left<br>right<br>center<br>justify<br>char</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>
+    Aligns the content in a header cell</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_axis.asp" style="color: rgb(197,128,128);">axis</a></td>
+    <td><i>category_name</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br> Categorizes header cells</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_bgcolor.asp" style="color: rgb(197,128,128);">bgcolor</a></td>
+    <td><i>rgb(x,x,x)<br>#xxxxxx<br>colorname</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>
+ Specifies the background color of a header cell</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_char.asp" style="color: rgb(197,128,128);">char</a></td>
+    <td><i>character</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br> Aligns the content in a header cell to a character</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_charoff.asp" style="color: rgb(197,128,128);">charoff</a></td>
+    <td><i>number</i>&nbsp;</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br> Sets the number of characters the content will be aligned from the character specified by the char attribute</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_colspan.asp">colspan</a></td>
+    <td><i>number</i></td>
+    <td>Specifies the number of columns a header cell should span<br/>Usage: &lt;th colspan="2"&gt;<br/><a href="https://codepen.io/w3devcampus/pen/xXERVo">Example</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_headers.asp">headers</a></td>
+    <td><i>header_id</i></td>
+    <td>Specifies one or more header cells a cell is related to</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_height.asp" style="color: rgb(197,128,128);">height</a></td>
+    <td><i>pixels<br>
+ %</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>
+ Sets the height of a header cell</td>
+  </tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/att_th_nowrap.asp" style="color: rgb(197,128,128);">nowrap</a></td>
+    <td>nowrap</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>
+ Specifies that the content inside a header cell should not wrap</td>
+    </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_rowspan.asp">rowspan</a></td>
+    <td><i>number</i></td>
+    <td>Specifies the number of rows a header cell should span<br/>Usage: &lt;th rowspan="2"&gt;<br/><a href="https://codepen.io/w3devcampus/pen/WZGojz">Example</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_th_scope.asp">scope</a></td>
+    <td>col<br>colgroup<br>row<br>rowgroup</td>
+    <td>Specifies whether a header cell is a header for a column, row, or group of columns or rows<br/>Usage: &lt;th scope="row"&gt;<br/><a href="https://codepen.io/w3devcampus/pen/YrGpEG">Example</a></td>
+  </tr>
+  <tr>
+    <td>sorted</td>
+    <td>reversed<br><em>number</em><br>reversed <em>number</em><br><em>number</em> reversed</td>
+    <td>Defines the sort direction of a column</td>
+  </tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/att_th_valign.asp" style="color: rgb(197,128,128);">valign</a></td>
+    <td>top<br>middle<br>bottom<br>baseline</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br> Vertical aligns the 
+content in a header cell</td>
+    </tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/att_th_width.asp" style="color: rgb(197,128,128);">width</a></td>
+    <td><i>pixels<br>
+    %</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>
+ Specifies the width of a header cell</td>
+    </tr>
+</tbody></table>
+
+
+### Attributes of the 'td' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_td.asp">Attributes of &lt;td&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_abbr.asp" style="color: rgb(197,128,128);">abbr</a></td>
+    <td><i>text</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Specifies an abbreviated version of the content in a cell</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>left<br>right<br>center<br>justify<br>char</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content in a cell</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_axis.asp" style="color: rgb(197,128,128);">axis</a></td>
+    <td><i>category_name</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Categorizes cells</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_bgcolor.asp" style="color: rgb(197,128,128);">bgcolor</a></td>
+    <td><i>rgb(x,x,x)<br>#xxxxxx<br>colorname</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br> Specifies the background color of a cell</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_char.asp" style="color: rgb(197,128,128);">char</a></td>
+    <td><i>character</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content in a cell to a character</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_charoff.asp" style="color: rgb(197,128,128);">charoff</a></td>
+    <td><i>number</i>&nbsp;</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Sets the number of characters the content will be aligned from the character specified by the char attribute</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_colspan.asp">colspan</a></td>
+    <td><i>number</i></td>
+    <td>Specifies the number of columns a cell should span<br>Usage: &lt;td colspan="2"&gt;<br/><a href="https://codepen.io/w3devcampus/pen/zEKoRg">Example</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_headers.asp">headers</a></td>
+    <td><i>header_id</i></td>
+    <td>Specifies one or more header cells a cell is related <br/>Usage: <br/>&lt;tr&gt; <br/> &nbsp;&nbsp;&nbsp;&nbsp; &lt;th id="header-id"&gt; <br/> &lt;/tr&gt; <br/> &lt;tr&gt; <br/> &nbsp;&nbsp;&nbsp;&nbsp; &lt;td headers="header-id"&gt; <br/> &nbsp;&nbsp;&nbsp;&nbsp; &lt;td headers="header-id"&gt; <br/> &lt;/tr&gt;<br><a href="https://codepen.io/w3devcampus/pen/KXgNxr">Example</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_height.asp" style="color: rgb(197,128,128);">height</a></td>
+    <td><i>pixels<br>%</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br> Sets the height of a cell</td>
+  </tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/att_td_nowrap.asp" style="color: rgb(197,128,128);">nowrap</a></td>
+    <td>nowrap</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Specifies that the content inside a cell should not wrap</td>
+    </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_rowspan.asp">rowspan</a></td>
+    <td><i>number</i></td>
+    <td>Sets the number of rows a cell should span<br/>Usage: &lt;td rowspan="2"&gt;<br/><a href="https://codepen.io/w3devcampus/pen/PJGbeJ">Example</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_td_scope.asp" style="color: rgb(197,128,128);">scope</a></td>
+    <td>col<br>colgroup<br>row<br>rowgroup</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Defines a way to associate header cells and data cells in a table</td>
+  </tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/att_td_valign.asp" style="color: rgb(197,128,128);">valign</a></td>
+    <td>top<br>middle<br>bottom<br>baseline</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Vertical aligns the content in a cell</td>
+    </tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/att_td_width.asp" style="color: rgb(197,128,128);">width</a></td>
+    <td><i>pixels<br>
+    %</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br> Specifies the width of a cell</td>
+    </tr>
+</tbody></table>
+
+
+
+### Attributes of the 'colgroup' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_colgroup.asp">Attributes of &lt;colgroup&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_colgroup_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>left<br>right<br>center<br>justify<br>char</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content in a column group</td>
+      </tr>
+      <tr>
+    <td><a href="https://www.w3schools.com/att_colgroup_char.asp" style="color: rgb(197,128,128);">char</a></td>
+    <td><i>character</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content in a column group to a character</td>
+      </tr>
+      <tr>
+    <td><a href="https://www.w3schools.com/att_colgroup_charoff.asp" style="color: rgb(197,128,128);">charoff</a></td>
+    <td><i>number</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Sets the number of characters the content will be aligned from the character specified by the char attribute</td>
+        </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_colgroup_span.asp">span</a></td>
+    <td><i>number</i></td>
+    <td>Specifies the number of columns a column group should span</td>
+  </tr>
+        <tr>
+    <td><a href="https://www.w3schools.com/att_colgroup_valign.asp" style="color: rgb(197,128,128);">valign</a></td>
+    <td>top<br>middle<br>bottom<br>baseline</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Vertical aligns the content in a column group</td>
+    </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_colgroup_width.asp" style="color: rgb(197,128,128);">width</a></td>
+    <td><i>pixels<br>
+    %<br>
+ relative_length</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Specifies the width of a column group</td>
+  </tr>
+  </tbody></table>
+
+
+### Attributes of the 'col' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_col.asp">Attributes of &lt;col&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_col_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>left<br>right<br>center<br>justify<br>char</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Specifies the alignment of the content related to a &lt;col&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_col_char.asp" style="color: rgb(197,128,128);">char</a></td>
+    <td><i>character</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Specifies the alignment of the content related to a &lt;col&gt; element to a character</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_col_charoff.asp" style="color: rgb(197,128,128);">charoff</a></td>
+    <td><i>number</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Specifies the number of characters the content will be aligned from the character specified by the char attribute</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_col_span.asp">span</a></td>
+    <td><i>number</i></td>
+    <td>Specifies the number of columns a &lt;col&gt; element should span</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_col_valign.asp" style="color: rgb(197,128,128);">valign</a></td>
+    <td>top<br>middle<br>bottom<br>baseline</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Specifies the vertical alignment of the content related to a &lt;col&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_col_width.asp" style="color: rgb(197,128,128);">width</a></td>
+    <td><i>%<br>pixels<br>relative_length</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Specifies the width of a &lt;col&gt; element</td>
+  </tr>
+</tbody></table>
+
+
+### Attributes of the 'thead' tag
+
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_thead.asp">Attributes of &lt;thead&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_thead_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>right<br>left<br>center<br>justify<br>char</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content inside the &lt;thead&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_thead_char.asp" style="color: rgb(197,128,128);">char</a></td>
+    <td><i>character</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content inside the &lt;thead&gt; element to a character</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_thead_charoff.asp" style="color: rgb(197,128,128);">charoff</a></td>
+    <td><i>number</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Sets the number of characters the content inside the &lt;thead&gt; element will be aligned from the character specified by the char attribute</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_thead_valign.asp" style="color: rgb(197,128,128);">valign</a></td>
+    <td>top<br>middle<br>bottom<br>baseline</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Vertical aligns the content inside the &lt;thead&gt; element</td>
+  </tr>
+</tbody></table>
+
+
+### Attributes of the 'tbody' tag
+
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_tbody.asp">Attributes of &lt;tbody&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tbody_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>right<br>left<br>center<br>justify<br>char</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content inside the &lt;tbody&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tbody_char.asp" style="color: rgb(197,128,128);">char</a></td>
+    <td><i>character</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content inside the &lt;tbody&gt; element to a character</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tbody_charoff.asp" style="color: rgb(197,128,128);">charoff</a></td>
+    <td><i>number</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Sets the number of characters the content inside the &lt;tbody&gt; element will be aligned from the character specified by the char attribute</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tbody_valign.asp" style="color: rgb(197,128,128);">valign</a></td>
+    <td>top<br>middle<br>bottom<br>baseline</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span>
+    <br>Vertical aligns the content inside the &lt;tbody&gt; element</td>
+  </tr>
+</tbody></table>
+
+
+### Attributes of the 'tfoot' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_tfoot.asp">Attributes of &lt;tfoot&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tfoot_align.asp" style="color: rgb(197,128,128);">align</a></td>
+    <td>right<br>left<br>center<br>justify<br>char</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content inside the &lt;tfoot&gt; element</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tfoot_char.asp" style="color: rgb(197,128,128);">char</a></td>
+    <td><i>character</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Aligns the content inside the &lt;tfoot&gt; element to a character</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tfoot_charoff.asp" style="color: rgb(197,128,128);">charoff</a></td>
+    <td><i>number</i></td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Sets the number of characters the content inside the &lt;tfoot&gt; element will be aligned from the character specified by the char attribute</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_tfoot_valign.asp" style="color: rgb(197,128,128);">valign</a></td>
+    <td>top<br>middle<br>bottom<br>baseline</td>
+    <td><span style="color: #ff6000;  background-color: transparent;">Not supported in HTML5.</span><br>Vertical aligns the content inside the &lt;tfoot&gt; element</td>
+  </tr>
+</tbody></table>
 
 
 
@@ -1605,10 +2132,49 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 
 + Images used for decoration or presentation purposes should have an empty value for alt. `<img alt="">`
 
++ The alt attribute is meant to be an alternate source of information while the title attribute should provide additional information about the image.
+
++ The ['ismap' & 'usemap'](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-ismap-and-usemap-attributes) attributes
+  + the picture is an image with clickable areas
+  + e.g., a world map where different countries on the map can be clicked and navigates to another page like the country's wikipedia page
+  + 'ismap' attribute
+    + a boolean attribute
+    + create an image with the image source file and indicate a server-side image-map
+    + if click on a part of your image, navigate to the link indicated
+    + require to create a map file with these details and then add the location of this map file using the anchor element
+    + the href attribute points to the location of the map file
+    + used within the anchor element
+  + 'usemap' attribute
+    + like ismap but more widely used
+    + client-side image-maps
+    + NOT of type boolean but the name of the map with a '#' character preceding it
+    + use the `<area>` element as a child of `<map>` element to specify the coordinates and the page it should navigate to
+    + `<map>`: define a client-side image map
+    + `<area>`:
+      + define the areas clicked and naviated page
+      + shape of the area, coordinates of the area, and URL of the pag to redirect
+      + 'shape' attribute values: circle, rect, poly, and default
+      + [MND Specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
+  + cgi file:
+    + target areas within the image in terms of coordinates
+    + clicks on a part of the image, then calculate the exact 'x' and 'y' coordinates of the image that was clicked
+    + the browser will consult with the map file on the server (specified in the anchor tag) after clicking, by sending these mouse click coordinates to the server
+    + based on the coordination, return the target web page
+  + client-side image-maps vs. Client-side image-maps
+    + Server-side image-maps:
+      + use separate map files that have to be downloade
+      + depend on the server for translating the request
+      + depend on the server for translating the request
+    + Client-side image-maps
+      + reside within an HTML document
+      + the browser takes care of the translation (translating mouse coordinates clicked to corresponding Web pages)
+
+
 
 ### List of Attributes for Image Element
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-img-tag">Attributes of &lt;img&gt; tag</a></caption>
 <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="10%">Attribute</td>
@@ -1627,7 +2193,7 @@ Web Components is an HTML-related technology which makes it possible to, essenti
       </ul>
     </td>
     <td>
-      <p><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="example.png" alt="Example Tutorial Image"&gt;</span></p>
+      <p><span style="font-family: arial,helvetica,sans-serif;">&lt;img <span style="color: $ff6000; font-eright: bold;">src</span>="example.png" alt="Example Tutorial Image"&gt;</span></p>
     </td>
     <td>
       <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#image-src-attribute">Source18</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-img-tag">src19</a></p>
@@ -1640,7 +2206,7 @@ Web Components is an HTML-related technology which makes it possible to, essenti
     <td>
       <p><span style="font-family: arial,helvetica,sans-serif;">Provide a short description of what the image is about (must have)<br/>offer meaning to the image and suggests the purpose of the image content</span></p>
     </td>
-    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here"&gt;</span></td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" <span style="color: $ff6000; font-eright: bold;">alt</span>="Add a short text description of the image here"&gt;</span></td>
     <td>
       <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-alt-attribute">Alt Text</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#attribute-alt">alt</a></p>
     </td>
@@ -1650,9 +2216,9 @@ Web Components is an HTML-related technology which makes it possible to, essenti
     <td>
       <p><span style="font-family: arial,helvetica,sans-serif;">A global attribute to provide the title of the image</span></p>
     </td>
-    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" title="Add a title of the image"&gt;</span></td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" <span style="color: $ff6000; font-eright: bold;">title</span>="Add a title of the image"&gt;</span></td>
     <td>
-      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-title-attribute">Ttitle</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#global-attribute-title-">Global Ttitle</a>, <a href="/WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-title-attribute">title</a></p>
+      <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-title-attribute">Ttitle</a>, <a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#global-attribute-title-">Global Ttitle</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-title-attribute">title</a></p>
     </td>
   </tr>
   <tr>
@@ -1660,21 +2226,159 @@ Web Components is an HTML-related technology which makes it possible to, essenti
     <td>
       <p><span style="font-family: arial,helvetica,sans-serif;">Resize the image in pixels without using an external editor</span></p>
     </td>
-    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" height="hhh"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" width="www"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" width="www" height="hhh"&gt;</span></td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" <span style="color: $ff6000; font-eright: bold;">height</span>="hhh"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" <span style="color: $ff6000; font-eright: bold;">width</span>="www"&gt;</span><br/><br/><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="image/example.png" alt="Add a short text description of the image here" <span style="color: $ff6000; font-eright: bold;">width</span>="www" <span style="color: $ff6000; font-eright: bold;">height</span>="hhh"&gt;</span></td>
     <td>
       <p><a href="../WebDev/Frontend-W3C/1.HTML5CSS/02.Attributes.md#the-height-width-attributes">Size</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/02-Attributes.md#the-height-width-attributes">width&height</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>ismap</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Specifies an image as a server-side image-map</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="images/logo.png" alt="ismap tutorial" <span style="color: $ff6000; font-eright: bold;">ismap</span>&gt;</span></td>
+    <td>
+      <p><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-ismap-attribute">ismap</a>, <a href="https://www.w3schools.com/tags/att_img_ismap.asp">W3S</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>usemap</td>
+    <td>
+      <p><span style="font-family: arial,helvetica,sans-serif;">Specifies an image as a client-side image-map</span></p>
+    </td>
+    <td><span style="font-family: arial,helvetica,sans-serif;">&lt;img src="navigator.jpg" alt="Pages in this Web site" <span style="color: $ff6000; font-eright: bold;">usemap</span>="#navigatormap"&gt;</span></td>
+    <td>
+      <p><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-usemap-attribute">usemap</a>, <a href="https://www.w3schools.com/tags/att_img_usemap.asp">W3S</a></p>
     </td>
   </tr>
 </tbody>
 </table>
 
 
+### Attributes of the 'map' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_map.asp">Attributes of &lt;map&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/att_map_name.asp">name</a></td>
+    <td><i>mapname</i></td>
+    <td>Required. Specifies the name of an image-map</td>
+  </tr>
+</tbody></table>
+
+
+### Attributes of the 'area' tag
+
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_area.asp">Attributes of &lt;area&gt; tag</a></caption>
+  <thead><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="att_area_alt.asp">alt</a></td>
+    <td><i>text</i></td>
+    <td>Specifies an alternate text for the area. Required if the href attribute is present</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_coords.asp">coords</a></td>
+    <td><i>coordinates</i></td>
+    <td>Specifies the coordinates of the area</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_download.asp">download</a></td>
+    <td><i>filename</i></td>
+    <td>Specifies that the target will be downloaded when a user clicks on the hyperlink</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_href.asp">href</a></td>
+    <td><i>URL</i></td>
+    <td>Specifies the hyperlink target for the area</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_hreflang.asp">hreflang</a></td>
+    <td><i>language_code</i></td>
+    <td>Specifies the language of the target URL</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_media.asp">media</a></td>
+    <td><i>media query</i></td>
+    <td>Specifies what media/device the target URL is optimized for</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_nohref.asp" class="notsupported">nohref</a></td>
+    <td><i>value</i></td>
+    <td><span class="deprecated">Not supported in HTML5.</span><br>Specifies that an area has no associated link</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_rel.asp">rel</a></td>
+    <td>alternate, author, bookmark<br>help, license, next<br>nofollow, noreferrer, prefetch<br>prev, search, tag</td>
+    <td>Specifies the relationship between the current document and the target URL</td>
+      </tr>
+  <tr>
+    <td><a href="att_area_shape.asp">shape</a></td>
+    <td>default, rect<br>circle, poly</td>
+    <td>Specifies the shape of the area</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_target.asp">target</a></td>
+    <td>_blank, _parent<br>_self, _top<br>
+ <em>framename</em></td>
+    <td>Specifies where to open the target URL</td>
+  </tr>
+  <tr>
+    <td><a href="att_area_type.asp">type</a></td>
+    <td><i>media_type</i></td>
+    <td>Specifies the media type of the target URL</td>
+    </tr>
+</tbody></table>
+
 
 ## Audio Element
 
-### [Audio Tag][038]
+### Characteristics of Audio Elements
+
++ [&lt;audio&gt; tag](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-tag)
+  + embed audio in web page
+  + Any text within the &lt;audio&gt; tags will be displayed if the browser does not support the audio element. 
+  + should add such a message to provide better user experience
+
++ [File format](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-file-formats)
+  + using common audio file formats for browser compatibility
+  + Browser Compatibility [lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
+  + types of audio formats
+    + uncompressed (eg: WAV)
+    + lossless compressed (eg: MPEG-4, WMA Lossless)
+    + lossy compressed (eg: Opus, MPC, AAC, WMA Lossy)
+  + parts of audio format
+    + Ogg:
+      + a digital container format
+      + a specification that describes how different elements of data and metadata work in an audio file
+      + no information on how the data is compressed
+    + Opus
+      + a lossy audio coding format
+      + the encoding or decoding mechanism for that stream of audio
+
++ [&lt;source&gt; element](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#source-element-for-multiple-source-files)
+  + the same purpose as the src attribute in an audio element
+  + used to specify source files for the audio and video elements
+  + able to specify multiple source files
+  + trying try the source files in sequence if the browser not supported the previous format file
+
+
+
+### Attributes of the audio Tag
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-tag">Attributes of &lt;audio&gt; tag</a></caption>
 <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
@@ -1738,10 +2442,11 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 </table>
 
 
-### [Source Tag][039]
+### Attributes of the source Tag
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#audio-tag">Attributes of &lt;table&gt; tag</a></caption>
 <tbody>
   <tr>
     <th style="text-align: left; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
@@ -1768,9 +2473,57 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 
 ## Video Element
 
-### [Video Tag][040]
+### Characteristics of the video elements
+
++ The [&lt;video&gt;](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#video-element) tag
+  + embed video in web page
+  + specify the location of your video file using the src attribute or source element (for multiple source files)
+  + Any text within the &lt;video&gt; tags will be displayed if the browser does not support the video element.
+
++ The ['poster'](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#poster-attribute) attribute in &lt;video&gt; tag
+  + used to specify what picture shown before the video starts playing
+  + by default, simply the first frame of the video
+  + used to specify a different image, including a particular frame of the video or a real movie poster
+
++ [File formats](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#video-file-formats)
+  + use common video file formats for browser compatibility ensuring the highest probability that your video file will pla
+  + Browser Compatibility [lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
+  + types of video formats
+    + uncompressed
+    + lossless compressed: [list](https://en.wikipedia.org/wiki/List_of_codecs#Lossless_video_compression)
+    + lossy compressed: [list](https://en.wikipedia.org/wiki/List_of_codecs#Lossy_compression_2)
+      + select a range of compression rates
+      + the bigger the loss in quality and smaller the file size
+  + Most videos go through some form of compression to reduce redundancy in video files.
+  + three parts of H.264 and MP3 in MP4
+    + H.264: a video compression standard
+    + MP3: an audio coding format that uses lossy compression for sound in the video
+    + MP4: a digital container format, similar to Ogg in audio format; storing audio and video data rather than code the information
+
++ [source tag](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#source-element-for-multiple-source-files)
+  + used to specify multiple source files for the video element
+  + self-closing element
+  + trying video files in sequence if the browser doesn't support the previous file format
+  
++ [Track tag](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#track-element-for-captions-and-subtitles)
+  + used to add timed text like subtitles, captions or any text you would like to display to the user when the video is playing
+  + types of timed text
+    + Web Video Text Tracks (WebVTT) files: 
+      + the standard to include subtitles or captions
+      + [creation and format](https://w3c.github.io/webvtt/)
+  + [Caption vs Subtitle](https://www.alsintl.com/blog/subtitles-captions-difference/)
+    + Captions
+      + for the deaf or people who have difficulty hearing
+      + including sound effects and other significant audio like music and lyrics and is usually in the same language as the audio
+    + Subtitles: translate the language (for those who do not understand the language being spoken in the video)
+  + able to add multiple &lt;track&gt; tags in video element to add multiple subtitle/caption tracks
+  + self-closing elemnt
+
+
+### Attributes of the video Tag
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#video-element">Attributes of &lt;video&gt; tag</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
@@ -1840,9 +2593,10 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 </table>
 
 
-### [Source Tag][041]
+### Attributes of the source Element
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#source-element-for-multiple-source-files-1">Attributes of &lt;source&gt; tag</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; min-width: 5em;">Attribute</td>
@@ -1869,38 +2623,87 @@ Web Components is an HTML-related technology which makes it possible to, essenti
 </table>
 
 
-### [Track Element][042]
+### Attributes of the track Element
 
 
-<table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-  <thead>
-  <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="40%">Description</td>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="35%">Usage</td>
+<table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
+  <caption style="font-size: 1.5em;"><a href="https://www.w3schools.com/tags/tag_track.asp">Attributes of &lt;track&gt; tag</a></caption>
+  <tbody><tr>
+    <th style="background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:20%;">Value</th>
+    <th style="background-color: #3d64ff; color: #ffffff; width:60%;">Description</th>
   </tr>
-  </thead>
-  <tbody>
-  <tr>
+    <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_default.asp">default</a></td>
     <td>default</td>
-    <td>It is a boolean attribute. If you have multiple tracks for the same video file, you can specify which one is the default using this attribute. It can be used on one track element in a video. If you only have one track element, default should still be added to deliver the video with captions turned on in most browsers.</td>
     <td>
-      <p>&lt;video src="multimedia/small.mp4" controls&gt; <br/>
+      <p>Specifies that the track is to be enabled if the user's preferences do not indicate that another track would be more appropriate</p>
+      <p>It is a boolean attribute. If you have multiple tracks for the same video file, you can specify which one is the default using this attribute. It can be used on one track element in a video. If you only have one track element, default should still be added to deliver the video with captions turned on in most browsers.</p>
+      <p><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#track-element-for-captions-and-subtitles">Usage</a><br/>
+      &lt;video src="multimedia/small.mp4" controls&gt; <br/>
       &nbsp; &lt;track src="captions/small-en.vtt" label="english" default&gt;<br/>
       &nbsp; &lt;track src="captions/small-fr.vtt" label="French"&gt;<br/>
       &lt;/video&gt;</p>
     </td>
   </tr>
-  </tbody>
-</table>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_kind.asp">kind</a></td>
+    <td>captions<br>chapters<br>descriptions<br>metadata<br>subtitles</td>
+    <td>Specifies the kind of text track</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_label.asp">label</a></td>
+    <td><em>text</em></td>
+    <td>Specifies the title of the text track</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_src.asp">src</a></td>
+    <td><em>URL</em></td>
+    <td>Required. Specifies the URL of the track file</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.w3schools.com/tags/att_track_srclang.asp">srclang</a></td>
+    <td><i>language_code</i></td>
+    <td>Specifies the language of the track text data (required if kind="subtitles")</td>
+  </tr>
+</tbody></table>
+
 
 
 ## Embedded Content
 
-### [The iframe Tag][043]
+### Characteristics of Embedded Elements
+
++ The [iframe](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-iframes-tag) tag
+  + HTML Inline Frame Element
+  + generally used in Web pages to show external content/resources
+  + content not limited to other Web pages
+  + ablt to styled just like other elements, with borders, margins, sizes specified with CSS rules
+  + unable to identify if no borders, paddings, or margins specified
+  + accessibility: some Web sites disallow their inclusion, including facebook, google
+  + [W3C Specification](https://www.w3.org/TR/html5/embedded-content-0.html#the-iframe-element)
+  + [W3S Specification](https://www.w3schools.com/tags/tag_iframe.asp)
+  + Pros:
+    + Iframes load separately from the main page.
+      + block the main page's load command until its content finishes loading
+      + overcome with JS script
+    + Sandboxing provides security.
+    + Great for third party content.
+    + Convenient to use if requiring one part of a page static while the other changed
+  + Cons: 
+    + easy to misuse them
+    + poor accessibility:
+      + Screenreaders do not process them well
+      + overcome by notices for tthe reader
+    + no control over the content in an iframe to display
+    + search engines having trouble to access
+
+
+### The iframe Tag
 
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#the-iframes-tag">Attributes of &lt;iframe&gt; tag</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
