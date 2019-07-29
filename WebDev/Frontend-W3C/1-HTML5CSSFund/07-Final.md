@@ -327,6 +327,135 @@
 ## Final exam (25-35)
 
 
+25. Invisible border
+
+  True or False? An invisible border is the same as no border:
+  
+  Ans: False<br/>
+  Explication; A transparent border would be invisible, but could still have width and thus affect the layout of the page.
+
+
+26. Three blocks - negative margin
+
+  The next 3 questions (26, 27 and 28) refer to this image:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6be610c329d743c88824c48667c0d0ae/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40885d1392a8cb4d70a79fda91b960a2f4">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2c88627f0e19f0341e97ccb8775e40c1/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/quiz-2.png" style="margin: 0.1em;" alt="The image is composed of 3 boxes horizontally disposed. The first box is light green with a blue border and is identified by the words 'Block 1'. On its right, there are 2 other boxes. First, 'Block 2' is light-blue with a red border and, second, 'Block 3' is light-pink with a thick green border. 'Block3' is overlapping 'Block 2' on the left." title="Diagram for Q26~28" width="250">
+    </a></div>
+  </div>
+
+  Which of the boxes above has a negative margin-left?
+
+  1. None - negative margins aren't allowed
+  2. Block 2
+  3. Block 3
+  4. Block 1
+
+  Ans: 2<br/>
+  Explanation: Setting a negative margin-left will pull a box to the left. Since Block 3 is overlapping the box to the left, it must be Block 3.
+
+
+27. Three blocks - negative padding
+
+  Which of the boxes above has negative padding?
+
+  1. None - negative padding isn't allowed
+  2. Block 2
+  3. Block 3
+  4. Block 1
+  
+  Ans: 1 <br/>
+  Explication: The smallest padding allowed is 0, which is no padding. It can't be negative.
+
+
+28. Three blocks - border
+
+  Which of the boxes has the smallest border?
+
+  1. All the borders are the same width
+  2. Block 1
+  3. Block 3
+  4. Block 2
+  
+  Ans: 2 <br/>
+  Explication: Block 1, though larger than the other blocks, has the thinnest/smallest border.
+
+
+29. Debugging the box model
+
+  Use this image for the next 4 problems (29, 30, 31 and 32):
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6be610c329d743c88824c48667c0d0ae/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40885d1392a8cb4d70a79fda91b960a2f4">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6380d1a9d7502285764f236822d04974/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/quiz-3.png" style="margin: 0.1em;" alt="box model" title="Diagram for Q29~32" width="250">
+    </a></div>
+  </div>
+
+  True or False? Padding, border and margin are all equal to each other
+  
+  Ans: False<br/>
+  Explanation: According to the box diagram above, all three have different values.
+
+
+30. Debugging the box model - padding
+
+  True or False? Padding on all 4 sides is equal.
+  
+  Ans: True<br/>
+  Explication: According to the box diagram, padding is 32 pixels on all four sides.
+
+
+31. Debugging the box model - margin
+
+  True or False? There are no negative margins
+
+  Ans: True<br/>
+
+
+
+32. Debugging the box model - height
+
+  Assuming the border and background are visible, what is the height of the visible part of this element on the screen?
+
+  1. 126.219px
+  2. 89.219px
+  3. 94px
+  4. 57px
+  
+  Ans: 3
+
+
+33. Inspector
+
+  Use this image for the 3 following questions (33, 34 and 35):
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6be610c329d743c88824c48667c0d0ae/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40885d1392a8cb4d70a79fda91b960a2f4">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ae95260728fe37cc40491e2da960fcd3/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/quiz-4.png" style="margin: 0.1em;" alt="This image shows the style debugger tool with the following parameters: element.style has a 30px padding-right. The li element has a display attribute equals to list-item.There are 2 style attributes that are inherited from the ul element: list-style-type equals to none and font-size equals to 16px. The list-style-type of the ul element of the user agent stylesheet is striked out. The font-size attribute inherited from the body element is striked out." title="Diagram for Q33~35" width="250">
+    </a></div>
+  </div>
+
+  Name one property that has been overridden by a more specific rule
+  
+  Ans: font-size or list-style-type or padding-right
+
+
+34. Inspector - best practice
+
+  Does this code use the best practice of putting CSS Style rules into a separate .css file?
+  
+  Ans: No
+
+
+35. Inspector - numbering
+
+  Assuming the element is part of a list, are the list items automatically numbered?
+
+  Ans: No (xYes)<br/>
+  Explanation: First, it's an unordered list, second the list-style-type is "none", so there are no bullets or numbers on.
+
+
 
 
 ## Final exam (36-43)
