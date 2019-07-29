@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox variable</title>
+    <style>
+        body{ margin:0px; }
+        
+        .fc > * {
+            margin:10px;
+            padding:20px; 
+            background-color:lightgray;
+            border-radius: 10px;
+        }
+        
+        /* initialize flexbox container and flexbox items */
+        .fc { 
+            display:flex;
+            flex-flow: row wrap;
+        }
+        .fc > * { 
+            flex: 1; 
+        }
+        
+        /* header and footer should be full width */
+        .fc header,
+        .fc footer {
+            margin:0px;
+            flex: 0 1 100vw; 
+        }
+        
+        /* ensure flex-container is always at least as tall as the viewport. 
+           Keeps footer from coming up*/
+        .fc { min-height: 100vh; } 
+
+    </style>
+<!-- 
+
+HTML5 Semantic Category Tags
+============================
+- article
+- aside
+- details
+- main
+- section
+- summary
+- nav
+- header
+- footer
+
+-->
+</head>
+
+<body>
+    <div class="fc">
+        <header>Swanns Way - Overture</header>
+        <aside>For a long time I used to go to bed early. Sometimes, when I had put out my candle, my eyes would close so quickly that I had not even time to say &quot;I'm going to sleep.&quot;</aside>
+        <main>And half an hour later the thought that it was time to go to sleep would awaken me; I would try to put away the book which, I imagined, was still in my hands, and to blow out the light; I had been thinking all the time, while I was asleep, of what I had just been reading, but my thoughts had run into a channel of their own, until I myself seemed actually to have become the subject of my book: a church, a quartet, the rivalry between François I and Charles V. </main>
+        <section><p>This impression would persist for some moments after I was awake; it did not disturb my mind, but it lay like scales upon my eyes and prevented them from registering the fact that the candle was no longer burning.</p> </section>
+        <footer>by Marcel Proust</footer>
+    </div>
+</body>
+</html>
+
