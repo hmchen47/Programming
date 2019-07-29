@@ -269,7 +269,6 @@
 
 ## Module 7: Final exam
 
-+ [Final exam](07-Final.md#)
 + [Final exam (1-7)](07-Final.md#)
 + [Final exam (8-16)](07-Final.md#)
 + [Final exam (17-24)](07-Final.md#)
