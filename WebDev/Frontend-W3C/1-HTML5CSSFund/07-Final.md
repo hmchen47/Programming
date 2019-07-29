@@ -461,6 +461,103 @@
 ## Final exam (36-43)
 
 
+36. HTML entities
+
+  The HTML entity `&lt;` will result in which character appearing on the page?
+
+  1. `#`
+  2. `<`
+  3. `&`
+  4. `>`
+  
+  Ans: 2<br/>
+  Explanation: lt, as in the mathematical symbol 'Less Than'
+
+
+37. HTML entities - &
+
+  What HTML entity will result in an ampersand (&) ?
+  
+  Ans: `&amp;`<br/>
+  Explanation: `&amp;` results in an ampersand being displayed.
+
+
+38. Table identification - green border
+
+  The next 3 questions (38, 39 and 40) refer to this image:
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+2T2018/courseware/306cfa0313a449a29b2dbcb0b2afcb86/6be610c329d743c88824c48667c0d0ae/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B2T2018%2Btype%40vertical%2Bblock%40885d1392a8cb4d70a79fda91b960a2f4">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/946a724ff9ef1473ae29609b28b38f91/asset-v1:W3Cx+HTML5.0x+2T2018+type@asset+block/table_identification.png" style="margin: 0.1em;" alt="The image shows a table composed of 2 columns and 6 rows. The header of the 1st column has a green border. The 4th row has a red border and the last cell -- 2nd column and 6th row -- has a blue border" title="Diagram for Q38~40" width="250">
+    </a></div>
+  </div>
+
+  Which tag was used to define the area with the green border?
+
+  1. `<td>`
+  2. `<tr>`
+  3. `<th>`
+  4. `<table>`
+  
+  Ans: 3 <br/>
+  Explanation: 'th' as in 'Table Heading'
+
+
+39. Table identification - red border
+
+  Which tag was used to define the area with the red border?
+
+  1. `<td>`
+  2. `<tr>`
+  3. `<th>`
+  4. `<table>`
+  
+  Ans: 2<br/>
+  Explication: 'tr' as in 'Table Row'
+
+
+40. Table identification - blue border
+
+  Which tag was used to define the area with the blue border?
+
+  1. `<td>`
+  2. `<tr>`
+  3. `<th>`
+  4. `<table>`
+  
+  Ans: 1<br/>
+  Explication: 'td' as in 'Table Data'
+
+
+41. Inline element position
+
+  Which of the following CSS properties could affect the position of an inline element?
+
+  1. Neither margin-top nor padding-top nor border-top
+  2. padding-top
+  3. border-top
+  4. margin-top
+  
+  Ans: 1<br/>
+  Explication: For an inline element, margin, padding and border can affect the width of space taken up by the element. Height is not affected, e.g. margin-right and margin-left affect the width, but margin-top and margin-bottom are ignored.
+
+
+42. Borders and decorations
+
+  Which CSS property will let you put a border around an element?
+  
+  Ans: border<br/>
+  Explication: The border property will apply a border to an element. The more specific variants are border-style border-width and border-color. Additionally, the border-radius property can be used for rounded corners.
+
+
+43. Decorative images
+
+  Which CSS property will let you apply an image into the background of an element?
+
+  Ans: background-image<br/>
+  Explanation: Unsurprisingly, an image in the background is specified by 'background-image'.
+
+
 
 
 ## Final exam (44-52)
