@@ -1,15 +1,15 @@
 # HTML Color
 
 <table style="display: table; border-collapse: separate;border-spacing: 2px; border-color: grey; text-align: center;font-family: Helvetica, Verdana, sans-serif;">
-   <caption style="font-size: 1.2em;"><b><a href="https://www.w3.org/TR/css-color-3/#svg-color">Color names and <span class="index-inst" id="srgbval">sRGB</span>
+   <caption style="font-size: 2em;padding-bottom: 0.3em;"><b><a href="https://www.w3.org/TR/css-color-3/#svg-color">Color names and <span class="index-inst" id="srgbval">sRGB</span>
     values</a></b><br>
    <tbody>
     <tr>
-     <th style="background:black; min-width: 10vw;">Named
-     </th><th style="background:black; min-width: 10vw;">Numeric
-     </th><th style="background:black; min-width: 15vw;">Color name
-     </th><th style="background:black; min-width: 15vw;">Hex rgb
-     </th><th style="background:black; min-width: 15vw;">Decimal
+     <th style="background:black; font-size: 1.2em; min-width: 10vw;">Named
+     </th><th style="background:black; font-size: 1.2em; min-width: 10vw;">Numeric
+     </th><th style="background:black; font-size: 1.2em; min-width: 15vw;">Color name
+     </th><th style="background:black; font-size: 1.2em; min-width: 15vw;">Hex rgb
+     </th><th style="background:black; font-size: 1.2em; min-width: 15vw;">Decimal
     </th></tr><tr>
      <td style="background:aliceblue"> </td><td style="background:#f0f8ff"> </td><td><dfn style="font-weight:bolder;">aliceblue</dfn> </td><td style="text-transform: uppercase;">#f0f8ff </td><td style="text-transform: uppercase;">240,248,255
     </td></tr><tr>

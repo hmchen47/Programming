@@ -297,9 +297,11 @@ So, in the example above:
 
 ### Knowledge checks
 
+
 <div>
 <h3 style="margin-left: -3rem; background: lightblue; z-index: -100;">What is my margin?</h3>
 </div>
+
 
 1. Likely setting?
 

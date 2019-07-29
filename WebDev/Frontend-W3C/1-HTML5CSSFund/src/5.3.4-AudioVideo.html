@@ -1,0 +1,56 @@
+
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> 5.3.4 Audio & Video Elements </title>
+
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" type="text/css" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+  </style>
+</head>
+<body style="margin: 3em;"">
+  <p>Single sudio file: <br/><audio src="https://kozco.com/tech/piano2.wav" type="audio/wav" controls /></p>
+
+  <p>Multiple audio files: (both ok)<br/>
+    <audio controls>
+      <source src="https://kozco.com/tech/piano2.wav" type="audio/wav"/>
+      <source src="https://kozco.com/tech/piano2-CoolEdit.mp3" type="audio/mpeg" />
+    </audio>
+  </p>
+
+  <p>Multiple audio files: (2nd ok)<br/>
+    <audio controls>
+      <source src="https://kozco.com/tech/piano2x.wav" type="audio/wav"/>
+      <source src="https://kozco.com/tech/piano2-CoolEdit.mp3" type="audio/mpeg" />
+    </audio>
+  </p>
+
+  <p>Multiple audio files: (both NG)<br/>
+    <audio controls>
+      <source src="https://kozco.com/tech/piano2x.wav" type="audio/wav"/>
+      <source src="https://kozco.com/tech/piano2-CoolEditx.mp3" type="audio/mpeg" />
+      Your browser does not support HTML5 audio.
+    </audio>
+  </p>
+  <br/><hr/>
+
+  <p><a href="http://www.storiesinflight.com/js_videosub/">Video source</a></p>
+
+  <p>Video file w/ original size: <br/>
+    <video src="http://www.storiesinflight.com/js_videosub/jellies.mp4" controls />
+  </p>
+
+  <p>Video file w/ enlarged size: <br/>
+    <video width="450" height="250" controls>
+      <source src="http://www.storiesinflight.com/js_videosub/jellies.mp4" type="video/mp4" />
+      <track src="http://www.storiesinflight.com/js_videosub/jellies.srt" kind="captions" srclang="en-US" label="English" default>
+      Your browser does not support HTML5 video.
+    </video>
+  </p>
+  
+</body>
+</html>
