@@ -63,7 +63,8 @@
   + [Browser Compatibility]()
   + [WC3 Named character references](https://www.w3.org/TR/2011/WD-html5-20110113/named-character-references.html)
   + [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html)
-
+  + [Web Content Accessibility Guidelines (WCAG) Overview](https://www.w3.org/WAI/intro/wcag.php)
+  + [Setting language preferences in a browser](http://www.w3.org/International/questions/qa-lang-priorities)
 
 
 ### HTML Layout Elements
@@ -185,6 +186,9 @@
 
 + Always declare the language of your page in the `<html>` tag
 
++ [Accessibility Resources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#wai-resources)
+
++ [International Language Resurces](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-resources)
 
 ### Debugging
 
