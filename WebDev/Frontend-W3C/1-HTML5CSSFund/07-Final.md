@@ -1,6 +1,6 @@
 # Module 7: Final exam
 
-## Final exam
+## Final exam (1-7)
 
 
 1. HTML and CSS
@@ -84,13 +84,139 @@
 
 
 
-## Final exam (1-7)
-
-
-
-
 ## Final exam (8-16)
 
+
+8. Image
+
+  The `<img>` element supports several attributes, but two of them are always required.
+
+  Which two attributes are always required for an img element? (select all that apply -- 2 correct answers!)
+
+  1. src
+  2. title
+  3. alt
+  4. width
+  5. height
+
+  Ans: 13<br/>
+  Explanation: Any image tag needs the image, indicated by the 'src' attribute, and alternate text for screen readers, defined by the 'alt' attribute.
+
+
+9. Image size
+
+  Imagine you have a PNG file that's 400 pixels wide and 300 pixels tall. We include it onto the Web page and attempt to resize it with the following:
+
+  ```html
+  <img src="image.png" alt="kitten!" width="200">
+  ```
+
+  How tall will the image be when it appears in the browser?
+
+  1. 100 pixels
+  2. 150 pixels (aspect ratio preserved)
+  3. 200 pixels (same as the adjusted width)
+  4. 300 pixels (the original height)
+
+  Ans: 2<br/>
+  Explanation: If only one dimension is set on an `<img>` then the browser will automatically adjust its other dimension such that the original aspect ratio is preserved and the image is not "warped".
+
+
+10. Identification
+
+  Which of the following demonstrate correct syntax for applying an attribute to a tag? (select all that apply -- 2 correct answers!)
+
+  1. `<img src="flower.png" alt = lovely daffodils>`
+  2. `<ol reversed>`
+  3. `<p id="opening">`
+  4. `</p id="opening">`
+  5. `<a href="http://wikipedia.org>`
+
+  Ans: 23<br/>
+  Explanation: The 'alt' attribute takes a single string, but without quotes the space is seen as a separator. Also, Quotation marks must match, for ever open there is a close. Closing tags do not have attributes.
+  
+
+11. Attributes
+
+  Can an attribute be applied multiple times to the same element?
+  
+  Ans: No <br/>
+  Explication: Any given attribute may only be applied once to an element.
+
+
+12. Attributes and classes
+
+  Which of the following demonstrates the __correct__ way to apply multiple classes to a single element?
+
+  1. No element can have multiple classes
+  2. `<li class="bird flightless">penguin</li>`
+  3. `<li class="bird" class="flightless">penguin</li>`
+
+  Ans: 2<br/>
+  Explication: A 'class' attribute can take multiple classes as a string of space separated classnames, but it can only be specified once in the tag.
+
+
+13. Attributes and identifiers
+
+  Which of the following demonstrates the __correct__ way to apply multiple identifiers to a single element?
+
+  1. No element can have multiple ids
+  2. `<p id="first-paragraph dorothea">Ms. Brooke</p>`
+  3. `<p id="first-paragraph" id="dorothea">Ms. Brooke</p>`
+
+  Ans: 1<br/>
+  Explication: Because identifiers are unique ways of referencing an element, the id can only be used once and each element can have only one id.
+
+
+14. Hyperlinks
+
+  Examine this snippet of HTML:
+
+  `<a href="#footnote">Footnote</a>`
+  
+  Which of the following statements are true about the snippet above?
+
+  1. The hyperlink will open a new window
+  2. The hyperlink will take the user to another page, footnote.html
+  3. The hyperlink will take the user to some other element on the page that has id="footnote"
+  4. It is not a valid hyperlink
+
+  Ans: 3<br/>
+  Explanation: '#idName' is the format for referring to an id, both in this case and in CSS. This allows linking to a particular point in a page, not just the top.
+
+
+15. The `<details>` tag
+
+  The `<details>` tag is used in conjunction with which other tag?
+
+  1. `<mark>`
+  2. `<information>`
+  3. `<summary>`
+  4. `<li>`
+
+  Ans: 3<br/>
+  Explanation: The `<details>` tag is used in conjunction with the `<summary>` tag.
+
+  ```html
+  <details>
+    <summary>Mary Ann Evans greatest author ever</summary>
+    <p>Middlemarch is the greatest book ever. Middlemarch was written by George Eliot. George Eliot
+      was the pen name of Mary Ann Evans.  Ergo, Mary Ann Evans is the greatest author ever.</p>
+  </details>
+  ```
+
+
+16. More details...
+
+  What do the `<details>` tag and the answer to the previous question do when used together?
+
+  1. They do nothing special
+  2. Define a hyperlink that will jump between the two sections
+  3. Show a disclosure triangle that can be "opened" to see the other contents of the <details>
+  4. Display a caption that accompanies an image
+
+  Ans: 3 <br/>
+  Explanation: Normally a summary is shown unless details are requested, by clicking on the disclosure icon.
 
 
 
