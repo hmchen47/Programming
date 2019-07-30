@@ -1,0 +1,52 @@
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> 2.5.5 Hyperlink - Page 1 </title>
+
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+  </style>
+</head>
+<body>
+  <h1>This page 1</h1>>
+  <h3>Jump to another page</h3>
+
+  See <a href="2.5.5-Hyperlink2.html">page 2</a> for more information
+
+  <h3>Target attribute</h3>
+
+  Open page 2 in a <a href="2.5.5-Hyperlink2.html" target="_blank">new window</a> for more information
+
+  <h3>Visit another destination</h3>
+
+  Remember to <a href="http://www.edx.org" target="_blank">Always Be Learning</a>!
+
+  <h3>Download a file</h3>
+
+  Download our <a href="assets/gradient.txt" download>instructions</a> on how to be smart
+
+  <h3>Jump to another section</h3>
+
+  Skip to the <a href="#importantStuff">important stuff</a>.
+
+  <p>The plugin itself is more than just a simple font-size incrementer. I wasn’t happy with the performance of simply iterating through font sizes with a single fixed interval. I decided it would be better to test multiple decreasing intervals. For each line, it increments first by 16em until it detects a line break, backs off an interval then increments by 8em. It continues with 4em, 2em, 1em, 0.1em, until it finds the correct font-size to the nearest hundredth of an em. It’s noteworthy that Webkit does not respect font-sizes to the nearest hundredth, it’s precision is maxed out at tenths. This algorithm results in fewer tests in most cases, especially where the resulting font-size will be very large. Performance is always important. After font-size, it moves to word-spacing as a backup for extra precision, especially needed on Webkit.</p>
+
+  <p>We know that we want to go in the opposite direction of the derivative (since we are trying to ‘go away’ from the error) and we know we want to be making a step proportional to the derivative. This step is controlled by a parameter λ known as the learning rate. Our new weight is the addition of the old weight and the new step, whereby the step was derived from the loss function and how important our relevant parameter is in influencing the learning rate (hence the derivative).</p>
+
+  <p>While batch gradient descent converges to the minimum of the basin the parameters are placed in, SGD's fluctuation, on the one hand, enables it to jump to new and potentially better local minima. On the other hand, this ultimately complicates convergence to the exact minimum, as SGD will keep overshooting. However, it has been shown that when we slowly decrease the learning rate, SGD shows the same convergence behaviour as batch gradient descent, almost certainly converging to a local or the global minimum for non-convex and convex optimization respectively.
+    Its code fragment simply adds a loop over the training examples and evaluates the gradient w.r.t. each example. Note that we shuffle the training data at every epoch as explained in this section.</p>
+
+  <p>This blog post aims at providing you with intuitions towards the behaviour of different algorithms for optimizing gradient descent that will help you put them to use. We are first going to look at the different variants of gradient descent. We will then briefly summarize challenges during training. Subsequently, we will introduce the most common optimization algorithms by showing their motivation to resolve these challenges and how this leads to the derivation of their update rules. We will also take a short look at algorithms and architectures to optimize gradient descent in a parallel and distributed setting. Finally, we will consider additional strategies that are helpful for optimizing gradient descent.</p>
+
+  <p>This way, it a) reduces the variance of the parameter updates, which can lead to more stable convergence; and b) can make use of highly optimized matrix optimizations common to state-of-the-art deep learning libraries that make computing the gradient w.r.t. a mini-batch very efficient. Common mini-batch sizes range between 50 and 256, but can vary for different applications. Mini-batch gradient descent is typically the algorithm of choice when training a neural network and the term SGD usually is employed also when mini-batches are used. Note: In modifications of SGD in the rest of this post, we leave out the parameters x(i:i+n);y(i:i+n) for simplicity.</p>
+
+  <p>Again, we set the momentum term γ to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (red vector), which results in the complete NAG update (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [7].</p>
+
+  <h2 id="importantStuff">You found me!</h2>
+
+</body>
+</html>

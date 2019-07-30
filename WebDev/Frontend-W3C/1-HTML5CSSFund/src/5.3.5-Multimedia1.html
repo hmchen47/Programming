@@ -1,0 +1,33 @@
+
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> 5.3.5 Multimedia Q1 </title>
+
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" type="text/css" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+  </style>
+</head>
+<body>
+  <p>Requirements: Embed an audio file in an HTML page with the following requirements:
+    <ul>
+      <li>Player has controls to play, pause, seek, etc.</li>
+      <li>Audio must automatically start playing when page loads</li>
+      <li>Audio must be muted when playback begins</li>
+    </ul>
+  </p>
+
+  <p> The file is an <a href="http://soundbible.com/1905-Thunder-02.html">audio test file</a> with thunder sound for 4-sec duration. <br/> <br/>
+    <audio controls autoplay muted loop>
+      <source src="http://soundbible.com/grab.php?id=1905&type=wav" type="audio/wav"/>
+      <source src="http://soundbible.com/grab.php?id=1905&type=mp3" type="audio/mpeg"/>
+      Your browser does not support the <code>audio</code> element.
+    </audio>
+  </p>
+</body>
+</html>
+

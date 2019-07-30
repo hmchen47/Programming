@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic Elements complete example</title>
+</head>
+
+<body>
+    
+<!--Our global header-->
+    <header>
+        <h1>HTML5</h1>
+        <h2>Table of Contents</h2>
+        
+<!--    Navigation can be on its own or within the header element-->
+        <nav>
+            <ol>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#logo">Logo</a></li>
+                <li><a href="#ref">References</a></li>
+            </ol>
+        </nav>
+    </header>
+    
+<!--The main content of our page starts here-->
+    <main>
+        
+<!--    Our introduction is within an article element because this content can make sense on its own-->
+        <article>
+            
+            <header id="intro">
+                <h2>Introduction</h2>
+            </header>
+            
+            <p>HTML5 stands for HyperText Markup Language. It is used to create content on the world wide web like webpages. HTML5 is the fifth revision of the language's standard. It was published in October 2014, 17 years after HTML4 was standardized.</p>
+            <p>HTML5 aims to provide improved support for latest multimedia. It also reduced dependency on plugins and APIs providing a common interface making loading elements easier...</p>
+            
+<!--        This is an example of aside. The mark element has also been showcased in the paragraph. -->
+            <aside>
+                <h4>API</h4>
+                <p>API stands for Application Programming Interface. It is a set of routines, protocols, and tools for building software and applications.
+                    <mark>This content uses the aside element.</mark> This is only for semantic meaning and so doesn't carry any instructions for presentation. It will appear like a normal paragraph in your document. If you wish to include this in a sidebar, you will have to provide the appropriate markup and styling for it.</p>
+            </aside>
+            
+        </article>
+        
+<!--    Our history section-->
+        <section>
+            
+            <header id="history">
+                <h2>History</h2>
+            </header>
+            
+            <p>HTML5 is based on a position paper presented by Mozilla Foundation and Opera Software at the W3C workshop in 2004. The Web Hypertext Application Technology Working Group (WHATWG) was formed to start work on this...</p>
+            
+        </section>
+        
+<!--    Our features section with smaller headings-->
+        <section>
+            
+            <header id="features">
+                <h2>Features</h2>
+                <h4>Keeping up with times</h4>
+            </header>
+            
+            <p>HTML5 introduced elements and attributes that fits the typical usage in modern websites. It introduced new semantic elements to replace generic blocks like div and span. Purely presentation elements such as font and center have also been completely dropped...</p>
+            
+            <h4>New APIs</h4>
+            <p>New APIs were introduced to allow cross-document communication, drag and drop functionality, immediate mode 2D drawing using the canvas element, webstorage etc...</p>
+            
+            <h4>Error Handling</h4>
+            <p>HTML5 provides detailed rules for parsing allowing HTML5 compliant browsers to produce the same type of behavior when parsing incorrect syntax. It has been designed for compatibility with older browsers. Older browsers ignore new HTML5 constructs... </p>
+            
+        </section>
+        
+<!--    Our logo section show hows to use the semantic elements figure and figcaption-->
+        <section>
+            
+            <header id="logo">
+                <h2>Logo</h2>
+            </header>
+            
+            <figure>
+                <img src="http://courses.edx.org/asset-v1:W3Cx+HTML5.0x+1T2017+type@asset+block@html5_logo.png" alt="HTML5 Logo">
+                <figcaption>Fig1. - The HTML5 logo made official in April 2011</figcaption>
+            </figure>
+            
+        </section>
+        
+<!--Our references section concludes the main content of this page-->
+        <section>
+            
+            <header id="ref">
+                <h2>References</h2>
+            </header>
+            
+            <p>Contents of this sample have been adapted from the <a href="https://en.wikipedia.org/wiki/HTML5" target="_blank">HTML5 page on Wikipedia</a>
+            </p>
+            
+        </section>
+        
+    </main>
+
+<!--Our global footer where you would typically specify copyright, author, contact info and a footer navigation bar-->
+    <footer>
+        <p>Copyrights information...</p>
+<!--        We show our authors and contact details using the details and summary elements. Expand to show content. -->
+        <details>
+            <summary>Authors</summary>
+            <p>Author1</p>
+            <p>Author2</p>
+        </details>
+        <details>
+            <summary>Contact</summary>
+<!--            Using nav within summary element-->
+            <nav>
+<!--                Styling has been added to make nav menu in a horizontal row-->
+                <ul style="margin: 0; padding: 0; list-style-type: none;">
+                    <li style="display: inline;"><a href="#" style="text-decoration: none; padding: .2em 1em;">email</a></li>
+                    <li style="display: inline;"><a href="#" style="text-decoration: none; padding: .2em 1em;">twitter</a></li>
+                    <li style="display: inline;"><a href="#" style="text-decoration: none; padding: .2em 1em;">facebook</a></li>
+                    <li style="display: inline;"><a href="#" style="text-decoration: none; padding: .2em 1em;">GitHub</a></li>
+                </ul>
+            </nav>
+        </details>
+    </footer>
+
+</body>
+
+</html>
+

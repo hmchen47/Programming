@@ -1,0 +1,12 @@
+h1{
+  color:blue; 
+  font-size: 2rem;
+}
+article h1{
+  color: black; 
+  font-size: 1.4rem;   
+}
+section h1{
+  color:grey; 
+  font-size:1.2rem;
+}

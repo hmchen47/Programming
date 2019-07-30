@@ -56,6 +56,8 @@ Contents
 
 ## Reference Cards
 
+### Web Design
+
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
   <tr style="border-bottom: double black;">
@@ -64,128 +66,211 @@ Contents
   </tr>
   </thead>
   <tbody>
+
+  <!-- HTML -->
+
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Hypertext Markup Language (HTML) </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Best Practices </th>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Info </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#template"> Template </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#useful-references-tool-links"> References & Tools </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#html-layout-elements"> Layout </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#comments-"> Comment Syntax </a></td>
-  </a></tr>
+  </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#utf-8-meta-charset-utf-8-in-head-section"> UTF-8</a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#named-characters"> Named Characters </a></td>
-    <td style="padding: 0.3em;">  </td>
-    <td style="padding: 0.3em;">  </td>
-  </a></tr>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#recommendations-misc-"> Recommendations </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#accessibility"> Accessibility </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#debugging"> Debugging </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> </a></td>
+  </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Element & Tag </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#tags"> Tags </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#semantic-elements"> Elements </a> </td>
-    <td style="padding: 0.3em;">  </td>
+    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Elements </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#definition-and-characteristics-of-elements"> Definition </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#document-metadata"> Document metadata </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#sectioning-root"> Section root </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#content-sectioning"> Content sectioning </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#text-content"> Text content </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#inline-text-semantic"> Inline text </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#image-and-multimedia"> Image & Multimedia </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#embedded-content"> Embedded content </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#scripting"> Scripting </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#demarcating-edits"> Demarcating edit </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#table-content"> Table content </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#forms"> Forms </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#interactive-element"> Interactive </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#web-component"> Web Components </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-typical-semantic-elements"> Typical </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#">  </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Tags </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#definition-and-characteristics-of-tags"> Definition </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#comment-tags"> Comment </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-typical-tags"> List </a> </td>
     <td style="padding: 0.3em;">  </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Attributes </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-global-attributes"> Global Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#definition-and-characteristics-0f-attributes"> Definition </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-global-attributes"> Global </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#event-handler-attributes"> Event Handler </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#non-global-attributes"> Non-global </a> </td>
-    <td style="padding: 0.3em;">  </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Table </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#table-element"> Table </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-th-tag"> Cell Header </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-td-tag"> Cell Data </a>  </td>
-    <td style="padding: 0.3em;">  </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hyperlink </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#characteristics-of-hyperlink"> Characteristics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> Attribute </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Multimedia Elements </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#image-element"> Image Element</a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#audio-tag"> Audio Tag </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#source-tag"> Audio Source </a> </td>
-    <td style="padding: 0.3em;">  </td>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Table </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-table-elements"> Element </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-table-tag"> Table Attribute </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-caption-tag"> Caption Attribute </a>  </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-tr-tag"> Row Attribute </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#video-tag"> Video Tag </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#source-tag-1"> Video Source </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#track-element"> Video Track </a> </td>
-    <td style="padding: 0.3em;"> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-th-tag"> Heading Attribute</a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-td-tag"> Cell Data Attribute </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-colgroup-tag"> Colgroup Attribute </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-col-tag"> Column Attribute </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-thead-tag"> Header Attribute</a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-tbody-tag"> Body Attribute</a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-tfoot-tag"> Footer Attribute</a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Embedded Element </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-iframe-tag"> iframe Tag </a> </td>
-    <td style="padding: 0.3em;"> </td>
-    <td style="padding: 0.3em;"> </td>
-    <td style="padding: 0.3em;"> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Image Elements </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#characteristics-of-image-element"> Characteristics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#list-of-attributes-for-image-element"> Image Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-map-tag"> Map Attribute </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-area-tag"> Area Attributes </a> </td>
   </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Audio Elements </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#characteristics-of-audio-elements"> Characteristics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-audio-tag"> Audio Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-source-tag"> Source Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#">  </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Video Elements </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#characteristics-of-the-video-elements"> Characteristics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-video-tag"> Video Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-source-element"> Source Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#attributes-of-the-track-element"> Track Attributes </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Embedded Elements </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-iframe-tag"> Characteristics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-iframe-tag"> Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-iframe-tag"> Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-iframe-tag"> Attributes </a> </td>
+  </tr>
+
+  <!-- CSS -->
 
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Cascading Style Sheet (CSS) </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-design-principles-css-2-2-"> Design Principles </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#effective-use-of-style-sheets"> Effective Use </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-best-practice"> Best Practices </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#tools"> Tools </a></td>
-  </a></tr>
+  </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#usage"> Usage </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-syntax"> Syntax </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#measurement-units"> Measurement </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#comment"> Comment </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#debugging"> Debugging </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#accessibility"> Accessibility </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#internationalization"> Internationalization </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> CSS Values & Units </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-value-types-functions"> Types </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#relative-length"> Relative Length </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#absolute-length"> Absolute Length </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Selector </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-selector-reference"> Reference </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#lecture-note"> Lecture Note </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#tree-presentation-inheritance"> Inheritance </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-precedence"> Precedence </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#definition-of-selectors"> Definition </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#list-of-css-selectors"> List </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#commonly-used-selectors"> Commonly Used </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#styling-with-pseudo-class"> Pseudo Class </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#styling-with-pseudo-class"> Pseudo class </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#tree-presentation-inheritance"> Inheritance </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-precedence"> Precedence </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Common Properties </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#color-properties"> Color </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Color.md"> Color Names & sRGB </a> </td>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Common Properties </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#font-property"> Font </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#spacing-property"> Spacing </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#item-list-properties"> Item List </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#image-related-properties"> Image </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#background-properties"> Background </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#spacing-property"> Image </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#alignment-property"> Alignment </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#element-width-and-height"> Height & Width </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#floating-property"> Floating </a></td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#position-property"> Position </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#table-properties"> Table </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#cropping-and-scrolling"> Cropping & Scrolling </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#floating-property"> Floating </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a></td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Box Model </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#"> Properties </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Color </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#format-of-color"> Format </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#list-of-color-properties"> Properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#important-references"> References </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Position Properties </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#position-property"> properties </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#position-characteristics"> Characteristics </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Box Model </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#model-and-characteristics"> Characteristics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#box-sizing"> Sizing </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#model-properties"> Properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Positioning Properties </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#list-of-positioned-properties"> Positioned Properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#characteristics-of-position-property"> Position Property </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
@@ -193,31 +278,36 @@ Contents
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Display Flow </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#display-syntax"> Syntax </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#display-type-of-elements"> Element Type </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#display-characteristics"> Characteristics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Sizing </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Sizing and Dimensioning </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#characteristics-of-size-dimensions"> Concepts </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#global-sizing"> Global </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#box-sizing"> Box </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#characteristics-of-overflow"> Overflow </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#list-of-overflow-properties"> Overflow properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#values-of-overflow-propery"> Overflow Values </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Flexbox </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#basic-concepts-of-flexbox"> Concept </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Flexible Box </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#basic-concepts-of-flexbox"> Concepts </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#flexbox-property"> Property </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#alignment-properties"> Alignment </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> head </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Grid Layout </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#concepts-of-css-grid"> Concepts </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#list-of-css-grid-properties"> Properties </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
@@ -232,9 +322,10 @@ Contents
   </tbody>
 </table>
 
+<br/>
+<hr/>
+<br/>
 
-
-----------------------------
 
 ## Keywords for Git Commits
 

@@ -1,0 +1,18 @@
+nav {
+ background: aliceblue;
+ width: 12rem;
+}
+img {
+  width: 300px;
+}
+
+article {
+  margin-left: 3rem;
+ }
+
+h1 {
+  text-align: center;
+  background: blue;
+  color: white;
+ }
+ 

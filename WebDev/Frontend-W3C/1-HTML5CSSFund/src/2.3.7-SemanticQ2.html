@@ -1,0 +1,121 @@
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> My Web Page Title </title>
+
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+  </style>
+</head>
+<body>
+  <header style="text-align: center;">
+    Articles related to Neural Networks
+  </header>
+  <article>
+    <h1>Introduction to Neural Networks</h1>
+    <section>
+      <p>This article is the first in a series of articles aimed at demystifying the theory behind neural networks and how to design and implement them. The article was designed to be a detailed and comprehensive introduction to neural networks that is accessible to a wide range of individuals: people who have little to no understanding of how a neural network works as well as those who are relatively well-versed in their uses, but perhaps not experts. In this article, I will cover the motivation and basics of neural networks. Future articles will go into more detailed topics about the design and optimization of neural networks and deep learning.</p>
+
+      <p>These tutorials are largely based on the notes and examples from multiple classes taught at Harvard and Stanford in the computer science and data science departments.</p>
+
+      <p>All the code that is discussed in this and subsequent tutorials on the topics of (fully connected) neural networks will be accessible through my <strong>Neural Networks</strong> GitHub repository, which can be found at the link below.</p>
+    </section>
+    <section>
+      <h2>The motivation for Neural Networks</h2>
+
+      <p>Untrained neural network models are much like new-born babies: They are created ignorant of the world (if considering <i>tabula rasa</i> epistemological theory), and it is only through exposure to the world, i.e. <i>a posteriori</i> knowledge, that their ignorance is slowly revised. Algorithms experience the world through data — by training a neural network on a relevant dataset, we seek to decrease its ignorance. The way we measure progress is by monitoring the error produced by the network.</p>
+
+      <p>Before delving into the world of neural networks, it is important to get an understanding of the motivation behind these networks and why they work. To do this, we have to talk a bit about logistic regression.</p>
+
+      <p><mark>Methods that are centered around modeling and prediction of a <strong>quantitative</strong> response variable (e.g. number of taxi pickups, number of bike rentals) are called regressions (and Ridge, LASSO, etc.). When the response variable is <strong>categorical</strong>, then the problem is no longer called a regression problem but is instead labeled as a classification problem.</mark></p>
+    </section>
+    <section>
+      <h2>Gradient Descent</h2>
+
+      <p>Gradient descent is an iterative method for finding the minimum of a function. There are various flavors of gradient descent, and I will discuss these in detail in the subsequent article. This blog post presents the different methods available to update the weights. For now, we will stick with the vanilla gradient descent algorithm, sometimes known as the delta rule.</p>
+
+      <p>We know that we want to go in the opposite direction of the derivative (since we are trying to ‘go away’ from the error) and we know we want to be making a step proportional to the derivative. This step is controlled by a parameter λ known as the learning rate. Our new weight is the addition of the old weight and the new step, whereby the step was derived from the loss function and how important our relevant parameter is in influencing the learning rate (hence the derivative).
+
+      <details><img src="https://cdn-images-1.medium.com/max/1500/1*Cc41bzzdQtJkpqdRE3h80A.png" alt="gradient descent procedure" title="gradient descent procedure" height="300"/><span style="padding-left: 0.5em;"><img src="https://cdn-images-1.medium.com/max/1000/1*MizSwb7-StSLiWlI2MKsxg.png" alt="Diagram for gradient descent" title="Diagrm of Gradient descent" height="300" /></span></details>
+      </p>
+    </section>
+    <section>
+      <h2>Artificial Neural Network (ANN)</h2>
+
+      <p>Now that we understand how logistic regression works, how we can assess the performance of our network, and how we can update the network to improve our performance, we can go about building a neural network.</p>
+
+      <p>First, I want us to understand why neural networks are called neural networks. You have probably heard that it is because they mimic the structure of neurons, the cells present in the brain. The structure of a neuron looks a lot more complicated than a neural network, but the functioning is similar.
+
+        <figure>
+          <img src="https://cdn-images-1.medium.com/max/1000/0*6CQ5E2qYm1kOwEW2.png" alt="Diagram of neuron" title="Diagram of neuron" width="400" />
+          <figcaption>Diagram of neuron</figcaption>
+        </figure>
+      </p>
+
+    </section>
+  </article>
+  <br/><hr/><br/>
+  <article>
+    <h1>Intermediate Topics in Neural Networks</h1>
+
+    <section>
+      <p>This article is the second in a series of articles aimed at demystifying the theory behind neural networks and how to design and implement them for solving practical problems. In this article, I will cover the design and optimization aspects of neural networks in detail.</p>
+
+      <p>The topics in this article are:
+        <ul>
+          <li>Anatomy of a neural network</li>
+          <li>Activation functions</li>
+          <li>Loss functions</li>
+          <li>Output units</li>
+          <li>Architecture</li>
+        </ul>
+      </p>
+
+      <p>These tutorials are largely based on the notes and examples from multiple classes taught at Harvard and Stanford in the computer science and data science departments.</p>
+
+      <p>I recommend reading the first part of this tutorial first if you are unfamiliar with the basic theoretical concepts underlying the neural network, which can be found here:<br/><a href="https://towardsdatascience.com/simple-introduction-to-neural-networks-ac1d7c3d7a2c">Simple Introduction to Neural Networks</a></p>
+    </section>
+
+    <section>
+      <h2>Anatomy of a neural network</h2>
+
+      <p>Artificial neural networks are one of the main tools used in machine learning. As the “neural” part of their name suggests, they are brain-inspired systems which are intended to replicate the way that we humans learn. Neural networks consist of input and output layers, as well as (in most cases) a hidden layer consisting of units that transform the input into something that the output layer can use. They are excellent tools for finding patterns which are far too complex or numerous for a human programmer to extract and teach the machine to recognize.</p>
+
+      <p>While vanilla neural networks (also called “perceptrons”) <a href="https://www.digitaltrends.com/cool-tech/history-of-ai-milestones/">have been around since the 1940s</a>, it is only in the last several decades where they have become a major part of artificial intelligence. This is due to the arrival of a technique called <strong>backpropagation</strong> (which we discussed in the previous tutorial), which allows networks to adjust their neuron weights in situations where the outcome doesn’t match what the creator is hoping for — like a network designed to recognize dogs, which misidentifies a cat, for example.</p>
+
+      <p>So far, we have discussed the fact that neural networks make use of affine transformations in order to concatenate input features together that converge at a specific node in the network. This concatenated input is then passed through an activation function, which evaluates the signal response and determines whether the neuron should be activated given the current inputs.</p>
+    </section>
+    <section>
+      <h2>Final Comments</h2>
+
+      <p>I hope that you now have a deeper knowledge of how neural networks are constructed and now better understand the different activation functions, loss functions, output units, and the influence of neural architecture on network performance.</p>
+
+      <p>Future articles will look at code examples involving the optimization of deep neural networks, as well as some more advanced topics such as selecting appropriate optimizers, using dropout to prevent overfitting, random restarts, and network ensembles.</p>
+    </section>
+    <section>
+      <h2>Further Reading</h2>
+
+      <p>Deep learning courses:
+        <ol>
+          <li><a href="https://www.coursera.org/course/ml">Andrew Ng’s course on machine learning</a> has a nice introductory section on neural networks.</li>
+          <li>Geoffrey Hinton’s course: <a href="https://www.coursera.org/course/neuralnets">Coursera Neural Networks for Machine Learning (fall 2012)</a></li>
+          <li><a href="http://neuralnetworksanddeeplearning.com/">Michael Nielsen’s free book Neural Networks and Deep Learning</a></li>
+        </ol>
+      </p>
+      <p>NLP-oriented:
+        <ul>
+          <li><a href="http://cs224d.stanford.edu/syllabus.html">Stanford CS224d: Deep Learning for Natural Language Processing (spring 2015) by Richard Socher</a></li>
+          <li><a href="http://nlp.stanford.edu/courses/NAACL2013/">Tutorial given at NAACL HLT 2013: Deep Learning for Natural Language Processing (without Magic) (videos + slides)</a>a></li>
+        </ul>
+      </p>
+    </section>
+  </article>
+  <footer style="text-align: center;">
+    A series of articles for Neural Networks by Matthew Stewart @ TowardsDataScience.
+  </footer>
+</body>
+</html>

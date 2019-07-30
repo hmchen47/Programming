@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta  charset="utf-8">
+    <title>Birds of the bay area:</title>
+   
+
+    <!-- see https://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <style>
+        /* following two viewport lines are equivalent to meta viewport statement above, needed for Windows */
+        /* see https://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and https://drafts.csswg.org/css-device-adapt// */
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Birds of the bay area:</h1>
+    
+    <ul>
+        <li>Gull: <img alt="Gull" src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2017+type@asset+block@gull.jpg" width="150"></li>
+        <li>Egret: <img alt="Egret" src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2017+type@asset+block@egret.jpg" width="150"></li>
+        <li>Stilt: <img alt="Stilt" src="https://courses.edx.org/asset-v1:W3Cx+HTML5.0x+3T2017+type@asset+block@stilt.jpg" width="150"></li>
+    </ul>
+
+</body>
+</html>
