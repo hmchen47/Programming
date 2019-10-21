@@ -62,7 +62,43 @@ I therefore want this course to build a bridge between existing materials and a 
 
 ## 0.3 FAQs
 
++ __Why this Course?__
 
+  This course arose from a course I have taught for the past four years at Carnegie Mellon called "Programming for Scientists".  Its biggest audience is graduate students who have a background in biology and are hoping to bolster their computational skills and make a transition to become computational biologists.  I have spent years making the course rigorous but still accessible and fun, and I want to share it with the larger community.
+
+  You can find more information about my beliefs about how programming courses like this one should be taught at [The P4❤️ Manifesto](https://canvas.instructure.com/courses/1614886/pages/the-p4-manifesto).
+
++ __What does "for Lovers" mean?__
+
+  "Programming for Scientists" has grown into something else that touches on a wide array of different disciplines. I want this course to be as inclusive as possible, and I welcome learners who aren't necessarily scientists.  "Programming for Lovers" is an an homage to the [Virginia travel slogan](https://en.wikipedia.org/wiki/Virginia_is_for_Lovers), with the idea that if you love learning of any kind, then I want you to feel that you're in the right place here.
+
++ __What do I need to know in advance?__
+
+  I am very proud to have had quite a few students who have not programmed a single line of code before learning from me and have become "A" students. If you love solving problems, and aren't afraid of math, then I think you will love programming.  I plan to move quickly but am going to start at the very beginning.
+
++ __How will the course work?__
+
+  I will live stream lectures on Mondays and Thursdays starting at 8 PM ET. For the first few weeks, the Monday lectures will be based on theory and the Thursday lectures will be live code-alongs.  I want to avoid jumping headlong into code because I really want to convey how important it is to think about programming more generally than a single language, and the Monday lectures will be completely free of any language-specific code for the first few weeks.
+
++ __What will be the assessments?__
+
+  I would love to make high-powered automatically graded assignments in the future, and this is an effort for a version 2.0 of the course as this project continues to grow.  For the time being, I plan to have relatively open-ended assignments.
+
++ __Do I have to complete the assessments in order to enjoy the course?__
+
+  Not at all.  In fact, from my experience in online education, the best projects allow for learners to experience the material at different levels.  If you want to just follow along the lectures, I am happy to have you.  If you want to complete all the homework assignments and build your own programming project and share it with all of us, I am happy to have you.
+
++ __Will I receive a certificate of completion?__
+
+  I may produce something fun for you if you finish the course (open to ideas), but the course is not a for-credit course, it is a for-fun course.
+
++ __I can't make the lecture times.  Can I still attend the course?__
+
+  Absolutely!  I will be posting the lecture videos to Canvas as soon as we complete them.
+
++ __Will there be a version of this course available later?__
+
+  In short, yes.  I believe strongly in open access to education and plan to make the materials for this course completely open in the coming months.
 
 
 
