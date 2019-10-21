@@ -104,14 +104,12 @@ I therefore want this course to build a bridge between existing materials and a 
 
 ## 0.4 Prologue: Ancient Greek Math and the Origins of Computational Thinking
 
-
-
-
-
 ### 0.4.1 Streaming Link for Lecture 0
 
-
-
+<video src="url" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
 
 
 ### 0.4.2 Lecture 0 Slides
