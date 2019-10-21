@@ -114,6 +114,218 @@ I therefore want this course to build a bridge between existing materials and a 
 
 ### 0.4.2 Lecture 0 Slides
 
+[Slides download](https://canvas.instructure.com/courses/1614886/files/82928037/download?download_frd=1)
+
++ Algorithms are everywhere
+  + __Algorithm__: a sequence of steps used to solve a problem
+  + __Program__: converting an algorithm into code
+
++ First computational problem
+  + __Computational problem__: _input_ data along with a specified _output_ involving the input data that cn be interpreted in _only one way_
+  + GCD Problem
+    + Input: integers $a$ and $$
+    + output: the greatest common divisor of $a$ and $b$, denoted GCD(a, b)
+  + Variables: $a$ and $b$, they can change depending on what values we want them to have
+  + STOP: does this substitution change the computational problem?
+
++ Trivial algorithm for computing a GCD
+  + a = 378 and b = 273
+  + divisors of 378: 1, 2, 3, 6, 7, 9, 14, 18, 21, 27, 42, 54, 63, 126, 189, 378
+  + divisors of 273: 1, 3, 7, 13, 21, 39, 91, 273
+  + GCD(378, 273) = 1, 3, 7, 21
+  + A trivial (obvious) algorithm solving the GCD problem
+    1. Start our largest common divisors at 1
+    2. for every integer $n$ between 1 and min(a, b)
+      + is $n$ a divisor of $a$?
+      + is $n$ a divisor of $b$?
+      + if the answer to both of these questions is "yes", update out largest common divisor found to be equal to $n$
+    3. after ranging through all these integers, the largest common divisor found must be GCD(a, b)
+  + STOP: why might we want a faster approach?
+
++ A painless intro to pseudocode/control flow
+  + programming languages are plentiful
+  + pseudocode: a way of describing algorithms by emphasizing ideas that is "just right"
+    + not too vague, like human language
+    + not too precise, like a specific programming language
+  + Illustrating pseudocode with a simple problem
+    + Minimum of two number problem
+      + input: numbers a and b
+      + output: the minimum value of a and b
+    + seminal idea in computer science: being able to branch based on testing a condition
+
++ Algorithms just like functions
+  + Input $\to$ Algorithm (computer science) $\to$ output
+  + input $\to$ Function (Math) $\to$ output
+
+### Flow Control
+
++ `Min2` function
+  + pseudocode
+
+    ```coffee
+    Min2(a, b)
+      if a > b
+        return b
+      else
+        return a
+    ```
+
+  + `Min2`: name of the function
+  + `a`, `b`: input "argument"/"parameter" variables
+  + `if a > b`: if statement (allows us to branch)
+    + if block: if the "if statement" is true, entering the code block
+  + `return b`: return statement (provides output)
+  + `else`: indicating where to go when if statement is false
+  + STOP: does Min2 still return the desired answer if $a$ and $b$ are equal?
+
++ General form of if statements
+
+  ```coffee
+  SomeFunction(parameters)
+    execute instructions A
+
+    if condition X is true
+      execute instructions Y
+    else
+      execute instructions Z
+
+    execute instructions B
+  ```
+
+  + __Control flow__: the sequence of steps that a computer takes when executing a program
+  + __keywords__: words with reversed meanings in most languages, such as "if", "else", "return", "true", etc.
+  + __STOP__: will A always be executed? Will B always be executed?
+
++ `Min3` function
+  + Problem: Minimum of three numbers of problem
+    + input: numbers `a`, `b`, and `c`
+    + output: the minimum value of `a`, `b`, and `c`
+  + Exercise: write a (pseudocode) function `Min3` that solves this problem
+  + nested if statement
+
+    ```coffee
+    Min3(a, b, c)
+      if a > b
+        if b > c
+          return c
+        else
+          return b
+      else
+        if a > c
+          return c
+        else
+          return a
+    ```
+
+  + STOP: where have we seen the colored code?
+  + __Subroutine__: a function used within another function
+
+    ```coffee
+    Min3(a, b, c)
+      if a > b
+        return Min2(b, c)
+      else
+        Min2(a, c)
+    ```
+
+  + Exercise: write pseudocode for a function `Min4(a, b, c, d)` that compute the minimum for four numbers
+  + Multiple approaches for solving even a simple problem
+
+    ```coffee
+    Min4(a, b, c, d)
+      if a > b
+        return Min3(b, c, d)
+      else
+        return Min3(a, c, d)
+
+    Min4(a, b, c, d)
+      return Min2(Mini2(a, b), Min2(c, d))
+    ```
+
+    + STOP: which of these do you prefer?
+
++ The Doomsday algorithm
+  + The doomsdays occur on Thursdays in 2019: 1/3, 2/28, 3/0, 4/4, 5, 9, 6/6, 7/11, 8/8, 9/5, 10/10, 11/7, 12/12
+  + STOP: how can we use this information to quickly find the day of the week for any given date in 2019?
+
+  ```coffee
+  Doomsday(day, month)
+    if month = 1
+      if day = 3, 10, 17, 24, or 31
+        return "Thursday"
+      else
+        if day = 4, 11, 18, or 25 # this is ugly!
+          return "Friday"
+      etc.
+    else
+      if month = 2
+        if day = 7, 14, 21, or 28
+          return "Thursday"
+        else
+          if day = 1, 8, 14, or 22 # this is ugly!
+            return "Friday"
+        etc.
+      else
+        etc.
+  ```
+
+  + the `else` statements are not needed ...
+
+    ```coffee
+    Doomsday(day, month)
+      if month = 1
+        if day = 3, 10, 17, 24, or 31
+          return "Thursday"
+        if day = 4, 11, 18, or 25
+          return "Friday"
+      if month = 2
+        if day = 7, 14, 21, or 28
+          return "Thursday"
+        if day = 1, 18, 15, or 22
+          return "Friday"
+      if month = 3
+        etc.
+    ```
+
++ Introducing `else if`
+
+  ```coffee
+  Doomsday(day, month)
+    if month = 1
+      if day = 3, 1-, 17, 24, or 31
+        return "Thursday"
+      else if day = 4, 11, 18, or 25
+        return "Friday"
+      etc.
+    else if month = 2
+      if day = 7, 14, 21, or 28
+        return "Thursday"
+      else if day = 1, 8, 15, or 22
+        return "Friday"
+      etc.
+    else if month = 3
+      etc.
+  ```
+
+### Loops and and Trivial GCD algorithm
+
++ How to convert to Pseudocode?
+  + GCD of 378 and 273
+  + A trivial (obvious) algorithm solving the GCD problem
+    1. start th elargest common divisor at 1
+    2. for every integer n between 1 and min(a, b):
+      + is `n` a divisor of `a`?
+      + is `n` a divisor of `b`?
+      + if the answer of both of these questions is "yes", update the largest common divisor found to be equal to `n`
+    3. after ranging through all these integers, the largest common divisor found must be `GCD(a, b)`
+  + Key point: how can we do something "for every integer" in a range?
+
++ A simple problem: factorial
+  + Factorial problem
+    + input: an integer `n`
+    + output: $n! = n \times (n-1) \times (n-2) \times \cdots \times 2 \time 1$
+  
+
 
 
 
