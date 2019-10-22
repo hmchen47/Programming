@@ -157,7 +157,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + Input $\to$ Algorithm (computer science) $\to$ output
   + input $\to$ Function (Math) $\to$ output
 
-### Flow Control
+#### Flow Control
 
 + `Min2` function
   + pseudocode
@@ -307,7 +307,7 @@ I therefore want this course to build a bridge between existing materials and a 
       etc.
   ```
 
-### Loops and and Trivial GCD algorithm
+#### Loops and Trivial GCD algorithm
 
 + How to convert to Pseudocode?
   + GCD of 378 and 273
@@ -449,6 +449,93 @@ I therefore want this course to build a bridge between existing materials and a 
   + Note: the word __and__ is a keyword too
 
 
+#### Euclid's insight and the world's first nontrivial algorithm
+
++ Euclid's theorem
+  + Euclid's theorem: if a > b, then
+
+    \[GCD(a, b) = GCD(a-b, b)\]
+
+  + Two pressing questions
+    1. how can we demonstrate this for any possible pair of integers?
+    2. why do we really care that this is true computationally?
+
+  + Proof: Common problem solving technique in mathematics: sometimes, we can prove a more general statement.
+  + more general statement: if $a > b$, then all shared divisors of $a$ and $b$ is the same as all shared divisors of $a - b$ and $b$
+  + prove the general statement with two facts
+    1. any shared divisors of a and b must also be a divisor of $a - b$
+    2. any shared divisor of $a - b$ and $b$ must also be a divisor of $a$
+  + Proof of 1: say $d$ is a divisor of $a$ and $b$.  There must be some integers $x$ and $y$ such that
+
+    \[dx = a, \quad dy = b\]
+
+    \[a - b = dx - dy = d(x - y)\]
+
+    So $d$ is a divisor of $a - b$ as well.
+  + Proof of 2: Say $e$ is a divisor of $a - b$ and $b$.  there must be some integers $p$ and $q$ such that
+
+    \[ep = a - b, \quad eq = b\]
+
+    \[a = (a - b) + b = ep + eq = e(p + q)\]
+
+    So $e$ is a divisor of $a$ as well.
+
++ Euclid's theorem in action
+  + Example
+
+    \[GCD(378, 273) = GCD(105, 273) = GCD(105. 168) = GCD(105, 63) = GCD(42, 63) = GCD(42, 21) = GCD(21, 21) = 21\]
+
+  + Exercise: brainstorm how we could write a function in pseudocode to compute the GCD of two numbers by repeatedly applying Euclid's theorem
+
++ Pseudocode for Euclid's algorithm
+
+  ```coffee
+  EuclidGCD(a, b)
+    while a != b
+      if a > b
+        a <- a - b
+      else
+        b <- b - a
+    return a
+  ```
+
+  + STOP: if we change `return a`  to `return b`, how does it change the algorithm?
+  + Illustrated results
+
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=70%>
+      <thead>
+      <tr>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$a$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$b$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">is $a \neq b$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Updated value of $a$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Updated value of $b$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr style="text-align: center;">
+        <td>378</td> <td>273</td> <td>Yes</td> <td>105</td> <td>273</td>
+      </tr>
+      <tr style="text-align: center;">
+        <td>105</td> <td>273</td> <td>Yes</td> <td>105</td> <td>168</td>
+      </tr>
+      <tr style="text-align: center;">
+        <td>105</td> <td>168</td> <td>Yes</td> <td>105</td> <td>63</td>
+      </tr>
+      <tr style="text-align: center;">
+        <td>105</td> <td>63</td> <td>Yes</td> <td>42</td> <td>63</td>
+      </tr>
+      <tr style="text-align: center;">
+        <td>42</td> <td>63</td> <td>Yes</td> <td>42</td> <td>21</td>
+      </tr>
+      <tr style="text-align: center;">
+        <td>42</td> <td>21</td> <td>Yes</td> <td>42</td> <td>21</td>
+      </tr>
+      <tr style="text-align: center;">
+        <td>21</td> <td>21</td> <td>No</td> <td></td> <td></td>
+      </tr>
+      </tbody>
+    </table>
 
 
 
