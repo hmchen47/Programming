@@ -145,22 +145,24 @@ I therefore want this course to build a bridge between existing materials and a 
     3. after ranging through all these integers, the largest common divisor found must be `GCD(a, b)`
   + STOP: why might we want a faster approach?
 
-+ A painless intro to pseudocode/control flow
-  + programming languages are plentiful
-  + pseudocode: a way of describing algorithms by emphasizing ideas that is "just right"
-    + not too vague, like human language
-    + not too precise, like a specific programming language
-  + Illustrating pseudocode with a simple problem
-    + Minimum of two number problem
-      + input: numbers a and b
-      + output: the minimum value of a and b
-    + seminal idea in computer science: being able to branch based on testing a condition
+
+#### A painless intro to pseudocode/control flow
+
++ programming languages are plentiful
+
++ pseudocode: a way of describing algorithms by emphasizing ideas that is "just right"
+  + not too vague, like human language
+  + not too precise, like a specific programming language
+
++ Illustrating pseudocode with a simple problem
+  + Minimum of two number problem
+    + input: numbers a and b
+    + output: the minimum value of a and b
+  + seminal idea in computer science: being able to branch based on testing a condition
 
 + Algorithms just like functions
   + Input $\to$ Algorithm (computer science) $\to$ output
   + input $\to$ Function (Math) $\to$ output
-
-#### Flow Control
 
 + `Min2` function
   + pseudocode
