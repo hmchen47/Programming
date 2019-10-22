@@ -327,30 +327,30 @@ I therefore want this course to build a bridge between existing materials and a 
   
   ```coffee
   Factorial(n)
-    p <- 1
-    i <- 1
+    p := 1
+    i := 1
     while i <= n
-      p <- p * i
-      i <- i + 1
+      p := p * i
+      i := i + 1
     return p
   ```
 
-  + `p <- 1`: 
+  + `p := 1`: 
     + declaring an intermediate variable p equal to 1 (p will eventually hold the factorial product)
-    + the variable on the left of `<-` receives the value of the right side
-  + `i <- 1`: `i` will allow us to "range" over all integers up to `n`
+    + the variable on the left of `:=` receives the value of the right side
+  + `i := 1`: `i` will allow us to "range" over all integers up to `n`
   + `while i <= n`: example of a __while loop__. Just like an if statement - if `i <= n`, we enter __while block__
   + the difference: after the __while block__,, we test `i <= n` again and (if true) enter the while block _again_
-  + STOP: what happens if we remove `i <- i + 1`
+  + STOP: what happens if we remove `i := i + 1`
   + __Infinite loop__: a loop that never terminates
 
 + For loop simplify ranging
 
   ```coffee
   AnotherFactorial(n)
-    p <- 1
+    p := 1
     for every integer i from 1 to n
-      p <- p * i
+      p := p * i
 
     return p
   ```
@@ -370,11 +370,11 @@ I therefore want this course to build a bridge between existing materials and a 
 
   ```coffee
   TrivialGCD(a, b)
-    d <- 1
-    m <- Min2(1, b) # subroutine!
+    d := 1
+    m := Min2(1, b) # subroutine!
     for every integer p from 1 to m
       if p is a divisor of both a and b
-        d <- p
+        d := p
     return d
   ```
 
@@ -391,11 +391,11 @@ I therefore want this course to build a bridge between existing materials and a 
 
     ```coffee
     IntegerDivision(n, p)
-      c <- 0
-      n <- n - p
+      c := 0
+      n := n - p
       while n >= 0
-        c <- c + 1
-        n <- n - p
+        c := c + 1
+        n := n - p
       return c
     ```
 
@@ -438,11 +438,11 @@ I therefore want this course to build a bridge between existing materials and a 
 
   ```coffee
   TrivialGCD(a, b)
-    d <- 1
-    m <- Min2(a, b) # subroutine!
+    d := 1
+    m := Min2(a, b) # subroutine!
     for every integer p from 1 to m
       if Remainder(a, p) = 0 and Remainder(b, p) = 0
-        d<- p
+        d := p
     return d
   ```
 
@@ -493,9 +493,9 @@ I therefore want this course to build a bridge between existing materials and a 
   EuclidGCD(a, b)
     while a != b
       if a > b
-        a <- a - b
+        a := a - b
       else
-        b <- b - a
+        b := b - a
     return a
   ```
 
@@ -633,10 +633,10 @@ I therefore want this course to build a bridge between existing materials and a 
 
   ```coffee
   FactorialArray(n)
-    a <- array of length n+1
-    a[0] <- 1
+    a := array of length n+1
+    a[0] := 1
     for every integer k from 1 to n
-      a[k] <- a[k-1] * k
+      a[k] := a[k-1] * k
     return a
   ```
 
@@ -648,16 +648,41 @@ I therefore want this course to build a bridge between existing materials and a 
 
   ```coffee
   TrivialPrimeFinder(n)
-    primes <- array of n+1 false boolean variables
+    primes := array of n+1 false boolean variables
     for every integer p from 2 to n
       if IsPrime(p) = true
-        primes[p] <- true
+        primes[p] := true
     return primes
   ```
 
+#### The world's second nontrivial algorithm
 
++ The  Sieve of Eratosthenes
+  + Prime number array problem
+    + Input: an integer n
+    + output: an array primes of length n+1 such that for every nonnegative integer $p \leq n$,, primes[p] is true if p is prime and false otherwise
+  + Exercise: write a pseudocode function SieveOfEratosthenes() that solves this problem by implementing the Sieve of Eratosthenes. (use a subordinate if it's helpful.)
+  
++ Implementing SieveOfEratosthenes
 
-### 0.4.3 Streaming Link for Lecture 1
+  ```coffee
+  SieveOfEratosthenes(n)
+    primes := array of n + 1 true boolean
+    primes[0] := false
+    primes[1] := false
+    for every integer p from 2 to sqrt(n)
+      if primes[p] = true
+        primes := CrossOff(primes, p)
+    return primes
+
+  CrossOff(primes, p)
+    for every multiple k of p from 2p to n
+      primes[k] := false
+    return primes
+  ```
+
+  + Next time, let's implement the sieve of Eratosthenes in Go, and compare it to the trivial prime finder in terms of speed.  Can it really be that much faster?
+  + But ... what practical use ae there for primes in the 21th Century?
 
 
 
