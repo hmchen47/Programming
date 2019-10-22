@@ -158,7 +158,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + Minimum of two number problem
     + input: numbers a and b
     + output: the minimum value of a and b
-  + seminal idea in computer science: being able to branch based on testing a condition
+  + seminal idea in computer science: being able to __branch__ based on testing a condition
 
 + Algorithms just like functions
   + Input $\to$ Algorithm (computer science) $\to$ output
@@ -167,7 +167,7 @@ I therefore want this course to build a bridge between existing materials and a 
 + `Min2` function
   + pseudocode
 
-    ```coffee
+    ```go
     Min2(a, b)
       if a > b
         return b
@@ -175,17 +175,18 @@ I therefore want this course to build a bridge between existing materials and a 
         return a
     ```
 
+  + __if block__: if the "if statement" is true, entering the code block
+  + __else block__: if the "if statement" is false, skip the if block and entering the code block
   + `Min2`: name of the function
-  + `a`, `b`: input "argument"/"parameter" variables
+  + `a`, `b`: input "__argument__"/"__parameter__" variables
   + `if a > b`: if statement (allows us to branch)
-    + if block: if the "if statement" is true, entering the code block
-  + `return b`: return statement (provides output)
   + `else`: indicating where to go when if statement is false
-  + STOP: does Min2 still return the desired answer if $a$ and $b$ are equal?
+  + `return b`: return statement (provides output)
+  + STOP: does Min2 still return the desired answer if `a` and `b` are equal?
 
 + General form of if statements
 
-  ```coffee
+  ```go
   SomeFunction(parameters)
     execute instructions A
 
@@ -208,7 +209,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + Exercise: write a (pseudocode) function `Min3` that solves this problem
   + nested if statement
 
-    ```coffee
+    ```go
     Min3(a, b, c)
       if a > b
         if b > c
@@ -225,7 +226,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + STOP: where have we seen the colored code?
   + __Subroutine__: a function used within another function
 
-    ```coffee
+    ```go
     Min3(a, b, c)
       if a > b
         return Min2(b, c)
@@ -236,7 +237,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + Exercise: write pseudocode for a function `Min4(a, b, c, d)` that compute the minimum for four numbers
   + Multiple approaches for solving even a simple problem
 
-    ```coffee
+    ```go
     Min4(a, b, c, d)
       if a > b
         return Min3(b, c, d)
@@ -249,11 +250,14 @@ I therefore want this course to build a bridge between existing materials and a 
 
     + STOP: which of these do you prefer?
 
+
+#### Party trick: knowing day of the week of your birthday
+
 + The Doomsday algorithm
   + The doomsdays occur on Thursdays in 2019: 1/3, 2/28, 3/0, 4/4, 5, 9, 6/6, 7/11, 8/8, 9/5, 10/10, 11/7, 12/12
   + STOP: how can we use this information to quickly find the day of the week for any given date in 2019?
 
-  ```coffee
+  ```go
   Doomsday(day, month)
     if month = 1
       if day = 3, 10, 17, 24, or 31
@@ -276,7 +280,7 @@ I therefore want this course to build a bridge between existing materials and a 
 
   + the `else` statements are not needed ...
 
-    ```coffee
+    ```go
     Doomsday(day, month)
       if month = 1
         if day = 3, 10, 17, 24, or 31
@@ -294,7 +298,7 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + Introducing `else if`
 
-  ```coffee
+  ```go
   Doomsday(day, month)
     if month = 1
       if day = 3, 1-, 17, 24, or 31
@@ -330,32 +334,32 @@ I therefore want this course to build a bridge between existing materials and a 
     + input: an integer `n`
     + output: $n! = n \times (n-1) \times (n-2) \times \cdots \times 2 \time 1$
   
-  ```coffee
+  ```go
   Factorial(n)
-    p := 1
-    i := 1
+    p <- 1
+    i <- 1
     while i <= n
-      p := p * i
-      i := i + 1
+      p <- p * i
+      i <- i + 1
     return p
   ```
 
-  + `p := 1`: 
+  + `p <- 1`: 
     + declaring an intermediate variable p equal to 1 (p will eventually hold the factorial product)
-    + the variable on the left of `:=` receives the value of the right side
-  + `i := 1`: `i` will allow us to "range" over all integers up to `n`
+    + the variable on the left of `<-` receives the value of the right side
+  + `i <- 1`: `i` will allow us to "range" over all integers up to `n`
   + `while i <= n`: example of a __while loop__. Just like an if statement - if `i <= n`, we enter __while block__
   + the difference: after the __while block__,, we test `i <= n` again and (if true) enter the while block _again_
-  + STOP: what happens if we remove `i := i + 1`
+  + STOP: what happens if we remove `i <- i + 1`
   + __Infinite loop__: a loop that never terminates
 
 + For loop simplify ranging
 
-  ```coffee
+  ```go
   AnotherFactorial(n)
-    p := 1
+    p <- 1
     for every integer i from 1 to n
-      p := p * i
+      p <- p * i
 
     return p
   ```
@@ -364,7 +368,7 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + Note: while loops are more general
 
-  ```coffee
+  ```go
   PittsburghFebruary()
     While temperature is below freezing
       daydream about moving south
@@ -373,13 +377,13 @@ I therefore want this course to build a bridge between existing materials and a 
 + Returning to the Trivial GCD
   + Exercise: write pseudocode for a function `TrivialGCD(a, b)` representing this algorithm (assume any subroutines you like)
 
-  ```coffee
+  ```go
   TrivialGCD(a, b)
-    d := 1
-    m := Min2(1, b) # subroutine!
+    d <- 1
+    m <- Min2(1, b) # subroutine!
     for every integer p from 1 to m
       if p is a divisor of both a and b
-        d := p
+        d <- p
     return d
   ```
 
@@ -394,13 +398,13 @@ I therefore want this course to build a bridge between existing materials and a 
     + only allowable arithmetic operations: addition, subtraction, and multiplication.
   + Repeated subtraction
 
-    ```coffee
+    ```go
     IntegerDivision(n, p)
-      c := 0
-      n := n - p
+      c <- 0
+      n <- n - p
       while n >= 0
-        c := c + 1
-        n := n - p
+        c <- c + 1
+        n <- n - p
       return c
     ```
 
@@ -408,7 +412,7 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + Remainder() uses IntegerDivision() as subroutine
 
-  ```coffee
+  ```go
   Remainder(n, p)
     return n - p * IntegerDivision(n, p)
   ```
@@ -420,7 +424,7 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + Remainder() and Doomsday
 
-  ```coffee
+  ```go
   Doomsday(day, month)
     if month = 1
       if day = 3, 10, 17, 24, or 31
@@ -441,13 +445,13 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + TrivialGCD is now good to go
 
-  ```coffee
+  ```go
   TrivialGCD(a, b)
-    d := 1
-    m := Min2(a, b) # subroutine!
+    d <- 1
+    m <- Min2(a, b) # subroutine!
     for every integer p from 1 to m
       if Remainder(a, p) = 0 and Remainder(b, p) = 0
-        d := p
+        d <- p
     return d
   ```
 
@@ -494,13 +498,13 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + Pseudocode for Euclid's algorithm
 
-  ```coffee
+  ```go
   EuclidGCD(a, b)
     while a != b
       if a > b
-        a := a - b
+        a <- a - b
       else
-        b := b - a
+        b <- b - a
     return a
   ```
 
@@ -559,7 +563,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + __Boolean variable__: a variable taking __true__ or __false__
   + pseudocode: 
 
-    ```coffee
+    ```go
     IsPrime(n)
       if n = 1
         return false
@@ -574,7 +578,7 @@ I therefore want this course to build a bridge between existing materials and a 
 
   + STOP: how does this change the algorithm?
 
-    ```coffee
+    ```go
     IsPrime(n)
       if n = 1
         return false
@@ -586,7 +590,7 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + Theorem: if $ab = n$, $a$ and $b$ must be at most $\sqrt{n}$
 
-  ```coffee
+  ```go
   IsPrime(n)
     if n = 1
       return false
@@ -636,12 +640,12 @@ I therefore want this course to build a bridge between existing materials and a 
   + factorial array: a[0] = 1, a[1] = 1, a[2] = 2, a[3] = 6, a[4] = 24, a[5] = 120, a[6] = 720
   +__0-based indexing__: starting numbering at 0, not 1
 
-  ```coffee
+  ```go
   FactorialArray(n)
-    a := array of length n+1
-    a[0] := 1
+    a <- array of length n+1
+    a[0] <- 1
     for every integer k from 1 to n
-      a[k] := a[k-1] * k
+      a[k] <- a[k-1] * k
     return a
   ```
 
@@ -651,12 +655,12 @@ I therefore want this course to build a bridge between existing materials and a 
     + output: an array primes of length n+1 such that for every nonnegative integer $p \leq n$, primes[p] is true if p is prime and false otherwise
   + Example: primes[0] = false, primes[1] = false, primes[2] = true, primes[3] = true, primes[4] = false, ...
 
-  ```coffee
+  ```go
   TrivialPrimeFinder(n)
-    primes := array of n+1 false boolean variables
+    primes <- array of n+1 false boolean variables
     for every integer p from 2 to n
       if IsPrime(p) = true
-        primes[p] := true
+        primes[p] <- true
     return primes
   ```
 
@@ -670,19 +674,19 @@ I therefore want this course to build a bridge between existing materials and a 
   
 + Implementing SieveOfEratosthenes
 
-  ```coffee
+  ```go
   SieveOfEratosthenes(n)
-    primes := array of n + 1 true boolean
-    primes[0] := false
-    primes[1] := false
+    primes <- array of n + 1 true boolean
+    primes[0] <- false
+    primes[1] <- false
     for every integer p from 2 to sqrt(n)
       if primes[p] = true
-        primes := CrossOff(primes, p)
+        primes <- CrossOff(primes, p)
     return primes
 
   CrossOff(primes, p)
     for every multiple k of p from 2p to n
-      primes[k] := false
+      primes[k] <- false
     return primes
   ```
 
