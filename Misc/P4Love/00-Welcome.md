@@ -38,7 +38,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + Prologue: The Ancient Greeks and the Origins of Computational Thinking
   + Hunting for Replication Origins in Bacterial Genomes
   + Monte Carlo Simulation and Predicting the 2016 US Presidential Election
-  + Top-Down Programming and Modeling a Self-Replicating Automaton
+  + Top-Down Programming and Modeling a Self-Replicating Automation
   + Object-Oriented Programming 1: Building a Physics Engine Simulating Gravity
   + Object-Oriented Programming 2: Constructing the Tree of Life
   + So, how does a computer really work?  And can it do everything?
@@ -116,6 +116,9 @@ I therefore want this course to build a bridge between existing materials and a 
 
 [Slides download](https://canvas.instructure.com/courses/1614886/files/82928037/download?download_frd=1)
 
+
+#### Our first computational problem
+
 + Algorithms are everywhere
   + __Algorithm__: a sequence of steps used to solve a problem
   + __Program__: converting an algorithm into code
@@ -123,9 +126,9 @@ I therefore want this course to build a bridge between existing materials and a 
 + First computational problem
   + __Computational problem__: _input_ data along with a specified _output_ involving the input data that cn be interpreted in _only one way_
   + GCD Problem
-    + Input: integers $a$ and $$
-    + output: the greatest common divisor of $a$ and $b$, denoted GCD(a, b)
-  + Variables: $a$ and $b$, they can change depending on what values we want them to have
+    + Input: integers `a` and `b`
+    + output: the greatest common divisor of `a` and `b`, denoted `GCD(a, b)`
+  + Variables: `a` and `b`, they can change depending on what values we want them to have
   + STOP: does this substitution change the computational problem?
 
 + Trivial algorithm for computing a GCD
@@ -135,11 +138,11 @@ I therefore want this course to build a bridge between existing materials and a 
   + GCD(378, 273) = 1, 3, 7, 21
   + A trivial (obvious) algorithm solving the GCD problem
     1. Start our largest common divisors at 1
-    2. for every integer $n$ between 1 and min(a, b)
-      + is $n$ a divisor of $a$?
-      + is $n$ a divisor of $b$?
-      + if the answer to both of these questions is "yes", update out largest common divisor found to be equal to $n$
-    3. after ranging through all these integers, the largest common divisor found must be GCD(a, b)
+    2. for every integer $n$ between 1 and `min(a, b)`
+      + is $n$ a divisor of `a`?
+      + is $n$ a divisor of `b`?
+      + if the answer to both of these questions is "yes", update out largest common divisor found to be equal to `n`
+    3. after ranging through all these integers, the largest common divisor found must be `GCD(a, b)`
   + STOP: why might we want a faster approach?
 
 + A painless intro to pseudocode/control flow
@@ -693,7 +696,7 @@ I therefore want this course to build a bridge between existing materials and a 
 + Most encryption scheme are symmetric
   + A __symmetric__ encryption scheme uses the same __key__ for encrypting/decrypting a message
   + Even if we have a complicated key, it must be private: the sender and receiver must agree on the key on the key in advance
-  + example: HELLO $\stackrel{\text{encrypt + 1 letter}}{\longrightarrow}$ IFMMP $\stackrel{\text{encrypt + 1 letter}}{\longrightarrow}$ HELLO
+  + example: HELLO $\xrightarrow{\text{encrypt +1 letter}}$ IFMMP $\xrightarrow{\text{encrypt 11 letter}}$ HELLO
 
 + Primes Save the Day
   + __Public key encryption__ (late 1970s): knowing the key doesn't make it automatically easy to decrypt
