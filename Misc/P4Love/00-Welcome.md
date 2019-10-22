@@ -685,7 +685,25 @@ I therefore want this course to build a bridge between existing materials and a 
   + But ... what practical use ae there for primes in the 21th Century?
 
 
+#### Conclusion: public key cryptography
 
++ Encryption is vital to Internet Security
+  + __Encryption:__ transforming a message so that it cannot be ready by an eavesdropper but can be __decrypted__ by the recipient
+
++ Most encryption scheme are symmetric
+  + A __symmetric__ encryption scheme uses the same __key__ for encrypting/decrypting a message
+  + Even if we have a complicated key, it must be private: the sender and receiver must agree on the key on the key in advance
+  + example: HELLO $\stackrel{\text{encrypt + 1 letter}}{\longrightarrow}$ IFMMP $\stackrel{\text{encrypt + 1 letter}}{\longrightarrow}$ HELLO
+
++ Primes Save the Day
+  + __Public key encryption__ (late 1970s): knowing the key doesn't make it automatically easy to decrypt
+  + __Key Point:__ the only way to decrypt is by knowing the primes $p$ and $q$. This makes the key __asymmetric__.
+
++ But an eavesdropper just has to factor n!
+  + Integer Factorization Problem
+    + Input: an integer n
+    + Output: the factorization of n
+  + Key Point: no one has ever found a "fast" solution to this problem for 600-digit integer ...
 
 
 ## 0.5 Homework 0: Working with Integers and Arrays
