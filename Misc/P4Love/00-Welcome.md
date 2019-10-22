@@ -325,6 +325,129 @@ I therefore want this course to build a bridge between existing materials and a 
     + input: an integer `n`
     + output: $n! = n \times (n-1) \times (n-2) \times \cdots \times 2 \time 1$
   
+  ```coffee
+  Factorial(n)
+    p <- 1
+    i <- 1
+    while i <= n
+      p <- p * i
+      i <- i + 1
+    return p
+  ```
+
+  + `p <- 1`: 
+    + declaring an intermediate variable p equal to 1 (p will eventually hold the factorial product)
+    + the variable on the left of `<-` receives the value of the right side
+  + `i <- 1`: `i` will allow us to "range" over all integers up to `n`
+  + `while i <= n`: example of a __while loop__. Just like an if statement - if `i <= n`, we enter __while block__
+  + the difference: after the __while block__,, we test `i <= n` again and (if true) enter the while block _again_
+  + STOP: what happens if we remove `i <- i + 1`
+  + __Infinite loop__: a loop that never terminates
+
++ For loop simplify ranging
+
+  ```coffee
+  AnotherFactorial(n)
+    p <- 1
+    for every integer i from 1 to n
+      p <- p * i
+
+    return p
+  ```
+
+  + __For loop:__ a way of simplifying the process of "ranging" through a collection of values
+
++ Note: while loops are more general
+
+  ```coffee
+  PittsburghFebruary()
+    While temperature is below freezing
+      daydream about moving south
+  ```
+
++ Returning to the Trivial GCD
+  + Exercise: write pseudocode for a function `TrivialGCD(a, b)` representing this algorithm (assume any subroutines you like)
+
+  ```coffee
+  TrivialGCD(a, b)
+    d <- 1
+    m <- Min2(1, b) # subroutine!
+    for every integer p from 1 to m
+      if p is a divisor of both a and b
+        d <- p
+    return d
+  ```
+
+  + we should discuss how a computer determines if one number is a divisor of another ...
+
++ Integer division
+  + the __integer division__ of x/y is defined by taking the integer part of the division of "throwing away" the remainder
+  + e.g., $14/3 = ? \qquad 102/12 = ? \qquad 11/2 = ? \implies 14/3 = 4 \qquad 102/12 = 8 \qquad 11/2 = 5$
+  + STOP: how does `p` being a divisor of `n` related to integer division and remainder?
+  + Exercise: 
+    + write pseudocode for functions IntegerDivision(n, p) and Remainder(n, p) corresponding to the integer division and remainder formed by ``n/p`
+    + only allowable arithmetic operations: addition, subtraction, and multiplication.
+  + Repeated subtraction
+
+    ```coffee
+    IntegerDivision(n, p)
+      c <- 0
+      n <- n - p
+      while n >= 0
+        c <- c + 1
+        n <- n - p
+      return c
+    ```
+
+  + Note: we can check the correctness of our function by testing it on various outputs
+
++ Remainder() uses IntegerDivision() as subroutine
+
+  ```coffee
+  Remainder(n, p)
+    return n - p * IntegerDivision(n, p)
+  ```
+
+  + Example
+    + Remainder(14, 3) = 14 - 3*IntegerDivision(14, 3) = 2
+    + Remainder(102, 12) = 102 - 12*IntegerDivision(102, 12) = 6
+    + Remainder(11, 2) = 11 - 2*IntegerDivision(11, 2) = 1
+
++ Remainder() and Doomsday
+
+  ```coffee
+  Doomsday(day, month)
+    if month = 1
+      if day = 3, 10, 17, 24, or 31
+        return "Friday"
+      else if day = 4, 11, 18, or 25
+        return "Saturday"
+      etc.
+    else if month = 2
+      if day = 7, 14, 21, or 28
+        return "Monday"
+      else if day = 1, 8, 15, or 22
+        return "Tuesday"
+    else if month = 3
+      etc.
+  ```
+
+  + STOP: how would Remainder be helpful here?
+
++ TrivialGCD is now good to go
+
+  ```coffee
+  TrivialGCD(a, b)
+    d <- 1
+    m <- Min2(a, b) # subroutine!
+    for every integer p from 1 to m
+      if Remainder(a, p) = 0 and Remainder(b, p) = 0
+        d<- p
+    return d
+  ```
+
+  + Note: the word __and__ is a keyword too
+
 
 
 
