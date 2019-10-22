@@ -538,6 +538,123 @@ I therefore want this course to build a bridge between existing materials and a 
     </table>
 
 
+#### Arrays and a First Attempt at Prime Finding
+
++ Who first computed Earth's circumference?
+  + Eratosthenes of Cyrene (276 - 195 BC)
+  + first nontrivial algorithm for identifying prime numbers (soon)
+  + Recall that a positive integer is __prime__ if its only divisors are 1 and itself (and __composite__ otherwise)
+
++ Testing if a number is prime
+  + Prime number problem
+    + Input: an integer `n`
+    + Output: "Yes" if `n` is prime, and "No" otherwise
+  + __Decision problem__: a computational problem that always returns a "Yes"/"No" answer
+  + using the keywork __true__ and __false__ to represent "Yes" and "No"
+  + __Boolean variable__: a variable taking __true__ or __false__
+  + pseudocode: 
+
+    ```coffee
+    IsPrime(n)
+      if n = 1
+        return false
+      for every integer p form 2 to n - 1
+        if p is a divisor of n
+          return false
+      return true
+    ```
+
+    + running: p = 1 (false), 2 (true), 3 (true), 4 (false), 5 (true), 6 (false), 7 (true), 8 (false), 9 (false), 19 (false), 11 (true)
+    + STOP: do you see any improvements to `IsPrime()`?
+
+  + STOP: how does this change the algorithm?
+
+    ```coffee
+    IsPrime(n)
+      if n = 1
+        return false
+      for every integer p form 1 to n - 1
+        if p is a divisor of n
+          return false
+      return true
+    ```
+
++ Theorem: if $ab = n$, $a$ and $b$ must be at most $\sqrt{n}$
+
+  ```coffee
+  IsPrime(n)
+    if n = 1
+      return false
+    for every integer p form 2 to aqrt(n)
+      if p is a divisor of n
+        return false
+    return true
+  ```
+
++ A simpler fact
+  + Simpler fact: every composite integer greater than 1 has at least one prime factor
+  + consider any composite integer $n$; since it is composite, it has factors other than itself and 1
+  + Take the smallest factor $p$ of $n$ other than 1. $p$ must be prime, since any factor that it would have other than 1 and itself would also be a factor of $n$ (but we assumed $p$ was the smallest such factor).
+
++ Proof of Euclid's Theorem #2
+  + Euclid's theorem #2: there are infinitely many primes.
+  + Proof by contradiction: assume the opposite of what we want to prove, and show that it leads to a __contradiction__, a statement that we know is false.
+  + STOP: what is the opposite of what we want to prove in the case?
+  + Assume that there are finitely many primes.  This means that there must be some number $n$ of them, and we can label them $p_1, p_2, \dots, p_n$.
+  + Consider the number formed by multiplying all these primes together:
+
+    \[p = (p_1)(p_2) \dots (p_n)\]
+  
+  + STOP: is $p$ prime or composite? why?
+  + Answer: composite, because $p$ has many factors other than 1 and itself.
+  + Now take the number that is 1 larger than $p$:
+
+    \[q = p + 1 = (p_1)(p_2) \dots (p_n) + 1\]
+  + STOP: is $q$ prime or composite? why?
+  + Answer: $q$ must be composite, because it is clearly larger than all known primes!
+  + Yet look what happens when we divide $q$ by each of the known primes.
+
+    \[\begin{align*}
+      q /p_1 &= (p_2)(p_3) \dots (p_n) + 1 / p_1\\
+      q /p_2 &= (p_1)(p_3) \dots (p_n) + 1 / p_2
+    \end{align*}\]
+
+    <span style="color: red;">The remainder is always 1!</span>
+  + Fact: every composite integer greater than 1 has at least one prime factor.
+  + $q$ is composite, so it has a prime factor. But none of the primes $p_1$ is a factor. <span style="color: red;">Contradiction!</span>
+  
++ Returning to factorials
+  + __Array__: an ordered table/list of variables
+  + Factorial array problem
+    + Input: an integer `n`
+    + output: an array containing all the $n+1$ factorials $0! = 1, 1!, 2!, \dots, n!$
+  + factorial array: a[0] = 1, a[1] = 1, a[2] = 2, a[3] = 6, a[4] = 24, a[5] = 120, a[6] = 720
+  +__0-based indexing__: starting numbering at 0, not 1
+
+  ```coffee
+  FactorialArray(n)
+    a <- array of length n+1
+    a[0] <- 1
+    for every integer k from 1 to n
+      a[k] <- a[k-1] * k
+    return a
+  ```
+
++ Trivial prime finding
+  + Prime number array problem
+    + Input: an integer `n`
+    + output: an array primes of length n+1 such that for every nonnegative integer $p \leq n$, primes[p] is true if p is prime and false otherwise
+  + Example: primes[0] = false, primes[1] = false, primes[2] = true, primes[3] = true, primes[4] = false, ...
+
+  ```coffee
+  TrivialPrimeFinder(n)
+    primes <- array of n+1 false boolean variables
+    for every integer p from 2 to n
+      if IsPrime(p) = true
+        primes[p] <- true
+    return primes
+  ```
+
 
 
 ### 0.4.3 Streaming Link for Lecture 1
