@@ -98,13 +98,13 @@ func main() {
 
 	fmt.Println("String concatenation w/ '+', eg. str1 + str2:", a4, b4, a4+b4, "\n")
 
+	// Type conversion
+	fmt.Print("\n\nType casting ...\n\n")
+
 	// type mismatch in arithmetic
 	a5 := 3.2
 	b5 := 2
 	fmt.Println("Type casting, eg. float64(<int>):", a5+float64(b5), "\n")
-
-	// Type conversion
-	fmt.Print("\n\nType cating ...\n\n")
 
 	// type casting from float64 to int: discard decimal part
 	p1 := 3.4
