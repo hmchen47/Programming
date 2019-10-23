@@ -101,4 +101,38 @@ func main() {
 	b5 := 2
 	fmt.Println("Type casting, eg. float64(<int>):", a5+float64(b5), "\n")
 
+	// Type conversion
+
+	// type casting from float64 to int: discard decimal part
+	p1 := 3.4
+	q1 := -5.6
+	fmt.Println("Type cast from float64 to int, eg., int(4.5):", p1, "->", int(p1), "\t", q1, "->", int(q1), "\n")
+
+	a6 := 7
+	b6 := -4
+	fmt.Println("Type cast from int to float64:", a6, "->", float64(a6), "\t", b6, "->", float64(b6), "\n")
+
+	// integer division
+	fmt.Println("Integer division:", a6, "/", b6, "=", a6/b6)
+	fmt.Println("floating result:", float64(a6)/float64(b6), "\n")
+
+	// type casting a constant
+	// var g1 int = int(3.4)
+	var g2 int = int(p1)
+	fmt.Println("Type casting w/ constant, eg. 'var g int = int(3.2)': not allowed")
+	fmt.Println("Type casting w/ a variable in declaration, eg. var g int = int(x):", p1, "->", g2, "\n")
+
+	// type casting from int to bool, not allowed
+	// p2 := 1
+	// var q2 bool = bool(p2)
+	fmt.Println("Type casting from int to bool: not allowed\n")
+
+	// type casting from uint to int w/ negative value
+	var u1 int = -70
+	var u2 uint = uint(u1)
+	fmt.Println("Type casting from int to uint:", u1, "->", u2, "\n")
+
+	// integer overflow
+	var u3 int = 2147483647
+	fmt.Println("Integer overflow: eg. 2147483647 + 1 in demo becomes -2147483648 but failed in ver 1.10.4:", u3+1, "\n")
 }
