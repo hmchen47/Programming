@@ -33,6 +33,7 @@ func main() {
 	var hello string = "Hello!" // using double quotes to indicate a string
 	var statement bool = true
 
+	fmt.Println("variable declaration w/ value:")
 	fmt.Println(x, sym, hello, statement) // result: -2.6 67 Hello! true
 	fmt.Println()
 
@@ -40,9 +41,28 @@ func main() {
 	var y float64       // default of 0.0
 	var z int           // default of 0
 	var sym1 byte       // default of 0 (another number ...)
-	var hello1 string   // default of ?
+	var hello1 string   // default of ""
 	var statement1 bool // default of false
 
+	fmt.Println("variable declaration w/o assigning value:")
 	fmt.Println(y, z, sym1, hello1, statement1) // result: 0 0 0  false
+	fmt.Println()
 
+	// multiple variable declaration
+	var (
+		i     int     = -1
+		world string  = "No"
+		k     float64 = 45.67
+	)
+
+	fmt.Println("Multiple variable declaration:")
+	fmt.Println(i, world, k)
+	fmt.Println()
+
+	// multiple variable declaration w/ same type
+	var m, n, p int = 34, -45, 56
+
+	fmt.Println("Multiple variable declaration w/ same type:")
+	fmt.Println(m, n, p)
+	fmt.Println()
 }
