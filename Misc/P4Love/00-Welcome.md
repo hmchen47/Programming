@@ -830,6 +830,18 @@ I therefore want this course to build a bridge between existing materials and a 
     + integer overflow: 9223372036854775807 + 1 $\to$ -9223372036854775808
 
 
+### 0.5.4 Functions and Conditionals
+
+<video src="https://youtu.be/5JBiiQoLxuA" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+
+
+
+
 ## 0.6 Homework 0: Working with Integers and Arrays
 
 
