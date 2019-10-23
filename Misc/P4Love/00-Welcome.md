@@ -716,11 +716,12 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + Most encryption scheme are symmetric
   + A __symmetric__ encryption scheme uses the same __key__ for encrypting/decrypting a message
-  + Even if we have a complicated key, it must be private: the sender and receiver must agree on the key on the key in advance
   + example: HELLO $\xrightarrow{\text{encrypt +1 letter}}$ IFMMP $\xrightarrow{\text{encrypt 11 letter}}$ HELLO
+  + Even if we have a complicated key, it must be private: the sender and receiver must agree on the key on the key in advance
 
 + Primes Save the Day
   + __Public key encryption__ (late 1970s): knowing the key doesn't make it automatically easy to decrypt
+  + Examplle: public key $n = p \times q$ where $p, q$ are large primes (typically ~300 digits long)
   + __Key Point:__ the only way to decrypt is by knowing the primes $p$ and $q$. This makes the key __asymmetric__.
 
 + But an eavesdropper just has to factor n!
@@ -730,7 +731,15 @@ I therefore want this course to build a bridge between existing materials and a 
   + Key Point: no one has ever found a "fast" solution to this problem for 600-digit integer ...
 
 
-## 0.5 Homework 0: Working with Integers and Arrays
+## 0.5 Getting Started in Go (MacOS)
+
+<video src="https://youtu.be/I5XCvYs0tGo" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+## 0.6 Homework 0: Working with Integers and Arrays
 
 
 
