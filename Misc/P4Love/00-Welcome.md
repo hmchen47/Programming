@@ -321,8 +321,8 @@ I therefore want this course to build a bridge between existing materials and a 
 + How to convert to Pseudocode?
   + GCD of 378 and 273
   + A trivial (obvious) algorithm solving the GCD problem
-    1. start th elargest common divisor at 1
-    2. for every integer n between 1 and min(a, b):
+    1. start the largest common divisor at 1
+    2. for every integer `n` between 1 and `min(a, b)`:
       + is `n` a divisor of `a`?
       + is `n` a divisor of `b`?
       + if the answer of both of these questions is "yes", update the largest common divisor found to be equal to `n`
@@ -332,7 +332,7 @@ I therefore want this course to build a bridge between existing materials and a 
 + A simple problem: factorial
   + Factorial problem
     + input: an integer `n`
-    + output: $n! = n \times (n-1) \times (n-2) \times \cdots \times 2 \time 1$
+    + output: $n! = n \times (n-1) \times (n-2) \times \cdots \times 2 \times 1$
   
   ```go
   Factorial(n)
@@ -344,7 +344,7 @@ I therefore want this course to build a bridge between existing materials and a 
     return p
   ```
 
-  + `p <- 1`: 
+  + `p <- 1`:
     + declaring an intermediate variable p equal to 1 (p will eventually hold the factorial product)
     + the variable on the left of `<-` receives the value of the right side
   + `i <- 1`: `i` will allow us to "range" over all integers up to `n`
@@ -469,30 +469,33 @@ I therefore want this course to build a bridge between existing materials and a 
     1. how can we demonstrate this for any possible pair of integers?
     2. why do we really care that this is true computationally?
 
-  + Proof: Common problem solving technique in mathematics: sometimes, we can prove a more general statement.
-  + more general statement: if $a > b$, then all shared divisors of $a$ and $b$ is the same as all shared divisors of $a - b$ and $b$
+  + Common problem solving technique in mathematics: sometimes, we can prove a more general statement.
+  + more general statement: if $a > b$, then __all__ shared divisors of $a$ and $b$ is the same as __all__ shared divisors of $a - b$ and $b$
   + prove the general statement with two facts
-    1. any shared divisors of a and b must also be a divisor of $a - b$
-    2. any shared divisor of $a - b$ and $b$ must also be a divisor of $a$
-  + Proof of 1: say $d$ is a divisor of $a$ and $b$.  There must be some integers $x$ and $y$ such that
+    1. ($\to$) any shared divisors of $a$ and $b$ must also be a divisor of $a - b$
+    2. ($\gets$) any shared divisor of $a - b$ and $b$ must also be a divisor of $a$
+  + Proof of 1 ($\to$): say $d$ is a divisor of $a$ and $b$.  $\exists \, x, y \in \mathbb{Z}^{\neq}:$
 
     \[dx = a, \quad dy = b\]
 
     \[a - b = dx - dy = d(x - y)\]
 
-    So $d$ is a divisor of $a - b$ as well.
-  + Proof of 2: Say $e$ is a divisor of $a - b$ and $b$.  there must be some integers $p$ and $q$ such that
+    $\therefore \, d$ is a divisor of $a - b$ as well.
+  + Proof of 2 ($\gets$): Say $e$ is a divisor of $a - b$ and $b$.  $\exists \, p , q \in \mathbb{Z}^{\neq}:$
 
     \[ep = a - b, \quad eq = b\]
 
     \[a = (a - b) + b = ep + eq = e(p + q)\]
 
-    So $e$ is a divisor of $a$ as well.
+    $\therefore \, e$ is a divisor of $a$ as well.
 
 + Euclid's theorem in action
   + Example
 
-    \[GCD(378, 273) = GCD(105, 273) = GCD(105. 168) = GCD(105, 63) = GCD(42, 63) = GCD(42, 21) = GCD(21, 21) = 21\]
+    \[\begin{align*}
+      GCD(378, 273) &= GCD(105, 273) = GCD(105. 168) = GCD(105, 63) \\
+        & = GCD(42, 63) = GCD(42, 21) = GCD(21, 21) = 21
+    \end{align*}\]
 
   + Exercise: brainstorm how we could write a function in pseudocode to compute the GCD of two numbers by repeatedly applying Euclid's theorem
 
