@@ -766,8 +766,15 @@ I therefore want this course to build a bridge between existing materials and a 
   + Scripting way: `go run hello.go`
 
 
+## 0.6 Getting started in Go (Windows)
 
-## 0.6 Homework 0: Working with Integers and Arrays
+<video src="https://youtu.be/p3FjbqT1cko" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
+
+## 0.7 Homework 0: Working with Integers and Arrays
 
 
 
