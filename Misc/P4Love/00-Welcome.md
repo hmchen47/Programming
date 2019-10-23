@@ -734,7 +734,7 @@ I therefore want this course to build a bridge between existing materials and a 
 ## 0.5 Getting started in Go
 
 
-## 0.5.1 Getting Started in Go (MacOS/Linux)
+### 0.5.1 Getting Started in Go (MacOS/Linux)
 
 <video src="https://youtu.be/I5XCvYs0tGo" preload="none" loop="loop" c0.5 Getting Started in Go (MacOS)ontrols="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
@@ -786,13 +786,48 @@ I therefore want this course to build a bridge between existing materials and a 
   + build & run go program as described in Mac OX/Linux
 
 
-## 0.5.3 Basic of Variable in Go
+### 0.5.3 Basic of Variable in Go
 
 <video src="https://youtu.be/3I_J1HtLmNw" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
 
++ [The Go Playground](https://play.golang.org/): online Go editor
+
++ Variable declaration
+  + variable types: int, uint, float64, symbol, string, bool
+  + formal declaration
+    + format: var varName varType = value
+    + e.g., `var x float64 = -3.4`, `var k int = 3`, `var chr symbol = 'D'`, `var str string = "Hello"`, `var statement bool = true`
+  + declaration w/o value
+    + default value: int $\to$ 0, float64 $\to$ 0.0, symbol $\to$ 0, bool $\to$ flase
+    + e.g., `var x int`, `var y float64`
+  + multiple variable declaration
+
+    ```go
+    var (
+      x int = 1
+      y float64 = -3.4
+      z string = "Yes"
+    )
+
+    var int i, j, k int = 1, -2, 3
+  ```
+
+  + shortcut declaration w/ `:=`: `i := 1`; `x = -4.5`, `sym := 'D'`
+  + declaration w/ standard arithmetic: `x := 4.2 + 3.5`
+  + __NO re-declaration__ allowed
+  + string concatenation with `+`: `str1+str2`
+
++ Type conversion
+  + arithmetic type mismatch: `int(a) + float64(b)`
+  + type casting; `float64(a)`, `int(y)`
+  + __No constant__ type casting allowed
+  + __No boolean__ type casting from integer allowed
+  + type casting with negative integer to unsigned integer
+    + e.g. `i := -1`, `var u unit = unit(i)` $\to$ u = 18446744073709551615 (the value depends on the computer used)
+    + integer overflow: 9223372036854775807 + 1 $\to$ -9223372036854775808
 
 
 ## 0.6 Homework 0: Working with Integers and Arrays
