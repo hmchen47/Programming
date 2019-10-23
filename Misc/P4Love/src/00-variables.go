@@ -20,6 +20,7 @@ func main() {
 	// Go won't be able to read a = 28
 	// variable declaration formate: "var variableName variableType = value"
 	var a int = 28
+	fmt.Println("formal declaration, var varName varType = value")
 	fmt.Println(a)
 
 	// change the value of a
@@ -33,7 +34,7 @@ func main() {
 	var hello string = "Hello!" // using double quotes to indicate a string
 	var statement bool = true
 
-	fmt.Println("variable declaration w/ value:")
+	fmt.Println("variable declaration w/ value, eg. 'var x float64 = -2.3':")
 	fmt.Println(x, sym, hello, statement) // result: -2.6 67 Hello! true
 	fmt.Println()
 
@@ -44,7 +45,7 @@ func main() {
 	var hello1 string   // default of ""
 	var statement1 bool // default of false
 
-	fmt.Println("variable declaration w/o assigning value:")
+	fmt.Println("variable declaration w/o assigning value, eg. 'var y symbol':")
 	fmt.Println(y, z, sym1, hello1, statement1) // result: 0 0 0  false
 	fmt.Println()
 
@@ -55,21 +56,21 @@ func main() {
 		k     float64 = 45.67
 	)
 
-	fmt.Println("Multiple variable declaration:")
+	fmt.Println("Multiple variable declaration, eg. 'var ( i int = -1 <cr> str string = \"No\"'):")
 	fmt.Println(i, world, k)
 	fmt.Println()
 
 	// multiple variable declaration w/ same type
 	var m, n, p int = 34, -45, 56
 
-	fmt.Println("Multiple variable declaration w/ same type:", m, n, p, "\n")
+	fmt.Println("Multiple variable declaration w/ same type, eg. 'var int a, b int = 12, -23':", m, n, p, "\n")
 
 	// shortcut declaration s ... done w/ :=
 	x2 := -32   // same as 'var x2 int = -32'
 	y2 := 4     // same as 'var y2 int = 4'
 	sym2 := 'D' // same as 'var sym2 symbol = 'D''
 
-	fmt.Println("Shortcut declaration w/ ':='", x2, y2, sym2, "\n")
+	fmt.Println("Shortcut declaration w/ ':=', eg. 'x := 3':", x2, y2, sym2, "\n")
 
 	// declaration w/ standard arithmetic
 	cat := 2 + 30
@@ -80,23 +81,24 @@ func main() {
 		cat := 3
 		fmt.Println(cat, "\n")
 	*/
+	fmt.Println("Re-declaring not allowed \n")
 
 	// arithmetic w/ variables
 	a3 := 3.2
 	b3 := -2.6
 
 	a3 = 2*b3 + 6*a3
-	fmt.Println("Variable arithmetic:", a3, "\n")
+	fmt.Println("Variable arithmetic, eg. x = 3*a + 6*b:", a3, "\n")
 
 	// string concatenation
 	a4 := "Hello"
 	b4 := "World"
 
-	fmt.Println("String concatenation w/ '+':", a4, b4, a4+b4, "\n")
+	fmt.Println("String concatenation w/ '+', eg. str1 + str2:", a4, b4, a4+b4, "\n")
 
 	// type mismatch in arithmetic
 	a5 := 3.2
 	b5 := 2
-	fmt.Println("Type casting:", a5+float64(b5), "\n")
+	fmt.Println("Type casting, eg. float64(<int>):", a5+float64(b5), "\n")
 
 }
