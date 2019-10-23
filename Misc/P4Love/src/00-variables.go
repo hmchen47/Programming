@@ -17,6 +17,8 @@ bool: boolean variable, true or false
 */
 
 func main() {
+
+	fmt.Println("\nVariable declaration...\n")
 	// Go won't be able to read a = 28
 	// variable declaration formate: "var variableName variableType = value"
 	var a int = 28
@@ -65,10 +67,10 @@ func main() {
 
 	fmt.Println("Multiple variable declaration w/ same type, eg. 'var int a, b int = 12, -23':", m, n, p, "\n")
 
-	// shortcut declaration s ... done w/ :=
+	// shortcut declarations ... done w/ :=
 	x2 := -32   // same as 'var x2 int = -32'
 	y2 := 4     // same as 'var y2 int = 4'
-	sym2 := 'D' // same as 'var sym2 symbol = 'D''
+	sym2 := 'D' // same as 'var sym2 symbol = 'D''eg. 2147483647 + 1 in demo becomes -2147483648 but failed in ver 1.10.4
 
 	fmt.Println("Shortcut declaration w/ ':=', eg. 'x := 3':", x2, y2, sym2, "\n")
 
@@ -102,6 +104,7 @@ func main() {
 	fmt.Println("Type casting, eg. float64(<int>):", a5+float64(b5), "\n")
 
 	// Type conversion
+	fmt.Print("\n\nType cating ...\n\n")
 
 	// type casting from float64 to int: discard decimal part
 	p1 := 3.4
@@ -128,11 +131,11 @@ func main() {
 	fmt.Println("Type casting from int to bool: not allowed\n")
 
 	// type casting from uint to int w/ negative value
-	var u1 int = -70
+	var u1 int = -1
 	var u2 uint = uint(u1)
 	fmt.Println("Type casting from int to uint:", u1, "->", u2, "\n")
 
 	// integer overflow
-	var u3 int = 2147483647
-	fmt.Println("Integer overflow: eg. 2147483647 + 1 in demo becomes -2147483648 but failed in ver 1.10.4:", u3+1, "\n")
+	var u3 int = (18446744073709551615) / 2
+	fmt.Println("Integer overflow (depend on the computer used):", u3, "+ 1  ->  ", u3+1, "\n")
 }
