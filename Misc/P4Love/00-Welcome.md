@@ -773,6 +773,15 @@ I therefore want this course to build a bridge between existing materials and a 
   Your browser does not support the HTML5 video element.
 </video><br/>
 
++ Installation
+  1. download from official website
+  2. install as instruction
+
++ Build & Run program
+  + Open command prompt
+  + navigate to the folder with the go file
+  + build & run go program as described in Mac OX/Linux
+
 
 ## 0.7 Homework 0: Working with Integers and Arrays
 
