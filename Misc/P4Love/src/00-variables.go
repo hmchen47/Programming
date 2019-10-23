@@ -85,4 +85,11 @@ func main() {
 		fmt.Println(cat, "\n")
 	*/
 
+	// arithmetic w/ variables
+	a3 := 3.2
+	b3 := -2.6
+
+	a3 = 2*b3 + 6*a3
+	fmt.Println("Variable arithmetic:", a, "\n")
+
 }
