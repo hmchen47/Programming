@@ -591,17 +591,21 @@ I therefore want this course to build a bridge between existing materials and a 
       return true
     ```
 
+    Answer: always return false
+
 + Theorem: if $ab = n$, $a$ and $b$ must be at most $\sqrt{n}$
 
   ```go
   IsPrime(n)
     if n = 1
       return false
-    for every integer p form 2 to aqrt(n)
+    for every integer p form 2 to sqrt(n)
       if p is a divisor of n
         return false
     return true
   ```
+
++ __Euclid's Theorem #2__: There are infinitely many primes.
 
 + A simpler fact
   + Simpler fact: every composite integer greater than 1 has at least one prime factor
@@ -610,30 +614,38 @@ I therefore want this course to build a bridge between existing materials and a 
 
 + Proof of Euclid's Theorem #2
   + Euclid's theorem #2: there are infinitely many primes.
-  + Proof by contradiction: assume the opposite of what we want to prove, and show that it leads to a __contradiction__, a statement that we know is false.
+  + __Proof by contradiction:__ assume the opposite of what we want to prove, and show that it leads to a __contradiction__, a statement that we know is false.
   + STOP: what is the opposite of what we want to prove in the case?
-  + Assume that there are finitely many primes.  This means that there must be some number $n$ of them, and we can label them $p_1, p_2, \dots, p_n$.
-  + Consider the number formed by multiplying all these primes together:
+  + Proof:
+  
+    Assume that there are finitely many primes.  This means that there must be some number $n$ of them, and we can label them $p_1, p_2, \dots, p_n$.
+  
+    Consider the number formed by multiplying all these primes together:
 
     \[p = (p_1)(p_2) \dots (p_n)\]
   
-  + STOP: is $p$ prime or composite? why?
-  + Answer: composite, because $p$ has many factors other than 1 and itself.
-  + Now take the number that is 1 larger than $p$:
+    + STOP: is $p$ prime or composite? why?
+    + Answer: composite, because $p$ has many factors other than 1 and itself.
+  
+    Now take the number that is 1 larger than $p$:
 
-    \[q = p + 1 = (p_1)(p_2) \dots (p_n) + 1\]
-  + STOP: is $q$ prime or composite? why?
-  + Answer: $q$ must be composite, because it is clearly larger than all known primes!
-  + Yet look what happens when we divide $q$ by each of the known primes.
+      \[q = p + 1 = (p_1)(p_2) \dots (p_n) + 1\]
 
-    \[\begin{align*}
-      q /p_1 &= (p_2)(p_3) \dots (p_n) + 1 / p_1\\
-      q /p_2 &= (p_1)(p_3) \dots (p_n) + 1 / p_2
-    \end{align*}\]
+    + STOP: is $q$ prime or composite? why?
+    + Answer: $q$ must be composite, because it is clearly larger than all known primes!
+
+    Yet look what happens when we divide $q$ by each of the known primes.
+
+      \[\begin{align*}
+        q /p_1 &= (p_2)(p_3) \dots (p_n) + 1 / p_1\\
+        q /p_2 &= (p_1)(p_3) \dots (p_n) + 1 / p_2
+      \end{align*}\]
 
     <span style="color: red;">The remainder is always 1!</span>
-  + Fact: every composite integer greater than 1 has at least one prime factor.
-  + $q$ is composite, so it has a prime factor. But none of the primes $p_1$ is a factor. <span style="color: red;">Contradiction!</span>
+
+    + Fact: every composite integer greater than 1 has at least one prime factor.
+  
+    $q$ is composite, so it has a prime factor. But none of the primes $p_1$ is a factor. <span style="color: red;">Contradiction!</span>
   
 + Returning to factorials
   + __Array__: an ordered table/list of variables
@@ -655,7 +667,7 @@ I therefore want this course to build a bridge between existing materials and a 
 + Trivial prime finding
   + Prime number array problem
     + Input: an integer `n`
-    + output: an array primes of length n+1 such that for every nonnegative integer $p \leq n$, primes[p] is true if p is prime and false otherwise
+    + output: an array primes of length n+1 such that for every nonnegative integer $p \leq n$, `primes[p]` is true if $p$ is prime and false otherwise
   + Example: primes[0] = false, primes[1] = false, primes[2] = true, primes[3] = true, primes[4] = false, ...
 
   ```go
