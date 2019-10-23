@@ -731,7 +731,10 @@ I therefore want this course to build a bridge between existing materials and a 
   + Key Point: no one has ever found a "fast" solution to this problem for 600-digit integer ...
 
 
-## 0.5 Getting Started in Go (MacOS/Linux)
+## 0.5 Getting started in Go
+
+
+## 0.5.1 Getting Started in Go (MacOS/Linux)
 
 <video src="https://youtu.be/I5XCvYs0tGo" preload="none" loop="loop" c0.5 Getting Started in Go (MacOS)ontrols="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
@@ -766,7 +769,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + Scripting way: `go run hello.go`
 
 
-## 0.6 Getting started in Go (Windows)
+### 0.5.2 Getting started in Go (Windows)
 
 <video src="https://youtu.be/p3FjbqT1cko" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
@@ -783,7 +786,12 @@ I therefore want this course to build a bridge between existing materials and a 
   + build & run go program as described in Mac OX/Linux
 
 
-## 0.7 Homework 0: Working with Integers and Arrays
+## 0.5.3 Basic of Variable in Go
+
+
+
+
+## 0.6 Homework 0: Working with Integers and Arrays
 
 
 
