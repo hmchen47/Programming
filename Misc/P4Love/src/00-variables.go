@@ -94,4 +94,9 @@ func main() {
 
 	fmt.Println("String concatenation w/ '+':", a4, b4, a4+b4, "\n")
 
+	// type mismatch in arithmetic
+	a5 := 3.2
+	b5 := 2
+	fmt.Println("Type casting:", a5+float64(b5), "\n")
+
 }
