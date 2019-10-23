@@ -65,4 +65,14 @@ func main() {
 	fmt.Println("Multiple variable declaration w/ same type:")
 	fmt.Println(m, n, p)
 	fmt.Println()
+
+	// shortcut declaration s ... done w/ :=
+	x2 := -32   // same as 'var x2 int = -32'
+	y2 := 4     // same as 'var y2 int = 4'
+	sym2 := 'D' // same as 'var sym2 symbol = 'D''
+
+	fmt.Println("Shortcut declaration w/ :=")
+	fmt.Println(x2, y2, sym2)
+	fmt.Println()
+
 }
