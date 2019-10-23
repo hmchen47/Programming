@@ -37,11 +37,12 @@ func main() {
 	fmt.Println()
 
 	// omitting values of variables
-	var x1 float64
-	var sym1 byte
-	var hello1 string
-	var statement1 bool
+	var y float64       // default of 0.0
+	var z int           // default of 0
+	var sym1 byte       // default of 0 (another number ...)
+	var hello1 string   // default of ?
+	var statement1 bool // default of false
 
-	fmt.Println(x1, sym1, hello1, statement1) // result: 0 0  false
+	fmt.Println(y, z, sym1, hello1, statement1) // result: 0 0 0  false
 
 }
