@@ -75,4 +75,14 @@ func main() {
 	fmt.Println(x2, y2, sym2)
 	fmt.Println()
 
+	// declaration w/ standard arithmetic
+	cat := 2 + 30
+	fmt.Println("Declaration w/ standard arithemetic:", cat, "\n")
+
+	// Go not allow redeclaring a variable
+	/*
+		cat := 3
+		fmt.Println(cat, "\n")
+	*/
+
 }
