@@ -62,18 +62,14 @@ func main() {
 	// multiple variable declaration w/ same type
 	var m, n, p int = 34, -45, 56
 
-	fmt.Println("Multiple variable declaration w/ same type:")
-	fmt.Println(m, n, p)
-	fmt.Println()
+	fmt.Println("Multiple variable declaration w/ same type:", m, n, p, "\n")
 
 	// shortcut declaration s ... done w/ :=
 	x2 := -32   // same as 'var x2 int = -32'
 	y2 := 4     // same as 'var y2 int = 4'
 	sym2 := 'D' // same as 'var sym2 symbol = 'D''
 
-	fmt.Println("Shortcut declaration w/ :=")
-	fmt.Println(x2, y2, sym2)
-	fmt.Println()
+	fmt.Println("Shortcut declaration w/ ':='", x2, y2, sym2, "\n")
 
 	// declaration w/ standard arithmetic
 	cat := 2 + 30
@@ -90,6 +86,12 @@ func main() {
 	b3 := -2.6
 
 	a3 = 2*b3 + 6*a3
-	fmt.Println("Variable arithmetic:", a, "\n")
+	fmt.Println("Variable arithmetic:", a3, "\n")
+
+	// string concatenation
+	a4 := "Hello"
+	b4 := "World"
+
+	fmt.Println("String concatenation w/ '+':", a4, b4, a4+b4, "\n")
 
 }
