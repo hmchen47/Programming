@@ -685,9 +685,9 @@ I therefore want this course to build a bridge between existing materials and a 
   + Prime number array problem
     + Input: an integer n
     + output: an array primes of length n+1 such that for every nonnegative integer $p \leq n$,, primes[p] is true if p is prime and false otherwise
-  + Exercise: write a pseudocode function SieveOfEratosthenes() that solves this problem by implementing the Sieve of Eratosthenes. (use a subordinate if it's helpful.)
+  + Exercise: write a pseudocode function `SieveOfEratosthenes()` that solves this problem by implementing the Sieve of Eratosthenes. (use a subordinate if it's helpful.)
   
-+ Implementing SieveOfEratosthenes
++ Implementing `SieveOfEratosthenes`
 
   ```go
   SieveOfEratosthenes(n)
