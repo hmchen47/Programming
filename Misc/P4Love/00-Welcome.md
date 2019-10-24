@@ -733,6 +733,36 @@ I therefore want this course to build a bridge between existing materials and a 
 
 ## 0.5 Homework 0: Working with Integers and Arrays
 
+### Exercise Part 1: Warming Up
+
++ "write and implementation": write the function in pseudocode first and then implement the function in Go
+
++ Permutation: choosing objects and placing in buckets with order
+
+  \[P(n, k) = \frac{n!}{(n-k)!}\]
+
++ Combination: choosing objects and placing buckets w/o order
+
+  \[ C(n, k) = \frac{n!}{(n-k)! \cdot k!} \]
+
++ Exercise: write and implement functions `Combination(n, k)` and `Permutation(n, k)` computing the combination and permutation statistics
+  + pseudocode
+
+    ```go
+    Combination(n, k)
+      return Factorial(n)/(Factorial(n-k) * Factorial(k))
+
+    Permutation(n, k)
+      return Factorial(n)/Factorial(n-k)
+
+    Factorial(n)
+      if n = 1
+        return 1
+      else
+        return n*Factorial(n-1)
+    ```
+  + Answer: [Permutation](./src/00-permutation.go)
+    Answer: [Combination](./src/00-combination.go)
 
 
 
