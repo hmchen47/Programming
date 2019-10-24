@@ -812,4 +812,32 @@ I therefore want this course to build a bridge between existing materials and a 
   + Write and implement a function `FibonacciArray` that takes an integer $n$ as input and returns an array if length $n$ whose $k$-th element is the $k$-th Fibonacci number.
   + pseudocode
   
+    ```go
+    FibonacciArray(n)
+      fibArray <- an integer array w/ length of n
+      fibArray[0] <- 0
+      fibArray[1] <- 1
+      for i from 2 to n
+        fibArray[i] <- fibArray[i-2] + fibArray[i-1]
+
+      return fibArray
+    ```
+
+  + Answer: [FibonacciArray](./src/e00-FibonacciAry.go)
+
++ Exercise: `MinArray`
+  + write and implement a function `MinArray` that takes an array of integers as input and return the minimum of all these integers
+  + pseudocode:
+
+  ```go
+  MinArray(array)
+    min <- a very large integer (infinity)
+    for i from 1 to length of the array
+      if array[i] < min
+        min <- array[i]
+    return min
+  ```
+
+  + Answer: [MinArray](./src/e00-minArray.go)
+
 
