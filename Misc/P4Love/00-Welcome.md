@@ -761,8 +761,30 @@ I therefore want this course to build a bridge between existing materials and a 
       else
         return n*Factorial(n-1)
     ```
-  + Answer: [Permutation](./src/00-permutation.go)
+
+  + Answer: [Permutation](./src/00-permutation.go)<br/>
     Answer: [Combination](./src/00-combination.go)
 
+
++ Exercise:
+  + Modify your implementation of Combination and Permutation so that you are able to compute Permutation(1000, 2), Combination(1000, 2) and Combination(1000, 998) without any problem
+  + pseudocode
+
+    ```go
+    PermutationBig(n, k)
+      perm <- 1
+      for idx <- (n-k+1) to n
+        perm <- perm * idx
+      return perm
+
+    CombinationBig(n, k)
+      comb <- Permutation(n, min(n-k, k))
+      for idx <- 1 to min(n-k, k)
+        comb <- comb / idx
+      return comb
+    ```
+
+  + Answer: [Permutation for Big Number](./src/00-bpermutation.go)<br/>
+    Answer: [Combination for Big Number](./src/00-bcombination.go)
 
 
