@@ -840,4 +840,20 @@ I therefore want this course to build a bridge between existing materials and a 
 
   + Answer: [MinArray](./src/e00-minArray.go)
 
++ Exercise: `GCDArray`
+  + Write and implement a function `GCDArray` that takes an array of integers as input and generalizes the idea in `TrivialGCD` to return the greatest common divisor of all of the integers in the array.  You may wan to use MinArray as a subroutine.
+  + pseudocode
+
+    ```go
+    GCDArray(array)
+      min <- MinArray(array)
+      for an integer i from min to 1
+        isCommonDivisor <- true
+        for an integer j from length of the array
+          isCommonDivisor = isCommonDivisor AND (is i a divisor of array[j])
+        if isCommonDivisor is true
+          return i
+    ```
+
+  + Answer: [GCDArray](src/e00-gcdArray.go)
 
