@@ -808,4 +808,8 @@ I therefore want this course to build a bridge between existing materials and a 
 
     + Answer: [FactorialArray](./src/e00-factorialArray.go)
 
++ Exercise" `FibonacciArray`
+  + Write and implement a function `FibonacciArray` that takes an integer $n$ as input and returns an array if length $n$ whose $k$-th element is the $k$-th Fibonacci number.
+  + pseudocode
+  
 
