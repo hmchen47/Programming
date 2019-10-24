@@ -733,7 +733,9 @@ I therefore want this course to build a bridge between existing materials and a 
 
 ## 0.5 Homework 0: Working with Integers and Arrays
 
-### Exercise Part 1: Warming Up
+### 0.5.1 Exercise Part 1: Warming Up
+
+#### Combinations, permutations, and a short guide to debugging
 
 + "write and implementation": write the function in pseudocode first and then implement the function in Go
 
@@ -745,7 +747,8 @@ I therefore want this course to build a bridge between existing materials and a 
 
   \[ C(n, k) = \frac{n!}{(n-k)! \cdot k!} \]
 
-+ Exercise: write and implement functions `Combination(n, k)` and `Permutation(n, k)` computing the combination and permutation statistics
++ Exercise: `Combination` & `Permutation`
+  + write and implement functions `Combination(n, k)` and `Permutation(n, k)` computing the combination and permutation statistics
   + pseudocode
 
     ```go
@@ -766,7 +769,7 @@ I therefore want this course to build a bridge between existing materials and a 
     Answer: [Combination](./src/00-combination.go)
 
 
-+ Exercise:
++ Exercise: `ComputationBig` & `PermutationBig`
   + Modify your implementation of Combination and Permutation so that you are able to compute Permutation(1000, 2), Combination(1000, 2) and Combination(1000, 998) without any problem
   + pseudocode
 
@@ -786,5 +789,23 @@ I therefore want this course to build a bridge between existing materials and a 
 
   + Answer: [Permutation for Big Number](./src/00-bpermutation.go)<br/>
     Answer: [Combination for Big Number](./src/00-bcombination.go)
+
+#### Working with Arrays
+
++ Exercise: `FactorialArray`
+  + implement a function `FactorialArray` that takes an integer $n$ and returns a slice of length $n+1$ whose $k$-th element is equal to $k!$ Your should not call a factorial function subroutine as s subroutine.
+  + pseudocode
+
+    ```go
+    FactorialArray(n)
+      factArray <- an integer array w/ length (n+1)
+      factArray[0] <- 1
+      for idx <- 1 to n
+        factArray[idx] = factArray[idx-1] * idx
+
+      return factArray
+    ```
+
+    + Answer: [FactorialArray](./src/e00-factorialArray.go)
 
 
