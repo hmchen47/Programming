@@ -857,3 +857,36 @@ I therefore want this course to build a bridge between existing materials and a 
 
   + Answer: [GCDArray](src/e00-gcdArray.go)
 
+
+### 0.5.2 Exercises Part 2: More Number Types, and Mathematical Conjectures
+
+#### Perfect numbers
+
++ Perfect number
+  + __Definition:__ a perfect number is an integer $n$ that is equal to the sum of its proper divisors
+  + e.g, $6 = 1 + 2 + 3$, $27 = 1 + 2 + 4 + 7 + 14$
+  + Pattern:
+    
+    \[ \begin{align*}
+      6 &= 2^1(2^2 - 1) \\ 28 &= 2^2(2^3 - 1) \\ 496 &= 2^4(2^5 - 1) \\ 8128 &= 2^5(2^6 -1)
+    \end{align*} \]
+
++ Exercise: `IsPerfect`
+  + Write and implement a function `IsPerfect` that takes an integer $n$ as input and return "true" if $n$ is perfect and "false" otherwise. Recalling out first attempt at `IsPrime`, do you see any ways of making your function more efficient?
+  + pseudocode
+
+    ```go
+    IsPerfect(n)
+      sum <- 0
+      for an integer i from 1 to n-1
+        if i is a divisor of n
+          sum <- sum + i
+      if sum = n
+        return true
+      else
+        return false
+    ```
+  
+  + Answer: [IsPerfect](./src/e00-isPerfect.go)
+
+
