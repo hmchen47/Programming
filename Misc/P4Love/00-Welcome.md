@@ -866,7 +866,7 @@ I therefore want this course to build a bridge between existing materials and a 
   + __Definition:__ a perfect number is an integer $n$ that is equal to the sum of its proper divisors
   + e.g, $6 = 1 + 2 + 3$, $27 = 1 + 2 + 4 + 7 + 14$
   + Pattern:
-    
+
     \[ \begin{align*}
       6 &= 2^1(2^2 - 1) \\ 28 &= 2^2(2^3 - 1) \\ 496 &= 2^4(2^5 - 1) \\ 8128 &= 2^5(2^6 -1)
     \end{align*} \]
@@ -887,6 +887,20 @@ I therefore want this course to build a bridge between existing materials and a 
         return false
     ```
   
-  + Answer: [IsPerfect](./src/e00-isPerfect.go)
+  + Answer: [IsPerfect Go Code](./src/e00-isPerfect.go)
+
++ Exercise: `NextPerfectNumber`
+  + Write and implement a function `NextPerfectNumber` that takes an integer $n$ as input and use `IsPerfect` as subroutine to find the smallest perfect number that is larger than $n$. The use your function to find the fifth perfect number (which was unknown to the Greeks).  Can this number be represented as a product of the above form?
+  + pseudocode
+
+    ```go
+    NextPerfectNumber(n)
+      nextNum <- n + 1
+      while IsPerfect(nextNub) == false
+        nextNum = nextNum + 1
+      return n
+    ```
+
+  + [NectPerfectNumber Go Code]
 
 
