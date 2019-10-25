@@ -166,6 +166,89 @@
 
 
 
+#### A.4.2 Conditionals
+
++ Computing GCD
+  + GCD problem: compute the greatest common divisor of two integers
+    + Input: two integer `a` and `b`
+    + Output: the greatest common divisor of `a` and `b`
+  + Exercise: design an algorithm in pseudocode solving this problem
+ 
++ A simple algorithm computing GCD
+  +Idea: it isn't possible for the GCD of a and b to be larger than `min(a, b)`, so we can try every number less than `min(a, b)` and take the greatest common divisor
+  + pseudocode
+
+    ```go
+    GCD(a, b)
+      gcd = 1
+      m = min(a, b)
+      for every number p <= m
+        if a/p and b/p are both integers
+          gcd = p
+      return gcd
+    ```
+
++ A quicker algorithm computing GCD
+  + Idea: start with `min(a, b)` and move downward, returning the first common factor of a and b that we find
+  + pseudocode
+
+    ```go
+    AnotherGCD(a, b)
+      m = min(a, b)
+      for every number p from m to 1 (decreasing)
+        if a/p and b/p are both integers
+          return p
+    ```
+
++ The world's first nontrivial algorithm (~300 BC): Euclid
+  + Theorem: if $a > b$, then $gcs(a, b) = gcd(a-b, b)$
+  + Example: $gcd(378, 273) = gcd(105, 273) = gcd(105, 168) = gcd(107, 63) = gcd(42, 21) = gcd(21, 21) = 21$
+  + Exercise: implement Euclid's algorithm in pseudocode
+
++ Recall: Recursive Gauss
+
+  ```go
+  RecursiveGauss(n)
+    if n = 0
+      return 0
+    else
+    return n + RecursiveGauss(n-1)
+  ```
+
++ Recursive Euclid's algorithm
+
+  ```go
+  RecursiveEuclid(a, b)
+    if a = b
+      return a
+    else if a > b
+      return RecursiveEuclid(a-b, b)
+    else
+      return RecursiveEuclid(b-a, a)
+  ```
+
++ Be aware of scope of variables
+
++ Additional conditions
+  + Boolean Operator: `>`, `<`, `>=`, `<=`, `==`, `!=`, `!`(NOT), `&&`(AND), `||`(OR)
+  + Boolean expressions to evaluate to true or false; eg.
+    + `a > 10 * b + c`: depend on value of a
+    + `10 == 10`: true
+    + `square(10) < 101 - 1 + 2`: true
+    + `!(x*y < 33)`: inverse of `(x*y < 33)`
+
++ Order of operator precedence (left to right in expression w/ same level)
+
+  | Precedence |  Operator |
+  |------------|:---------:|
+  |   5        |    * &nbsp;&nbsp; / &nbsp;&nbsp; % &nbsp;&nbsp; << &nbsp;&nbsp; >> &nbsp;&nbsp; & &nbsp;&nbsp; &^ |
+  |   4        |    + &nbsp;&nbsp; - &nbsp;&nbsp; \| &nbsp;&nbsp; ^ |
+  |   3        |    == &nbsp;&nbsp; != &nbsp;&nbsp; < &nbsp;&nbsp; <= &nbsp;&nbsp; > &nbsp;&nbsp; >= |
+  |   2        |    && |
+  |   1        |    \|\| |
+
+
+
 ## A.5 A Short Lesson on Debugging
 
 
