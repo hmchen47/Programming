@@ -250,8 +250,55 @@
   |   2        |    && |
   |   1        |    \|\| |
 
+  + Example:
 
+  \[\underbrace{\underbrace{\underbrace{\underbrace{\underbrace{2*a}_{5} + b}_{4} \; !=\; 3}_{3}}_{2} \;\&\&\; \underbrace{\underbrace{\underbrace{\underbrace{a*c}_{5} - \underbrace{3/z}_{5}}_{4} < -5\;}_{3}}_{2}}_{1} ||\; \underbrace{\underbrace{\underbrace{\underbrace{c + \underbrace{a/2}_{5}}_{4} >= 15}_{3}}_{2}}_{1} \]
 
+  + like in math, use parentheses to force a different order
+
++ True/False Quiz: `a = 10` & `b = 50`
+  1. `a > 10 && b > 20`
+  2. `a==10 && b < 100 && a*b > 1000`
+  3. `a > 20 || b < 51 || b-a*b > 0`
+  4. `a=10 && b=50`
+  5. `a==10 && b >= 100 || b == 50`
+  6. `b==50 || a==10 && b >= 100`
+  7. `a>5 && b<20 || a==0 && b==0`
+  8. `a>5 || b>20 && a==0 || b==0`
+  9. `a>5 || (b>20 &7 a==0) || b==0`
+
+  Ans: 1. false, 2. false, 3. true, 4. syntax error, 5. true, 6. true, 7. false, 8. true, 9. true
+
++ Nested if statement & switch operator
+  + nested if statement
+
+    ```go
+    if logicalExp1 {
+      statements2
+    } else if logicalExp2 {
+      statements2
+    } else if logicalExp3 {
+      statements3
+    }
+    ...
+    } else {
+      statementn
+    }
+    ```
+  + switch operator used as in C
+
+    ```go
+    switch key {
+    case key1:
+      expressions
+    case key2:
+      expressions
+    ...
+    default:
+      expressions
+    }
+
++ [Demo file for conditionals]()
 
 
 ## A.5 A Short Lesson on Debugging
