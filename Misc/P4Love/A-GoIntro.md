@@ -351,10 +351,74 @@
   + don't think for more than 15-20 mins on one bug, though -- sleep is helpful!
   + often program top-down, but it is very helpful to debug bottom-up!
 
++ [Demo file for debugging](src/GoIntro/debugging.go)
+
 
 ## A.6 Loops in Go
 
++ "while" loop in Go Lang
+  + no keyword "while"
+  + using keyword "for" to mean "while"
+  + Syntax: `for condition { exp }`
+    + condition is `true`: execute `exp`
+    + condition is `false`: exit the while loop
+  + example
 
+    ```go
+    for a != b {
+      if a > b {
+        a = a - b
+      } else {
+        b = b - a
+      }
+    }
+    ```
+
++ Panic function
+  + Syntax: `panic("msg")`
+  + display error message and exit the running program
+
++ for loop structure
+  + Syntax: `for initial; condition; increment { statement(s)}`
+  + example:
+
+    ```go
+    for i:=0; i<n; i++ {
+      ary[i] = i
+    }
+    ```
+  + Handling careful
+
+    ```go
+    var i uint = 10
+    for ; i >= 0; i-- {
+      fmt.Println(i)
+    }
+    ```
+
+    + forever loop
+    + unsigned integers range from 0 to some big number
+    + once `i = 0 - 1` becomes the big number
+    + change to `var i int = 10`, the behavior as expected
+
+
++ [for Loop](https://www.tutorialspoint.com/go/go_for_loop.htm)
+  + Syntax
+
+    ```
+    for [condition |  ( init; condition; increment ) | Range] {
+      statement(s);
+    }
+    ```
+
+  + If a `condition` is available, then for loop executes as long as condition is true.
+  + If a for clause that is `(init; condition; increment)`
+    + The `init` step is executed first, and only once.
+    + Next, the `condition` is evaluated.
+    + After the body of the for loop executes, the flow of control jumps back up to the `increment` statement.
+    + The condition is now evaluated again.
+
++ [Demo file for Loop](src/GoIntro/lopp.go)
 
 
 ## A.7 Nested Loops in Go
