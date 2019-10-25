@@ -98,6 +98,71 @@
 
 ## A.4 Functions and Conditionals in Go
 
+#### A.4.1 Functions
+
+<video src="https://youtu.be/5JBiiQoLxuA" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
++ Function Syntax
+
+  ```go
+  func square(x int) int {
+    return x*x
+  }
+  ```
+
+  + `func`: function keyword
+  + `square`: function name
+  + `x`: parameter
+  + `int` within (): type of the input parameter
+  + `int` after (): the type pf the value returned by the function
+  + `return`: keyword for function return value(s)
+  + `{}`: used for grouping related statements
+
++ Functions: paragraphs of programming
+  + As with paragraphs, function should be well written
+    1. each one should cover one (short) idea
+    2. function name + parameters $\approx$ "topic sentence"
+    3. function should 'lie in nicely" with the rest of your program
+  + your program will typically consist of a long sequence of cuntions that call each other
+  + __modularity__: the principle
+  + __top-down design:__ starting w/ large task and breaking them into small pieces
+
++ Top-Down programming in `FrequentWords`
+
+  ```go
+  FrequentWords(Text, k)
+    FrequentPatterns <- an empty list
+    c <- empty array of length |Text| - k
+    for i <- 0 to |Text| - k
+      Pattern <- substring(Text, i, k)
+      c[i] <- Count(Text, Pattern)
+    macCount <- Max(a)
+    for i <- o to |Text| - k
+      if a[i] = macCount
+        add Substring(Text, i, k) to FrequentPatterns
+    FrequentPatterns <- RemoveDuplicates(FrequentPatterns)
+    return FrequentPatterns
+  ```
+
+  + `Substring`: take a "substring" of Text starting at position $i$ of length $k$
+  + `Count`: "count" number of matches of Pattern in Text
+  + `Max`: take maximum value  in an array a
+  + `RemoveDuplicates`: remove duplicates from list FrequentPatterns
+
++ Focus on Style: Variable/Function Names
+  + use descriptive names: `numOfPeople` is better tha `n`
+  + variable names are case sensitive:
+    + `n` is different than `N`
+    + `numOfPeople` is not the same as `numOfpeople`
+  + use single letter (i, j, k) for integer that don't last log in your program
+  + use __camelCases__ to connect words together
+  + good function names usually involve __verbs__: `PrintFullName`, `EncodeSingleRead`, `WriteCounts`, `ListBuckets`
+  + start __variable__ names with _lowercase_ letter
+  + start __function__ names with _uppercase_ letter (exception latter)
+  + don't use abbreviations (Bad: nerr, ptf_name, etc.)
 
 
 
