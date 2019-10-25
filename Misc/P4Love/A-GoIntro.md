@@ -78,7 +78,6 @@
       y float64 = -3.4
       z string = "Yes"
     )
-
     var int i, j, k int = 1, -2, 3
   ```
 
@@ -95,6 +94,8 @@
   + type casting with negative integer to unsigned integer
     + e.g. `i := -1`, `var u unit = unit(i)` $\to$ u = 18446744073709551615 (the value depends on the computer used)
     + integer overflow: 9223372036854775807 + 1 $\to$ -9223372036854775808
+
++ [Demo file for Variable Declaration](src/GoIntro/variables.go)
 
 
 ## A.4 Functions and Conditionals in Go
