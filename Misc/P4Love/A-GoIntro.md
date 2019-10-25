@@ -37,6 +37,19 @@
 
 ## A.2 Getting Started in Go (Windows)
 
+<video src="https://youtu.be/p3FjbqT1cko" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
+  <track src="subtitle" kind="captions" srclang="en" label="English" default>
+  Your browser does not support the HTML5 video element.
+</video><br/>
+
++ Installation
+  1. download from official website
+  2. install as instruction
+
++ Build & Run program
+  + Open command prompt
+  + navigate to the folder with the go file
+  + build & run go program as described in Mac OX/Linux
 
 
 ## A.3 Basics of Variables in Go
