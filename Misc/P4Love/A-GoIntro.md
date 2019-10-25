@@ -166,6 +166,8 @@
   + start __function__ names with _uppercase_ letter (exception latter)
   + don't use abbreviations (Bad: nerr, ptf_name, etc.)
 
++ [Demo file for Functions](src/GoIntro/function.go)
+
 
 #### A.4.2 Conditionals
 
