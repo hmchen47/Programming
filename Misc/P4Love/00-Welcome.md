@@ -901,6 +901,17 @@ I therefore want this course to build a bridge between existing materials and a 
       return n
     ```
 
-  + [NectPerfectNumber Go Code]
+  + [NextPerfectNumber Go Code](src/e00-nextPerfect.go)
+
++ Mersenne primes
+  + numbers of the form $2^m -1$ are more likely than others to be prime
+  + eg., $m = 2 \to 2^2 - 1 = 3, \quad m = 5 \to 2^5 - 1 = 31$
+  + counter example: $m = 4 \to 2^4 - 1 = 15$
+
++ Euclid-Euler Theorem
+  + __Theorem:__ every even perfect number must be of the form $2^{m-1} \cdot (2^m -1)$
+  + __Theorem:__ $2^m - 1$ is a Mersenne prime $\to 2^{m-1} \cdot (2^m - 1)$ is perfect
+  + $\therefore \exists $ infinitely many Mersenne prime $\to$ infinitely many perfect number
+  + infinite Mersenne prime? $\to$ Unknown
 
 
