@@ -27,6 +27,7 @@
 
   + `package main`: what you see below is going to include something runnable
   + `import "fmt"`: read from and write to files/console
+  + [Demo file - Hello, World!](src/GoIntro/hello.go)
 
 + Build & Run
   + Compile
@@ -165,7 +166,6 @@
   + don't use abbreviations (Bad: nerr, ptf_name, etc.)
 
 
-
 #### A.4.2 Conditionals
 
 + Computing GCD
@@ -246,6 +246,8 @@
   |   3        |    == &nbsp;&nbsp; != &nbsp;&nbsp; < &nbsp;&nbsp; <= &nbsp;&nbsp; > &nbsp;&nbsp; >= |
   |   2        |    && |
   |   1        |    \|\| |
+
+
 
 
 
