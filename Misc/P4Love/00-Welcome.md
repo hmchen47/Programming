@@ -915,3 +915,24 @@ I therefore want this course to build a bridge between existing materials and a 
   + infinite Mersenne prime? $\to$ Unknown
 
 
+#### Twin primes
+
++ Twin primes
+  + __Definition:__ pairs of prime numbers that are 2 apart
+  + eg. 3 & 5 or 29 & 31
+
++ Twin primes conjecture: infinitely many twin prime
+
++ Exercise: `NextTwinPrimes`
+  + write and implement a function `NextTwinPrimes` that takes an integer $n$ as input and returns the smallest pair of twin primes that are both larger than $n$, using IsPrime as a subroutine.
+  + pseudocode
+
+    ```go
+    NextTwinPrimes(n)
+      num <- the odd number of n or n+1
+      while !IsPrime(num) AND !IsPrime(num+2)
+        num = num + 2
+      return num, num+2
+    ```
+
+
