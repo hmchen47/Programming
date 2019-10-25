@@ -1,4 +1,4 @@
-# A Short Introduction to Programming in Go
+\# A Short Introduction to Programming in Go
 
 ## A.1 Getting Started in Go (Mac OS)
 
@@ -308,6 +308,48 @@
   Your browser does not support the HTML5 video element.
 </video><br/>
 
++ Demo w/ Factorial, Permutation & Combination
+  + Using integer inputs and return integer
+    + Comb(n, k) = Factorial(n)/(Factorial(n-k) * Factorial(k))
+    + Comb(101, 2) = 5050
+    + Runtime error message
+
+      ```bash
+      $ go run debugging.go
+      panic: runtime error: integer divide by zero
+
+      goroutine 1 [running]:
+      main.Comb(0x65, 0x2, 0x481f58)
+        /Projects/Programming/Misc/P4Love/src/GoIntro/debugging.go:31 +0xa5
+      main.main()
+        /Projects/Programming/Misc/P4Love/src/GoIntro/debugging.go:36 +0x37
+      exit status 2
+      ```
+  
+  + debugging:
+    + trying smaller value, such as Comb(6, 2)
+    + trying Factorial itself, such as Factorial(2) = 2, Factorial(99) = 0
+    + why Factorial(99) = 0?
+    + trying loop through a selected number, such as 30
+
+      ```bash
+      $ go run debugging.go
+      ...
+      Factorial of 20 is 2432902008176640000
+      Factorial of 21 is -4249290049419214848
+      ...
+      Factorial of 65 is -9223372036854775808
+      Factorial of 66 is 0
+      Factorial of 67 is 0
+      ...
+      ```
+
+    + how to get rid of the integer overflow issue?
+  
++ Debugging guideline
+  + moral: always try different things when you run into a bug and don't give up!
+  + don't think for more than 15-20 mins on one bug, though -- sleep is helpful!
+  + often program top-down, but it is very helpful to debug bottom-up!
 
 
 ## A.6 Loops in Go
