@@ -6,3 +6,14 @@
   Your browser does not support the HTML5 video element.
 </video><br/>
 
+## 1.1 Basic Go Syntax
+
+
+
+## 1.2 Euclid's Theorem of GCD Computation
+
+
+
+
+## 1.3 Eratosthenes Theorem for Finding Primes
+
