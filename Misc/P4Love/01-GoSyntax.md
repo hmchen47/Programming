@@ -8,6 +8,8 @@
 
 ## 1.1 Basic Go Syntax
 
+### 1.1.1 Variables
+
 + Comments
   + `//`: comment out for the line
   + `/*` & `*/`: comment out the block between
@@ -42,6 +44,9 @@
     + max value of `uint`: return value of a variable w/ value (-1)
   + No constant type conversion allowed
   + No integer to boolean type conversion allowed
+
+
+### 1.1.2 Functions
 
 + Function
   + Syntax: [Ref](https://www.tutorialspoint.com/go/go_functions.htm)
@@ -85,7 +90,20 @@
 + [Demo file for Go Basic Syntax](src/01-goSyntax.go)
 
 
+### 1.1.3 Conditionals
+
++ variable re-declaration not allowed
+
++ variable scope & if statement
+
++ conditions: `>`, `<`, `>=`, `<=`, `==`, `!=`, `!`(NOT), `&&`(AND), `||`(OR)
+
++ {Demo for Conditionals}
+
+
+
 ## 1.2 Euclid's Theorem of GCD Computation
+
 
 
 
