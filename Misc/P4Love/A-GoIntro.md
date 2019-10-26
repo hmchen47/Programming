@@ -498,7 +498,27 @@
   Your browser does not support the HTML5 video element.
 </video><br/>
 
++ Timing algorithm
+  + using `time` package by `import "time"`
+  + typical usage
 
+    ```go
+    start := time.Now()
+    // ... operations ...
+    t := time.Now()
+    elapsed := t.Sub(start)
+    ```
+
+  + working with `log` package by `import "log"`
+
+    ```go
+    start := time.Now()
+    // ... operations ...
+    elapsed := time.Since(start)  // shorthand for time.Now().Sub(start)
+    log.Printf("XYZ function took %s", elapsed)
+    ```
+
++ [Demo file for Timing function](src/GoIntro/timing.go)
 
 
 ## A.9 Arrays in Go
