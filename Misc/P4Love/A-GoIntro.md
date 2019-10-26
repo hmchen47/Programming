@@ -433,6 +433,61 @@
   Your browser does not support the HTML5 video element.
 </video><br/>
 
++ Exercise: `PrintRect`
+  + Print rectangle problem: drew a rectangle of symbols
+    + Input: integers of `r` rows and `c` columns
+    + Output: draw a rectangle with symbol "#" of `r` rows and `c` columns
+  + pseudocode
+
+    ```go
+    PrintRect(r, c)
+      for an integer i from 1 to r
+        for an integer j from 1 to c
+          print "#" on position of row i and col j
+    ```
+
++ Exercise: `PrintDiamond`
+  + Print diamond problem: draw a diamond of symbols
+    + Input: an odd integer of height
+    + Output: draw a diamond with "#"
+
+      ```
+          #
+         ###
+        #####
+       #######
+        #####
+         ###
+      	  #
+      ```
+
+  + pseudocode
+
+    ```go
+    PrintDiamond(n)
+      PrintTriangle(n - integer of (n/2))
+      PrintInverseTriangle(n/2)
+
+    PrintTriangle(k)
+      for i from 1 to k
+
+    ```
+
++ Exercise: `AnotherPrintDiamond`
+  + pseudocode
+
+  ```go
+  AnotherPrintDiamond(n)
+    middle = integer integer of (n/2)
+    for an integer row from 0 to (n-1)
+      numSymbols = n - |middle - row| * 2
+      for an integer col from 0 to() n-1)
+        if |middle - col| <= integer part of (numSymbols/2)
+          print "#"
+        else
+          print " "   // a whitespace
+  ```
+
 
 
 ## A.8 Timing Functions in Go
