@@ -681,7 +681,7 @@ I therefore want this course to build a bridge between existing materials and a 
 
 #### The world's second nontrivial algorithm
 
-+ The  Sieve of Eratosthenes
++ The Sieve of Eratosthenes
   + Prime number array problem
     + Input: an integer n
     + output: an array primes of length n+1 such that for every nonnegative integer $p \leq n$,, primes[p] is true if p is prime and false otherwise
