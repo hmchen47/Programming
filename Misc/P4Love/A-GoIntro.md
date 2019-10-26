@@ -433,7 +433,7 @@
   Your browser does not support the HTML5 video element.
 </video><br/>
 
-+ Exercise: `PrintRect`
++ Dem: `PrintRect`
   + Print rectangle problem: drew a rectangle of symbols
     + Input: integers of `r` rows and `c` columns
     + Output: draw a rectangle with symbol "#" of `r` rows and `c` columns
@@ -446,7 +446,7 @@
           print "#" on position of row i and col j
     ```
 
-+ Exercise: `PrintDiamond`
++ Dem: `PrintDiamond`
   + Print diamond problem: draw a diamond of symbols
     + Input: an odd integer of height
     + Output: draw a diamond with "#"
@@ -473,7 +473,7 @@
 
     ```
 
-+ Exercise: `AnotherPrintDiamond`
++ Dem: `AnotherPrintDiamond`
   + pseudocode
 
   ```go
@@ -527,5 +527,60 @@
   <track src="subtitle" kind="captions" srclang="en" label="English" default>
   Your browser does not support the HTML5 video element.
 </video><br/>
+
++ Array declaration
+  + declaration w/ default values
+
+    ```go
+    var a [5]int      // [0 0 0 0 0]
+    var b [3]string   // [  ]
+    var c [4]float64  // [0 0 0 0]
+    var d [2]bool     //[false false]
+    ```
+
+  + declaration w/ given values
+
++ Indexing
+  + assigning value: `a[0] = 10`, `b[1] = "Hi there"`, `c[3*i-4] = 2.73`, `d[1] = true`
+  + retain the length of array: `len(a)`
+  + __No negative __index allowed
+
++ `os` package
+  + `os.Args`: command line arguments
+  + `os.Exit(0)`: exit program normally
+  + `os.Exit(n)`: exit program and raise flag `n`
+
++ Variadic function `...`
+  + allowing various number of arguments for function
+  + example:
+
+    ```go
+    func Sum(numbers ...int) int {
+      sum := 0
+      for i:=0; i<len(numbers); i++ {
+        sum += numbers[i]
+      }
+      return sum
+    }
+    ```
+
++ Demo: `Fibonacci`
+  + Problem: generate Fibonacci number
+    + Input: an integer `n`
+    + Output: return an array of of Fibonacci numbers
+  + pseudocode
+  
+    ```go
+    FibonacciArray(n)
+      fibArray = array of integers
+      fibArray[0] = 0
+      fibArray[1] = 1
+      for i from 2 to n-1
+        fibArray[i] <- fibArray[i-2] + fibArray[i-1]
+
+      return fibArray
+    ```
+
++ [Demo for Arrays](src/HoIntro/arrays.go)
 
 
