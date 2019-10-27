@@ -16,7 +16,6 @@ func main() {
 	fmt.Println("\nSum the even numbers till n (10):", SumEven(10))
 	fmt.Println("Sum the even numbers till n (11):", SumEven(11))
 
-	// infinity loop
 	var i uint = 10
 
 	for ; i >= 0; i-- {
