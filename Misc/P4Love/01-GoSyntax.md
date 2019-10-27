@@ -98,8 +98,45 @@
 
 + conditions: `>`, `<`, `>=`, `<=`, `==`, `!=`, `!`(NOT), `&&`(AND), `||`(OR)
 
-+ {Demo for Conditionals}
++ [Demo for Conditionals](src/01-conditionals.go)
 
+
+### 1.1.4 Loops
+
++ Loops
+  + Go lang w/o `while` keyword
+  + using `for` for while loop
+  + Syntax for while loop: `for condition { expression9s)}`
+  + eg. `for i < n { i++ }`
+
++ Exercise: 
+  + write a function in Go using a while loop that takes an integer n and return the sum of the first n positive integer
+  + pseudocode
+
+    ```go
+    SumFirstNIntegers(n)
+      sum = 0
+      i = 1
+      while i <= n
+        sum = sum + i
+        i = i + 1
+      return sum
+    ```
+
++ Exercise:
+  + Input: an integer n
+  + Output: return the sum of all even numbers up to n and possibly include n
+  + pseudocode:
+
+    ```go
+    SumEven(n)
+      sum = 0
+      for i from 2 to n step every 2
+        sum = sum + i
+      return sum
+    ```
+
++ [Demo for Loops](src/01-loops.go)
 
 
 ## 1.2 Euclid's Theorem of GCD Computation
