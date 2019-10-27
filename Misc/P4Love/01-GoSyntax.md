@@ -178,3 +178,66 @@
 
 ## 1.3 Eratosthenes Theorem for Finding Primes
 
++ Array declaration
+  + fixed sized
+  + Declaration w/ default values
+    + assigning default value as variable declaration w/ the predefined size
+    + Syntax: `var list [num]varType`
+  + eg. `var list [6]float64`
+
++ Slice declaration
+  + variable size array
+  + Syntax: `var list []varType`; eg. `var list []int`
+  + nothing reserved for the slice and `nil`
+  + required to initial length: `list := make([]listType, len)`
+
++ Array indexing
+  + 0-based indexing
+  + the size of the array: `len(list)`
+  + index from `0` to `len(list) -1`
+  + NO negative index allowed
+  + No index with `len(list)` allowed, beyond the predefined array size
+
++ Exercise: `TrivialPrimeFinder`
+  + Input: an integer
+  + Output: an array w/ boolean values to indicate the element is prime or not
+  + pseudocode
+
+    ```go
+    TrivialPrimeFinder(n)
+      primeArray <- an array of false values w/ length of (n+1)
+      for an integer p from 2 to n
+        if p is prime
+          primeArray[p] = true
+      return primeArray
+
+    IsPrime(p)
+      for an integer k from 2 to square root of p
+        if k is a divisor of k
+          return false
+      return true
+    ```
+
++ Exercise: `SieveOfEratosthenes`
+  + Input: an integer n
+  + Output: am slice of n+1 booleans primeArray where primeArray[p] is true if p is prime and false otherwise
+  + pseudocode
+
+    ```go
+    SieveOfEratosthenes(n)
+      primeArray <- an array of boolean true w/ size of (n+1)
+      for an integer p from 2 to square root of n
+        if primeArray[p] is true
+          primeArray[k] = false w/ k is multiple of p
+      return primeArray
+
+    CrossOffMultiples(primeArray, n)
+      for an integer k from 2*p to n with step p
+        primeArray[k] = false
+      return primeArray
+    ```
+
++ [Demo for Primes](src/01-prime.go)
+
+
+
