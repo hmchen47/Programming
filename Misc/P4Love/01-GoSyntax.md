@@ -139,10 +139,41 @@
 + [Demo for Loops](src/01-loops.go)
 
 
-## 1.2 Euclid's Theorem of GCD Computation
+## 1.2 Trivial and Euclid's Theorem of GCD Computation
 
++ Exercise: `TrivialGCD`
+  + pseudocode
 
+    ```go 
+    TrivialGCD(a, b)
+	    d <- 1
+	    a <- Min2(a, b)
+	    for every integer p from 1 to n
+	    	if p is a divisor of a and b
+	    		d <- p
+      return d
+    ```
+  
++ Exercise: `EuclidGCD`
+  + Pseudocode
 
+    ```go
+    TrivialGCD(a, b)
+      d <- 1
+      a <- Min2(a, b)
+      for every integer p from 1 to n
+        if p is a divisor of a and b
+          d <- p
+      return d
+    ```
+
++ Timing functions
+  + import `time`  and `log` packages
+  + starting timestamp by `start := time.Now()`
+  + measuring duration by `elapsed := time.Since(start)`
+  + print the log info for the duration by `log.Print(funcName took %s", elapsed)`
+
++ [Demo for GCD](src/01-gcd.go)
 
 
 ## 1.3 Eratosthenes Theorem for Finding Primes
