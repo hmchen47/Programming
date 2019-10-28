@@ -51,7 +51,7 @@
 + Function
   + Syntax: [Ref](https://www.tutorialspoint.com/go/go_functions.htm)
 
-    ```go
+    ```js
     func function_name( [parameter list] ) [return_types]
     {
       body of the function
@@ -113,10 +113,10 @@
   + write a function in Go using a while loop that takes an integer n and return the sum of the first n positive integer
   + pseudocode
 
-    ```go
+    ```js
     SumFirstNIntegers(n)
-      sum = 0
-      i = 1
+      sum <- 0
+      i <- 1
       while i <= n
         sum = sum + i
         i = i + 1
@@ -128,7 +128,7 @@
   + Output: return the sum of all even numbers up to n and possibly include n
   + pseudocode:
 
-    ```go
+    ```js
     SumEven(n)
       sum = 0
       for i from 2 to n step every 2
@@ -144,7 +144,7 @@
 + Exercise: `TrivialGCD`
   + pseudocode
 
-    ```go 
+    ```js 
     TrivialGCD(a, b)
 	    d <- 1
 	    a <- Min2(a, b)
@@ -157,7 +157,7 @@
 + Exercise: `EuclidGCD`
   + Pseudocode
 
-    ```go
+    ```js
     TrivialGCD(a, b)
       d <- 1
       a <- Min2(a, b)
@@ -203,7 +203,7 @@
   + Output: an array w/ boolean values to indicate the element is prime or not
   + pseudocode
 
-    ```go
+    ```js
     TrivialPrimeFinder(n)
       primeArray <- an array of false values w/ length of (n+1)
       for an integer p from 2 to n
@@ -223,7 +223,7 @@
   + Output: am slice of n+1 booleans primeArray where primeArray[p] is true if p is prime and false otherwise
   + pseudocode
 
-    ```go
+    ```js
     SieveOfEratosthenes(n)
       primeArray <- an array of boolean true w/ size of (n+1)
       for an integer p from 2 to square root of n
