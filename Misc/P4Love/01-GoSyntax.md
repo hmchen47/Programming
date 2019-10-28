@@ -115,9 +115,9 @@
 
     ```js
     SumFirstNIntegers(n)
-      sum <- 0
-      i <- 1
-      while i <= n
+      sum = 0
+      i = 1
+      while i = n
         sum = sum + i
         i = i + 1
       return sum
@@ -146,11 +146,11 @@
 
     ```js 
     TrivialGCD(a, b)
-	    d <- 1
-	    a <- Min2(a, b)
+	    d = 1
+	    a = Min2(a, b)
 	    for every integer p from 1 to n
 	    	if p is a divisor of a and b
-	    		d <- p
+	    		d = p
       return d
     ```
   
@@ -159,11 +159,11 @@
 
     ```js
     TrivialGCD(a, b)
-      d <- 1
-      a <- Min2(a, b)
+      d = 1
+      a = Min2(a, b)
       for every integer p from 1 to n
         if p is a divisor of a and b
-          d <- p
+          d = p
       return d
     ```
 
@@ -205,7 +205,7 @@
 
     ```js
     TrivialPrimeFinder(n)
-      primeArray <- an array of false values w/ length of (n+1)
+      primeArray = an array of false values w/ length of (n+1)
       for an integer p from 2 to n
         if p is prime
           primeArray[p] = true
@@ -225,7 +225,7 @@
 
     ```js
     SieveOfEratosthenes(n)
-      primeArray <- an array of boolean true w/ size of (n+1)
+      primeArray = an array of boolean true w/ size of (n+1)
       for an integer p from 2 to square root of n
         if primeArray[p] is true
           primeArray[k] = false w/ k is multiple of p
