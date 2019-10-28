@@ -1,4 +1,4 @@
-# Variables, Functions, Control Flow and Arrays
+# Appendix B. Go Programming and Examples
 
 
 <video src="https://youtu.be/JMN0UewLQXE" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="http://www.multipelife.com/wp-content/uploads/2016/08/video-converter-software.png" width=180>
@@ -6,9 +6,9 @@
   Your browser does not support the HTML5 video element.
 </video><br/>
 
-## 1.1 Basic Go Syntax
+## B.1 Basic Go Syntax
 
-### 1.1.1 Variables
+### B.1.1 Variables
 
 + Comments
   + `//`: comment out for the line
@@ -46,7 +46,7 @@
   + No integer to boolean type conversion allowed
 
 
-### 1.1.2 Functions
+### B.1.2 Functions
 
 + Function
   + Syntax: [Ref](https://www.tutorialspoint.com/go/go_functions.htm)
@@ -87,10 +87,10 @@
     + function closure: anonymous functions and used in dynamic programming
     + method: special functions w/ a receiver
 
-+ [Demo file for Go Basic Syntax](src/01-goSyntax.go)
++ [Demo file for Go Basic Syntax](src/GoP4L/goSyntax.go)
 
 
-### 1.1.3 Conditionals
+### B.1.3 Conditionals
 
 + variable re-declaration not allowed
 
@@ -98,10 +98,10 @@
 
 + conditions: `>`, `<`, `>=`, `<=`, `==`, `!=`, `!`(NOT), `&&`(AND), `||`(OR)
 
-+ [Demo for Conditionals](src/01-conditionals.go)
++ [Demo for Conditionals](src/GoP4L/conditionals.go)
 
 
-### 1.1.4 Loops
+### B.1.4 Loops
 
 + Loops
   + Go lang w/o `while` keyword
@@ -109,7 +109,7 @@
   + Syntax for while loop: `for condition { expression9s)}`
   + eg. `for i < n { i++ }`
 
-+ Exercise: 
++ Exercise:
   + write a function in Go using a while loop that takes an integer n and return the sum of the first n positive integer
   + pseudocode
 
@@ -136,10 +136,10 @@
       return sum
     ```
 
-+ [Demo for Loops](src/01-loops.go)
++ [Demo for Loops](src/GoP4L/loops.go)
 
 
-## 1.2 Trivial and Euclid's Theorem of GCD Computation
+## B.2 Trivial and Euclid's Theorem of GCD Computation
 
 + Exercise: `TrivialGCD`
   + pseudocode
@@ -173,10 +173,10 @@
   + measuring duration by `elapsed := time.Since(start)`
   + print the log info for the duration by `log.Print(funcName took %s", elapsed)`
 
-+ [Demo for GCD](src/01-gcd.go)
++ [Demo for GCD](src/GoP4L/gcd.go)
 
 
-## 1.3 Eratosthenes Theorem for Finding Primes
+## B.3 Eratosthenes Theorem for Finding Primes
 
 + Array declaration
   + fixed sized
@@ -237,7 +237,7 @@
       return primeArray
     ```
 
-+ [Demo for Primes](src/01-prime.go)
++ [Demo for Primes](src/GoP4L/prime.go)
 
 
 
