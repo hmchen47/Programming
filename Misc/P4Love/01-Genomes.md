@@ -307,6 +307,82 @@
     ```
 
 
+## 1.5 Some Hidden Messages are Surprising than Others
+
++ Returning to _ori of Vibrio cholera_
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
+      <img src="https://miro.medium.com/max/4453/1*AFGmuIrjyAckddQJnZO7OA.jpeg" style="margin: 0.1em;" alt="The most frequent k-mers in the ori region of Vibrio cholerae for k from 3 to 9, along with the number of times that each k-mer occurs." title="The most frequent k-mers in the ori region of Vibrio cholerae with k=3~9" width=350>
+    </a>
+  </div>
+
+  + STOP: what do you see?
+
++ Complementarity of DNA
+  + DNA is double-stranded, and the two strands are _reverse complements_ of each other
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
+      <img src="https://miro.medium.com/max/3288/1*0v93SJyADZas0gOW_XbJnA.jpeg" style="margin: 0.1em;" alt="Complementary strands run in opposite directions" title="Complementary strands run in opposite directions" width=350>
+    </a>
+  </div>
+  
+  + a template strand "AGTCGCATAGT" and its complementary strand "ACTATGCGACT"
+
++ Reverse Complementary
+  + Reverse Complement Problem
+    + Input: A DNA string pattern.
+    + Output: The reverse complement of pattern.
+  + pseudocode
+
+    ```js
+    ReverseComplement(pattern)
+      pattern1 = Reverse(pattern)
+      pattern2 = Complement(pattern1)
+      return pattern2
+
+    ReverseComplement(pattern)
+      return Complement(Reverse(pattern))
+    ```
+
+    + modularity: easier to read and debug
+  + STOP: Write pseudocode for the Reverse and Complement functions.
+
++ Hidden messages found
+  + "ATGATCAAG" and "CTTGATCAT": reverse complement
+  + likely DnaA boxes (DnaA not knowing which strand it binds to)
+  + very surprising to find a 9-mer appearing 6 or more times (w/ reverse complement) within ~500 nucleotides
+
++ Looking for other hidden messages?
+  + STOP: now that we know the "hidden message" in _Vibrio cholera_ , how would we look for a hidden message starting replication in other bacteria?
+  
+  
++ Hidden message in Therotoga. peotrophila?
+
+  > aactctatacctcctttttgtcgaatttgtgtgatttatagagaaaatcttattaactga
+  > aactaaaatggtaggtttggtggtaggttttgtgtacattttgtagtatctgatttttaa
+  > ttacataccgtatattgtattaaattgacgaacaattgcatggaattgaatatatgcaaa
+  > acaaacctaccaccaaactctgtattgaccattttaggacaacttcagggtggtaggttt
+  > ctgaagctctcatcaatagactattttagtctttacaaacaatattaccgttcagattca
+  > agattctacaacgctgttttaatgggcgttgcagaaaacttaccacctaaaatccagtat
+  > ccaagccgatttcagagaaacctaccacttacctaccacttacctaccacccgggtggta
+  > agttgcagacattattaaaaacctcatcagaagcttgttcaaaaatttcaatactcgaaa
+  > cctaccacctgcgtcccctattatttactactactaataatagcagtataattgatctga
+
+  + No occurrence of "ATGATCAAG" and "CTTGATCAT"
+  + "CCTACCACC" and "GGATGGTGG" are candidate hidden message.
+
+    > aactctatacctcctttttgtcgaatttgtgtgatttatagagaaaatcttattaactga
+    > aactaaaatggtaggtttGGTGGTAGGttttgtgtacattttgtagtatctgatttttaa
+    > ttacataccgtatattgtattaaattgacgaacaattgcatggaattgaatatatgcaaa
+    > acaaaCCTACCACCaaactctgtattgaccattttaggacaacttcagGGTGGTAGGttt
+    > ctgaagctctcatcaatagactattttagtctttacaaacaatattaccgttcagattca
+    > agattctacaacgctgttttaatgggcgttgcagaaaacttaccacctaaaatccagtat
+    > ccaagccgatttcagagaaacctaccacttacctaccacttaCCTACCACCcgggtggta
+    > agttgcagacattattaaaaacctcatcagaagcttgttcaaaaatttcaatactcgaaa
+    > CCTACCACCtgcgtcccctattatttactactactaataatagcagtataattgatctga
+
 
 
 
