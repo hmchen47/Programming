@@ -14,6 +14,8 @@
 
 ## Chapter 1: Finding Replication Origins in Bacterial Genomes
 
++ 1.1 [An Intro to DNA Replication](01-Genomes.md#s)
+
 
 ## A. A Short Introduction to Programming in Go
 

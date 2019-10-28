@@ -109,7 +109,7 @@
   + Syntax for while loop: `for condition { expression9s)}`
   + eg. `for i < n { i++ }`
 
-+ Exercise:
++ Sum-first-n-integer problem
   + write a function in Go using a while loop that takes an integer n and return the sum of the first n positive integer
   + pseudocode
 
@@ -123,7 +123,7 @@
       return sum
     ```
 
-+ Exercise:
++ Sum-even-numbers problem
   + Input: an integer n
   + Output: return the sum of all even numbers up to n and possibly include n
   + pseudocode:
@@ -137,6 +137,16 @@
     ```
 
 + [Demo for Loops](src/GoP4L/loops.go)
+
+
+### B.1.5 Arrays
+
+
+
+
+### B.1.6 Slices
+
+
 
 
 ## B.2 Trivial and Euclid's Theorem of GCD Computation
