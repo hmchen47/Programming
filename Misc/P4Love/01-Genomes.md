@@ -261,9 +261,19 @@
         if freqMap[key] == maxCount
           freqPatterns = freqPatterns.append(key)
       return freqPatterns
+
+      MaxMap(dict)
+        m = 0
+        for every key pattern in dict
+          if dict[pattern] > m
+            m = dict[pattern]
+        return m
     ```
 
-  + shorten `BetterFrequentWords()` to have a more modular pseudocode
+    + no `RemoveDuplicates()` and `Count()` required
+    + much faster
+
+  + shorten `BetterFrequentWords()` to have a more modular pseudocode amd improved `MaxMap()`
 
     ```js
     BetterFrequentWords(text, k)
@@ -285,4 +295,18 @@
         else
           freqMap[pattern] ++
       return freqMap
+
+    MaxMap(dict)
+      m = 0
+      firstTime = true
+      for every key pattern in dict
+        if firstTime = true or dict[pattern] > m
+          firstTime= false
+          m = dict[pattern]
+      return m
+    ```
+
+
+
+
 
