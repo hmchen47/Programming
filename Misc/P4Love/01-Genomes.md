@@ -184,7 +184,7 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
-        <img src="https://miro.medium.com/max/4225/1*MlojMRrjuYxdNrTr3PfduA.jpeg" style="margin: 0.1em;" alt="“The count array for text = ACGTTTCACGTTTTACGG and k = 3. For example, count[0] = 3 because the 3-mer starting at position 0 (ACG) appears three times in text (at positions 0, 7, and 14). Accordingly, count[7] and count[14] are both equal to 3 as well." title="Demo of one frequent wrords solution" width=350>
+        <img src="https://miro.medium.com/max/4225/1*MlojMRrjuYxdNrTr3PfduA.jpeg" style="margin: 0.1em;" alt="The count array for text = ACGTTTCACGTTTTACGG and k = 3. For example, count[0] = 3 because the 3-mer starting at position 0 (ACG) appears three times in text (at positions 0, 7, and 14). Accordingly, count[7] and count[14] are both equal to 3 as well." title="Demo of one frequent words solution" width=350>
       </a>
     </div>
 
@@ -214,5 +214,75 @@
   + STOP: this algorithm is inefficient, why? can we make it better?
   
 
+## 1.4 A Faster Frequent Words Approach
 
++ Arrays/Slices store list of variables: frequency table for text and $k$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
+      <img src="https://miro.medium.com/max/3327/1*Mr6KrtsUqhQ732SwYIljfg.jpeg" style="margin: 0.1em;" alt="A table corresponding to counting the number of occurrences of every 3-mer in text = ACGTTTCACGTTTTACGG" title="Demo of frequency table for text and 3" width=350>
+    </a>
+  </div>
+
++ What if the index is not integers?
+  + making things easier when finding frequent words
+
+    | Pattern | Count |
+    |:-------:|:-----:|
+    | "AA" | 17 |
+    | "AC" | 4 |
+    | "CG" | 15 |
+    | "GA" | 23 |
+    | ... | ... |
+
+  + __map/dictionary:__ 
+    + a generalized version of an array
+    + an association of _keys_ and _values_
+    + e.g., frequency table
+  + the indices: arbitrary values (in this case, they are strings)
+  + __key:__ the indices of a map
+  + use a variable (said _freq_) to refer to the map
+  + value access as arrays; eg., `freq["AG"]`
+  + pseudocode
+
+    ```js
+    BetterFrequentWords(text, k)
+      freqPatterns = an empty array
+      freqMap = an empty map
+      n = text.len
+      for i = 0 to n-k+1
+        pattern = text[i, i+k]
+        if pattern not in freqMap
+          freqMap[pattern] = 1
+        else
+          freqMap[pattern] ++
+      maxCount = MaxMap(freqMap)
+      for all keys in freqMap
+        if freqMap[key] == maxCount
+          freqPatterns = freqPatterns.append(key)
+      return freqPatterns
+    ```
+
+  + shorten `BetterFrequentWords()` to have a more modular pseudocode
+
+    ```js
+    BetterFrequentWords(text, k)
+      freqPatterns = an empty array
+      freqMap = FrequencyMap(text, k)
+      maxCount = MaxMap(freqMap)
+      for all keys in freqMap
+        if freqMap[key] == maxCount
+          freqPatterns = freqPatterns.append(key)
+      return freqPatterns
+
+    FrequencyMap(text, k)
+      freqMap = an empty map
+      n = text.len
+      for i = 0 to n-k+1
+        pattern = text[i, i+k]
+        if pattern not in freqMap
+          freqMap[pattern] = 1
+        else
+          freqMap[pattern] ++
+      return freqMap
 
