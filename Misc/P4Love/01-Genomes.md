@@ -101,7 +101,7 @@
   2. given _ori_ (~500 bp), what is the "hidden messages" saying that replication should start here?
 
 
-### 1.2 Hidden Messages in the Replication Origin
+## 1.2 Hidden Messages in the Replication Origin
 
 + Hidden Message Problem Revisited
   + The Hidden Message Problem
@@ -111,9 +111,108 @@
   + __DnaA:__ a protein mediating replication initiation
   + __DnaA box:__ a short segment in _ori_ where DnaA binds to, i.e., a hidden message saying "bind here!"
   + STOP: would it make sense for an organism to have multiple DnaA boxes, or just one?
-  + Answer: multiple DnaA boxes $\to$ higher chance of binding $\to$ high "fitness"
+    + Answer: multiple DnaA boxes $\to$ higher chance of binding $\to$ high "fitness"
   + "Nothing in biology makes sense expect in the light of evolution." -- Theodosius Dobzhansky
 
+
+## 1.3 Hunting for Frequent Words
+
++ Counting words
+  + looking for surprisingly frequent substrings (contiguous strings appearing within)n this _ori_
+  + first, let's count how often a given substring occurs
+
++ Counting word problem
+  + Substring Counting Problem
+    + Input: a string _pattern_ and a longer string _text_
+    + Output: the number of times _pattern_ occurs in text
+  + STOP: how many times does `ATA` occur in `CGATATATCCATAG`?
+    + Answer: could be 2 or 3. for this application, count as 3, i.e., count overlaps
+
++ Substring indexing
+  + key point: think of a string as just an array of symbols (0-indexing)
+  + notation for the substring `ATA` in text["CG<span style="color:red; weright: bold;">ATA</span>TATCCATAG"] is `text[2, 5]`
+    + why not `text[2, 4]`?
+  + STOP: how would refer the substring  `CGA` in text["<span style="color:red; weright: bold;">CGA</span>TATATCCATAG"]?
+    + Answer: `text[0, 3]`
+  + STOP: What do you notice?
+    + Answer: easily get _length_ of the substring by subtracting the lower index from the upper index; eg, $3-0 = 3$
+  + STOP: how would we refer to the substring of text of length $k$ starting at position $i$?
+    + Answer: `text[i, i+k]` $\to$ very useful
+
++ Idea for counting patterns
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
+      <img src="https://miro.medium.com/max/9336/1*dPfjb4KZgaPGtVsU8VLdVw.jpeg" style="margin: 0.1em;" alt="“slide a window” down text, checking whether each length-k substring of text matches pattern, and adding one to a count variable every time we encounter a match" title="Illustriation of sliding window to check substring with k=3" width=350>
+    </a>
+  </div>
+
+  + STOP: how many substrings of length $k$ are there in a string of length $n$?
+    + Answer: $(n-k+1)$
+  + Exercise: write pseudo code to count pattern occurrences.
+  + pseudocode
+
+    ```js
+    PatternCount(pattern, text)
+      count = 0
+      for k = 0 to (text.len - pattern.len)
+        if text[k, k+pattern.len] == pattern
+          count++
+      return count
+    ```
+
+    + `len()`: a (typically built-in) function determining the length (number of symbols) in a string; also works for counting elements in an array
+    + `text.len`: an attribute to representing the length of the object text
+
++ The frequent words problem
+  + __k-mer:__ a string of length $k$
+  + __k-mer patter:__ a most frequent __k-mer__ in a string if no other k-mer is more frequent than _pattern_
+  + Frequent Word Problem
+    + Input: a string $text$ and an integer $k$
+    + Output: all most frequent k-mers in text
+  + STOP: is the problem clearly stated?
+    + Answer: yes, no other statement required to clarify
+
++ Solving the Frequent Words Problem
+  + Eg, if `text = "ACGTTTCACGTTTTACGG"` and $k = 3$, then the most frequent words are `ACG` and `TTT` (both occur 3 times)
+  + Exercise: how to solve the problem w/ an array? what subroutines would be useful?
+  + One frequent words solution
+    1. create an array count of length `len(text) - k +1`
+    2. for each `i`, set `count[i]` equal to the number of times `text[i, i_k]` appears in text
+    3. take k-mers having the maximum values of `count[i]`
+  + eg., `text = "ACGTTTCACGTTTTACGG"` and $k = 3$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
+        <img src="https://miro.medium.com/max/4225/1*MlojMRrjuYxdNrTr3PfduA.jpeg" style="margin: 0.1em;" alt="“The count array for text = ACGTTTCACGTTTTACGG and k = 3. For example, count[0] = 3 because the 3-mer starting at position 0 (ACG) appears three times in text (at positions 0, 7, and 14). Accordingly, count[7] and count[14] are both equal to 3 as well." title="Demo of one frequent wrords solution" width=350>
+      </a>
+    </div>
+
+    + count[0] = 3 because the 3-mer starting at position 0 (ACG) appears three times in text (at positions 0, 7, and 14)
+    + count[7] and count[14] are both equal to 3 as well
+  + pseudocode
+
+    ```js
+    FrequentWords(text, k)
+      freqPatterns = an array of strings of length 0
+      n = text.len
+      count = array of integers of length n-k+1
+      for i = 0 to n-k
+        pattern[i] = text[i, i+k]
+        count[i] = PatternCount(pattern, text)
+      max = MaxArray(freqPatterns)
+      for i = 0 to n-k
+        if count[i] = max
+          pattern = text[i, i+k]
+          freqPatterns = Append(freqPatterns, pattern)
+        freqPatterns = RemoveDuplicates(freqPatterns)
+      return freqPatterns
+    ```
+
+  + __MaxArray:__ take maximum value in an array _A_
+  + __RemoveDuplicates:__ remove duplicates from list _patterns_
+  + STOP: this algorithm is inefficient, why? can we make it better?
+  
 
 
 
