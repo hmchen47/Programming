@@ -1,6 +1,6 @@
 # Chapter 1: Finding Replication Origins in Bacterial Genomes
 
-## An Intro to DNA Replication
+## 1.1 An Intro to DNA Replication
 
 + A Prophetic One-Liner (1953)
   + "It has not escaped our notice that the specific pairing we have postulated immediately suggests a possible copying mechanism for the genetic material." - James Watson & Francis Crick
@@ -95,6 +95,24 @@
     + Input: a string of _text_ (representing _ori_)
     + Output: a hidden message in text
   + STOP: is the Hidden Message Problem a computational problem?
+
++ Two scientific problems
+  1. given a bacteria genome (~3 Mbp), where is _ori_?
+  2. given _ori_ (~500 bp), what is the "hidden messages" saying that replication should start here?
+
+
+### 1.2 Hidden Messages in the Replication Origin
+
++ Hidden Message Problem Revisited
+  + The Hidden Message Problem
+    + Input: a string of _text_ (representing _ori_)
+    + Output: a hidden message in text
+  + hidden message not defined
+  + __DnaA:__ a protein mediating replication initiation
+  + __DnaA box:__ a short segment in _ori_ where DnaA binds to, i.e., a hidden message saying "bind here!"
+  + STOP: would it make sense for an organism to have multiple DnaA boxes, or just one?
+  + Answer: multiple DnaA boxes $\to$ higher chance of binding $\to$ high "fitness"
+  + "Nothing in biology makes sense expect in the light of evolution." -- Theodosius Dobzhansky
 
 
 
