@@ -431,6 +431,72 @@
   + Genomes have too many __repeats__, some more useful than others. eg., Alu in human is~300 bp long and occurs (with some changes) 1 million times
   + In E. Coli, 1900+ different 9-mer form `(500, 3)-clumps`.  It is unclear which ones point to _ori_ ...
 
-  
+
+## 1.7 A Surprise, Some Gritty Details about Replication
+
++ A surprising pattern in nucleotide counts
+  + a very simple computational analysis: take a frequency of each nucleotide in 100,000 nucleotide windows of E. Coli (verified _ori_)
+  + why would there be more C on half the genome? (left figure)
+    + The frequency of cytosine in each of 46 equal-length disjoint windows (of approximately 100,000 nucleotides each) covering the E. coli genome. 
+    + The replication terminus is located at position 0, whereas the replication origin site is located approximately 2.3 million nucleotides away, halfway down the genome.
+  + why would be the story be opposite when we count G's? (middle left figure)
+    + The frequency of guanine in the same 46 windows in the E. coli genome. 
+    + Half of the genome has windows that tend to have low guanine frequency, and half of the genome has windows with high frequency. 
+    + The picture is reversed from the preceding figure and the consideration of cytosine.
+  + the pattern is even more stark if we take the difference between frequency of G and the frequency of C (middle right figure)
+    + the difference between the frequencies of guanine and cytosine across the 46 windows of the E. coli genome
+    + assuming that the genome begins at the experimentally verified replication terminus of E. coli.
+  + the pattern still there even if we didn't know where _ori_ was and start counting at some arbitrary sport
+    + The difference between the frequencies of guanine and cytosine across the 46 windows of the E. coli genome, starting at an arbitrary location of the genome. 
+    + still infer the location of the replication origin as the point at which the guanine-cytosine difference passes from negative to positive, which in the figure above is approximately 3.9 million nucleotides into the genome file.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2400/1*tKwZsS82wHPmuCrE3f0pLw.jpeg" style="margin: 0.1em;" alt="The frequency of cytosine in each of 46 equal-length disjoint windows (of approximately 100,000 nucleotides each) covering the E. coli genome. The replication terminus is located at position 0, whereas the replication origin site is located approximately 2.3 million nucleotides away, halfway down the genome." title="The frequency of cytosine" height=150>
+      <img src="https://miro.medium.com/max/2416/1*guLngFfCJRN-4GbLRZpwyQ.jpeg" style="margin: 0.1em;" alt="The frequency of guanine in the same 46 windows in the E. coli genome. Half of the genome has windows that tend to have low guanine frequency, and half of the genome has windows with high frequency. However, the picture is reversed from the preceding figure and the consideration of cytosine." title="The frequency of guanine" height=150>
+      <img src="https://miro.medium.com/max/2416/1*o1Sa7yHnp0joFU5nd8JwGQ.jpeg" style="margin: 0.1em;" alt="The difference between the frequencies of guanine and cytosine across the 46 windows of the E. coli genome, assuming that the genome begins at the experimentally verified replication terminus of E. coli." title="The difference between the frequencies of guanine and cytosine" height=150>
+      <img src="https://miro.medium.com/max/2429/1*-Slxg4qjOvnwPWJZ4Rxa3g.jpeg" style="margin: 0.1em;" alt="txt" title="txt" height=150>
+    </a>
+  </div>
+
++ The process of DNA replication
+  + DNA strands have directions (top left figure)
+  + DNA Polymerases do the Job of Copying (top middle figure)
+    + Once the DNA strands are pulled apart the process of replication begins.
+    + DNA proceeds in both directions on both strands and continues until the center of termination, terC, is reached.
+  + the replication process starts in one direction
+    + Beginning at the oriC locus the DNA molecule is pulled apart and two DNA polymerases, one on each strand begin copying on each strand.
+  + Once the replication fork is opened far enough (bottom left figure)
+    + This open region of single-stranded DNA eventually allows a second phase of the replication process to begin.
+    + A second DNA polymerase detects a primer sequence, and then start replicating the exposed sequence Ahead of it and works towards the beginning of the previous replication primer. 
+    + This DNA polymerase does not have too far to go.
+  + When Opened a Little More (bottom middle figure)
+    + As the initial, or Leading, polymerase continues to copy its half strand more of the complement strand is exposed, which sets off the process over and over again until the termination center is reached.
+  + Eventually the whole genome is replicated
+    + The lengths of Okazaki fragments in prokaryotes and eukaryotes differ. Prokaryotes have Okazaki fragments that are quite longer than those of eukaryotes. Eukaryotes typically have Okazaki fragments that are 100 to 200 nucleotides long, whereas prokaryotic E. Coli can be 2,000 nucleotides long.
+  + [More detailed explanation slide 30-40](https://slideplayer.com/slide/4666399/)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.csbio.unc.edu/mcmillan/Comp555S16/Lecture03.html" ismap target="_blank">
+      <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/DirectionalDNA.png" style="margin: 0.1em;" alt="Recall DNA Strands have Directions" title="DNA with directions" height=150>
+      <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/WrongModel.png" style="margin: 0.1em;" alt="Once the DNA strands are pulled apart the process of replication begins. It proceeds in both directions on both strands and contines until the center of termimination, terC, is reached." title="DNA Polymerases do the Job of Copying" height=150>
+      <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/RepStarts.png" style="margin: 0.1em;" alt="Beginning at the oriC locus the DNA molecule is pulled apart and two DNA polymerases, one on each strand begin copying on each strand." title="The replication process starts in one direction" height=150>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://www.csbio.unc.edu/mcmillan/Comp555S16/Lecture03.html" ismap target="_blank">
+      <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/Strand2.png" style="margin: 0.1em;" alt="This open region of single-stranded DNA eventually allows a second phase of the replication process to begin. A second DNA polymerase detects a primer sequence, and then start replicating the exposed sequence Ahead of it and works towards the beginning of the previous replication primer. However, this DNA polymerase does not have too far to go." title="Once the replication fork is opened far enough" height=150>
+      <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/Continue.png" style="margin: 0.1em;" alt="As the initial, or Leading, polymerase continues to copy its half strand more of the complement strand is exposed, which sets off the process over and over again until the termination center is reached." title="When Opened a Little More" height=150>
+      <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/FinishedRep.png" style="margin: 0.1em;" alt="The lengths of Okazaki fragments in prokaryotes and eukaryotes differ. Prokaryotes have Okazaki fragments that are quite longer than those of eukaryotes. Eukaryotes typically have Okazaki fragments that are 100 to 200 nucleotides long, whereas prokaryotic E. Coli can be 2,000 nucleotides long." title="Eventually the whole genome is replicated" height=150>
+    </a>
+  </div>
+
++ [Bioalgorithms - UNC CS course](http://www.csbio.unc.edu/mcmillan/index.py?run=Courses.Comp555S19)
+
++ Different lifestyle of half-strands
+  + the leading half-strand lives a double-stranded life most of the time
+  + the lagging hak=lf-strand spends a large portion of its life-stranded, waiting to be replicated
+  + why would a computer scientist care?
+
 
 
