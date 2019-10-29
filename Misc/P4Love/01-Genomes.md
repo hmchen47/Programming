@@ -328,7 +328,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
-      <img src="https://miro.medium.com/max/3288/1*0v93SJyADZas0gOW_XbJnA.jpeg" style="margin: 0.1em;" alt="Complementary strands run in opposite directions" title="Complementary strands run in opposite directions" width=350>
+      <img src="https://miro.medium.com/max/3288/1*0v93SJyADZas0gOW_XbJnA.jpeg" style="margin: 0.1em;" alt="Complementary strands run in opposite directions" title="Complementary strands run in opposite directions" width=300>
     </a>
   </div>
   
