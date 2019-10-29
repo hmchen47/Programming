@@ -467,15 +467,22 @@
   + DNA Polymerases do the Job of Copying (top middle figure)
     + Once the DNA strands are pulled apart the process of replication begins.
     + DNA proceeds in both directions on both strands and continues until the center of termination, terC, is reached.
-  + the replication process starts in one direction
+  + __SIMPLE but WRONG:__ DNA polymerases are __undirectional__, they only traverse a parent strand in the $3^\prime \to 5^\prime$ direction
+  + The replication process starts in one direction (top right diagram)
     + Beginning at the oriC locus the DNA molecule is pulled apart and two DNA polymerases, one on each strand begin copying on each strand.
+    + Complementary DNA strands with lagging and leading half-strands shown as thin and thick lines, respectively.
+    + leading/lagging half-strands are complementary
   + Once the replication fork is opened far enough (bottom left figure)
     + This open region of single-stranded DNA eventually allows a second phase of the replication process to begin.
     + A second DNA polymerase detects a primer sequence, and then start replicating the exposed sequence Ahead of it and works towards the beginning of the previous replication primer. 
     + This DNA polymerase does not have too far to go.
   + When Opened a Little More (bottom middle figure)
     + As the initial, or Leading, polymerase continues to copy its half strand more of the complement strand is exposed, which sets off the process over and over again until the termination center is reached.
-  + Eventually the whole genome is replicated
+    + The replication fork continues growing. Only one primer is needed to replicate the leading parent half-strands (shown by thick lines), while the lagging half-strands (shown by thin lines) require multiple primers in order to synthesize Okazaki fragments. Two of these primers are shown in red on each lagging half-strand.
+    + No problem replicating leading half-strands (thick lines)
+    + big problem replicating lagging half-strands (thin lines)
+  + Eventually the whole genome is replicated (bottom right diagram)
+    + Replication is nearly complete, as all daughter DNA is synthesized. However, half of each daughter chromosome contains disconnected Okazaki fragments
     + The lengths of Okazaki fragments in prokaryotes and eukaryotes differ. Prokaryotes have Okazaki fragments that are quite longer than those of eukaryotes. Eukaryotes typically have Okazaki fragments that are 100 to 200 nucleotides long, whereas prokaryotic E. Coli can be 2,000 nucleotides long.
   + [More detailed explanation slide 30-40](https://slideplayer.com/slide/4666399/)
 
@@ -483,13 +490,13 @@
     <a href="http://www.csbio.unc.edu/mcmillan/Comp555S16/Lecture03.html" ismap target="_blank">
       <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/DirectionalDNA.png" style="margin: 0.1em;" alt="Recall DNA Strands have Directions" title="DNA with directions" height=150>
       <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/WrongModel.png" style="margin: 0.1em;" alt="Once the DNA strands are pulled apart the process of replication begins. It proceeds in both directions on both strands and contines until the center of termimination, terC, is reached." title="DNA Polymerases do the Job of Copying" height=150>
-      <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/RepStarts.png" style="margin: 0.1em;" alt="Beginning at the oriC locus the DNA molecule is pulled apart and two DNA polymerases, one on each strand begin copying on each strand." title="The replication process starts in one direction" height=150>
+      <img src="https://miro.medium.com/max/3000/1*l24gFuBXL0ON-PrWZJA49g.jpeg" style="margin: 0.1em;" alt="Beginning at the oriC locus the DNA molecule is pulled apart and two DNA polymerases, one on each strand begin copying on each strand." title="The replication process starts in one direction" height=150>
     </a>
   </div>
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://www.csbio.unc.edu/mcmillan/Comp555S16/Lecture03.html" ismap target="_blank">
       <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/Strand2.png" style="margin: 0.1em;" alt="This open region of single-stranded DNA eventually allows a second phase of the replication process to begin. A second DNA polymerase detects a primer sequence, and then start replicating the exposed sequence Ahead of it and works towards the beginning of the previous replication primer. However, this DNA polymerase does not have too far to go." title="Once the replication fork is opened far enough" height=150>
-      <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/Continue.png" style="margin: 0.1em;" alt="As the initial, or Leading, polymerase continues to copy its half strand more of the complement strand is exposed, which sets off the process over and over again until the termination center is reached." title="When Opened a Little More" height=150>
+      <img src="https://miro.medium.com/max/2137/1*QGy-BJp6_7OeHzOFApjxfg.jpeg" style="margin: 0.1em;" alt="As the initial, or Leading, polymerase continues to copy its half strand more of the complement strand is exposed, which sets off the process over and over again until the termination center is reached." title="When Opened a Little More" height=150>
       <img src="http://www.csbio.unc.edu/mcmillan/Comp555S16/Media/FinishedRep.png" style="margin: 0.1em;" alt="The lengths of Okazaki fragments in prokaryotes and eukaryotes differ. Prokaryotes have Okazaki fragments that are quite longer than those of eukaryotes. Eukaryotes typically have Okazaki fragments that are 100 to 200 nucleotides long, whereas prokaryotic E. Coli can be 2,000 nucleotides long." title="Eventually the whole genome is replicated" height=150>
     </a>
   </div>
@@ -498,9 +505,8 @@
 
 + Different lifestyle of half-strands
   + the leading half-strand lives a double-stranded life most of the time
-  + the lagging hak=lf-strand spends a large portion of its life-stranded, waiting to be replicated
+  + the lagging half-strand spends a large portion of its life-stranded, waiting to be replicated
   + why would a computer scientist care?
-
 
 
 ## 1.8 Replication Asymmetry Leads to the Replication Origin
