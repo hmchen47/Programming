@@ -449,7 +449,7 @@
   + the pattern is even more stark if we take the difference between frequency of G and the frequency of C (middle right figure)
     + the difference between the frequencies of guanine and cytosine across the 46 windows of the E. coli genome
     + assuming that the genome begins at the experimentally verified replication terminus of E. coli.
-  + the pattern still there even if we didn't know where _ori_ was and start counting at some arbitrary sport
+  + the pattern still there even if we didn't know where _ori_ was and start counting at some arbitrary spot
     + The difference between the frequencies of guanine and cytosine across the 46 windows of the E. coli genome, starting at an arbitrary location of the genome. 
     + still infer the location of the replication origin as the point at which the guanine-cytosine difference passes from negative to positive, which in the figure above is approximately 3.9 million nucleotides into the genome file.
 
@@ -458,7 +458,7 @@
       <img src="https://miro.medium.com/max/2400/1*tKwZsS82wHPmuCrE3f0pLw.jpeg" style="margin: 0.1em;" alt="The frequency of cytosine in each of 46 equal-length disjoint windows (of approximately 100,000 nucleotides each) covering the E. coli genome. The replication terminus is located at position 0, whereas the replication origin site is located approximately 2.3 million nucleotides away, halfway down the genome." title="The frequency of cytosine" height=150>
       <img src="https://miro.medium.com/max/2416/1*guLngFfCJRN-4GbLRZpwyQ.jpeg" style="margin: 0.1em;" alt="The frequency of guanine in the same 46 windows in the E. coli genome. Half of the genome has windows that tend to have low guanine frequency, and half of the genome has windows with high frequency. However, the picture is reversed from the preceding figure and the consideration of cytosine." title="The frequency of guanine" height=150>
       <img src="https://miro.medium.com/max/2416/1*o1Sa7yHnp0joFU5nd8JwGQ.jpeg" style="margin: 0.1em;" alt="The difference between the frequencies of guanine and cytosine across the 46 windows of the E. coli genome, assuming that the genome begins at the experimentally verified replication terminus of E. coli." title="The difference between the frequencies of guanine and cytosine" height=150>
-      <img src="https://miro.medium.com/max/2429/1*-Slxg4qjOvnwPWJZ4Rxa3g.jpeg" style="margin: 0.1em;" alt="txt" title="txt" height=150>
+      <img src="https://miro.medium.com/max/2429/1*-Slxg4qjOvnwPWJZ4Rxa3g.jpeg" style="margin: 0.1em;" alt="The difference between the frequencies of guanine and cytosine across the 46 windows of the E. coli genome, starting at an arbitrary location of the genome. We can still infer the location of the replication origin as the point at which the guanine-cytosine difference passes from negative to positive, which in the figure above is approximately 3.9 million nucleotides into the genome file." title="The location of the replication origin as the point at which the guanine-cytosine difference passes from negative to positive" height=150>
     </a>
   </div>
 
