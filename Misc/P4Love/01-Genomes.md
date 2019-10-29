@@ -27,9 +27,11 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
-      <img src="https://miro.medium.com/max/8398/1*V6HtclLD9vxjjn2mPZbRug.jpeg" style="margin: 0.1em;" alt="Semiconservative, conservative, and dispersive models of DNA replication make different predictions about the distribution of DNA strands after replication. Yellow strands indicate 15N (heavy) segments of DNA, and black strands indicate ¹⁴N (light) segments. The Meselson-Stahl experiment began with DNA consisting of 100% 15N." title="Semiconservative, conservative, and dispersive models of DNA replication replication" width=350>
+      <img src="https://miro.medium.com/max/8398/1*V6HtclLD9vxjjn2mPZbRug.jpeg" style="margin: 0.1em;" alt="Semiconservative, conservative, and dispersive models of DNA replication make different predictions about the distribution of DNA strands after replication. Yellow strands indicate 15N (heavy) segments of DNA, and black strands indicate ¹⁴N (light) segments. The Meselson-Stahl experiment began with DNA consisting of 100% 15N." title="Semiconservative, conservative, and dispersive models of DNA replication replication" width=450>
     </a>
   </div>
+
+  + Semiconservative, conservative, and dispersive models of DNA replication make different predictions about the distribution of DNA strands after replication. Yellow strands indicate 15N (heavy) segments of DNA, and black strands indicate ¹⁴N (light) segments. The Meselson-Stahl experiment began with DNA consisting of 100% ¹⁵N.
 
 + The most beautiful experiment in biology (1958)
   + Meselson & Stahl's insight: one isotope of nitrogen, Nitrogen-14 (¹⁴N), is lighter and more abundant than Nitrogen-15 (¹⁵N)
@@ -39,7 +41,7 @@
     + conservative model eliminated, both daughter DNA w/ same weights
   + STOP: What would we observe in centrifuge for the other two models of replication?
     + dispersive model eliminated, all of them w/ the same weights
-  
+
 + What a biologist sees
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -68,9 +70,6 @@
   + Origin of Replication Problem
     + Input: A DNA string genome.
     + Output: The location of ori in genome.
-  
-
-+ Finding the origin of replication
   + how can we find _ori_ in a message?
   + Biologist: let's hack out this DNA fragment.  Can the genome replicate w/o it?
   + Computer scientist: I need more information before I hack this problem.
@@ -498,5 +497,63 @@
   + the lagging hak=lf-strand spends a large portion of its life-stranded, waiting to be replicated
   + why would a computer scientist care?
 
+
+
+## 1.8 Replication Asymmetry Leads to the Replication Origin
+
++ Asymmetry of replication affects nucleotide frequency
+  + single-stranded DNA w/ a much higher mutation rate than double-stranded
+  + if one nucleotide w/ a greater mutation rate $\to$ observe its shortage on the lagging half-stranded (more often single-stranded)
+  + the process is random
+
++ Deamination: the answer
+  + deamination: cytosine (C) mutates into thymine (T)
+  + deamination rate rises 100-fold when DNA is single-stranded!
+  + A mutation of a cytosine nucleotide to a thymine nucleotide on a lagging half-strand (see diagram)
+  + lagging half-strand (single-stranded): shortage of C, normal G
+  + leading half-strand (double-stranded): shortage of G, normal C
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2783/1*3U0QXsI-FHfkygJ1fTj_hw.jpeg" style="margin: 0.1em;" alt="A mutation of a cytosine nucleotide to a thymine nucleotide on a lagging half-strand will cause DNA polymerase to pair the new thymine with an adenine, thus reducing the amount of guanine present on the leading half-strand as well in the daughter chromosome." title="A mutation of a cytosine nucleotide to a thymine nucleotide on a lagging half-strand" width=350>
+    </a>
+  </div>
+
++ Skew array/diagram
+  + __skew array:__ `Skew[k] = #G - #C` for the first $k$ nucleotides of genome
+  + __skew diagram:__ plot `Skew[k]` against $k$ (see left diagram)
+  + STOP: what will skew array of a bacterial genome look like?
+  + skew diagram of E. Coli (right diagram_)
+    + walk along the genome and see that `#G - #C` have between decreasing and then suddenly start increasing 
+    + where are _ori_ in genome?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2399/1*y8ethNaZgkiD3YY_gd48Eg.jpeg" style="margin: 0.1em;" alt="The skew diagram for genome = CATGGGCATCGGCCATACGCC" title="The skew diagram for genome" width=350>
+      <img src="https://miro.medium.com/max/2362/1*Inj1VFoP13nDCjGfhiomuA.jpeg" style="margin: 0.1em;" alt="The skew diagram for E. coli achieves a maximum and minimum at positions 1550413 and 3923620, respectively." title="The skew diagram for E. coli: ori at position around 4,000,000" width=350>
+    </a>
+    </a>
+  </div>
+
++ First question solved
+  + Q: given a bacterial genome (~3 Mbp), where is _ori_?
+  + Minimum Skew Problem
+    + Input: a DNA string genome
+    + Output: the minimum value of `Skew[k]` for genome
+  + Ref: Analyzing genomes with cumulative skew diagrams, Nucleic Acids Reviews, 1998
+
++ Issue
+  + the replication of origin found
+  + but, there are no frequent 9=mers (that appear 3 or more times) in the region of E. coli
+  + STOP: any idea? should we give up?
+
++ Accounting for point mutation
+  + frequent 9-mers (w/ 1 Mismatch and Reverse Complements) in putative _ori_ of E. coli
+  + complications
+    + some bacteria w/ fewer DnaA boxes
+    + terminus of replication often not located directly opposite of _ori_
+    + the skew diagram often more complex than in the case of E. coli (see diagram)
+  + Moral?<br/>
+    This division is not an appropriate view of how biology (or science in general) can and should operate in 21st Century.
 
 
