@@ -144,7 +144,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
-      <img src="https://miro.medium.com/max/9336/1*dPfjb4KZgaPGtVsU8VLdVw.jpeg" style="margin: 0.1em;" alt="“slide a window” down text, checking whether each length-k substring of text matches pattern, and adding one to a count variable every time we encounter a match" title="Illustriation of sliding window to check substring with k=3" width=300>
+      <img src="https://miro.medium.com/max/9336/1*dofjb4KZgaPGtVsU8VLdVw.jpeg" style="margin: 0.1em;" alt="“slide a window” down text, checking whether each length-k substring of text matches pattern, and adding one to a count variable every time we encounter a match" title="Illustriation of sliding window to check substring with k=3" width=300>
     </a>
   </div>
 
@@ -188,7 +188,7 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
-        <img src="https://miro.medium.com/max/4225/1*MlojMRrjuYxdNrTr3PfduA.jpeg" style="margin: 0.1em;" alt="The count array for text = ACGTTTCACGTTTTACGG and k = 3. For example, count[0] = 3 because the 3-mer starting at position 0 (ACG) appears three times in text (at positions 0, 7, and 14). Accordingly, count[7] and count[14] are both equal to 3 as well." title="Demo of one frequent words solution" width=350>
+        <img src="https://miro.medium.com/max/4225/1*MlojMRrjuYxdNrTr3ofduA.jpeg" style="margin: 0.1em;" alt="The count array for text = ACGTTTCACGTTTTACGG and k = 3. For example, count[0] = 3 because the 3-mer starting at position 0 (ACG) appears three times in text (at positions 0, 7, and 14). Accordingly, count[7] and count[14] are both equal to 3 as well." title="Demo of one frequent words solution" width=350>
       </a>
     </div>
 
@@ -410,7 +410,7 @@
 + Defining and hunting for clumps
   + A k-mer forms an `(L, t)-clump` inside Genome if there is a short (lenghth `L`) interval of Genome in which it appears many (at least `t`) times
   + Clump Finding Problem
-    + Input: A string text, and integers `k` (length pf pattern), `L` (window length), and `t` (number of patterns in a clump).
+    + Input: A string text, and integers `k` (length of pattern), `L` (window length), and `t` (number of patterns in a clump).
     + Output: All distinct k-mers forming `(L, t)-clumps` in text.
   + pseudocode
 
@@ -431,7 +431,7 @@
   + STOP (biologist only): why is looking for clumps in bacterial genomes as a source of hidden messages destined to fail?
 
 + Issues
-  + Genomes have too many __repeats__, some more useful than others. eg., Alu in human is~300 bp long and occurs (with some changes) 1 million times
+  + Genomes have too many __repeats__, some more useful than others. eg., Alu in human is ~300 bp long and occurs (with some changes) 1 million times
   + In E. Coli, 1900+ different 9-mer form `(500, 3)-clumps`.  It is unclear which ones point to _ori_ ...
 
 
