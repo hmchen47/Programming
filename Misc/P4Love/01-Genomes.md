@@ -89,6 +89,7 @@
     > tccttaaccctctattttttacggaagaatgatcaagctgctgctcttgatcatcgtttc
 
   + there must be a hidden message telling the cell to start replication here
+  + [Vibrio cholerae genome](http://bioinformaticsalgorithms.com/data/realdatasets/Replication/Vibrio_cholerae.txt)
 
 + Finding hidden message
   + The Hidden Message Problem
@@ -370,6 +371,7 @@
   > agttgcagacattattaaaaacctcatcagaagcttgttcaaaaatttcaatactcgaaa
   > cctaccacctgcgtcccctattatttactactactaataatagcagtataattgatctga
 
+  + [Thermotoga petrophila genome](http://bioinformaticsalgorithms.com/data/realdatasets/Replication/Thermotoga_petrophila.txt)
   + No occurrence of "ATGATCAAG" and "CTTGATCAT"
   + "CCTACCACC" and "GGATGGTGG" are candidate hidden message.
 
@@ -384,5 +386,51 @@
     > CCTACCACCtgcgtcccctattatttactactactaataatagcagtataattgatctga
 
 
+
+## 1.6 An Explosion of Hidden Messages
+
++ Return to the first problem
+  + found hidden messages if _ori_ id given, but still not knowing how to find _ori_ in (long) genome
+
++ Bacteria with unknown _ori_
+  + STOP: now that we know that "hidden messages" may differ, how could we look for _ori_ in a newly sequenced bacterial genome?
+
++ Finding _ori_ computationally
+  + OLD strategy: given a previous __known__ _ori_ (500 nucleotide window), find __frequent words__ (clumps) in _ori_ s candidate DnaA boxes
+
+    \[ \text{replicate origin} \to \text{frequent words} \]
+
+  + NEW strategy: find frequent words in __ALL__ windows within a (3 million nucleotides) genome windows with __clumps__ of freqient words are candidate replication origins.
+
+    \[ \text{frequent word} \to \text{replication origin} \]
+
++ Defining and hunting for clumps
+  + A k-mer forms an `(L, t)-clump` inside Genome if there is a short (lenghth `L`) interval of Genome in which it appears many (at least `t`) times
+  + Clump Finding Problem
+    + Input: A string text, and integers `k` (length pf pattern), `L` (window length), and `t` (number of patterns in a clump).
+    + Output: All distinct k-mers forming `(L, t)-clumps` in text.
+  + pseudocode
+
+    ```js
+    FindClumps(text, k, L, t)
+      patterns = an array of strings of length 0
+      n = len(text)
+      for every integer i between 0 and n − L
+          window = text[i, i + L]
+          freqMap = FrequencyTable(window, k)
+          for every key s in freqMap
+              if freqMap[s] ≥ t and Contains(patterns, s) = false
+                  patterns = append(patterns, s)
+      return patterns
+    ```
+
+  + a complicated function cn be made easier by using subroutines as building blocks
+  + STOP (biologist only): why is looking for clumps in bacterial genomes as a source of hidden messages destined to fail?
+
++ Issues
+  + Genomes have too many __repeats__, some more useful than others. eg., Alu in human is~300 bp long and occurs (with some changes) 1 million times
+  + In E. Coli, 1900+ different 9-mer form `(500, 3)-clumps`.  It is unclear which ones point to _ori_ ...
+
+  
 
 
