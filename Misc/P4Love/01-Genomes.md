@@ -37,9 +37,9 @@
   + Meselson & Stahl's insight: one isotope of nitrogen, Nitrogen-14 (¹⁴N), is lighter and more abundant than Nitrogen-15 (¹⁵N)
   + Meselson and Stahl grew E. coli for many rounds of replication in a ¹⁵N medium, which caused the bacteria to gain weight as they absorbed the heavier isotope into their DNA. When they were confident that the bacterial DNA was saturated with ¹⁵N, they transferred the heavy E. coli cells to a less dense ¹⁴N medium
   + Key point: any of daughter DNA would be lighter
-  + STOP: After one round of replication, Meselson & Stahl spun the DNA in a centrifuge.  Why?
+  + __STOP:__ After one round of replication, Meselson & Stahl spun the DNA in a centrifuge.  Why?
     + conservative model eliminated, both daughter DNA w/ same weights
-  + STOP: What would we observe in centrifuge for the other two models of replication?
+  + __STOP:__ What would we observe in centrifuge for the other two models of replication?
     + dispersive model eliminated, all of them w/ the same weights
 
 + What a biologist sees
@@ -94,7 +94,7 @@
   + The Hidden Message Problem
     + Input: a string of _text_ (representing _ori_)
     + Output: a hidden message in text
-  + STOP: is the Hidden Message Problem a computational problem?
+  + __STOP:__ is the Hidden Message Problem a computational problem?
 
 + Two scientific problems
   1. given a bacteria genome (~3 Mbp), where is _ori_?
@@ -110,7 +110,7 @@
   + hidden message not defined
   + __DnaA:__ a protein mediating replication initiation
   + __DnaA box:__ a short segment in _ori_ where DnaA binds to, i.e., a hidden message saying "bind here!"
-  + STOP: would it make sense for an organism to have multiple DnaA boxes, or just one?
+  + __STOP:__ would it make sense for an organism to have multiple DnaA boxes, or just one?
     + Answer: multiple DnaA boxes $\to$ higher chance of binding $\to$ high "fitness"
   + "Nothing in biology makes sense expect in the light of evolution." -- Theodosius Dobzhansky
 
@@ -118,36 +118,40 @@
 ## 1.3 Hunting for Frequent Words
 
 + Counting words
-  + looking for surprisingly frequent substrings (contiguous strings appearing within)n this _ori_
+  + looking for surprisingly frequent substrings (contiguous strings appearing within) this _ori_
   + first, let's count how often a given substring occurs
 
 + Counting word problem
   + Substring Counting Problem
     + Input: a string _pattern_ and a longer string _text_
     + Output: the number of times _pattern_ occurs in text
-  + STOP: how many times does `ATA` occur in `CGATATATCCATAG`?
+  + __STOP:__ how many times does `ATA` occur in `CGATATATCCATAG`?
     + Answer: could be 2 or 3. for this application, count as 3, i.e., count overlaps
 
 + Substring indexing
   + key point: think of a string as just an array of symbols (0-indexing)
   + notation for the substring `ATA` in text["CG<span style="color:red; weright: bold;">ATA</span>TATCCATAG"] is `text[2, 5]`
     + why not `text[2, 4]`?
-  + STOP: how would refer the substring  `CGA` in text["<span style="color:red; weright: bold;">CGA</span>TATATCCATAG"]?
+  + __STOP:__ how would refer the substring  `CGA` in text["<span style="color:red; weright: bold;">CGA</span>TATATCCATAG"]?
     + Answer: `text[0, 3]`
-  + STOP: What do you notice?
+  + __STOP:__ What do you notice?
     + Answer: easily get _length_ of the substring by subtracting the lower index from the upper index; eg, $3-0 = 3$
-  + STOP: how would we refer to the substring of text of length $k$ starting at position $i$?
+  + __STOP:__ how would we refer to the substring of text of length $k$ starting at position $i$?
     + Answer: `text[i, i+k]` $\to$ very useful
+  + using same notation for "subarray" if we want to refer to a contiguous collection of values in an array
 
 + Idea for counting patterns
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
-      <img src="https://miro.medium.com/max/9336/1*dPfjb4KZgaPGtVsU8VLdVw.jpeg" style="margin: 0.1em;" alt="“slide a window” down text, checking whether each length-k substring of text matches pattern, and adding one to a count variable every time we encounter a match" title="Illustriation of sliding window to check substring with k=3" width=350>
+      <img src="https://miro.medium.com/max/9336/1*dPfjb4KZgaPGtVsU8VLdVw.jpeg" style="margin: 0.1em;" alt="“slide a window” down text, checking whether each length-k substring of text matches pattern, and adding one to a count variable every time we encounter a match" title="Illustriation of sliding window to check substring with k=3" width=300>
     </a>
   </div>
 
-  + STOP: how many substrings of length $k$ are there in a string of length $n$?
+  + Sliding a window to compute `PatternCount(text, pattern) = 3` for pattern = “ATA” and text = “CGATATATCCATAG”
+  + initializing count to zero and then increment it each time that pattern appears in text (shown in green)
+
+  + __STOP:__ how many substrings of length $k$ are there in a string of length $n$?
     + Answer: $(n-k+1)$
   + Exercise: write pseudo code to count pattern occurrences.
   + pseudocode
@@ -166,11 +170,11 @@
 
 + The frequent words problem
   + __k-mer:__ a string of length $k$
-  + __k-mer patter:__ a most frequent __k-mer__ in a string if no other k-mer is more frequent than _pattern_
+  + __k-mer pattern:__ a <span style="color: darkgreen; weight: bolder;">most frequent k-mer</span> in a string if no other k-mer is more frequent than _pattern_
   + Frequent Word Problem
     + Input: a string $text$ and an integer $k$
     + Output: all most frequent k-mers in text
-  + STOP: is the problem clearly stated?
+  + __STOP:__ is the problem clearly stated?
     + Answer: yes, no other statement required to clarify
 
 + Solving the Frequent Words Problem
@@ -211,7 +215,7 @@
 
   + __MaxArray:__ take maximum value in an array _A_
   + __RemoveDuplicates:__ remove duplicates from list _patterns_
-  + STOP: this algorithm is inefficient, why? can we make it better?
+  + __STOP:__ this algorithm is inefficient, why? can we make it better?
   
 
 ## 1.4 A Faster Frequent Words Approach
@@ -317,7 +321,7 @@
     </a>
   </div>
 
-  + STOP: what do you see?
+  + __STOP:__ what do you see?
 
 + Complementarity of DNA
   + DNA is double-stranded, and the two strands are _reverse complements_ of each other
@@ -347,7 +351,7 @@
     ```
 
     + modularity: easier to read and debug
-  + STOP: Write pseudocode for the Reverse and Complement functions.
+  + __STOP:__ Write pseudocode for the Reverse and Complement functions.
 
 + Hidden messages found
   + "ATGATCAAG" and "CTTGATCAT": reverse complement
@@ -355,7 +359,7 @@
   + very surprising to find a 9-mer appearing 6 or more times (w/ reverse complement) within ~500 nucleotides
 
 + Looking for other hidden messages?
-  + STOP: now that we know the "hidden message" in _Vibrio cholera_ , how would we look for a hidden message starting replication in other bacteria?
+  + __STOP:__ now that we know the "hidden message" in _Vibrio cholera_ , how would we look for a hidden message starting replication in other bacteria?
   
   
 + Hidden message in Therotoga. peotrophila?
@@ -392,7 +396,7 @@
   + found hidden messages if _ori_ id given, but still not knowing how to find _ori_ in (long) genome
 
 + Bacteria with unknown _ori_
-  + STOP: now that we know that "hidden messages" may differ, how could we look for _ori_ in a newly sequenced bacterial genome?
+  + __STOP:__ now that we know that "hidden messages" may differ, how could we look for _ori_ in a newly sequenced bacterial genome?
 
 + Finding _ori_ computationally
   + OLD strategy: given a previous __known__ _ori_ (500 nucleotide window), find __frequent words__ (clumps) in _ori_ s candidate DnaA boxes
@@ -522,7 +526,7 @@
 + Skew array/diagram
   + __skew array:__ `Skew[k] = #G - #C` for the first $k$ nucleotides of genome
   + __skew diagram:__ plot `Skew[k]` against $k$ (see left diagram)
-  + STOP: what will skew array of a bacterial genome look like?
+  + __STOP:__ what will skew array of a bacterial genome look like?
   + skew diagram of E. Coli (right diagram_)
     + walk along the genome and see that `#G - #C` have between decreasing and then suddenly start increasing 
     + where are _ori_ in genome?
@@ -545,7 +549,7 @@
 + Issue
   + the replication of origin found
   + but, there are no frequent 9=mers (that appear 3 or more times) in the region of E. coli
-  + STOP: any idea? should we give up?
+  + __STOP:__ any idea? should we give up?
 
 + Accounting for point mutation
   + frequent 9-mers (w/ 1 Mismatch and Reverse Complements) in putative _ori_ of E. coli
