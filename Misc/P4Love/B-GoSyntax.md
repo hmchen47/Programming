@@ -139,14 +139,92 @@
 + [Demo for Loops](src/GoP4L/loops.go)
 
 
-### B.1.5 Arrays
+### B.1.5 Arrays and Slices
+
++ Arrays
+  + a data structure 
+  + store a __fixed-size__ sequential collection of elements of the same type
+  + contiguous memory locations
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.tutorialspoint.com/go/go_arrays.htm" ismap target="_blank">
+      <img src="https://www.tutorialspoint.com/go/images/arrays.jpg" style="margin: 0.1em;" alt="Illustration of array and its elements" title="Array and its indices" width=350>
+    </a>
+  </div>
+
++ Array declaration
+  + Syntax(single-dimensional): `var variable_name [SIZE] variable_type`
+    + eg, `var balance [10] float32`; `var balance = [5]float32{1000.0, 2.0, 3.4, 7.0, 50.0}`
+  + Syntax(multiple-dimensional): `var variable_name [SIZE1][SIZE2]...[SIZEN] variable_type`
+    + two-dime array: `var arrayName [ x ][ y ] variable_type`
+    + eg, `var threedim [5][10][4]int`;
+
+      ```go
+      a = [3][4]int{  
+          {0, 1, 2, 3} ,   /*  initializers for row indexed by 0 */
+          {4, 5, 6, 7} ,   /*  initializers for row indexed by 1 */
+          {8, 9, 10, 11}   /*  initializers for row indexed by 2 */
+      }
+      ```
+
+  + The number of values between braces `{ }` can not be larger than the number of elements that we declare for the array between square brackets `[ ]`
+
++ Array element accessing
+  + done by placing the index of the element within square brackets after the name of the array
+  + eg, `salary := balance[9]`, `val := a[2][3]`
 
 
++ Slices declaration
+  + able to increase its size dynamically or get a sub-array of its own
+  + declaration
+    + declaring it as an array without specifying its size
+    + using `make` function to create a slice
+    + eg, 
+
+      ```go
+      var numbers []int // a slice of unspecified size
+      // numbers == []int{0,0,0,0,0}
+      numbers = make([]int,5,5) // a slice of length 5 and capacity
+      ```
+
+  + nil slice:
+    + a slice declared w/o inputs, then by default, it is initialized as nil
+    + zero length & capacity
+
++ Subslicing
+  + obtain subslice w/ given lower and upper bounds
+  + Syntax: `[lower-bound:upper-bound]`
+  + eg, `numbers := []int{0,1,2,3,4,5,6,7,8} ` & `numbers[1:4]`
+
++ Slice utilities
+  + `len()`: the elements presents in the slice; eg, `lena) = 3`
+  + `cap()`: the capacity of the slice (i.e., how many elements it can be accommodate); eg, `cap(a) = 5`
+  + `append()`: increase the capacity of a slice; eg, `append(numbers, 1)`, `append(numbers, 2,3,4)`
+  + `copy()`: copy the contents of a source slice to a destination slice; eg, `copy(numbers1,numbers)`
 
 
-### B.1.6 Slices
++ Passing and return array w/ function
+  + passing argument
+    + sized array argument
+    + unsized array argument
 
+    ```go
+    void myFunction(param [10]int)  // sized
 
+    void myFunction(param []int)    // unsize
+    ```
+
+  + return array/slice
+
+    ```go
+    void myFunction(...) [10]int {...} // sized
+
+    void myFunction(...) []int {...}   // unsize
+    ```
+
+  + Comparison:
+    + Array argument: call by value; ie, changing in function won't affect the variable in caller
+    + Slice argument: call by reference; ie, changing in function will change on the variable in caller
 
 
 ## B.2 Trivial and Euclid's Theorem of GCD Computation
@@ -156,11 +234,11 @@
 
     ```js 
     TrivialGCD(a, b)
-	    d = 1
-	    a = Min2(a, b)
-	    for every integer p from 1 to n
-	    	if p is a divisor of a and b
-	    		d = p
+      d = 1
+      a = Min2(a, b)
+      for every integer p from 1 to n
+        if p is a divisor of a and b
+          d = p
       return d
     ```
   
