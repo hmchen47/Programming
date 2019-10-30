@@ -514,10 +514,10 @@
 + Asymmetry of replication affects nucleotide frequency
   + single-stranded DNA w/ a much higher mutation rate than double-stranded
   + if one nucleotide w/ a greater mutation rate $\to$ observe its shortage on the lagging half-stranded (more often single-stranded)
-  + the process is random
+  + the mutation is random
 
 + Deamination: the answer
-  + deamination: cytosine (C) mutates into thymine (T)
+  + deamination: the process for cytosine (`C`) rapidly mutating into thymine (`T`)
   + deamination rate rises 100-fold when DNA is single-stranded!
   + A mutation of a cytosine nucleotide to a thymine nucleotide on a lagging half-strand (see diagram)
   + lagging half-strand (single-stranded): shortage of C, normal G
@@ -528,6 +528,20 @@
       <img src="https://miro.medium.com/max/2783/1*3U0QXsI-FHfkygJ1fTj_hw.jpeg" style="margin: 0.1em;" alt="A mutation of a cytosine nucleotide to a thymine nucleotide on a lagging half-strand will cause DNA polymerase to pair the new thymine with an adenine, thus reducing the amount of guanine present on the leading half-strand as well in the daughter chromosome." title="A mutation of a cytosine nucleotide to a thymine nucleotide on a lagging half-strand" width=350>
     </a>
   </div>
+
++ Walk along with the genome
+  + Exercise: what is the computational problem we are trying to solve here?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://slideplayer.com/slide/4666399/" ismap target="_blank">
+      <img src="https://slideplayer.com/slide/4666399/15/images/46/Take+a+Walk+Along+the+Genome.jpg" style="margin: 0.1em;" alt="Frequency decreasing then increasing indicating the ori position(p.46)" title="Frequency decreasing then increasing" height=200>
+      <!--
+      <img src="https://slideplayer.com/slide/4666399/15/images/45/Take+a+Walk+Along+the+Genome.jpg" style="margin: 0.1em;" alt="C low/G high → #G-#C is increasing as we walk along the forward half-strand (p.45) " title="C low/G high → #G-#C is increasing as we walk along the forward half-strand" height=200>
+      <img src="https://slideplayer.com/slide/4666399/15/images/47/Take+a+Walk+Along+the+Genome.jpg" style="margin: 0.1em;" alt="C high/G low → #G - #C is decreasing as we walk along the reverse half-strand (p.47)" title="C high/G low → #G - #C is DECREASING as we walk along the REVERSE half-strand" height=200>
+      -->
+    </a>
+  </div>
+
 
 + Skew array/diagram
   + __skew array:__ `Skew[k] = #G - #C` for the first $k$ nucleotides of genome
@@ -540,7 +554,7 @@
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
       <img src="https://miro.medium.com/max/2399/1*y8ethNaZgkiD3YY_gd48Eg.jpeg" style="margin: 0.1em;" alt="The skew diagram for genome = CATGGGCATCGGCCATACGCC" title="The skew diagram for genome" width=350>
-      <img src="https://miro.medium.com/max/2362/1*Inj1VFoP13nDCjGfhiomuA.jpeg" style="margin: 0.1em;" alt="The skew diagram for E. coli achieves a maximum and minimum at positions 1550413 and 3923620, respectively." title="The skew diagram for E. coli: ori at position around 4,000,000" width=350>
+      <img src="https://miro.medium.com/max/2362/1*Inj1VFoP13nDCjGfhiomuA.jpeg" style="margin: 0.1em;" alt="The skew diagram for E. coli achieves a maximum and minimum at positions 1550413 and 3923620, respectively." title="The skew diagram for E. coli: ori at position around 4,000,000" width=300>
     </a>
     </a>
   </div>
@@ -554,7 +568,7 @@
 
 + Issue
   + the replication of origin found
-  + but, there are no frequent 9=mers (that appear 3 or more times) in the region of E. coli
+  + but, there are no frequent 9-mers (that appear 3 or more times) in the region of E. coli
   + __STOP:__ any idea? should we give up?
 
 + Accounting for point mutation
@@ -562,7 +576,7 @@
   + complications
     + some bacteria w/ fewer DnaA boxes
     + terminus of replication often not located directly opposite of _ori_
-    + the skew diagram often more complex than in the case of E. coli (see diagram)
+    + the skew diagram often more complex than in the case of E. coli (e.g. skew diagram of T. petrophila)
   + Moral?<br/>
     This division is not an appropriate view of how biology (or science in general) can and should operate in 21st Century.
 
