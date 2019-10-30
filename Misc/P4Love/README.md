@@ -14,7 +14,14 @@
 
 ## Chapter 1: Finding Replication Origins in Bacterial Genomes
 
-+ 1.1 [An Intro to DNA Replication](01-Genomes.md#s)
++ 1.1 [An Intro to DNA Replication](01-Genomes.md#)
++ 1.2 [Hidden Messages in the Replication Origin](01-Genomes.md#)
++ 1.3 [Hunting for Frequent Words](01-Genomes.md#)
++ 1.4 [A Faster Frequent Words Approach](01-Genomes.md#)
++ 1.5 [Some Hidden Messages are Surprising than Others](01-Genomes.md#)
++ 1.6 [An Explosion of Hidden Messages](01-Genomes.md#)
++ 1.7 [A Surprise, Some Gritty Details about Replication](01-Genomes.md#)
++ 1.8 [Replication Asymmetry Leads to the Replication Origin](01-Genomes.md#)
 
 
 ## A. A Short Introduction to Programming in Go
