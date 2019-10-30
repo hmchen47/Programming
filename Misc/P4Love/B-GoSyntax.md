@@ -226,6 +226,8 @@
     + Array argument: call by value; ie, changing in function won't affect the variable in caller
     + Slice argument: call by reference; ie, changing in function will change on the variable in caller
 
++ [Demo for arrays & slides](src/GoP4L/arrays.go)
+
 
 ## B.2 Trivial and Euclid's Theorem of GCD Computation
 
