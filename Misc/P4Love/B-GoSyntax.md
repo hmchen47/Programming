@@ -226,7 +226,20 @@
     + Array argument: call by value; ie, changing in function won't affect the variable in caller
     + Slice argument: call by reference; ie, changing in function will change on the variable in caller
 
++ Shortcut w/ for loop
+  + `range` keyword iterate over an expression that evaluates to an array, slice, map, string, or channel
+  + Syntax: `for idx, val := range list {...}`
+    + retrieve the index and value of an element simultaneously
+    + `_` if one of them not required
+
 + [Demo for arrays & slides](src/GoP4L/arrays.go)
+
+
+### B.1.6 Strings
+
+
+
+
 
 
 ## B.2 Trivial and Euclid's Theorem of GCD Computation
