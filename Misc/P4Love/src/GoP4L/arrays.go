@@ -11,6 +11,10 @@ func main() {
 	// comparison of changing array and slice values in function
 	a := make([]int, 3)
 	var b [3]int
+	fmt.Println("\ndeclare w/ 'var := make([]varDataType, size)':", a)
+	fmt.Println("declare w/ 'var [size]varDataType':", b)
+	c := [3]int{3, -2, 1}
+	fmt.Println("declae array w/ assigned values 'var := [size]varDataType{val1, val2, ..., vlaN}':", c)
 
 	ChangeFirst1Slice(a)
 	ChangeFirst1Array(b)
