@@ -194,14 +194,15 @@
 + Subslicing
   + obtain subslice w/ given lower and upper bounds
   + Syntax: `[lower-bound:upper-bound]`
-  + eg, `numbers := []int{0,1,2,3,4,5,6,7,8} ` & `numbers[1:4]`
+  + missing `lower-bound`: from the beginning of the slice to the `upper-bound`
+  + missing `upper-bound`: from the `lower-bound` to the end of the slice
+  + eg, `numbers := []int{0,1,2,3,4,5,6,7,8}` & `numbers[1:4] = [1 2 3]`, `numbers[5:] = [5 6 7 8]`, `numbers[:4] = [0 1 2 3]`
 
 + Slice utilities
   + `len()`: the elements presents in the slice; eg, `lena) = 3`
   + `cap()`: the capacity of the slice (i.e., how many elements it can be accommodate); eg, `cap(a) = 5`
-  + `append()`: increase the capacity of a slice; eg, `append(numbers, 1)`, `append(numbers, 2,3,4)`
+  + `append()`: increase the capacity of a slice; eg, `append(numbers, 1)`, `append(numbers, 2, 3, 4)`
   + `copy()`: copy the contents of a source slice to a destination slice; eg, `copy(numbers1,numbers)`
-
 
 + Passing and return array w/ function
   + passing argument
@@ -232,13 +233,34 @@
     + retrieve the index and value of an element simultaneously
     + `_` if one of them not required
 
+
 + [Demo for arrays & slides](src/GoP4L/arrays.go)
 
 
 ### B.1.6 Strings
 
++ Strings declaration
+  + strings are slices
+  + declaration example: `var greeting = "Hello world!"`, `str1 := ""`
+  + access an element of a string as slice does
 
++ Access elements of strings
+  + same as the slices w `:` for a range
+  + Syntax: `str[lower-bound:upper-bound`]
+  + missing `upper-bound` & `upper-bound` usage same as slices
+  + concatenate strings with `+` while slice using `append` function
 
++ utilities
+  + `len(str)`: method returns the number of bytes contained in the string literal
+  + `strings.Join(str, "text")`: concatenating multiple strings
+  + `+`: concatenation of two strings
+  + `string()`: convert integer/byte to string
+  + `strconv`: Package strconv implements conversions to and from string representations of basic data types
+    + `strconv.Itoa(i int) string`: equivalent to FormatInt(int64(i), 10)
+    + `strconv.Atoi(s string) (int, error)`: equivalent to ParseInt(s, 10, 0), converted to type int.
+    + `strconv.ParseFloat(s string, bitSize int) (float64, error)`: convert the string s to a floating-point number with the precision specified by bitSize
+
++ [Demo for Strings](src/GoP4L/string.go)
 
 
 
