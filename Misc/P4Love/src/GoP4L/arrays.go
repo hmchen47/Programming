@@ -25,6 +25,21 @@ func main() {
 	fmt.Println("\nGet list primes w/ slice:")
 	fmt.Println("  list of primes (<= 31):", ListPrimes(31))
 	fmt.Println("  list of primes (<= 30):", ListPrimes(30))
+
+	// access a range of array & slice - same as string
+	fmt.Println("\nAccess a subarray and subslice ...")
+	slice1 := make([]int, 6)
+	for i := 0; i < len(slice1); i++ {
+		slice1[i] = -2*i + 3
+	}
+	fmt.Println(" the original slices:", slice1)
+	fmt.Println(" access a range ([3:5]):", slice1[3:5])
+	fmt.Println(" access from a given position to end ([3:]):", slice1[3:])
+	fmt.Println(" access from start to a given position ([:5]):", slice1[:5])
+
+	fmt.Println(" delete idx=4 [append(slice[:idx], slice[idx+1:]...)]:", append(slice1[:4], slice1[5:]...))
+	// replaceing element at index 1 w/ index 3 and remove index 3
+
 }
 
 func Max(list []int) int {
