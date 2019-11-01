@@ -1,4 +1,4 @@
-# Howmework 2: String Functions
+# Homework 2: String Functions
 
 ## 1. Welcome
 
