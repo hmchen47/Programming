@@ -178,7 +178,7 @@
   + able to increase its size dynamically or get a sub-array of its own
   + declaration
     + declaring it as an array without specifying its size
-    + using `make` function to create a slice
+    + (MUST) using `make` function to create a slice
     + eg, 
 
       ```go
@@ -262,6 +262,65 @@
 
 + [Demo for Strings](src/GoP4L/string.go)
 
+
+### B.1.7 Maps
+
++ map 
+  + mapping unique keys to values
+  + key: an object used to retrieve a value at a later date
+  + given a key and a value to store the value in a Map object
+
++ map declaration
+  + initializing variable w/ default as `nil`
+  + Syntax: `var map_variable map[key_data_type]value_data_type`
+  + __MUST__ use `mak()` function to create a map
+
+    ```go
+    /* declare a variable, by default map will be nil*/
+    var map_variable map[key_data_type]value_data_type
+
+    /* define the map as nil map can not be assigned any value*/
+    map_variable = make(map[key_data_type]value_data_type)
+    ```
+
+  + Shortcut declaration: `mapVar :=make(map[keyDataType]valueDataType)`
+
+    ```go
+    mapVar := make(map[keyDataType]valueDataType)
+    ```
+
++ Access elements
+  + using keys to access the value
+  + Syntax: `mapVar[key]`
+
++ For loop
+  + able to retrieve key and value simultaneously
+  
+    ```go
+    for key, value := range varMap {
+      ...
+    }
+    ```
+
+  + using `_` (underscore) to substitute unnecessary key or value
+
++ Existence of key
+  + checking existence of a key: 
+
+    ```go
+    _, existed = varMap[key]
+    ```
+
+  + shortcut for incremental counter
+
+    ```go
+    valMap[key]++
+    ```
+
+    + if key existed, simply increase one
+    + if key not existed, create the key w/ default value (0) and then add one
+
++ [Demo for maps](src/GoP4L/maps.go)
 
 
 ## B.2 Trivial and Euclid's Theorem of GCD Computation
