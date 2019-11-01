@@ -1,0 +1,23 @@
+# Howmework 2: String Functions
+
+## 1. Welcome
+
+Welcome to Homework 2!
+
+Please read this page carefully before starting, especially if you are new to Stepik.
+
+Like Homework 1, this assignment is divided into a sequence of functions for you to write.  All of these functions derive from our material on finding replication origins in bacterial genomes and relate to operations on strings.  Consult the slides provided from this chapter at the course website as needed for definitions, pseudocode, etc.
+
+Each function is assigned to its own "step" (page).  You should create a folder called "hw2" under "go/src" and create a .go file in that folder.  You should write your functions locally, and upload your code here to test them.  A note on how the testing works here.
+
++ If you need any subroutines, provide those as well.
++ Behind the scenes, we grade your code on a collection of test datasets (that we provide).  You either pass all the tests (congrats!) or we let you know the first test that your code failed on.  We provide a link to test datasets beneath each problem so that you can test your code before submitting your function.  We also provide a "sample input and output" so that you can see a single example of the correct answer for a given sample input.
++ You don't have to worry about formatting your answer to meet the sample output -- we handle all this behind the scenes.  Just write your Go function(s)!
++ We import any packages that you need; you won't need to import or be able to import any additional ones.
++ All code should be in Go.
++ Some of the problems have "Debug Datasets" describing each of the test datasets.  In other places we just provide the sample datasets on the same page as the problem.
+
+Happy coding!
+
+
+
