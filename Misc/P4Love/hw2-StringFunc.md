@@ -190,5 +190,38 @@ func ReverseComplement(pattern string) string {
 + [Answer](src/hw02/reverseComplement.go)
 
 
+## 7. Pattern Matching Problem
+
++ Pattern Matching Problem
+  + Input: Two strings, pattern and text.
+  + Output: All starting positions where pattern appears as a substring of text.
+  
++ test sets:
+  + Sample 1:
+    + Input: ATAT; GATATATGCATATACTT
+    + Output: 1 3 9
+  + Sample 2:
+    + Input: ACAC; TTTTACACTTTTTTGTGTAAAAA
+    + Output: 4
+  + Sample 3:
+    + Input: AAA; AAAGAGTGTCTGATAGCAGCTTCTGAACTGGTTACCTGCCGTGAGTAAATTAAATTTTATTGACTTAGGTCACTAAATACTTTAACCAATATAGGCATAGCGCACAGACAGATAATAATTACAGAGTACACAACATCCAT
+    + Output: 46 51 74
+  + Sample 4:
+    + Input: TTT; AGCGTGCCGAAATATGCCGCCAGACCTGCTGCGGTGGCCTCGCCGACTTCACGGATGCCAAGTGCATAGAGGAAGCGAGCAAAGGTGGTTTCTTTCGCTTTATCCAGCGCGTTAACCACGTTCTGTGCCGACTTT
+    + Output: 88 92 98 132
+  + Sample 5:
+    + Input: ATA; ATATATA
+    + Output: 0 2 4
+
++ Write a program, test using stdin → stdout
+
+```go
+// Fill in your PatternMatching() function here along with any subroutines that you need.
+func PatternMatching(pattern, text string) []int {
+
+}
+```
+
++ [Answer](src/hw02/patternMatching.go)
 
 
