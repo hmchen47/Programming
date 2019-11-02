@@ -61,4 +61,36 @@ Happy coding!
 + [Answer](src/hw02/PatternCount.go)
 
 
+## 3. Maximum Map Value Problem
+
++ Maximum Map Value (Strings to Ints) Problem
+  + Input: A map freq of strings to integers.
+  + Output: The maximum value in freq.
+
++ Implement a function MaxDict that solves the Maximum Map Value Problem. Note: your function should still work if the values are all negative.
+
++ Test sets
+  + Sample 1: 
+    + Input: ACT 3; GTGA 6; TA 2
+    + Output: 6
+  + Sample 2:
+    + Input: x1213y 12; Sample Output 2
+    + Output: 12
+  + Sample 3:
+    +Input: adkfdjk -4; adskf -3; fjdk -7
+    + Output: -3
+  + Sample 4:
+    + Input: hi 4; hello 5; world -3; ok 5
+    + Output: 5
+
++ Write a program, test using stdin → stdout
+
+  ```go
+  // Insert your MaxDict() function here, along with any subroutines that you need.
+  func MaxDict(dict map[string]int) int {
+
+  }
+  ```
+
+  + [Answer](src/hw02/maxDict.go)
 
