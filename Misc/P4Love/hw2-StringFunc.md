@@ -94,3 +94,30 @@ Happy coding!
 
   + [Answer](src/hw02/maxDict.go)
 
+
+## 4. Frequency Map Problem
+
++ Frequency Map Problem
+  + Input: A string text and an integer k.
+  + Output: The "frequency map" of all k-mers appearing as substrings of text﻿, as a map of strings to integers.
+  
++ Write a function FrequencyMap that takes a string text and an integer k as and returns the frequency map of all k-mers appearing in text.
+
++ test sets
+  + Sample 1:
+    + Input: ATATA; 3
+    + Output: ATA 2; TAT 1
+  + Sample 2:
+    + Input: mamaliga; 2
+    + Output:  al 1; am 1; ga 1; ig 1; li 1; ma 2
+
++ Write a program, test using stdin → stdout
+
+```go
+// Insert your FrequencyMap() function here, along with any subroutines that you need.
+func FrequencyMap(text string, k int) map[string]int {
+
+}
+```
+
++ [Answer](src/hw02/frequencyMap.go)
