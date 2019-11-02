@@ -158,6 +158,37 @@ func FrequentWords(text string, k int) []string {
 }
 ```
 
++ [Sanswer](src/hw02/frequentWords.go)
+
+
+## 6. Reverse Complement Problem
+
++ Reverse Complement Problem
+  + Input: A DNA string pattern.
+  + Output: The reverse complement of pattern.
+
++ test sets
+  + Sample 1:
+    + Input: AAAACCCGGT
+    + Output: ACCGGGTTTT
+  + Sample 2:
+    + Input: ACACAC
+    + Output: GTGTGT
+  + Sample 3:
+    + Input: GCTCAGCCACAACACGAGGGATACTATTATCACGGTCAGTACAACAACGCATTTGTGATCAGCAACGCACTAAGCTTGCCCAGGGTAGAACACGAGACGCACTCTGTAGCCGTTGTTATCCGACCCTTTAGGACCTTGCGCTGGGCTAGGATGGATAAACCTCGTGGTGCGGCTGTCTTTAGATGATGCTTCCAGGCGAG
+    + Output: CTCGCCTGGAAGCATCATCTAAAGACAGCCGCACCACGAGGTTTATCCATCCTAGCCCAGCGCAAGGTCCTAAAGGGTCGGATAACAACGGCTACAGAGTGCGTCTCGTGTTCTACCCTGGGCAAGCTTAGTGCGTTGCTGATCACAAATGCGTTGTTGTACTGACCGTGATAATAGTATCCCTCGTGTTGTGGCTGAGC
+
++ Write a program, test using stdin → stdout
+
+```go
+// Write your ReverseComplement() function here along with any subroutines that you need.
+func ReverseComplement(pattern string) string {
+
+}
+```
+
++ [Answer](src/hw02/reverseComplement.go)
+
 
 
 
