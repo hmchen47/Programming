@@ -151,12 +151,12 @@ func FrequencyMap(text string, k int) map[string]int {
 
 + Write a program, test using stdin → stdout
 
-```go 
-// write your FrequentWords() function here along with any subroutines that you need.
-func FrequentWords(text string, k int) []string {
+  ```go
+  // write your FrequentWords() function here along with any subroutines that you need.
+  func FrequentWords(text string, k int) []string {
 
-}
-```
+  }
+  ```
 
 + [Sanswer](src/hw02/frequentWords.go)
 
@@ -180,12 +180,12 @@ func FrequentWords(text string, k int) []string {
 
 + Write a program, test using stdin → stdout
 
-```go
-// Write your ReverseComplement() function here along with any subroutines that you need.
-func ReverseComplement(pattern string) string {
+  ```go
+  // Write your ReverseComplement() function here along with any subroutines that you need.
+  func ReverseComplement(pattern string) string {
 
-}
-```
+  }
+  ```
 
 + [Answer](src/hw02/reverseComplement.go)
 
@@ -215,13 +215,48 @@ func ReverseComplement(pattern string) string {
 
 + Write a program, test using stdin → stdout
 
-```go
-// Fill in your PatternMatching() function here along with any subroutines that you need.
-func PatternMatching(pattern, text string) []int {
+  ```go
+  // Fill in your PatternMatching() function here along with any subroutines that you need.
+  func PatternMatching(pattern, text string) []int {
 
-}
-```
+  }
+  ```
 
 + [Answer](src/hw02/patternMatching.go)
+
+
+## 8. Clump Finding Problem
+
++ Clump Finding Problem
+  + Input: A string text, and integers k, L, and t.
+  + Output: All distinct k-mers forming (L, t)-clumps in text.
+
++ Note: This problem may be a bit challenging.  We suggest "sliding" a window of length L down text, and forming the frequency map for this window (subroutine!), then identifying which k-mers occur at least t times in this window, and adding this k-mer (once) to a growing list if it has not already been added to the list within a previous window.
+
++ test sets
+  + For a little extra fun if you're interested, try applying your solution to the [E. coli genome](http://bioinformaticsalgorithms.com/data/realdatasets/Replication/E_coli.txt). How many different k-mers do you find that form (500, 3)-clumps?  (We could include reverse complements and find even more, but it seems unnecessary :))
+  + Sample 1:
+    + Input: CGGACTCGACAGATGTGAAGAACGACAATGTGAAGACTCGACACGACAGAGTGAAGAGAAGAGGAAACATTGTAA <br/>5 50 4
+    + Output: CGACA GAAGA
+  + Sample 2:
+    + Input: AAAACGTCGAAAAA <br/>2 4 2
+    + Output: AA
+  + Sample 3:
+    + Input: ACGTACGT <br/>1 5 2
+    + Output: A C G T
+  + Sample 4:
+    + Input: CCACGCGGTGTACGCTGCAAAAAGCCTTGCTGAATCAAATAAGGTTCCAGCACATCCTCAATGGTTTCACGTTCTTCGCCAATGGCTGCCGCCAGGTTATCCAGACCTACAGGTCCACCAAAGAACTTATCGATTACCGCCAGCAACAATTTGCGGTCCATATAATCGAAACCTTCAGCATCGACATTCAACATATCCAGCG <br/>3 25 3
+    + Output: AAA CAG CAT CCA GCC TTC
+
++ Write a program, test using stdin → stdout
+
+  ```go
+  // Fill in your ClumpFinding() function here, along with any subroutines that you need.
+  func ClumpFinding(genome string, k, L, t int) []string {
+
+  }
+  ```
+
++ [Answer](src/hw02/clumpFinding.go)
 
 
