@@ -257,6 +257,48 @@ func FrequencyMap(text string, k int) map[string]int {
   }
   ```
 
-+ [Answer](src/hw02/clumpFinding.go)
++ [Answer](srcs/hw02/clumpFinding.go)
+
+
+## 9. Skew Array Problem
+
++ Skew Array Problem
+  + Input: A DNA string genome.
+  + Output: The skew array of genome.
+
++ Note: for now, we are just focusing on writing functions.  We will soon start using Go to draw objects, and use it to graph the skew array along with other datasets that we generate.  For now, you might like to generate the skew array of E. coli﻿ just so you know it works :)
+
++ Test sets
+  + Sample 1:
+    + Input: CATGGGCATCGGCCATACGCC
+    + Output: 0 -1 -1 -1 0 1 2 1 1 1 0 1 2 1 0 0 0 0 -1 0 -1 -2
+  + Sample 2:
+    + Input: 
+    + Output: 0
+  + Sample 3:
+    + Input: C
+    + Output: 0 -1
+  + Sample 4:
+    + Input: A
+    + Output: 0 0
+  + Sample 5:
+    + Input: G
+    + Output: 0 1
+  + Sample 6:
+    + Input: T
+    + Output: 0 0
+
++ Write a program, test using stdin → stdout
+
+  ```go
+  // Insert your SkewArray() function here, along with any subroutines that you need.
+  func SkewArray(genome string) []int {
+
+  }
+  ```
+
++ [Answer](src/hw02/skewArray.go)
+
+
 
 
