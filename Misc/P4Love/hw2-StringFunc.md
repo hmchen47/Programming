@@ -299,6 +299,38 @@ func FrequencyMap(text string, k int) map[string]int {
 
 + [Answer](src/hw02/skewArray.go)
 
+## 10. Minimum Skew Problem
 
++ Minimum Skew Problem
+  + Input: A DNA string genome.
+  + Output: All integer(s) i minimizing skew[i], where skew is the skew array of genome.
+  
++ Test sets
+  + Sample 1:
+    + Input: TAAAGACTGCCGAGAGGCCAACACGAGTGCTAGAACGAGGGGCGTAAACGCGGGTCCGAT
+    + Output: 11 24
+  + Sample 2:
+    + Input: ACCG
+    + Output: 3
+  + Sample 3:
+    + Input: ACCC
+    + Output: 4
+  + Sample 4:
+    + Input: CCGGGT
+    + Output: 2
+  + Sample 5:
+    + Input: CCGGCCGG
+    + Output: 2 6
+
++ Write a program, test using stdin → stdout
+
+```go
+// Insert your MinimumSkew() function here, along with any subroutines that you need.
+func MinimumSkew(genome string) []int {
+
+}
+```
+
++ [Solution](src/hw02/minSkew.go)
 
 
