@@ -159,6 +159,96 @@
   + They then send timing data to a custom app on an agent’s phone; this data causes the phones to vibrate a split second before the agent should press the “Spin” button.
 
 
+## 2.4 Simulating Craps
+
++ Three common built-in functions<br/>
+  most languages have PRNG package that includes following functions
+  + `Int()`: return "random integer
+  + `Intn()`: takes an integer $n$ and returns a "random" integer btw $0$ and $n-1$, inclusively
+  + `Float()`: returns "random" decimal in the range $[0, 1)$
+  + STOP: which of these functions should used to simulated rolling a die?
+
++ Simulating a die roll
+  + Idea 1: `Float()`
+
+    ```js
+    RollDie()
+      roll = Float()
+      if roll < 1/6
+        return 1
+      else if roll < 2/6
+        return 2
+      else if roll < 3/6
+        return 3
+      else if roll < 4/6
+        return 4
+      else if roll < 5/6
+        return 5
+
+      return 6
+    ```
+
+  + Idea 2: `Intn()`
+
+    ```js
+    RollDie()
+      roll = Intn(6)
+      return roll+1
+    ```
+  
+  + Idea 3: `Int()`
+
+    ```js
+    RollDie()
+      roll = Int()
+      return Remainder(roll, 6) + 1
+    ```
+
++ Exercise: write a function `SunTwoDice()` that takes no parameters and returns the sum of two rolled fair dice
+
+  ```js
+  SumTwoDice()
+    roll = Float()
+    if roll < 1/36 
+      return 1
+    else if roll < 3/36
+      return 2
+    else if roll < 6/36
+    ...
+
+  // a better approach by using modularity  
+  SumTwoDice()
+    return RollDie() + RollDie()
+  ```
+
++ Exercise: write a unction `SumMultipleDice()` that takes an integer $n$ and return the sum of $n$ dice
+
+  ```js
+  SumMultipleDice()
+    s = 0
+    for n trials
+      s = s + RollDie()
+    return s
+  ```
+
++ Craps Simulator
+
+  ```js
+  PlayCrapsOnce()
+    firstRoll = SumTwoDice()
+    if firstRoll = 2, 3, or 12
+      return false (player loses)
+    else if firstRoll = 7 or 11
+      return true (player wins)
+    else
+      while true
+        newRoll = SumTwoDice()
+        if newRoll = firstRoll
+          return true (player wins)
+        else if newRoll = 7
+          return false (player loses)
+  ```
+
 
 
 
