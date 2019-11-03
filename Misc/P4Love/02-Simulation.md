@@ -250,5 +250,117 @@
   ```
 
 
+## 2.5 Simulating a U.S. Presidential Election
+
++ Returning to election simulator
+
+  ```js
+  SimulateMultipleElection(pollingData, numTrials, marginOfError)
+    winCount1 = 0
+    winCount2 = 0
+    tieCount = 0
+
+    for trial = 1 to numTrials
+      collegeVotes1, collegeVotes2 = SimulateOneElection(pollingData, marginOfError)
+      if collegeVotes1 > collegeVotes2
+        winCount1 = winCount1 + 1
+      else if collegeVotes2 > collegeVotes1
+        winCount2 = winCount2 + 1
+      else
+        tieCount = tieCount + 1
+    probability1 = winCount1/numTrials
+    probability2 = winCount2/numTrials
+    probabilityTie = tieCount/numTrials
+
+    return probability1, probability2, probabilityTie
+  ```
+
+  + Note: Haven't told anything about pollingData!
+
++ Using two maps for election data
+  + Pools & ElectoralVotes
+
+    <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=50%>
+      <thead>
+      <tr>
+        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">electoralVotes</th>
+        <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">pools</th>
+      </tr>
+      <tr>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">State</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Votes</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">State</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Percentage</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>"California"</td> <td>55</td> <td>"California"</td> <td>62.2%</td>
+      </tr>
+      <tr>
+        <td>"Texas"</td> <td>38</td> <td>"Texas"</td> <td>45.6%</td>
+      </tr>
+      <tr>
+        <td>"Florida"</td> <td>29</td> <td>"Florida"</td> <td>49.1%</td>
+      </tr>
+      <tr>
+        <td>"New York"</td> <td>29</td> <td>"New York"</td> <td>57.9%</td>
+      </tr>
+      <tr>
+        <td>"Illinois"</td> <td>20</td> <td>"Illinois"</td> <td>64.0%</td>
+      </tr>
+      <tr>
+        <td>"Pennsylvania"</td> <td>20</td> <td>"Pennsylvania"</td> <td>53.3%</td>
+      </tr>
+      <tr>
+        <td>"Ohio"</td> <td>18</td> <td>"Ohio"</td> <td>49.9%</td>
+      </tr>
+      </tbody>
+    </table>
+
+  + Simulating a single election
+
+    ```js
+    SimulateOneElection(polls, electoralVotes, marginOfError)
+      collegeVotes1 = 0
+      collegeVotes2 = 0
+      for key in pools
+        poll = polls[state]
+        votes = electoralVotes[state]
+        adjustedPoll = AddNoise(poll, marginOfError)
+        if adjustedPoll >= 0.5
+          collegeVotes1 = collegeVotes1 + votes
+        else
+          collegeVotes2 = collegeVotes2 + votes
+      return collegeVotes1, collegeVotes2
+    ```
+
+  + just need to fill in the details of `AddNoise`, where the randomization is lurking
+  + STOP: how could we implement `AddNoise`?
+
++ Ideal for `AddNoise()`
+  + generating a random number uniformly between `-marginOfError` and `+marginOfError`
+
+    ```js
+    AddNoise(pool, marginOfError)
+      x = random decimal number in [0, 1]
+      x = 2*x // in [0, 2]
+      x = x - 1 // in [-1, 1]
+      x = x* marginOfError
+      return x + poll
+    ```
+
+  + STOP: why is this not an ideal model?
+
++ Standard Normal distribution
+  + __Standard Normal Distribution:__ a "bell-shaped" distribution with infinitely-extending "tails"
+  + height of graph at position x indicates relative likelihood of generating decimal number x
+  + Note: languages also have a `NormalFloat()` function returning number from standard normal distribution
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://doughtrading.squarespace.com/blog/understanding-standard-deviation" ismap target="_blank">
+        <img src="https://images.squarespace-cdn.com/content/v1/53e4e1bbe4b08bfde27b5214/1444162403849-7OWK6SR12CJF8U4X779I/ke17ZwdGBToddI8pDm48kBAn57fvxhJmgXL6GZy1xhUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dsXMtqy5rx4mcmbzj6URbFz6p6kzYKQ5yPdvVFehL9j1CjLISwBs8eEdxAxTptZAUg/probability-distribution-standard-deviation?format=1500w" style="margin: 0.1em;" alt="A normal distribution graph always has the same general shape (that’s why they call it a bell curve). The standard deviation of a probability distribution graph tells us how likely a certain percentage price change is depending on the volatility of the stock or index. Values within one standard deviation of the mean value always represent 68.2% of the values, but how far the width of the graph expands to encompass the 68.2% of values changes with the volatility. If the volatility is higher, the graph’s standard deviation will be larger to encompass all 68.2% of values." title="Normal Distribution" width=550>
+      </a>
+    </div>
 
 
