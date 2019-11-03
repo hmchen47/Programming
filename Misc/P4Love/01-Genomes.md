@@ -144,7 +144,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
-      <img src="https://miro.medium.com/max/9336/1*dofjb4KZgaPGtVsU8VLdVw.jpeg" style="margin: 0.1em;" alt="“slide a window” down text, checking whether each length-k substring of text matches pattern, and adding one to a count variable every time we encounter a match" title="Illustriation of sliding window to check substring with k=3" width=300>
+      <img src="https://miro.medium.com/max/5975/1*dPfjb4KZgaPGtVsU8VLdVw.jpeg" style="margin: 0.1em;" alt="“slide a window” down text, checking whether each length-k substring of text matches pattern, and adding one to a count variable every time we encounter a match" title="Illustriation of sliding window to check substring with k=3" width=300>
     </a>
   </div>
 
@@ -188,7 +188,7 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://medium.com/programming-for-lovers/chapter-1-finding-replication-origins-in-bacterial-genomes-31725266f179" ismap target="_blank">
-        <img src="https://miro.medium.com/max/4225/1*MlojMRrjuYxdNrTr3ofduA.jpeg" style="margin: 0.1em;" alt="The count array for text = ACGTTTCACGTTTTACGG and k = 3. For example, count[0] = 3 because the 3-mer starting at position 0 (ACG) appears three times in text (at positions 0, 7, and 14). Accordingly, count[7] and count[14] are both equal to 3 as well." title="Demo of one frequent words solution" width=350>
+        <img src="https://miro.medium.com/max/2704/1*MlojMRrjuYxdNrTr3PfduA.jpeg" style="margin: 0.1em;" alt="The count array for text = ACGTTTCACGTTTTACGG and k = 3. For example, count[0] = 3 because the 3-mer starting at position 0 (ACG) appears three times in text (at positions 0, 7, and 14). Accordingly, count[7] and count[14] are both equal to 3 as well." title="Demo of one frequent words solution" width=350>
       </a>
     </div>
 
