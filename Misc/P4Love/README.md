@@ -23,6 +23,23 @@
 + 1.7 [A Surprise, Some Gritty Details about Replication](01-Genomes.md#)
 + 1.8 [Replication Asymmetry Leads to the Replication Origin](01-Genomes.md#)
 
+## Chapter 2: Predicting a US Presidential Election with Monte Carlo Simulation
+
+
+## Homework 2: String Functions
+
++ HW.2.1 [Welcome](hw2-StringFunc.md#)
++ HW.2.2 [Substring Counting Problem](hw2-StringFunc.md#)
++ HW.2.3 [Maximum Map Value Problem](hw2-StringFunc.md#)
++ HW.2.4 [Frequency Map Problem](hw2-StringFunc.md#)
++ HW.2.5 [Frequent Words Problem](hw2-StringFunc.md#)
++ HW.2.6 [Reverse Complement Problem](hw2-StringFunc.md#)
++ HW.2.7 [Pattern Matching Problem](hw2-StringFunc.md#)
++ HW.2.8 [Clump Finding Problem](hw2-StringFunc.md#)
++ HW.2.9 [Skew Array Problem](hw2-StringFunc.md#)
++ HW.2.10 [Minimum Skew Problem](hw2-StringFunc.md#)
+
+
 
 ## A. A Short Introduction to Programming in Go
 
