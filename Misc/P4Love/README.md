@@ -23,7 +23,14 @@
 + 1.7 [A Surprise, Some Gritty Details about Replication](01-Genomes.md#)
 + 1.8 [Replication Asymmetry Leads to the Replication Origin](01-Genomes.md#)
 
+
 ## Chapter 2: Predicting a US Presidential Election with Monte Carlo Simulation
+
++ 2.1 [Polling data and Statistics](02-Simulation.md#)
++ 2.2 [Craps and the House Edge](02-Simulation.md#)
++ 2.3 [Pitfalls of (Pseudo) Random Number Generation](02-Simulation.md#)
++ 2.4 [Simulating Craps](02-Simulation.md#)
++ 2.5 [Simulating a U.S. Presidential Election](02-Simulation.md#)
 
 
 ## Homework 2: String Functions
