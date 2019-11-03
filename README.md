@@ -51,7 +51,10 @@ Contents
 ## Java
 
 
-## Exercism
+## Go Programming Language
+
++ [Programming for Lover](.Misc/P4Love/README.md)
+
 
 
 ## Reference Cards
