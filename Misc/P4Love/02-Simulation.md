@@ -6,10 +6,21 @@
 </video><br/>
 
 
-## 2.1 Polling data and Statistics
+## 2.1 An Introduction to Monte Carlo Simulation
 
 + 538 and NY Times Projections in 2016
-  + Note: Projections fluctuate but have same shape
+  + Election projection results from FiveThirtyEight(top) and The New York Times (bottom) from June 2016 to November 8, 2016, the day of the US presidential election.
+  + The blue line shows Clinton’s forecast percentage chance of winning, and the red line shows Trump’s forecast percentage chance of winning (the yellow line in the top plot corresponds to Libertarian Party candidate Gary Johnson, who was not included in the Times forecast).
+  + Note that the projections disagree about the likelihood of a Clinton victory at any given time, but they indicate the same trend of this likelihood rising and falling over time.
+  + Sources:
+    + [projects.fivethirtyeight.com/2016-election-forecast](https://projects.fivethirtyeight.com/2016-election-forecast/)
+    + [NY Times presidential polls forecast](https://www.nytimes.com/interactive/2016/upshot/presidential-polls-forecast.html?mtrref=www.google.com&gwh=98BBC964A93A5930F7E7DE8961D883F8&gwt=pay&assetType=REGIWALL)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://compeau.cbd.cmu.edu/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/" ismap target="_blank">
+      <img src="http://compeau.cbd.cmu.edu/wp-content/uploads/2019/11/percentages_combined-768x589.jpg" style="margin: 0.1em;" alt="Election projection results from FiveThirtyEight(top) and The New York Times (bottom) from June 2016 to November 8, 2016, the day of the US presidential election. The blue line shows Clinton’s forecast percentage chance of winning, and the red line shows Trump’s forecast percentage chance of winning (the yellow line in the top plot corresponds to Libertarian Party candidate Gary Johnson, who was not included in the Times forecast). Note that the projections disagree about the likelihood of a Clinton victory at any given time, but they indicate the same trend of this likelihood rising and falling over time. Sources: https://projects.fivethirtyeight.com/2016-election-forecast/, and https://www.nytimes.com/interactive/2016/upshot/presidential-polls-forecast.html?mtrref=www.google.com&gwh=98BBC964A93A5930F7E7DE8961D883F8&gwt=pay&assetType=REGIWALL" title="Election projection results from FiveThirtyEight(top) and The New York Times (bottom) from June 2016 to November 8, 2016, the day of the US presidential election" width=350>
+    </a>
+  </div>
 
 + Polling data inherently volatile
   + __Margin of Error:__ percentage value on either side of polling percentage within which we have confidence in the poll (here it's 4%)
@@ -23,10 +34,19 @@
   </div>
 
 + Idea: simulate election many times from state polling data
+  + A FiveThirtyEight figure showing the variability in the number of electoral votes won by Clinton and Trump across thousands of simulations.
+  + The height of each peak represents the percentage of simulations in which a given candidate won the corresponding number of electoral votes in a simulation.
+  + The charts are mirror images of each other because in a given election simulation, there are always a fixed number (538) of electoral votes to be divided between the two candidates.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://compeau.cbd.cmu.edu/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/" ismap target="_blank">
+      <img src="http://compeau.cbd.cmu.edu/wp-content/uploads/2019/11/538_simulations-768x576.jpg" style="margin: 0.1em;" alt="A FiveThirtyEight figure showing the variability in the number of electoral votes won by Clinton and Trump across thousands of simulations. The height of each peak represents the percentage of simulations in which a given candidate won the corresponding number of electoral votes in a simulation. The charts are mirror images of each other because in a given election simulation, there are always a fixed number (538) of electoral votes to be divided between the two candidates." title="The variability in the number of electoral votes won by Clinton and Trump across thousands of simulations" width=450>
+    </a>
+  </div>
 
 + Monte Carlo simulation everywhere
   + __Monte Carlo Simulation:__ repeatedly running random simulations to obtain an approximate result
-  + eg, stock price, weather forecast, sporting events, 
+  + eg, stock price, weather forecast, sporting events,
 
 
 ## 2.2 Craps and the House Edge
@@ -362,5 +382,7 @@
         <img src="https://images.squarespace-cdn.com/content/v1/53e4e1bbe4b08bfde27b5214/1444162403849-7OWK6SR12CJF8U4X779I/ke17ZwdGBToddI8pDm48kBAn57fvxhJmgXL6GZy1xhUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dsXMtqy5rx4mcmbzj6URbFz6p6kzYKQ5yPdvVFehL9j1CjLISwBs8eEdxAxTptZAUg/probability-distribution-standard-deviation?format=1500w" style="margin: 0.1em;" alt="A normal distribution graph always has the same general shape (that’s why they call it a bell curve). The standard deviation of a probability distribution graph tells us how likely a certain percentage price change is depending on the volatility of the stock or index. Values within one standard deviation of the mean value always represent 68.2% of the values, but how far the width of the graph expands to encompass the 68.2% of values changes with the volatility. If the volatility is higher, the graph’s standard deviation will be larger to encompass all 68.2% of values." title="Normal Distribution" width=550>
       </a>
     </div>
+
+
 
 
