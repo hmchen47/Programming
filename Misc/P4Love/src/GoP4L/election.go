@@ -60,7 +60,7 @@ func SimulateMultipleElections(polls map[string]float64, electoralVotes map[stri
 	}
 
 	probability1 := float64(winCount1) / float64(numTrials)
-	probability2 := float64(winCount1) / float64(numTrials)
+	probability2 := float64(winCount2) / float64(numTrials)
 	tieProbability := float64(tieCount) / float64(numTrials)
 
 	return probability1, probability2, tieProbability
