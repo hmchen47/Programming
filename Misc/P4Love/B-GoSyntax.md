@@ -424,4 +424,22 @@
 + [Demo for Primes](src/GoP4L/prime.go)
 
 
+## B.3 Monte Carlo Simulation
+
+### B.3.1 Craps simulation
+
++ Random number generators
+  + `math/rand`: package required to import
+  + three mainly used functions
+    1. `rand.Int()`: pseudorandom integer
+	  2. `rand.Float64()`: pseudorandom decimal in $[0, 1]$
+	  3. `rand.Intn()`: pseudorandom integer $[0, n-1] \in \mathbb{N}$
+  + `rand.Seed()`: providing seed for PRNG
+    + `rand.Seed(1)` called, if the seed not specified
+    + good practice: using `rand.Seed(time.Now().UnixNano())` to get internal clock tick as the seed
+
++ [Demo](src/GoP4L/craps.go)
+
+
+
 
