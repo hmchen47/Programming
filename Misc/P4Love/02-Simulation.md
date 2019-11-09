@@ -384,5 +384,10 @@
     </div>
 
 
+## 2.6 Implementing Our Work and Reflecting on the Nature of Election Forecasting
 
++ Demo file
+  + [Craps simulation](src/GoP4L/craps.go)
+  + [Election Simulation](src/GoP4L/election.go)
+  + [IP and parsing](src/GoP4L/io.go)
 
