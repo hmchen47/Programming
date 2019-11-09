@@ -441,5 +441,22 @@
 + [Demo](src/GoP4L/craps.go)
 
 
+## B.3.2 A U.S. Presidential Election Simulation
+
++ Reading & Parsing CSV files
+  + `ioutil`: package required for IO
+  + `strings`: package required to process strings
+  + `ioutil.ReadFile(string)`: open & read text file
+  + `strings.Split()`: separate data with provided deliminator, such as `"\n"`, `","`
+  + convert split items from string to designated data type, such as `strconv.ParseFloat()`, `uint()`
+
++ Adding noise for Margin of Error
+  + generating a value with normal distribution 
+  + obtaining 95 percentile range by dividing the value with 2 (2 standard deviation)
+  + applying margin of error to obtain the adjustment
+
++ Demo files
+  + [Monte Carlo Simulation](src/GoP4L/election.go)
+  + [IO and Parsing](src/GoP4L/io.go)
 
 
