@@ -20,9 +20,10 @@ func main() {
 
 	// read in polls
 	filename := "data/earlyPolls.txt"
+	// filename := "data/debates.txt"
 	polls := ReadPollingData(filename)
 
-	numTrials := 100
+	numTrials := 10000
 	marginOfError := 0.05
 
 	probability1, probability2, tieProbability := SimulateMultipleElections(polls, electoralVotes, numTrials, marginOfError)
