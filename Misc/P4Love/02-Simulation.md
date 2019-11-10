@@ -384,10 +384,131 @@
     </div>
 
 
-## 2.6 Implementing Our Work and Reflecting on the Nature of Election Forecasting
+## 2.6 Implementing Our Work
 
 + Demo file
   + [Craps simulation](src/GoP4L/craps.go)
   + [Election Simulation](src/GoP4L/election.go)
   + [IP and parsing](src/GoP4L/io.go)
 
+
+## 2.7 Reflecting on the Natural of (Election) Simulations
+
++ Evaluation on simulations
+  + is our simulation any good?
+  + Some results
+
+    |   | Candidate 1 (Clinton) | Candidate 2 (Trump) | Tie |
+    |---:|:--------------------:|:-------------------:|:---:|
+    | Early Polls | 98.7% | 1.2% | 0.1% |
+    | Convention Pools | 99.3% | 0.6% | 0.1% |
+    | Debate Pools | 99.6% | 0.4% | 0.0% |
+
+  + STOP: does this look like the results of major media election simulators?
+
++ What might real simulators do that we didn't?
+  + Top diagram: 538 simulation
+  + bottom diagram: NY Times
+  + not all pools are made alike: different media having different results
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://compeau.cbd.cmu.edu/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/" ismap target="_blank">
+      <img src="http://compeau.cbd.cmu.edu/wp-content/uploads/2019/11/percentages_combined-768x589.jpg" style="margin: 0.1em;" alt="Election projection results from FiveThirtyEight(top) and The New York Times (bottom) from June 2016 to November 8, 2016, the day of the US presidential election. The blue line shows Clinton’s forecast percentage chance of winning, and the red line shows Trump’s forecast percentage chance of winning (the yellow line in the top plot corresponds to Libertarian Party candidate Gary Johnson, who was not included in the Times forecast). Note that the projections disagree about the likelihood of a Clinton victory at any given time, but they indicate the same trend of this likelihood rising and falling over time. Sources: https://projects.fivethirtyeight.com/2016-election-forecast/, and https://www.nytimes.com/interactive/2016/upshot/presidential-polls-forecast.html?mtrref=www.google.com&gwh=98BBC964A93A5930F7E7DE8961D883F8&gwt=pay&assetType=REGIWALL" title="Election projection results from FiveThirtyEight(top) and The New York Times (bottom) from June 2016 to November 8, 2016, the day of the US presidential election" width=350>
+    </a>
+  </div>
+
++ Tails should be fatter<br/>
+  our distributions have fat tails
+  + National error, regional error and state-specific error are drawn from a probability distribution. Specifically, they're drawn from a t-distribution (with 10 degrees of freedom)
+  + the t-distribution has fatter tails than a normal (bell curve) distribution; i.e. it assigns shorter odds ot "extreme" outcomes.  For example if a normal distribution laid odds of 50-to-1 against an event, a t-distribution would have it more like 30-to-1 against.  Ans if a normal distribution assigned odds of 1,000-to-1 against, the t-distribution would have it more like 180-to-1 against.
+  + the t-distribution is theoretically appropriate given a small sample size.  The model is only based on 11 past elections (from 1972 to 2012).  We don't have enough data to really know how the trail behave: whether a candidate trailing by 15 points on Election Day has 1, 0.1 or 0.01 percent chance of wining, doe example.  The t-distribution makes more conservative assumptions about this.
+  + [Normal Distribution vs. t-distribution](https://www.geogebra.org/m/xp7A3A53) w/ GeoGebra
+    + In real-world measurements we often do not have enough data points to form a normal distribution.
+    + We have to make an extra calculation, a calculation of the confidence intervals using a student t-distribution the Mean and the Sample Standard Deviation.
+    + This is normally taken to be the case with fewer than 20-30 measurements.
+    + In general, Degree of Freedom (DoF) is the number of terms in a sum minus the number of constraints on the terms of the sum.
+    + In this simple case the DoF is $n$, where $n$ is the number of measurements you have made. When the mean of the measurements is defined then DoF becomes $(n-1)$.
+
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://andyjconnelly.wordpress.com/2017/05/16/uncertainty-and-repeats/" ismap target="_blank">
+      <img src="https://andyjconnelly.files.wordpress.com/2017/05/distributions1.png?w=1140&h=658" style="margin: 0.1em;" alt="In real-world measurements we often do not have enough data points to form a normal distribution. We have to make an extra calculation, a calculation of the confidence intervals using a student t-distribution the Mean and the Sample Standard Deviation. This is normally taken to be the case with fewer than 20-30 measurements." title="Normal distribution vs. t-distribution" width=300>
+    </a>
+  </div>
+
++ Correlation between state voting (Demographic and regional error)
+  + Some states’ outcomes are more correlated than others. For instance, if Trump beats his polls in Minnesota, he’ll probably also do so in Wisconsin. But that might not tell us much about Alabama.
+  + The model simulates this by randomly varying the vote among demographic groups and regions. In one simulation, for instance, it might have Trump beating his polls throughout the Northeast. Therefore, he wins Maine, New Hampshire and New Jersey. In another simulation, Clinton does especially well among Hispanics and wins both Arizona and Florida despite losing Ohio.
+  + The simulations are conducted from a file of more than 100,000 voters, built from the exit polls and CCES.
+  + The following characteristics are considered in the simulations: religion (Catholic, mainline Protestant, evangelical, Mormon, other, none); race (white, black, Hispanic, Asian, other); region (Northeast, South, Midwest, West); party (Democrat, Republican, independent); and education (college graduate or not).
+  + To get a better sense of how this works, here’s a correlation matrix drawn from recent simulations. You can see the high correlation between Wisconsin and Minnesota, for example.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://fivethirtyeight.com/features/a-users-guide-to-fivethirtyeights-2016-general-election-forecast/" ismap target="_blank">
+      <img src="https://fivethirtyeight.com/wp-content/uploads/2016/06/silver-forecast-methology-31.png?w=575" style="margin: 0.1em;" alt="text" title="Demographic and regional error" width=350>
+    </a>
+  </div>
+
++ LA Times Daybreak poll
+
+  > "Our operations allow voters to express a greater level of uncertainty than traditional poll questions which force respondents to choose a single candidate or say they don't know.  For example, in the Daybreak poll, a respondent might say that they are 60 percent for for Clinton and 40 percent for Trump."
+
+  + STOP: does this make the Daybreak poll a good poll?
+    + Ans: not really though the final result closer to the actual situation.  It's problematic in statistics.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="http://scalar.usc.edu/works/media-and-the-election/the-usc-dornsifela-times-charts.1" ismap target="_blank">
+      <img src="http://scalar.usc.edu/works/media-and-the-election/media/Screen%20Shot%202016-11-20%20at%207.09.26%20PM.jpg" style="margin: 0.1em;" alt="Poll was conducted by USC Dornsife and the LA Times. They called these polls 'Daybreak' in which they track 3,000 eligible voters until election day, asking on a regular basis about their support for Hillary Clinton, Donald Trump or other candidates as well as their likelihood of actually casting a ballot. The poll presented here is a response from the question, Who would you vote for? The overall level of support for each candidate reflects the weighted averages of those responses." title="By the 3rd Presidential Debate, Trump had a higher possibility of being president than Clinton." width=450>
+    </a>
+  </div>
+
++ Notice the volatility in polls
+  + STOP: if a weather forecaster told you there was a 70% chance of rain three months from now, would you believe them? what would be a better probability?
+    + Ans: 
+      + over expressing the certainty w/ 70%, it's very untrustworthy.
+      + polling in July only reflects the situation at that moment
+      + situation changing during the period from now on to the actual election day
+      + it's difficult to infer that they reflect much about an election a few months down the time
+
++ Which stock would you rather bet on increasing 30% in 6 months?
+  + Naive answer: this stock has gone up steadily in the past few years.
+  + Scientist's answer: this stock is not very __volatile__.
+
++ Prediction markets gone wrong
+  + __prediction market:__ investors can speculate on what they think might happen
+  + LA Times prediction market for 2016 election
+  + the market: a prediction market for stock
+  + __derivative:__ an investment (i.e., an "option") whose price is tied to the value of an asset (e.g., stock)
+  + opinion on stocks "price in" volatility
+  + election market: "option pricing" models for election predictions
+  + STOP: why might a gambling market not offer an accurate forecast?
+    + people who gamble in a population are not necessarily the accurate subset of the people who are going to or an accurate proxy for the people who are going to actually vote in the election $\to$ might cause bias
+    + what if a candidate had more total wagers placed upon them but the other candidate had more total money placed upon them which is exactly what happen in 2016
+
++ [Derivative](https://www.investopedia.com/ask/answers/12/derivative.asp)
+  + a contract between two or more parties whose value is based on an agreed-upon underlying financial asset (like a security) or set of assets (like an index)
+  + Common underlying instruments include bonds, commodities, currencies, interest rates, market indexes, and stocks.
+  + secondary securities whose value is solely based (derived) on the value of the primary security that they are linked to
+  + commonly used derivatives: [futures contracts](https://www.investopedia.com/terms/f/futurescontract.asp), forward contracts, [options](https://www.investopedia.com/terms/o/optionscontract.asp), [swaps](https://www.investopedia.com/terms/s/swap.asp), and [warrants](https://www.investopedia.com/terms/w/warrant.asp)
+  + two classes of derivative products
+    + Lock products (e.g. swaps, futures, or forwards) bind the respective parties from the outset to the agreed-upon terms over the life of the contract.
+    + Option products (e.g. interest rate swaps), on the other hand, offer the buyer the right, but not the obligation, to become a party to the contract under the initially agreed upon terms.
+
++ [Option pricing theory](https://www.investopedia.com/terms/o/optionpricingtheory.asp)
+  + using variables (stock price, exercise price, volatility, interest rate, time to expiration) to theoretically value an option
+  + providing an estimation of an option's fair value which traders incorporate into their strategies to maximize profits
+  + commonly used models: [Black-Scholes](https://www.investopedia.com/terms/b/blackscholes.asp), [binomial option pricing](https://www.investopedia.com/terms/b/binomialoptionpricing.asp), and [Monte-Carlo simulation](https://www.investopedia.com/terms/m/montecarlosimulation.asp)
+  + primary goal: calculate the probability that an option will be exercised, or be in-the-money (ITM), at expiration
+  + variables: asset price (stock price), exercise price, volatility, interest rate, and time to expiration
+    + exercise price:
+      + the price at which an underlying security can be purchased or sold when trading a call or put option, respectively
+      + the same as the strike price of an option, which is known when an investor takes a trade
+      + strike price: the set price at which a derivative contract can be bought or sold when it is exercised
+    + volatility: 
+      + a statistical measure of the dispersion of returns for a given security or market index
+      + the amount of uncertainty or risk related to the size of changes in a security's value
+      + often measured as either the standard deviation or variance between returns from that same security or market index
+
++ Moral: 
+  + programming w/ Monte Carlo simulation is awesome!
+  + must continually question/pick apart/make connections with out models
