@@ -451,7 +451,7 @@
   + convert split items from string to designated data type, such as `strconv.ParseFloat()`, `uint()`
 
 + Adding noise for Margin of Error
-  + generating a value with normal distribution 
+  + generating a value with normal distribution
   + obtaining 95 percentile range by dividing the value with 2 (2 standard deviation)
   + applying margin of error to obtain the adjustment
 
