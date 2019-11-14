@@ -400,9 +400,14 @@
 
 ## 2.7 Reflecting on the Natural of (Election) Simulations
 
+### 2.7.1 Improving our election forecast algorithm
+
 + Evaluation on simulations
   + is our simulation any good?
-  + Some results
+  + A simulation of election polling data
+    + a margin of error set to 10%
+    + three different polling data sets taken from the 2016 election
+    + forecast consistently more confident in a Clinton victory than either of the media outlets from the introduction
 
     |   | Candidate 1 (Clinton) | Candidate 2 (Trump) | Tie |
     |---:|:--------------------:|:-------------------:|:---:|
@@ -411,6 +416,15 @@
     | Debate Pools | 99.6% | 0.4% | 0.0% |
 
   + STOP: does this look like the results of major media election simulators?
+  + three examples of how to make our forecast more robust
+    + an estimated bias in the poll toward one party or another, and a grade of the poll
+    + Polls with higher grades have a greater influence over the forecast
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation-53e79ad8c430" ismap target="_blank">
+      <img src="https://miro.medium.com/max/4639/1*CkvBVDmWc2bz5j7WD7FVpQ.jpeg" style="margin: 0.1em;" alt="Several polls used by FiveThirtyEight, along with polling statistics, an estimated bias in the poll toward one party or another, and a grade of the poll. Polls with higher grades have a greater influence over the forecast." title="Several polls used by FiveThirtyEight" width=450>
+    </a>
+  </div>
 
 + What might real simulators do that we didn't?
   + Top diagram: 538 simulation
@@ -435,7 +449,6 @@
     + In general, Degree of Freedom (DoF) is the number of terms in a sum minus the number of constraints on the terms of the sum.
     + In this simple case the DoF is $n$, where $n$ is the number of measurements you have made. When the mean of the measurements is defined then DoF becomes $(n-1)$.
 
-
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://andyjconnelly.wordpress.com/2017/05/16/uncertainty-and-repeats/" ismap target="_blank">
       <img src="https://andyjconnelly.files.wordpress.com/2017/05/distributions1.png?w=1140&h=658" style="margin: 0.1em;" alt="In real-world measurements we often do not have enough data points to form a normal distribution. We have to make an extra calculation, a calculation of the confidence intervals using a student t-distribution the Mean and the Sample Standard Deviation. This is normally taken to be the case with fewer than 20-30 measurements." title="Normal distribution vs. t-distribution" width=300>
@@ -455,16 +468,20 @@
     </a>
   </div>
 
+
+### 2.7.2 Is forecasting an election hopeless?
+
 + LA Times Daybreak poll
 
   > "Our operations allow voters to express a greater level of uncertainty than traditional poll questions which force respondents to choose a single candidate or say they don't know.  For example, in the Daybreak poll, a respondent might say that they are 60 percent for for Clinton and 40 percent for Trump."
 
   + STOP: does this make the Daybreak poll a good poll?
     + Ans: not really though the final result closer to the actual situation.  It's problematic in statistics.
+  + The Los Angeles Times Daybreak Poll, in which polling responses were weighted based on enthusiasm, was often panned in 2016 because it consistently showed Trump as leading. (see diagram)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="http://scalar.usc.edu/works/media-and-the-election/the-usc-dornsifela-times-charts.1" ismap target="_blank">
-      <img src="http://scalar.usc.edu/works/media-and-the-election/media/Screen%20Shot%202016-11-20%20at%207.09.26%20PM.jpg" style="margin: 0.1em;" alt="Poll was conducted by USC Dornsife and the LA Times. They called these polls 'Daybreak' in which they track 3,000 eligible voters until election day, asking on a regular basis about their support for Hillary Clinton, Donald Trump or other candidates as well as their likelihood of actually casting a ballot. The poll presented here is a response from the question, Who would you vote for? The overall level of support for each candidate reflects the weighted averages of those responses." title="By the 3rd Presidential Debate, Trump had a higher possibility of being president than Clinton." width=450>
+      <img src="https://miro.medium.com/max/854/1*5eP4wpGVPaA7fKoZb7qBJA.jpeg" style="margin: 0.1em;" alt="The Los Angeles Times Daybreak Poll, in which polling responses were weighted based on enthusiasm, was often panned in 2016 because it consistently showed Trump as leading." title="The Los Angeles Times Daybreak Poll" width=550>
     </a>
   </div>
 
@@ -490,6 +507,22 @@
   + STOP: why might a gambling market not offer an accurate forecast?
     + people who gamble in a population are not necessarily the accurate subset of the people who are going to or an accurate proxy for the people who are going to actually vote in the election $\to$ might cause bias
     + what if a candidate had more total wagers placed upon them but the other candidate had more total money placed upon them which is exactly what happen in 2016
+  + the prices of two stocks (called “stock A” and “stock B”) over a five-year period from January 2012 to January 2017 (top figures)
+  + Stock A (Colgate-Palmolive) was trading for around $73 per share, a meager gain over its price in January 2017 (see bottom right diagram)
+  + Stock B (First Solar) had rocketed up to around the $45 range (see bottom left digram)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation-53e79ad8c430" ismap target="_blank">
+      <img src="https://miro.medium.com/max/801/1*AVQSHQnktlzKSMX5UrTv1g.jpeg" style="margin: 0.1em;" alt="The price of mystery stock A in dollars per share from January 2012 to January 2017." title="The price of mystery stock A in dollars per share from January 2012 to January 2017" width=350>
+      <img src="https://miro.medium.com/max/798/1*yhza_20adyGbb6LByxAMiA.jpeg" style="margin: 0.1em;" alt="The price of mystery stock B in dollars per share from January 2012 to January 2017." title="The price of mystery stock A in dollars per share from January 2012 to January 2017" width=350>
+    </a>
+  </div>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation-53e79ad8c430" ismap target="_blank">
+      <img src="https://miro.medium.com/max/768/1*0V3Sd5acblI2uJNlHGrumg.jpeg" style="margin: 0.1em;" alt="Stock A (Colgate Palmolive) rose a few percentage points in 2017 and then continued its low-volatility trend. Note: the stock price does look like it is bouncing around, but note how small the change in price is on the y-axis; the stock essentially stayed between $60 and $75 for a five-year period." title="Stock A (Colgate Palmolive) rose a few percentage points in 2017 and then continued its low-volatility trend" width=350>
+      <img src="https://miro.medium.com/max/774/1*koFAL6_zPQqlg51MiGd6Sw.png" style="margin: 0.1em;" alt="Stock B (First Solar) skyrocketed upward in 2017, and then continued climbing until spring 2018, when it lost half its value in just a few months, and then jumped back up by 50% in 2019." title="Stock B (First Solar) skyrocketed upward in 2017, and then continued climbing until spring 2018" width=350>
+    </a>
+  </div>
 
 + [Derivative](https://www.investopedia.com/ask/answers/12/derivative.asp)
   + a contract between two or more parties whose value is based on an agreed-upon underlying financial asset (like a security) or set of assets (like an index)
@@ -515,6 +548,8 @@
       + the amount of uncertainty or risk related to the size of changes in a security's value
       + often measured as either the standard deviation or variance between returns from that same security or market index
 
-+ Moral: 
++ Moral:
   + programming w/ Monte Carlo simulation is awesome!
   + must continually question/pick apart/make connections with out models
+
+
