@@ -39,14 +39,25 @@
   + The charts are mirror images of each other because in a given election simulation, there are always a fixed number (538) of electoral votes to be divided between the two candidates.
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="http://compeau.cbd.cmu.edu/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation/" ismap target="_blank">
-      <img src="http://compeau.cbd.cmu.edu/wp-content/uploads/2019/11/538_simulations-768x576.jpg" style="margin: 0.1em;" alt="A FiveThirtyEight figure showing the variability in the number of electoral votes won by Clinton and Trump across thousands of simulations. The height of each peak represents the percentage of simulations in which a given candidate won the corresponding number of electoral votes in a simulation. The charts are mirror images of each other because in a given election simulation, there are always a fixed number (538) of electoral votes to be divided between the two candidates." title="The variability in the number of electoral votes won by Clinton and Trump across thousands of simulations" width=450>
+    <a href="https://medium.com/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation-53e79ad8c430" ismap target="_blank">
+      <img src="https://miro.medium.com/max/3666/1*fqD3d3yALRHILaVoovdVaw.jpeg" style="margin: 0.1em;" alt="A FiveThirtyEight figure showing the variability in the number of electoral votes won by Clinton and Trump across thousands of simulations. The height of each peak represents the percentage of simulations in which a given candidate won the corresponding number of electoral votes in a simulation. The charts are mirror images of each other because in a given election simulation, there are always a fixed number (538) of electoral votes to be divided between the two candidates." title="The variability in the number of electoral votes won by Clinton and Trump across thousands of simulations" width=450>
     </a>
   </div>
 
 + Monte Carlo simulation everywhere
   + __Monte Carlo Simulation:__ repeatedly running random simulations to obtain an approximate result
-  + eg, stock price, weather forecast, sporting events,
+  + eg, stock price, weather forecast, sporting events
+  + Pennsylvania’s 7th Congressional District over six decades (left diagram)
+  + The 2016 (left) and 2018 (right) Congressional district maps of Pennsylvania. (right diagram)
+    + The 2018 district map was drawn by the Supreme Court of Pennsylvania, which ruled that the 2016 map had been unfairly drawn to benefit Republicans.
+    + Pivotal testimony was given by a Carnegie Mellon mathematics professor, who ran trillions of random simulations to show that the map on the left was more unfair than practically every map that had been randomly generated.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://medium.com/programming-for-lovers/chapter-2-forecasting-a-presidential-election-with-monte-carlo-simulation-53e79ad8c430" ismap target="_blank">
+      <img src="https://miro.medium.com/max/2444/1*WNS0r-BURhiqzlAzeUJgAg.jpeg" style="margin: 0.1em;" alt="Pennsylvania’s 7th Congressional District over six decades, as it changed from a relatively convex shape to a barely contiguous region that has been likened to Goofy kicking Donald Duck." title="Pennsylvania’s 7th Congressional District over six decades" height=150>
+      <img src="https://miro.medium.com/max/4721/1*druH9zifZzYRI4cLqITZGQ.jpeg" style="margin: 0.1em;" alt="The 2016 (left) and 2018 (right) Congressional district maps of Pennsylvania. The 2018 district map was drawn by the Supreme Court of Pennsylvania, which ruled that the 2016 map had been unfairly drawn to benefit Republicans. Pivotal testimony was given by a Carnegie Mellon mathematics professor, who ran trillions of random simulations to show that the map on the left was more unfair than practically every map that had been randomly generated." title="The 2016 (left) and 2018 (right) Congressional district maps of Pennsylvania." height=150>
+    </a>
+  </div>
 
 
 ## 2.2 Craps and the House Edge
@@ -314,27 +325,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>"California"</td> <td>55</td> <td>"California"</td> <td>62.2%</td>
-      </tr>
-      <tr>
-        <td>"Texas"</td> <td>38</td> <td>"Texas"</td> <td>45.6%</td>
-      </tr>
-      <tr>
-        <td>"Florida"</td> <td>29</td> <td>"Florida"</td> <td>49.1%</td>
-      </tr>
-      <tr>
-        <td>"New York"</td> <td>29</td> <td>"New York"</td> <td>57.9%</td>
-      </tr>
-      <tr>
-        <td>"Illinois"</td> <td>20</td> <td>"Illinois"</td> <td>64.0%</td>
-      </tr>
-      <tr>
-        <td>"Pennsylvania"</td> <td>20</td> <td>"Pennsylvania"</td> <td>53.3%</td>
-      </tr>
-      <tr>
-        <td>"Ohio"</td> <td>18</td> <td>"Ohio"</td> <td>49.9%</td>
-      </tr>
+      <tr> <td>"California"</td> <td>55</td> <td>"California"</td> <td>62.2%</td> </tr>
+      <tr> <td>"Texas"</td> <td>38</td> <td>"Texas"</td> <td>45.6%</td> </tr>
+      <tr> <td>"Florida"</td> <td>29</td> <td>"Florida"</td> <td>49.1%</td> </tr>
+      <tr> <td>"New York"</td> <td>29</td> <td>"New York"</td> <td>57.9%</td> </tr>
+      <tr> <td>"Illinois"</td> <td>20</td> <td>"Illinois"</td> <td>64.0%</td> </tr>
+      <tr> <td>"Pennsylvania"</td> <td>20</td> <td>"Pennsylvania"</td> <td>53.3%</td> </tr>
+      <tr> <td>"Ohio"</td> <td>18</td> <td>"Ohio"</td> <td>49.9%</td> </tr>
       </tbody>
     </table>
 
@@ -364,9 +361,9 @@
     ```js
     AddNoise(pool, marginOfError)
       x = random decimal number in [0, 1]
-      x = 2*x // in [0, 2]
-      x = x - 1 // in [-1, 1]
-      x = x* marginOfError
+      x = 2 * x               // in [0, 2]
+      x = x - 1               // in [-1, 1]
+      x = x * marginOfError   // now it's in range
       return x + poll
     ```
 
