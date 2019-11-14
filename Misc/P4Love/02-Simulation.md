@@ -131,6 +131,8 @@
 
 ## 2.3 Pitfalls of (Pseudo) Random Number Generation
 
+### 2.3.1 Von Neumann’s Middle-Square Pseudorandom Number Generator
+
 + Simple problem: generating digits
   + STOP: quickly think up a few random digits between 0 an d9 in you head
   + isn't it weird that you can do this without really thinking about it?
@@ -160,6 +162,9 @@
   + Exercise: start with the four-digit seed of 1600.  what are the first few numbers generated?
     + Ans: No <br/>$1600 \to 02560000 \;(5600) \to 12960000 \;(9600) \to 92160000 \;(1600) \to\cdots$ <br/> $3792 \to 14379264 \;(3792) \to 14379264 \;(3792) \to \cdots$
   + Anyone who considers arithmetical random digits is, of course, in a state of sin. For, as has beed pointed out several times, there is no such thing as a rnadom number. -- John von Neumann
+
+
+### 2.3.2 Lagged Fibonacci Generators
 
 + Lagged Fibonacci generators
   + __Fibonacci Number generator:__ for some fixed parameters $m$, take as the $n$-th number $F_n$
