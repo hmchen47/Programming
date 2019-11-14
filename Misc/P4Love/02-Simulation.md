@@ -197,6 +197,8 @@
 
 ## 2.4 Simulating Craps
 
+### 2.4.1 Rolling a single die
+
 + Three common built-in functions<br/>
   most languages have PRNG package that includes following functions
   + `Int()`: return "random integer
@@ -239,13 +241,15 @@
       roll = Int()
       return Remainder(roll, 6) + 1
     ```
+  
+  + STOP: stay that we have a weighted die that produces each of 1, 3, 4, and 5 with probability 1/10, and that produces each of 2 and 6 with probability 3/10.  Write pseudocode for a `RollWeightedDie` function that models this weighted die.
 
-+ Exercise: write a function `SunTwoDice()` that takes no parameters and returns the sum of two rolled fair dice
++ Exercise: write a function `SumTwoDice()` that takes no parameters and returns the sum of two rolled fair dice
 
   ```js
   SumTwoDice()
     roll = Float()
-    if roll < 1/36 
+    if roll < 1/36
       return 1
     else if roll < 3/36
       return 2
@@ -286,7 +290,7 @@
   ```
 
 
-## 2.5 Simulating a U.S. Presidential Election
+## 2.5 Simulating a Presidential Election
 
 + Returning to election simulator
 
