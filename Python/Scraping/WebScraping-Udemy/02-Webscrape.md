@@ -2,8 +2,18 @@
 
 ## 02. Introduction
 
-
-
++ Collecting structured data from a website
+  + download CSV file from a website
+    + attachment/downloads not available
+  + API
+    + access charged and costly
+    + not providing relevant data in preferred structure
+    + taking time to request data
+  + copy and past to CSV/Excel file
+    + complex and time consuming when ehere are multiple tables
+    + time consuming /impossible for multiple web pages
+    + time consuming/impossible for multiple websites
+    + scraping images
 
 
 ## 03. Webscraping definition
