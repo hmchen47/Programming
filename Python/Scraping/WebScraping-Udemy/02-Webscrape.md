@@ -18,8 +18,16 @@
 
 ## 03. Webscraping definition
 
-
-
++ Webscraping
+  + automated process to retrieve structured data from a website
+  + the data
+    + gathered/copied from the web
+    + saved to a database or a spreadsheet
+    + to be used in further modeling or analysis
+  + process of webscraping
+    + fetching/downloading the web page
+    + extracting data from web page
+    + saving data to a database or spreadsheet
 
 
 ## 04. Why Webscraping for Data Science
