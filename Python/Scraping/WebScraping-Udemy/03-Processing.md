@@ -25,9 +25,14 @@
 
 ## 07. Requests library
 
-
-
-
++ requests
+  + Requests: a python library
+  + download the source code
+    + page text or contents
+    + from the target web page
+  + first determining the URL of the web page to be scraped
+  + using a request method call `get`
+  + the `get` method performing a `GET` request
 
 
 ## 08. requests.get() method
