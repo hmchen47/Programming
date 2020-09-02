@@ -68,6 +68,23 @@
 
 ## 10. HTML tags
 
++ `<p>`: paragraph
++ `<table>`: table
++ `<tr>`: table rows
++ `<th>`: table headers
++ `<td>`: table columns
++ `<tbody>`: table body
++ `<col>`: column properties
++ `<div>`: division/section within a document
++ `<!DOCTYPE>`: HTML document
++ `<html>`: HTML document
++ `<head>`: metadata for the document
++ `<title>` title for the document
++ `<a>`: hyperlink
++ `<img>`: image
++ `<h1>`: HTML heading
++ `<br>`: line break
+
 
 
 
