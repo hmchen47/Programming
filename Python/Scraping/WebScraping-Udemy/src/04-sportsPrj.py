@@ -67,8 +67,8 @@ def main(debug=False):
         rows = league_teams.find_all('tr')
         for row in rows:
             team_name = row.find('td', class_='standing-table__cell standing-table__cell--name').text.strip()
-            team_pts = 0
-            teams_info.append([team_name, team_pts])
+            team_pts = row.find_all('td', class_='standing-table__cell')[9].text.strip()
+            teams_info.append([team_name, int(team_pts)])
     
     print("Display all team names and their points in 2011-2012:")
     for team_info in teams_info:
