@@ -47,12 +47,43 @@ def main(debug=False):
             
             season_no = row.find_all('td')[0].get_text()
             director = row.find_all('td')[2].get_text()
-            episode_info = {'season No.': season_no, 'Director': director}
+            episode_info = {'Season No.': season_no, 'Director': director}
             episodes_lst.append(episode_info)
 
     episodes_df = pd.DataFrame(episodes_lst)
 
-    print(episodes_df.head(15))
+    # print("\nEpisodes info: ")
+    # episodes_df.info()
+    # print("\nEpisodes dataset: \n{}".format(episodes_df.head(15)))
+
+    # aggregate all episodes tables into a dataframe
+    episodes = []
+    headers = []
+
+    for header in episodes_tbls[0].find('tr').find_all('th'):
+        headers.append(header.text)
+
+    if debug:
+        print("\nTable headers: \n{}".format(headers))
+
+    for tbl in episodes_tbls[:-1]:
+        for row in tbl.find_all('tr')[1:]:
+            values = []
+            for col in row.find_all(['th', 'td']):
+                values.append(col.text)
+            episode_dict = {headers[i]: values[i] for i in range(len(values))}
+            episodes.append(episode_dict)
+            print(episode_dict)
+
+    if debug:
+        print("\nnumber of episodes:\n{}".format(len(episodes)))
+
+    episodes_df = pd.DataFrame(episodes)
+
+    print("\nAggregated episodes dataframe info: ")
+    episodes_df.info()
+    print("\nAggregated episodes dataframe: \n{}".format(episodes_df.head()))
+    print("\nAggregated episodes dataframe: \n{}".format(episodes_df.tail()))
 
     return None
 
