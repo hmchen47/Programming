@@ -32,24 +32,31 @@ def main(debug=False):
 
     print("\nmain web page status code: {}".format(page.status_code))
 
-    print("\nhtml source file in text; \n{}".format(page.text))
+    # print("\nhtml source file in text; \n{}".format(page.text))
 
     input("\nPress enter to continue ...\n")
 
     soup = BeautifulSoup(page.text, 'html.parser')
 
-    print("\n\n\n---------------------------------------------\n")
-    print("soup after render by BeautifulSoup w/ html.parser: \n{}".format(soup.prettify))
+    # print("\n\n\n---------------------------------------------\n")
+    # print("soup after render by BeautifulSoup w/ html.parser: \n{}".format(soup.prettify))
 
 
-    input("\nPress enter to continue ...\n")
+    # input("\nPress enter to continue ...\n")
 
+    # get all a tag elements and contents
     href_lst = soup.find_all('a')
 
-    print("\nDisplay all hyperlinks:")
-    for href in href_lst:
-        print("\n{}".format(href))
+    # print("\nDisplay all hyperlinks:")
+    # for href in href_lst:
+    #     print("\n{}".format(href))
 
+    # input("\nPress enter to continue ...\n")
+
+    # get the contents of a table w/ class
+    league = soup.find('table', class_ = 'standing-table__table')
+
+    print("\nDisplay all info w/ the table: \n{}".format(league))
 
     return None
 
