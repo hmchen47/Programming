@@ -37,6 +37,6 @@ Author: Shepherd Mahupa
 
 ## Section 5: Project: Movie Dataset
 
-+ 17. [Movie Dataset project 1](./src/05-moviePrj.md)
-+ 18. [Movie Dataset project 2](./src/05-moviePrj.md)
++ 17. [Movie Dataset project 1](./src/05-moviePrj.py)
++ 18. [Movie Dataset project 2](./src/05-moviePrj.py)
 
