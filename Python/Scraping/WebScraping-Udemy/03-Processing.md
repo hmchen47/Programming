@@ -96,7 +96,18 @@
 
 ## 12. Introduction to Beautiful Soup
 
++ Beautiful soup transforms html texts/contents into a tree format for easy radability
 
++ Beautiful soup rendered format: easy to search for what users want inside html/CSS contents
 
++ able to search for elements represented in a readable structure by BeautifulSoup, including
+  + classes
+  + headers
+  + tables
+  + paragraphs, etc.
+
++ Beautiful soup
+  + isolating the titles, tags, and links from the HTML document
+  + extracting the content required
 
 
