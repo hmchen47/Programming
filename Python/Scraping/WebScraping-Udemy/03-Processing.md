@@ -3,16 +3,17 @@
 
 ## 05. The Webscraping process
 
-+ Webscraping process
-  1. obtain web URL and download the web page
-    + use the python requests library
-    + obtain the source code
-  2. parse the downloaded data into a parser to get data in a readable & structured format
-    + HTML parser
-    + BeautifulSoup library to extract the data that we need
-  3. save data
-    + build a Pandas dataframe
-    + store as CSV, JSON, or SQL database
+1. obtain web URL and download the web page
+  + use the python requests library
+  + obtain the source code
+
+2. parse the downloaded data into a parser to get data in a readable & structured format
+  + HTML parser
+  + BeautifulSoup library to extract the data that we need
+
+3. save data
+  + build a Pandas dataframe
+  + store as CSV, JSON, or SQL database
 
 
 
@@ -25,21 +26,30 @@
 
 ## 07. Requests library
 
-+ requests
-  + Requests: a python library
-  + download the source code
-    + page text or contents
-    + from the target web page
-  + first determining the URL of the web page to be scraped
-  + using a request method call `get`
-  + the `get` method performing a `GET` request
++ Requests: a python library
++ download the source code
+  + page text or contents
+  + from the target web page
++ first determining the URL of the web page to be scraped
++ using a request method call `get`
++ the `get` method performing a `GET` request
 
 
 ## 08. requests.get() method
 
++ using a web browser (chrome or explorer)
 
++ visit a we page
 
++ web browser makes a `GET` request to tge web server
 
++ web server: the web page data/files stored
+
++ returns the files after a `GET` request
+
++ browser renders the web page files for humans to be able to read
+
++ files in different forms: HTML, CSS, & Javascript
 
 
 ## 09. Introduction to HTML
