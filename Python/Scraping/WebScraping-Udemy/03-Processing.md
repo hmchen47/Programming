@@ -18,9 +18,9 @@
 
 ## 06. What to know first
 
+1. Request library
 
-
-
+2. HTML
 
 
 ## 07. Requests library
