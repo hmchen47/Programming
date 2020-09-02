@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import requests
+import pandas as pd
 from bs4 import BeautifulSoup
 
 """
@@ -60,7 +61,7 @@ def main(debug=False):
 
     # input("\nPress enter to continue ...\n")
 
-    # extract team name from the table
+    # extract team name and points from the table
     league_tbl = league.find_all('tbody')
     teams_info = []
     for league_teams in league_tbl:
@@ -68,12 +69,18 @@ def main(debug=False):
         for row in rows:
             team_name = row.find('td', class_='standing-table__cell standing-table__cell--name').text.strip()
             team_pts = row.find_all('td', class_='standing-table__cell')[9].text.strip()
-            teams_info.append([team_name, int(team_pts)])
+            teams_info.append({'name': team_name, 'points': int(team_pts)})
     
     print("Display all team names and their points in 2011-2012:")
     for team_info in teams_info:
-        print("  {:26s} w/ {:3d} points".format(team_info[0], team_info[1]))
+        print("  {:26s} w/ {:3d} points".format(team_info['name'], team_info['points']))
 
+    input("\nPress enter to continue ...\n")
+
+    # write the info into a dataframe
+    league2011_df = pd.DataFrame(teams_info)
+
+    print(league2011_df.head())
 
     return None
 
@@ -85,5 +92,5 @@ if __name__ == "__main__":
     main(debug=True)
     # main()
 
-    print("\nEnd of Example: Sports - Primier League 2011")
+    print("\nEnd of Example: Sports - Primier League 2011\n")
 
