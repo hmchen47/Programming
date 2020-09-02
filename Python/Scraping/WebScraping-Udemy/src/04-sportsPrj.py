@@ -56,7 +56,24 @@ def main(debug=False):
     # get the contents of a table w/ class
     league = soup.find('table', class_ = 'standing-table__table')
 
-    print("\nDisplay all info w/ the table: \n{}".format(league))
+    # print("\nDisplay all info w/ the table: \n{}".format(league_tbl))
+
+    # input("\nPress enter to continue ...\n")
+
+    # extract team name from the table
+    league_tbl = league.find_all('tbody')
+    teams_info = []
+    for league_teams in league_tbl:
+        rows = league_teams.find_all('tr')
+        for row in rows:
+            team_name = row.find('td', class_='standing-table__cell standing-table__cell--name').text.strip()
+            team_pts = 0
+            teams_info.append([team_name, team_pts])
+    
+    print("Display all team names and their points in 2011-2012:")
+    for team_info in teams_info:
+        print("  {:26s} w/ {:3d} points".format(team_info[0], team_info[1]))
+
 
     return None
 
