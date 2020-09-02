@@ -49,14 +49,21 @@
 
 + browser renders the web page files for humans to be able to read
 
-+ files in different forms: HTML, CSS, & Javascript
++ files in different forms: HTML, CSS, & JavaScript
 
 
 ## 09. Introduction to HTML
 
++ HTML: a markup language rather than a programming language
 
++ the standard markup language for structuring and formatting web page
 
++ like MS Word format by using MS Word to structure the content on the page and format it, e.g., font size, color, etc.
 
++ using HTML formatting & structuring made possible by using tags
+  + tags: angled brackets `< >`
+
++ HTML not a programming language
 
 
 ## 10. HTML tags
