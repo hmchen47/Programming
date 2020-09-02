@@ -87,14 +87,11 @@
 
 
 
-
-
-
 ## 11. Inspection
 
++ Demo: list of "Game of Thrones" episodes
 
-
-
++ using right click + `inspect` to view HTML source file
 
 
 ## 12. Introduction to Beautiful Soup
