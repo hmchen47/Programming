@@ -32,6 +32,25 @@
 
 ## 04. Why Webscraping for Data Science
 
-
++ Why webscraping for data science?
+  + real estate website
+    + data for analysis
+    + building machine learning models
+    + e.g., location, price, year built, etc.
+  + price comparison engines
+    + get price of an item from different websites
+    + presenting in a structured manner for comparisons
+  + news aggregation
+    + aggregating top news articles from multiple websites to one site
+  + sentiment analysis
+    + collect tweets/hashtags
+    + analyzing people's sentiments on particular issues
+    + e.g., politics or products
+  + competitive intelligence
+    + gathering competitor data to inform strategy
+    + e.g., pricing and product offering
+  + hotel industry
+    + scraping hotel prices, images
+    + business owners researching on new hotels
 
 
