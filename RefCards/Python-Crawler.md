@@ -185,3 +185,60 @@
 
 ## BeautifulSoup library
 
+### [Making the soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#making-the-soup)
+
+To parse a document, pass it into the BeautifulSoup constructor. You can pass in a string or an open filehandle:
+
+```python
+from bs4 import BeautifulSoup
+
+with open("index.html") as fp:
+    soup = BeautifulSoup(fp)
+
+soup = BeautifulSoup("<html>a web page</html>")
+```
+
+
+### Kinds of Objects
+
+Beautiful Soup transforms a complex HTML document into a complex tree of Python objects.  
+
+kinds of objects: Tag, NavigableString, BeautifulSoup, and Comment.
+
+<table style="font-family: Arial,Helvetica,Sans-Serif; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#kinds-of-objects">Objects</a></caption>
+  <thead>
+  <tr style="font-size: 1.2em;">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Name</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td style="text-align: center;">Tag</td>
+    <td>Corresponding to an XML or HTML tag in the original document.  Tags have a lot of attributes and methods, and I’ll cover most of them in "Navigating the tree" and "Searching" the tree.</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">NavigableString</td>
+    <td><p>A string corresponds to a bit of text within a tag. Beautiful Soup uses the NavigableString class to contain these bits of text.</p><p>A NavigableString is just like a Python Unicode string, except that it also supports some of the features described in Navigating the tree and Searching the tree.</p></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">BeautifulSoup</td>
+    <td>The BeautifulSoup object represents the parsed document as a whole.</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Name</td>
+    <td>Every tag has a name, accessible as <code>.name</code></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Attributes</td>
+    <td><p>A tag may have any number of attributes. The tag &lt;b id="boldest"&gt; has an attribute “id” whose value is “boldest”.</p><p>access that dictionary directly as <code>.attrs</code></p></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Multi-valued attributes</td>
+    <td>The most common multi-valued attribute is class (that is, a tag can have more than one CSS class). Others include rel, rev, accept-charset, headers, and accesskey. Beautiful Soup presents the value(s) of a multi-valued attribute as a list.</td>
+  </tr>
+  </tbody>
+</table>
+
+
