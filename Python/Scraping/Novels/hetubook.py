@@ -1,58 +1,50 @@
 #!/usr/bin/env python3
 # -*- coding-utf-8 -*-
 
-import sys
-import scrapy
-
-# from datetime import datetime
-# from scrapy.http import Request, FormRequest, TextResponse
-# from scrapy.spiders import CrawlSpider, Rule
-# from scrapy.linkextractors import LinkExtractor
-# from scrapy.spider import Spider
-# from scrapy.selector import Selector
-# from scrapy import log
-# from ..items import HosItem
-
 import requests
 import re
 from bs4 import BeautifulSoup
 
-
-def parse_book_title(soup, debug=False):
+def parse_book_info(main_pg, debug=False):
     """parsing book title from main page
 
     Args:
-        soup (str): html contents of main web page
+        main_pg (request.Response): html contents of main web page
         debug (boolean): turn on/off debug msg, default=False
     """
-    txt = re.compile(r"book_info finish[\w]*<h2>(.+?)</h2>")
+    title_sec = main_pg.find('div', class_="book_info finish")
+    
+    title = title_sec.find('h2').get_text()
+    author = title_sec.find('div').get_text()
+
+    intro = []
+    intro_div = title_sec.find('div', class_='intro')
+    intro_paras = intro_div.find_all('p')
+    for para in intro_paras:
+        intro.append(para.get_text()+'\n\n')
+
     if debug:
-        print("Parse Book title: {}".format(txt))
+        print("Book title: {}".format(title))
+        print("Author: {}".format(author))
+        print("Book intro: \n{}".format(intro))
 
-    try:
-        title = re.search(txt, soup).group(1)
-    except AttributeError as err:
-        print("Book title extract error: {}".format(err))
-        exit(True)
 
-    return title.group(1)
+    return title, author, intro
 
 
 def main(purl, burl, headers, debug=False):
 
-    main_page = requests.get(purl+burl, headers=headers)
-    if main_page.status_code != 200:
-        print("\nreturn main web page status code: {}".format(main_page_status))
+    main_pg = requests.get(purl+burl, headers=headers)
+    if main_pg.status_code != 200:
+        print("\nreturn main web page status code: {}".format(main_pg.status_code))
         exit(True);
 
     if debug:
-        print("\nmain page encoding: {}".format(main_page.encoding))
+        print("\nmain page encoding: {}".format(main_pg.encoding))
 
-    soup = BeautifulSoup(main_page.content, "html.parser")
-    if debug:
-        print(soup)
+    soup = BeautifulSoup(main_pg.text, "html.parser")
 
-    title = parse_book_title(soup, debug)
+    title, author, intro = parse_book_info(soup, debug)
     # author = get_book_author(soup, debug)
 
     # intro_txt = get_intro(soup, debug)
