@@ -480,3 +480,263 @@ kinds of objects: Tag, NavigableString, BeautifulSoup, and Comment.
         ```
 
 
+### BeautifulSoup Searching Methods
+
+<table style="font-family: Arial,Helvetica,Sans-Serif; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#a-function">Searching Methods </a></caption>
+  <thead>
+  <tr style="font-size: 1.2em;">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Method / Argument</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Examples</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td style="color: cyan;">find_all( name, attrs, recursive, string, limit, **kwargs)</td>
+    <td>look through a tag’s descendants and retrieves all descendants that match your filters<br/><br/>the most popular method in the Beautiful Soup search API</td>
+    <td colspan="2" style="font-family: monospace;">
+      soup.find_all("title")<br/>
+      <span style="color: grey;"># [&lt;title&gt;The Dormouse's story&lt;/title&gt;]</span><br/><br/>
+      soup.find_all("p", "title")<br/>
+      <span style="color: grey;"># [&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;]</span><br/><br/>
+      soup.find_all("a")<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;,</span><br/>
+      <span style="color: grey;">#  &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;,</span><br/>
+      <span style="color: grey;">#  &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]</span><br/><br/>
+      soup.find_all(id="link2")<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;]</span><br/><br/>
+      import re<br/>
+      soup.find(string=re.compile("sisters"))<br/>
+      <span style="color: grey;"># u'Once upon a time there were three little sisters; and their names were\n'</span><br/><br/>
+      soup.find_all("a")<br/>
+      soup("a")<br/><br/>
+      soup.title.find_all(string=True)<br/>
+      soup.title(string=True)
+    </td>
+  </tr>
+    <td style="color: cyan;"><code>name</code></td>
+    <td>tell Beautiful Soup to only consider tags with certain names<br/><br/>Text strings ignored</td>
+    <td style="font-family: monospace;">soup.find_all("title")<br/><span style="color: grey;"># [&lt;title&gt;The Dormouse's story&lt;/title&gt;]</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>keyword</code></td>
+    <td>
+      any argument not recognized to turn into a filter on one of a tag’s attributes
+      filter an attribute based on a string, a regular expression, a list, a function, or the value True<br/><br/>
+      filter multiple attributes at once by passing in more than one keyword argument<br/><br/>
+      attributes names unable to be used as the names of keyword arguments<br/><br/>
+      unable to use a keyword argument to search for HTML’s ‘name’ element, because Beautiful Soup uses the name argument to contain the name of the tag itself
+    </td>
+    <td style="font-family: monospace;">
+      soup.find_all(href=re.compile("elsie"), id='link1')<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;three&lt;/a&gt;]</span><br/><br/>
+      soup.find_all(href=re.compile("elsie"),id='link1')<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;three&lt;/a&gt;]</span><br/><br/>
+      data_soup = BeautifulSoup('&lt;div data-foo="value"&gt;foo!&lt;/div&gt;')<br/>
+      data_soup.find_all(data-foo="value")<br/>
+      <span style="color: grey;"># SyntaxError: keyword can't be an expression</span><br/><br/>
+      name_soup = BeautifulSoup('&lt;input name="email"/&gt;')<br/>
+      name_soup.find_all(name="email")<br/>
+      <span style="color: grey;"># []</span><br/>
+      name_soup.find_all(attrs={"name": "email"})<br/>
+      <span style="color: grey;"># [&lt;input name="email"/&gt;]</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>id</code></td>
+    <td>
+      pass in a value for an argument called id, Beautiful Soup will filter against each tag’s ‘id’ attribute<br/><br/>
+    </td>
+    <td style="font-family: monospace;">
+      soup.find_all(id='link2')<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;]</span><br/><br/>
+      soup.find_all(id=True)<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;,<br/>
+      #  &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;,<br/>
+      #  &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>href</code></td>
+    <td>pass in a value for href, Beautiful Soup will filter against each tag’s ‘href’ attribute</td>
+    <td style="font-family: monospace;">soup.find_all(href=re.compile("elsie"))<br/><span style="color: grey;"># [&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;]</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>attrs</code></td>
+    <td>
+      using these attributes in searches by putting them into a dictionary and passing the dictionary as the attrs argument
+    </td>
+    <td style="font-family: monospace;">
+      data_soup.find_all(attrs={"data-foo": "value"})</span><br/>
+      <span style="color: grey;"># [&lt;div data-foo="value"&gt;foo!&lt;/div&gt;]</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>class_</code></td>
+    <td>
+      “class”, is a reserved word in Python<br/><br/>
+      pass <code>class_</code> a string, a regular expression, a function, or True<br/><br/>
+      multiple values for its “class” attribute<br/><br/>
+      search for the exact string value<br/><br/>
+      no searching for variants of the string value<br/><br/>
+      search for tags that match two or more CSS classes
+    </td>
+    <td style="font-family: monospace;">
+      soup.find_all(class_=re.compile(<span class="s2">"itl"))<br/><span style="color: grey;"># [&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;]</span><br/><br/>
+      def <span class="nf">has_six_characters(css_class):<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;return css_class >is >not None >and len(css_class) <span class="o">== 6<br/><br/>
+      soup.find_all(class_=has_six_characters)<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;,<br/>
+      #  &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;,<br/>
+      #  &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]</span><br/><br/>
+      css_soup=</span> BeautifulSoup('&lt;p class="body strikeout"&gt;&lt;/p&gt;')<br/>
+      css_soup.find_all(<span class="s2">"p", class_=<span class="s2">"strikeout")<br/>
+      <span style="color: grey;"># [&lt;p class="body strikeout"&gt;&lt;/p&gt;]</span><br/><br/>
+      css_soup.find_all(<span class="s2">"p", class_=<span class="s2">"body")<br/>
+      <span style="color: grey;"># [&lt;p class="body strikeout"&gt;&lt;/p&gt;]</span><br/><br/>
+      css_soup.find_all(<span class="s2">"p", class_=<span class="s2">"body strikeout")<br/>
+      <span style="color: grey;"># [&lt;p class="body strikeout"&gt;&lt;/p&gt;]</span><br/>
+      css_soup.select(<span class="s2">"p.strikeout.body")
+      <span style="color: grey;"># [&lt;p class="body strikeout"&gt;&lt;/p&gt;]</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>string</code></td>
+    <td>pass in a string, a regular expression, a list, a function, or the value True<br/><br/>combine it with arguments that find tags: Beautiful Soup will find all tags whose .string matches your value for string</td>
+    <td style="font-family: monospace;">
+      soup.find_all(string="Elsie")<br/>
+      <span style="color: grey;"># [u'Elsie']</span><br/><br/>
+      soup.find_all(string=["Tillie","Elsie","Lacie"])<br/>
+      <span style="color: grey;"># [u'Elsie', u'Lacie', u'Tillie']</span><br/><br/>
+      soup.find_all(string=re.compile("Dormouse"))<br/>
+      [u"The Dormouse's story", u"The Dormouse's story"]<br/><br/>
+      def is_the_only_string_within_a_tag(s):<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;"""Return True if this string is the only child of its parent tag."""<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;return (s== s.parent.string)<br/><br/>
+      soup.find_all(string=is_the_only_string_within_a_tag)</span><br/>
+      <span style="color: grey;"># [u"The Dormouse's story", u"The Dormouse's story", u'Elsie', u'Lacie', u'Tillie', u'...']</span><br/><br/>
+      soup.find_all("a", string="Elsie")<br/>
+      <span style="color: grey;"># [&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;Elsie&lt;/a&gt;]</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>limit</code></td>
+    <td>pass in a number for limit to tell Beautiful Soup to stop gathering results after it’s found a certain number</td>
+    <td style="font-family: monospace;">
+      soup.find_all("a",</span> <span style="color: grey;">limit=</span><span class="mi">2)</span><br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;,</span><br/>
+      <span style="color: grey;">#  &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;]</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>recursive </code></td>
+    <td>consider direct children<br/>call <code>mytag.find_all()</code>, Beautiful Soup examining all the descendants of mytag: its children, its children’s children, and so on</td>
+    <td style="font-family: monospace;">
+    soup.html.find_all("title")</span><br/>
+    <span style="color: grey;"># [&lt;title&gt;The Dormouse's story&lt;/title&gt;]</span><br/><br/>
+    soup.html.find_all("title", recursive=False)<br/>
+    <span style="color: grey;"># []</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>find()</code></td>
+    <td>same as <code>find_all()</code> passing in <code>limit=1</code><br/><br/>just returns the result while <code>find_all()</code> returns a list containing the single result</td>
+    <td style="font-family: monospace;">
+      soup.find_all('title', limit=1)<br/>
+      <span style="color: grey;"># [&lt;title&gt;The Dormouse's story&lt;/title&gt;]</span><br/><br/>
+      soup.find('title')<br/>
+      <span style="color: grey;"># &lt;title&gt;The Dormouse's story&lt;/title&gt;</span><br/>
+      print(soup.find("nosuchtag"))</span><br/>
+      <span style="color: grey;"># None</span><br/><br/>
+      soup.head.title<br/>
+      <span style="color: grey;"># &lt;title&gt;The Dormouse's story&lt;/title&gt;</span><br/><br/>
+      soup.find>("head">).find>("title">)<br/>
+      <span style="color: grey;"># &lt;title&gt;The Dormouse's story&lt;/title&gt;</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>find_parents()<br/><br/>find_parent()</code></td>
+    <td>work way up the tree, looking at a tag’s (or a string’s) parents</td>
+    <td style="font-family: monospace;">
+      a_string=soup.find>(string="Lacie">)<br/>
+      a_string</span><br/>
+      <span style="color: grey;"># u'Lacie'</span><br/><br/>
+      a_string.find_parents>("a">)<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;]</span><br/><br/>
+      a_string.find_parent>("p">)<br/>
+      <span style="color: grey;"># &lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were</span><br/>
+      <span style="color: grey;">#  &lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;,</span><br/>
+      <span style="color: grey;">#  &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt; and</span><br/>
+      <span style="color: grey;">#  &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;;</span><br/>
+      <span style="color: grey;">#  and they lived at the bottom of a well.&lt;/p&gt;</span><br/><br/>
+      a_string.find_parents>("p">,</span> class="title">)<br/>
+      <span style="color: grey;"># []</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>find_next_siblings()<br/><br/>find_next_sibling()</code></td>
+    <td><code>find_next_siblings()</code> method returns all the siblings that match, and <code>find_next_sibling()</code> only returns the first one</td>
+    <td style="font-family: monospace;">
+      first_link=soup.a<br/>
+      first_link<br/>
+      <span style="color: grey;"># &lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;</span><br/><br/>
+      first_link.find_next_siblings>("a">)<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;,</span><br/>
+      <span style="color: grey;">#  &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]</span><br/><br/>
+      first_story_paragraph= soup.find>("p">,>"story">)<br/>
+      first_story_paragraph.find_next_sibling>("p">)<br/>
+      <span style="color: grey;"># &lt;p class="story"&gt;...&lt;/p&gt;</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>find_previous_siblings()<br/><br/>find_previous_sibling()</code></td>
+    <td><code>find_previous_siblings()</code> method returns all the siblings that match, and <code>find_previous_sibling()</code> only returns the first one</td>
+    <td style="font-family: monospace;">
+      last_link= soup.find>("a">, id="link3">)<br/>
+      last_link<br/>
+      <span style="color: grey;"># &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;</span><br/><br/>
+      last_link.find_previous_siblings>("a">)<br/>
+      <span style="color: grey;"># [&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;,</span><br/>
+      <span style="color: grey;">#  &lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;]</span><br/><br/>
+      first_story_paragraph=</span> soup.find>("p">,>"story">)<br/>
+      first_story_paragraph.find_previous_sibling>("p">)<br/>
+      <span style="color: grey;"># &lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;</span><br/><br/>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>find_all_next()<br/><br/>find_next()</code></td>
+    <td><code>find_all_next()</code> method returns all matches, and f<code>ind_next()</code> only returns the first match</td>
+    <td style="font-family: monospace;">
+      first_link = soup.a<br/>
+      first_link<br/>
+      <span style="color: grey;"># &lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;</span><br/><br/>
+      first_link.find_all_next>(string=</span><span class="kc">True>)<br/>
+      <span style="color: grey;"># [u'Elsie', u',\n', u'Lacie', u' and\n', u'Tillie',</span><br/>
+      <span style="color: grey;">#  u';\nand they lived at the bottom of a well.', u'\n\n', u'...', u'\n']</span><br/><br/>
+      first_link.find_next>("p">)<br/>
+      <span style="color: grey;"># &lt;p class="story"&gt;...&lt;/p&gt;</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>find_all_previous()<br/><br/>find_previous()</code></td>
+    <td><code>find_all_previous()</code> method returns all matches, and <code>find_previous()</code> only returns the first match</td>
+    <td style="font-family: monospace;">
+      first_link = soup.a<br/>
+      first_link<br/>
+      <span style="color: grey;"># &lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;</span><br/><br/>
+      first_link.find_all_previous("p")<br/>
+      <span style="color: grey;"># [&lt;p class="story"&gt;Once upon a time there were three little sisters; ...&lt;/p&gt;,</span><br/>
+      <span style="color: grey;">#  &lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;]</span><br/><br/>
+      first_link.find_previous("title")<br/>
+      <span style="color: grey;"># &lt;title&gt;The Dormouse's story&lt;/title&gt;</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+  
+
