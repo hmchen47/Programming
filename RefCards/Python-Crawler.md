@@ -398,5 +398,85 @@ kinds of objects: Tag, NavigableString, BeautifulSoup, and Comment.
 </table>
 
 
-  
+### Searching the tree
+
++ Filters
+  + a string
+    + passing a string to a search method and Beautiful Soup
+    + performing a match against that exact string
+    + e.g., `soup.find_all('b') # [<b>The Dormouse's story</b>]`
+  + a regular expression
+    + passing in a regular expression object
+    + filtering against that regular expression using `search()` method
+    + e.g., 
+
+      ```python
+      for tag in soup.find_all(re.compile("^b")):
+        print(tag.name)
+
+      # body
+      # b
+      ```
+
+    + a list
+      + allowING a string match against any item in that lisT
+      + example:
+
+        ```python
+        soup.find_all(["a", "b"])
+        # [<b>The Dormouse's story</b>,
+        #  <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
+        #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
+        #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+        ```
+
+    + `True`
+      + matching everything it can
+      + example
+
+        ```python
+        for tag in soup.find_all(True):
+            print(tag.name)
+        # html
+        # head
+        # title
+        # body
+        # p
+        # b
+        # p
+        # a
+        # a
+        # a
+        # p
+        ```
+
+    + a function
+      + define a function that takes an element as its only argument
+      + return True if the argument matches, and False otherwise
+      + example
+
+        ```python
+        def has_class_but_no_id(tag):
+            return tag.has_attr('class') and not tag.has_attr('id')
+
+        soup.find_all(has_class_but_no_id)
+        # [<p class="title"><b>The Dormouse's story</b></p>,
+        #  <p class="story">Once upon a time there were…bottom of a well.</p>,
+        #  <p class="story">...</p>]
+
+        from bs4 import NavigableString
+
+        def surrounded_by_strings(tag):
+            return (isinstance(tag.next_element, NavigableString)
+                    and isinstance(tag.previous_element, NavigableString))
+
+        for tag in soup.find_all(surrounded_by_strings):
+            print tag.name
+        # p
+        # a
+        # a
+        # a
+        # p
+        ```
+
 
