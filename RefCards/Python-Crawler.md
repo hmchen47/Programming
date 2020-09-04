@@ -312,6 +312,90 @@ kinds of objects: Tag, NavigableString, BeautifulSoup, and Comment.
 </table>
 
 
+### Navigating the tree
+  
++ Navigating using tag names
+  + navigating the parse tree is to say the name of the tag you want
+    + e.g., `soup.head     # <head><title>The Dormouse's story</title></head>`
+  + applied again and again to zoom in on a certain part of the parse tree
+
+<table style="font-family: Arial,Helvetica,Sans-Serif; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigating-using-tag-names">Attributes to Navigate Tree </a></caption>
+  <thead>
+  <tr style="font-size: 1.2em;">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Attributes</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Usage</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:50%;">Examples</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td style="color: cyan;"><code>soup.tagname</code></td>
+    <td>the name of the tag to navigate the parse tree</td>
+    <td style="font-family: monospace;">soup.head<br/><span style="color: grey;"># &lt;head&gt;&lt;title&gt;The Dormouse's story&gtl&lt;/title&gt;&lt;/head&gt;<br/><br/>soup.title<br/><span style="color: grey;"># &lt;title&gt;The Dormouse's story&lt;/title&gt;<br/><br/>soup.body.b<br/><span style="color: grey;"># &lt;b&gt;The Dormouse's story&lt;/b&gt;</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.contents</code></td>
+    <td>a list of a tag's children</td>
+    <td style="font-family: monospace;">head_tag = soup.head<br/><span style="color: grey;"># &lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;<br/><br/>head_tag.contents>br/><span style="color: grey;"># [&lt;title&gt;The Dormouse's story&lt;/title&gt;]</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.children</code></td>
+    <td>iterate over a tag’s children for a string</td>
+    <td style="font-family: monospace;">text = title_tag.contents[0]<br/>text.contents<br/><span style="color: grey;"># AttributeError: 'NavigableString' object has no attribute 'contents'<br/><br/>for child in title_tag.children:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print(child)<br/><span style="color: grey;"># The Dormouse's story>/span></td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.descendants</code></td>
+    <td>iterate over all of a tag’s children, recursively</td>
+    <td style="font-family: monospace;">for child in head_tag.descendants:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print(child)<br/><span style="color: grey;"># &lt;title&gt;The Dormouse's story&lt;/title&gt;<br/># The Dormouse's story<span></td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.string</code></td>
+    <td><p>If a tag has only one child, and that child is a NavigableString.</p><p>If a tag’s only child is another tag, and that tag has a .string, then the parent tag is considered to have the same .string as its child</p><p>If there’s more than one thing inside a tag, you can still look at just the strings.</p></td>
+    <td style="font-family: monospace;">title_tag.string<br/><span style="color: grey;"># u'The Dormouse's story'<br/><br/>head_tag.contents<br/><span style="color: grey;"># [&lt;title&gt;The Dormouse's story&lt;/title&gt;]<br/>head_tag.string<br/><span style="color: grey;"># u'The Dormouse's story'<br/><br/>for string in soup.strings:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print(repr(string))<br/><span style="color: grey;"># u"The Dormouse's story"<br/># u'\n\n'<br/># u"The Dormouse's story"<br/># u'\n\n'</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.stripped_strings</code></td>
+    <td>the <code>.strings</code> generator provides extra white spaces. <.stripped_strings</code> removes them</td>
+    <td style="font-family: monospace;">for string in soup.strings:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print(repr(string))<br/><span style="color: grey;"># u"The Dormouse's story"<br/># u"The Dormouse's story"</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.parent</code></td>
+    <td>access an element’s parent</td>
+    <td style="font-family: monospace;">title_tag = soup.title<br/>title_tag<br/><span style="color: grey;"># &lt;title&gt;The Dormouse's story&lt;/title&gt;<br/>title_tag.parent<br/><span style="color: grey;"># &lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.parents</code></td>
+    <td>iterate over all of an element’s parents with .parents</td>
+    <td style="font-family: monospace;">link = soup.a<br/>link<br/><span style="color: grey;"># &lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;<br/>for parent in link.parents:<br/>&nbsp;&nbsp;&nbsp;&nbsp;if parent is None:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(parent)<br/>&nbsp;&nbsp;&nbsp;&nbsp;else:<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(parent.name)<br/><span style="color: grey;"># p<br/># body<br/># html<br/># [document]<br/># None</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.next_sibling<br/><br/>.previous_sibling</code></td>
+    <td>navigate between page elements that are on the same level of the parse tree</td>
+    <td style="font-family: monospace;">sibling_soup.b.next_sibling<br/><span style="color: grey;"># &lt;c&gt;text2&lt;/c&gt;<br/><br/>sibling_soup.c.previous_sibling<br/><span style="color: grey;"># &lt;b&gt;text1&lt;/b&gt;<br/><br/>sibling_soup.b.string<br/><span style="color: grey;"># u'text1'</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.next_siblings<br/><br/>.previous_siblings</code></td>
+    <td>iterate over a tag’s siblings</td>
+    <td style="font-family: monospace;">for sibling in soup.a.next_siblings:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print(repr(sibling))<br/><span style="color: grey;"># u',\n'<br/># &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;<br/># u' and\n'<br/># &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;<br/># u'; and they lived at the bottom of a well.'<br/># None<span style="color: grey;"></td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.next_element</code></td>
+    <td>point to whatever was parsed immediately afterwards</td>
+    <td style="font-family: monospace;">last_a_tag.next_element<br/><span style="color: grey;"># u'Tillie'</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.previous_element</code></td>
+    <td>point to whatever element was parsed immediately before this one</td>
+    <td style="font-family: monospace;">last_a_tag.previous_element<br/><span style="color: grey;"># u' and\n'</td>
+  </tr>
+  <tr>
+    <td style="color: cyan;"><code>.next_elements<br/><br/>.previous_elements</code></td>
+    <td>iterators to move forward or backward in the document as it was parsed</td>
+    <td style="font-family: monospace;">for element in last_a_tag.next_elements:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print(repr(element))<br/><span style="color: grey;"># u'Tillie'<br/># u';\nand they lived at the bottom of a well.'</td>
+  </tr>
+  </tbody>
+</table>
 
 
   
