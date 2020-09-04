@@ -29,7 +29,8 @@ Contents
     + [Python 3 OO Notebook]
     + [Webscrapr]
     + [Exercises and Notes]
-+ [Scraping]
++ Scraping
+  + [WebScraping: Python Beautiful Soup Web Scraping Bootcamp](./Python/Scraping/WebScraping-Udemy/README.md)
 + [UnitTesting]
 + [Miscellaneous]
 
@@ -51,14 +52,14 @@ Contents
 ## Java
 
 
-## Exercism
 
 
 ## Reference Cards
 
 ### Web Design
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <thead>
   <tr style="border-bottom: double black;">
     <th style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
@@ -69,7 +70,7 @@ Contents
 
   <!-- HTML -->
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Hypertext Markup Language (HTML) </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Hypertext Markup Language (HTML) </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Info </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
@@ -194,7 +195,7 @@ Contents
 
   <!-- CSS -->
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey;"> Cascading Style Sheet (CSS) </td> </tr>
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Cascading Style Sheet (CSS) </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-design-principles-css-2-2-"> Design Principles </a></td>
@@ -325,6 +326,53 @@ Contents
 <br/>
 <hr/>
 <br/>
+
+## Python Syntax and Libraries
+
+### Web Scraping
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 80%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead>
+  <tr style="border-bottom: double black; width: 80vw;">
+    <th style="font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <!--Web Scraping -->
+
+  <tr> <td colspan="5" style="width: 100vw; text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Web Scraping </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Requests </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#request-apis"> API </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#request-response-class"> Response </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Beautiful Soup </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#making-the-soup"> Making Soup </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#kinds-of-objects"> Objects </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#parsing-beautifulsoup"> Parsing </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#navigating-the-tree"> Navigation Tree </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#searching-the-tree"> Searching </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#beautiful-soup-searching-methods"> Searching API/Arguments </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+  </tr>
+
+  </tbody>
+</table>
 
 
 ## Keywords for Git Commits
