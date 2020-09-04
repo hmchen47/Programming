@@ -2,12 +2,14 @@
 
 ## Requests library
 
-  <table style="font-family: Arial,Helvetica,Sans-Serif; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+### Request APIs
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y22zaby4">Request APIs</a></caption>
     <thead>
     <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Function</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Function</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Return</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Link</th>
     </tr>
@@ -209,8 +211,8 @@ kinds of objects: Tag, NavigableString, BeautifulSoup, and Comment.
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#kinds-of-objects">Objects</a></caption>
   <thead>
   <tr style="font-size: 1.2em;">
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Name</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Name</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
   </tr>
   </thead>
   <tbody>
@@ -241,4 +243,76 @@ kinds of objects: Tag, NavigableString, BeautifulSoup, and Comment.
   </tbody>
 </table>
 
+
+
+### Parsing BeautifulSoup
+
+<table style="font-family: Arial,Helvetica,Sans-Serif; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">Parser Library</a></caption>
+  <thead>
+  <tr style="font-size: 1.2em;">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Parser</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Typical Usage</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Advantages</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Disadvantages</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td><p>Python’s html.parser</p></td>
+  <td><p>BeautifulSoup(markup,"html.parser")</code></p></td>
+  <td><ul>
+    <li><p>Batteries included</p></li>
+    <li><p>Decent speed</p></li>
+    <li><p>Lenient (As of Python 2.7.3 and 3.2.)</p></li>
+  </ul>
+  </td>
+  <td><ul>
+  <li><p>Not as fast as lxml, less lenient than html5lib.</p></li>
+  </ul>
+  </td>
+  </tr>
+  <tr><td><p>lxml’s HTML parser</p></td>
+  <td><p><code><span>BeautifulSoup(markup,"lxml")</code></p></td>
+  <td><ul>
+  <li><p>Very fast</p></li>
+  <li><p>Lenient</p></li>
+  </ul>
+  </td>
+  <td><ul> <li><p>External C dependency</p></li>  </ul>
+  </td>
+  </tr>
+  <tr><td><p>lxml’s XML parser</p></td>
+  <td><p><code><span>BeautifulSoup(markup,"lxml-xml")</code>
+  <code><span>BeautifulSoup(markup,"xml")</code></p></td>
+  <td><ul>
+  <li><p>Very fast</p></li>
+  <li><p>The only currently supported XML parser</p></li>
+  </ul>
+  </td>
+  <td><ul>
+  <li><p>External C dependency</p></li>
+  </ul>
+  </td>
+  </tr>
+  <tr><td><p>html5lib</p></td>
+  <td><p><code><span>BeautifulSoup(markup,"html5lib")</code></p></td>
+  <td><ul>
+  <li><p>Extremely lenient</p></li>
+  <li><p>Parses pages the same way a web browser does</p></li>
+  <li><p>Creates valid HTML5</p></li>
+  </ul>
+  </td>
+  <td><ul>
+  <li><p>Very slow</p></li>
+  <li><p>External Python dependency</p></li>
+  </ul>
+  </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+
+  
 
