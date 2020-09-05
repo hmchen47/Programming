@@ -4,6 +4,7 @@
 import requests
 import re
 import time
+import random
 from bs4 import BeautifulSoup
 
 def parse_book_info(main_pg, debug=False):
@@ -69,7 +70,7 @@ def write_book_info(fname, info, debug=False):
 
 def reRmStr(s, e):
 
-    re_rm_str = r"[\whttps://m\.ww\.ｈｔtps://ｈｔtｐs／•:ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ１２３４５６７８９０\+]*"
+    re_rm_str = r"[\wht://m\.ww\.ｔ://tps//tｔps://ｗtｔps://ｗk•coｈｔtｐs／•:ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ１２３４５６７８９０\+]*"
 
     return re.compile(s+re_rm_str+e)
 
@@ -110,11 +111,11 @@ def scrape_chapter(chapter, fname, purl, debug=False):
     for paragraph in contents:
         ch_paragraphs.append(paragraph.text.strip())
 
-    ch_content = '\n\n'.join(ch_paragraphs)
+    ch_content = "    "+'\n\n    '.join(ch_paragraphs)
 
     rm_substrs = [re.compile(r"和_圖_書"), re.compile(r"和-圖-書"), re.compile(r"和圖書"), re.compile(r"和\*圖\*書")]
-    for start in [r"h", r"m", r"w", r"ｈ", r"ｍ", r"ｗ"]:
-        for end in [r"m", r"ｍ", r"ｏ"]:
+    for start in [r"h", r"m", r"w", r"ｈ", r"ｍ", r"ｗ", r"k", r"ｋ"]:
+        for end in [r"m", r"ｍ", r"ｏ", r"o", r"\.", r"/", r"•"]:
             rm_substrs.append(reRmStr(start, end))
 
     # if debug:
@@ -133,6 +134,14 @@ def scrape_chapter(chapter, fname, purl, debug=False):
 
     return None
 
+def write_vol(chapter, fname):
+
+    with open(fname, "a+", encoding='utf-8') as fd:
+        fd.write("{}\n\n\n".format(chapter[0]))
+
+    fd.close
+    
+    return None
 
 
 def parse_chapters(main_soup, purl, fname, debug=False):
@@ -161,14 +170,30 @@ def parse_chapters(main_soup, purl, fname, debug=False):
     # scrape chapter and extract contents
     cnt = 0
     for chapter in chapters:
-        scrape_chapter(chapter, fname, purl)
-        time.sleep(0.3)
+        if chapter[1] == None:
+            write_vol(chapter, fname)
+        else:
+            scrape_chapter(chapter, fname, purl)
+        time.sleep(1)
+        # time.sleep(random.uniform(0.3, 1.0))
         cnt += 1
         if cnt%50 == 0:
             print("Scraping done on: {}".format(chapter[0]))
 
     return None
 
+def write_endnote(fname, info, url):
+
+    with open(fname, "a+", encoding="utf-8") as fd:
+        fd.write("==============================================\n\n")
+        fd.write("Title: {}\n\n".format(info[0]))
+        fd.write("Author: {}\n\n".format(info[1]))
+        fd.write("Originate from: 和圖書\n\n")
+        fd.write("Book URL: {}\n\n\n\n\n".format(url))
+
+    fd.close
+
+    return None
 
 def main(purl, burl, headers, debug=False):
 
@@ -188,10 +213,7 @@ def main(purl, burl, headers, debug=False):
     
     parse_chapters(soup, purl, fname, debug)
 
-    # p_name = "./novel/{}.[{}].txt".format(author, title)
-
-    # f_hdl = open(p_name, "w+")
-
+    write_endnote(fname, [title, author], purl+burl)
 
     return None
 
