@@ -73,66 +73,17 @@ def reRmStr(s, e):
 
     return re.compile(s+re_rm_str+e)
 
-def rmStr():
-    return [re.compile(r"和_圖_書"), re.compile(r"和-圖-書"), re.compile(r"和圖書"), re.compile(r"和\*圖\*書"), \
-        re.compile(r"https://m\.hetubook\.com\.com"), re.compile(r"ｍ•hetｕｂｏok\.cｏm\.ｃｏm"), \
-        re.compile(r"m\.ｈeｔｕｂｏｏk•cｏｍ\.ｃoｍ"), re.compile(r"ｗｗw•heｔuｂｏｏk\.com\.ｃom"), \
-        re.compile(r"ｈtｔps://wｗw•ｈeｔubook•com\.coｍ"), re.compile(r"hetubook\.com\.com"), \
-        re.compile(r"www\.hｅｔubooｋ•com\.coｍ"), re.compile(r"m•ｈetubook\.cｏm\.com"), \
-        re.compile(r"hｅｔubook\.cｏｍ\.cｏm"), re.compile("hｅtuｂoｏk•ｃｏｍ\.ｃｏｍ"), \
-        re.compile("htｔｐs://ｍ•hｅtｕｂｏoｋ•com\.coｍ"), re.compile("hｔtｐs://ｍ\.ｈeｔｕboｏｋ•coｍ•ｃｏm"), \
-        re.compile("m\.ｈeｔｕbｏｏｋ\.ｃｏm•cｏｍ"), re.compile(r"hｔｔps://www\.hetｕbｏｏｋ•cｏｍ•ｃｏm"), \
-        re.compile(r"ｈｔtps://ｍ\.ｈetuｂoｏk•ｃom\.ｃom"),  re.compile(r"https://ｗww•ｈetｕbｏｏk•ｃom•ｃom"), \
-        re.compile(r"hｔtｐs://m\.ｈeｔuｂｏoｋ•ｃｏｍ•ｃom"), re.compile(r"ｗｗw•hetｕｂook•ｃｏm\.ｃom"), \
-        re.compile(r"hｅtuｂｏｏk•cｏm\.ｃoｍ"), re.compile("ｈeｔuｂｏｏｋ•ｃｏｍ\.ｃoｍ"), \
-        re.compile(r"wwｗ•hｅtuｂｏoｋ•ｃｏｍ•ｃｏｍ"), re.compile(r"hｔｔps://ｍ•hetｕbｏok.ｃoｍ•cｏm"), \
-        re.compile(r"ｍ•ｈetｕｂook•cｏｍ•cｏm"), re.compile(r"hｔｔｐs://ｗww\.ｈｅｔuｂoｏk•ｃｏm\.cｏm"), \
-        re.compile(r"ｈｔtps://m•heｔuｂook•cｏm•cｏm"), re.compile(r"htｔｐs://ｗww\.heｔｕbｏok\.ｃｏｍ•ｃom"), \
-        re.compile(r"ｍ\.ｈetｕbｏok•cｏm\.cｏm"), re.compile(r"ｈｔｔps://ｗｗｗ\.hｅｔｕbooｋ\.cｏｍ•ｃom"), \
-        re.compile(r"m•hｅｔｕｂoｏk•ｃoｍ•cｏｍ"), re.compile(r"hｔｔps://ｍ•heｔubooｋ•com\.coｍ"), \
-        re.compile(r"ｈｔtｐs://ｗww•ｈeｔｕbｏｏｋ•ｃoｍ•com"), re.compile(r"www•hetuｂｏok•ｃom•coｍ"), \
-        re.compile(r"ｈｅｔuｂoｏｋ\.ｃｏm\.cｏｍ"), re.compile(r"ｈetｕｂook\.cｏm\.cｏm"), \
-        re.compile(r"ｈｔtps://ｗww\.heｔuｂｏｏｋ•ｃｏm\.cｏm"), re.compile(r"hｔｔｐs://wｗｗ•ｈeｔuｂooｋ\.com\.ｃom"), \
-        re.compile(r"ｗww\.hｅｔｕｂｏｏｋ\.cｏm•ｃom"), re.compile(r"wｗw\.ｈｅｔｕbｏｏk\.com•ｃom"), \
-        re.compile(r"https://ｗｗｗ•hｅtuｂook\.ｃom\.ｃｏｍ"), re.compile(r"ｈetuｂoｏｋ•coｍ•com"), \
-        re.compile(r"www•ｈeｔuboｏｋ•com•cｏｍ"), re.compile(r"ｈｔtps://ｗｗw•ｈeｔuｂooｋ\.ｃｏｍ\.coｍ"), \
-        re.compile(r"ｈｅtubｏｏｋ•coｍ•ｃｏｍ"), re.compile(r"wｗw•hｅｔｕbｏｏk•ｃｏm•ｃｏm"), \
-        re.compile(r"ｈtｔｐs://m\.hｅtｕｂoｏk•ｃom\.ｃom"), re.compile("ｈtｔps://ｗｗｗ\.ｈｅｔｕｂooｋ•cｏｍ\.coｍ"), \
-        re.compile(r"ｈtｔps://heｔｕbｏok•com\.ｃｏm"), re.compile(r"ｍ•ｈeｔｕｂｏｏｋ\.com\.ｃoｍ"), \
-        re.compile(r"m•hｅtｕｂook•ｃｏm\.ｃｏｍ"), re.compile(r"ｈｔｔｐs://ｍ\.hｅtｕｂoｏｋ\.ｃｏｍ•coｍ"), \
-        re.compile(r"ｈｔtps://ｍ\.hｅtｕｂｏｏk•cｏｍ•ｃｏｍ"), re.compile(r"ｗww•ｈｅtuboｏｋ•ｃｏm•coｍ"), \
-        re.compile("ｈｔtｐs://ｗwｗ•hｅｔｕbｏｏｋ\.cｏm•ｃｏm"), re.compile(r"ｈtｔｐs://ｗww•ｈetｕｂｏｏk•ｃｏｍ•cｏｍ"), \
-        re.compile(r"ｗｗｗ•hｅｔuｂook\.cｏm•ｃｏｍ"), re.compile("ｈetｕｂｏoｋ\.ｃｏｍ\.ｃｏｍ"), \
-        re.compile(r"httｐs://ｗｗw•hｅtｕbooｋ\.coｍ\.com"), re.compile(r"ｗｗw•ｈeｔｕbｏｏk\.ｃoｍ\.ｃｏｍ"), \
-        re.compile(r"heｔuｂoｏｋ\.cｏｍ•coｍ"), re.compile(r"htｔｐs://wｗｗ\.ｈｅｔｕｂoｏｋ•com\.ｃom"), \
-        re.compile(r"m•hetuｂooｋ•ｃｏｍ\.ｃoｍ"), re.compile("httｐs://ｍ•ｈetubooｋ•cｏｍ\.cｏm"), \
-        re.compile(r"hｔtｐs://ｍ•ｈetuｂoｏk•cｏm•cｏm"), re.compile(r"ｈｔｔｐs://m•ｈｅｔｕｂooｋ•ｃoｍ\.ｃｏm"), \
-        re.compile(r"hｔtps://ｍ•ｈｅｔｕｂook\.ｃｏｍ\.ｃｏm"), re.compile(r"ｗｗw•ｈeｔuｂｏoｋ\.cｏm•ｃom"), \
-        re.compile(r"hｔｔps://m\.ｈetuｂｏｏk\.ｃoｍ\.ｃｏｍ"), re.compile(r"hｅｔubｏok\.ｃoｍ\.cｏm"), \
-        re.compile(r"ｍ•ｈeｔｕbｏok•cｏｍ\.ｃom"), re.compile(r"ｍ\.ｈetuｂoｏｋ\.ｃoｍ•ｃom"), \
-        re.compile(r"ｗww\.ｈｅtuｂoｏk\.coｍ\.ｃｏm"), re.compile(r"m\.hetｕｂｏoｋ•ｃom•ｃｏｍ"), \
-        re.compile(r"wｗw•heｔubｏｏｋ•com\.cｏｍ"), re.compile(r"ｈtｔｐs://m\.heｔuｂｏｏk\.cｏm•com"), \
-        re.compile("m\.heｔuｂoｏk•coｍ•ｃｏｍ"), re.compile(r"ｍ•hｅtｕｂoｏk•cｏｍ•ｃｏｍ"), \
-        re.compile(r"ｈeｔｕｂoｏｋ\.com\.ｃｏm"), re.compile(r"hｔｔps://ｗｗｗ•ｈetuｂｏｏk•ｃoｍ\.ｃoｍ"), \
-        re.compile(r"heｔｕboｏk•ｃｏｍ•cｏｍ"), re.compile(r"hｔｔps://heｔubｏoｋ\.cｏm•ｃｏm"), \
-        re.compile(r"ｈeｔｕbｏｏk•ｃom•ｃom"), re.compile(r"ｗｗｗ•ｈｅtｕｂoｏｋ•coｍ•cｏｍ"), \
-        re.compile(r"hetubｏｏｋ•cｏｍ•coｍ"), re.compile(r"ｈｔtｐs://ｍ•hｅｔuｂｏｏｋ•cｏｍ•cｏｍ"), \
-        re.compile(r"ｈｅtubｏoｋ\.com•coｍ"), re.compile(r"ｈｔｔps://wｗｗ•ｈeｔｕｂoｏk\.ｃoｍ•cｏm"), \
-        re.compile(r"ｍ•hｅｔｕbooｋ•cｏm\.cｏｍ"), re.compile(r"httｐs://ｗｗw\.ｈｅｔuｂｏok\.ｃｏm\.ｃｏｍ"), \
-        re.compile(r"hｔtｐs://m•ｈｅtuboｏｋ•ｃom\.ｃoｍ"), re.compile(r"ｈttｐs://wｗw\.hetubｏｏk•ｃoｍ\.ｃｏm"), \
-        re.compile(r"m\.heｔｕｂook•ｃoｍ\.ｃｏm"), re.compile(r"m\.hetubｏoｋ•cｏm\.coｍ"), \
-        re.compile(r"ｈｔｔps://ｗｗｗ\.ｈetuｂｏoｋ\.ｃｏｍ•cｏm"), re.compile(r"ｈtｔps://wｗw•ｈｅtｕbooｋ\.ｃｏm•cｏm"), \
-        re.compile(r"ｗwｗ\.hetｕｂoｏk\.ｃｏｍ•com"), re.compile(r"hetｕｂoｏk\.ｃom\.ｃoｍ"), \
-        re.compile(r"hｅtｕbｏok•ｃom•cｏｍ"), re.compile(r"m•hｅtｕbooｋ•com\.ｃｏm"), \
-        re.compile(r"ｈetｕbｏoｋ•ｃoｍ\.ｃｏｍ"), re.compile(r"ｍ\.ｈeｔｕbｏｏk\.ｃom•cｏｍ"), \
-        re.compile(r"ｍ•ｈeｔｕｂooｋ\.com•cｏｍ"), re.compile(r"ｍ\.hetubook\.ｃｏm•ｃｏm"), \
-        re.compile(r"ｈｔｔps://ｗww•hetuｂｏｏｋ\.cｏm•com"), re.compile(r"ｈｔtps://ｍ\.hｅtubｏoｋ\.cｏｍ•ｃoｍ"), \
-        re.compile(r"m•ｈeｔuｂｏoｋ•ｃoｍ.com"), e.compile(r"m•heｔuｂｏok•ｃｏm\.ｃｏｍ"), \
-        re.compile(r"ｍ•ｈｅｔuｂｏoｋ\.ｃｏｍ\.com"), re.compile(r"wwｗ\.ｈeｔｕbooｋ•cｏm•cｏm"), \
-        re.compile(r"ｈtｔｐs://wｗｗ•hｅｔuｂooｋ\.ｃｏｍ\.cｏｍ"), re,compile(r"ｍ.hｅｔubｏok•cｏm.ｃｏｍ"), \
-        re.compile(r"ｈetuｂｏｏｋ•coｍ•ｃom"), re.compile(r"https://www\."), re.compile(r"www\.") \
-        ]
 
+def append_chapter_content(fname, title, contents):
+
+    # wite content into file
+    with open(fname, "w+", encoding='utf-8') as fd:
+        fd.write("正文 {}\n\n\n".format(title))
+        fd.write("{}\n\n\n\n\n\n\n".format(contents))
+
+    fd.close
+    
+    return None
 
 def scrape_chapter(chapter, fname, purl, debug=False):
     """scrape chapter and its contents
@@ -173,8 +124,8 @@ def scrape_chapter(chapter, fname, purl, debug=False):
         if debug and len(re.findall(substr, ch_content)) >0:
             print("\nw/ {}: \n{}".format(substr, re.findall(substr, ch_content)))
         
-        # ch_content = re.sub(substr, '', ch_content)
-        # append_chapter_content(chapter[0], )
+        ch_content = re.sub(substr, '', ch_content)
+        append_chapter_content(fname, chapter[0], ch_content)
 
     if debug:
         print("\nChapter contents: \n{}".format(ch_content))
@@ -210,8 +161,10 @@ def parse_chapters(main_soup, purl, fname, debug=False):
     cnt = 0
     for chapter in chapters:
         scrape_chapter(chapter, fname, purl)
-        time.sleep(1)
-
+        time.sleep(0.5)
+        cnt += 1
+        if cnt%10 == 0:
+            print("Scraping done on: {}".format(chapter[0]))
 
     return None
 
