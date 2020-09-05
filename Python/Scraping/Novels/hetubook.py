@@ -77,7 +77,7 @@ def reRmStr(s, e):
 def append_chapter_content(fname, title, contents):
 
     # wite content into file
-    with open(fname, "w+", encoding='utf-8') as fd:
+    with open(fname, "a+", encoding='utf-8') as fd:
         fd.write("正文 {}\n\n\n".format(title))
         fd.write("{}\n\n\n\n\n\n\n".format(contents))
 
@@ -125,7 +125,8 @@ def scrape_chapter(chapter, fname, purl, debug=False):
             print("\nw/ {}: \n{}".format(substr, re.findall(substr, ch_content)))
         
         ch_content = re.sub(substr, '', ch_content)
-        append_chapter_content(fname, chapter[0], ch_content)
+    
+    append_chapter_content(fname, chapter[0], ch_content)
 
     if debug:
         print("\nChapter contents: \n{}".format(ch_content))
@@ -161,9 +162,9 @@ def parse_chapters(main_soup, purl, fname, debug=False):
     cnt = 0
     for chapter in chapters:
         scrape_chapter(chapter, fname, purl)
-        time.sleep(0.5)
+        time.sleep(0.3)
         cnt += 1
-        if cnt%10 == 0:
+        if cnt%50 == 0:
             print("Scraping done on: {}".format(chapter[0]))
 
     return None
