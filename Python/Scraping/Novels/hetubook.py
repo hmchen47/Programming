@@ -5,6 +5,7 @@ import requests
 import re
 import time
 import random
+from selenium import webdriver
 from bs4 import BeautifulSoup
 
 def parse_book_info(main_pg, debug=False):
@@ -61,7 +62,7 @@ def write_book_info(fname, info, debug=False):
 
         intro_txt = syntax_chk(''.join(info[2]))
 
-        fd.write("本書簡介：\n\n{}\n\n\n\n".format(intro_txt))
+        fd.write("內容簡介:\n\n{}\n\n\n\n".format(intro_txt))
 
     fd.close
     
@@ -83,6 +84,7 @@ def append_chapter_content(fname, title, contents):
         fd.write("{}\n\n\n\n\n\n\n".format(contents))
 
     fd.close
+    time.sleep(0.5)
     
     return None
 
@@ -105,16 +107,30 @@ def scrape_chapter(chapter, fname, purl, debug=False):
 
     soup = BeautifulSoup(ch_pg.text, "html.parser")
 
-    contents = soup.find('div', id='content').find_all('div')
+    if debug:
+        print("\nchapter HTML contents: \n\n{}\n".format(soup))
+
+    contents = soup.find('div', id='content').find_all_next('div')
+
+    if debug:
+        print("\nBeautifulSoup HTML contents: \n\n{}\n".format(contents))
 
     ch_paragraphs = []
     for paragraph in contents:
-        ch_paragraphs.append(paragraph.text.strip())
+    #     if len(paragraph.contents) > 0:
+    #         if debug:
+    #             print("Paragraph before decompose: \n{}".format(paragraph))
+    
+    #         paragraph = paragraph.decompose()
+    
+    #         if debug:
+    #             print("Paragraph after decompose: \n{}".format(paragraph))
+        ch_paragraphs.append(paragraph.get_text())
 
     ch_content = "    "+'\n\n    '.join(ch_paragraphs)
 
     rm_substrs = [re.compile(r"和_圖_書"), re.compile(r"和-圖-書"), re.compile(r"和圖書"), re.compile(r"和\*圖\*書")]
-    for start in [r"h", r"m", r"w", r"ｈ", r"ｍ", r"ｗ", r"k", r"ｋ"]:
+    for start in [r"h", r"ｈ", r"m", r"ｍ", r"w", r"ｗ", r"k", r"ｋ", r"•", r"\."]:
         for end in [r"m", r"ｍ", r"ｏ", r"o", r"\.", r"/", r"•"]:
             rm_substrs.append(reRmStr(start, end))
 
@@ -126,11 +142,14 @@ def scrape_chapter(chapter, fname, purl, debug=False):
             print("\nw/ {}: \n{}".format(substr, re.findall(substr, ch_content)))
         
         ch_content = re.sub(substr, '', ch_content)
+
+    ch_content = re.sub(r"•", "", ch_content)
+    ch_content = re.sub(r"\.", "", ch_content)
     
     append_chapter_content(fname, chapter[0], ch_content)
 
     if debug:
-        print("\nChapter contents: \n{}".format(ch_content))
+        print("\nChapter contents: \n\n{}".format(ch_content))
 
     return None
 
@@ -173,10 +192,13 @@ def parse_chapters(main_soup, purl, fname, debug=False):
         if chapter[1] == None:
             write_vol(chapter, fname)
         else:
-            scrape_chapter(chapter, fname, purl)
-        time.sleep(1)
-        # time.sleep(random.uniform(0.3, 1.0))
+            scrape_chapter(chapter, fname, purl, debug)
+
+        time.sleep(0.5)
+        # time.sleep(random.uniform(1.0, 2.0))
         cnt += 1
+        if cnt == 1:
+            break;
         if cnt%50 == 0:
             print("Scraping done on: {}".format(chapter[0]))
 
@@ -197,6 +219,10 @@ def write_endnote(fname, info, url):
 
 def main(purl, burl, headers, debug=False):
 
+    # driver = webdriver.Chrome()
+
+    # driver.get(url)
+
     main_pg = requests.get(purl+burl, headers=headers)
     if main_pg.status_code != 200:
         print("\nreturn main web page status code: {}".format(main_pg.status_code))
@@ -211,7 +237,8 @@ def main(purl, burl, headers, debug=False):
     
     write_book_info(fname, [title, author, intro])
     
-    parse_chapters(soup, purl, fname, debug)
+    parse_chapters(soup, purl, fname)
+    # parse_chapters(soup, purl, fname, debug)
 
     write_endnote(fname, [title, author], purl+burl)
 
