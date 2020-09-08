@@ -31,6 +31,8 @@ Contents
     + [Exercises and Notes]
 + Scraping
   + [WebScraping: Python Beautiful Soup Web Scraping Bootcamp](./Python/Scraping/WebScraping-Udemy/README.md)
+  + Projects
+    + [Hetubook Novel Scraping](./Python/Scraping/Novels/hetubook.py)
 + [UnitTesting]
 + [Miscellaneous]
 
