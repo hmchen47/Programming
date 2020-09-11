@@ -378,32 +378,35 @@ Contents
 ## Keywords for Git Commits
 
   <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 50vw;">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y443as9e">Semantic Commit Messages</a></caption>
     <thead>
-    <tr style="border-bottom: double black;">
-      <th style="width: 15vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Symbol </th>
-      <th style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em; color: darkblue;"> Description </th>
+    <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+      <th colspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code><br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;type&gt;</code>: chore, docs, feat, fix, refactor, style, or test<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;subject&gt;</code>: summary in present tense <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;scope&gt;</code>: (optional) anything specifying place of the commit change </th>
     </tr>
     </thead>
     <tbody>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  feat </th>
-      <td style="padding: 0.3em;">  new feature </td>
+      <td style="padding: 0.3em;"> new feature for the user, not a new feature for build script; introduces a new feature to the codebase </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  fix </th>
-      <td style="padding: 0.3em;"> a bug fix </td>
+      <td style="padding: 0.3em;"> fixes (e.g. typos, linter rules, broken links/imports, etc.) </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  docs </th>
-      <td style="padding: 0.3em;">  changes to documentation </td>
+      <td style="padding: 0.3em;"> changes to the documentation </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  style </th>
       <td style="padding: 0.3em;"> format, missing semicolons, etc.; no code change </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  refact </th>
-      <td style="padding: 0.3em;"> refactoring production code </td>
+      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  refactor </th>
+      <td style="padding: 0.3em;"> refactoring production code, eg. renaming a variable, changing algorithm, revising code for performance </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
       <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  test </th>
