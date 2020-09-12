@@ -196,7 +196,7 @@ Note that Verified certificates do not include your final grade in the course. Y
 
 #### About the Verified certificate
 
-A sample of a Verified Certificate from edXA verified certificate from edX can provide proof for an employer, school, or other institution that you have successfully completed an online course, so that to get a better/new job, a promotion, or a college application.
+A verified certificate from edX can provide proof for an employer, school, or other institution that you have successfully completed an online course, so that to get a better/new job, a promotion, or a college application.
 
 Earn your edX verified certificate and share it with the world: you can share your Web certificates (see sample on the right) on __Facebook__, __LinkedIn__, and __Twitter__. Learn more about [Verified Certificates](https://www.edx.org/verified-certificate)
 
