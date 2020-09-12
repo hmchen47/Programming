@@ -183,6 +183,27 @@ Purchase [the HTML5 Coding Essentials and Best Practices Verified Certificate](h
 
 
 
+### Verified certificate
+
+To earn a verified certificate from this W3Cx course, you enroll in or upgrade to the verified track in the course, pay the certificate fee, [verify your identity](https://tinyurl.com/yxh9obxb) using a webcam and a photo ID, and earn a passing grade.
+
+There are assignments (or exercises) all over the course. It is strongly suggested that you complete the exercises as promptly as possible at the end of each module of the course.
+
+As soon as you reach the minimum passing score (70%), your self-paced certificate will be __automatically delivered__. The certificate then appears on your dashboard and Progress page.
+
+Note that Verified certificates do not include your final grade in the course. Your final grade appears on your __Progress__ page and on your dashboard. If you need a record of your grade, you can print your __Progress__ page or dashboard. This course does not offer Honor of Code certificates.
+
+
+#### About the Verified certificate
+
+A sample of a Verified Certificate from edXA verified certificate from edX can provide proof for an employer, school, or other institution that you have successfully completed an online course, so that to get a better/new job, a promotion, or a college application.
+
+Earn your edX verified certificate and share it with the world: you can share your Web certificates (see sample on the right) on __Facebook__, __LinkedIn__, and __Twitter__. Learn more about [Verified Certificates](https://www.edx.org/verified-certificate)
+
+
+
+
+
 ## Course forums
 
 
