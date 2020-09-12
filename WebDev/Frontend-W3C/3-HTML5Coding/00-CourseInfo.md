@@ -28,33 +28,34 @@ The HTML5 course team is thrilled to guide you in your learning experience. We a
 
 If you're new to edX here is some information to get you started.
 
-You are also welcome to register to DemoX, which is a fun and interactive edX course designed to help you explore the edX learning experience.
+You are also welcome to register to [DemoX](https://www.edx.org/course/demox), which is a fun and interactive edX course designed to help you explore the edX learning experience.
 
 
 #### Layout of the course
 
 This course is composed of 6 weeks/modules. Each module is made of units which goes over all the material you need to learn for the module 's topic. To navigate through the module 's units, use the navigation bar at the top. You can use the left and right arrows to move through each unit.
 
-Each unit generally has some video content, reading material, an activity, and one or two questions to test your knowledge. Those questions are called "knowledge checks". The units are meant to be taken in order but you can skip around if you already have mastered the material in a particular unit. In order to do well on the exercises (and the final exam!) that is the end of each module, you should learn the material in all the units.
+Each unit generally has some video content, reading material, an activity, and one or two questions to test your knowledge. Those questions are called "_knowledge checks_". The units are meant to be taken in order but you can skip around if you already have mastered the material in a particular unit. In order to do well on the exercises (and the final exam!) that is the end of each module, you should learn the material in all the units.
 
 
 #### Bookmarks
 
-You can bookmark one or more pages (up to 100), i.e., to mark course content so that you can come back to it later (see image below). Please read the related documentation.
+You can bookmark one or more pages (up to 100), i.e., to mark course content so that you can come back to it later (see image below). Please read the [related documentation](https://tinyurl.com/y5kzc6sf).
 
 
 #### Progress indicators or check marks
 
 You will notice that green check marks appear when you complete content on the unit level and the subsection level. A "completed" unit is a unit where the learner has answered every problem, watched every video all the way through, and viewed the unit page for at least five seconds.
 
-These check marks are intended as a way for you to keep track of your progress through the course, and they do not impact grades, course completion, or the ability to earn a certificate. Read this documentation to find more.
+These check marks are intended as a way for you to keep track of your progress through the course, and __they do not impact grades, course completion, or the ability to earn a certificate__. Read [this documentation](https://tinyurl.com/y2q6sevt) to find more.
 
 
 #### Instructor feedback
 
-Given the nature of this MOOC-style course and the large number of students enrolled, we encourage you to seek help and feedback from your fellow students using the discussion boards (or forums). This is a great way to help each other out and enrich your learning experience.
+Given the nature of this MOOC-style course and the large number of students enrolled, we encourage you to seek help and feedback from your fellow students using the __discussion boards (or forums)__. This is a great way to help each other out and enrich your learning experience.
 
-Note: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
+
+__Note__: If you wish to share your HTML code in the discussions, you can paste your code directly in a discussion forum post (highlight code and Ctrl+K/use the code widget) or use one of the following online code editors:
 
 + JS Bin: https://jsbin.com ([JS Bin tutorial](https://tinyurl.com/yxrpoqek))
 + CodePen: https://codepen.io ([CodePen tutorial](https://css-tricks.com/video-screencasts/112-using-codepen/))
