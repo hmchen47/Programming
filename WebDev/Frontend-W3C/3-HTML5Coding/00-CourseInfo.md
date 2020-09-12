@@ -157,8 +157,8 @@ __The score required to pass this course is 70%.__
 
 #### You are not going to be graded on ...
 
-+In the "About the Web and W3C" sub-section, we provide 2 simple quizzes. They do not count in the final grade.
-+There are ungraded questions at the end of some pages. Each of these is called "knowledge check", and, as the name indicates it, they are designed to test your retention of the knowledge, page after page.
++ In the "About the Web and W3C" sub-section, we provide 2 simple quizzes. They do not count in the final grade.
++ There are ungraded questions at the end of some pages. Each of these is called "knowledge check", and, as the name indicates it, they are designed to test your retention of the knowledge, page after page.
 
 
 
