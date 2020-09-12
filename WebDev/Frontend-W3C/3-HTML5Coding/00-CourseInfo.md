@@ -161,6 +161,25 @@ __The score required to pass this course is 70%.__
 + There are ungraded questions at the end of some pages. Each of these is called "knowledge check", and, as the name indicates it, they are designed to test your retention of the knowledge, page after page.
 
 
+### Due dates
+
+"HTML5 Coding Essentials and Best Practices" is a self-paced course that do not follow a set schedule. All course materials are completely available as soon as the course begins. Assignments (or exercises) and exams do not have start or due dates other than the official end date of the course.
+
+=> _The course shows indicators for graded assignments, but no due dates._
+
+The free (audit track) and the paid (verified track) options are available in this course. It means that:
+
++ __Free__ or __Audit track__: All course materials and activities (at the exception of all exercises and final exam) are available to you for 6 weeks from the time you enroll. Students who audit courses are able to access ungraded assessments (knowledge checks, projects and activities) within that limited period.
++ __Paid__ or __Verified track__: All course materials, activities, and assessments (exercises) are available to you until the end date of this course. After the course ends, you will still have access to the material, but you will no longer be able to submit graded assignments or earn a certificate.
+
+Read also: [What are the differences between audit (free) and verified (paid) courses?](https://tinyurl.com/r8otv43)
+
+
+#### Purchase the course's Verified Certificate
+
+This self-paced course offers edX-generated certificates, meaning that, after you have completed all course requirements, a certificate is generated automatically. edX verified certificates are generated in PDF format.
+
+Purchase [the HTML5 Coding Essentials and Best Practices Verified Certificate](https://ecommerce.edx.org/basket/add/?sku=6D55AAD) now, and get access to all course materials including graded assignments, and have unlimited access to this course material to keep on learning!
 
 
 
