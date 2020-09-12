@@ -293,7 +293,20 @@ The discussion forum helps improve your ability to search and talk about many di
 
 ## Course tools
 
+### Web browsers
 
+Not surprisingly, it would be helpful to have a browser (short for "Web Browser") installed so that you can see the end result of your source code.
+
+Most common browsers for the desktop are Microsoft Edge (and IE), Firefox, Chrome, Safari, Brave, etc.
+
+Look for the [history of Web browsers](https://tinyurl.com/yyp4lo2c) (on Wikipedia). An interesting resource is the [Browser and Platform Market Share](https://tinyurl.com/zk7er8v) (updated regularly).
+
+
+#### Viewing your work
+
+There are a couple of easy ways you can use a browser to view your work.
+
+First, you open the file in your browser. Typically, if you navigate to an html file and open it, the system will open it with a browser by default.
 
 
 
