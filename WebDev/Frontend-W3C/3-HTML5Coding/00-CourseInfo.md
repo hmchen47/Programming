@@ -132,6 +132,35 @@ These are HTML, CSS, and JavaScript interactive online code editors that preview
 + 6.6 Course evaluation
 
 
+### Grading policy
+
+#### Passing
+
+This course is graded as pass/fail, meaning you will either be given a passing score or a failing score.
+
+__The score required to pass this course is 70%.__
+
+#### You are going to be graded on...
+
+1. Week exercises
+
+  At the end of each module, there are a few questions, named after "Exercises - Week x" (where x is the number of a week). These are designed to assess your progress in the course, module after module. Questions are in the form of multiple choice and check boxes.
+
+  _All exercises count towards 75% of the grade._
+
+2. Final exam
+
+  The final exam is available at the end of Week 6. The final exam consists of questions (multiple choice and check boxes) covering the entirety of the course.
+
+  _The final exam counts towards 25% of the grade._
+
+
+#### You are not going to be graded on ...
+
++In the "About the Web and W3C" sub-section, we provide 2 simple quizzes. They do not count in the final grade.
++There are ungraded questions at the end of some pages. Each of these is called "knowledge check", and, as the name indicates it, they are designed to test your retention of the knowledge, page after page.
+
+
 
 
 
