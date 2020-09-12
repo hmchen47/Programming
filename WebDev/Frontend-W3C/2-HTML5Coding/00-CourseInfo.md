@@ -282,14 +282,12 @@ The discussion forum helps improve your ability to search and talk about many di
 + At the end of some pages, there is a link at the bottom which says “show discussion.” Clicking on this link will show all the discussion on the forum associated with this particular video or problem.
 + Be very specific about where you need help. Are you stuck on a particular part of the problem? Do you need help understanding a particular concept? What have you tried doing so far?
 + Use a descriptive and specific title to your post. This will attract the attention of other learners having the same issue.
-
-  + Use “netiquette,” or common writing practices for online communication. For example:
++ Use “netiquette,” or common writing practices for online communication. For example:
   + Avoid TYPING IN ALL CAPS. Some people read this as shouting, even if that is not what you mean to convey.
   + Avoid unnecessary symbols, abbreviated words, texting shorthand, and replacing words with numbers (e.g. Pls don’t rplce wrds w/#s).
   + Avoid repeating letters or characters like this: reeepeeaattingggg chaaracterrrss
   + Avoid excessive punctuation if possible (e.g. !!!!!!!! or ??????)
   + It’s fine to make suggestions, but avoid negative commentary and please do not “flame” anyone.
-
 
 
 
