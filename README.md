@@ -20,15 +20,15 @@ Contents
     5. [Capstone: Retrieving, Processing, and Visualization Data with Python](./Python/MoU/5.Capstone/README.md)
 + [Learn Python the Hard Way](./Python/PythonHardway/README.md)
 + MIT w/ edX
-    + [Computing Thinking - MIT6.00SC](./Python/MIT-CompThinking/MIT6.00SC/README.md)
-    + [Introduction to Computer Science and Programming Using Python - 6.00.1x](./Python/MIT-CompThinking/MIT600.1x/README.md)
-    + [Introduction to Computational Thinking and Data Science - 6.00.2x](./Python/MIT-CompThinking/MIT600.2x/README.md)
+  + [Computing Thinking - MIT6.00SC](./Python/MIT-CompThinking/MIT6.00SC/README.md)
+  + [Introduction to Computer Science and Programming Using Python - 6.00.1x](./Python/MIT-CompThinking/MIT600.1x/README.md)
+  + [Introduction to Computational Thinking and Data Science - 6.00.2x](./Python/MIT-CompThinking/MIT600.2x/README.md)
 + Jupyter Notebooks
-    + [iPython Notebook Tutorial]
-    + [Data Processing Using Python]
-    + [Python 3 OO Notebook]
-    + [Webscrapr]
-    + [Exercises and Notes]
+  + [iPython Notebook Tutorial]
+  + [Data Processing Using Python]
+  + [Python 3 OO Notebook]
+  + [Webscrapr]
+  + [Exercises and Notes]
 + [Scraping]
 + [UnitTesting]
 + [Miscellaneous]
@@ -37,21 +37,21 @@ Contents
 ## Web Development
 
 + Front-End Web Developer - W3C, edX (2019)
-    1. [HTML5 and CSS Fundamentals](./WebDev/Frontend-W3C/1-HTML5CSSFund/README.md)
-    2. [HTML5 Coding Essentials and Best Practices](./WebDev/Frontend-W3C/2-HTML5Coding/README.md)
-    3. [HTML5 Apps and Games](./WebDev/Frontend-W3C/3-HTML5AppGame/README.md)
-    4. [Basic CSS](./WebDev/Frontend-W3C/4-CSSBasics/README.md)
-    5. [JavaScript Introduction](./WebDev/Frontend-W3C/5-JSIntro/README.md)
+  1. [HTML5 and CSS Fundamentals](./WebDev/Frontend-W3C/1-HTML5CSSFund/README.md)
+  2. [HTML5 Coding Essentials and Best Practices](./WebDev/Frontend-W3C/2-HTML5Coding/README.md)
+  3. [HTML5 Apps and Games](./WebDev/Frontend-W3C/3-HTML5AppGame/README.md)
+  4. [Basic CSS](./WebDev/Frontend-W3C/4-CSSBasics/README.md)
+  5. [JavaScript Introduction](./WebDev/Frontend-W3C/5-JSIntro/README.md)
 
 + Front-End Web Developer - W3C, edX (2018)
-    1.  [HTML5 and CSS Fundamentals](./WebDev/Frontend-W3C/1.HTML5CSS/README.md)
+  1.  [HTML5 and CSS Fundamentals](./WebDev/Frontend-W3C/1.HTML5CSS/README.md)
 
 
 
 ## Java
 
 
-## Exercism
+## LeetCode
 
 
 ## Reference Cards
@@ -368,111 +368,4 @@ Contents
     </tbody>
   </table>
 
-
-------------------------------------
-
-<!--
-[000]: 
-
-[012]: RefCards/HTML_CSS.md#
-[013]: RefCards/HTML_CSS.md#
-[014]: RefCards/HTML_CSS.md#
-[015]: RefCards/HTML_CSS.md#
-[016]: RefCards/HTML_CSS.md#
-[017]: RefCards/HTML_CSS.md#
-[018]: RefCards/HTML_CSS.md#
-[019]: RefCards/HTML_CSS.md#
-[020]: 
-[021]: 
-[022]: 
-[023]: 
-[024]: 
-[025]: 
-[026]: 
-[027]: 
-[028]: 
-[029]: 
-[030]: 
-[031]: 
-[032]: 
-[033]: 
-[034]: 
-[035]: 
-[036]: 
-[037]: 
-[038]: 
-[039]: 
-[040]: 
-[041]: 
-[042]: 
-[043]: 
-[044]: 
-[045]: 
-[046]: 
-[047]: 
-[048]: 
-[049]: 
-[050]: 
-[051]: 
-[052]: 
-[053]: 
-[054]: 
-[055]: 
-[056]: 
-[057]: 
-[058]: 
-[059]: 
-[060]: 
-[061]: 
-[062]: 
-[063]: 
-[064]: 
-[065]: 
-[066]: 
-[067]: 
-[068]: 
-[069]: 
-[070]: 
-[071]: 
-[072]: 
-[073]: 
-[074]: 
-[075]: 
-[076]: 
-[077]: 
-[078]: 
-[079]: 
-[080]: 
-[081]: 
-[082]: 
-[083]: 
-[084]: 
-[085]: 
-[086]: 
-[087]: 
-[088]: 
-[089]: 
-[090]: 
-[091]: 
-[092]: 
-[093]: 
-[094]: 
-[095]: 
-[096]: 
-[097]: 
-[098]: 
-[099]: 
--->
-
-[001]: RefCards/HTML_CSS.md#best-practices
-[002]: RefCards/HTML_CSS.md#tags
-[003]: RefCards/HTML_CSS.md#semantic-elements
-[004]: RefCards/HTML_CSS.md#attributes
-[005]: RefCards/HTML_CSS.md#core-attributes
-[006]: RefCards/HTML_CSS.md#event-handler-attributes
-[007]: RefCards/HTML_CSS.md#css-syntax
-[008]: RefCards/HTML_CSS.md#css-syntax
-[009]: RefCards/HTML_CSS.md#selectors
-[010]: RefCards/HTML_CSS.md#properties
-[011]: RefCards/HTML_CSS.md#measurement-units
 
