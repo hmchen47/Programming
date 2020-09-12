@@ -63,6 +63,69 @@ __Note__: If you wish to share your HTML code in the discussions, you can paste 
 These are HTML, CSS, and JavaScript interactive online code editors that preview/showcase your code bits in your browser. It helps with cross-device testing, real time remote pair programming.
 
 
+### Course outline
+
+#### Course information
+
++ Entrance survey
++ Course outline, grading and due dates
++ Course forums
++ Course tools
++ About W3C and the Web
+
+#### Week 1: HTML5 Basics
+
+1.1 Video introduction - Week 1
+1.2 From HTML1.0 to HTML5
+1.3 Structural elements
+1.4 Other elements and attributes
+1.5 Microdata
+1.6 Exercises - Week 1
+
+#### Week 2: HTML5 Multimedia
+
+2.1 Video introduction - Week 2
+2.2 Streaming multimedia content: the video and audio elements
+2.3 Subtitles and closed captions
+2.4 Webcam, microphone: the getUserMedia API
+2.5 Exercises - Week 2
+
+#### Week 3: HTML5 Graphics
+
+3.1 Video introduction - Week 3
+3.2 Basics of HTML5 canvas
+3.3 Immediate drawing mode: rectangles, text, images
+3.4 Path drawing mode: lines, circles, arcs, curves, etc.
+3.5 Colors, gradients, patterns, shadows, etc.
+3.6 Exercises - Week 3
+
+#### Week 4: HTML5 Animations
+
+4.1 Video introduction - Week 4
+4.2 Basic animation techniques
+4.3 Canvas and user interaction (keyboard, mouse)
+4.4 Exercises - Week 4
+
+#### Week 5: HTML5 Forms
+
+5.1 Video introduction - Week 5
+5.2 Elements and attributes
+5.3 Accessible forms
+5.4 Input types
+5.5 Form attributes
+5.6 Elements related to forms
+5.7 Form validation API
+5.8 Exercises - Week 5
+
+#### Week 6: HTML5 Basic APIs
+
+6.1 Video introduction - Week 6
+6.2 The Web Storage API
+6.3 The File API
+6.4 The Geolocation API
+6.5 Final exam
+6.6 Course evaluation
+
 
 
 ## Course forums
