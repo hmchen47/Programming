@@ -201,7 +201,26 @@ A verified certificate from edX can provide proof for an employer, school, or ot
 Earn your edX verified certificate and share it with the world: you can share your Web certificates (see sample on the right) on __Facebook__, __LinkedIn__, and __Twitter__. Learn more about [Verified Certificates](https://www.edx.org/verified-certificate)
 
 
+### W3C "Front-End Web Developer" professional certificate
 
+Professional Certificate programs are series of courses designed by industry leaders and/or top universities to build and enhance critical professional skills needed to succeed in today's most in-demand fields.
+
+W3C has designed a ["Front-End Web Developer" (FEWD) Professional Certificate](https://tinyurl.com/y8une5sj) where you learn all of the necessary skills needed to build interactive and responsive user experiences on the Web. This program deepens your knowledge of the 3 foundational languages that power the Web: HTML5, CSS and JavaScript. The W3C FEWD program is composed of 5 courses:
+
+1. [HTML5 and CSS Fundamentals](https://tinyurl.com/ya7nwutt)
+2. This course: [HTML5 Coding Essentials and Best Practices](https://tinyurl.com/yb5x48w4)
+3. [HTML5 Apps and Games](https://tinyurl.com/ybm7lrkk)
+4. [CSS Basics](https://www.edx.org/course/css-basics)
+5. [JavaScript Introduction](https://www.edx.org/course/javascript-introduction)
+
+
+#### Receive a Professional Program Certificate
+
+logo of the Font-End Web Developer Professional Certificate ProgramYou receive a certificate for the "Front-End Web Developer" (FEWD) Professional Certificate automatically after you earn verified certificates for all the 5 individual courses in the [program](https://tinyurl.com/y8une5sj). Note that the [dashboard link to Front-End Web Developer Program](https://tinyurl.com/y5dq242k) displays upgrade links to all of the courses in the program AND offer the option to "upgrade all remaining courses" in bulk.
+
+A FEWD program certificate is distributed immediately after you receive all verified certificates in the program. Earn a professional certificate of achievement stamped by W3C!
+
+__IMPORTANT__: If you already have a verified certificate in one or more of these courses, you do NOT need to re-take that course.
 
 
 ## Course forums
