@@ -166,7 +166,18 @@ In the video below, Philippe tells the story on how HTML5 has been developed by 
 [Transcript](https://tinyurl.com/y52o9rdo)
 
 
+### 1.2.4 The HTML5 logo
 
+Here is the HTML5 logo! It has been [unveiled on 18 January 2011](https://tinyurl.com/y2tc2m7u), so way before HTML5 became a Web standard. This logo represents HTML5, the cornerstone for modern Web applications.
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/yxqy752v" ismap target="_blank">
+    <img src="https://tinyurl.com/y4tw5k68" style="margin: 0.1em;" alt="HTML5 logo" title="HTML5 logo" width=200>
+  </a>
+</div>
+
+
+Please check out both the HTML5 [logo home page](https://www.w3.org/html/logo/) and the [FAQ page](https://www.w3.org/html/logo/faq.html) for more information on how to use the logo, etc. You will notably find out that this logo does not imply validity or conformance, and that you are welcome to be creative and make it fit into your own designs. 
 
 
 
