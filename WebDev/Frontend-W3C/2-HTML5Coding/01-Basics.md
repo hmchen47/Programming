@@ -16,6 +16,26 @@
 ## 1.2 From HTML1.0 to HTML5
 
 
+### 1.2.0 Lecture Notes
+
++ HTML
+  + a.k.a. HyperText Markup Language
+  + the authoring language used to create documents on the World Wide Web
+  + defining the structure and layout of a Web page
+  + using tags w/ attributes
+  + `DOCTYPE`: Document Type Declaration, a piece of HTML code that states which version of HTML
+  + e.g., `<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">`
+  + version
+    + HTML: 1991
+    + HTML+: 1993
+    + HTML2.0: 1995
+    + HTML3.2: 1997
+    + HTML4.01: 1999
+    + XHTML1/0: 2000
+    + HTML5: Oct. 2014
+
+
+
 ### 1.2.1 History of HTML versions
 
 HTML stands for __HyperText Markup Language__, and it is the authoring language used to create documents on the World Wide Web. HTML is used to define the structure and layout of a Web page, how a page looks and any special functions. HTML does this by using tags that have attributes. For example `<p>` means a paragraph. As the viewer of a Web page you don't see the HTML as it is hidden from your view - you just see the results. But you all know that!
@@ -76,7 +96,7 @@ For example: `<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">` tells that the
   </tbody>
 </table>
 
-For those of you who are curious, the W3C published a document laying down the HTML5 Differences from HTML4 (the document was published in December 2014, shortly after the release of HTML5). Read also the history section available in the HTML5.1 specification document.
+For those of you who are curious, the W3C published a document laying down the [HTML5 Differences from HTML4](https://www.w3.org/TR/html5-diff/) (the document was published in December 2014, shortly after the release of HTML5). Read also the [history section](https://tinyurl.com/yxuafev4) available in the HTML5.1 specification document.
 
 
 #### Knowledge check 1.2.1
@@ -93,9 +113,6 @@ What does the HTML acronym mean?<br/>
 
 
 
-
-
-### Lecture Notes
 
 
 
