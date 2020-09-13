@@ -403,6 +403,25 @@ The [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/) p
 The [W3C Link Checker](https://validator.w3.org/checklink) looks for issues in links, anchors and referenced objects in a Web page, CSS style sheet, or recursively on a whole Web site. For best results, it is recommended to first ensure that the documents checked use valid [(X)HTML Markup](https://validator.w3.org/) and [CSS](https://jigsaw.w3.org/css-validator/).
 
 
+### W3C cheatsheet
+
+The [W3C cheatsheet](https://www.w3.org/2009/cheatsheet/) provides quick access to useful information from a variety of specifications published by W3C. It aims at giving in a very compact and mobile-friendly format a compilation of useful knowledge extracted from W3C specifications, completed by summaries of guidelines developed at W3C, in particular Web accessibility guidelines, the Mobile Web Best Practices, and a number of internationalization tips.
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://www.w3.org/2009/cheatsheet/" ismap target="_blank">
+    <img src="img/00-01_W3Ccheatsheet.png" style="margin: 0.1em;" alt="W3C Cheatsheet snapshot image" title="W3C Cheatsheet snapshot image" width=350>
+  </a>
+</div>
+
+
+Its main feature is a lookup search box, where one can start typing a keyword and get a list of matching properties/elements/attributes/functions in the above-mentioned specifications, and further details on those when selecting the one of interest.
+
+The W3C cheatsheet is only available as a [pure Web application](https://tinyurl.com/yym4a4t2).
+
+
+
+
 
 ## About W3C and the Web
 
