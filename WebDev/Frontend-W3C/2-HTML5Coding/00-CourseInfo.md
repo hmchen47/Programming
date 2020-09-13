@@ -436,15 +436,43 @@ If you're looking to an easy way to dive into this standardization processes, ch
 
 #### Shape the future
 
-Logo of the W3C Web Incubator Community GroupAnother approach is to go and bring feedback on ideas for future technologies: [the W3C Web Platform Community Incubator Group](https://wicg.io/) was built as an easy place to get started to provide feedback on new proposals or bring brand-new proposals for consideration.
+Another approach is to go and bring feedback on ideas for future technologies: [the W3C Web Platform Community Incubator Group](https://wicg.io/) was built as an easy place to get started to provide feedback on new proposals or bring brand-new proposals for consideration.
 
 Happy Web building!
-
 
 
 ## About W3C and the Web
 
 
+### What is W3C?
+
+__As steward of global Web standards, W3C's mission is to safeguard the openness, accessibility, and freedom of the World Wide Web from a technical perspective.__
+
+W3C's primary activity is to develop protocols and guidelines that ensure long-term growth for the Web. The widely adopted Web standards define key parts of what actually makes the World Wide Web work.
+
+
+#### A few history bits
+
+[Tim Berners-Lee](https://tinyurl.com/yytm8n5y) wrote a [proposal](https://tinyurl.com/hafv55w) in 1989 for a system called the World Wide Web. He then created the first Web browser, server, and Web page. He wrote the first specifications for URLs, HTTP, and HTML.
+
+In October 1994, Tim Berners-Lee founded the World Wide Web Consortium (W3C) at the Massachusetts Institute of Technology, Laboratory for Computer Science [MIT/LCS] in collaboration with [CERN](https://home.cern/), where the Web originated (see information on the [original CERN Server](https://www.w3.org/Daemon/)), with support from DARPA and the [European Commission](https://ec.europa.eu/index_en.htm).
+
+In April 1995, [Inria](https://www.inria.fr/) became the first European W3C host, followed by [Keio University of Japan](https://www.keio.ac.jp/) (Shonan Fujisawa Campus) in Asia in 1996. In 2003, [ERCIM](https://www.ercim.eu/) took over the role of European W3C Host from Inria. In 2013, W3C announced [Beihang University](https://ev.buaa.edu.cn/) as the fourth Host.
+
+In addition to these four Host locations that employ W3C staff, there are [W3C Offices](https://www.w3.org/Consortium/Offices/staff) around the globe that support the developer communities in their regions and organize local events. Find the one next to your place!
+
+
+#### A few figures
+
+As of June 2020, W3C:
+
++ Is a [member](https://www.w3.org/Consortium/Member/List)-driven organization composed of nearly 430 companies, universities, start-ups, etc. from all over the world.
++ Holds 44 [technical groups](https://www.w3.org/groups/), including Working and Interest Groups where technical specifications are discussed and developed.
++ Published over 7,181 [published technical reports](https://www.w3.org/TR/), including 430 Web standards (or W3C Recommendations) - since January 1st,1995.
++ Runs a [translation program](https://www.w3.org/Consortium/Translation/) to foster the translation of its specifications: see the [translation matrix](https://www.w3.org/Consortium/Translation/matrix.html) currently listing 304 available translations of W3C recommendations.
++ Hosts 337 [Community and Business Groups](https://www.w3.org/community/groups/), where developers, designers, and anyone passionate about the Web have a place to hold discussions and publish ideas.
++ Gathers over 12,912 active participants constituting the W3C community.
++ Has a [technical staff](https://www.w3.org/People/) composed of 64 people, spread on all five continents.
 
 
 
