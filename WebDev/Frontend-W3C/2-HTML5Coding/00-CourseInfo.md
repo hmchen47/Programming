@@ -234,6 +234,7 @@ When you make a contribution in a course discussion topic, you add your post as 
 
 + A question post raises an issue so that members of the discussion administration team and the course community can provide answers -- a question mark image identifies posts that ask questions
 + A discussion post starts a conversation by sharing thoughts and reflections, and inviting community participation.
+
 As shown on the right, a question mark icon "?" identifies posts that ask questions and a conversation bubble image identifies posts that start discussions.
 
 To review posts about a particular part of the course or type of issue, select __Discussion__ at the top of the page and then select a topic from the drop- down list. (All __Discussions__ is selected by default.) Only posts about the topic you select appear in the list of posts.
@@ -578,7 +579,7 @@ Example:
 
 Text alternatives ("alt text") are a primary way of making visual information accessible, because they can be rendered through any sensory modality (for example, visual, auditory or tactile) to match the needs of the user. Providing text alternatives allows the information to be rendered in a variety of ways by a variety of user agents. For example, a person who cannot see a picture can have the text alternative read aloud using synthesized speech.
 
-__Check #2: Every image has alt with appropriate alternative text.__
+__Check #2: Every image has `alt` with appropriate alternative text.__
 
 Example: See the W3C logo below. It contains a link that points to the W3C Web site. The text alternative is going to be a brief description of the link target.
 
