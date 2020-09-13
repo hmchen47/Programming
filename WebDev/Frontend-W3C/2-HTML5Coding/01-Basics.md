@@ -107,9 +107,36 @@ What does the HTML acronym mean?<br/>
   c. HyperText Markup Language<br/>
   d. Hot Text Maker Language<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: c
 
+
+### 1.2.2 What is HTML5?
+
+On 28 October 2014, the W3C officially published HTML5 as a Web standard (or recommendation of HTML5). HTML5 is the fifth major revision of the format used to build Web pages and applications.
+
+HTML5 contains __powerful capabilities for Web-based applications__ with more interaction, video support, graphics, more styling effects, and a full set of APIs. __HTML5 adapts to any device__, be it a desktop, mobile, tablet, or television device. HTML5 is an open platform developed under royalty free licensing terms.
+
+People use the term HTML5 in two ways:
+
++ __to refer to a set of technologies that together form the future Open Web Platform.__ These technologies include [HTML5 specification](https://www.w3.org/TR/html5), [CSS](https://www.w3.org/Style/CSS/current-work), [SVG](https://www.w3.org/TR/SVG/), [MathML](https://www.w3.org/TR/MathML/), [Geolocation](https://www.w3.org/TR/geolocation-API/), [XMLHttpRequest](https://www.w3.org/TR/XMLHttpRequest/), [2D Context](https://www.w3.org/TR/2dcontext/), [Web Fonts (WOFF)](https://www.w3.org/TR/WOFF) and others. The boundary of this set of technologies is informal and changes over time.
++ __to refer to the [HTML5 specification](https://www.w3.org/TR/html5)__, which is, of course, also part of the Open Web Platform.
+
+Although it would be great if people used one term to refer to the specification and another term to refer to the set of specifications, in practice people use the term both ways.
+
+When HTML5 became a Web standard, Tim Berners-Lee, Web inventor and W3C Director said:
+
+> "Today we think nothing of watching video and audio natively in the browser, and nothing of running a browser on a phone. We expect to be able to share photos, shop, read the news, and look up information anywhere, on any device. Though they remain invisible to most users, HTML5 and the Open Web Platform are driving these growing user expectations."
+
+
+#### Knowledge check 1.2.2
+
+When did the W3C officially published the HTML5 standard?<br/>
+  a. 28 october 2015<br/>
+  b. 18 october 2014<br/>
+  c. 28 october 2014<br/>
+  d. 8 october 2000<br/>
+
+  Ans: 
 
 
 
