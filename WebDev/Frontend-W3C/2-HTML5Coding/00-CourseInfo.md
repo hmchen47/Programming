@@ -333,7 +333,7 @@ To help you practice during the whole duration of the course, we use the followi
 
   JS Bin is an open source collaborative Web development debugging tool. Most of the examples that are in this course are on JSBin.
 
-  Tutorials can be found on the Web (such as this one) or on YouTube. The tool is really simple, just open the link to the provided examples, look at the code, look at the result, etc. And you can modify the examples as you like, you can also modify / clone / save / share them. Keep in mind that it's always better to be logged in (it's free) if you do not want to lose your contributions/personal work.
+  Tutorials can be found on the Web (such as [this one](https://tinyurl.com/yxrpoqek)) or on YouTube. The tool is really simple, just open the link to the provided examples, look at the code, look at the result, etc. And you can modify the examples as you like, you can also modify / clone / save / share them. Keep in mind that it's always better to be logged in (it's free) if you do not want to lose your contributions/personal work.
 
 + __CodePen__ (https://codepen.io/)
 
@@ -342,6 +342,36 @@ To help you practice during the whole duration of the course, we use the followi
 Here's an article of interest if you use CodePen: [Things you can do with CodePen](https://tinyurl.com/y2hmvmjn) [Brent Miller, February 6, 2019].
 
 There are many other handy tools such as [JSFiddle](https://tinyurl.com/gwvkoph), and [Dabblet](https://tinyurl.com/yxcsgho7). Please share your favorite tool on the discussion forum, and explain why! Share also your own code contributions, such as a nice canvas animation, a great looking HTML5 form, etc.
+
+
+### Browser compatibility
+
+The term browser compatibility refers to the ability of a given Web site to appear fully functional on the browsers available in the market.
+
+The most powerful aspect of the Web is what makes it so challenging to build for: its universality. When you create a Web site, you’re writing code that needs to be understood by many different browsers on different devices and operating systems!
+
+To make the Web evolve in a sane and sustainable way for both users and developers, browser vendors work together to standardize new features, whether it’s a new [HTML element](https://tinyurl.com/l69mahr), [CSS property](https://tinyurl.com/y44pjn6o), or [JavaScript API](https://tinyurl.com/m3r6r7c). But different vendors have different priorities, resources, and release cycles — so it’s very unlikely that a new feature will land on all the major browsers at once. As a Web developer, this is something you must consider if you’re relying on a feature to build your site.
+
+We are then providing references to the browser support of HTML5 features presented in this course using 2 resources: [Can I Use](https://caniuse.com/) and [Mozilla Developer Network (MDN) Web Docs](https://tinyurl.com/32h8nkt).
+
+
+#### Can I use
+
+[Can I Use](https://caniuse.com/) provides up-to-date tables for support of front-end Web technologies on desktop and mobile Web browsers. Below is a snapshot of what information is given by CanIUse when searching for "CSS3 colors".
+
+![Example of a CanIUse browser support table (using CSS3 colors)](https://tinyurl.com/y5a6vjr6)
+
+
+#### MDN Web Docs
+
+To help developers make these decisions consciously rather than accidentally, [MDN Web Docs](https://tinyurl.com/d8cpwq) provides browser compatibility tables in its documentation pages, so that when looking up a feature you’re considering for your project, you know exactly which browsers will support it.
+
+
+#### External resources:
+
++ [MDN browser compatibility data: Taking the guesswork out of web compatibility](https://tinyurl.com/ss7hmrl)
++ [Caniuse and MDN compatibility data collaboration](https://tinyurl.com/yyrmzxdk)
+
 
 
 
