@@ -325,7 +325,23 @@ Here are a few possibilities for Web editors:
 + [Vim](https://www.vim.org/) or [Emacs](https://www.gnu.org/software/emacs/) - great editors on which the Internet was built, but if you're not already familiar with these, this isn't the time to try.
 
 
+### Online editors
 
+To help you practice during the whole duration of the course, we use the following interactive online editors. Pretty much all the course's examples actually use these tools.
+
++ __JS Bin__ (https://jsbin.com/)
+
+  JS Bin is an open source collaborative Web development debugging tool. Most of the examples that are in this course are on JSBin.
+
+  Tutorials can be found on the Web (such as this one) or on YouTube. The tool is really simple, just open the link to the provided examples, look at the code, look at the result, etc. And you can modify the examples as you like, you can also modify / clone / save / share them. Keep in mind that it's always better to be logged in (it's free) if you do not want to lose your contributions/personal work.
+
++ __CodePen__ (https://codepen.io/)
+
+  CodePen is an HTML, CSS, and JavaScript code editor that previews/showcases your code bits in your browser. It helps with cross-device testing, real-time remote pair programming and teaching.
+
+Here's an article of interest if you use CodePen: [Things you can do with CodePen](https://tinyurl.com/y2hmvmjn) [Brent Miller, February 6, 2019].
+
+There are many other handy tools such as [JSFiddle](https://tinyurl.com/gwvkoph), and [Dabblet](https://tinyurl.com/yxcsgho7). Please share your favorite tool on the discussion forum, and explain why! Share also your own code contributions, such as a nice canvas animation, a great looking HTML5 form, etc.
 
 
 
