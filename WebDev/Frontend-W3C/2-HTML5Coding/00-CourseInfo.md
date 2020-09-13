@@ -420,6 +420,25 @@ Its main feature is a lookup search box, where one can start typing a keyword an
 The W3C cheatsheet is only available as a [pure Web application](https://tinyurl.com/yym4a4t2).
 
 
+### Help build the Web platform
+
+Most of the technologies you use when developing Web applications and Web sites are designed and standardized in W3C in a completely open and transparent process.
+
+In fact, all W3C specifications are developed in public [GitHub repositories](https://github.com/w3c/), so if you are familiar with GitHub, you already know how to contribute to W3C specifications! This is all about raising issues (with feedback and suggestions) and/or bringing pull requests to fix identified issues.
+
+
+#### Contribute
+
+Contributing to this standardization process might be a bit scary or hard to approach at first, but understanding at a deeper level how these technologies are built is a great way to build your expertise.
+
+If you're looking to an easy way to dive into this standardization processes, check out which issues in the [W3C GitHub repositories](https://tinyurl.com/y5dyzcmy) have been marked as "good first issue" and see if you find anything where you think you would be ready to help.
+
+
+#### Shape the future
+
+Logo of the W3C Web Incubator Community GroupAnother approach is to go and bring feedback on ideas for future technologies: [the W3C Web Platform Community Incubator Group](https://wicg.io/) was built as an easy place to get started to provide feedback on new proposals or bring brand-new proposals for consideration.
+
+Happy Web building!
 
 
 
