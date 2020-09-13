@@ -488,4 +488,27 @@ The W3C community is passionate about creating free and open Web standards. The 
 </a><br/>
 
 
+### Quizzes
+
+1. What is the difference between Internet and Web?
+
+  a. Internet and Web are the same thing<br/>
+  b. Internet is a network of networks<br/>
+  c. Web is an application of Internet<br/>
+  
+  Ans: bc<br/>
+  Explanation:
+    + The Internet is technically a network of a wide variety of networks. From the Wikipedia's definition: "The Internet is a global system of interconnected computer networks that interchange data by packet switching using the standardized Internet Protocol Suite (TCP/IP)."
+    + The Web is an application of the Internet. The Web is the most popular way of accessing the Internet, but other applications of the Internet are e-mail and ftp for example.
+    + A precise definition of the Web is to be found in the "W3C's Architecture of the World Wide Web, Volume I" document: "The World Wide Web (WWW, or simply Web) is an information space in which the items of interest, referred to as resources, are identified by global identifiers called Uniform Resource Identifiers (URI)."
+  
+
+2. What is the difference between HTML and HTTP?
+
+  a. HTTP describes what's on the page and HTML allows sites to communicate with each other<br/>
+  b. HTML describes what's on a page and HTTP allows the page to be communicated to a user<br/>
+  c. HTML and HTTP are the same thing<br/>
+
+  Ans: b<br/>
+  Explanation: HTTP precisely stands for "HyperText Transfer Protocol", and HTML is "HyperText Markup Language". It may be easy to confuse HTTP and HTML since they both have the word HyperText in their names! But, HTTP is the protocol to exchange or transfer hypertext (text using hyperlinks) between nodes, while HTML is the standard markup language used to create Web pages.
 
