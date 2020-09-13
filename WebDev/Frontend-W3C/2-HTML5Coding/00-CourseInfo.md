@@ -604,4 +604,23 @@ Based on the [open curricula](https://www.w3.org/WAI/curricula/) from the Educat
 
 
 
+### Why internationalization is important
+
+Access to the Web for all has been a fundamental concern and goal of the W3C since the beginning. It is easy to overlook the needs of people from cultures different to your own, or who use different languages or writing systems, but you have to ensure that any content or application that you design or develop is ready to support the international features that they will need.
+
+'Internationalization' is sometimes abbreviated to 'i18n' in English, because there are 18 characters between the 'i' and the 'n'. We also use 'Webi18n' to shorten "Web Internationalization" ;)
+
+The [W3C Internationalization Activity](https://www.w3.org/International/) works with W3C working groups and liaises with other organizations to make it possible to use Web technologies with different languages, scripts, and cultures.
+
+During this course you will learn about some basic internationalization features, such as character encoding and language declarations. If you don't use those features you will create barriers for people from different cultures who are trying to access your content. This is important even if you think you are only designing for a specific community – communities are made up of diverse individuals, and the Web stretches worldwide.
+
+
+#### Unicode
+
+Text in a computer or on the Web is composed of characters. Characters represent letters of the alphabet, punctuation, or other symbols.
+
+Unicode is a universal character set, ie. a standard that defines, in one place, all the characters needed for writing languages in use on computers. It is a superset of all other character sets that have been encoded.
+
+As a content author or developer, It is important to clearly distinguish between the concepts of a character set versus a character encoding. You should nowadays always [choose the UTF-8 character encoding](https://tinyurl.com/y6d2o58e) for your content or data. This Unicode encoding is a good choice because you can use a single encoding to handle any character you are likely to meet. This greatly simplifies things.
+
 
