@@ -309,6 +309,24 @@ There are a couple of easy ways you can use a browser to view your work.
 First, you open the file in your browser. Typically, if you navigate to an html file and open it, the system will open it with a browser by default.
 
 
+### Web editors
+
+While any text editor, like NotePad or TextEdit, can be used to create Web pages, they don't necessarily offer a lot of help towards that end. Other options offer more facilities for error checking, syntax coloring and saving some typing by filling things out for you.
+
+Here are a few possibilities for Web editors:
+
++ [Notepad](https://tinyurl.com/kfhnndv) - on Windows PC's
++ [Visual Studio Code](https://tinyurl.com/ortxxge) - a free open source editor that can run on any operating system. Many developers are already familiar with Visual Studio Code. Many coding videos in this course are demonstrated using Visual Studio Code.
++ [XCode](https://tinyurl.com/5r4auez) - Mac developers may be familiar with XCode
++ TextEdit - this is available on Macs, but be sure you're [saving as plain text](https://tinyurl.com/y4ww4m64), not as a ".rtf" or ".doc" file.
++ [Sublime Text](https://www.sublimetext.com/) - it is quite popular with developers, though there can be a bit of a learning curve to use its many features.
++ [BlueGriffon](http://bluegriffon.org/) - a WYSIWYG ("What You See Is What You Get") content editor for the World Wide Web. Powered by Gecko, the rendering engine of Firefox, it's a modern and robust solution to edit Web pages in conformance to the latest Web Standards.
++ [Atom](https://atom.io/) - another cross platform editor, created by [GitHub](https://github.com/).
++ [Vim](https://www.vim.org/) or [Emacs](https://www.gnu.org/software/emacs/) - great editors on which the Internet was built, but if you're not already familiar with these, this isn't the time to try.
+
+
+
+
 
 
 ## About W3C and the Web
