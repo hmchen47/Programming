@@ -34,6 +34,20 @@
     + XHTML1/0: 2000
     + HTML5: Oct. 2014
 
++ HTML5
+  + published on 28 October 2014
+  + features
+    + Web-based applications with more interaction
+    + video support
+    + graphics
+    + more styling effects
+    + full set of APIs
+  + adapt to any device: desktop, mobile, tablet, or television device
+  + open platform
+  + typical two means
+    + Open Web Platform: HTML5 specification, CSS, SVG, MathML, Geolocation, XMLHttpRequest, 2D Context, Web Fonts (WOFF) and others
+    + HTML5 specification
+
 
 
 ### 1.2.1 History of HTML versions
@@ -101,7 +115,7 @@ For those of you who are curious, the W3C published a document laying down the [
 
 #### Knowledge check 1.2.1
 
-What does the HTML acronym mean?<br/>
+1. What does the HTML acronym mean?<br/>
   a. Hacker Table Making Loot<br/>
   b. HyperText Multiple Language<br/>
   c. HyperText Markup Language<br/>
@@ -130,13 +144,13 @@ When HTML5 became a Web standard, Tim Berners-Lee, Web inventor and W3C Director
 
 #### Knowledge check 1.2.2
 
-When did the W3C officially published the HTML5 standard?<br/>
+1. When did the W3C officially published the HTML5 standard?<br/>
   a. 28 october 2015<br/>
   b. 18 october 2014<br/>
   c. 28 october 2014<br/>
   d. 8 october 2000<br/>
 
-  Ans: 
+  Ans: c
 
 
 
