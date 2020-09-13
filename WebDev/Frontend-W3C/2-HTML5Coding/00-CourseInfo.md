@@ -624,3 +624,55 @@ Unicode is a universal character set, ie. a standard that defines, in one place,
 As a content author or developer, It is important to clearly distinguish between the concepts of a character set versus a character encoding. You should nowadays always [choose the UTF-8 character encoding](https://tinyurl.com/y6d2o58e) for your content or data. This Unicode encoding is a good choice because you can use a single encoding to handle any character you are likely to meet. This greatly simplifies things.
 
 
+### Essential steps in Web i18n
+
+You find below three examples (and checks!) to help you to ensure that your Web page works for people around the world, and to make it work differently for different cultures, where needed. Let's meet the words 'charset' and 'lang', soon to become your favorite markup ;)
+
+
+#### Example 1: Character encoding declaration
+
+A character encoding declaration is vital to ensure that the text in your page is recognized by browsers around the world, and not garbled. You will learn more about what this is, and how to use it as you work through the course. For now, just ensure that it's always there.
+
+__Check #1: There is a character encoding declaration near the start of your source code, and its value is UTF-8.__
+
+Example 1:
+
+```html
+<head>
+<meta charset="utf-8"/>
+...
+</head>
+```
+
+
+#### Example 2: Primary language declaration
+
+For a wide variety of reasons, it's important for a browser to know what language your page is written in, including font selection, text-to-speech conversion, spell-checking, hyphenation and automated line breaking, text transforms, automated translation, and more. _You should always indicate the primary language of your page in the `<html>` tag._ Again you will learn how to do this during the course. You will also learn how to change the language, where necessary, for parts of your document that are in a different language.
+
+__Check #2: The HTML tag has a lang attribute which correctly indicates the language of your content.__
+
+Example 2: This indicates that the page is in French.
+
+```html
+<!doctype html>
+<html lang="fr">
+<head>
+...
+```
+
+
+#### Example 3: Cultural bias
+
+People around the world don't always understand cultural references that you are familiar with, for example the concept of a 'home run' in baseball, or a particular type of food. You should be careful when using examples to illustrate ideas. Also, people in other cultures don't necessarily identify with pictures that you would recognize, for example, hand gestures can have quite unexpected meanings in other parts of the world, and photos of people in a group may not be representative of populations elsewhere. When creating forms for capturing personal details, you will quickly find that your assumptions about how personal names and addresses work are very different from those of people from other cultures.
+
+__Check #3: If your content will be seen by people from diverse cultures, check that your cultural references will be recognized and that there is no inappropriate cultural bias.__
+
+
+#### Don't worry!
+
+You will learn about the basics as you progress through the course, so don't worry about things you don't understand on this page – you'll learn about them shortly. Once you have taken the course, you can find more tips and information from the W3C at: [Internationalization techniques: Authoring HTML & CSS](https://tinyurl.com/y3dmq9r4).
+
+When you start creating Web pages, you can also run them through the W3C's [Internationalization Checker](https://validator.w3.org/i18n-checker/). If there are internationalization problems with your page, this checker explains what they are and what to do about it.
+
+
+
