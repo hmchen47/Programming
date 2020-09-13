@@ -475,4 +475,17 @@ As of June 2020, W3C:
 + Has a [technical staff](https://www.w3.org/People/) composed of 64 people, spread on all five continents.
 
 
+### The Web is amazing!
+
+People often use the words "Internet" and "Web" interchangeably, but this usage is technically incorrect.
+
+The Web is an application of the Internet. The Web is the most popular way of accessing the Internet, but other applications of the Internet are e-mail and ftp for example. One analogy equates the Internet to a road network where the Web is a car, the email is a bicycle, etc.  Read this article for more details about the difference between Internet and the Web.
+
+The W3C community is passionate about creating free and open Web standards. The next video, created in partnership with Microsoft, explains why standards are important to maintain a royalty-free, Open Web Platform, as well as to help shape the Web of the future.
+
+<a href="https://tinyurl.com/y3yyozxp" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=150/>
+</a><br/>
+
+
 
