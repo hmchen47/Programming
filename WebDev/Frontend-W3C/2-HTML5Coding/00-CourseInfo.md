@@ -532,7 +532,7 @@ Web accessibility addresses all disabilities, including hearing, learning and co
 + Text alternatives for people with visual disabilities and who are using screen readers;
 
 
-#### Web accessibility benefits people with and without disabilities
+#### Web accessibility benefits people with and _without_ disabilities
 
 Web accessibility features also benefit many more users, such as:
 
@@ -542,5 +542,5 @@ Web accessibility features also benefit many more users, such as:
 + People who are new to computers, to the Web, or to your own Web site;
 + People who are not fluent in the language of your particular Web site;
 
-The Web is an increasingly important resource in many aspects of life: education, employment, government, commerce, health care, recreation, and more. When Web pages, Web technologies, Web tools, or Web applications are badly designed, they can create barriers that exclude people from using the Web. More information is available in the W3C Accessibility overview.
+The Web is an increasingly important resource in many aspects of life: education, employment, government, commerce, health care, recreation, and more. When Web pages, Web technologies, Web tools, or Web applications are badly designed, they can create barriers that exclude people from using the Web. More information is available in the [W3C Accessibility](https://www.w3.org/standards/webdesign/accessibility) overview.
 
