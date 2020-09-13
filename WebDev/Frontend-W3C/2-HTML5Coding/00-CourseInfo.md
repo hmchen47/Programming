@@ -589,4 +589,19 @@ Example: See the W3C logo below. It contains a link that points to the W3C Web s
 ```
 
 
+### HTML5 and accessibility
+
+What you will learn in this course about accessibility:
+
++ Master best practices for creating accessible Web pages that use the HTML5 structuring elements
++ Learn tips on which accessible multimedia players to use
++ Have a peek of the work in progress in the canvas, concerning accessibility
++ Make accessible forms
+
+To find out more about digital accessibility, please follow W3C's  “[Introduction to Web Accessibility](https://tinyurl.com/y6ly7e5z)” course. It provides a strong foundation for making Web sites and apps work well for people with disabilities, meet international standards, and enhance the user experience for all web users. It is designed for technical and non-technical audiences, including: developers, designers, content authors, project managers, people with disabilities, and many others.
+
+Based on the [open curricula](https://www.w3.org/WAI/curricula/) from the Education and Outreach Working Group ([EOWG](https://www.w3.org/WAI/about/groups/eowg/)) of the W3C Web Accessibility Initiative ([WAI](https://www.w3.org/WAI/)), this course brings together international expert trainers from [Deque](https://www.deque.com/), [Infoaxia](https://infoaxia.co.jp/%20target=), [Intopia](https://intopia.digital/%20target=), [Knowbility](https://knowbility.org/), The Paciello Group ([TPG](https://www.paciellogroup.com/)), and [Web Key IT](https://www.webkeyit.com/).
+
+
+
 
