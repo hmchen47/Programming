@@ -544,3 +544,49 @@ Web accessibility features also benefit many more users, such as:
 
 The Web is an increasingly important resource in many aspects of life: education, employment, government, commerce, health care, recreation, and more. When Web pages, Web technologies, Web tools, or Web applications are badly designed, they can create barriers that exclude people from using the Web. More information is available in the [W3C Accessibility](https://www.w3.org/standards/webdesign/accessibility) overview.
 
+
+### First steps in Web accessibility
+
+There are many simple Web accessibility improvements that you can implement and check right away, even when you are new to this topic.
+
+Remember that when developing or redesigning a website or Web application, it is best to evaluate accessibility early and throughout the development process to identify accessibility problems early, when it is easier to address them.
+
+Two examples are provided below  but you can find more tips and information in these 2 resources:
+
++ [Tips for Getting Started with Web Accessibility](https://www.w3.org/WAI/gettingstarted/tips/)
++ [Easy Checks - A First Review of Web Accessibility](https://www.w3.org/WAI/test-evaluate/preliminary/)
+
+
+#### Example #1: page title
+
+Good page titles are particularly important for orientation — to help people know where they are and move between pages open in their browser. The first thing screen readers say when the user goes to a different Web page is the page title. In the Web page markup, they are the words `<title>` within the `<head>`.
+
+__Check #1: There is a title that adequately and briefly describes the content of a page, and it distinguishes the page from other Web pages.__
+
+Example:
+
+```html
+<head>
+...
+<title>Web Accessibility Initiative (WAI) - home page</title>
+...
+</head>
+```
+
+
+#### Example 2: image text alternatives ("alt text")
+
+Text alternatives ("alt text") are a primary way of making visual information accessible, because they can be rendered through any sensory modality (for example, visual, auditory or tactile) to match the needs of the user. Providing text alternatives allows the information to be rendered in a variety of ways by a variety of user agents. For example, a person who cannot see a picture can have the text alternative read aloud using synthesized speech.
+
+__Check #2: Every image has alt with appropriate alternative text.__
+
+Example: See the W3C logo below. It contains a link that points to the W3C Web site. The text alternative is going to be a brief description of the link target.
+
+```html
+<a href="https://w3.org">
+<img src="https://w3.org/Icons/w3c_home.png" width="72" height="48" alt="World Wide Web Consortium">
+</a>
+```
+
+
+
