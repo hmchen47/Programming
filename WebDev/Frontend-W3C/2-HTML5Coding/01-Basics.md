@@ -7,8 +7,8 @@
 ### 1.1.1 What you will learn in Week 1
 
 <a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V000800_DTH.mp4" target="_BLANK">
-  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=150/>
-</a><br/>
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
+</a><br/><br/>
 
 [Transcript](https://tinyurl.com/y2qy69hb)
 
@@ -152,6 +152,18 @@ When HTML5 became a Web standard, Tim Berners-Lee, Web inventor and W3C Director
 
   Ans: c
 
+
+### 1.2.3 Philippe Le Hégaret video
+
+[Philippe Le Hégaret](https://tinyurl.com/yxdztua4) is W3C's Project Management Lead. He was the former W3C Interaction Domain lead, which produced front-end Web technologies including HTML5, CSS3, SVG, WOFF, or Web APIs.
+
+In the video below, Philippe tells the story on how HTML5 has been developed by the Web community.
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V003500_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y52o9rdo)
 
 
 
