@@ -186,7 +186,40 @@ Please check out both the HTML5 [logo home page](https://www.w3.org/html/logo/) 
 
 ### 1.3.0 Lecture Notes
 
++ Minimum HTML5 Document
 
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+  ... <!-- The rest is content -->
+  </body>
+  </html>
+  ```
+
+  + `<meta charset="utf-8">`: best practice to declare the character set
+  + `<!DOCTYPE html>`: used by tools and specifying the rules used by an HTML or an XHTML page
+    + rules in "Document Type Definitions" (DTDs)
+    + not used by Web browsers to validate the structure of an HTML page
+    + using only "rules" contained in their own "HTML engine"
+    + used by web browser w/ different rendering engines
+    + HTML4 more complicated and requiring selection from transitional, strict, or frameset; e.g., `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">`
+  + "type: attributes 
+    + optional, required in HTML4
+    + `rel="stylesheet"` default value: `type="text/css"`
+    + including JavaScript file" `<script src="script.js"></script>` w/o `type="text/javascript"` as old way
+  + simplified syntax
+    + able to omit quotes or use uppercase, lowercase or a combination of the two
+    + no longer a closing tag required in many elements but __recommended__
+    + quoted only if containing spaces or some non-alphanumeric characters but __recommended__, e.g., `<link rel=stylesheet href=style.css>`
+
++ 
 
 
 ### 1.3.1 Greater simplicity
