@@ -373,6 +373,35 @@ To help developers make these decisions consciously rather than accidentally, [M
 + [Caniuse and MDN compatibility data collaboration](https://tinyurl.com/yyrmzxdk)
 
 
+### W3C validators
+
+For over 15 years, the W3C has been developing and hosting [__free__ and __open source__ tools](https://w3c.github.io/developers/) used every day by __millions of Web developers and Web designers__. All the tools listed below are Web-based, and are available as downloadable sources or as free services on the [W3C Developers tools](https://tinyurl.com/y2duo6dg) site.
+
+
+#### W3C Validator
+
+The [W3C validator](https://validator.w3.org/) checks the [markup validity](https://tinyurl.com/jhupheb) of various Web document formats, such as HTML. Note that you are automatically directed to the [Nu Html Checker](https://validator.w3.org/nu/) when validating an HTML5 document.
+
+
+#### CSS Validator
+
+The [CSS validator](https://jigsaw.w3.org/css-validator/) checks Cascading Style Sheets (CSS) and (X)HTML documents that use CSS stylesheets.
+
+
+#### Unicorn
+
+[Unicorn](https://validator.w3.org/unicorn/) is W3C's unified validator, which helps people improve the quality of their Web pages by performing a variety of checks. Unicorn gathers the results of the popular HTML and CSS validators, as well as other useful services, such as Internationalization, RSS/Atom feeds and http headers.
+
+
+#### Internationalization Checker
+
+The [W3C Internationalization Checker](https://validator.w3.org/i18n-checker/) provides information about various internationalization-related aspects of your page, including the HTTP headers that affect it. It will also report a number of issues and offer advice about how to resolve them.
+
+
+#### Link Checker
+
+The [W3C Link Checker](https://validator.w3.org/checklink) looks for issues in links, anchors and referenced objects in a Web page, CSS style sheet, or recursively on a whole Web site. For best results, it is recommended to first ensure that the documents checked use valid [(X)HTML Markup](https://validator.w3.org/) and [CSS](https://jigsaw.w3.org/css-validator/).
+
 
 
 ## About W3C and the Web
