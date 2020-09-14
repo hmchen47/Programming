@@ -219,7 +219,35 @@ Please check out both the HTML5 [logo home page](https://www.w3.org/html/logo/) 
     + no longer a closing tag required in many elements but __recommended__
     + quoted only if containing spaces or some non-alphanumeric characters but __recommended__, e.g., `<link rel=stylesheet href=style.css>`
 
-+ 
++ Structural elements
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+      <img src="https://tinyurl.com/y394s3ts" style="margin: 0.1em;" alt="Some of the new structural elements introduced by HTML5: section, article, etc." title="Some of the new structural elements introduced by HTML5: section, article, etc." width=350>
+    </a>
+  </div>
+
+  + `<header>`
+    + introduction of "sectioning elements"
+    + typically on top of each page, or a header of a long `<article>` or of a long `<section>`
+  + `<footer>`: the footer of a site, a long `<article>`, or a long `<section>`
+  + `<nav>`: the main navigation links
+  + `<article>`:
+    + independent content: individually extracted from the document and syndicated without penalizing its understanding
+    + typically a blog post
+  + `<section>`:
+    + generic section used to group different articles
+    + generally used with a header
+  + `<time>`: used for marking up times and dates
+  + `<aside>`:
+    + section not necessarily directly related to the main content
+    + providing additional information
+  + `<figure>` and `<figcaption>`: encapsulating a figure as a single item
+  + `<main>`:
+    + represent the main content of the body of a document or application
+    + consist of content that is directly related to or expands upon the central topic of a document or central functionality of an application
+    + __only one__ in a document
+
 
 
 ### 1.3.1 Greater simplicity
@@ -364,7 +392,7 @@ If you look at the "minimal document" example, or at other examples in this cour
 
 ##### History
 
-As Web site layouts evolve, HTML5 structural elements such as lists, paragraphs, tables, etc. show their limits. Today, many Web sites offer navigation menus, tabbed panels, headers, footers, and so on. The way these "parts"' are implemented relies heavily on <div> and <span> elements with different id and class attributes, lots of CSS and lots of JavaScript code to apply custom styles and behaviors.
+As Web site layouts evolve, HTML5 structural elements such as lists, paragraphs, tables, etc. show their limits. Today, many Web sites offer navigation menus, tabbed panels, headers, footers, and so on. The way these "parts"' are implemented relies heavily on `<div>` and `<span>` elements with different id and class attributes, lots of CSS and lots of JavaScript code to apply custom styles and behaviors.
 
 However, there are some issues with this approach:
 
