@@ -483,7 +483,382 @@ Read also at the end of this section about the new `<main>` element.  This eleme
   c. title<br/>
   d. header<br/>
 
+  Ans: c
+
+
+### 1.3.3 Mixing all elements together: a blog example
+
+
+#### Live coding video: a blog example
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V003200_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y3qqqtyp)
+
+
+#### A blog example that uses the structural elements
+
+Let's study an example we put on JsBin (all examples we have cooked up are available on the jsbin.com Web site and can be modified freely: you can save your own version using the "Bins/create milestone" menu, share your version with others in the forums, etc. Don't  hesitate to play with the source code, you will never break anything).
+
+Example: [HTML code](src/1.3.3-blog.html)
+
+
+#### Use a `<header>` at the top of the blog
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/yy4lq6ug" style="margin: 0.1em;" alt="image of the header element at the top of the blog" title="image of the header element at the top of the blog" width=150>
+  </a>
+</div>
+
+
+This is an example of one way to organize a blog. Here, we have designed the HTML page using a <header> element that contains the "Simple HTML5 blog" text that appears on top of the page.
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+   <html lang="en">
+      <head>
+         <meta charset="utf-8"/>
+         <title>Simple HTML5 blog</title>
+      </head>
+      <body>
+         <header>
+            <h1>Simple <span>HTML5</span> blog</h1>
+         </header>
+...
+```
+
+The CSS rules we used:
+
+```css
+header {
+    color: #007e99;
+    font-size: 2.5em;
+    padding: 20px 50px
+}
+header span {
+    color: #722
+}
+```
+
+#### Use a `<nav>` for the navigation menu just below the header
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/y5w747zv" style="margin: 0.1em;" alt="image of the navigation menu" title="image of the navigation menu" width=150>
+  </a>
+</div>
+
+
+The navigation menu just below the header is a `<nav>` element. For the purpose of this example we haven't provided any value for the hyperlinks...
+
+HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8"/>
+   <title>Simple HTML5 blog</title>
+</head>
+<body>
+<header>
+   <h1>Simple <span>HTML5</span> blog</h1>
+</header>
+<nav>
+    <ul>
+       <li><span>Blog</span></li>
+       <li><a href="">About</a></li>
+       <li><a href="">Contact</a></li>
+    </ul>
+</nav>
+```
+
+And here is the CSS we used in this example for the `<nav>` element:
+
+```css
+nav {
+    font-size: 1.5em;
+    margin: 5px 0;
+    padding: 20px 50px
+}
+nav li {
+    display: inline;
+    margin: 0 15px
+}
+nav li:first-child {
+    margin-left: 0
+}
+* html nav ul {
+    margin-left: -15px
+}
+nav span, nav a {
+    padding: 3px 15px 4px
+}
+nav span {
+    background: #722;
+    color: #fff
+}
+```
+
+
+#### A `<section>` for each month and an `<article>` for each post in the blog
+
+Now, we have one big `<section>` element that contains a set of `<article>` elements...
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/y26lwg8j" style="margin: 0.1em;" alt="image of sections that contain articles" title="image of sections that contain articles" width=300>
+  </a>
+</div>
+
+
+HTML code:
+
+```html
+<section>
+   <article>
+    ...
+   </article>
+   <article>
+    ...
+   </article>
+   <article>
+    ...
+   </article>
+</section>
+```
+
+And here is the CSS:
+
+```css
+section {
+   float: left;
+   padding: 35px 0;
+   position: relative;
+   width: 70%
+}
+section article {
+   margin: 0 50px 40px;
+   padding: 25px 0 0;
+   position: relative
+}
+section header {
+   font-size: 1em;
+   padding: 0;
+}
+section h2 {
+   font-size: 2.3em;
+}
+```
+
+Note that the H2, article, article header, etc. will be styled using these rules.
+
+
+#### Add a `<header>` at the beginning of each `<article>`
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/yye6m9f5" style="margin: 0.1em;" alt="image of the header at the top of each article" title="image of the header at the top of each article" width=350>
+  </a>
+</div>
+
+
+Next, in each article in the section we have a header (to display the article title), paragraphs (article content), and so on.
+
+Example for the first blog article:
+
+```html
+<section>
+   <article>
+     <header>
+         <h2><a href="">Information about this example</a></h2>
+     </header>
+     <p>Try to move the mouse on different elements. The structure will be
+     highlighted and you will be able
+     to see the different inclusions of elements one in each other. If you
+     move the cursor to this sentence, it will be highlighted in dark grey,
+     showing the presence of an &lt;article&gt; element, surrounded by a
+     &lt;section&gt; element (light grey), etc. So we have some articles in
+     a single section element. The page title at the top is a &lt;header&gt;
+     element, while the tag cloud on the right is a &lt;aside&gt; element. The
+     main menu on top (with Blog, About, Contact) is a &lt;nav&gt; element.</p>
+     <figure>
+         <img src="HTML5-tags.png"
+             alt="Example of HTML5 structural tags" />
+         <figcaption>
+             Fig. 1 : an example of how new structural elements could
+             be used. This page put a &lt;nav&gt; on top, and does not have
+             headers and footer for each article, like in this figure,
+             but it could... By the way this is a
+             &lt;figcaption&gt; inside a &lt;figure&gt; element...
+         </figcaption>
+    </figure>
+   </article>
+   ...
+</section>
+```
+
+
+#### Use `<figure>` and `<figcaption>` and embed `<img>` inside
+
+Also note the way we included a figure using the new "HTML5" method, using a `<figure>..</figure>` element that embedded a `<img src=.../>` element together with a `<figcaption>` element. 
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/yxktruxu" style="margin: 0.1em;" alt="image of figure and figcaption that embed an img" title="image of figure and figcaption that embed an img" width=350>
+  </a>
+</div>
+
+Here is the CSS for the <figcaption> element we have used in the example (we did not apply any style to the <figure> element):
+
+HTML code:
+
+```html
+<figure>
+    <img src="HTML5-tags.png"
+         alt="Example of HTML5 structural tags" />
+    <figcaption>
+        Fig. 1 : an example of how .....
+    </figcaption>
+</figure>
+```
+
+CSS code:
+
+```css
+figcaption {
+    font-style:italic;
+    font-size: 0.8em;
+    width: 100%
+}
+```
+
+
+#### Use an `<aside>` element to display a tag cloud on the... side of the main content
+
+After the long `<section>` element that contains all the blog articles displayed in the page, we added the HTML code for the tag cloud that is displayed on the right of the page, "aside"! This is done using - you already guessed it - an `<aside>` element:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/y2x3vtng" style="margin: 0.1em;" alt="image of the tag cloud defined as an aside element" title="image of the tag cloud defined as an aside element" width=150>
+  </a>
+</div>
+
+
+```html
+<section>
+.... all <article>... </article> here....
+</section>
+<aside>
+   <h2>Tag cloud</h2>
+   <ul class="tag-cloud">
+       <li><a href="" rel="tag" class="w2">ajax</a></li>
+       <li><a href="" rel="tag" class="w8">apple</a></li>
+       <li><a href="" rel="tag" class="w3">css</a></li>
+       ...
+   </ul>
+</aside>
+...
+```
+
+We are not going to show the complete CSS here as it uses some tricks to display the list as a "real tag cloud" that uses JavaScript for handling events, etc. Those who are curious can look at the code of the online example.
+
+Here is the CSS for the `<aside>` element:
+
+```css
+aside {
+    float: right;
+    padding: 70px 0 30px;
+    position: relative;
+    width: 25%
+}
+aside h2 {
+    color: #888;
+    font-size: 1.8em
+}
+aside .tag-cloud {
+    padding: 15px 35px 10px 0;
+    text-align: center
+}
+...
+```
+
+We used a float:right CSS rule to put the tag cloud on the right... In a following section we will provide several examples that explain how to make a nice layout with the new structural elements, using simple CSS rules.
+
+Here is the result:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/y6rhtxvq" style="margin: 0.1em;" alt="The aside tag cloud on the right" title="The aside tag cloud on the right" width=450>
+  </a>
+</div>
+
+
+
+#### Add a `<footer>` at the end of the blog
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/yy32q5zh" style="margin: 0.1em;" alt="image of the blog footer" title="image of the blog footer" width=150>
+  </a>
+</div>
+
+Finally, we added a `<footer>` element (lines 12-14 below) after the tag cloud definition, to display a page footer:
+
+```html
+<html>
+...
+<body>
+...
+<section>
+...
+</section>
+<aside>
+...
+</aside>
+<footer>
+   <p>&copy; 2009 Some blog</p>
+</footer>
+</body>
+</html>
+```
+
+With this CSS rule:
+
+```css
+footer {
+    clear: both;
+    color: #777;
+    padding: 10px 50px
+}
+```
+
+And here is the result at the bottom of the page:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
+    <img src="https://tinyurl.com/y654dvkp" style="margin: 0.1em;" alt="The resulting footer at the bottom of the page" title="The resulting footer at the bottom of the page" width=350>
+  </a>
+</div>
+
+
+
+#### Knowledge check 1.3.3
+
+1. What is a figcaption?<br/>
+  a. An image link<br/>
+  b. A caption under a figure<br/>
+  c. A tool for catching figs<br/>
+  d. A tool for taking a selfie<br/>
+
   Ans: 
+
+
 
 
 ## 1.4 Other elements and attributes
