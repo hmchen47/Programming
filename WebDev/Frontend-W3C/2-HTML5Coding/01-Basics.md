@@ -500,7 +500,7 @@ Read also at the end of this section about the new `<main>` element.  This eleme
 
 #### A blog example that uses the structural elements
 
-Let's study an example we put on JsBin (all examples we have cooked up are available on the jsbin.com Web site and can be modified freely: you can save your own version using the "Bins/create milestone" menu, share your version with others in the forums, etc. Don't  hesitate to play with the source code, you will never break anything).
+Let's study [an example we put on JsBin](https://jsbin.com/bucokav/edit?html,output) (all examples we have cooked up are available on the jsbin.com Web site and can be modified freely: you can save your own version using the "Bins/create milestone" menu, share your version with others in the forums, etc. Don't  hesitate to play with the source code, you will never break anything).
 
 Example: [HTML code](src/1.3.3-blog.html)
 
@@ -514,7 +514,7 @@ Example: [HTML code](src/1.3.3-blog.html)
 </div>
 
 
-This is an example of one way to organize a blog. Here, we have designed the HTML page using a <header> element that contains the "Simple HTML5 blog" text that appears on top of the page.
+This is an example of one way to organize a blog. Here, we have designed the HTML page using a `<header>` element that contains the "Simple HTML5 blog" text that appears on top of the page.
 
 HTML code:
 
@@ -538,10 +538,10 @@ The CSS rules we used:
 header {
     color: #007e99;
     font-size: 2.5em;
-    padding: 20px 50px
+    padding: 20px 50px;
 }
 header span {
-    color: #722
+    color: #722;
 }
 ```
 
@@ -549,7 +549,7 @@ header span {
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
-    <img src="https://tinyurl.com/y5w747zv" style="margin: 0.1em;" alt="image of the navigation menu" title="image of the navigation menu" width=150>
+    <img src="https://tinyurl.com/y5w747zv" style="margin: 0.1em;" alt="image of the navigation menu" title="image of the navigation menu" width=200>
   </a>
 </div>
 
@@ -584,24 +584,24 @@ And here is the CSS we used in this example for the `<nav>` element:
 nav {
     font-size: 1.5em;
     margin: 5px 0;
-    padding: 20px 50px
+    padding: 20px 50px;
 }
 nav li {
     display: inline;
-    margin: 0 15px
+    margin: 0 15px;
 }
 nav li:first-child {
-    margin-left: 0
+    margin-left: 0;
 }
 * html nav ul {
-    margin-left: -15px
+    margin-left: -15px;
 }
 nav span, nav a {
-    padding: 3px 15px 4px
+    padding: 3px 15px 4px;
 }
 nav span {
     background: #722;
-    color: #fff
+    color: #fff;
 }
 ```
 
@@ -640,12 +640,12 @@ section {
    float: left;
    padding: 35px 0;
    position: relative;
-   width: 70%
+   width: 70%;
 }
 section article {
    margin: 0 50px 40px;
    padding: 25px 0 0;
-   position: relative
+   position: relative;
 }
 section header {
    font-size: 1em;
@@ -661,11 +661,14 @@ Note that the H2, article, article header, etc. will be styled using these rules
 
 #### Add a `<header>` at the beginning of each `<article>`
 
-<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-  <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
-    <img src="https://tinyurl.com/yye6m9f5" style="margin: 0.1em;" alt="image of the header at the top of each article" title="image of the header at the top of each article" width=350>
-  </a>
-</div>
+<figure style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <img style="margin: 0.1em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src  ="https://tinyurl.com/yye6m9f5"
+    alt  ="image of the header at the top of each article"
+    title="image of the header at the top of each article"
+  /> 
+</figure>
 
 
 Next, in each article in the section we have a header (to display the article title), paragraphs (article content), and so on.
@@ -674,32 +677,19 @@ Example for the first blog article:
 
 ```html
 <section>
-   <article>
-     <header>
-         <h2><a href="">Information about this example</a></h2>
-     </header>
-     <p>Try to move the mouse on different elements. The structure will be
-     highlighted and you will be able
-     to see the different inclusions of elements one in each other. If you
-     move the cursor to this sentence, it will be highlighted in dark grey,
-     showing the presence of an &lt;article&gt; element, surrounded by a
-     &lt;section&gt; element (light grey), etc. So we have some articles in
-     a single section element. The page title at the top is a &lt;header&gt;
-     element, while the tag cloud on the right is a &lt;aside&gt; element. The
-     main menu on top (with Blog, About, Contact) is a &lt;nav&gt; element.</p>
-     <figure>
-         <img src="HTML5-tags.png"
-             alt="Example of HTML5 structural tags" />
-         <figcaption>
-             Fig. 1 : an example of how new structural elements could
-             be used. This page put a &lt;nav&gt; on top, and does not have
-             headers and footer for each article, like in this figure,
-             but it could... By the way this is a
-             &lt;figcaption&gt; inside a &lt;figure&gt; element...
-         </figcaption>
+  <article>
+    <header>
+      <h2><a href="">Information about this example</a></h2>
+    </header>
+    <p>Try to move the mouse on different elements. The structure will be ...</p>
+    <figure>
+      <img src="HTML5-tags.png" alt="Example of HTML5 structural tags" />
+      <figcaption>
+        Fig. 1: an example of how new structural elements could be used. This ...
+      </figcaption>
     </figure>
-   </article>
-   ...
+  </article>
+  ...
 </section>
 ```
 
@@ -714,7 +704,7 @@ Also note the way we included a figure using the new "HTML5" method, using a `<f
   </a>
 </div>
 
-Here is the CSS for the <figcaption> element we have used in the example (we did not apply any style to the <figure> element):
+Here is the CSS for the `<figcaption>` element we have used in the example (we did not apply any style to the `<figure>` element):
 
 HTML code:
 
@@ -734,12 +724,12 @@ CSS code:
 figcaption {
     font-style:italic;
     font-size: 0.8em;
-    width: 100%
+    width: 100%;
 }
 ```
 
 
-#### Use an `<aside>` element to display a tag cloud on the... side of the main content
+#### Use an `<aside>` element to display a tag cloud on the ... side of the main content
 
 After the long `<section>` element that contains all the blog articles displayed in the page, we added the HTML code for the tag cloud that is displayed on the right of the page, "aside"! This is done using - you already guessed it - an `<aside>` element:
 
@@ -775,20 +765,20 @@ aside {
     float: right;
     padding: 70px 0 30px;
     position: relative;
-    width: 25%
+    width: 25%;
 }
 aside h2 {
     color: #888;
-    font-size: 1.8em
+    font-size: 1.8em;
 }
 aside .tag-cloud {
     padding: 15px 35px 10px 0;
-    text-align: center
+    text-align: center;
 }
 ...
 ```
 
-We used a float:right CSS rule to put the tag cloud on the right... In a following section we will provide several examples that explain how to make a nice layout with the new structural elements, using simple CSS rules.
+We used a `float:right` CSS rule to put the tag cloud on the right... In a following section we will provide several examples that explain how to make a nice layout with the new structural elements, using simple CSS rules.
 
 Here is the result:
 
@@ -834,7 +824,7 @@ With this CSS rule:
 footer {
     clear: both;
     color: #777;
-    padding: 10px 50px
+    padding: 10px 50px;
 }
 ```
 
@@ -856,7 +846,7 @@ And here is the result at the bottom of the page:
   c. A tool for catching figs<br/>
   d. A tool for taking a selfie<br/>
 
-  Ans: 
+  Ans: b
 
 
 
