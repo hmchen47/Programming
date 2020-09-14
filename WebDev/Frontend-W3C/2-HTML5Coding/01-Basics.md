@@ -949,7 +949,143 @@ This chart from the HTML5 Doctor Web site may help you decide whether or not to 
 
 1. Can a section contain an article? (Yes/No)
 
+  Ans: Yes
+
+
+### 1.3.5 Headings and structural elements
+
+Update: In the video below, Michel presents the Chrome extension "HTML5 Outliner". This extension has been removed since from the Chrome Web store.
+
+There are many other equivalent browser extensions you can install instead of the one presented in the video and screenshots. For example, there are the [table-of-contents-crx](https://tinyurl.com/y4em5khm) for Chrome and the "[Outline sidebar](https://tinyurl.com/y2bw2stx)" for Firefox.
+
+
+#### Live coding video: headings, TOC, etc.
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V003400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=150/>
+</a><br/>
+
+[Transcript](https://tinyurl.com/y39lft4n)
+
+We will now present some best practices for starting to use `<section>`, `<article>`, `<nav>`, `<aside>`, in particular concerning the use of headings (h1, h2, h3, h4, h5 and h6).
+
+
+#### Use `<h1>...<h6>` for the headings
+
+Since the very beginning, HTML has had heading elements: `<h1>...<h6>`. These elements are used to display headings with different sizes by default, when no CSS is used.  The following example shows 6 sentences that are surrounded by `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>` and `<h6>`:
+
+<div style="border: 1px solid black; margin: 20px; padding: 20px;">
+  <h1>This is a H1 heading</h1>
+  <h2>This is a H2 heading</h2>
+  <h3>This is a H3 heading</h3>
+  <h4>This is a H4 heading</h4>
+  <h5>This is a H5 heading</h5>
+  <h6>This is a H6 heading</h6>
+</div>
+
+These headings define a hierarchy, as shown by the default sizes given by the browser. This hierarchy can also be used to define an outline of the document. To illustrate this, we have used a browser extension. Here is the result for the previous example:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src    ="https://tinyurl.com/yxrh335h"
+    alt    ="outliner in action from the previous example"
+    title  ="outliner in action from the previous example"
+  />
+</figure>
+
+
+In the above outline, note that we have only used H1... H6 elements, without any new HTML5 structural elements such as `<section>` or `<article>`.
+
+Here is a list of browser extensions you can try, for visualizing the outline of a document: [table-of-contents-crx](https://tinyurl.com/y4em5khm) Chrome extension or [this Firefox extension](https://tinyurl.com/y2bw2stx).
+
+
+#### Using headings and new sectioning elements (section, article, aside, nav)
+
+__Definition of heading content and sectioning content__
+
+The `<section>`, `<article>`, `<nav>` and `<aside>` elements are called "__sectioning elements__". They cut a document into slices we call "__sections__".
+
+The HTML5 specification says that "each sectioning element potentially has a heading and has also an outline associated".
+
+`<h1>...<h6>` are called headings, and define the header of a section (whether explicitly marked up using sectioning content elements, or implied by the heading content itself). This means that:
+
+```html
+<body>
+    <h1>Title of my document</h1>
+    ...
+</body>
+```
+
+... defines the header of a section implicitly, while:
+
+```html
+<body>
+   ...
+   <section>
+      <h1>Title of my section</h1>
+      ...
+   </section>
+</body>
+```
+
+... defines the heading of the explicit section (its parent element `<section>`).
+
+
+#### Use multiple headings of different rank with sectioning content
+
+The first element of a heading content in an element of sectioning content represents the heading for that section (the `<section><h1>...</h1></section>` in the above example).
+
+Subsequent headings of equal or higher rank start new (implied) sections, headings of lower rank start implied subsections that are part of the previous one. In both cases, the element represents the heading of the implied section.
+
+Let's clarify this by looking at some example code:
+
+```html
+<body>
+<section>
+    <h1>This H1 is the heading of an explicit section</h1>
+    ...
+       <h2>This H2 is a subheading, part of the same section
+           (lower rank)</h2>
+            ....
+    <h1>This H1 starts an implicit new section in the explicit
+        section (equal or higher rank)</h1>
+        ...
+        <h2>This is a H2 heading in the new section that has
+            just started</h2>
+            ...
+</section>
+</body>
+```
+
+The corresponding outline is:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src    ="https://tinyurl.com/yxjobfw3"
+    alt    ="outline of previous example"
+    title  ="outline of previous example"
+  />
+</figure>
+
+In the above example, please note two things:
+
+1. The outline shows an "Untitled body" at the root of the hierarchy,
+2. The default size for the H1 and H2 is the same (!). Indeed, when we start a `<h1>` inside a `<section>` the browser lowers its default size automatically, as if a new hierarchy level has been added artificially. We will discuss this further in the following sections, as we introduce some best practices.
+
+
+#### Knowledge check 1.3.5
+
+1. Before HTML5, how many levels of headings were available?<br/>
+  a. 7<br/>
+  b. 5<br/>
+  c. 6<br/>
+  d. 4<br/>
+
   Ans: 
+
+
 
 
 
