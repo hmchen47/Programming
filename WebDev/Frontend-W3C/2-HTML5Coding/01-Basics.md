@@ -1400,6 +1400,135 @@ They are also useful for checking the presence of headings in each sectioning co
   Explanation: No, there is one untitled entry, meaning that a heading is missing.
 
 
+### 1.3.8 The `<main>` element
+
+If you use `<nav>` / `<header>` / `<footer>` etc. to structure your document, you can also use `<main>` to identify the main content of the document. Doing so provides a navigable document structure for assistive technology users as well as styling hooks for devs.
+
+We have seen the different sectioning elements of HTML5, so why didn't we talk about the `<main>` element earlier in this part of the course? Shouldn't  `<main>...</main>` be used in place of  `<div class="main">...</div>`?
+
+The `<main>` element is supported by major modern browsers (see the corresponding [support table](https://tinyurl.com/yyvj2uf6) on CanIUse and [MDN's brower compatibility page](https://tinyurl.com/q5dwuwe)).
+
+This element is subject to some constraints:
+
+There must not be more than one `<main>` element in a document,
+
++ It must not be a descendant of an `<article>`,`<aside>`, `<footer>`, `<header>`, or `<nav>` element.
++ And finally, here are some examples (from [the HTML5 specification](https://tinyurl.com/y2dt6kbn))  that mix the `<main>` element with the other sectioning elements already seen in the course:
+
+
+```html
+<!-- other content -->
+<main>
+   <h1>Skateboards</h1>
+   <p>The skateboard helps kids to get around.</p>
+   <article>
+      <h2>Longboards</h2>
+      <p>Longboards are a type of skateboard with a longer
+wheelbase and larger, softer wheels.</p>
+      <p>... </p>
+      <p>... </p>
+   </article>
+   <article>
+      <h2>Electric Skateboards</h2>
+      <p>These no longer require the propelling of the skateboard by means of the feet; rather an electric motor propels the board, fed by an electric battery.</p>
+      <p>... </p>
+      <p>... </p>
+   </article>
+</main>
+ 
+<!-- other content -->
+```
+
+Here is another example (also from the specification). Here the `<main>` element contains a `<nav>` element consisting of links to subsections of the main content:
+
+```html
+<!DOCTYPE html>
+   <html lang="en">
+      <head>
+         <meta charset="utf-8"/>
+         <title>Graduation Ceremony Summer 2022</title>
+      </head>
+      <body>
+       <header>The Lawson Academy:
+         <nav>
+            <h2>Click these links to navigate...</h2>
+            <ul>
+               <li><a href="courses.html">Courses</a></li>
+               <li><a href="fees.html">Fees</a></li>
+               <li><a>Graduation</a></li>
+            </ul>
+         </nav>
+      </header>
+      <main>
+         <h1>Graduation</h1>
+         <nav>
+            <h2>Please choose:</h2>
+            <ul>
+               <li><a href="#ceremony">Ceremony</a></li>
+               <li><a href="#graduates">Graduates</a></li>
+               <li><a href="#awards">Awards</a></li>
+            </ul>
+         </nav>
+         <h2 id="ceremony">Ceremony</h2>
+         <p>Opening Procession</p>
+         <p>Speech by Valedictorian</p>
+         <p>Speech by Class President</p>
+         <p>Presentation of Diplomas</p>
+         <p>Closing Speech by Headmaster</p>
+         <h2 id="graduates">Graduates</h2>
+         <ul>
+            <li>Eileen Williams</li>
+            <li>Andy Maseyk</li>
+            <li>Blanca Sainz Garcia</li>
+            <li>Clara Faulkner</li>
+            <li>Gez Lemon</li>
+            <li>Eloisa Faulkner</li>
+         </ul>
+         <h2 id="awards">Awards</h2>
+            <ul>
+               <li>Clara Faulkner</li>
+               <li>Eloisa Faulkner</li>
+               <li>Blanca Sainz Garcia</li>
+            </ul>
+         </main>
+      <footer>Copyright 2012 B.lawson</footer>
+   </body>
+</html>
+```
+
+
+#### Best practice
+
+For accessibility matters, a best practice is to split your page content into "regions" defined by the five 5 elements (`aside`, `footer`, `header`, `main` and `nav`) learned this week. 
+
+We recommend this article written by Steve Faulkner: "[Easy content organisation with HTML5](https://tinyurl.com/ovgv6sy)" (24 September 2015). Steve explains in details how to organize an HTML document into "regions" based on the semantic markup elements we have seen so far during Week 1 of this course.
+
+
+#### External resources:
+
++ This [document](https://tinyurl.com/y2dt6kbn) has been written by the W3C HTML5 Working Group, which details the different use-cases for this element
++ [Rationale and use cases for standardizing a 'main content' HTML feature](https://tinyurl.com/y2gkl84y)
++ On MDN's Web Docs: the [main element](https://tinyurl.com/lgc2rsz)
+
+#### Knowledge check 1.3.8
+
+```html
+<!-- other content -->
+<article>
+<main role = "main" >
+<h2> Longboards </h2>
+<p> Longboards are a type of skateboard with a longer
+wheelbase and larger, softer wheels. </p>
+</main>
+</article>
+<!-- other content -->
+```
+
+1. Is this code correct? (No/Yes)
+
+  Ans: 
+
+
 ### 1.3.9 The blog example, applying best practices
 
 Let's go back to our blog example and see what can be improved:
@@ -1413,7 +1542,7 @@ Let's go back to our blog example and see what can be improved:
 [Local blog example](src/1.3.9-blog1.html)
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y5ug9vol')"
     src    ="https://tinyurl.com/y6hj3ekp"
     alt    ="image of the blog table of content, that shows an untitled nav entry"
@@ -1422,7 +1551,7 @@ Let's go back to our blog example and see what can be improved:
 </figure>
 
 
-Also note that in this example, we used H1s after each sectioning element, and we still get a hierarchy, some H1s are inside an <article> that is in a <section> (this corresponds to the third example given in the "heading and sectioning elements" part of the course):
+Also note that in this example, we used H1s after each sectioning element, and we still get a hierarchy, some H1s are inside an `<article>` that is in a `<section>` (this corresponds to the third example given in the "heading and sectioning elements" part of the course):
 
 ```html
 <section>
@@ -1432,7 +1561,8 @@ Also note that in this example, we used H1s after each sectioning element, and w
    <article>
      <header>
        <h1><a href="">Information about this example</a></h1>
-       This example is a modified version of <a href="https://example.com/blog/index.html">https://example.com/blog/index.html</a>
+       This example is a modified version of 
+       <a href="https://example.com/blog/index.html">https://example.com/blog/index.html</a>
      </header>
      ...
    </article>
@@ -1464,7 +1594,7 @@ We need to add a heading in the `<nav>` element. This will both fix the outline 
 Here is the fixed result:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y5ug9vol')"
     src    ="https://tinyurl.com/y4r87tgd"
     alt    ="good outline without the untitled nav"
