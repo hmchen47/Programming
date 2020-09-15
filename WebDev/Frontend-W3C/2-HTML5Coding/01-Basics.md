@@ -1400,6 +1400,159 @@ They are also useful for checking the presence of headings in each sectioning co
   Explanation: No, there is one untitled entry, meaning that a heading is missing.
 
 
+### 1.3.9 The blog example, applying best practices
+
+Let's go back to our blog example and see what can be improved:
+
++ Do we have a heading after each sectioning element?
++ Did we use sectioning elements or implicit sections?
++ Can we embed a table of contents?
+
+[The blog example is online at JsBin](https://jsbin.com/heboke/edit?html,output): let's see below what the Google Chrome HTML5 Outliner extension showed.
+
+[Local blog example](src/1.3.9-blog1.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src    ="https://tinyurl.com/y6hj3ekp"
+    alt    ="image of the blog table of content, that shows an untitled nav entry"
+    title  ="image of the blog table of content, that shows an untitled nav entry"
+  />
+</figure>
+
+
+Also note that in this example, we used H1s after each sectioning element, and we still get a hierarchy, some H1s are inside an <article> that is in a <section> (this corresponds to the third example given in the "heading and sectioning elements" part of the course):
+
+```html
+<section>
+   <header>
+     <h1>Blog posts for April 2012</h1>
+   </header>
+   <article>
+     <header>
+       <h1><a href="">Information about this example</a></h1>
+       This example is a modified version of <a href="https://example.com/blog/index.html">https://example.com/blog/index.html</a>
+     </header>
+     ...
+   </article>
+</section>
+```
+
+With this technique, parts of the document can be moved more easily, or integrated inside an RSS stream, without the need to renumber the headings.
+
+Beware that this technique will require you to use some CSS styling, and may confuse some screen readers that do not yet take into account this way of computing the heading hierarchy. A simple fix is to use an H1 right after the `<body>` and use only H2...H6 inside `<section>`, `<article>`, `<nav>` and `<aside>`.
+
+
+#### Let's fix the missing heading
+
+We need to add a heading in the `<nav>` element. This will both fix the outline of the document by removing the untitled entry, and will also make screen readers happy as they will better vocalize the structure of the page (it will say "entering nav" followed by the vocalization of the heading content).
+
+```html
+<nav>
+   <header>
+     <h1>Navigation menu</h1>
+   </header>
+   <ul>
+     <li><span>Blog</span></li>
+     <li><a href="">About</a></li>
+     <li><a href="">Contact</a></li>
+   </ul>
+</nav>
+```
+
+Here is the fixed result:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src    ="https://tinyurl.com/y4r87tgd"
+    alt    ="good outline without the untitled nav"
+    title  ="good outline without the untitled nav"
+  />
+</figure>
+
+A common remark from Web designers is: "we do not want a heading content displayed systematically after a <nav>, or an <aside> element..."
+
+<p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong>BEST PRACTICE #1: </strong>In order&nbsp;to&nbsp;<span style="line-height: 1.6;">NOT&nbsp;</span>display the heading content on screen &nbsp;the recommended technique &nbsp;is described in&nbsp;<a href="https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/" target="_blank">this article by Steve Faulkner</a>.&nbsp;Do not use <span style="font-family: 'courier new', courier;">display:none</span> or <span style="font-family: 'courier new', courier;">visibility:hidden</span> in your CSS stylesheet, as in that case the heading content will never be vocalized by screen readers, and more generally by assistive technologies.&nbsp;<strong style="font-size: 1em; line-height: 1.6em;"><br><br></strong>As an illustration of the recommended technique, see&nbsp;<a href="https://jsbin.com/savabo/edit?html,output" target="_blank">this JSBin version of the blog example</a>&nbsp;that hides the <span style="font-family: 'courier new', courier;">&lt;h2&gt;Navigation menu&lt;/h2&gt;</span> from the <span style="font-family: 'courier new', courier;">&lt;nav&gt;...&lt;/nav&gt;</span> element, using the&nbsp;CSS technique&nbsp;explained in the above link.<strong style="font-size: 1em; line-height: 1.6em;"><br></strong></p>
+
+<p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong>BEST PRACTICE #2:&nbsp;</strong>it is not advised to include interactive content (links, controls etc) that is hidden offscreen (it is in fact a violation of the <a href="https://www.w3.org/TR/WCAG20/" target="_blank">W3C WCAG 2.0 Guidelines</a>). All interactive content must have a visible focus indicator (and be on screen when focused).<strong><br></strong></p>
+
+
+#### Embedding a table of contents and adding a `<main>` element
+
+In the previous section, we saw how to embed a table of contents using some JavaScript code borrowed from the Google Chrome HTML5 outliner extension.
+
+Let's add this piece of code (we removed the JS details from this extract):
+
+```html
+<aside>
+   <h1>
+     <a href="javascript:(function(){...});"
+        title="TableOfContents">
+        Click here to display the table of contents!
+     </a>
+   </h1>
+</aside>
+```
+
+We also added a `<main>` element to identify the main content of the page composed of the big section with all blog posts:
+
+```html
+<main>
+  <section>
+     <header>
+         <h2>Blog posts for April 2012</h2>
+     </header>
+     ...
+</main>
+```
+
+
+#### Use H1 as top level headings only, use H2...H6 in sectioning content
+
+As explained in the article [HTML5 Document Outline](https://tinyurl.com/z93l2fy) and in [the W3C HTML Wiki](https://tinyurl.com/y4b7jwq5), it is risky to use nested H1s, as browsers do not correctly implement the "outline algorithm".
+
+The blog example uses nested H1’s. If you check it with [the W3C conformance checker](https://tinyurl.com/o8lnbsu), it issues a warning: "Consider using the h1 element as a top-level heading only (all h1 elements are treated as top-level headings by many screen readers and other tools)."
+
+So, while this is just a warning, we do prefer to use H1s only as top level elements, and replace the H1s we had after `<section>`, `<article>`, `<nav>` and `<aside>` elements respectively by a H2s and H3s. 
+
+Extract from source code:
+
+```html
+<nav>
+   <header>
+     <h2>Navigation menu</h2>
+   </header>
+   ...
+</nav>
+```
+
+Finally, the fixed example
+
+[Check it online with this JsBin](https://tinyurl.com/y695yryn)
+
+[Local example](src/1.3.9-blog2.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src    ="https://tinyurl.com/y5r2ucuu"
+    alt    ="blog with embedded table of contents"
+    title  ="blog with embedded table of contents"
+  />
+</figure>
+
+
+#### Knowledge check 1.3.9
+
+1. I have a heading after a `<nav>` or an `<aside>` element. What is to be done if I do not want it to appear on the page?<br/>
+  a. Prefer not to use a heading in `<nav>` or `<aside>` elements.<br/>
+  b. Hide it using the CSS `<display:none>` rule.<br/>
+  c. Use CSS, as this is a best practice described in an article (by Steve Faulkner) we refer to in this course.<br/>
+  d. Hide it using the CSS `<visibility:hidden>` rule.<br/>
+
+  Ans: 
 
 
 
