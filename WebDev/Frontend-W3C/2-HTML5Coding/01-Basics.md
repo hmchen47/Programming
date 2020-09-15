@@ -317,6 +317,19 @@ Please check out both the HTML5 [logo home page](https://www.w3.org/html/logo/) 
   + displaying some "untitled entries" $\to$ missing some headings
 
 
++ The `<main>` element
+  + identify the main content of the document
+  + provide a navigable document structure for assistive technology users as well as styling hooks for devs
+  + supported by major modern browsers
+  + constraints
+    + no more than one `<main>` element in a document
+    + not a descendant of an `<article>`, `<aside>`, `<footer>`, `<header>`, or `<nav>` element
+  + best practice:
+    + split page content into "regions" defined by the five 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
+
+
+
+
 ### 1.3.1 Greater simplicity
 
 Changes have been made to particular elements in HTML5 making it simpler to use. In this section, we will look at some examples highlighting these improvements, including:
@@ -1430,7 +1443,8 @@ wheelbase and larger, softer wheels.</p>
    </article>
    <article>
       <h2>Electric Skateboards</h2>
-      <p>These no longer require the propelling of the skateboard by means of the feet; rather an electric motor propels the board, fed by an electric battery.</p>
+      <p>These no longer require the propelling of the skateboard by means of the feet; 
+      rather an electric motor propels the board, fed by an electric battery.</p>
       <p>... </p>
       <p>... </p>
    </article>
@@ -1518,7 +1532,7 @@ We recommend this article written by Steve Faulkner: "[Easy content organisation
 <main role = "main" >
 <h2> Longboards </h2>
 <p> Longboards are a type of skateboard with a longer
-wheelbase and larger, softer wheels. </p>
+    wheelbase and larger, softer wheels. </p>
 </main>
 </article>
 <!-- other content -->
@@ -1526,7 +1540,9 @@ wheelbase and larger, softer wheels. </p>
 
 1. Is this code correct? (No/Yes)
 
-  Ans: 
+  Ans: No<br/>
+  Explanation: A main can't be included in an article element.
+
 
 
 ### 1.3.9 The blog example, applying best practices
@@ -1602,7 +1618,7 @@ Here is the fixed result:
   />
 </figure>
 
-A common remark from Web designers is: "we do not want a heading content displayed systematically after a <nav>, or an <aside> element..."
+A common remark from Web designers is: "we do not want a heading content displayed systematically after a `<nav>`, or an `<aside>` element..."
 
 <p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong>BEST PRACTICE #1: </strong>In order&nbsp;to&nbsp;<span style="line-height: 1.6;">NOT&nbsp;</span>display the heading content on screen &nbsp;the recommended technique &nbsp;is described in&nbsp;<a href="https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/" target="_blank">this article by Steve Faulkner</a>.&nbsp;Do not use <span style="font-family: 'courier new', courier;">display:none</span> or <span style="font-family: 'courier new', courier;">visibility:hidden</span> in your CSS stylesheet, as in that case the heading content will never be vocalized by screen readers, and more generally by assistive technologies.&nbsp;<strong style="font-size: 1em; line-height: 1.6em;"><br><br></strong>As an illustration of the recommended technique, see&nbsp;<a href="https://jsbin.com/savabo/edit?html,output" target="_blank">this JSBin version of the blog example</a>&nbsp;that hides the <span style="font-family: 'courier new', courier;">&lt;h2&gt;Navigation menu&lt;/h2&gt;</span> from the <span style="font-family: 'courier new', courier;">&lt;nav&gt;...&lt;/nav&gt;</span> element, using the&nbsp;CSS technique&nbsp;explained in the above link.<strong style="font-size: 1em; line-height: 1.6em;"><br></strong></p>
 
