@@ -254,6 +254,64 @@ Please check out both the HTML5 [logo home page](https://www.w3.org/html/logo/) 
   + `<article>` able to be cut into different `<section>` elements
   + `<section>` may be cut into different `<article>` elements
 
++ Sectioning elements
+  + headings: `<h1>...<h6>`
+    + used to display headings with different sizes by default, when no CSS is used
+    + define the header of a section
+  + section elements: `<section>`, `<article>`, `<nav>` and `<aside>`
+    + sections: a document cut into slides by sectioning elements
+    + each potentially w/ a heading and an outline associated
+  + multiple headings of different rank with sectioning content
+    + 1st element of a heading content in an element of sectioning content representing the heading for that section
+    + headings of _equal or higher rank_: new (implied) sections
+    + headings of _lower rank_: implied subsections that are part of the previous one
+    + `<h1>` inside a `<section>`: the browser lowers its default size automatically
+  + best practices
+    + always add a heading to explicit sectioning content
+      + including a heading (a `<h1>, <h2>...<h6>`) in each sectioning element
+      + the `<body>` element: sectioning root
+      + example
+
+        ```html
+        <body>
+            <h1>Example Blog</h1>
+            <section>
+              <header>
+                  <h2>Blog post of April 2020</h2>
+                  <p>Posted by Michel Buffa...</p>
+              </header>
+              <p>Content of the blog post...</p>
+          </section>
+        </body>
+        ```
+
+    + using `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`, not to relying on implicit sectioning
+      + `<header> `element
+        + a container
+        + not defining new sections of a document nor affecting the hierarchy levels
+      + HTML not dedicated mechanism for marking up subheadings, alternative titles or taglines
+      + example
+
+        ```html
+        <body>
+        <h1>Apples</h1>
+        <p>Apples are fruit.</p>
+        <section>
+            <h2>Taste</h2>
+            <p>They taste lovely.</p>
+            <section>
+                <h3>Sweet</h3>
+                <p>Red apples are sweeter than green ones.</p>
+            </section>
+        </section>
+        <section>
+            <h2>Color</h2>
+            <p>Apples come in various colors.</p>
+        </section>
+        </body>
+        ```
+
+
 
 ### 1.3.1 Greater simplicity
 
@@ -1008,7 +1066,7 @@ The `<section>`, `<article>`, `<nav>` and `<aside>` elements are called "__secti
 
 The HTML5 specification says that "each sectioning element potentially has a heading and has also an outline associated".
 
-`<h1>...<h6>` are called headings, and define the header of a section (whether explicitly marked up using sectioning content elements, or implied by the heading content itself). This means that:
+`<h1>...<h6>` are called __headings__, and define the header of a section (whether explicitly marked up using sectioning content elements, or implied by the heading content itself). This means that:
 
 ```html
 <body>
@@ -1043,17 +1101,15 @@ Let's clarify this by looking at some example code:
 ```html
 <body>
 <section>
-    <h1>This H1 is the heading of an explicit section</h1>
-    ...
-       <h2>This H2 is a subheading, part of the same section
-           (lower rank)</h2>
-            ....
-    <h1>This H1 starts an implicit new section in the explicit
-        section (equal or higher rank)</h1>
+  <h1>This H1 is the heading of an explicit section</h1>
+      ...
+    <h2>(lower rank) This H2 is a subheading, part of the same section</h2>
+        ....
+  <h1>(equal or higher rank) This H1 starts an implicit new section in the explicit
+      section </h1>
+      ...
+    <h2>This is a H2 heading in the new section that has just started</h2>
         ...
-        <h2>This is a H2 heading in the new section that has
-            just started</h2>
-            ...
 </section>
 </body>
 ```
@@ -1083,7 +1139,260 @@ In the above example, please note two things:
   c. 6<br/>
   d. 4<br/>
 
-  Ans: 
+  Ans: c
+
+
+### 1.3.6 Best practices when using sectioning elements
+
+__Best practice #1: always add a heading to explicit sectioning content__
+
+It's always better - mainly for accessibility reasons - to include a heading (a `<h1>, <h2>...<h6>`) in each sectioning element (`<section>`, `<article>`, `<nav>`, `<aside>`), but also after the `<body>` element (called a "sectioning root").
+
+Here are some examples:
+
+__Good (heading in each explicit section)__:
+
+```html
+<section>
+    <h1>Blog post of April 2020</h1>
+    ...
+</section>
+```
+
+__Good (heading  in a `<header>` does not change anything)__
+
+```html
+<section>
+   <header>
+      <h1>Blog post of April 2020</h1>
+      <p>Posted by Michel Buffa...</p>
+   </header>
+...
+</section>
+```
+
+__Bad (there is no Hx after the `<section>` -> no heading)__:
+
+```html
+<section>
+   <header>
+      <p class="article title">Blog post of April 2020</p>
+      <p>Posted by Michel Buffa...</p>
+   </header>
+   ...
+</section>
+```
+
+The last example is bad for accessibility reasons. A screen reader that vocalizes the page will just say "Entering section", while in the previous two good examples it would say "entering section with heading Blog Posts of April 2020". You can also check if your headings and sectioning elements are ok by using a browser extension that displays the outline of the document (just search for "html5 outliner" in your browser's extension search engine).
+
+__UPDATE__: For the course screenshots, we used the Google Chrome HTML5 outliner extension that is no more available (it has been removed by its developer), but you can use any other equivalent extension such as [table-of-contents-crx](https://tinyurl.com/y4em5khm) for Chrome or [Outline sidebar](https://tinyurl.com/y2bw2stx) for Firefox.
+
+The outline of the last example looks like this:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src    ="https://tinyurl.com/y33dqxrw"
+    alt    ="outline of last example"
+    title  ="outline of last example"
+  />
+</figure>
+
+
+Notice that <body> is also a sectioning element. It's called a "sectioning root", and would also need a heading.
+
+Final good version:
+
+```html
+<body>
+    <h1>Example Blog</h1>
+    <section>
+       <header>
+          <h2>Blog post of April 2020</h2>
+          <p>Posted by Michel Buffa...</p>
+       </header>
+      <p>Content of the blog post...</p>
+   </section>
+</body>
+```
+
+In red, the sectioning root (`<body>`) and the sectioning elements (`<section>` here...), each have a heading.
+
+__To sum up:__
++ Always use a heading element after a sectioning element, for example `<section><Hx>...</Hx>...</section>`, and after `<body>`, where x can be 1..6,
++ Or, use a `<header>` element, like in `<section><header><Hx>...</Hx>.....</header>...</section>`
+
+
+#### More about the `<header>` element
+
+__The `<header>` element is just a container. It is not taken into account for defining new sections of a document nor does it affect the hierarchy levels.__
+
+You can use heading elements `<h1>...<h6>` in a `<header>` but be careful if you use more than one, as the rules explained in the previous part of the course will apply and may generate implicit "sections" in the header.
+
+This example has two headings in the `<header>`:
+
+```html
+<section>
+   <header>
+     <h1>Some text in a h1 in a header of a section</h1>
+     <h2>This a h2 in the header...</h2>
+   </header>
+</section>
+```
+
+Here is the resulting table of contents, notice the two subsections that appear, one for the H1, one for the H2:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src    ="https://tinyurl.com/y3ezx2r8"
+    alt    ="Example of table of contents"
+    title  ="Example of table of contents"
+  />
+</figure>
+
+Indeed, HTML does not have a dedicated mechanism for marking up subheadings, alternative titles or taglines. 
+
+If you do not want the subtitles to be included in the table of contents, just use standard markup, for example <p> elements, as shown in the next example. Of course, CSS rules can be applied to change colors, sizes, etc.
+
+```html
+<header>
+    <h1>HTML 5.1 Nightly</h1>
+    <p>A vocabulary and associated APIs for HTML and XHTML</p>
+    <p>Editor's Draft 9 May 2013</p>
+</header>
+```
+
+##### Best practice #2: try not to rely on implicit sectioning, use `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`
+
+The example below defines several implicit "sections" by using `<Hx>` directly (at lines 7 and 9):
+
+Ok version (no explicit sections everywhere):
+
+```html
+<body>
+<h4>Apples</h4>
+<p>Apples are fruit.</p>
+<section>
+     <h2>Taste</h2>
+     <p>They taste lovely.</p>
+     <h6>Sweet</h6>
+     <p>Red apples are sweeter than green ones.</p>
+     <h1>Color</h1>
+     <p>Apples come in various colors.</p>
+</section>
+</body>
+```
+
+Better version (best practice):
+
+```html
+<body>
+<h1>Apples</h1>
+<p>Apples are fruit.</p>
+<section>
+     <h2>Taste</h2>
+     <p>They taste lovely.</p>
+     <section>
+         <h3>Sweet</h3>
+         <p>Red apples are sweeter than green ones.</p>
+     </section>
+</section>
+<section>
+     <h2>Color</h2>
+     <p>Apples come in various colors.</p>
+</section>
+</body>
+```
+
+Both of the examples above are semantically identical and produce the same outline:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5ug9vol')"
+    src    ="https://tinyurl.com/y6jg6qla"
+    alt    ="outline of previous examples"
+    title  ="outline of previous examples"
+  />
+</figure>
+
+
+#### Knowledge check 1.3.6
+
+```html
+<section>
+<header>
+  <p class = "article title" > Blog post of April 2020 </p>
+  <p> Posted by Michel Buffa... </p>
+</header>
+...
+</section>
+```
+
+1. Does this example follow the best practices presented in this section of the course? (Yes/No)
+
+  Ans: No<br/>
+  Explanation: No, the section is not followed by at least one heading (in the header element)
+
+
+### 1.3.7 Embedding a table of contents
+
+Here we propose a small piece of JavaScript code you can use in your documents to display an embedded table of contents. 
+
+This example is a simple document, with a hyperlink that, once clicked, displays the table of contents in an `<aside>` element in the main `<section>`. Just look at the source code and copy/paste the link into your own HTML documents.
+
+[Online example at JsBin.](https://tinyurl.com/y3ab6zow)
+
+[Local example](src/1.3.7-toc.html)
+
+Extract of source code:
+
+```html
+<body>
+<h1>This is an example of embedded table of content</h1>
+<section>
+     <header>
+         <h1>First section of the document (this is a h1)</h1>
+         This is a subheading...
+     </header>
+     <h2>First subsection of the first section (a h2)</h2>
+     <p>Blah Blah...</p>
+ </section>
+<section>
+     <h1>Second section of the document (a h1)</h1>
+     <h2>First subsection (a h2)</h2>
+</section>
+<aside>
+     <h3>Table of contents</h3>
+     <a href="javascript:(function(){...})();"
+        title="TableDeMatiere">
+        Click here to display the table of contents!
+     </a>
+</aside>
+</body>
+```
+
+__Best practice__: visualizing the table of contents is useful for debugging the structure of your page, and checking the presence of headings after sectioning content.
+
+Indeed, tools that generate the table of contents are a good way to debug the structure of your page. Is the hierarchy correct? Is it what I wanted when I designed my page?
+
+They are also useful for checking the presence of headings in each sectioning content. If some headings are missing, the table of contents will display some "untitled entries". Remember that having a heading after each sectioning content is a good practice in terms of accessibility.
+
+#### Knowledge check 1.3.7
+
+```
+1. Simple HTML5 blog
+2. Blog posts for April 2020
+  1. Information about this example
+  2. History
+  3. HTML vs XHTML
+  4. Untitled SECTION
+3. Tag cloud
+```
+
+1. Is this outline ideal? (No/Yes)
+
+  Ans:
 
 
 
