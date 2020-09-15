@@ -327,6 +327,15 @@ Contents
 <br/>
 
 
+### Reading Notes
+
++ [Reading Notes Indexing](RefCards/ReadingIdx.md)
+
++ [Reading List](Notes/ReadingList.md)
+
+
+
+
 ## Keywords for Git Commits
 
   <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 50vw;">
