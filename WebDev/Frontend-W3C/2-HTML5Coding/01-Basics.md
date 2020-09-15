@@ -311,6 +311,10 @@ Please check out both the HTML5 [logo home page](https://www.w3.org/html/logo/) 
         </body>
         ```
 
++ Table of contents
+  + useful for debugging the structure of your page
+  + checking the presence of headings after sectioning content
+  + displaying some "untitled entries" $\to$ missing some headings
 
 
 ### 1.3.1 Greater simplicity
@@ -1263,7 +1267,7 @@ If you do not want the subtitles to be included in the table of contents, just u
 </header>
 ```
 
-##### Best practice #2: try not to rely on implicit sectioning, use `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`
+__Best practice #2: try not to rely on implicit sectioning, use `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`__
 
 The example below defines several implicit "sections" by using `<Hx>` directly (at lines 7 and 9):
 
@@ -1392,7 +1396,8 @@ They are also useful for checking the presence of headings in each sectioning co
 
 1. Is this outline ideal? (No/Yes)
 
-  Ans:
+  Ans: No <br/>
+  Explanation: No, there is one untitled entry, meaning that a heading is missing.
 
 
 
