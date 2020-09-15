@@ -1744,7 +1744,124 @@ Finally, the fixed example
   Explanation: The right answer is the third one. The two first answers are not good at all because screen readers will simply ignore the heading and never vocalize it, and as such rendering a badly accessible page. The last answer is also wrong for the same reasons: no heading implies bad accessibility.
 
 
+### 1.3.10 Examples of page layouts
 
+
+#### Introduction: simple layouts using the new structuring elements and CSS3
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V002900_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=150/>
+</a><br/>
+
+[Transcript](https://tinyurl.com/yxu2nvsm)
+
+
+#### Live coding video: a simple layout based on the CSS float property
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V003300_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=150/>
+</a><br/>
+
+[Transcript](https://tinyurl.com/y3beda3z)
+
+In this section, we show some "classic" CSS layout techniques for designing an HTML page that uses the new sectioning elements. 
+
+We embed examples from this very good post about "Positioning content". This is a recommended reading as it details how to use the CSS float property to layout a Web page.
+
+The 4 examples below are given "as is" to give you some hints. There are lots of other possibilities on using CSS to position element.
+
+__Example #1: a `<section>` on the left and an `<aside>` on the right, using the float and width CSS properties__
+
+This example uses the following HTML structure (notice that we use the "HTML entity syntax" for displaying "<" or ">". For example, `&lt;` displays a "<" character).
+
+```html
+<header>
+<code>&lt;header&gt;</code>
+</header>
+ 
+<section>
+<code>&lt;section&gt; <br> float: left;</code>
+</section>
+ 
+<aside>
+<code>&lt;aside&gt; <br> float: right;</code>
+</aside>
+ 
+<footer>
+<code>&lt;footer&gt;</code>
+</footer>
+```
+
+Here we use the CSS rule float:left for the `<section>` and the CSS rule float:right for the `<aside>`. When an element floats, it goes out of the normal flow of the HTML element. Then by default it floats to the edge of its parent; and its size depends on the elements it contains. So, in order to fill the whole horizontal space, we prefer here to "force the width" by setting the CSS width property with a percentage.  So we took width: 63% for the `<section>` on the left and width:30% for the `<aside>` on the right.
+
+You can look at the complete CSS code in the interactive example below (click on the CSS or HTML text in the menu bar below, or click "edit on codepen" to change the code and see the results):
+
+[Local Example](src/1.3.10-layput.html)
+
+Example from the live coding video, a slight adaptation of the technique described above
+
+[Also available online at JSBin.](https://tinyurl.com/y3jcm99u)
+
+[Local example](src/1.3.10-Buffa.html)
+
+
+__Example #2: three sections centered, of equal size, also using the float and width CSS properties__
+
+Here we show how to make a 3 column layout using the CSS float property.
+
+HTML code:
+
+```html
+<header>
+<code>&lt;header&gt;</code>
+</header>
+ 
+<section>
+<code>&lt;section&gt; <br> float: left;</code>
+</section>
+ 
+<section>
+<code>&lt;section&gt; <br> float: left;</code>
+</section>
+ 
+<section>
+<code>&lt;section&gt; <br> float: left;</code>
+</section>
+ 
+<footer>
+<code>&lt;footer&gt;</code>
+</footer>
+```
+
+Instead of having one element with a float:left and one element with a float:right property, we instead use float:left for all three of them, and we give a  width:30% CSS property value to each `<section>`. We also set a small margin so that the colums have a gap between them.
+
+Look at the CSS code in the example below:
+
+[local example 2](src/1.3.10-example2.html)
+
+
+__Example #3: same result using the CSS flex property__
+
+This example uses the CSS flex property to achieve a result similar to the one shown in Example 2.
+
+There are many articles on Flexbox and we recommend those from Rachel Andrew on Smashing Magazine: "Use cases for Flexbox", "Flexbox: how big is that flexible box", etc.
+
+[local example](src/1.3.10-example3.html)
+
+
+__Example #4: another example written by a student, that uses the flex property__
+
+This example also uses all the structuring elements we saw: main, article, section, etc. It uses only the simplest parts of the FlexBox CSS module, so it should be easy to understand, even for CSS beginners:
+
+[Local example](src/1.3.10-example4.html)
+
+
+#### External resources
+
++ An article on CSS Tricks: [All about floats](https://tinyurl.com/nftw559)
++ Old but good article on "A List Apart" (ALA): [CSS Floats 101](https://tinyurl.com/y2gmkbo9)
++ Another article on Lifewire: [Understanding CSS float](https://tinyurl.com/y56oljtx)
++ On MDN's Web Docs: [the float CSS property](https://tinyurl.com/lh9fe44) and [the clear CSS property](https://tinyurl.com/ovkcbf7)
 
 
 
