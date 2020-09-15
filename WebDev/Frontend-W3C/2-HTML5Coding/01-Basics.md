@@ -327,6 +327,37 @@ Please check out both the HTML5 [logo home page](https://www.w3.org/html/logo/) 
   + best practice:
     + split page content into "regions" defined by the five 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
 
++ Best practices
+  + some H1s inside an `<article>` in a `<section>`
+    + documents moved more easily or integrated inside an RSS stream
+    + no need to renumber the headings
+    + constraints:
+      + use some CSS styling
+      + may confuse some screen readers not yet taking into account of computing the heading hierarchy
+    + solution: use an H1 right after the `<body>` and use only H2...H6 inside `<section>`, `<article>`, `<nav>` and `<aside>`
+  + add a heading in the `<nav>` element
+    + fix the outline of the document by removing the untitled entry
+    + make screen readers happy as they will better vocalize the structure of the page
+  + NOT display the heading content on screen
+    + not using `display:none` or `visibility:hidden` in your CSS stylesheet
+    + recommended technique
+
+      ```css
+      nav header {
+          position: absolute !important;
+          clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+          clip: rect(1px, 1px, 1px, 1px);
+          padding:0 !important;
+          border:0 !important;
+          height: 1px !important;
+          width: 1px !important;
+          overflow: hidden;
+      }
+      ```
+  + Not advised to include interactive content (links, controls etc) hidden offscreen, all interactive content must have a visible focus indicator
+  + Using H1 as top level headings only, using H2...H6 in sectioning content
+    + risky to use nested H1s
+    + browsers not correctly implement the "outline algorithm"
 
 
 
@@ -1566,7 +1597,6 @@ Let's go back to our blog example and see what can be improved:
   />
 </figure>
 
-
 Also note that in this example, we used H1s after each sectioning element, and we still get a hierarchy, some H1s are inside an `<article>` that is in a `<section>` (this corresponds to the third example given in the "heading and sectioning elements" part of the course):
 
 ```html
@@ -1620,7 +1650,19 @@ Here is the fixed result:
 
 A common remark from Web designers is: "we do not want a heading content displayed systematically after a `<nav>`, or an `<aside>` element..."
 
-<p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong>BEST PRACTICE #1: </strong>In order&nbsp;to&nbsp;<span style="line-height: 1.6;">NOT&nbsp;</span>display the heading content on screen &nbsp;the recommended technique &nbsp;is described in&nbsp;<a href="https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/" target="_blank">this article by Steve Faulkner</a>.&nbsp;Do not use <span style="font-family: 'courier new', courier;">display:none</span> or <span style="font-family: 'courier new', courier;">visibility:hidden</span> in your CSS stylesheet, as in that case the heading content will never be vocalized by screen readers, and more generally by assistive technologies.&nbsp;<strong style="font-size: 1em; line-height: 1.6em;"><br><br></strong>As an illustration of the recommended technique, see&nbsp;<a href="https://jsbin.com/savabo/edit?html,output" target="_blank">this JSBin version of the blog example</a>&nbsp;that hides the <span style="font-family: 'courier new', courier;">&lt;h2&gt;Navigation menu&lt;/h2&gt;</span> from the <span style="font-family: 'courier new', courier;">&lt;nav&gt;...&lt;/nav&gt;</span> element, using the&nbsp;CSS technique&nbsp;explained in the above link.<strong style="font-size: 1em; line-height: 1.6em;"><br></strong></p>
+<p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong>BEST PRACTICE #1: </strong>In order&nbsp;to&nbsp;<span style="line-height: 1.6;">NOT&nbsp;</span>display the heading content on screen &nbsp;the recommended technique &nbsp;is described in&nbsp;<a href="https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/" target="_blank">this article by Steve Faulkner</a>.&nbsp;Do not use <span style="font-family: 'courier new', courier;">display:none</span> or <span style="font-family: 'courier new', courier;">visibility:hidden</span> in your CSS stylesheet, as in that case the heading content will never be vocalized by screen readers, and more generally by assistive technologies.&nbsp;<strong style="font-size: 1em; line-height: 1.6em;"><br><br></strong>As an illustration of the recommended technique, see&nbsp;<a href="https://jsbin.com/savabo/edit?html,output" target="_blank">this JSBin version of the blog example</a>&nbsp;that hides the <span style="font-family: 'courier new', courier;">&lt;h2&gt;Navigation menu&lt;/h2&gt;</span> from the <span style="font-family: 'courier new', courier;">&lt;nav&gt;...&lt;/nav&gt;</span> element, using the&nbsp;CSS technique&nbsp;explained in the above link.<strong style="font-size: 1em; line-height: 1.6em;"><br></strong><br/>
+<code>
+nav header {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; position: absolute !important;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;  clip: rect(1px, 1px, 1px, 1px);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;  padding:0 !important;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;  border:0 !important;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;  height: 1px !important; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;  width: 1px !important; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;  overflow: hidden;<br/>
+}       
+</code></p>
 
 <p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong>BEST PRACTICE #2:&nbsp;</strong>it is not advised to include interactive content (links, controls etc) that is hidden offscreen (it is in fact a violation of the <a href="https://www.w3.org/TR/WCAG20/" target="_blank">W3C WCAG 2.0 Guidelines</a>). All interactive content must have a visible focus indicator (and be on screen when focused).<strong><br></strong></p>
 
@@ -1698,7 +1740,11 @@ Finally, the fixed example
   c. Use CSS, as this is a best practice described in an article (by Steve Faulkner) we refer to in this course.<br/>
   d. Hide it using the CSS `<visibility:hidden>` rule.<br/>
 
-  Ans: 
+  Ans: c<br/>
+  Explanation: The right answer is the third one. The two first answers are not good at all because screen readers will simply ignore the heading and never vocalize it, and as such rendering a badly accessible page. The last answer is also wrong for the same reasons: no heading implies bad accessibility.
+
+
+
 
 
 
