@@ -133,10 +133,10 @@ Author: Shay Howe
 
     ```css
     div {
-      clear: left;    # left floats
+      clear: left;    /* left floats */
     }
     footer {
-      clear: both;    # clear all floats
+      clear: both;    /* clear all floats */
     }
     ```
 
@@ -211,6 +211,130 @@ Author: Shay Howe
   + [Layout with Contained Floats Demo](src/web02e-floatDemo6.html)
   + the flow of a page is reset by either clearing or containing the floats as necessary
 
+
+### In Practice - Example: Styles Conference Website
+
+1. following previous Styles Conference Website
+  + provide a way to contain those floats by adding the clearfix to our CSS
+  + add the clearfix under the class name group
+
+  ```css
+  /*
+    ========================================
+    Clearfix
+    ========================================
+  */
+  .group:before,
+  .group:after {
+    content: "";
+    display: table;
+  }
+  .group:after {
+    clear: both;
+  }
+  .group {
+    clear: both;
+    *zoom: 1;
+  }
+  ```
+
+2. contain floats
+  + float the primary `<h1>` within the `<header>` element to the left
+  + allow all of the other content in the header to wrap to the right of it
+  + add a class of logo to the `<h1>` element
+  + add a new section of styles for the primary header
+
+  ```html
+  <h1 class="logo">
+    <a href="index.html">Styles Conference</a>
+  </h1>
+  ```
+
+  ```css
+  /*
+    ========================================
+    Primary header
+    ========================================
+  */
+
+  .logo {
+    float: left;
+  }
+  ```
+
+3. add a little more detail to logo
+
+  + placing a `<br>` element, or line break, between the word “Styles” and the word “Conference” to force the text of our logo to sit on two lines
+  + add a border to the top of our logo and some vertical `padding` to give the logo breathing room
+
+  ```html
+  <h1 class="logo">
+    <a href="index.html">Styles <br> Conference</a>
+  </h1>
+  ```
+
+  ```css
+  .logo {
+    border-top: 4px solid #648880;
+    padding: 40px 0 22px 0;
+    float: left;
+  }
+  ```
+
+4. contain the floated `<h1>` element
+
+  ```html
+  <header class="container group">
+    ...
+  </header>
+  ```
+
+5. processing `<footer>` element
+  + float copyright to the left within the `<small>` element
+  + other elements wrap around it to the right
+  + apply a class to the parent of the floated element and use a unique CSS selector to select the element and then float it
+  + adding the class of `primary-footer` to the `<footer>` element
+
+  ```html
+  <footer class="primary-footer container group">
+    ...
+  </footer>
+  ```
+
+6. `primary-footer` class
+  + use that class to prequalify the `<small>` element with CSS
+  + select and `float` the `<small>` element to the `left`
+  + create a new section within our `main.css` file for these primary footer styles
+
+  ```css
+  /*
+    ========================================
+    Primary footer
+    ========================================
+  */
+
+  .primary-footer small {
+    float: left;
+  }
+  ```
+
+7. put some padding on the top and bottom of the <footer> element
+
+  ```css
+    .primary-footer {
+    padding-bottom: 44px;
+    padding-top: 44px;
+  }
+  ```
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y6396y5a')"
+    src    ="https://tinyurl.com/y6396y5a"
+    alt    ="Styles Conference website"
+  />
+  <figcaption> With a few floats, the &lt;header&gt; and &lt;footer&gt; elements <br/>on our Styles Conference home page are coming together </figcaption>
+</figure>
 
 
 
