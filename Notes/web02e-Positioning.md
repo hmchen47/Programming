@@ -340,6 +340,14 @@ Author: Shay Howe
 
 ## Positioning with Inline-Block
 
++ the `display` property
+  + position content in conjunction with the `inline-block` value
+  + `inline-block` method
+    + primarily helpful for laying out pages or for placing elements next to one another within a line
+    + displaying elements within a line while allowing them to accept all box model properties
+    + including `height`, `width`, `padding`, `border`, and `margin`
+  
+
 
 
 
