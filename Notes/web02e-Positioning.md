@@ -35,7 +35,7 @@ Author: Shay Howe
     <footer>...</footer>
     ```
   
-  + [Layout without Floats Demo1](src/web02e-floatDemo.html)
+  + [Layout without Floats Demo1](src/web02e-floatDemo01.html)
   + the `<section>` and `<aside>` elements
     + block-level elements
     + stacked on top of one another by default
@@ -73,7 +73,7 @@ Author: Shay Howe
     }
     ```
 
-  + [Layout with Floats Demo 2](src/web02e-floatDemo2.html)
+  + [Layout with Floats Demo 2](src/web02e-floatDemo02.html)
 
 
 + Possibly Changing display value
@@ -107,7 +107,7 @@ Author: Shay Howe
     }
     ```
 
-  + [Three-column Layout with Floats Demo](src/web02e-floatDemo3.html)
+  + [Three-column Layout with Floats Demo](src/web02e-floatDemo03.html)
 
 
 ### Clearing & Containing Floats
@@ -121,7 +121,7 @@ Author: Shay Howe
     + sometimes unwanted content wrapping around a floated element
   + example: 2 columns
     + before set a width property value, the content within the `<footer>` element would have wrapped in between the two floated elements above it, filling in any available space
-    + [Layout without Cleared or Contained Floats Demo](src/web02e-floatDemo4.html)
+    + [Layout without Cleared or Contained Floats Demo](src/web02e-floatDemo04.html)
   + To prevent content from wrapping around floated elements
     + clear those floats and return the page to its normal flow
     + contain those floats and return the page to its normal flow
@@ -140,7 +140,7 @@ Author: Shay Howe
     }
     ```
 
-  + [Layout with Cleared Floats Demo](src/web02e-floatDemo5.html)
+  + [Layout with Cleared Floats Demo](src/web02e-floatDemo05.html)
 
 + Containing Floats
   + known as a "clearfix" or "cf" class in many websites
@@ -208,7 +208,7 @@ Author: Shay Howe
     }
     ```
   
-  + [Layout with Contained Floats Demo](src/web02e-floatDemo6.html)
+  + [Layout with Contained Floats Demo](src/web02e-floatDemo06.html)
   + the flow of a page is reset by either clearing or containing the floats as necessary
 
 
@@ -347,6 +347,37 @@ Author: Shay Howe
     + displaying elements within a line while allowing them to accept all box model properties
     + including `height`, `width`, `padding`, `border`, and `margin`
   
+
+### Inline-Block in Practice
+
++ Example: 3 columns
+
+    ```html
+    <header>...</header>
+    <section>...</section>
+    <section>...</section>
+    <section>...</section>
+    <footer>...</footer>
+    ```
+
+  + change `<section>` display values to `inline-block`, leaving the `margin` and `width` properties from before alone
+
+  ```css
+  section {
+    display: inline-block;
+    margin: 0 1.5%;
+    width: 30%;
+  }
+  ```
+
+  + the last `<section>` element pushed to a new row
+    + `inline-block` elements displayed on the same line as one another
+    + including a single space between them
+    + the size of each single space added to the `width` and horizontal `margin` values of all the elements in the row
+    + total width becomes too great, pushing the last `<section>` element to a new row
+  + [Inline-Block Elements with White Space Demo](src/web02e-floatDemo07.html)
+  + solution: displaying all of the `<section>` elements on the same row, the white space between each `<section>` element must be removed
+
 
 
 
