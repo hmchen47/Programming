@@ -604,8 +604,7 @@ Author: Shay Howe
 
 ### Relative Positioning
 
-+ The `relative` value 
-  + value of the `position` property
++ The `relative` value of the `position` property
   + allow elements to appear within the normal flow a page, leaving space for an element as intended while not allowing other elements to flow around it
   + allow an element’s display position to be modified with the box offset properties
 
@@ -635,6 +634,40 @@ Author: Shay Howe
   + `left: 20px;`: push the element towards the right, from the left, 20 pixels
   + `top: 20px;`: push an element towards the bottom, from the top, 20 pixels
   + the element overlaps the element when using the box offset properties
+
+
+### Absolute Positioning
+
++ The `absolute` value for the `position` property
+  + not appear within the normal flow of a document
+  + not preserve the original space and position of the absolutely positioned element
+  + moved in relation to their closest relatively positioned parent element
+  + positioned in relation to the `<body>` element if no parent
+
+  ```html
+  <section>
+    <div class="offset">...</div>
+  </section>
+  ```
+
+  ```css
+  section {
+    position: relative;
+  }
+  div {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  ```
+
+  + [Absolute Positioning Demo](src/web02e-floatDemo10.html)
+  + the <section> element
+    + relatively positioned but doesn’t include any box offset properties
+    + position not changed
+    + 
+
+
 
 
 
