@@ -359,6 +359,15 @@ Please check out both the HTML5 [logo home page](https://www.w3.org/html/logo/) 
     + risky to use nested H1s
     + browsers not correctly implement the "outline algorithm"
 
++ Page layout
+  + 2 columns:
+    + a `<section>` on the left and an `<aside>` on the right
+    + using the float and width CSS properties
+  + 3 columns:
+    + centered, of equal size
+    + using the float and width CSS properties
+    + using the CSS flex property
+
 
 
 ### 1.3.1 Greater simplicity
@@ -1766,7 +1775,7 @@ Finally, the fixed example
 
 In this section, we show some "classic" CSS layout techniques for designing an HTML page that uses the new sectioning elements. 
 
-We embed examples from this very good post about "Positioning content". This is a recommended reading as it details how to use the CSS float property to layout a Web page.
+We embed examples from this [very good post about "Positioning content"](https://tinyurl.com/ybkg4vrk). This is a recommended reading as it details how to use the CSS float property to layout a Web page.
 
 The 4 examples below are given "as is" to give you some hints. There are lots of other possibilities on using CSS to position element.
 
@@ -1792,17 +1801,17 @@ This example uses the following HTML structure (notice that we use the "HTML ent
 </footer>
 ```
 
-Here we use the CSS rule float:left for the `<section>` and the CSS rule float:right for the `<aside>`. When an element floats, it goes out of the normal flow of the HTML element. Then by default it floats to the edge of its parent; and its size depends on the elements it contains. So, in order to fill the whole horizontal space, we prefer here to "force the width" by setting the CSS width property with a percentage.  So we took width: 63% for the `<section>` on the left and width:30% for the `<aside>` on the right.
+Here we use the CSS rule `float:left` for the `<section>` and the CSS rule `float:right` for the `<aside>`. When an element floats, it goes out of the normal flow of the HTML element. Then by default it floats to the edge of its parent; and its size depends on the elements it contains. So, in order to fill the whole horizontal space, we prefer here to "force the width" by setting the CSS width property with a percentage.  So we took width: 63% for the `<section>` on the left and width:30% for the `<aside>` on the right.
 
 You can look at the complete CSS code in the interactive example below (click on the CSS or HTML text in the menu bar below, or click "edit on codepen" to change the code and see the results):
 
-[Local Example](src/1.3.10-layput.html)
+[Local Example 1 - Layout](src/1.3.10-layout.html)
 
 Example from the live coding video, a slight adaptation of the technique described above
 
 [Also available online at JSBin.](https://tinyurl.com/y3jcm99u)
 
-[Local example](src/1.3.10-Buffa.html)
+[Local Example 1 - Michel Buffa Home Page](src/1.3.10-Buffa.html)
 
 
 __Example #2: three sections centered, of equal size, also using the float and width CSS properties__
@@ -1837,7 +1846,7 @@ Instead of having one element with a float:left and one element with a float:rig
 
 Look at the CSS code in the example below:
 
-[local example 2](src/1.3.10-example2.html)
+[Local Example 2](src/1.3.10-example2.html)
 
 
 __Example #3: same result using the CSS flex property__
@@ -1846,14 +1855,14 @@ This example uses the CSS flex property to achieve a result similar to the one s
 
 There are many articles on Flexbox and we recommend those from Rachel Andrew on Smashing Magazine: "Use cases for Flexbox", "Flexbox: how big is that flexible box", etc.
 
-[local example](src/1.3.10-example3.html)
+[Local Example 3 ](src/1.3.10-example3.html)
 
 
 __Example #4: another example written by a student, that uses the flex property__
 
 This example also uses all the structuring elements we saw: main, article, section, etc. It uses only the simplest parts of the FlexBox CSS module, so it should be easy to understand, even for CSS beginners:
 
-[Local example](src/1.3.10-example4.html)
+[Local Example 4](src/1.3.10-example4.html)
 
 
 #### External resources
