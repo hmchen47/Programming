@@ -587,6 +587,20 @@ Author: Shay Howe
 
 ## Uniquely Positioning Elements
 
++ The `position` property
+  + floats or inline-block elements not for precisely position
+    + floats: remove an element from the flow of a page, often produce unwanted results as surrounding elements flow around the floated element
+    + inline-block elements: fairly awkward to get into the proper position unless creating columns
+  + `position` property
+    + identify how an element positioned on a page and whether or not within the normal flow of a document
+    + used in conjunction with the box offset properties
+    + subproperties: `top`, `right`, `bottom`, and `left`
+    + identify exactly where an element positioned by moving elements in a number of different directions
+    + default: every element has a position value of `static`
+      + exist in the normal flow of a document
+      + not accept any box offset properties
+    + most commonly overwritten with a `relative` or `absolute` value
+
 
 
 
