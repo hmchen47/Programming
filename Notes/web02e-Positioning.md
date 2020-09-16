@@ -212,7 +212,7 @@ Author: Shay Howe
   + the flow of a page is reset by either clearing or containing the floats as necessary
 
 
-### In Practice - Example: Styles Conference Website
+### In Practice - Example: Styles Conference Website - Layout
 
 1. following previous Styles Conference Website
   + provide a way to contain those floats by adding the clearfix to our CSS
@@ -418,6 +418,14 @@ Author: Shay Howe
 
 
 ## Creating Reusable Layouts
+
++ Reusable layouts best practice
+  + high on the list of reusable code
+  + recommendations
+    + use inline-block elements to create the grid — or layout — of a page
+    + then use floats when content to wrap around a given element
+  + inline-block elements easier to work with
+  + new CSS specifications in the works — specifically `flex-` and `grid-` based properties
 
 
 
