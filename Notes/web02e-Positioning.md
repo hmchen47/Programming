@@ -602,5 +602,40 @@ Author: Shay Howe
     + most commonly overwritten with a `relative` or `absolute` value
 
 
+### Relative Positioning
+
++ The `relative` value 
+  + value of the `position` property
+  + allow elements to appear within the normal flow a page, leaving space for an element as intended while not allowing other elements to flow around it
+  + allow an element’s display position to be modified with the box offset properties
+
+  ```html
+  <div>...</div>
+  <div class="offset">...</div>
+  <div>...</div>
+  ```
+
+  ```css
+  div {
+    height: 100px;
+    width: 100px;
+  }
+  .offset {
+    left: 20px;
+    position: relative;
+    top: 20px;
+  }
+  ```
+
+  + [Relative Positioning Demo](src/web02e-floatDemo09.html)
+  + `offset` class
+    + `position` property: `relative`
+    + `left` & `right` properties: box offset to reposition the element
+  + the box offset properties identify where an element moved from given its original position
+  + `left: 20px;`: push the element towards the right, from the left, 20 pixels
+  + `top: 20px;`: push an element towards the bottom, from the top, 20 pixels
+  + the element overlaps the element when using the box offset properties
+
+
 
 
