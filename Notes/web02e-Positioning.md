@@ -575,6 +575,14 @@ Author: Shay Howe
 </figure>
 
 
+### Demo & Source Code
+
++ [View the Styles Conference Website](https://learn.shayhowe.com/practice/positioning-content/index.html)
+
++ [Download the Source Code](https://tinyurl.com/y4yxrs93)
+
++ [Local Demo: Styles Conference Website](src/positioning-content/index.html)
+
 
 
 ## Uniquely Positioning Elements
