@@ -215,6 +215,7 @@ Author: Shay Howe
 ### In Practice - Example: Styles Conference Website - Layout
 
 1. following previous Styles Conference Website
+
   + provide a way to contain those floats by adding the clearfix to our CSS
   + add the clearfix under the class name group
 
@@ -239,6 +240,7 @@ Author: Shay Howe
   ```
 
 2. contain floats
+
   + float the primary `<h1>` within the `<header>` element to the left
   + allow all of the other content in the header to wrap to the right of it
   + add a class of logo to the `<h1>` element
@@ -290,6 +292,7 @@ Author: Shay Howe
   ```
 
 5. processing `<footer>` element
+
   + float copyright to the left within the `<small>` element
   + other elements wrap around it to the right
   + apply a class to the parent of the floated element and use a unique CSS selector to select the element and then float it
@@ -302,6 +305,7 @@ Author: Shay Howe
   ```
 
 6. `primary-footer` class
+
   + use that class to prequalify the `<small>` element with CSS
   + select and `float` the `<small>` element to the `left`
   + create a new section within our `main.css` file for these primary footer styles
@@ -427,6 +431,148 @@ Author: Shay Howe
   + inline-block elements easier to work with
   + new CSS specifications in the works — specifically `flex-` and `grid-` based properties
 
+
+### In Practice - Example: Styles Conference Website - Reusable Layout
+
+1. create a three-column reusable layout using inline-block elements
+
+  + three columns of equal width
+  + two columns with the total width split between them, two-thirds in one and one-third in the other
+  + create classes that define the width of these columns
+    + `col-1-3`: for one-third
+    + `col-2-3`: for two-thirds
+
+  ```css
+  .col-1-3 {
+    width: 33.33%;
+  }
+  .col-2-3 {
+    width: 66.66%;
+  }
+  ```
+
+2. both of the columns to be displayed as `inline-block` elements
+
+  ```css
+  .col-1-3,
+  .col-2-3 {
+    display: inline-block;
+    vertical-align: top;
+  }
+  ```
+
+  + comma at the end of the first selector signifies that another selector is to follow
+  + 2nd selector followed by the opening curly bracket, `{`, which signifies that style declarations are to follow
+  + comma-separating the selectors: bind the same styles to multiple selectors at one time
+
+3. put some space in between each of the columns
+  
+  + putting horizontal padding on each of the columns
+  + issue: width of the space between them will be double that of the space from the outside columns to the edge of the row
+  + solution: place all of columns within a grid and add the same padding from our columns to that grid
+
+  ```css
+  .grid,
+  .col-1-3,
+  .col-2-3 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  ```
+
+4. setting up horizontal `padding`
+
+  + `container` class: center all of our content on a page within a 960-pixel-wide element
+  + put an element with the class of `grid` inside an element with the class of container
+    + horizontal paddings add to one another
+    + columns not appear proportionate to the width of the rest of the page
+  + share some of the styles from the `container` rule set with the `grid` rule set
+
+  ```css
+  .container,
+  .grid {
+    margin: 0 auto;
+    width: 960px;
+  }
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  ```
+
+  + any element with the class of `container` or grid w/ be `960` pixels wide and centered on the page
+
+5. work on HTML and observe how these classes perform
+
+  + aligning home page into three columns
+  + originally wrapped in a `<section>` element with the class of `container`
+  + change class from `container` to `grid`
+
+  ```html
+  <section class="grid">
+    ...
+  </section>
+  ```
+
+6. add a class of `col-1-3` to each of the `<section>` elements within the `<section>` element with the class of `grid`
+
+  ```html
+  <section class="grid">
+
+    <section class="col-1-3">
+      ...
+    </section>
+
+    <section class="col-1-3">
+      ...
+    </section>
+
+    <section class="col-1-3">
+      ...
+    </section>
+
+  </section>
+  ```
+
+7. remove the empty white space between columns
+
+  ```html
+  01 <section class="grid">
+
+  03  <!-- Speakers -->
+
+  05  <section class="col-1-3">
+      ...
+  07  </section><!--
+    
+  09  Schedule
+    
+  11   --><section class="col-1-3">
+      ...
+  13  </section><!--
+    
+    Venue
+    
+  17  --><section class="col-1-3">
+      ...
+  19  </section>
+
+  21 </section>
+  ```
+
+  + line 03: leave a comment identifying the “Speakers” section to follow
+  + line 07: open a comment immediately after the closing `</section>` tag
+  + line 09: identify the “Schedule” section to come
+  + line 11: close the comment at the beginning, before the opening `<section>` tag
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick="window.open('https://tinyurl.com/ybkg4vrk')"
+    src    ="https://tinyurl.com/yyd7s3z2"
+    alt    ="Styles Conference website"
+  />
+  <figcaption> Our Styles Conference home page now includes a three-column layout </figcaption>
+</figure>
 
 
 
