@@ -73,7 +73,7 @@ Author: Shay Howe
     }
     ```
 
-  + [Layout with Floats Demo 2](src/web02e-floatDemo02.html)
+  + [Layout with Floats Demo](src/web02e-floatDemo02.html)
 
 
 + Possibly Changing display value
@@ -662,11 +662,20 @@ Author: Shay Howe
   ```
 
   + [Absolute Positioning Demo](src/web02e-floatDemo10.html)
-  + the <section> element
+  + the `<section>` element
     + relatively positioned but doesn’t include any box offset properties
     + position not changed
-    + 
-
+  + the `<div>` element
+    + the `<section>` element as the closest relatively positioned parent element
+    + positioned in relation to the `<section>` element
+    + the box offset properties
+      + relatively positioned elements: identify in which direction an element moved in relation to itself
+      + absolutely positioned elements: identify in which direction an element moved in relation to its closest relatively positioned parent element
+    + 20 pixels from the right and 20 pixels from the top of the `<section>`
+  + the `<div>` element w/ absolutely positioned
+    + not sit within the normal flow of the page
+    + overlap any surrounding elements
+  + most positioning can be handled without the use of the position property and box offset properties
 
 
 
