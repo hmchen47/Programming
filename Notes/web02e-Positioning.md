@@ -379,8 +379,42 @@ Author: Shay Howe
   + solution: displaying all of the `<section>` elements on the same row, the white space between each `<section>` element must be removed
 
 
+### Removing Spaces Between Inline-Block Elements
 
++ ways to eliminate the space
+  + no space btw two sections
+    + put each new `<section>` element’s opening tag on the same line as the previous `<section>` element’s closing tag
 
+    ```html
+    <header>...</header>
+    <section>
+      ...
+    </section><section>
+      ...
+    </section><section>
+      ...
+    </section>
+    <footer>...</footer>
+    ```
+
+    + [Inline-Block Elements without White Space Demo](src/web02e-floatDemo08.html)
+  + HTML comment
+    + open an HTML comment directly after an `inline-block` element’s closing tag
+    + close the HTML comment immediately before the next `inline-block` element’s opening tag
+
+    ```html
+    <header>...</header>
+    <section>
+      ...
+    </section><!--
+    --><section>
+      ...
+    </section><!--
+    --><section>
+      ...
+    </section>
+    <footer>...</footer>
+    ```
 
 
 ## Creating Reusable Layouts
