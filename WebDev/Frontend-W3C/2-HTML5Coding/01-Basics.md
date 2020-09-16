@@ -1877,6 +1877,268 @@ This example also uses all the structuring elements we saw: main, article, secti
 ## 1.4 Other elements and attributes
 
 
+### 1.4.0 Lecture Notes
+
+
+
+### 1.4.1 The `<details>` and `<summary>` elements
+
+These elements have been introduced for displaying a foldable zone in an HTML document.
+
+In the screenshot below, taken from the W3C specification page, the text next to the horizontal arrow is a `<summary>` element, and the text displayed when we click on the summary part, is the `<details>` element. This is a sort of "accordion" with foldable content.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2g33b8t')"
+    src    ="https://tinyurl.com/y43kqw9a"
+    alt    ="Example of summary details elements from the W3C specification"
+  />
+  <figcaption> Example of summary details elements from the W3C specification </figcaption>
+</figure>
+
+
+The `<details>` element generates a simple widget to show/hide element contents, optionally by clicking on its child `<summary>` element.
+
+Here is an example of what can be done using these elements ) see the [online version on JSBin](https://jsbin.com/yociyel/1/edit?html,css,js,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2g33b8t')"
+    src    ="https://tinyurl.com/y5m3tfwu"
+    alt    ="Example of folded summary details"
+  />
+  <figcaption> Example of folded summary details </figcaption>
+</figure>
+
+
+And here is what is displayed after clicking on the small arrow-shaped icon to the left of the summary:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2g33b8t')"
+    src    ="https://tinyurl.com/y39xph3f"
+    alt    ="Example of summary details unfolded"
+  />
+  <figcaption> Example of summary details unfolded </figcaption>
+</figure>
+
+
+Here is the code of this example:
+
+```html
+<!DOCTYPE html>
+<html lang="en"> ...
+<body>
+<details>
+<summary>
+```
+
+How to beat the boss...spoiler alert !
+
+```html
+</summary>
+<p> Just aim to the red spots near his eyes</p>
+<p>Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.</p>
+</details>
+</body>
+</html>
+```
+
+The `<summary>...</summary>` is inside a `<details>...</details>` element. By clicking on the icon at the left of the summary, the content of the `<details>` value is displayed/hidden.
+
+`<details>` blocks can be embedded inside one another, like in this example:
+
+Step 1: all folded:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2g33b8t')"
+    src    ="https://tinyurl.com/y466jecb"
+    alt    ="Other example, unfolded"
+  />
+  <figcaption> Other example, unfolded </figcaption>
+</figure>
+
+
+Step 2: click on top level summary icon, the first "hidden" part appears...
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2g33b8t')"
+    src    ="https://tinyurl.com/yxfph294"
+    alt    ="The unfolded content contains in turn a summary details folded"
+  />
+  <figcaption> The unfolded content contains in turn a summary details folded </figcaption>
+</figure>
+
+Step3: click on embedded summary icon inside the part that has been previously unfolded
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2g33b8t')"
+    src    ="https://tinyurl.com/y6m5hp3q"
+    alt    ="We unfolded the summary details inside the previous summary details. Recursive accordeons!"
+  />
+  <figcaption> We unfolded the summary details inside the previous summary details. Recursive accordeons! </figcaption>
+</figure>
+
+
+Source code of this example, see the summary/details inside another one:
+
+```html
+<details>
+<summary>
+  How to beat the boss...spoiler alert !
+</summary>
+  <p> Just aim to the red spots near his eyes</p>
+  <p>Keep shooting at these spots until the eyes open, then hit quickly both 
+    eyes with your laser beam.</p>
+<details>
+<summary>
+  Bonus and spoiler No 2: get a new weapon by cutting the tail of the boss.
+</summary>
+  <p>Before finishing him, try to cut his trail, you will get a new weapon</p>
+  <p>Just try to stay behind him as long as you can, hitting his tail with 
+    your melee weapon, after a few hits the trail will fall and you will get 
+    a new bonus weapon, then finish the boss.</p>
+</details>
+</details>
+```
+
+
+#### CSS pseudo classes for styling summary icons
+
+There are CSS pseudo classes to style this icon when it is in the open or closed state. Support for these is still incomplete as of June 2020 (works on Google Chrome, Opera, Safari, not in FF).
+
+Example1 (see [online example](https://tinyurl.com/y3urv4kl)):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2g33b8t')"
+    src    ="https://tinyurl.com/y3uydq7o"
+    alt    ="Styling the open/close icon"
+  />
+  <figcaption> Styling the open/close icon </figcaption>
+</figure>
+
+
+The color and background of the icon on the left are specified by the following CSS rule, which uses the pseudo class `::-webkit-details-marker`
+
+In this example: red arrow, white background.
+
+```css
+summary::-webkit-details-marker {
+  color:#FF0000;
+  background:#FFFFFF;
+}
+```
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2g33b8t')"
+    src    ="https://tinyurl.com/y2mpn9ov"
+    alt    ="Styled summary details icon, unfolded state"
+  />
+  <figcaption> Styled summary details icon, unfolded state </figcaption>
+</figure>
+
+
+Once opened, the selector `details[open]` can style the icon when `<details>` is unfolded. In this example: blue arrow, turquoise background. Here is the corresponding CSS rule:
+
+```css
+details[open] summary::-webkit-details-marker {
+  color:#0000FF;
+  background:#00FFFF;
+}
+```
+
+It is also possible to change the icon itself using the CSS pseudo class :after
+
+Example 2 (see it [online](https://jsbin.com/sajusop/edit?html,css,output)):
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y2g33b8t" ismap target="_blank">
+    <img style="margin: 0.1em;" width=250
+      src  ="https://tinyurl.com/y466jecb" 
+      alt  ="A + as a custom open icon for summary" 
+      title="A + as a custom open icon for summary"
+    >
+    <img style="margin: 0.1em;" width=250
+      src  ="https://tinyurl.com/y6blnkz5" 
+      alt  ="A '-' as a custom close icon" 
+      title="A '-' as a custom close icon"
+    >
+  </a>
+</div>
+
+
+CSS rules used in this example:
+
+Use a "+" shaped icon, pink, bold, etc... :
+
+```css
+summary:after {
+  content: "+";
+  color: #FF00FF;
+  float: left;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: -5px 5px 0 0;
+  padding: 0;
+  text-align: center;
+  width: 20px;
+}
+```
+
+Use a "-" shaped icon, white, when details are displayed:
+
+```css
+details[open] summary:after {
+  content: "-";
+  color: #FFFFFF
+}
+```
+
+
+#### Current browser support
+
++ On CanIUse: [compatibility table for details and summary elements](https://tinyurl.com/yy6tdwf8)
+
+
+#### Knowledge check 1.4.1
+
+1. Select the good way to define the widget:
+
+  a.  
+    ```html
+    <summary>
+    <details>
+    How to beat the boss
+    </detaill>
+    </summary>
+    ```
+
+  b.  
+    ```html
+    <summary>
+    How to beat the boss
+    </summary>
+    <details>
+    <p> Just aim to the red spots near his eyes </p>
+    </details>
+    ```
+
+  c.  
+    ```html
+    <details>
+    <summary>
+    How to beat the boss
+    </summary>
+    <p> Just aim to the red spots near his eyes </p>
+    </details>
+    ```
+  
+  Ans: 
 
 
 
