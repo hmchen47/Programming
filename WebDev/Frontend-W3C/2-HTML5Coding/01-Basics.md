@@ -1879,6 +1879,57 @@ This example also uses all the structuring elements we saw: main, article, secti
 
 ### 1.4.0 Lecture Notes
 
++ Foldable zone in an HTML document
+  + `<details>` element:
+    + generate a simple widget to show/hide element contents
+    + able to be embedded inside one another
+  + `<summary>` element: (optional) children element of `<details>` element
+  + `<summary>...</summary>` located inside a `<details>...</details>` element
+  + 
+
++ Styling summary icons w/ CSS
+  + modifying color and background of the icon w/ `::-webkit-details-marker`
+
+    ```css
+    summary::-webkit-details-marker {
+      color:#FF0000;
+      background:#FFFFFF;
+    }
+    ```
+
+  + `details[open]` selector handling the unfolded `<details>`
+
+    ```css
+    details[open] summary::-webkit-details-marker {
+      color:#0000FF;
+      background:#00FFFF;
+    }
+    ```
+
+  + using `+` shaped icon for expansion
+
+    ```css
+    summary:after {
+      content: "+";
+      color: #FF00FF;
+      float: left;
+      font-size: 1.5em;
+      font-weight: bold;
+      margin: -5px 5px 0 0;
+      padding: 0;
+      text-align: center;
+      width: 20px;
+    }
+    ```
+
+  + using `-` shaped icon to callops details
+
+    ```css
+    details[open] summary:after {
+      content: "-";
+      color: #FFFFFF
+    }
+    ```
 
 
 ### 1.4.1 The `<details>` and `<summary>` elements
@@ -1899,7 +1950,7 @@ In the screenshot below, taken from the W3C specification page, the text next to
 
 The `<details>` element generates a simple widget to show/hide element contents, optionally by clicking on its child `<summary>` element.
 
-Here is an example of what can be done using these elements ) see the [online version on JSBin](https://jsbin.com/yociyel/1/edit?html,css,js,output):
+Here is an example of what can be done using these elements ) see the [online version on JSBin](https://jsbin.com/yociyel/1/edit?html,css,js,output) or [local version](src/1.4.1-foldable.html):
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -1946,7 +1997,7 @@ How to beat the boss...spoiler alert !
 
 The `<summary>...</summary>` is inside a `<details>...</details>` element. By clicking on the icon at the left of the summary, the content of the `<details>` value is displayed/hidden.
 
-`<details>` blocks can be embedded inside one another, like in this example:
+`<details>` blocks can be embedded inside one another, like in this [example](https://tinyurl.com/yxfd49zd) ([local example](src/1.4.1-foldable2.html)):
 
 Step 1: all folded:
 
@@ -2010,7 +2061,7 @@ Source code of this example, see the summary/details inside another one:
 
 There are CSS pseudo classes to style this icon when it is in the open or closed state. Support for these is still incomplete as of June 2020 (works on Google Chrome, Opera, Safari, not in FF).
 
-Example1 (see [online example](https://tinyurl.com/y3urv4kl)):
+Example 1 (see [online example](https://tinyurl.com/y3urv4kl) or [local example](src/1.4.1-example1.html)):
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -2052,9 +2103,9 @@ details[open] summary::-webkit-details-marker {
 }
 ```
 
-It is also possible to change the icon itself using the CSS pseudo class :after
+It is also possible to change the icon itself using the CSS pseudo class `:after`
 
-Example 2 (see it [online](https://jsbin.com/sajusop/edit?html,css,output)):
+Example 2 (see it [online](https://jsbin.com/sajusop/edit?html,css,output) or [local example](src/1.4.1-example2.html)):
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y2g33b8t" ismap target="_blank">
@@ -2138,7 +2189,9 @@ details[open] summary:after {
     </details>
     ```
   
-  Ans: 
+  Ans: c<br/>
+  Explanation: The right answer is the third one. `<details>` contains one `<summary>`, and eventually other details/summary pairs.
+
 
 
 
