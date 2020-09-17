@@ -2193,6 +2193,215 @@ details[open] summary:after {
   Explanation: The right answer is the third one. `<details>` contains one `<summary>`, and eventually other details/summary pairs.
 
 
+### 1.4.2 The <time> and <mark> elements
+
+
+#### The `<time>` element
+
+The `<time>` element is useful for marking a time or a duration in a document.
+
+It provides both a human readable part (the part between `<time>` and `</time>`) and a machine readable part contained within a datetime attribute. Dates are expressed as `YYYY-MM-DD`.
+
+The machine readable part adds semantics that can be used by search engines for indexing, by browsers or by browser extensions, or by JavaScript code. Useful scenarios include generating alerts for birthdays, automatically adding dates or events that contain `<time>` elements in a calendar, etc.
+
+Example:
+
+```shell
+We open at <time>10:00</time> every morning.
+I have a meeting the <time datetime="2020-02-14">Monday 14/02/2020.</time>.
+Blog posts from the year <time datetime="2020">2020</time>.
+Archives, blog posts for <time datetime="2020-04">April 2020</time>
+This recipe was published by Michel the <time datetime="2020-04-16">April 16, 2020</time>.
+```
+
+#### The `datetime` attribute
+
+The `datetime` attribute can be used for indicating a date/time or a duration.
+
+__Date/time values__
+
+Supports different specifications of time such as "a year", "a month in a year", "a week in a year", "a time", etc... 
+
+Here are some examples:
+
+
+<table style="text-rendering: optimizelegibility; border-spacing: 0px; margin: 20px 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; font-stretch: inherit; line-height: 25px; vertical-align: baseline; width: 814px; max-width: 100%; margin: auto;" cellpadding="10" border="1">
+<caption style="font-size: 1.2em;">Different syntaxes of the <span style="font-family: 'courier new', courier;">datetime</span> attribute</caption>
+<tbody>
+<tr><th scope="”row”">datetime attribute values</th><th scope="”row”">Interpretation</th></tr>
+</tbody>
+<tbody style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">The year 2020</td>
+</tr>
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">November 2020</td>
+</tr>
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="11-13"&gt;&nbsp;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">November 13th (any year)</td>
+</tr>
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-W21"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Week 21 from year 2020</td>
+</tr>
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11-13 09:00"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">November 13th year 2020, time = 9:00</td>
+</tr>
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11-13<span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; color: #ff0000;">T</span>09:00"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Same as previous example, both syntaxes are supported, with and without the "T" between date and time.</td>
+</tr>
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="09:00Z"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">9:00 in the morning, GMT</td>
+</tr>
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="09:00-05"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">9:00 in the morning, GMT minus 5 hours</td>
+</tr>
+<tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="09:00+05:45"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">9:00 in the morning, GMT plus 5 hours 45 minutes, (for example, Nepal&nbsp;is 5:45 ahead of&nbsp; GMT)</td>
+</tr>
+</tbody>
+</table>
+
+
+__Duration values__
+
+Duration values use the prefix “P” for “period” as in `<time datetime="P4D">` (period = four days)...
+
+So you start the attribute string value with a "P", followed by a duration value that ends with another letter indicating the unit used: "D" for "days",  “H” for hours, “M” for minutes and “S” for seconds. 
+
+You can separate the different elements "P", value and unit with spaces, but this is optional. So `<time datetime="P4D">` is a duration of 4 days, as is `<time datetime="P 4 D">`.
+
+Using a “T” after the “P” marker allows you to indicate a more accurate duration time: `<time datetime="PT4H 6M 12.55S">` is a duration of 4 hours, 6 minutes and 12.55 seconds.
+
+Alternatively, you could use also a duration time component.
+
+From Bruce Lawson's article : _"Whichever you choose, it’s represented internally as a number of seconds. Because of this, you can’t specify a duration in terms of months, because a month isn’t a precise number of seconds; a month can last from 28 to 31 days. Similarly, a year isn’t a precise number of seconds; it’s 12 months and February sometimes has an extra day._
+
+_You still can’t represent dates before the Christian era, as years can’t be negative. Neither can you indicate date ranges. To mark up From “21/02/2012 to 25/02/2012″, use two separate `<time>` elements."_
+
+Examples:
+
+```html
+<h2>Recipe:</h2>
+<ul>
+  <li> Preparation time: <time datetime="PT30M">30 minutes</time> </li>
+  <li> Cooking time:     <time datetime="PT10M">10 minutes</time> </li>
+</ul>
+```
+
+__The `<time>` element with no attributes__
+
+Used without attributes, the value between the opening `<time>` and closing `</time>` should follow the syntax given by the specification so that machines can understand it (same syntax as the one presented for the datetime attribute in the previous section). However it is recommended to use a datetime attribute, as it gives more freedom in the way you can display the date/time/duration in a human-readable form. 
+
+__External resources:__
+
++ From the [specification](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-time-element)
++ On [MDN's Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
+  + MDN's browser compatibility [table](https://tinyurl.com/y4vc44nq) for `<time>`
++ Old but interesting [article](https://www.brucelawson.co.uk/2012/best-of-time/) by Bruce Lawson
++ A CSS Tricks' article: "[The 'time' element](https://tinyurl.com/y2wpzh64)"
+
+
+#### The `<mark>` element
+
+The HTML `<mark>` tag is used for indicating text as marked or highlighted for reference purposes, due to its relevance in another context.
+
+Some use cases:
+
++ Display search results with search strings highlighted in the results.
++ &gt;Highlight important parts of a text, such as "quoting parts", etc.
++ Replace `<strong>` and `<em>` with `<mark>` when suitable.
+
+Example 1: [jsBin online example](https://jsbin.com/tafelic/edit?html,output) and [local example](src/1.4.2-mark.html)
+
+Source code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+  <p>Project is due in <mark>.zip format</mark> next monday.</p>
+</body>
+</html>
+```
+
+Example 2:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yy4j8cp3')"
+    src    ="https://tinyurl.com/y4bdq5jq"
+    alt    ="Another example for marking code"
+    title  ="Another example for marking code"
+  />
+</figure>
+
+
+Source code:
+
+```html
+<body>
+<pre>
+<code><mark>var</mark> i = 3;</code>
+</pre>
+<p>The var keyword is used to declare a variable in JavaScript.</p>
+</body>
+```
+
+__Change the default style of the `<mark>` element__
+
+If you don't like the default yellow background, you may use CSS to change the style of the `<mark>` element:
+
+For example:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yy4j8cp3')"
+    src    ="https://tinyurl.com/y6cmeaog"
+    alt    ="style the mark element with CSS"
+    title  ="style the mark element with CSS"
+  />
+</figure>
+
+
+... comes with this CSS rule:
+
+```css
+mark {
+    background-color: green;
+    color: yellow;
+}
+```
+
+__External resources:__
+
++ From the [specification](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-mark-element)
++ On [MDN's Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
+  + MDN's browser compatibility [table](https://tinyurl.com/yydyaomy) for `<time>`
++ An article on Web Platform News: "[The `<mark>` element could help make your text more scannable](https://tinyurl.com/y3awtyhc)"
+
+
+#### Knowledge check 1.4.3 
+
+1. When would you use the mark element?<br/>
+  a. To download a file<br/>
+  b. To highlight a text<br/>
+  c. To add a link<br/>
+  d. To make a text bigger<br/>
+
+  Ans: 
 
 
 
