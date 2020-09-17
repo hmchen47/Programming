@@ -2719,6 +2719,123 @@ When you define an element as not being translatable, its children inherit this 
 ## 1.5 Microdata
 
 
+### 1.5.0 Lecture Notes
+
++ machine-readable content embedded in a classical Web document:
+  + HTML+RDFa
+  + microformats
+  + microdata
+
++ Macrodata
+  + help search engines to better understand the pages' content, their topics, etc
+  + main purpose: Search Engine Optimization (SEO)
+  + pure semantic information
+  + popular kinds of microdata
+    + events
+    + person's profile
+    + description of an organization
+    + details of a recipe
+    + product description
+    + geographical location
+    + etc.
+
++ 
+
+
+### 1.5.1 Introduction
+
+There are 3 ways to provide machine-readable content embedded in a classical Web document: [HTML+RDFa](https://www.w3.org/TR/html-rdfa/), [microformats](http://microformats.org/) and microdata. In this section, we focus on microdata.
+
+Adding microdata to Web pages helps search engines to better understand the pages' content, their topics, etc. The main purpose of microdata is [Search Engine Optimization](https://tinyurl.com/kzk7kh4) (SEO).
+
+This information is not visible to humans: it is pure _semantic information_. Popular kinds of microdata are events, a person's profile, the description of an organization, the details of a recipe, a product description, a geographical location, etc. 
+
+
+#### Quick example of microdata that describes a person
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;section</span><span class="pln"> </span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">itemscope</span><span class="pln"> </span><span class="atn">itemtype</span><span class="pun">=</span><span class="atv">"https://schema.org/Person"</span></span></span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;h1&gt;</span><span class="pln">Contact Information</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;dl&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;dt&gt;</span><span class="pln">Name</span><span class="tag">&lt;/dt&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;dd</span><span class="pln"> </span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"name"</span></span></span><span class="tag">&gt;</span><span class="pln">Michel Buffa</span><span class="tag">&lt;/dd&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &lt;dt&gt;</span><span class="pln">Position</span><span class="tag">&lt;/dt&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;dd&gt;&lt;span<span style="color: #000000;" color="#000000">&nbsp;</span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"jobTitle"</span></span></span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Professor/Researcher/Scientist</span><span class="tag">&lt;/span&gt;</span><span class="pln"> for</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;span</span><span class="pln"> </span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"affiliation"</span></span></span><span class="tag">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; University of Côte d'Azur, France</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &lt;/dd&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/dl&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">&lt;!-- SURFACE ADDRESS GOES HERE --&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;h1&gt;</span><span class="pln">My different online public accounts</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;ul&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://www.twitter.com/micbuffa"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="atv">"url"</span></span></span><span class="tag">&gt;</span><span class="pln">Twitter profile</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;li&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://www.blogger.com/micbuffa"</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="atv">"url"</span></span></span><span class="tag">&gt;</span><span class="pln">Michel Buffa's blog</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/ul&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/section&gt;</span></li>
+</ol></div>
+
+We can also add  another embedded data item in the middle, such as the person's address:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&lt;/</span><span class="pln">dl</span><span class="pun">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&lt;!--</span><span class="pln"> SURFACE ADDRESS GOES HERE </span><span class="pun">--&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">dd <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="str">"address"</span><span class="pln"> itemscope </span></span></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <span style="color: #ff0000;">itemtype</span></span><span style="color: #ff0000;"><span class="pun">=</span><span class="str">"https://schema.org/PostalAddress"</span></span><span class="pun">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;</span><span class="pln">span <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="str">"streetAddress"</span></span></span><span class="pun">&gt;</span><span class="lit">10</span><span class="pln"> promenade des anglais</span><span class="pun">&lt;/</span><span class="pln">span</span><span class="pun">&gt;&lt;</span><span class="pln">br</span><span class="pun">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;</span><span class="pln">span <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="str">"addressLocality"</span></span></span><span class="pun">&gt;</span><span class="typ">Nice</span><span class="pun">&lt;/</span><span class="pln">span</span><span class="pun">&gt;,</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;</span><span class="pln">span <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="str">"addressRegion"</span></span></span><span class="pun">&gt;</span><span class="typ">Alpes</span><span class="pln"> maritimes</span><span class="pun">,</span><span class="pln"> </span><span class="typ">France</span><span class="pun">&lt;/</span><span class="pln">span</span><span class="pun">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;</span><span class="pln">span <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="str">"postalCode"</span></span></span><span class="pun">&gt;</span><span class="lit">06410</span><span class="pun">&lt;/</span><span class="pln">span</span><span class="pun">&gt;&lt;</span><span class="pln">br</span><span class="pun">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;</span><span class="pln">span <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="str">"addressCountry"</span></span></span><span class="pln"><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"> itemscope</span></span> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;">itemtype</span></span><span style="text-decoration: underline;"><span class="pun">=</span><span class="str">"https://schema.org/Country"</span></span><span class="pun">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">&lt;</span><span class="pln">span <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="pun">=</span><span class="str">"name"</span></span></span><span class="pun">&gt;</span><span class="typ">France</span><span class="pun">&lt;/</span><span class="pln">span</span><span class="pun">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;/</span><span class="pln">span</span><span class="pun">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&lt;/</span><span class="pln">dd</span><span class="pun">&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">&lt;h1&gt;</span><span class="typ">My</span><span class="pln"> different online </span><span class="kwd">public</span><span class="pln"> accounts</span><span class="pun">&lt;/</span><span class="pln">h1</span><span class="pun">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+</ol></div>
+
+In the following sections, we look more closely at the `itemprop`, `itemscope` and `itemtype` attributes.
+
+
+#### Data that can be processed, organized, structured, or presented in a given context
+
+Different use cases:
+
++ The browser, or a browser extension, may interpret the last example as an address and may propose to send it to a map application,
++ A Web crawler may interpret this as an address and display it in its responses using a dedicated presentation layout,
++ Some JavaScript code in the page can access this data,
++ With other types of microdata, for events, for example, the browser may pop up a calendar application, etc.
+
+__Note__: For advanced users, Microdata is very similar to microformats, which use HTML classes, or to RDFa, which doesn’t validate in HTML4 or HTML5. Because RDFa was considered to be too hard for authors to write, microdata is HTML5's answer to help embed semantics into html documents.
+
+
+#### External resources
+
++ [W3C's HTML Microdata Working Draft](https://tinyurl.com/y4c2hgc9)
++ MDN's Web Docs: [Microdata](https://tinyurl.com/y6rmp6vj)
++ Very good [Microdata](https://tinyurl.com/y5nnjavp) paper from code{4}lib journal
++ [Microdata and the microdata DOM API](https://tinyurl.com/y8rkzlsp), old article from dev.opera.com
++ [Chapter from Mark Pilgrim's book about microdata](https://tinyurl.com/yy6bmkyb), very detailed introduction about semantic metadata in general, contains full examples with explanations about how to describe a Person, etc.
+
+
+#### Knowledge check 1.5.1 
+
+1. What is the correct proposition to define a city?<br/>
+  a. `itemtype="http://schema.org/PostalAddress" and itemprop = "<br/>postalCode"`<br/>
+  b. `itemtype="http://schema.org/Country" and itemprop = "name"`<br/>
+  c. `itemtype="http://schema.org/PostalAddress" and itemprop = "addressLo<br/>cality"`<br/>
+  d. `itemtype="http://schema.org/Country" and itemprop = "addressRegion"`<br/>
+
+  Ans: 
 
 
 
