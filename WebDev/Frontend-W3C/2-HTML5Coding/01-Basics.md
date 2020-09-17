@@ -2738,8 +2738,13 @@ When you define an element as not being translatable, its children inherit this 
     + product description
     + geographical location
     + etc.
+  + example use cases: `<dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">`
+    + browser or browser extension: interpret an address and possibly propose to send it to a map application
+    + web crawler: interpret as an address and display in its responses using a dedicated presentation layou
+    + JavaScript code: access this data
+    + event: pop up a calendar application, etc w/ other types of macrodata
 
-+ 
+
 
 
 ### 1.5.1 Introduction
