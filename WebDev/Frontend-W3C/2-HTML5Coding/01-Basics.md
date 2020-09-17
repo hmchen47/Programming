@@ -2743,7 +2743,7 @@ When you define an element as not being translatable, its children inherit this 
     + web crawler: interpret as an address and display in its responses using a dedicated presentation layou
     + JavaScript code: access this data
     + event: pop up a calendar application, etc w/ other types of macrodata
-
+  + attributes of macrodata: `itemprop`, `itemscope` and `itemtype`
 
 
 
@@ -2820,7 +2820,7 @@ Different use cases:
 + Some JavaScript code in the page can access this data,
 + With other types of microdata, for events, for example, the browser may pop up a calendar application, etc.
 
-__Note__: For advanced users, Microdata is very similar to microformats, which use HTML classes, or to RDFa, which doesn’t validate in HTML4 or HTML5. Because RDFa was considered to be too hard for authors to write, microdata is HTML5's answer to help embed semantics into html documents.
+__Note__: For advanced users, Microdata is very similar to [microformats](http://microformats.org/), which use HTML classes, or to [RDFa](https://www.w3.org/TR/xhtml-rdfa-primer/), which doesn’t validate in HTML4 or HTML5. Because RDFa was considered to be too hard for authors to write, microdata is HTML5's answer to help embed semantics into html documents.
 
 
 #### External resources
@@ -2840,7 +2840,97 @@ __Note__: For advanced users, Microdata is very similar to microformats, which u
   c. `itemtype="http://schema.org/PostalAddress" and itemprop = "addressLo<br/>cality"`<br/>
   d. `itemtype="http://schema.org/Country" and itemprop = "addressRegion"`<br/>
 
-  Ans: 
+  Ans: c<br/>
+  Explanation: A surface address is described with the http://schema.org/PostalAddress schema. The property that corresponds to the city is `addressLocality`. Visit the URL of the schema and read carefully the explanations for addressLocality.
+
+
+### 1.5.2 Testing tools
+
+
+#### Introduction
+
+After seeing the principle of embedding microdata in an HTML page, we now present some structured data test tools you can use to check if your data are correct.
+
+One of the most popular resources for testing microdata (as well as microformats and RDFa) is this [Google page about understanding how structured data works](https://tinyurl.com/pns8cwr). This page contains a link to a structured data testing tool that you can use to see how Google recognizes the semantic data you embed in your HTML code.
+
+
+#### Testing a real interactive example with an "about page" for Michel Buffa
+
+Let's have a look now at a (small) example of an about page. It renders as a very simple paragraph that explains who Michel Buffa is... But we embedded Microdata, so it's interesting to see how a search engine sees it, and how it may produce "augmented search results".
+
+[Online example at JsBin](https://jsbin.com/gunuzus/1/edit?html,output) ([local example](src/1.5.2-about.html))
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">utf-8</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;</span><span class="pln">Michel Buffa</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">itemscope</span><span class="pln"> </span><span class="atn">itemtype</span><span class="pun">=</span><span class="atv">"https://schema.org/Person"</span></span></span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; My name is </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;</span><span class="pln">Michel Buffa</span><span class="tag">&lt;/span&gt;</span><span class="pln">,</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; And I'm a </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"jobTitle"</span><span class="tag">&gt;</span><span class="pln">professor/researcher</span><span class="tag">&lt;/span&gt;</span><span class="pln"> at</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://www.i3s.unice.fr/"</span><span class="pln"> </span><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"affiliation"</span><span class="tag">&gt;</span><span class="pln">I3S </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Laboratory</span><span class="tag">&lt;/a&gt;</span><span class="pln"> in the south of France, near the city of Nice. My </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; email </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; is : </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">micbuffa@gmail.com</span><span class="tag">&lt;/span&gt;</span><span class="pln">.</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; I live in the city of </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;span</span><span class="pln"> </span><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><span class="atn">itemscope</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span style="color: #ff0000;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="text-decoration: underline; color: #ff0000;"><span class="atn">itemtype</span><span class="pun">=</span><span class="atv">"https://schema.org/PostalAddress"</span></span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"addressLocality"</span><span class="tag">&gt;</span><span class="pln">Biot</span><span class="tag">&lt;/span&gt;</span><span class="pln">, in a region named</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">itemprop</span><span class="pun">=</span><span class="atv">"addressRegion"</span><span class="tag">&gt;</span><span class="pln">Alpes Maritimes</span><span class="tag">&lt;/span&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;/span&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+Rendering of the page in a browser:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yxkf4k76')"
+    src    ="https://tinyurl.com/y3mrtrxs"
+    alt    ="Microdata of the example, as seen by Google"
+    title  ="Microdata of the example, as seen by Google"
+  />
+</figure>
+
+Here is what Google sees of the page. We just entered its [URL](https://tinyurl.com/yyz7sy98) in the [Google page about rich snippets and structured data](https://tinyurl.com/pns8cwr):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yxkf4k76')"
+    src    ="https://tinyurl.com/yyw2w52u"
+    alt    ="Microdata of the example, as seen by Google"
+    title  ="Microdata of the example, as seen by Google"
+  />
+</figure>
+
+Note that the address is a fully featured embedded object in the Person's description.
+
+
+#### Live Microdata
+
+The [Live Microdata Web site](https://tinyurl.com/y35ozsyp) is a bit similar to the previous one except that it shows the extracted metadata as JSON objects and the JSON view of the microdata:: 
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/yxkf4k76" ismap target="_blank">
+    <img style="margin: 0.1em;" height=250
+      src  ="https://tinyurl.com/y5d3fmmo" 
+      alt  ="example of live microdata from the previous example. Microdata are displayed as json objects" 
+      title="example of live microdata from the previous example. Microdata are displayed as json objects"
+    >
+    <img style="margin: 0.1em;" height=250
+      src  ="https://tinyurl.com/y5ud76hq" 
+      alt  ="JSON view of the microdata" 
+      title="JSON view of the microdata"
+    >
+  </a>
+</div>
 
 
 
