@@ -2745,6 +2745,11 @@ When you define an element as not being translatable, its children inherit this 
     + event: pop up a calendar application, etc w/ other types of macrodata
   + attributes of macrodata: `itemprop`, `itemscope` and `itemtype`
 
++ Macrodata validation tools
+  + [Google page about rich snippets and structured data](https://tinyurl.com/pns8cwr)
+  + The [Live Microdata Web site](https://tinyurl.com/y35ozsyp) w/ JSON view
+
+
 
 
 ### 1.5.1 Introduction
