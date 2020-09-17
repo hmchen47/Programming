@@ -2015,6 +2015,33 @@ This example also uses all the structuring elements we saw: main, article, secti
     + replacing `<strong>` and `<em>` with `<mark>` when suitable
   + change default style: using `background-color` and `color`
 
++ The `download` attribute
+  + download resources rather than navigating to them
+  + example
+
+    <div class="source-code"><ol class="linenums">
+    <li style="margin-bottom: 0px;">&lt;a</span> </span>href</span>=</span>"normal.gif"</span></span> </span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">download</span>=</span>"MichelBuffa.gif"</span></span></span>&gt;</span></li>
+    <li style="margin-bottom: 0px;">&nbsp; &nbsp; download a picture of Michel Buffa</span></li>
+    <li style="margin-bottom: 0px;">&lt;/a&gt;</span></li>
+    </ol></div>
+  
+    + force the download of an image with a filename different from its original filename on the server side
+    + original image" "normal.gif"
+    + downloaded file: "MichelBuffa.gif"
+  + security: the image should be located on the same domain as the HTML page that contains the link
+
++ The HTML5 `translate` attribute
+  + used to limit the impact of translation tools
+  + useful scenarios
+    + source code
+    + video game Web sites proposing cheat codes
+    + street names, author names, etc.
+  + Google translate and Microsoft online translation services: able to prevent translation of content by themselves
+  + providing a standard approach
+  + enumerated attribute
+    + used to specify whether an element's attribute values and the values of its Text node children to be translated when the page is localized, or whether to leave them unchanged
+    + default: "no"
+    + e.g., `<span translate="no" class="author">Michel Ham</span>`
 
 
 ### 1.4.1 The `<details>` and `<summary>` elements
@@ -2312,7 +2339,7 @@ Here are some examples:
 
 
 <table style="text-rendering: optimizelegibility; border-spacing: 0px; margin: 20px 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; font-stretch: inherit; line-height: 25px; vertical-align: baseline; width: 814px; max-width: 100%; margin: auto;" cellpadding="10" border="1">
-<caption style="font-size: 1.2em;">Different syntaxes of the <span style="font-family: 'courier new', courier;">datetime attribute</caption>
+<caption style="font-size: 1.2em;">Different syntaxes of the <span style="font-family: 'courier new', courier;">datetime attribute</span></caption>
 <tbody>
 <tr><th scope="”row”">datetime attribute values</th><th scope="”row”">Interpretation</th></tr>
 </tbody>
@@ -2338,7 +2365,7 @@ Here are some examples:
 <td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">November 13th year 2020, time = 9:00</td>
 </tr>
 <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11-13<span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; color: #ff0000;">T09:00"&gt;</td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11-13<span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; color: #ff0000;">T09:00"&gt;</span></td>
 <td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Same as previous example, both syntaxes are supported, with and without the "T" between date and time.</td>
 </tr>
 <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
@@ -2487,13 +2514,12 @@ __External resources:__
   c. To add a link<br/>
   d. To make a text bigger<br/>
 
-  Ans: 
+  Ans: b
 
 
 ### 1.4.3 The download and translate attributes
 
-The old way to download files using HTML and HTTP
-Everyone knows the classic way to make hyperlinks, using <a href="...">some text</a>. What happens when you click on the hyperlink depends on the MIME type received by the browser. If you link to a file the browser knows how to render (an html page, a gif, jpg, or png image, etc.) there is a good chance that the MIME type received by the browser will be something like this:
+Everyone knows the classic way to make hyperlinks, using `<a href="...">some text</a>`. What happens when you click on the hyperlink depends on the MIME type received by the browser. If you link to a file the browser knows how to render (an html page, a gif, jpg, or png image, etc.) there is a good chance that the MIME type received by the browser will be something like this:
 
 <div><ol>
 <li style="margin-bottom: 0px;" value="1">Content-type: text/html, text/plain, image/gif, image/jpg, etc.</li>
@@ -2502,12 +2528,12 @@ Everyone knows the classic way to make hyperlinks, using <a href="...">some text
 For example,  HTML code such as this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;a href=<span class="atv">"toto.jpg"&gt;</li>
+<li style="margin-bottom: 0px;" value="1">&lt;a href="toto.jpg"&gt;</li>
 <li style="margin-bottom: 0px;" value="2">&nbsp; &nbsp; please right click this link to download </li>
 <li style="margin-bottom: 0px;">&nbsp; &nbsp; the toto.jpg picture&lt;/a&gt;</li>
 </ol></div>
 
-...will ask the remote HTTP server to send back the toto.jpg file. The browser will receive in the response HTTP header from the server (and by default the browser will display the image in a new tab):
+...will ask the remote HTTP server to send back the `toto.jpg` file. The browser will receive in the response HTTP header from the server (and by default the browser will display the image in a new tab):
 
 <div><ol>
 <li style="margin-bottom: 0px;" value="1">...</li>
@@ -2515,12 +2541,12 @@ For example,  HTML code such as this:
 <li style="margin-bottom: 0px;">...</li>
 </ol></div>
 
-However, if the link points to some PHP code,  Java servlet code, or any kind of script/application on the server side, this remote server code can send in its HTTP response a Content-type that may force the browser to download the image instead of rendering it.
+However, if the link points to some PHP code, Java servlet code, or any kind of script/application on the server side, this remote server code can send in its HTTP response a `Content-type` that may force the browser to download the image instead of rendering it.
 
-It may also propose a name for the file to be downloaded that may be different from the one that appears in the URL of the href attribute. This can be done by generating, in addition to the Content-type line in the response HTTP header, a `Content-Disposition` line that looks like this:
+It may also propose a name for the file to be downloaded that may be different from the one that appears in the URL of the `href` attribute. This can be done by generating, in addition to the Content-type line in the response HTTP header, a `Content-Disposition` line that looks like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">Content-Disposition: attachment; filename="MyImage.png";</li>
+<li style="margin-bottom: 0px;" value="1">Content-Disposition: attachment; filename="<span style="color:green;">MyImage.png</span>";</li>
 </ol></div>
 
 Here are some extracts from a Java Servlet that generate a zip file and forces the browser to propose downloading it using a specified name:
@@ -2557,7 +2583,7 @@ The above example will cause the browser that invoked this server-side code to s
 HTML5 proposes the use of a new attribute named `download` to download resources rather than navigating to them. The example below shows how to trigger the download of an image by the browser (instead of rendering it, which is the default behavior) with a name different from the name of the resource.
 
 <div><ol>
-<li style="margin-bottom: 0px;">&lt;a href=<span class="atv">"normal.gif" <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">download=<span class="atv">"MichelBuffa.gif"&gt;</li>
+<li style="margin-bottom: 0px;">&lt;a href="normal.gif" <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">download="MichelBuffa.gif"&gt;</li>
 <li style="margin-bottom: 0px;">&nbsp; &nbsp; download a picture of Michel Buffa</li>
 <li style="margin-bottom: 0px;">&lt;/a&gt;</li>
 </ol></div>
@@ -2577,17 +2603,7 @@ This will indeed force the download of an image with a filename different from i
 
 __Interesting applications: serverless download__
 
-<figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick="window.open('https://tinyurl.com/y6rsz7qo')"
-    src    ="https://tinyurl.com/y245hsrl"
-    alt    ="no server picture"
-    title  ="no server picture"
-  />
-</figure>
-
-
-__Serverless download demo (by E.Bilderman)__
+Serverless download demo (by E.Bilderman)
 
 This demo shows the use of the `download` attribute together with the HTML5 File, FileSystem and FileWriter APIs (to be studied later in this course) for generating on-the-fly content from JavaScript code, and proposing downloading it to a file.  
 
@@ -2595,12 +2611,20 @@ We won't detail this demo here, but take a look if you are curious to see what c
 
 We have also put the simplified [source code of this demo on JSBin.com](https://jsbin.com/muluwey/1/edit?html,css,js,output) ([local demo](src/1.4.3-serverless.html)) for you to play with. See also the [original demo by E. Bilderman](https://tinyurl.com/y5x2avow).
 
-Serverless download demo: type text in a text area, press download, enter a filename and voilà! you can download the textarea content into a file, without any server.
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y6rsz7qo')"
+    src    ="https://tinyurl.com/y3t5k7pf"
+    alt    ="Serverless download demo: type text in a text area, press download, enter a filename and voilà! you can download the textarea content into a file, without any server."
+    title  ="Serverless download demo: type text in a text area, press download, enter a filename and voilà! you can download the textarea content into a file, without any server."
+  />
+</figure>
+
 
 __External resources:__
 
-From the specification: [downloading resources](https://tinyurl.com/y6ouvh6m)
-From CanIUse: the [browser support of the `download` attribute](https://tinyurl.com/ybqjemqh)
++ From the specification: [downloading resources](https://tinyurl.com/y6ouvh6m)
++ From CanIUse: the [browser support of the `download` attribute](https://tinyurl.com/ybqjemqh)
 
 
 #### The HTML5 translate attribute
@@ -2626,23 +2650,23 @@ _The attribute's keywords are the empty string, yes, and no. The empty string an
 
 __Example illustrating how to specify parts of an HTML element that should not be translated:__
 
-<div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;span <strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">translate=<span class="atv">"no"</strong> class=<span class="atv">"author"&gt;<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">Michel Ham&lt;/span&gt;</li>
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;span</span><span class="pln"> </span><strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">translate</span><span class="pun">=</span><span class="atv">"no"</span></span></span></strong><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"author"</span><span class="tag">&gt;</span><span style="text-decoration: underline;"><span class="pln" style="color: #ff0000; text-decoration: underline;">Michel Ham</span></span><span class="tag">&lt;/span&gt;</span></li>
 </ol></div>
 
-In the above example, a `` element defines an author (of a blog, for example) who is named Michel Ham. However, his family name is the same as pork and would be translated to "Michel Jambon" in French, or Michel Jamón in Spanish...
+In the above example, a `<span>` element defines an author (of a blog, for example) who is named Michel Ham. However, his family name is the same as pork and would be translated to "Michel Jambon" in French, or Michel Jamón in Spanish...
 
 Using the translate="no" attribute should prevent this behavior...
 
-<div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;span <strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">translate="no"</strong> class="author"&gt;<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">Michel Ham&lt;/span&gt; is a professor </li>
-<li style="margin-bottom: 0px;"> from the University of Nice,France. </li>
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;span</span><span class="pln"> </span><strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">translate</span><span class="pun">=</span><span class="atv">"no"</span></span></span></strong><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"author"</span><span class="tag">&gt;</span><span style="text-decoration: underline;"><span class="pln" style="color: #ff0000; text-decoration: underline;">Michel Ham</span></span><span class="tag">&lt;/span&gt;</span><span class="pln"> is a professor </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> from the University of Nice,France. </span></li>
 </ol></div>
 
 Will be correctly translated into French by:
 
-<div><ol>
-<li style="margin-bottom: 0px;" value="1">"<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">Michel Ham est un professeur de l'Université de Nice, France."</li>
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="str">"<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">Michel Ham</span></span> est un professeur de l'Université de Nice, France."</span></li>
 </ol></div>
 
 ...where all of the end of the sentence has been translated except the author's name.
@@ -2652,8 +2676,8 @@ __Inheritance between elements__
 
 When you define an element as not being translatable, its children inherit this behavior and are themselves not translatable. The reverse is also true. 
 
-<div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;p <strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">translate=<span class="atv">"no"</strong>&gt;This is a text in a paragraph element, that should not be translated: the p element has a translate="no" attribute.<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">&lt;span&gt; This part that is in a span element embedded within the paragraph. It does not have a translate attribute but inherits the translation-mode of the p and will not be translated too&lt;/span&gt;. This is the end of the paragraph...&lt;/ p&gt;</li>
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;p</span><span class="pln"> </span><strong><span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;"><span class="atn">translate</span><span class="pun">=</span><span class="atv">"no"</span></span></span></strong><span class="tag">&gt;</span><span class="pln">This is a text in a paragraph element, that should not be translated: the p element has a translate="no" attribute.</span><span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;"><span class="tag">&lt;span&gt;</span><span class="pln"> This part that is in a span element embedded within the paragraph. It does not have a translate attribute but inherits the translation-mode of the p and will not be translated too</span><span class="tag">&lt;/span&gt;</span></span></span><span class="pln">. This is the end of the paragraph...&lt;/ p&gt;</span></li>
 </ol></div>
 
 
@@ -2667,22 +2691,28 @@ When you define an element as not being translatable, its children inherit this 
 
 #### Knowledge check 1.4.4
 
-<div>
-    <ol>
-        <li style="margin-bottom:0px;" value="1">
-          &lt;a href = "/images/batman_robin_car_superpower_007.rar"
+<div class="source-code">
+      <ol class="linenums">
+        <li style="margin-bottom:0px;" class="L0" value="1">
+          <span class="tag">&lt;a</span> <span class="pln"> </span> <span class="atn">href</span> <span class="pun">=</span> <span class="atv">"/images/batman_robin_car_superpower_007.rar"</span>
         </li>
-        <li style="margin-bottom:0px;"> download = "Batmobile.rar" &gt; </li>
-        <li style="margin-bottom:0px;"> download a picture of Michel Buffa </li>
-        <li style="margin-bottom:0px;"> &lt;/a&gt; </li>
-    </ol>
-</div>
+        <li style="margin-bottom:0px;" class="L1">
+          <span class="pln">    </span> <span class="atn">download</span> <span class="pun">=</span> <span class="atv">"Batmobile.rar"</span> <span class="tag">&gt;</span>
+        </li>
+        <li style="margin-bottom:0px;" class="L2">
+          <span class="pln">    download a picture of Michel Buffa</span>
+        </li>
+        <li style="margin-bottom:0px;" class="L3">
+          <span class="tag">&lt;/a&gt;</span>
+        </li>
+      </ol>
+  </div>
 
 1. What will be the name of the downloaded file?<br/>
   a. Batmobile.rar<br/>
   b. batman_robin_car_superpower_007.rar<br/>
   
-  Ans: 
+  Ans: a
 
 
 
