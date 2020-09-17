@@ -1,0 +1,32 @@
+details {
+	display:block; /* Pour les navigateurs n'implémentant pas <details> et <summary> */
+	width:300px;
+	margin:10px 0;
+}
+summary {
+	display:block; /* Pour les navigateurs n'implémentant pas <details> et <summary> */
+	background:#99B92C;
+	color:white;
+	border-radius:5px;
+	padding:5px;
+	cursor:pointer;font-weight:bold;
+}
+p + details, form, h3 {
+	margin-left:214px;
+}
+.hint {margin-bottom:2em;}
+img {
+	float:left;
+	margin-right:10px;
+}
+
+summary::-webkit-details-marker {
+ color:#FF0000; 
+ background:#FFFFFF; 
+}
+
+details[open] summary::-webkit-details-marker {
+	color:#0000FF;
+	background:#00FFFF;
+}
+
