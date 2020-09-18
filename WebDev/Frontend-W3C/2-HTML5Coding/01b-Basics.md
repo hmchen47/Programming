@@ -5,7 +5,7 @@
 
 ### 1.2.0 Lecture Notes
 
-+ HTML
++ [HTML](#121-history-of-html-versions)
   + a.k.a. HyperText Markup Language
   + the authoring language used to create documents on the World Wide Web
   + defining the structure and layout of a Web page
@@ -21,7 +21,7 @@
     + XHTML1/0: 2000
     + HTML5: Oct. 2014
 
-+ HTML5
++ [HTML5](#122-what-is-html5)
   + published on 28 October 2014
   + features
     + Web-based applications with more interaction
