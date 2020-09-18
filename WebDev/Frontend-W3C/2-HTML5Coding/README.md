@@ -12,12 +12,12 @@
 
 ## Week 1: HTML5 Basics
 
-+ 1.1 [Video introduction - Week 1](./01-Basics.md#)
-+ 1.2 [From HTML1.0 to HTML5](./01-Basics.md#)
-+ 1.3 [Structural elements](./01-Basics.md#)
-+ 1.4 [Other elements and attributes](./01-Basics.md#)
-+ 1.5 [Microdata](./01-Basics.md#)
-+ 1.6 [Exercises - Week 1](./01-Basics.md#)
++ 1.1 [Video introduction - Week 1](./01a-Basics.md)
++ 1.2 [From HTML1.0 to HTML5](./01b-Basics.md)
++ 1.3 [Structural elements](./01c-Basics.md)
++ 1.4 [Other elements and attributes](./01d-Basics.md)
++ 1.5 [Microdata](./01e-Basics.md)
++ 1.6 [Exercises - Week 1](./01f-Basics.md)
 
 
 ## Week 2: HTML5 Multimedia
