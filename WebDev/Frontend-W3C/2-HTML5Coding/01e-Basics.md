@@ -92,6 +92,13 @@
     </tbody>
     </table>
 
++ Microdata tools
+  + generators
+    + The [Ultimate Microdata Generator](https://tinyurl.com/yaxpeuoq)
+    + The [MicroData Generator](https://tinyurl.com/yyrpwsg7)
+    + The [Schema Markup Generator (JSON-LD)](https://tinyurl.com/y6aupftz)
+
+
 
 ### 1.5.1 Introduction
 
@@ -493,7 +500,72 @@ Or for an `<a>` element, the value will be the value of the href attribute:
   Explanation: The right schema is https://schema.org/PostalAddress.
 
 
+### 1.5.4 Microdata tools
 
+There are many tools available (most are free) that you can use for generating, visualizing and debugging microdata. We list some of them in this page, but feel free to share the tools you find / like in the forums.
+
+__Microdata generators__
+
+To automatically generate microdata for describing persons, restaurants, movies, products, organizations, etc., there is a wide variety of microdata generators such as these listed below (but do not hesitate to search for "microdata generators" using your favorite search engine, and you will find lots!):
+
++ The [Ultimate Microdata Generator](https://tinyurl.com/yaxpeuoq)
++ The [MicroData Generator](https://tinyurl.com/yyrpwsg7)
++ The [Schema Markup Generator (JSON-LD)](https://tinyurl.com/y6aupftz)
+
+Example:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick="window.open('https://tinyurl.com/y3rbjs4c')"
+    src    ="https://tinyurl.com/y4vxghlf"
+    alt    ="Example of generator. I entered my name, job, city in a form and a text area next to it shows the corresponding HTML microdata"
+    title  ="Example of generator. I entered my name, job, city in a form and a text area next to it shows the corresponding HTML microdata"
+  />
+</figure>
+
+
+### 1.5.5 Examples of well structured documents with Microdata
+
+Here, we propose a few links to Web pages that were created by students of previous editions of this course).
+
+The students had to create a Web page to introduce themselves, with some information including: name, job, employer, location, etc., and of course enrich the page with microdata. They also had to follow the best practices concerning the new structural elements, headings, etc.
+
+Click on these pages and look at the source code...
+
+__Example #1__
+
+Visit the [example #1 online](https://jsbin.com/cuzipa/edit?html,css,output) ([local example 1](src/1.5.5-example1.html))
+
+Structure & Microdata:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/yxsjbyxd" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y2uehosl"
+      alt  ="picture of the first about me page example. Shows the table of content" 
+      title="picture of the first about me page example. Shows the table of content"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y43pha94"
+      alt  ="microdata from the example page" 
+      title="microdata from the example page"
+    >
+  </a>
+</div>
+
+
+__Example #2__
+
+View the [example #2 online](https://jsbin.com/karemi/1/edit?html,output) ([local example 2](src/1.5.5-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yxsjbyxd')"
+    src    ="https://tinyurl.com/yycvd4du"
+    alt    ="Example page, shows table of content"
+    title  ="Example page, shows table of content"
+  />
+</figure>
 
 
 
