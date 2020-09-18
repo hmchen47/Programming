@@ -5,58 +5,59 @@
 
 ### 1.4.0 Lecture Notes
 
-+ Foldable zone in an HTML document
++ [Foldable zone in an HTML document](#css-pseudo-classes-for-styling-summary-icons)
   + `<details>` element:
     + generate a simple widget to show/hide element contents
     + able to be embedded inside one another
   + `<summary>` element: (optional) children element of `<details>` element
   + `<summary>...</summary>` located inside a `<details>...</details>` element
 
-+ Styling summary icons w/ CSS
++ [Styling summary icons w/ CSS](#css-pseudo-classes-for-styling-summary-icons)
   + modifying color and background of the icon w/ `::-webkit-details-marker`
 
-    ```css
-    summary::-webkit-details-marker {
-      color:#FF0000;
-      background:#FFFFFF;
-    }
-    ```
+    <div><ol>
+      <li style="margin-bottom: 0px;" value="1">summary::-webkit-details-marker {</li>
+      <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color:#FF0000; </li>
+      <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;background:#FFFFFF; </li>
+      <li style="margin-bottom: 0px;">}</li>
+    </ol></div>
 
   + `details[open]` selector handling the unfolded `<details>`
 
-    ```css
-    details[open] summary::-webkit-details-marker {
-      color:#0000FF;
-      background:#00FFFF;
-    }
-    ```
+    <div><ol>
+    <li style="margin-bottom: 0px;" value="1">details[open] summary::-webkit-details-marker {</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color:#0000FF; </li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;background:#00FFFF;</li>
+    <li style="margin-bottom: 0px;">}</li>
+    </ol></div>
 
   + using `+` shaped icon for expansion
 
-    ```css
-    summary:after {
-      content: "+";
-      color: #FF00FF;
-      float: left;
-      font-size: 1.5em;
-      font-weight: bold;
-      margin: -5px 5px 0 0;
-      padding: 0;
-      text-align: center;
-      width: 20px;
-    }
-    ```
+    <div><ol>
+    <li style="margin-bottom: 0px;" value="1">summary:<span style="color: hotpink;">after {</li>
+    <li style="margin-bottom: 0px;"> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content<span style="color: hotpink;">: "+";</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FF00FF;</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;float: left;</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.5em;</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;margin: -5px 5px 0 0;</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;padding: 0;</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;text-align: center;</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;width: 20px;</li>
+    <li style="margin-bottom: 0px;">}</li>
+    </ol></div>
+
 
   + using `-` shaped icon to callops details
 
-    ```css
-    details[open] summary:after {
-      content: "-";
-      color: #FFFFFF
-    }
-    ```
+    <div><ol>
+    <li style="margin-bottom: 0px;" value="1">details<span style="color: hotpink;">[open]</span> summary:<span style="color: hotpink;">after {</li>
+    <li style="margin-bottom: 0px;"> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content: "-";</li>
+    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FFFFFF</li>
+    <li style="margin-bottom: 0px;">}</li>
+    </ol></div>
 
-+ The `<time>` element
++ [The `<time>` element](#the-time-element)
   + useful for marking a time or a duration in a document
   + expression
     + human readable part (the part between `<time>` and `</time>`)
@@ -70,12 +71,12 @@
     + generating alerts for birthdays
     + automatically adding dates or events that contain `<time>` elements in a calendar
 
-+ The `datetime` attribute
++ [The `datetime` attribute](#the-datetime-attribute)
   + used for indicating a date/time or a duration
-  + Different syntaxes of the datetime attribute
+  + Different syntaxes of the `datetime` attribute
 
-    <table style="text-rendering: optimizelegibility; border-spacing: 0px; margin: 20px 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; font-stretch: inherit; line-height: 25px; vertical-align: baseline; width: 814px; max-width: 100%; margin: auto;" cellpadding="10" border="1">
-    <caption style="font-size: 1.2em;">Different syntaxes of the <span style="font-family: 'courier new', courier;">datetime attribute</caption>
+    <table style="text-rendering: optimizelegibility; border-spacing: 0px; margin: 20px 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-stretch: inherit; line-height: 25px; vertical-align: baseline; width: 814px; max-width: 100%; margin: auto;" cellpadding="10" border="1">
+    <caption style="font-size: 1.5em;">Different syntaxes of the <span style="font-family: 'courier new', courier;">datetime attribute</caption>
     <tbody>
     <tr><th scope="”row”">datetime attribute values</th><th scope="”row”">Interpretation</th></tr>
     </tbody>
@@ -101,7 +102,7 @@
     <td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">November 13th year 2020, time = 9:00</td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-    <td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11-13<span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; color: #ff0000;">T09:00"&gt;</td>
+    <td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11-13<span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; color: hotpink;">T</span>09:00"&gt;</td>
     <td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Same as previous example, both syntaxes are supported, with and without the "T" between date and time.</td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
@@ -133,7 +134,7 @@
       + the value between the opening `<time>` and closing `</time>` should follow the syntax given by the specification
       + recommended to use a `datetime` attribute
 
-+ The `<mark>` element
++ [The `<mark>` element](#the-mark-element)
   + used for indicating text as marked or highlighted for reference purposes
   + useful cases
     + search results with search strings highlighted
@@ -141,14 +142,14 @@
     + replacing `<strong>` and `<em>` with `<mark>` when suitable
   + change default style: using `background-color` and `color`
 
-+ The `download` attribute
++ [The `download` attribute](#to-download-a-file-using-an-arbitrary-name-the-download-attribute)
   + download resources rather than navigating to them
   + example
 
-    <div class="source-code"><ol class="linenums">
-    <li style="margin-bottom: 0px;">&lt;a</span> </span>href</span>=</span>"normal.gif"</span></span> </span><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">download</span>=</span>"MichelBuffa.gif"</span></span></span>&gt;</span></li>
-    <li style="margin-bottom: 0px;">&nbsp; &nbsp; download a picture of Michel Buffa</span></li>
-    <li style="margin-bottom: 0px;">&lt;/a&gt;</span></li>
+    <div><ol>
+    <li style="margin-bottom: 0px;">&lt;a href="normal.gif" <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">download</span>="MichelBuffa.gif"&gt;</li>
+    <li style="margin-bottom: 0px;">&nbsp; &nbsp; download a picture of Michel Buffa</li>
+    <li style="margin-bottom: 0px;">&lt;/a&gt;</li>
     </ol></div>
   
     + force the download of an image with a filename different from its original filename on the server side
@@ -156,7 +157,7 @@
     + downloaded file: "MichelBuffa.gif"
   + security: the image should be located on the same domain as the HTML page that contains the link
 
-+ The HTML5 `translate` attribute
++ [The HTML5 `translate` attribute](#the-html5-translate-attribute)
   + used to limit the impact of translation tools
   + useful scenarios
     + source code
@@ -167,7 +168,7 @@
   + enumerated attribute
     + used to specify whether an element's attribute values and the values of its Text node children to be translated when the page is localized, or whether to leave them unchanged
     + default: "no"
-    + e.g., `<span translate="no" class="author">Michel Ham</span>`
+    + e.g., `<span translate="no">Michel Ham</span>`
 
 
 ### 1.4.1 The `<details>` and `<summary>` elements
@@ -214,24 +215,21 @@ And here is what is displayed after clicking on the small arrow-shaped icon to t
 
 Here is the code of this example:
 
-```html
-<!DOCTYPE html>
-<html lang="en"> ...
-<body>
-<details>
-<summary>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
+<li style="margin-bottom: 0px;">&lt;html lang="en"&gt; ...<br></li>
+<li style="margin-bottom: 0px;">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: hotpink;">&lt;details&gt;</li>
+<li style="margin-bottom: 0px;"> <span style="color: hotpink;">&lt;summary&gt;</li>
+<li style="margin-bottom: 0px;"> How to beat the boss...spoiler alert !</li>
+<li style="margin-bottom: 0px;"> <span style="color: hotpink;"> &lt;/summary&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt; Just aim to the red spots near his eyes&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt;Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: hotpink;">&lt;/details&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+</ol></div>
 
-How to beat the boss...spoiler alert !
-
-```html
-</summary>
-<p> Just aim to the red spots near his eyes</p>
-<p>Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.</p>
-</details>
-</body>
-</html>
-```
 
 The `<summary>...</summary>` is inside a `<details>...</details>` element. By clicking on the icon at the left of the summary, the content of the `<details>` value is displayed/hidden.
 
@@ -274,25 +272,23 @@ Step3: click on embedded summary icon inside the part that has been previously u
 
 Source code of this example, see the summary/details inside another one:
 
-```html
-<details>
-<summary>
-  How to beat the boss...spoiler alert !
-</summary>
-  <p> Just aim to the red spots near his eyes</p>
-  <p>Keep shooting at these spots until the eyes open, then hit quickly both 
-    eyes with your laser beam.</p>
-<details>
-<summary>
-  Bonus and spoiler No 2: get a new weapon by cutting the tail of the boss.
-</summary>
-  <p>Before finishing him, try to cut his trail, you will get a new weapon</p>
-  <p>Just try to stay behind him as long as you can, hitting his tail with 
-    your melee weapon, after a few hits the trail will fall and you will get 
-    a new bonus weapon, then finish the boss.</p>
-</details>
-</details>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;details&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;summary&gt;</li>
+<li style="margin-bottom: 0px;"> How to beat the boss...spoiler alert !</li>
+<li style="margin-bottom: 0px;"> &lt;/summary&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt; Just aim to the red spots near his eyes&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt;Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;details&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;summary&gt;</li>
+<li style="margin-bottom: 0px;"> Bonus and spoiler No 2: get a new weapon by cutting the tail of the boss.</li>
+<li style="margin-bottom: 0px;"> &lt;/summary&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt;Before finishing him, try to cut his trail, you will get a new weapon&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt;Just try to stay behind him as long as you can, hitting his tail with your melee weapon, after a few hits the trail will fall and you will get a new bonus weapon, then finish the boss.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/details&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/details&gt;</li>
+</ol></div>
+
 
 
 #### CSS pseudo classes for styling summary icons
@@ -315,12 +311,13 @@ The color and background of the icon on the left are specified by the following 
 
 In this example: red arrow, white background.
 
-```css
-summary::-webkit-details-marker {
-  color:#FF0000;
-  background:#FFFFFF;
-}
-```
+<div><ol>
+  <li style="margin-bottom: 0px;" value="1">summary::-webkit-details-marker {</li>
+  <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color:#FF0000; </li>
+  <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;background:#FFFFFF; </li>
+  <li style="margin-bottom: 0px;">}</li>
+</ol></div>
+
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -334,12 +331,13 @@ summary::-webkit-details-marker {
 
 Once opened, the selector `details[open]` can style the icon when `<details>` is unfolded. In this example: blue arrow, turquoise background. Here is the corresponding CSS rule:
 
-```css
-details[open] summary::-webkit-details-marker {
-  color:#0000FF;
-  background:#00FFFF;
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">details[open] summary::-webkit-details-marker {</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color:#0000FF; </li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;background:#00FFFF;</li>
+<li style="margin-bottom: 0px;">}</li>
+</ol></div>
+
 
 It is also possible to change the icon itself using the CSS pseudo class `:after`
 
@@ -365,28 +363,29 @@ CSS rules used in this example:
 
 Use a "+" shaped icon, pink, bold, etc... :
 
-```css
-summary:after {
-  content: "+";
-  color: #FF00FF;
-  float: left;
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: -5px 5px 0 0;
-  padding: 0;
-  text-align: center;
-  width: 20px;
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">summary:<span style="color: hotpink;">after {</span></li>
+<li style="margin-bottom: 0px;"> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content</span><span style="color: hotpink;">: </span>"+";</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FF00FF;</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;float: left;</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.5em;</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;margin: -5px 5px 0 0;</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;padding: 0;</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;text-align: center;</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;width: 20px;</li>
+<li style="margin-bottom: 0px;">}</li>
+</ol></div>
+
 
 Use a "-" shaped icon, white, when details are displayed:
 
-```css
-details[open] summary:after {
-  content: "-";
-  color: #FFFFFF
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">details<span style="color: hotpink;">[open]</span> summary:<span style="color: hotpink;">after {</span></li>
+<li style="margin-bottom: 0px;"> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content</span>: "-";</li>
+<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FFFFFF</li>
+<li style="margin-bottom: 0px;">}</li>
+</ol></div>
 
 
 #### Current browser support
@@ -398,34 +397,77 @@ details[open] summary:after {
 
 1. Select the good way to define the widget:
 
-  a.  
-    ```html
-    <summary>
-    <details>
-    How to beat the boss
-    </detaill>
-    </summary>
-    ```
+  a. 
+
+    <div>
+        <ol>
+          <li style="margin-bottom:0px;" value="1">
+            &lt;summary&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;details&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+                 How to beat the boss
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;/detaill&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;/summary&gt;
+          </li>
+        </ol>
+    </div>
 
   b.  
-    ```html
-    <summary>
-    How to beat the boss
-    </summary>
-    <details>
-    <p> Just aim to the red spots near his eyes </p>
-    </details>
-    ```
 
-  c.  
-    ```html
-    <details>
-    <summary>
-    How to beat the boss
-    </summary>
-    <p> Just aim to the red spots near his eyes </p>
-    </details>
-    ```
+    <div>
+        <ol>
+          <li style="margin-bottom:0px;" value="1">
+            &lt;summary&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+                  How to beat the boss
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;/summary&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;details&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;p&gt; Just aim to the red spots near his eyes &lt;/p&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;/details&gt;
+          </li>
+        </ol>
+    </div>
+
+  c.
+
+    <div>
+        <ol>
+          <li style="margin-bottom:0px;" value="1">
+            &lt;details&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;summary&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+                    How to beat the boss
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;/summary&gt;
+          </li>
+          <li style="margin-bottom:0px;">   
+            &lt;p&gt;Just aim to the red spots near his eyes&lt;/p&gt;
+          </li>
+          <li style="margin-bottom:0px;">
+            &lt;/details&gt;
+          </li>
+        </ol>
+    </div>
   
   Ans: c<br/>
   Explanation: The right answer is the third one. `<details>` contains one `<summary>`, and eventually other details/summary pairs.
@@ -444,14 +486,15 @@ The machine readable part adds semantics that can be used by search engines for 
 
 Example:
 
-```shell
-We open at <time>10:00</time> every morning.
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">We open at <strong><span style="color: hotpink;">&lt;time&gt;</span>10:00&lt;/time&gt;</strong> every morning.</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">I have a meeting the <strong>&lt;time datetime="2020-02-14"&gt;Monday 14/02/</strong><strong>2020</strong>.&lt;/time<strong>&gt;</strong>. </li>
+<li style="margin-bottom: 0px;">Blog posts from the year <strong>&lt;time datetime="</strong><strong>2020"&gt;</strong><strong><strong>2020</strong>&lt;/time</strong><strong>&gt;</strong>.</li>
+<li style="margin-bottom: 0px;">Archives, blog posts for <strong>&lt;time datetime="2020-04"&gt;April 2020&lt;/time&gt;</strong></li>
+<li style="margin-bottom: 0px;">This recipe was published by Michel the <strong>&lt;time datetime="2020-04-16"&gt;April&nbsp;16, 2020</strong>&lt;/time<strong>&gt;</strong>.</li>
+</ol></div>
 
-I have a meeting the <time datetime="2020-02-14">Monday 14/02/2020.</time>.
-Blog posts from the year <time datetime="2020">2020</time>.
-Archives, blog posts for <time datetime="2020-04">April 2020</time>
-This recipe was published by Michel the <time datetime="2020-04-16">April 16, 2020</time>.
-```
 
 #### The `datetime` attribute
 
@@ -491,7 +534,7 @@ Here are some examples:
 <td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">November 13th year 2020, time = 9:00</td>
 </tr>
 <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11-13<span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; color: #ff0000;">T09:00"&gt;</span></td>
+<td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time datetime="2020-11-13<span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; color: hotpink;">T</span>09:00"&gt;</td>
 <td style="text-rendering: optimizelegibility; border-color: #cbcbcb; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Same as previous example, both syntaxes are supported, with and without the "T" between date and time.</td>
 </tr>
 <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
@@ -528,13 +571,14 @@ _You still can’t represent dates before the Christian era, as years can’t be
 
 Examples:
 
-```html
-<h2>Recipe:</h2>
-<ul>
-  <li> Preparation time: <time datetime="PT30M">30 minutes</time> </li>
-  <li> Cooking time:     <time datetime="PT10M">10 minutes</time> </li>
-</ul>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;h2&gt;Recipe:&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&lt;ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &lt;li&gt; Preparation time: &lt;time datetime="PT30M"&gt;30 minutes&lt;/time&gt; &lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;&lt;li&gt; Cooking time: &nbsp; &nbsp;&nbsp;&lt;time datetime="PT10M"&gt;10 minutes&lt;/time&gt; &lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/ul&gt;</li>
+</ol></div>
+
 
 __The `<time>` element with no attributes__
 
@@ -563,18 +607,19 @@ Example 1: [jsBin online example](https://jsbin.com/tafelic/edit?html,output) an
 
 Source code:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset=utf-8 />
-<title>JS Bin</title>
-</head>
-<body>
-  <p>Project is due in <mark>.zip format</mark> next monday.</p>
-</body>
-</html>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
+<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
+<li style="margin-bottom: 0px;">&lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&lt;meta charset=utf-8 /&gt;</li>
+<li style="margin-bottom: 0px;">&lt;title&gt;JS Bin&lt;/title&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
+<li style="margin-bottom: 0px;">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt;Project is due in <strong>&lt;mark&gt;.zip format&lt;/mark&gt;</strong> next monday.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+</ol></div>
+
 
 Example 2:
 
@@ -590,14 +635,15 @@ Example 2:
 
 Source code:
 
-```html
-<body>
-<pre>
-<code><mark>var</mark> i = 3;</code>
-</pre>
-<p>The var keyword is used to declare a variable in JavaScript.</p>
-</body>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;pre&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;&lt;mark&gt;var&lt;/mark&gt; i = 3;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/pre&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt;The var keyword is used to declare a variable in JavaScript.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+</ol></div>
+
 
 __Change the default style of the `<mark>` element__
 
@@ -617,12 +663,13 @@ For example:
 
 ... comes with this CSS rule:
 
-```css
-mark {
-    background-color: green;
-    color: yellow;
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">mark {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; background-color: green;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; color: yellow;</li>
+<li style="margin-bottom: 0px;">}</li>
+</ol></div>
+
 
 __External resources:__
 
@@ -672,7 +719,7 @@ However, if the link points to some PHP code, Java servlet code, or any kind of 
 It may also propose a name for the file to be downloaded that may be different from the one that appears in the URL of the `href` attribute. This can be done by generating, in addition to the Content-type line in the response HTTP header, a `Content-Disposition` line that looks like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">Content-Disposition: attachment; filename="<span style="color:green;">MyImage.png</span>";</li>
+<li style="margin-bottom: 0px;" value="1">Content-Disposition: attachment; filename="<span style="color:green;">MyImage.png";</li>
 </ol></div>
 
 Here are some extracts from a Java Servlet that generate a zip file and forces the browser to propose downloading it using a specified name:
@@ -690,9 +737,9 @@ Here are some extracts from a Java Servlet that generate a zip file and forces t
 <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ServletOutputStream sos = response.getOutputStream(); </li>
 <li style="margin-bottom: 0px;"> </li>
 <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// generate a HTTP response that forces the download</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">response<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">.setContentType("application/zip"); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">response<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">.setHeader("Content-Disposition", </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">"attachment; filename=\"DATA.ZIP\""); </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">response<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">.setContentType("application/zip"); </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">response<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">.setHeader("Content-Disposition", </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">"attachment; filename=\"DATA.ZIP\""); </li>
 <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sos.write(zip); sos.flush(); </li>
 <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;} </li>
 <li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;} catch (Exception e) { </li>
@@ -709,7 +756,7 @@ The above example will cause the browser that invoked this server-side code to s
 HTML5 proposes the use of a new attribute named `download` to download resources rather than navigating to them. The example below shows how to trigger the download of an image by the browser (instead of rendering it, which is the default behavior) with a name different from the name of the resource.
 
 <div><ol>
-<li style="margin-bottom: 0px;">&lt;a href="normal.gif" <span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">download="MichelBuffa.gif"&gt;</li>
+<li style="margin-bottom: 0px;">&lt;a href="normal.gif" <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">download="MichelBuffa.gif"&gt;</li>
 <li style="margin-bottom: 0px;">&nbsp; &nbsp; download a picture of Michel Buffa</li>
 <li style="margin-bottom: 0px;">&lt;/a&gt;</li>
 </ol></div>
@@ -776,23 +823,23 @@ _The attribute's keywords are the empty string, yes, and no. The empty string an
 
 __Example illustrating how to specify parts of an HTML element that should not be translated:__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;span</span><span class="pln"> </span><strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">translate</span><span class="pun">=</span><span class="atv">"no"</span></span></span></strong><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"author"</span><span class="tag">&gt;</span><span style="text-decoration: underline;"><span class="pln" style="color: #ff0000; text-decoration: underline;">Michel Ham</span></span><span class="tag">&lt;/span&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;span <strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">translate</span>="no"</strong> class="author"&gt;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham&lt;/span&gt;</li>
 </ol></div>
 
-In the above example, a `<span>` element defines an author (of a blog, for example) who is named Michel Ham. However, his family name is the same as pork and would be translated to "Michel Jambon" in French, or Michel Jamón in Spanish...
+In the above example, a `` element defines an author (of a blog, for example) who is named Michel Ham. However, his family name is the same as pork and would be translated to "Michel Jambon" in French, or Michel Jamón in Spanish...
 
 Using the translate="no" attribute should prevent this behavior...
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;span</span><span class="pln"> </span><strong><span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;"><span class="atn">translate</span><span class="pun">=</span><span class="atv">"no"</span></span></span></strong><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"author"</span><span class="tag">&gt;</span><span style="text-decoration: underline;"><span class="pln" style="color: #ff0000; text-decoration: underline;">Michel Ham</span></span><span class="tag">&lt;/span&gt;</span><span class="pln"> is a professor </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> from the University of Nice,France. </span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;span <strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">translate="no"</strong> class="author"&gt;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham&lt;/span&gt; is a professor </li>
+<li style="margin-bottom: 0px;"> from the University of Nice,France. </li>
 </ol></div>
 
 Will be correctly translated into French by:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="str">"<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">Michel Ham</span></span> est un professeur de l'Université de Nice, France."</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">"<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham est un professeur de l'Université de Nice, France."</li>
 </ol></div>
 
 ...where all of the end of the sentence has been translated except the author's name.
@@ -802,8 +849,8 @@ __Inheritance between elements__
 
 When you define an element as not being translatable, its children inherit this behavior and are themselves not translatable. The reverse is also true. 
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;p</span><span class="pln"> </span><strong><span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;"><span class="atn">translate</span><span class="pun">=</span><span class="atv">"no"</span></span></span></strong><span class="tag">&gt;</span><span class="pln">This is a text in a paragraph element, that should not be translated: the p element has a translate="no" attribute.</span><span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;"><span class="tag">&lt;span&gt;</span><span class="pln"> This part that is in a span element embedded within the paragraph. It does not have a translate attribute but inherits the translation-mode of the p and will not be translated too</span><span class="tag">&lt;/span&gt;</span></span></span><span class="pln">. This is the end of the paragraph...&lt;/ p&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;p <strong><span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;">translate</span>="no"</strong>&gt;This is a text in a paragraph element, that should not be translated: the p element has a translate="no" attribute.<span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;">&lt;span&gt;</span> This part that is in a span element embedded within the paragraph. It does not have a translate attribute but inherits the translation-mode of the p and will not be translated too&lt;/span&gt;. This is the end of the paragraph...&lt;/ p&gt;</li>
 </ol></div>
 
 
@@ -817,19 +864,19 @@ When you define an element as not being translatable, its children inherit this 
 
 #### Knowledge check 1.4.4
 
-<div class="source-code">
-      <ol class="linenums">
-        <li style="margin-bottom:0px;" class="L0" value="1">
-          <span class="tag">&lt;a</span> <span class="pln"> </span> <span class="atn">href</span> <span class="pun">=</span> <span class="atv">"/images/batman_robin_car_superpower_007.rar"</span>
+<div>
+      <ol>
+        <li style="margin-bottom:0px;" value="1">
+          &lt;a   href = "/images/batman_robin_car_superpower_007.rar"
         </li>
-        <li style="margin-bottom:0px;" class="L1">
-          <span class="pln">    </span> <span class="atn">download</span> <span class="pun">=</span> <span class="atv">"Batmobile.rar"</span> <span class="tag">&gt;</span>
+        <li style="margin-bottom:0px;">
+               download = "Batmobile.rar" &gt;
         </li>
-        <li style="margin-bottom:0px;" class="L2">
-          <span class="pln">    download a picture of Michel Buffa</span>
+        <li style="margin-bottom:0px;">
+              download a picture of Michel Buffa
         </li>
-        <li style="margin-bottom:0px;" class="L3">
-          <span class="tag">&lt;/a&gt;</span>
+        <li style="margin-bottom:0px;">
+          &lt;/a&gt;
         </li>
       </ol>
   </div>
