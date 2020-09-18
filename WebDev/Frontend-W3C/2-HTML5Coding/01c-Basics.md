@@ -6,22 +6,22 @@
 
 ### 1.3.0 Lecture Notes
 
-+ Minimum HTML5 Document
++ [Minimum HTML5 Document](#a-minimal-html5-document)
 
-  ```html
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Page Title</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-  ... <!-- The rest is content -->
-  </body>
-  </html>
-  ```
+  <div><ol>
+  <li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
+  <li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
+  <li style="margin-bottom: 0px;">&lt;head&gt;</li>
+  <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;meta charset="utf-8"&gt;</li>
+  <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;title&gt;Page Title&lt;/title&gt;</li>
+  <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;link rel="stylesheet" href="style.css"&gt;</li>
+  <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;</li>
+  <li style="margin-bottom: 0px;">&lt;/head&gt;</li>
+  <li style="margin-bottom: 0px;">&lt;body&gt;</li>
+  <li style="margin-bottom: 0px;">... &lt;!-- The rest is content --&gt;</li>
+  <li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+  <li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+  </ol></div>
 
   + `<meta charset="utf-8">`: best practice to declare the character set
   + `<!DOCTYPE html>`: used by tools and specifying the rules used by an HTML or an XHTML page
@@ -39,7 +39,7 @@
     + no longer a closing tag required in many elements but __recommended__
     + quoted only if containing spaces or some non-alphanumeric characters but __recommended__, e.g., `<link rel=stylesheet href=style.css>`
 
-+ Structural elements
++ [Structural elements](#132-structural-elements)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y5ug9vol" ismap target="_blank">
@@ -68,13 +68,13 @@
     + consist of content that is directly related to or expands upon the central topic of a document or central functionality of an application
     + __only one__ in a document
 
-+ `<article>` and `<section>`
++ [`<article>` and `<section>`](#134-more-on-article-and-section)
   + `<article>`: designed for stand-alone parts of a document that could eventually be syndicated in RSS streams
   + `<section>`: used to cut a logical part into subparts
   + `<article>` able to be cut into different `<section>` elements
   + `<section>` may be cut into different `<article>` elements
 
-+ Sectioning elements
++ [Sectioning elements](#135-headings-and-structural-elements)
   + headings: `<h1>...<h6>`
     + used to display headings with different sizes by default, when no CSS is used
     + define the header of a section
@@ -86,58 +86,60 @@
     + headings of _equal or higher rank_: new (implied) sections
     + headings of _lower rank_: implied subsections that are part of the previous one
     + `<h1>` inside a `<section>`: the browser lowers its default size automatically
-  + best practices
-    + always add a heading to explicit sectioning content
-      + including a heading (a `<h1>, <h2>...<h6>`) in each sectioning element
-      + the `<body>` element: sectioning root
-      + example
 
-        ```html
-        <body>
-            <h1>Example Blog</h1>
-            <section>
-              <header>
-                  <h2>Blog post of April 2020</h2>
-                  <p>Posted by Michel Buffa...</p>
-              </header>
-              <p>Content of the blog post...</p>
-          </section>
-        </body>
-        ```
++ [Best practices of sectioning elements](#136-best-practices-when-using-sectioning-elements)
+  + always add a heading to explicit sectioning content
+    + including a heading (a `<h1>, <h2>...<h6>`) in each sectioning element
+    + the `<body>` element: sectioning root
+    + example
 
-    + using `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`, not to relying on implicit sectioning
-      + `<header> `element
-        + a container
-        + not defining new sections of a document nor affecting the hierarchy levels
-      + HTML not dedicated mechanism for marking up subheadings, alternative titles or taglines
-      + example
+      <div><ol>
+      <li style="margin-bottom: 0px;" value="1"><span style="color: hotpink;">&lt;body&gt;</li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h1&gt;Example Blog&lt;/h1&gt;</strong></li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; <span style="color: hotpink;">&lt;section&gt;</li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h2&gt;Blog post of April 2020>&lt;/h2&gt;</strong></li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Content of the blog post...&lt;/p&gt;</li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt;</li>
+      <li style="margin-bottom: 0px;"> &lt;/body&gt;</li>
+      </ol></div>
 
-        ```html
-        <body>
-        <h1>Apples</h1>
-        <p>Apples are fruit.</p>
-        <section>
-            <h2>Taste</h2>
-            <p>They taste lovely.</p>
-            <section>
-                <h3>Sweet</h3>
-                <p>Red apples are sweeter than green ones.</p>
-            </section>
-        </section>
-        <section>
-            <h2>Color</h2>
-            <p>Apples come in various colors.</p>
-        </section>
-        </body>
-        ```
+  + using `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`, not to relying on implicit sectioning
+    + `<header> `element
+      + a container
+      + not defining new sections of a document nor affecting the hierarchy levels
+    + HTML not dedicated mechanism for marking up subheadings, alternative titles or taglines
+    + example
 
-+ Table of contents
+      <div><ol>
+      <li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+      <li style="margin-bottom: 0px;">&lt;h1&gt;Apples&lt;/h1&gt;</li>
+      <li style="margin-bottom: 0px;">&lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
+      <li style="margin-bottom: 0px;"><strong style="color: olive;">&lt;section&gt;</strong></li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Taste&lt;/h2&gt;</strong></li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;section&gt;</strong></li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h3&gt;Sweet&lt;/h3&gt;</strong></li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/section&gt;</li>
+      <li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+      <li style="margin-bottom: 0px;"><strong style="color: olive;">&lt;section&gt;</strong></li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Color&lt;/h2&gt;</strong></li>
+      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
+      <li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+      <li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+      </ol></div>
+
+
++ [Table of contents](#137-embedding-a-table-of-contents)
   + useful for debugging the structure of your page
   + checking the presence of headings after sectioning content
   + displaying some "untitled entries" $\to$ missing some headings
 
 
-+ The `<main>` element
++ [The `<main>` element](#138-the-main-element)
   + identify the main content of the document
   + provide a navigable document structure for assistive technology users as well as styling hooks for devs
   + supported by major modern browsers
@@ -147,7 +149,7 @@
   + best practice:
     + split page content into "regions" defined by the five 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
 
-+ Best practices
++ [Best practices](#139-the-blog-example-applying-best-practices)
   + some H1s inside an `<article>` in a `<section>`
     + documents moved more easily or integrated inside an RSS stream
     + no need to renumber the headings
@@ -162,24 +164,25 @@
     + not using `display:none` or `visibility:hidden` in your CSS stylesheet
     + recommended technique
 
-      ```css
-      nav header {
-          position: absolute !important;
-          clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-          clip: rect(1px, 1px, 1px, 1px);
-          padding:0 !important;
-          border:0 !important;
-          height: 1px !important;
-          width: 1px !important;
-          overflow: hidden;
-      }
-      ```
+      <code>
+      nav header {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp; position: absolute !important;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;  clip: rect(1px, 1px, 1px, 1px);<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;  padding:0 !important;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;  border:0 !important;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;  height: 1px !important; <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;  width: 1px !important; <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;  overflow: hidden;<br/>
+      }       
+      </code>
+
   + Not advised to include interactive content (links, controls etc) hidden offscreen, all interactive content must have a visible focus indicator
   + Using H1 as top level headings only, using H2...H6 in sectioning content
     + risky to use nested H1s
     + browsers not correctly implement the "outline algorithm"
 
-+ Page layout
++ [Page layout](#1310-examples-of-page-layouts)
   + 2 columns:
     + a `<section>` on the left and an `<aside>` on the right
     + using the float and width CSS properties
@@ -202,37 +205,38 @@ Changes have been made to particular elements in HTML5 making it simpler to use.
 
 #### A minimal HTML5 document
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="utf-8">
-   <title>Page Title</title>
-   <link rel="stylesheet" href="style.css">
-   <script src="script.js"></script>
-</head>
-<body>
-... <!-- The rest is content -->
-</body>
-</html>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
+<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
+<li style="margin-bottom: 0px;">&lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;meta charset="utf-8"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;title&gt;Page Title&lt;/title&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;link rel="stylesheet" href="style.css"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
+<li style="margin-bottom: 0px;">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;">... &lt;!-- The rest is content --&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+</ol></div>
+
 
 Let's compare it to the HTML4 minimal document below (taken from this source). Differences are underlined in red:
 
-```html
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html" charset="utf-8">
-    <title>title</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="script.js"></script>
-</head>
-<body>
-...
-</body>
-</html>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span style="text-decoration: underline; color: hotpink;">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd"&gt;</span> </li>
+<li style="margin-bottom: 0px;">&lt;html lang="en"&gt; </li>
+<li style="margin-bottom: 0px;"> &lt;head&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;meta <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">http-equiv="content-type" content=</span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">"text/html"</span></span>&nbsp;charset="utf-8"&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;title&gt;title&lt;/title&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;link rel="stylesheet" <strong style="color: olive;"><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">type="text/css"</span></span></strong> href="style.css"&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;script <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">type="text/javascript"</span></span> src="script.js"&gt;&lt;/script&gt; </li>
+<li style="margin-bottom: 0px;"> &lt;/head&gt; </li>
+<li style="margin-bottom: 0px;">&lt;body&gt; </li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt; </li>
+<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+</ol></div>
 
 
 #### Simpler character set definition
@@ -252,9 +256,10 @@ With HTML4, doctype definitions looked like this: `<!DOCTYPE HTML PUBLIC "-//W3C
 
 With HTML5, there is only one way to indicate the doctype, and it's so simple there is no reason to forget it:
 
-```html
-<!doctype html>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;!doctype html&gt;</li>
+</ol></div>
+
 
 
 #### The "TYPE" attribute is optional
@@ -263,29 +268,30 @@ With a `rel="stylesheet"` attribute, it is no longer necessary to indicate `type
 
 The "type" attribute is not needed in HTML5, and even old browsers will use text/css as the default type for stylesheets today. So, either way, you can omit the "type" attribute altogether and use:
 
-```html
-<link href="file.css" rel="stylesheet"/>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;link href="file.css" rel="stylesheet"/&gt;</li>
+</ol></div>
 
 instead of:
 
-```html
-<link href="file.css" rel="stylesheet" type="text/css"/>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;link href="file.css" rel="stylesheet" type="text/css"/&gt;</li>
+</ol></div>
 
 We will not go into detail about the <link> element, but the fact that the type attribute is becoming optional shows the current direction taken by HTML5: towards greater simplicity.
 
 Please see how to include a JavaScript file in our page:
 
-```html
-<script src="script.js"></script>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;script src="script.js"&gt;&lt;/script&gt; </li>
+</ol></div>
 
 Here again, the type attribute has been omitted. Just as a reminder, the old way to do the same thing is: 
 
-```html
-<script type="text/javascript" src="script.js"></script>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;</li>
+</ol></div>
+
 
 #### More flexible syntax constraints
 
@@ -351,60 +357,60 @@ Quoting from this [article](https://tinyurl.com/y4fnq97k): "During the creation 
 
 ##### New elements added to the HTML5 set
 
-The results of these surveys led to the addition of new structural elements in HTML5. For example, the very popular `<div class="header">` led to the creation of a `<header>` element, `<div class="aside">` to a `<aside>` element, etc.
+The results of these surveys led to the addition of new structural elements in HTML5. For example, the very popular `<div>` led to the creation of a `<header>` element, `<div>` to a `<aside>` element, etc.
 
 Finally, the 20 most popular ids and class names found in Hickson's and Opera's surveys gave birth to these new elements (click on the element's name to go to the W3C specification about this element):
 
-<table style="table-layout: auto; text-rendering: optimizelegibility; border-collapse: collapse; border-spacing: 0px; margin: 20px 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: 16px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;" cellpadding="10" border="1">
+<table style="table-layout: auto; text-rendering: optimizelegibility; border-collapse: collapse; border-spacing: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; margin: auto; width:60vw;" cellpadding="10" border="1">
   <caption>HTML5 structural elements with descriptions.</caption>
   <tbody>
     <tr><th scope="”row”">HTML5 element</th><th scope="”row”">Description</th></tr>
   </tbody>
   <tbody style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="font-family: 'courier new', courier;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-header-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;header&gt;</strong></a></td>
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Introduction of "sectioning elements": an article,&nbsp;a&nbsp;section, the entire document (header page). Typically the header of a Web site that appears on top of each page, or a header of a long <span style="font-family: 'courier new', courier;">&lt;article&gt; or of a long <span style="font-family: 'courier new', courier;">&lt;section&gt;</td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="font-family: 'courier new', courier;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-header-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;header&gt;</span></strong></a></span></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Introduction of "sectioning elements": an article,&nbsp;a&nbsp;section, the entire document (header page). Typically the header of a Web site that appears on top of each page, or a header of a long <span style="font-family: 'courier new', courier;">&lt;article&gt; or of a long <span style="font-family: 'courier new', courier;">&lt;section&gt;</span></span></td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="font-family: 'courier new', courier;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-footer-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;footer&gt;</strong></a></td>
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Contains the footer of a site, a long <span style="font-family: 'courier new', courier;">&lt;article&gt;, or a long<span style="font-family: 'courier new', courier;"> &lt;section&gt;</td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="font-family: 'courier new', courier;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-footer-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;footer&gt;</span></strong></a></span></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Contains the footer of a site, a long <span style="font-family: 'courier new', courier;">&lt;article&gt;, or a long<span style="font-family: 'courier new', courier;"> &lt;section&gt;</span></span></td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-nav-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;nav&gt;</strong></a></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-nav-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;nav&gt;</span></strong></a></td>
       <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Section that contains the main navigation links (within the document or to other pages).</td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-article-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;article&gt;</strong></a></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-article-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;article&gt;</span></strong></a></td>
       <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
       <p style="text-rendering: optimizelegibility; margin: 0px 0px 1.416em; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: 1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.6em !important; vertical-align: baseline;">Independent content, which can be individually extracted from the document and syndicated (RSS or equivalent) without penalizing its understanding. Typically a blog post.</p>
       </td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-section-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;section&gt;</strong></a></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-section-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;section&gt;</span></strong></a></td>
       <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
       <p style="text-rendering: optimizelegibility; margin: 0px 0px 1.416em; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: 1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.6em !important; vertical-align: baseline;">Generic section used to group different articles for&nbsp;different purposes or subjects, or to define the different sections of a single article. Generally used&nbsp;with a header.</p>
       </td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/text-level-semantics.html#the-time-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time&gt;</strong></a></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/text-level-semantics.html#the-time-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;time&gt;</span></strong></a></td>
       <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Used for marking up times and dates.</td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-aside-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;aside&gt;</strong></a></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-aside-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;aside&gt;</span></strong></a></td>
       <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Section whose content is not necessarily directly related to the main content that surrounds it, but can provide additional information.</td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/grouping-content.html#the-figure-element" target="_blank"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;figure&gt;</strong></a>&nbsp;and&nbsp;<a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/grouping-content.html#the-figcaption-element" target="_blank"><br/><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;figcaption&gt;</strong></a></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/grouping-content.html#the-figure-element" target="_blank"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;figure&gt;</strong></a>&nbsp;and&nbsp;<a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/grouping-content.html#the-figcaption-element" target="_blank"><br/><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;figcaption&gt;</span></strong></a></span></td>
       <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">Used to encapsulate a figure as a single item, and contains a caption for the figure, respectively.</td>
     </tr>
     <tr style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-aside-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;main&gt;</strong></a></td>
-      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">The main element represents the main content of the body of a document or application. The main content area consists of content that is directly related to or expands upon the central topic of a document or central functionality of an application. <strong>There can be only one <span style="font-family: 'courier new', courier;">&lt;main&gt; element in a document.</strong></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><a style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline; transition: color 0.25s ease-in-out 0s; -webkit-transition: color 0.25s ease-in-out 0s; text-decoration: none; color: #1d9dd9; background: transparent;" href="https://www.w3.org/TR/html5/sections.html#the-aside-element" target="_blank"><strong style="text-rendering: optimizelegibility; font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;"><span style="text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-family: 'courier new', courier, monospace; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">&lt;main&gt;</span></strong></a></td>
+      <td style="text-rendering: optimizelegibility; margin: 20px 0px; padding: 10px; border: 1px solid #cbcbcb; outline: 0px; font-family: inherit; font-size: 14px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.4em; vertical-align: baseline;">The main element represents the main content of the body of a document or application. The main content area consists of content that is directly related to or expands upon the central topic of a document or central functionality of an application. <strong style="color: olive;">There can be only one <span style="font-family: 'courier new', courier;">&lt;main&gt; element in a document.</span></strong></td>
     </tr>
   </tbody>
 </table>
 
-And there is no `<content>` element even though the `<div class="content">` was very popular. Instead, the HTML5 group decided that anything not embedded in one of the elements from the above table is "default content". If the content is of a type that corresponds to one of the elements from the table, i.e. if the content is an article, it should be embedded between `<article>` and `</article>`.
+And there is no `<content>` element even though the `<div>` was very popular. Instead, the HTML5 group decided that anything not embedded in one of the elements from the above table is "default content". If the content is of a type that corresponds to one of the elements from the table, i.e. if the content is an article, it should be embedded between `<article>` and `</article>`.
 
 Read also at the end of this section about the new `<main>` element.  This element is [part of the HTML5 recommendation](https://tinyurl.com/y2dt6kbn) and  an integral part of the HTML document structure.
 
@@ -458,32 +464,34 @@ This is an example of one way to organize a blog. Here, we have designed the HTM
 
 HTML code:
 
-```html
-<!DOCTYPE html>
-   <html lang="en">
-      <head>
-         <meta charset="utf-8"/>
-         <title>Simple HTML5 blog</title>
-      </head>
-      <body>
-         <header>
-            <h1>Simple HTML5 blog</h1>
-         </header>
-...
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;html lang="en"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Simple HTML5 blog&lt;/title&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;/head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;body&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h1&gt;Simple &lt;span&gt;HTML5&lt;/span&gt; blog&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">...</li>
+</ol></div>
+
 
 The CSS rules we used:
 
-```css
-header {
-    color: #007e99;
-    font-size: 2.5em;
-    padding: 20px 50px;
-}
-header span {
-    color: #722;
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">header&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;</span><span style="color: #880000;">#007e99;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-size</span><span style="color: #666600;">:&nbsp;</span><span style="color: #006666;">2.5em</span><span style="color: #666600;">;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;</span><span style="color: #006666;">20px&nbsp;</span><span style="color: #006666;">50px</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
+<li style="margin-bottom: 0px;">header span&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;</span><span style="color: #880000;">#722</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
+</ol></div>
+
 
 #### Use a `<nav>` for the navigation menu just below the header
 
@@ -498,52 +506,53 @@ The navigation menu just below the header is a `<nav>` element. For the purpose 
 
 HTML code:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="utf-8"/>
-   <title>Simple HTML5 blog</title>
-</head>
-<body>
-<header>
-   <h1>Simple HTML5 blog</h1>
-</header>
-<nav>
-    <ul>
-       <li>Blog</li>
-       <li><a href="">About</a></li>
-       <li><a href="">Contact</a></li>
-    </ul>
-</nav>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span style="color: pink;">&lt;!DOCTYPE html&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;html lang="en"&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;title&gt;Simple HTML5 blog<span style="color: lightblue;">&lt;/title&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/head&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;h1&gt;Simple&nbsp;<span style="color: lightblue;">&lt;span&gt;HTML5<span style="color: lightblue;">&lt;/span&gt;&nbsp;blog<span style="color: lightblue;">&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;"><strong style="color: olive;"><span style="color: hotpink;">&lt;nav&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">&lt;ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;span&gt;Blog<span style="color: lightblue;">&lt;/span&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;About<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;Contact<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">&lt;/ul&gt;</li>
+<li style="margin-bottom: 0px;"><strong style="color: olive;"><span style="color: hotpink;">&lt;/nav&gt;</strong></li>
+</ol></div>
+
 
 And here is the CSS we used in this example for the `<nav>` element:
 
-```css
-nav {
-    font-size: 1.5em;
-    margin: 5px 0;
-    padding: 20px 50px;
-}
-nav li {
-    display: inline;
-    margin: 0 15px;
-}
-nav li:first-child {
-    margin-left: 0;
-}
-* html nav ul {
-    margin-left: -15px;
-}
-nav span, nav a {
-    padding: 3px 15px 4px;
-}
-nav span {
-    background: #722;
-    color: #fff;
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">nav&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1.5em<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">5px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">20px&nbsp;<span style="color: #006666;">50px</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;">nav li&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; display<span style="color: #666600;">:&nbsp;<span style="color: lightblue;">inline<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">15px</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;">nav li<span style="color: #666600;">:first<span style="color: #666600;">-child&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; margin<span style="color: #666600;">-left<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">*&nbsp;html nav ul&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; margin<span style="color: #666600;">-left<span style="color: #666600;">:&nbsp;<span style="color: #666600;">-<span style="color: #006666;">15px</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;">nav span<span style="color: #666600;">,&nbsp;nav a&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">3px&nbsp;<span style="color: #006666;">15px&nbsp;<span style="color: #006666;">4px</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;">nav span&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; background<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#722;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#fff</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+</ol></div>
 
 
 #### A `<section>` for each month and an `<article>` for each post in the blog
@@ -559,42 +568,48 @@ Now, we have one big `<section>` element that contains a set of `<article>` elem
 
 HTML code:
 
-```html
-<section>
-   <article>
-    ...
-   </article>
-   <article>
-    ...
-   </article>
-   <article>
-    ...
-   </article>
-</section>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span style="color: lightblue;">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/section&gt;</li>
+</ol></div>
+
 
 And here is the CSS:
 
-```css
-section {
-   float: left;
-   padding: 35px 0;
-   position: relative;
-   width: 70%;
-}
-section article {
-   margin: 0 50px 40px;
-   padding: 25px 0 0;
-   position: relative;
-}
-section header {
-   font-size: 1em;
-   padding: 0;
-}
-section h2 {
-   font-size: 2.3em;
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">section&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">float<span style="color: #666600;">:&nbsp;left<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">35px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">70<span style="color: #666600;">%</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;">section article&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">50px&nbsp;<span style="color: #006666;">40px<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">25px&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;">section header&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1em<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;">section h2&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">2.3em<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+</ol></div>
+
 
 Note that the H2, article, article header, etc. will be styled using these rules.
 
@@ -615,23 +630,39 @@ Next, in each article in the section we have a header (to display the article ti
 
 Example for the first blog article:
 
-```html
-<section>
-  <article>
-    <header>
-      <h2><a href="">Information about this example</a></h2>
-    </header>
-    <p>Try to move the mouse on different elements. The structure will be ...</p>
-    <figure>
-      <img src="HTML5-tags.png" alt="Example of HTML5 structural tags" />
-      <figcaption>
-        Fig. 1: an example of how new structural elements could be used. This ...
-      </figcaption>
-    </figure>
-  </article>
-  ...
-</section>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span style="color: lightblue;">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;Information about this example<span style="color: lightblue;">&lt;/a&gt;&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;p&gt;Try to move the mouse on different elements. The structure will be </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;highlighted&nbsp;and you will be able</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;to see the different inclusions of elements one in each other. If you </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;move the&nbsp;cursor to this sentence,&nbsp;it will be highlighted in dark grey, </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;showing the&nbsp;presence of an &amp;lt;<span style="color: lightblue;">article&amp;gt; element,&nbsp;surrounded by a</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&amp;lt;section<span style="color: lightblue;">&amp;gt; element (light grey), etc. So we have some articles in </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;a single section&nbsp;element. The page&nbsp;title at the top is a&nbsp;<span style="color: lightblue;">&amp;lt;header<span style="color: lightblue;">&amp;gt; <br></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;element, while the tag cloud on the right is a&nbsp;<span style="color: lightblue;">&amp;lt;aside<span style="color: lightblue;">&amp;gt; element. The</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;main menu on top (with Blog, About, Contact) is a&nbsp;<span style="color: lightblue;">&amp;lt;nav<span style="color: lightblue;">&amp;gt; element.<span style="color: lightblue;">&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;figure&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;img&nbsp;<span style="color: pink;">src<span style="color: #666600;">=<span style="color: #008800;">"<span style="color: #008800;"><span style="color: #008800;">HTML5-tags.png"</li>
+<li style="margin-bottom: 0px;"><span style="color: pink;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alt<span style="color: #666600;">=<span style="color: #008800;">"Example of HTML5 structural <span style="line-height: 1.6; background-color: #ffffff;">tags"<span style="line-height: 1.6; background-color: #ffffff;">&nbsp;<span style="line-height: 1.6; background-color: #ffffff;">/&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;figcaption&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fig. 1 : an example of how new structural elements could </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;be used. This&nbsp;page put a &amp;lt;<span style="color: lightblue;">nav<span style="color: lightblue;">&amp;gt; on top, and&nbsp;does not have</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;headers and footer for each&nbsp;article, like in this figure,</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;but it could... By the way&nbsp;this is a</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span style="color: lightblue;">&amp;lt;figcaption<span style="color: lightblue;">&amp;gt; inside a&nbsp;<span style="color: lightblue;">&amp;lt;figure<span style="color: lightblue;">&amp;gt; element...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/figcaption&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&nbsp; &nbsp; &lt;/figure&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/section&gt;</li>
+</ol></div>
 
 
 #### Use `<figure>` and `<figcaption>` and embed `<img>` inside
@@ -648,25 +679,26 @@ Here is the CSS for the `<figcaption>` element we have used in the example (we d
 
 HTML code:
 
-```html
-<figure>
-    <img src="HTML5-tags.png"
-         alt="Example of HTML5 structural tags" />
-    <figcaption>
-        Fig. 1 : an example of how .....
-    </figcaption>
-</figure>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> &lt;figure&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;img src="<span style="color: #008800;"><span style="color: #008800;"><span style="color: #008800;">HTML5-tags.png" </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alt="Example of HTML5 structural tags" /&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;figcaption&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; Fig. 1 : an example of how .....</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/figcaption&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/figure&gt;</li>
+</ol></div>
+
 
 CSS code:
 
-```css
-figcaption {
-    font-style:italic;
-    font-size: 0.8em;
-    width: 100%;
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">figcaption&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-style<span style="color: #666600;">:italic<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0.8em<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">100<span style="color: #666600;">%</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+</ol></div>
 
 
 #### Use an `<aside>` element to display a tag cloud on the ... side of the main content
@@ -680,43 +712,46 @@ After the long `<section>` element that contains all the blog articles displayed
 </div>
 
 
-```html
-<section>
-.... all <article>... </article> here....
-</section>
-<aside>
-   <h2>Tag cloud</h2>
-   <ul class="tag-cloud">
-       <li><a href="" rel="tag" class="w2">ajax</a></li>
-       <li><a href="" rel="tag" class="w8">apple</a></li>
-       <li><a href="" rel="tag" class="w3">css</a></li>
-       ...
-   </ul>
-</aside>
-...
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span style="color: lightblue;">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;">.... all&nbsp;<span style="color: lightblue;">&lt;article&gt;...&nbsp;<span style="color: lightblue;">&lt;/article&gt;&nbsp;here....</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;"><strong style="color: olive;"><span style="color: hotpink;">&lt;aside&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;Tag cloud<span style="color: lightblue;">&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;ul&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"tag-cloud"<span style="color: lightblue;">&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w2"<span style="color: lightblue;">&gt;ajax<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w8"<span style="color: lightblue;">&gt;apple<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w3"<span style="color: lightblue;">&gt;css<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/ul&gt;</li>
+<li style="margin-bottom: 0px;"><strong style="color: olive;"><span style="color: hotpink;">&lt;/aside&gt;</strong></li>
+<li style="margin-bottom: 0px;">...</li>
+</ol></div>
+
 
 We are not going to show the complete CSS here as it uses some tricks to display the list as a "real tag cloud" that uses JavaScript for handling events, etc. Those who are curious can look at the code of the online example.
 
 Here is the CSS for the `<aside>` element:
 
-```css
-aside {
-    float: right;
-    padding: 70px 0 30px;
-    position: relative;
-    width: 25%;
-}
-aside h2 {
-    color: #888;
-    font-size: 1.8em;
-}
-aside .tag-cloud {
-    padding: 15px 35px 10px 0;
-    text-align: center;
-}
-...
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">aside&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">float<span style="color: #666600;">:&nbsp;right<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">70px&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">30px<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; position<span style="color: #666600;">:&nbsp;relative<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">25<span style="color: #666600;">%</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">aside h2&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#888;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1.8em</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;">aside&nbsp;<span style="color: #666600;">.tag<span style="color: #666600;">-cloud&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">15px&nbsp;<span style="color: #006666;">35px&nbsp;<span style="color: #006666;">10px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; text<span style="color: #666600;">-align<span style="color: #666600;">:&nbsp;center</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">...</li>
+</ol></div>
+
 
 We used a `float:right` CSS rule to put the tag cloud on the right... In a following section we will provide several examples that explain how to make a nice layout with the new structural elements, using simple CSS rules.
 
@@ -740,33 +775,37 @@ Here is the result:
 
 Finally, we added a `<footer>` element (lines 12-14 below) after the tag cloud definition, to display a page footer:
 
-```html
-<html>
-...
-<body>
-...
-<section>
-...
-</section>
-<aside>
-...
-</aside>
-<footer>
-   <p>&copy; 2009 Some blog</p>
-</footer>
-</body>
-</html>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span style="color: lightblue;">&lt;html&gt;</li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;aside&gt;</li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/aside&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;"><span style="color: hotpink;">&lt;footer&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;p&gt;&amp;copy; 2009 Some blog<span style="color: lightblue;">&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: hotpink;">&lt;/footer&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/body&gt;</li>
+<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/html&gt;</li>
+</ol></div>
+
 
 With this CSS rule:
 
-```css
-footer {
-    clear: both;
-    color: #777;
-    padding: 10px 50px;
-}
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">footer&nbsp;<span style="color: #666600;">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; clear<span style="color: #666600;">:&nbsp;both<span style="color: #666600;">;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#777;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">10px&nbsp;<span style="color: #006666;">50px</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+</ol></div>
+
 
 And here is the result at the bottom of the page:
 
@@ -800,31 +839,36 @@ It may not be clear whether a `<section>` may contain one or several `<article>`
 + `<section>` elements are used to cut a logical part into subparts.
 
 <div style="margin-left: 1.0em;">
-  <p><strong><span style="font-size: 1em; line-height: 1.6em;">An <span style="font-family: 'courier new', courier;">&lt;article&gt; may be cut into different <span style="font-family: 'courier new', courier;">&lt;section&gt; elements!</strong></p>
+  <p><strong style="color: olive;"><span style="font-size: 1em; line-height: 1.6em;">An </span><span style="font-family: 'courier new', courier;">&lt;article&gt; may be cut into different </span><span style="font-family: 'courier new', courier;">&lt;section&gt; elements!</span></strong></p>
 </div>
 
 Example of a blog post defined as a long `<article>`, that is in turn cut into smaller `<section>` elements:
 
-```html
-<article id="id1">
-   <section id="id1part1">
-     <h2>Introduction</h2>
-   </section>
-   <section id="id1part2">
-     <h2>My travel to India</h2>
-   </section>
-   <section id="id1part3">
-     <h2>Return to France</h2>
-   </section>
-</article>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;article id="id1"&gt; </li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;section id="id1part1"&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;Introduction&lt;/h2&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt; </li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;section id="id1part2"&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;My travel to India&lt;/h2&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt; </li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;section id="id1part3"&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;Return to France&lt;/h2&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt; </li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&lt;/article&gt;</li>
+</ol></div>
+
 
 The blog example from the previous part of the course, on the other hand, uses a single `<section>` that contains several `<article>` elements.
 
 Indeed, we can also have a `<section>` that regroups all blog posts per month, each one being an `<article>` element.
 
 <div style="margin-left: 1.0em;">
-  <p><strong><span style="line-height: 25.6px;">A&nbsp;&lt;section&gt; may be cut into different <span style="font-family: 'courier new', courier;">&lt;article&gt; elements, too!</strong></p>
+  <p><strong style="color: olive;"><span style="line-height: 25.6px;">A&nbsp;&lt;section&gt; may be cut into different </span><span style="font-family: 'courier new', courier;">&lt;article&gt; elements, too!</span></strong></p>
 </div>
 
 
@@ -832,26 +876,27 @@ Indeed, we can also have a `<section>` that regroups all blog posts per month, e
 
 Yes you can, in case you would like to propose some navigation links with each blog post, for example:
 
-```html
-<article>
-   <header>
-     <h1>Blog post title</h1>
-       <p>Author: Michel</p>
-   </header>
-   <nav>
-       <ul>
-           <li><a href="...">Next post</a></li>
-           <li><a href="...">Previous post</a></li>
-           <li><a href="...">Contact author</a></li>
-       </ul>
-   </nav>
-   <p>Content...</p>
-   <footer>
-     <p>Posted by Michel, the <time datetime="2012-02-02">February 2,
-     2012</time> </p>
-   </footer>
-</article>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;article&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h1&gt;Blog post title&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Author: Michel&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;nav&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;ul&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: hotpink;">&lt;li&gt;&lt;a href="..."&gt;Next post&lt;/a&gt;&lt;/li&gt;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href="..."&gt;Previous post&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href="..."&gt;Contact author&lt;/a&gt;&lt;/li&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;/ul&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;/nav&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;Content...&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;footer&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Posted by Michel, the &lt;time datetime="2012-02-02"&gt;February 2, <br></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;2012&lt;/time&gt; &lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/footer&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/article&gt;</li>
+</ol></div>
+
 
 In  that case, the `<nav>` element proposes navigation links to the next or previous blog post, as well as a link to contact the author of the blog post.
 
@@ -935,7 +980,7 @@ In the above outline, note that we have only used H1... H6 elements, without any
 Here is a list of browser extensions you can try, for visualizing the outline of a document: [table-of-contents-crx](https://tinyurl.com/y4em5khm) Chrome extension or [this Firefox extension](https://tinyurl.com/y2bw2stx).
 
 
-#### Using headings and new sectioning elements (section, article, aside, nav)
+#### Using headings and new sectioning elements (`section`, `article`, `aside`, `nav`)
 
 __Definition of heading content and sectioning content__
 
@@ -945,24 +990,25 @@ The HTML5 specification says that "each sectioning element potentially has a hea
 
 `<h1>...<h6>` are called __headings__, and define the header of a section (whether explicitly marked up using sectioning content elements, or implied by the heading content itself). This means that:
 
-```html
-<body>
-    <h1>Title of my document</h1>
-    ...
-</body>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1&gt;Title of my document&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+</ol></div>
+
 
 ... defines the header of a section implicitly, while:
 
-```html
-<body>
-   ...
-   <section>
-      <h1>Title of my section</h1>
-      ...
-   </section>
-</body>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;h1&gt;Title of my section&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+</ol></div>
 
 ... defines the heading of the explicit section (its parent element `<section>`).
 
@@ -975,21 +1021,24 @@ Subsequent headings of equal or higher rank start new (implied) sections, headin
 
 Let's clarify this by looking at some example code:
 
-```html
-<body>
-<section>
-  <h1>This H1 is the heading of an explicit section</h1>
-      ...
-    <h2>(lower rank) This H2 is a subheading, part of the same section</h2>
-        ....
-  <h1>(equal or higher rank) This H1 starts an implicit new section in the explicit
-      section </h1>
-      ...
-    <h2>This is a H2 heading in the new section that has just started</h2>
-        ...
-</section>
-</body>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1&gt;This H1 is the heading of an explicit section&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;h2&gt;This H2 is a subheading, part of the same section </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(lower rank)&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ....</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1&gt;This H1 starts an implicit new section in the explicit </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; section (equal or higher rank)&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;h2&gt;This is a H2 heading in the new section that has </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; just started&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+</ol></div>
+
 
 The corresponding outline is:
 
@@ -1029,36 +1078,39 @@ Here are some examples:
 
 __Good (heading in each explicit section)__:
 
-```html
-<section>
-    <h1>Blog post of April 2020</h1>
-    ...
-</section>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong style="color: olive;">&lt;h1&gt;</strong><strong style="color: olive;">Blog post of April 2020&lt;/h1&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+</ol></div>
+
 
 __Good (heading  in a `<header>` does not change anything)__
 
-```html
-<section>
-   <header>
-      <h1>Blog post of April 2020</h1>
-      <p>Posted by Michel Buffa...</p>
-   </header>
-...
-</section>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;header&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; <strong style="color: olive;">&lt;h1&gt;</strong><strong style="color: olive;">Blog post of April 2020&lt;/h1&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; <strong style="color: olive;">&lt;p&gt;</strong><strong style="color: olive;">Posted by Michel Buffa...&lt;/p&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;/header&gt;</strong></li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+</ol></div>
+
 
 __Bad (there is no Hx after the `<section>` -> no heading)__:
 
-```html
-<section>
-   <header>
-      <p class="article title">Blog post of April 2020</p>
-      <p>Posted by Michel Buffa...</p>
-   </header>
-   ...
-</section>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;p class="article title"&gt;Blog post of April 2020&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+</ol></div>
+
 
 The last example is bad for accessibility reasons. A screen reader that vocalizes the page will just say "Entering section", while in the previous two good examples it would say "entering section with heading Blog Posts of April 2020". You can also check if your headings and sectioning elements are ok by using a browser extension that displays the outline of the document (just search for "html5 outliner" in your browser's extension search engine).
 
@@ -1080,18 +1132,19 @@ Notice that <body> is also a sectioning element. It's called a "sectioning root"
 
 Final good version:
 
-```html
-<body>
-    <h1>Example Blog</h1>
-    <section>
-       <header>
-          <h2>Blog post of April 2020</h2>
-          <p>Posted by Michel Buffa...</p>
-       </header>
-      <p>Content of the blog post...</p>
-   </section>
-</body>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> <span style="color: hotpink;">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h1&gt;Example Blog&lt;/h1&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <span style="color: hotpink;">&lt;section&gt;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h2&gt;Blog post of April 2020&lt;/h2&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Content of the blog post...&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/body&gt;</li>
+</ol></div>
+
 
 In red, the sectioning root (`<body>`) and the sectioning elements (`<section>` here...), each have a heading.
 
@@ -1108,14 +1161,15 @@ You can use heading elements `<h1>...<h6>` in a `<header>` but be careful if you
 
 This example has two headings in the `<header>`:
 
-```html
-<section>
-   <header>
-     <h1>Some text in a h1 in a header of a section</h1>
-     <h2>This a h2 in the header...</h2>
-   </header>
-</section>
-```
+<div style="line-height: 23.2727279663086px;"><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h1&gt;Some text in a h1 in a header of a section&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: hotpink;">&lt;h2&gt;This a h2 in the header...&lt;/h2&gt;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+</ol></div>
+
 
 Here is the resulting table of contents, notice the two subsections that appear, one for the H1, one for the H2:
 
@@ -1132,13 +1186,14 @@ Indeed, HTML does not have a dedicated mechanism for marking up subheadings, alt
 
 If you do not want the subtitles to be included in the table of contents, just use standard markup, for example <p> elements, as shown in the next example. Of course, CSS rules can be applied to change colors, sizes, etc.
 
-```html
-<header>
-    <h1>HTML 5.1 Nightly</h1>
-    <p>A vocabulary and associated APIs for HTML and XHTML</p>
-    <p>Editor's Draft 9 May 2013</p>
-</header>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1&gt;HTML 5.1 Nightly&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;p&gt;A vocabulary and associated APIs for HTML and XHTML&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;p&gt;Editor's Draft 9 May 2013&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/header&gt;</li>
+</ol></div>
+
 
 __Best practice #2: try not to rely on implicit sectioning, use `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`__
 
@@ -1146,41 +1201,43 @@ The example below defines several implicit "sections" by using `<Hx>` directly (
 
 Ok version (no explicit sections everywhere):
 
-```html
-<body>
-<h4>Apples</h4>
-<p>Apples are fruit.</p>
-<section>
-     <h2>Taste</h2>
-     <p>They taste lovely.</p>
-     <h6>Sweet</h6>
-     <p>Red apples are sweeter than green ones.</p>
-     <h1>Color</h1>
-     <p>Apples come in various colors.</p>
-</section>
-</body>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;"> <strong style="color: olive;">&lt;h4&gt;Apples&lt;/h4&gt;</strong></li>
+<li style="margin-bottom: 0px;"> &lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;Taste&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h6&gt;Sweet&lt;/h6&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Color&lt;/h1&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+</ol></div>
+
 
 Better version (best practice):
 
-```html
-<body>
-<h1>Apples</h1>
-<p>Apples are fruit.</p>
-<section>
-     <h2>Taste</h2>
-     <p>They taste lovely.</p>
-     <section>
-         <h3>Sweet</h3>
-         <p>Red apples are sweeter than green ones.</p>
-     </section>
-</section>
-<section>
-     <h2>Color</h2>
-     <p>Apples come in various colors.</p>
-</section>
-</body>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;h1&gt;Apples&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> <strong style="color: olive;">&lt;section&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Taste&lt;/h2&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;section&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h3&gt;Sweet&lt;/h3&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
+<li style="margin-bottom: 0px;"> <strong style="color: olive;">&lt;section&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Color&lt;/h2&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+</ol></div>
+
 
 Both of the examples above are semantically identical and produce the same outline:
 
@@ -1196,15 +1253,39 @@ Both of the examples above are semantically identical and produce the same outli
 
 #### Knowledge check 1.3.6
 
-```html
-<section>
-<header>
-  <p class = "article title" > Blog post of April 2020 </p>
-  <p> Posted by Michel Buffa... </p>
-</header>
-...
-</section>
-```
+<div>
+      <ol>
+        <li value="1" style="margin-bottom:0px;">
+          &lt;section&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+          &lt;header&gt;
+        </li>
+        <li style="margin-bottom:0px;">   
+          &lt;p
+          class
+          =
+          "article title"
+          &gt;
+          Blog post of April 2020
+          &lt;/p&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+          &lt;p&gt;
+          Posted by Michel Buffa...
+          &lt;/p&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+          &lt;/header&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+             ...
+        </li>
+        <li style="margin-bottom:0px;">
+          &lt;/section&gt;
+        </li>
+      </ol>
+  </div>
 
 1. Does this example follow the best practices presented in this section of the course? (Yes/No)
 
@@ -1223,31 +1304,31 @@ This example is a simple document, with a hyperlink that, once clicked, displays
 [Local example](src/1.3.7-toc.html)
 
 Extract of source code:
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;">&lt;h1&gt;This is an example of embedded table of content&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;h1&gt;First section of the document (this is a h1)&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;This is a subheading...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;First subsection of the first section (a h2)&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Blah Blah...&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h1&gt;Second section of the document (a h1)&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;First subsection (a h2)&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;aside&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h3&gt;Table of contents&lt;/h3&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;a href="javascript:(function(){...})();" </strong></li>
+<li style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp; &nbsp; &nbsp; title="TableDeMatiere"&gt;</strong></li>
+<li style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp; &nbsp; &nbsp; Click here to display the table of contents!</strong></li>
+<li style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp; &nbsp;&lt;/a&gt;</strong></li>
+<li style="margin-bottom: 0px;"> &lt;/aside&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+</ol></div>
 
-```html
-<body>
-<h1>This is an example of embedded table of content</h1>
-<section>
-     <header>
-         <h1>First section of the document (this is a h1)</h1>
-         This is a subheading...
-     </header>
-     <h2>First subsection of the first section (a h2)</h2>
-     <p>Blah Blah...</p>
- </section>
-<section>
-     <h1>Second section of the document (a h1)</h1>
-     <h2>First subsection (a h2)</h2>
-</section>
-<aside>
-     <h3>Table of contents</h3>
-     <a href="javascript:(function(){...})();"
-        title="TableDeMatiere">
-        Click here to display the table of contents!
-     </a>
-</aside>
-</body>
-```
 
 __Best practice__: visualizing the table of contents is useful for debugging the structure of your page, and checking the presence of headings after sectioning content.
 
@@ -1257,7 +1338,7 @@ They are also useful for checking the presence of headings in each sectioning co
 
 #### Knowledge check 1.3.7
 
-```
+<div class="wrapper-problem-response" tabindex="-1" aria-label="Question 1" role="group"><pre>
 1. Simple HTML5 blog
 2. Blog posts for April 2020
   1. Information about this example
@@ -1265,7 +1346,8 @@ They are also useful for checking the presence of headings in each sectioning co
   3. HTML vs XHTML
   4. Untitled SECTION
 3. Tag cloud
-```
+</pre></div>
+
 
 1. Is this outline ideal? (No/Yes)
 
@@ -1277,7 +1359,7 @@ They are also useful for checking the presence of headings in each sectioning co
 
 If you use `<nav>` / `<header>` / `<footer>` etc. to structure your document, you can also use `<main>` to identify the main content of the document. Doing so provides a navigable document structure for assistive technology users as well as styling hooks for devs.
 
-We have seen the different sectioning elements of HTML5, so why didn't we talk about the `<main>` element earlier in this part of the course? Shouldn't  `<main>...</main>` be used in place of  `<div class="main">...</div>`?
+We have seen the different sectioning elements of HTML5, so why didn't we talk about the `<main>` element earlier in this part of the course? Shouldn't  `<main>...</main>` be used in place of  `<div>...</div>`?
 
 The `<main>` element is supported by major modern browsers (see the corresponding [support table](https://tinyurl.com/yyvj2uf6) on CanIUse and [MDN's brower compatibility page](https://tinyurl.com/q5dwuwe)).
 
@@ -1288,87 +1370,92 @@ There must not be more than one `<main>` element in a document,
 + It must not be a descendant of an `<article>`,`<aside>`, `<footer>`, `<header>`, or `<nav>` element.
 + And finally, here are some examples (from [the HTML5 specification](https://tinyurl.com/y2dt6kbn))  that mix the `<main>` element with the other sectioning elements already seen in the course:
 
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;!-- other content --&gt;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&lt;main&gt;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;h1&gt;Skateboards&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;The skateboard helps kids to get around.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;article&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;h2&gt;Longboards&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Longboards are a type of skateboard with a longer </li>
+<li style="margin-bottom: 0px;">wheelbase and larger, softer wheels.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/article&gt;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;article&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;h2&gt;Electric Skateboards&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;p&gt;These no longer require the propelling of the skateboard by means of the feet; rather an electric motor propels the board, fed by an electric battery.&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/article&gt;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&lt;/main&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;!-- other content --&gt;</li>
+</ol></div>
 
-```html
-<!-- other content -->
-<main>
-   <h1>Skateboards</h1>
-   <p>The skateboard helps kids to get around.</p>
-   <article>
-      <h2>Longboards</h2>
-      <p>Longboards are a type of skateboard with a longer
-wheelbase and larger, softer wheels.</p>
-      <p>... </p>
-      <p>... </p>
-   </article>
-   <article>
-      <h2>Electric Skateboards</h2>
-      <p>These no longer require the propelling of the skateboard by means of the feet; 
-      rather an electric motor propels the board, fed by an electric battery.</p>
-      <p>... </p>
-      <p>... </p>
-   </article>
-</main>
- 
-<!-- other content -->
-```
 
 Here is another example (also from the specification). Here the `<main>` element contains a `<nav>` element consisting of links to subsections of the main content:
 
-```html
-<!DOCTYPE html>
-   <html lang="en">
-      <head>
-         <meta charset="utf-8"/>
-         <title>Graduation Ceremony Summer 2022</title>
-      </head>
-      <body>
-       <header>The Lawson Academy:
-         <nav>
-            <h2>Click these links to navigate...</h2>
-            <ul>
-               <li><a href="courses.html">Courses</a></li>
-               <li><a href="fees.html">Fees</a></li>
-               <li><a>Graduation</a></li>
-            </ul>
-         </nav>
-      </header>
-      <main>
-         <h1>Graduation</h1>
-         <nav>
-            <h2>Please choose:</h2>
-            <ul>
-               <li><a href="#ceremony">Ceremony</a></li>
-               <li><a href="#graduates">Graduates</a></li>
-               <li><a href="#awards">Awards</a></li>
-            </ul>
-         </nav>
-         <h2 id="ceremony">Ceremony</h2>
-         <p>Opening Procession</p>
-         <p>Speech by Valedictorian</p>
-         <p>Speech by Class President</p>
-         <p>Presentation of Diplomas</p>
-         <p>Closing Speech by Headmaster</p>
-         <h2 id="graduates">Graduates</h2>
-         <ul>
-            <li>Eileen Williams</li>
-            <li>Andy Maseyk</li>
-            <li>Blanca Sainz Garcia</li>
-            <li>Clara Faulkner</li>
-            <li>Gez Lemon</li>
-            <li>Eloisa Faulkner</li>
-         </ul>
-         <h2 id="awards">Awards</h2>
-            <ul>
-               <li>Clara Faulkner</li>
-               <li>Eloisa Faulkner</li>
-               <li>Blanca Sainz Garcia</li>
-            </ul>
-         </main>
-      <footer>Copyright 2012 B.lawson</footer>
-   </body>
-</html>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> &lt;!DOCTYPE html&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;html lang="en"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Graduation Ceremony Summer 2022&lt;/title&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;/head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;body&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;header&gt;The Lawson Academy:</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;nav&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2&gt;Click these links to navigate...&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="courses.html"&gt;Courses&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="fees.html"&gt;Fees&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a&gt;Graduation&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/nav&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;main&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h1&gt;Graduation&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;nav&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2&gt;Please choose:&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#ceremony"&gt;Ceremony&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#graduates"&gt;Graduates&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#awards"&gt;Awards&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/nav&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="ceremony"&gt;Ceremony&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Opening Procession&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Speech by Valedictorian&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Speech by Class President&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Presentation of Diplomas&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Closing Speech by Headmaster&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="graduates"&gt;Graduates&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eileen Williams&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Andy Maseyk&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Clara Faulkner&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Gez Lemon&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eloisa Faulkner&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="awards"&gt;Awards&lt;/h2&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Clara Faulkner&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eloisa Faulkner&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/main&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;footer&gt;Copyright 2012 B.lawson&lt;/footer&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/body&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/html&gt;</li>
+</ol></div>
+
 
 
 #### Best practice
@@ -1386,17 +1473,53 @@ We recommend this article written by Steve Faulkner: "[Easy content organisation
 
 #### Knowledge check 1.3.8
 
-```html
-<!-- other content -->
-<article>
-<main role = "main" >
-<h2> Longboards </h2>
-<p> Longboards are a type of skateboard with a longer
-    wheelbase and larger, softer wheels. </p>
-</main>
-</article>
-<!-- other content -->
-```
+<div>
+      <ol>
+        <li style="margin-bottom:0px;" value="1">
+          &lt;!-- other content --&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+             
+          &lt;article&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+                 
+          &lt;main
+           
+          role
+          =
+          "main"
+          &gt;
+        </li>
+        <li style="margin-bottom:0px;">
+                    
+          &lt;h2&gt;
+          Longboards
+          &lt;/h2&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+                    
+          &lt;p&gt;
+          Longboards are a type of skateboard with a longer
+        </li>
+        <li style="margin-bottom:0px;">
+                    wheelbase and larger, softer wheels.
+          &lt;/p&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+                 
+          &lt;/main&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+             
+          &lt;/article&gt;
+        </li>
+        <li style="margin-bottom:0px;">
+           
+          &lt;!-- other content --&gt;
+        </li>
+      </ol>
+  </div>
 
 1. Is this code correct? (No/Yes)
 
@@ -1428,21 +1551,21 @@ Let's go back to our blog example and see what can be improved:
 
 Also note that in this example, we used H1s after each sectioning element, and we still get a hierarchy, some H1s are inside an `<article>` that is in a `<section>` (this corresponds to the third example given in the "heading and sectioning elements" part of the course):
 
-```html
-<section>
-   <header>
-     <h1>Blog posts for April 2012</h1>
-   </header>
-   <article>
-     <header>
-       <h1><a href="">Information about this example</a></h1>
-       This example is a modified version of 
-       <a href="https://example.com/blog/index.html">https://example.com/blog/index.html</a>
-     </header>
-     ...
-   </article>
-</section>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><strong style="color: olive;">&lt;section&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Blog posts for April 2012&lt;/h1&gt;</strong> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;article&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;&lt;a href=""&gt;Information about this example&lt;/a&gt;&lt;/h1&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;This example is a modified version of &lt;a href="https://example.com/blog/index.html"&gt;https://example.com/blog/index.html&lt;/a&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/article&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+</ol></div>
+
 
 With this technique, parts of the document can be moved more easily, or integrated inside an RSS stream, without the need to renumber the headings.
 
@@ -1453,18 +1576,19 @@ Beware that this technique will require you to use some CSS styling, and may con
 
 We need to add a heading in the `<nav>` element. This will both fix the outline of the document by removing the untitled entry, and will also make screen readers happy as they will better vocalize the structure of the page (it will say "entering nav" followed by the vocalization of the heading content).
 
-```html
-<nav>
-   <header>
-     <h1>Navigation menu</h1>
-   </header>
-   <ul>
-     <li>Blog</li>
-     <li><a href="">About</a></li>
-     <li><a href="">Contact</a></li>
-   </ul>
-</nav>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;nav&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;header&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Navigation menu&lt;/h1&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;/header&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;ul&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;span&gt;Blog&lt;/span&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href=""&gt;About&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href=""&gt;Contact&lt;/a&gt;&lt;/li&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/ul&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/nav&gt;</li>
+</ol></div>
+
 
 Here is the fixed result:
 
@@ -1479,7 +1603,7 @@ Here is the fixed result:
 
 A common remark from Web designers is: "we do not want a heading content displayed systematically after a `<nav>`, or an `<aside>` element..."
 
-<p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong>BEST PRACTICE #1: </strong>In order&nbsp;to&nbsp;<span style="line-height: 1.6;">NOT&nbsp;display the heading content on screen &nbsp;the recommended technique &nbsp;is described in&nbsp;<a href="https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/" target="_blank">this article by Steve Faulkner</a>.&nbsp;Do not use <span style="font-family: 'courier new', courier;">display:none or <span style="font-family: 'courier new', courier;">visibility:hidden in your CSS stylesheet, as in that case the heading content will never be vocalized by screen readers, and more generally by assistive technologies.&nbsp;<strong style="font-size: 1em; line-height: 1.6em;"><br><br></strong>As an illustration of the recommended technique, see&nbsp;<a href="https://jsbin.com/savabo/edit?html,output" target="_blank">this JSBin version of the blog example</a>&nbsp;that hides the <span style="font-family: 'courier new', courier;">&lt;h2&gt;Navigation menu&lt;/h2&gt; from the <span style="font-family: 'courier new', courier;">&lt;nav&gt;...&lt;/nav&gt; element, using the&nbsp;CSS technique&nbsp;explained in the above link.<strong style="font-size: 1em; line-height: 1.6em;"><br></strong><br/>
+<p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong style="color: olive;">BEST PRACTICE #1: </strong>In order&nbsp;to&nbsp;<span style="line-height: 1.6;">NOT&nbsp;display the heading content on screen &nbsp;the recommended technique &nbsp;is described in&nbsp;<a href="https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/" target="_blank">this article by Steve Faulkner</a>.&nbsp;Do not use <span style="font-family: 'courier new', courier;">display:none </span>or <span style="font-family: 'courier new', courier;">visibility:hidden</span> in your CSS stylesheet, as in that case the heading content will never be vocalized by screen readers, and more generally by assistive technologies.&nbsp;<strong style="font-size: 1em; line-height: 1.6em;"><br><br></strong>As an illustration of the recommended technique, see&nbsp;<a href="https://jsbin.com/savabo/edit?html,output" target="_blank">this JSBin version of the blog example</a>&nbsp;that hides the <span style="font-family: 'courier new', courier;">&lt;h2&gt;Navigation menu&lt;/h2&gt;</span> from the <span style="font-family: 'courier new', courier;">&lt;nav&gt;...&lt;/nav&gt;</span> element, using the&nbsp;CSS technique&nbsp;explained in the above link.<strong style="font-size: 1em; line-height: 1.6em;"><br></strong><br/>
 <code>
 nav header {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; position: absolute !important;<br/>
@@ -1493,7 +1617,7 @@ nav header {<br/>
 }       
 </code></p>
 
-<p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong>BEST PRACTICE #2:&nbsp;</strong>it is not advised to include interactive content (links, controls etc) that is hidden offscreen (it is in fact a violation of the <a href="https://www.w3.org/TR/WCAG20/" target="_blank">W3C WCAG 2.0 Guidelines</a>). All interactive content must have a visible focus indicator (and be on screen when focused).<strong><br></strong></p>
+<p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong style="color: olive;">BEST PRACTICE #2:&nbsp;</strong>it is not advised to include interactive content (links, controls etc) that is hidden offscreen (it is in fact a violation of the <a href="https://www.w3.org/TR/WCAG20/" target="_blank">W3C WCAG 2.0 Guidelines</a>). All interactive content must have a visible focus indicator (and be on screen when focused).<strong style="color: olive;"><br></strong></p>
 
 
 #### Embedding a table of contents and adding a `<main>` element
@@ -1502,28 +1626,29 @@ In the previous section, we saw how to embed a table of contents using some Java
 
 Let's add this piece of code (we removed the JS details from this extract):
 
-```html
-<aside>
-   <h1>
-     <a href="javascript:(function(){...});"
-        title="TableOfContents">
-        Click here to display the table of contents!
-     </a>
-   </h1>
-</aside>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;aside&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;h1&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;a href="javascript:(function(){...});" </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;title="TableOfContents"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; Click here to display the table of contents!</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/a&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/aside&gt; </li>
+</ol></div>
+
 
 We also added a `<main>` element to identify the main content of the page composed of the big section with all blog posts:
 
-```html
-<main>
-  <section>
-     <header>
-         <h2>Blog posts for April 2012</h2>
-     </header>
-     ...
-</main>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;main&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &lt;section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;header&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;h2&gt;Blog posts for April 2012&lt;/h2&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;">&lt;/main&gt;</li>
+</ol></div>
 
 
 #### Use H1 as top level headings only, use H2...H6 in sectioning content
@@ -1536,14 +1661,15 @@ So, while this is just a warning, we do prefer to use H1s only as top level elem
 
 Extract from source code:
 
-```html
-<nav>
-   <header>
-     <h2>Navigation menu</h2>
-   </header>
-   ...
-</nav>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;nav&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Navigation menu&lt;/h2&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;">&lt;/nav&gt;</li>
+</ol></div>
+
 
 Finally, the fixed example
 
@@ -1603,23 +1729,24 @@ __Example #1: a `<section>` on the left and an `<aside>` on the right, using the
 
 This example uses the following HTML structure (notice that we use the "HTML entity syntax" for displaying "<" or ">". For example, `&lt;` displays a "<" character).
 
-```html
-<header>
-<code>&lt;header&gt;</code>
-</header>
- 
-<section>
-<code>&lt;section&gt; <br> float: left;</code>
-</section>
- 
-<aside>
-<code>&lt;aside&gt; <br> float: right;</code>
-</aside>
- 
-<footer>
-<code>&lt;footer&gt;</code>
-</footer>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;header&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;section&amp;gt;&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;aside&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;aside&amp;gt;&nbsp;&lt;br&gt; float: right;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/aside&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;footer&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/footer&gt;</li>
+</ol></div>
+
 
 Here we use the CSS rule `float:left` for the `<section>` and the CSS rule `float:right` for the `<aside>`. When an element floats, it goes out of the normal flow of the HTML element. Then by default it floats to the edge of its parent; and its size depends on the elements it contains. So, in order to fill the whole horizontal space, we prefer here to "force the width" by setting the CSS width property with a percentage.  So we took width: 63% for the `<section>` on the left and width:30% for the `<aside>` on the right.
 
@@ -1640,27 +1767,28 @@ Here we show how to make a 3 column layout using the CSS float property.
 
 HTML code:
 
-```html
-<header>
-<code>&lt;header&gt;</code>
-</header>
- 
-<section>
-<code>&lt;section&gt; <br> float: left;</code>
-</section>
- 
-<section>
-<code>&lt;section&gt; <br> float: left;</code>
-</section>
- 
-<section>
-<code>&lt;section&gt; <br> float: left;</code>
-</section>
- 
-<footer>
-<code>&lt;footer&gt;</code>
-</footer>
-```
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;header&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/header&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;section&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;footer&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>footer<span style="line-height: 23.2727279663086px;">&amp;gt;</span>&lt;/code&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/footer&gt;</li>
+</ol></div>
+
 
 Instead of having one element with a float:left and one element with a float:right property, we instead use float:left for all three of them, and we give a  width:30% CSS property value to each `<section>`. We also set a small margin so that the colums have a gap between them.
 
