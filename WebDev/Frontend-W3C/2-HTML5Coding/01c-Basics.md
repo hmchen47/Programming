@@ -8,20 +8,20 @@
 
 + [Minimum HTML5 Document](#a-minimal-html5-document)
 
-  <div><ol>
-  <li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-  <li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
-  <li style="margin-bottom: 0px;">&lt;head&gt;</li>
-  <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;meta charset="utf-8"&gt;</li>
-  <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;title&gt;Page Title&lt;/title&gt;</li>
-  <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;link rel="stylesheet" href="style.css"&gt;</li>
-  <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;</li>
-  <li style="margin-bottom: 0px;">&lt;/head&gt;</li>
-  <li style="margin-bottom: 0px;">&lt;body&gt;</li>
-  <li style="margin-bottom: 0px;">... &lt;!-- The rest is content --&gt;</li>
-  <li style="margin-bottom: 0px;">&lt;/body&gt;</li>
-  <li style="margin-bottom: 0px;">&lt;/html&gt;</li>
-  </ol></div>
+    <div><ol>
+    <li value="1">&lt;!DOCTYPE html&gt;</li>
+    <li>&lt;html lang="en"&gt;</li>
+    <li>&lt;head&gt;</li>
+    <li>&nbsp; &nbsp;&lt;meta charset="utf-8"&gt;</li>
+    <li>&nbsp; &nbsp;&lt;title&gt;Page Title&lt;/title&gt;</li>
+    <li>&nbsp; &nbsp;&lt;link rel="stylesheet" href="style.css"&gt;</li>
+    <li>&nbsp; &nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;</li>
+    <li>&lt;/head&gt;</li>
+    <li>&lt;body&gt;</li>
+    <li>... &lt;!-- The rest is content --&gt;</li>
+    <li>&lt;/body&gt;</li>
+    <li>&lt;/html&gt;</li>
+    </ol></div>
 
   + `<meta charset="utf-8">`: best practice to declare the character set
   + `<!DOCTYPE html>`: used by tools and specifying the rules used by an HTML or an XHTML page
@@ -30,7 +30,7 @@
     + using only "rules" contained in their own "HTML engine"
     + used by web browser w/ different rendering engines
     + HTML4 more complicated and requiring selection from transitional, strict, or frameset; e.g., `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">`
-  + "type: attributes 
+  + type: attributes
     + optional, required in HTML4
     + `rel="stylesheet"` default value: `type="text/css"`
     + including JavaScript file" `<script src="script.js"></script>` w/o `type="text/javascript"` as old way
@@ -68,15 +68,17 @@
     + consist of content that is directly related to or expands upon the central topic of a document or central functionality of an application
     + __only one__ in a document
 
-+ [`<article>` and `<section>`](#134-more-on-article-and-section)
-  + `<article>`: designed for stand-alone parts of a document that could eventually be syndicated in RSS streams
-  + `<section>`: used to cut a logical part into subparts
-  + `<article>` able to be cut into different `<section>` elements
-  + `<section>` may be cut into different `<article>` elements
++ [`<article>` and `<section>` elements](#134-more-on-article-and-section)
+  + `<article>`
+    + designed for stand-alone parts of a document eventually syndicated in RSS streams
+    + able to be cut into different `<section>` elements
+  + `<section>`
+    + used to cut a logical part into subparts
+    + probably cut into different `<article>` elements
 
 + [Sectioning elements](#135-headings-and-structural-elements)
   + headings: `<h1>...<h6>`
-    + used to display headings with different sizes by default, when no CSS is used
+    + used to display headings with different sizes by default, when no CSS used
     + define the header of a section
   + section elements: `<section>`, `<article>`, `<nav>` and `<aside>`
     + sections: a document cut into slides by sectioning elements
@@ -94,19 +96,19 @@
     + example
 
       <div><ol>
-      <li style="margin-bottom: 0px;" value="1"><span style="color: hotpink;">&lt;body&gt;</li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h1&gt;Example Blog&lt;/h1&gt;</strong></li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; <span style="color: hotpink;">&lt;section&gt;</li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h2&gt;Blog post of April 2020>&lt;/h2&gt;</strong></li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Content of the blog post...&lt;/p&gt;</li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt;</li>
-      <li style="margin-bottom: 0px;"> &lt;/body&gt;</li>
+      <li value="1"><span style="color: hotpink;">&lt;body&gt;</li>
+      <li>&nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h1&gt;Example Blog&lt;/h1&gt;</strong></li>
+      <li>&nbsp; &nbsp; <span style="color: hotpink;">&lt;section&gt;</li>
+      <li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
+      <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h2&gt;Blog post of April 2020&lt;/h2&gt;</strong></li>
+      <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
+      <li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+      <li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Content of the blog post...&lt;/p&gt;</li>
+      <li>&nbsp; &nbsp;&lt;/section&gt;</li>
+      <li> &lt;/body&gt;</li>
       </ol></div>
 
-  + using `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`, not to relying on implicit sectioning
+  + using `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`, not to rely  on implicit sectioning
     + `<header> `element
       + a container
       + not defining new sections of a document nor affecting the hierarchy levels
@@ -114,27 +116,27 @@
     + example
 
       <div><ol>
-      <li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-      <li style="margin-bottom: 0px;">&lt;h1&gt;Apples&lt;/h1&gt;</li>
-      <li style="margin-bottom: 0px;">&lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
-      <li style="margin-bottom: 0px;"><strong style="color: olive;">&lt;section&gt;</strong></li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Taste&lt;/h2&gt;</strong></li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;section&gt;</strong></li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h3&gt;Sweet&lt;/h3&gt;</strong></li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/section&gt;</li>
-      <li style="margin-bottom: 0px;">&lt;/section&gt;</li>
-      <li style="margin-bottom: 0px;"><strong style="color: olive;">&lt;section&gt;</strong></li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Color&lt;/h2&gt;</strong></li>
-      <li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
-      <li style="margin-bottom: 0px;">&lt;/section&gt;</li>
-      <li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+      <li value="1">&lt;body&gt;</li>
+      <li>&lt;h1&gt;Apples&lt;/h1&gt;</li>
+      <li>&lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
+      <li><strong style="color: olive;">&lt;section&gt;</strong></li>
+      <li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Taste&lt;/h2&gt;</strong></li>
+      <li>&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
+      <li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;section&gt;</strong></li>
+      <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h3&gt;Sweet&lt;/h3&gt;</strong></li>
+      <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
+      <li>&nbsp; &nbsp; &nbsp;&lt;/section&gt;</li>
+      <li>&lt;/section&gt;</li>
+      <li><strong style="color: olive;">&lt;section&gt;</strong></li>
+      <li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Color&lt;/h2&gt;</strong></li>
+      <li>&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
+      <li>&lt;/section&gt;</li>
+      <li>&lt;/body&gt;</li>
       </ol></div>
 
 
 + [Table of contents](#137-embedding-a-table-of-contents)
-  + useful for debugging the structure of your page
+  + useful for debugging the structure of a page
   + checking the presence of headings after sectioning content
   + displaying some "untitled entries" $\to$ missing some headings
 
@@ -146,8 +148,7 @@
   + constraints
     + no more than one `<main>` element in a document
     + not a descendant of an `<article>`, `<aside>`, `<footer>`, `<header>`, or `<nav>` element
-  + best practice:
-    + split page content into "regions" defined by the five 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
+  + best practice: split page content into "regions" defined by the 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
 
 + [Best practices](#139-the-blog-example-applying-best-practices)
   + some H1s inside an `<article>` in a `<section>`
@@ -161,7 +162,7 @@
     + fix the outline of the document by removing the untitled entry
     + make screen readers happy as they will better vocalize the structure of the page
   + NOT display the heading content on screen
-    + not using `display:none` or `visibility:hidden` in your CSS stylesheet
+    + not using `display:none` or `visibility:hidden` in CSS stylesheet
     + recommended technique
 
       <code>
@@ -206,36 +207,36 @@ Changes have been made to particular elements in HTML5 making it simpler to use.
 #### A minimal HTML5 document
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;meta charset="utf-8"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;title&gt;Page Title&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;link rel="stylesheet" href="style.css"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">... &lt;!-- The rest is content --&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp;&lt;title&gt;Page Title&lt;/title&gt;</li>
+<li>&nbsp; &nbsp;&lt;link rel="stylesheet" href="style.css"&gt;</li>
+<li>&nbsp; &nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>... &lt;!-- The rest is content --&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
 Let's compare it to the HTML4 minimal document below (taken from this source). Differences are underlined in red:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span style="text-decoration: underline; color: hotpink;">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd"&gt;</span> </li>
-<li style="margin-bottom: 0px;">&lt;html lang="en"&gt; </li>
-<li style="margin-bottom: 0px;"> &lt;head&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;meta <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">http-equiv="content-type" content=</span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">"text/html"</span></span>&nbsp;charset="utf-8"&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;title&gt;title&lt;/title&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;link rel="stylesheet" <strong style="color: olive;"><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">type="text/css"</span></span></strong> href="style.css"&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;script <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">type="text/javascript"</span></span> src="script.js"&gt;&lt;/script&gt; </li>
-<li style="margin-bottom: 0px;"> &lt;/head&gt; </li>
-<li style="margin-bottom: 0px;">&lt;body&gt; </li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt; </li>
-<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+<li value="1"><span style="text-decoration: underline; color: hotpink;">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd"&gt;</span> </li>
+<li>&lt;html lang="en"&gt; </li>
+<li> &lt;head&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;meta <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">http-equiv="content-type" content=</span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">"text/html"</span></span>&nbsp;charset="utf-8"&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;title&gt;title&lt;/title&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;link rel="stylesheet" <strong style="color: olive;"><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">type="text/css"</span></span></strong> href="style.css"&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;script <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">type="text/javascript"</span></span> src="script.js"&gt;&lt;/script&gt; </li>
+<li> &lt;/head&gt; </li>
+<li>&lt;body&gt; </li>
+<li>...</li>
+<li>&lt;/body&gt; </li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -257,7 +258,7 @@ With HTML4, doctype definitions looked like this: `<!DOCTYPE HTML PUBLIC "-//W3C
 With HTML5, there is only one way to indicate the doctype, and it's so simple there is no reason to forget it:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!doctype html&gt;</li>
+<li value="1">&lt;!doctype html&gt;</li>
 </ol></div>
 
 
@@ -269,13 +270,13 @@ With a `rel="stylesheet"` attribute, it is no longer necessary to indicate `type
 The "type" attribute is not needed in HTML5, and even old browsers will use text/css as the default type for stylesheets today. So, either way, you can omit the "type" attribute altogether and use:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;link href="file.css" rel="stylesheet"/&gt;</li>
+<li value="1">&lt;link href="file.css" rel="stylesheet"/&gt;</li>
 </ol></div>
 
 instead of:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;link href="file.css" rel="stylesheet" type="text/css"/&gt;</li>
+<li value="1">&lt;link href="file.css" rel="stylesheet" type="text/css"/&gt;</li>
 </ol></div>
 
 We will not go into detail about the <link> element, but the fact that the type attribute is becoming optional shows the current direction taken by HTML5: towards greater simplicity.
@@ -283,13 +284,13 @@ We will not go into detail about the <link> element, but the fact that the type 
 Please see how to include a JavaScript file in our page:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;script src="script.js"&gt;&lt;/script&gt; </li>
+<li value="1">&lt;script src="script.js"&gt;&lt;/script&gt; </li>
 </ol></div>
 
 Here again, the type attribute has been omitted. Just as a reminder, the old way to do the same thing is: 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;</li>
+<li value="1">&lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;</li>
 </ol></div>
 
 
@@ -465,31 +466,31 @@ This is an example of one way to organize a blog. Here, we have designed the HTM
 HTML code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Simple HTML5 blog&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h1&gt;Simple &lt;span&gt;HTML5&lt;/span&gt; blog&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">...</li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&nbsp;&nbsp; &lt;html lang="en"&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Simple HTML5 blog&lt;/title&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;body&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;header&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h1&gt;Simple &lt;span&gt;HTML5&lt;/span&gt; blog&lt;/h1&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/header&gt;</li>
+<li>...</li>
 </ol></div>
 
 
 The CSS rules we used:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">header&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;</span><span style="color: #880000;">#007e99;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-size</span><span style="color: #666600;">:&nbsp;</span><span style="color: #006666;">2.5em</span><span style="color: #666600;">;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;</span><span style="color: #006666;">20px&nbsp;</span><span style="color: #006666;">50px</span></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
-<li style="margin-bottom: 0px;">header span&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;</span><span style="color: #880000;">#722</span></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
+<li value="1">header&nbsp;<span style="color: #666600;">{</span></li>
+<li>&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;</span><span style="color: #880000;">#007e99;</span></li>
+<li>&nbsp; &nbsp; font<span style="color: #666600;">-size</span><span style="color: #666600;">:&nbsp;</span><span style="color: #006666;">2.5em</span><span style="color: #666600;">;</span></li>
+<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;</span><span style="color: #006666;">20px&nbsp;</span><span style="color: #006666;">50px</span></li>
+<li><span style="color: #666600;">}</span></li>
+<li>header span&nbsp;<span style="color: #666600;">{</span></li>
+<li>&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;</span><span style="color: #880000;">#722</span></li>
+<li><span style="color: #666600;">}</span></li>
 </ol></div>
 
 
@@ -507,51 +508,51 @@ The navigation menu just below the header is a `<nav>` element. For the purpose 
 HTML code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span style="color: pink;">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;title&gt;Simple HTML5 blog<span style="color: lightblue;">&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/head&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;h1&gt;Simple&nbsp;<span style="color: lightblue;">&lt;span&gt;HTML5<span style="color: lightblue;">&lt;/span&gt;&nbsp;blog<span style="color: lightblue;">&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;"><strong style="color: olive;"><span style="color: hotpink;">&lt;nav&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">&lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;span&gt;Blog<span style="color: lightblue;">&lt;/span&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;About<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;Contact<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">&lt;/ul&gt;</li>
-<li style="margin-bottom: 0px;"><strong style="color: olive;"><span style="color: hotpink;">&lt;/nav&gt;</strong></li>
+<li value="1"><span style="color: pink;">&lt;!DOCTYPE html&gt;</li>
+<li><span style="color: lightblue;">&lt;html lang="en"&gt;</li>
+<li><span style="color: lightblue;">&lt;head&gt;</li>
+<li>&nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;title&gt;Simple HTML5 blog<span style="color: lightblue;">&lt;/title&gt;</li>
+<li><span style="color: lightblue;">&lt;/head&gt;</li>
+<li><span style="color: lightblue;">&lt;body&gt;</li>
+<li><span style="color: lightblue;">&lt;header&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;h1&gt;Simple&nbsp;<span style="color: lightblue;">&lt;span&gt;HTML5<span style="color: lightblue;">&lt;/span&gt;&nbsp;blog<span style="color: lightblue;">&lt;/h1&gt;</li>
+<li><span style="color: lightblue;">&lt;/header&gt;</li>
+<li><strong style="color: olive;"><span style="color: hotpink;">&lt;nav&gt;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">&lt;ul&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;span&gt;Blog<span style="color: lightblue;">&lt;/span&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;About<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;Contact<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">&lt;/ul&gt;</li>
+<li><strong style="color: olive;"><span style="color: hotpink;">&lt;/nav&gt;</strong></li>
 </ol></div>
 
 
 And here is the CSS we used in this example for the `<nav>` element:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">nav&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1.5em<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">5px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">20px&nbsp;<span style="color: #006666;">50px</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;">nav li&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; display<span style="color: #666600;">:&nbsp;<span style="color: lightblue;">inline<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">15px</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;">nav li<span style="color: #666600;">:first<span style="color: #666600;">-child&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; margin<span style="color: #666600;">-left<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">*&nbsp;html nav ul&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; margin<span style="color: #666600;">-left<span style="color: #666600;">:&nbsp;<span style="color: #666600;">-<span style="color: #006666;">15px</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;">nav span<span style="color: #666600;">,&nbsp;nav a&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">3px&nbsp;<span style="color: #006666;">15px&nbsp;<span style="color: #006666;">4px</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;">nav span&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; background<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#722;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#fff</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li value="1">nav&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1.5em<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">5px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">20px&nbsp;<span style="color: #006666;">50px</li>
+<li><span style="color: #666600;">}</li>
+<li>nav li&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; display<span style="color: #666600;">:&nbsp;<span style="color: lightblue;">inline<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">15px</li>
+<li><span style="color: #666600;">}</li>
+<li>nav li<span style="color: #666600;">:first<span style="color: #666600;">-child&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; margin<span style="color: #666600;">-left<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0</li>
+<li><span style="color: #666600;">}</li>
+<li><span style="color: #666600;">*&nbsp;html nav ul&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; margin<span style="color: #666600;">-left<span style="color: #666600;">:&nbsp;<span style="color: #666600;">-<span style="color: #006666;">15px</li>
+<li><span style="color: #666600;">}</li>
+<li>nav span<span style="color: #666600;">,&nbsp;nav a&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">3px&nbsp;<span style="color: #006666;">15px&nbsp;<span style="color: #006666;">4px</li>
+<li><span style="color: #666600;">}</li>
+<li>nav span&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; background<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#722;</li>
+<li>&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#fff</li>
+<li><span style="color: #666600;">}</li>
 </ol></div>
 
 
@@ -569,45 +570,45 @@ Now, we have one big `<section>` element that contains a set of `<article>` elem
 HTML code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span style="color: lightblue;">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/section&gt;</li>
+<li value="1"><span style="color: lightblue;">&lt;section&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li></li>
+<li><span style="color: lightblue;">&lt;/section&gt;</li>
 </ol></div>
 
 
 And here is the CSS:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">section&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">float<span style="color: #666600;">:&nbsp;left<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">35px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">70<span style="color: #666600;">%</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;">section article&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">50px&nbsp;<span style="color: #006666;">40px<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">25px&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;">section header&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1em<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;">section h2&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">2.3em<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li value="1">section&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">float<span style="color: #666600;">:&nbsp;left<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">35px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp;width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">70<span style="color: #666600;">%</li>
+<li><span style="color: #666600;">}</li>
+<li>section article&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp;margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">50px&nbsp;<span style="color: #006666;">40px<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">25px&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative</li>
+<li><span style="color: #666600;">}</li>
+<li>section header&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp;font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1em<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li><span style="color: #666600;">}</li>
+<li>section h2&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp;font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">2.3em<span style="color: #666600;">;</li>
+<li><span style="color: #666600;">}</li>
 </ol></div>
 
 
@@ -631,37 +632,37 @@ Next, in each article in the section we have a header (to display the article ti
 Example for the first blog article:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span style="color: lightblue;">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;Information about this example<span style="color: lightblue;">&lt;/a&gt;&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;p&gt;Try to move the mouse on different elements. The structure will be </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;highlighted&nbsp;and you will be able</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;to see the different inclusions of elements one in each other. If you </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;move the&nbsp;cursor to this sentence,&nbsp;it will be highlighted in dark grey, </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;showing the&nbsp;presence of an &amp;lt;<span style="color: lightblue;">article&amp;gt; element,&nbsp;surrounded by a</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&amp;lt;section<span style="color: lightblue;">&amp;gt; element (light grey), etc. So we have some articles in </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;a single section&nbsp;element. The page&nbsp;title at the top is a&nbsp;<span style="color: lightblue;">&amp;lt;header<span style="color: lightblue;">&amp;gt; <br></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;element, while the tag cloud on the right is a&nbsp;<span style="color: lightblue;">&amp;lt;aside<span style="color: lightblue;">&amp;gt; element. The</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;main menu on top (with Blog, About, Contact) is a&nbsp;<span style="color: lightblue;">&amp;lt;nav<span style="color: lightblue;">&amp;gt; element.<span style="color: lightblue;">&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;figure&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;img&nbsp;<span style="color: pink;">src<span style="color: #666600;">=<span style="color: #008800;">"<span style="color: #008800;"><span style="color: #008800;">HTML5-tags.png"</li>
-<li style="margin-bottom: 0px;"><span style="color: pink;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alt<span style="color: #666600;">=<span style="color: #008800;">"Example of HTML5 structural <span style="line-height: 1.6; background-color: #ffffff;">tags"<span style="line-height: 1.6; background-color: #ffffff;">&nbsp;<span style="line-height: 1.6; background-color: #ffffff;">/&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;figcaption&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fig. 1 : an example of how new structural elements could </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;be used. This&nbsp;page put a &amp;lt;<span style="color: lightblue;">nav<span style="color: lightblue;">&amp;gt; on top, and&nbsp;does not have</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;headers and footer for each&nbsp;article, like in this figure,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;but it could... By the way&nbsp;this is a</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span style="color: lightblue;">&amp;lt;figcaption<span style="color: lightblue;">&amp;gt; inside a&nbsp;<span style="color: lightblue;">&amp;lt;figure<span style="color: lightblue;">&amp;gt; element...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/figcaption&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&nbsp; &nbsp; &lt;/figure&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/section&gt;</li>
+<li value="1"><span style="color: lightblue;">&lt;section&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;Information about this example<span style="color: lightblue;">&lt;/a&gt;&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/header&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;p&gt;Try to move the mouse on different elements. The structure will be </li>
+<li>&nbsp; &nbsp; &nbsp;highlighted&nbsp;and you will be able</li>
+<li>&nbsp; &nbsp; &nbsp;to see the different inclusions of elements one in each other. If you </li>
+<li>&nbsp; &nbsp; &nbsp;move the&nbsp;cursor to this sentence,&nbsp;it will be highlighted in dark grey, </li>
+<li>&nbsp; &nbsp; &nbsp;showing the&nbsp;presence of an &amp;lt;<span style="color: lightblue;">article&amp;gt; element,&nbsp;surrounded by a</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&amp;lt;section<span style="color: lightblue;">&amp;gt; element (light grey), etc. So we have some articles in </li>
+<li>&nbsp; &nbsp; &nbsp;a single section&nbsp;element. The page&nbsp;title at the top is a&nbsp;<span style="color: lightblue;">&amp;lt;header<span style="color: lightblue;">&amp;gt; <br></li>
+<li>&nbsp; &nbsp; &nbsp;element, while the tag cloud on the right is a&nbsp;<span style="color: lightblue;">&amp;lt;aside<span style="color: lightblue;">&amp;gt; element. The</li>
+<li>&nbsp; &nbsp; &nbsp;main menu on top (with Blog, About, Contact) is a&nbsp;<span style="color: lightblue;">&amp;lt;nav<span style="color: lightblue;">&amp;gt; element.<span style="color: lightblue;">&lt;/p&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;figure&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;img&nbsp;<span style="color: pink;">src<span style="color: #666600;">=<span style="color: #008800;">"<span style="color: #008800;"><span style="color: #008800;">HTML5-tags.png"</li>
+<li><span style="color: pink;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alt<span style="color: #666600;">=<span style="color: #008800;">"Example of HTML5 structural <span style="line-height: 1.6; background-color: #ffffff;">tags"<span style="line-height: 1.6; background-color: #ffffff;">&nbsp;<span style="line-height: 1.6; background-color: #ffffff;">/&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;figcaption&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fig. 1 : an example of how new structural elements could </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;be used. This&nbsp;page put a &amp;lt;<span style="color: lightblue;">nav<span style="color: lightblue;">&amp;gt; on top, and&nbsp;does not have</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;headers and footer for each&nbsp;article, like in this figure,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;but it could... By the way&nbsp;this is a</li>
+<li><span style="color: lightblue;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span style="color: lightblue;">&amp;lt;figcaption<span style="color: lightblue;">&amp;gt; inside a&nbsp;<span style="color: lightblue;">&amp;lt;figure<span style="color: lightblue;">&amp;gt; element...</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/figcaption&gt;</li>
+<li><span style="color: lightblue;">&nbsp; &nbsp; &lt;/figure&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li>&nbsp; &nbsp;...</li>
+<li><span style="color: lightblue;">&lt;/section&gt;</li>
 </ol></div>
 
 
@@ -680,24 +681,24 @@ Here is the CSS for the `<figcaption>` element we have used in the example (we d
 HTML code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;figure&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;img src="<span style="color: #008800;"><span style="color: #008800;"><span style="color: #008800;">HTML5-tags.png" </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alt="Example of HTML5 structural tags" /&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;figcaption&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; Fig. 1 : an example of how .....</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/figcaption&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/figure&gt;</li>
+<li value="1"> &lt;figure&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;img src="<span style="color: #008800;"><span style="color: #008800;"><span style="color: #008800;">HTML5-tags.png" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alt="Example of HTML5 structural tags" /&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;figcaption&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; Fig. 1 : an example of how .....</li>
+<li>&nbsp; &nbsp; &lt;/figcaption&gt;</li>
+<li>&lt;/figure&gt;</li>
 </ol></div>
 
 
 CSS code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">figcaption&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-style<span style="color: #666600;">:italic<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0.8em<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">100<span style="color: #666600;">%</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li value="1">figcaption&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; font<span style="color: #666600;">-style<span style="color: #666600;">:italic<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0.8em<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">100<span style="color: #666600;">%</li>
+<li><span style="color: #666600;">}</li>
 </ol></div>
 
 
@@ -713,19 +714,19 @@ After the long `<section>` element that contains all the blog articles displayed
 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span style="color: lightblue;">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;">.... all&nbsp;<span style="color: lightblue;">&lt;article&gt;...&nbsp;<span style="color: lightblue;">&lt;/article&gt;&nbsp;here....</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;"><strong style="color: olive;"><span style="color: hotpink;">&lt;aside&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;Tag cloud<span style="color: lightblue;">&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;ul&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"tag-cloud"<span style="color: lightblue;">&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w2"<span style="color: lightblue;">&gt;ajax<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w8"<span style="color: lightblue;">&gt;apple<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w3"<span style="color: lightblue;">&gt;css<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;/ul&gt;</li>
-<li style="margin-bottom: 0px;"><strong style="color: olive;"><span style="color: hotpink;">&lt;/aside&gt;</strong></li>
-<li style="margin-bottom: 0px;">...</li>
+<li value="1"><span style="color: lightblue;">&lt;section&gt;</li>
+<li>.... all&nbsp;<span style="color: lightblue;">&lt;article&gt;...&nbsp;<span style="color: lightblue;">&lt;/article&gt;&nbsp;here....</li>
+<li><span style="color: lightblue;">&lt;/section&gt;</li>
+<li><strong style="color: olive;"><span style="color: hotpink;">&lt;aside&gt;</strong></li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;Tag cloud<span style="color: lightblue;">&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;ul&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"tag-cloud"<span style="color: lightblue;">&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w2"<span style="color: lightblue;">&gt;ajax<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w8"<span style="color: lightblue;">&gt;apple<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w3"<span style="color: lightblue;">&gt;css<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/ul&gt;</li>
+<li><strong style="color: olive;"><span style="color: hotpink;">&lt;/aside&gt;</strong></li>
+<li>...</li>
 </ol></div>
 
 
@@ -734,22 +735,22 @@ We are not going to show the complete CSS here as it uses some tricks to display
 Here is the CSS for the `<aside>` element:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">aside&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">float<span style="color: #666600;">:&nbsp;right<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">70px&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">30px<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; position<span style="color: #666600;">:&nbsp;relative<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">25<span style="color: #666600;">%</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">aside h2&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#888;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1.8em</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;">aside&nbsp;<span style="color: #666600;">.tag<span style="color: #666600;">-cloud&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">15px&nbsp;<span style="color: #006666;">35px&nbsp;<span style="color: #006666;">10px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; text<span style="color: #666600;">-align<span style="color: #666600;">:&nbsp;center</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">...</li>
+<li value="1">aside&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">float<span style="color: #666600;">:&nbsp;right<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">70px&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">30px<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; position<span style="color: #666600;">:&nbsp;relative<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">25<span style="color: #666600;">%</li>
+<li><span style="color: #666600;">}</li>
+<li></li>
+<li>aside h2&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#888;</li>
+<li>&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1.8em</li>
+<li><span style="color: #666600;">}</li>
+<li>aside&nbsp;<span style="color: #666600;">.tag<span style="color: #666600;">-cloud&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">15px&nbsp;<span style="color: #006666;">35px&nbsp;<span style="color: #006666;">10px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; text<span style="color: #666600;">-align<span style="color: #666600;">:&nbsp;center</li>
+<li><span style="color: #666600;">}</li>
+<li><span style="color: #666600;">...</li>
 </ol></div>
 
 
@@ -776,34 +777,34 @@ Here is the result:
 Finally, we added a `<footer>` element (lines 12-14 below) after the tag cloud definition, to display a page footer:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span style="color: lightblue;">&lt;html&gt;</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;aside&gt;</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/aside&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;"><span style="color: hotpink;">&lt;footer&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: lightblue;">&lt;p&gt;&amp;copy; 2009 Some blog<span style="color: lightblue;">&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: hotpink;">&lt;/footer&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/body&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: lightblue;">&lt;/html&gt;</li>
+<li value="1"><span style="color: lightblue;">&lt;html&gt;</li>
+<li>...</li>
+<li><span style="color: lightblue;">&lt;body&gt;</li>
+<li>...</li>
+<li><span style="color: lightblue;">&lt;section&gt;</li>
+<li>...</li>
+<li><span style="color: lightblue;">&lt;/section&gt;</li>
+<li><span style="color: lightblue;">&lt;aside&gt;</li>
+<li>...</li>
+<li><span style="color: lightblue;">&lt;/aside&gt;</li>
+<li></li>
+<li><span style="color: hotpink;">&lt;footer&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;p&gt;&amp;copy; 2009 Some blog<span style="color: lightblue;">&lt;/p&gt;</li>
+<li><span style="color: hotpink;">&lt;/footer&gt;</li>
+<li></li>
+<li><span style="color: lightblue;">&lt;/body&gt;</li>
+<li><span style="color: lightblue;">&lt;/html&gt;</li>
 </ol></div>
 
 
 With this CSS rule:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">footer&nbsp;<span style="color: #666600;">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; clear<span style="color: #666600;">:&nbsp;both<span style="color: #666600;">;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#777;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">10px&nbsp;<span style="color: #006666;">50px</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</li>
+<li value="1">footer&nbsp;<span style="color: #666600;">{</li>
+<li>&nbsp; &nbsp; clear<span style="color: #666600;">:&nbsp;both<span style="color: #666600;">;</li>
+<li>&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#777;</li>
+<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">10px&nbsp;<span style="color: #006666;">50px</li>
+<li><span style="color: #666600;">}</li>
 </ol></div>
 
 
@@ -845,21 +846,21 @@ It may not be clear whether a `<section>` may contain one or several `<article>`
 Example of a blog post defined as a long `<article>`, that is in turn cut into smaller `<section>` elements:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;article id="id1"&gt; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;section id="id1part1"&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;Introduction&lt;/h2&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;section id="id1part2"&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;My travel to India&lt;/h2&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;section id="id1part3"&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;Return to France&lt;/h2&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&lt;/article&gt;</li>
+<li value="1">&lt;article id="id1"&gt; </li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;section id="id1part1"&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h2&gt;Introduction&lt;/h2&gt; </li>
+<li>&nbsp; &nbsp;&lt;/section&gt; </li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;section id="id1part2"&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h2&gt;My travel to India&lt;/h2&gt; </li>
+<li>&nbsp; &nbsp;&lt;/section&gt; </li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;section id="id1part3"&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h2&gt;Return to France&lt;/h2&gt; </li>
+<li>&nbsp; &nbsp;&lt;/section&gt; </li>
+<li> </li>
+<li>&lt;/article&gt;</li>
 </ol></div>
 
 
@@ -877,24 +878,24 @@ Indeed, we can also have a `<section>` that regroups all blog posts per month, e
 Yes you can, in case you would like to propose some navigation links with each blog post, for example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;article&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h1&gt;Blog post title&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Author: Michel&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;nav&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;ul&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: hotpink;">&lt;li&gt;&lt;a href="..."&gt;Next post&lt;/a&gt;&lt;/li&gt;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href="..."&gt;Previous post&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href="..."&gt;Contact author&lt;/a&gt;&lt;/li&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;/ul&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;/nav&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;Content...&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;footer&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Posted by Michel, the &lt;time datetime="2012-02-02"&gt;February 2, <br></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;2012&lt;/time&gt; &lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/footer&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/article&gt;</li>
+<li value="1">&lt;article&gt;</li>
+<li>&nbsp; &nbsp;&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h1&gt;Blog post title&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Author: Michel&lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;nav&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;ul&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: hotpink;">&lt;li&gt;&lt;a href="..."&gt;Next post&lt;/a&gt;&lt;/li&gt;</span></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href="..."&gt;Previous post&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href="..."&gt;Contact author&lt;/a&gt;&lt;/li&gt; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;/ul&gt;</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: olive;"><span style="color: hotpink;">&lt;/nav&gt;</strong></li>
+<li>&nbsp; &nbsp;&lt;p&gt;Content...&lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;footer&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;p&gt;Posted by Michel, the &lt;time datetime="2012-02-02"&gt;February 2, <br></li>
+<li>&nbsp; &nbsp; &nbsp;2012&lt;/time&gt; &lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;/footer&gt;</li>
+<li>&lt;/article&gt;</li>
 </ol></div>
 
 
@@ -991,23 +992,23 @@ The HTML5 specification says that "each sectioning element potentially has a hea
 `<h1>...<h6>` are called __headings__, and define the header of a section (whether explicitly marked up using sectioning content elements, or implied by the heading content itself). This means that:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1&gt;Title of my document&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;body&gt;</li>
+<li>&nbsp; &nbsp; &lt;h1&gt;Title of my document&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
 ... defines the header of a section implicitly, while:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;h1&gt;Title of my section&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;body&gt;</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;&lt;section&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;h1&gt;Title of my section&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp;&lt;/section&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 ... defines the heading of the explicit section (its parent element `<section>`).
@@ -1022,21 +1023,21 @@ Subsequent headings of equal or higher rank start new (implied) sections, headin
 Let's clarify this by looking at some example code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1&gt;This H1 is the heading of an explicit section&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;h2&gt;This H2 is a subheading, part of the same section </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(lower rank)&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ....</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1&gt;This H1 starts an implicit new section in the explicit </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; section (equal or higher rank)&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;h2&gt;This is a H2 heading in the new section that has </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; just started&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;body&gt;</li>
+<li> &lt;section&gt;</li>
+<li>&nbsp; &nbsp; &lt;h1&gt;This H1 is the heading of an explicit section&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;h2&gt;This H2 is a subheading, part of the same section </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(lower rank)&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ....</li>
+<li>&nbsp; &nbsp; &lt;h1&gt;This H1 starts an implicit new section in the explicit </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; section (equal or higher rank)&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;h2&gt;This is a H2 heading in the new section that has </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; just started&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ...</li>
+<li> &lt;/section&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
@@ -1079,36 +1080,36 @@ Here are some examples:
 __Good (heading in each explicit section)__:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong style="color: olive;">&lt;h1&gt;</strong><strong style="color: olive;">Blog post of April 2020&lt;/h1&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li value="1">&lt;section&gt;</li>
+<li>&nbsp; &nbsp; <strong style="color: olive;">&lt;h1&gt;</strong><strong style="color: olive;">Blog post of April 2020&lt;/h1&gt;</strong></li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&lt;/section&gt;</li>
 </ol></div>
 
 
 __Good (heading  in a `<header>` does not change anything)__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;header&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; <strong style="color: olive;">&lt;h1&gt;</strong><strong style="color: olive;">Blog post of April 2020&lt;/h1&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; <strong style="color: olive;">&lt;p&gt;</strong><strong style="color: olive;">Posted by Michel Buffa...&lt;/p&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;/header&gt;</strong></li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li value="1">&lt;section&gt;</li>
+<li>&nbsp; &nbsp;<strong style="color: olive;">&lt;header&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong style="color: olive;">&lt;h1&gt;</strong><strong style="color: olive;">Blog post of April 2020&lt;/h1&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong style="color: olive;">&lt;p&gt;</strong><strong style="color: olive;">Posted by Michel Buffa...&lt;/p&gt;</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: olive;">&lt;/header&gt;</strong></li>
+<li>...</li>
+<li>&lt;/section&gt;</li>
 </ol></div>
 
 
 __Bad (there is no Hx after the `<section>` -> no heading)__:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;p class="article title"&gt;Blog post of April 2020&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li value="1">&lt;section&gt;</li>
+<li>&nbsp; &nbsp;&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;p class="article title"&gt;Blog post of April 2020&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&lt;/section&gt;</li>
 </ol></div>
 
 
@@ -1133,16 +1134,16 @@ Notice that <body> is also a sectioning element. It's called a "sectioning root"
 Final good version:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> <span style="color: hotpink;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h1&gt;Example Blog&lt;/h1&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <span style="color: hotpink;">&lt;section&gt;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h2&gt;Blog post of April 2020&lt;/h2&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Content of the blog post...&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/body&gt;</li>
+<li value="1"> <span style="color: hotpink;">&lt;body&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h1&gt;Example Blog&lt;/h1&gt;</strong></li>
+<li>&nbsp; &nbsp; <span style="color: hotpink;">&lt;section&gt;</span></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="color: olive;">&lt;h2&gt;Blog post of April 2020&lt;/h2&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Content of the blog post...&lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;/section&gt;</li>
+<li> &lt;/body&gt;</li>
 </ol></div>
 
 
@@ -1162,12 +1163,12 @@ You can use heading elements `<h1>...<h6>` in a `<header>` but be careful if you
 This example has two headings in the `<header>`:
 
 <div style="line-height: 23.2727279663086px;"><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h1&gt;Some text in a h1 in a header of a section&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: hotpink;">&lt;h2&gt;This a h2 in the header...&lt;/h2&gt;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li value="1">&lt;section&gt;</li>
+<li>&nbsp; &nbsp;&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h1&gt;Some text in a h1 in a header of a section&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: hotpink;">&lt;h2&gt;This a h2 in the header...&lt;/h2&gt;</span></li>
+<li>&nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&lt;/section&gt;</li>
 </ol></div>
 
 
@@ -1187,11 +1188,11 @@ Indeed, HTML does not have a dedicated mechanism for marking up subheadings, alt
 If you do not want the subtitles to be included in the table of contents, just use standard markup, for example <p> elements, as shown in the next example. Of course, CSS rules can be applied to change colors, sizes, etc.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1&gt;HTML 5.1 Nightly&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;p&gt;A vocabulary and associated APIs for HTML and XHTML&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;p&gt;Editor's Draft 9 May 2013&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/header&gt;</li>
+<li value="1">&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &lt;h1&gt;HTML 5.1 Nightly&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &lt;p&gt;A vocabulary and associated APIs for HTML and XHTML&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &lt;p&gt;Editor's Draft 9 May 2013&lt;/p&gt;</li>
+<li>&lt;/header&gt;</li>
 </ol></div>
 
 
@@ -1202,40 +1203,40 @@ The example below defines several implicit "sections" by using `<Hx>` directly (
 Ok version (no explicit sections everywhere):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> <strong style="color: olive;">&lt;h4&gt;Apples&lt;/h4&gt;</strong></li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;Taste&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h6&gt;Sweet&lt;/h6&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Color&lt;/h1&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;body&gt;</li>
+<li> <strong style="color: olive;">&lt;h4&gt;Apples&lt;/h4&gt;</strong></li>
+<li> &lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
+<li> &lt;section&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h2&gt;Taste&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h6&gt;Sweet&lt;/h6&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Color&lt;/h1&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
+<li> &lt;/section&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
 Better version (best practice):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;h1&gt;Apples&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> <strong style="color: olive;">&lt;section&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Taste&lt;/h2&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;section&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h3&gt;Sweet&lt;/h3&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
-<li style="margin-bottom: 0px;"> <strong style="color: olive;">&lt;section&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Color&lt;/h2&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;body&gt;</li>
+<li> &lt;h1&gt;Apples&lt;/h1&gt;</li>
+<li> &lt;p&gt;Apples are fruit.&lt;/p&gt;</li>
+<li> <strong style="color: olive;">&lt;section&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Taste&lt;/h2&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&lt;p&gt;They taste lovely.&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;section&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h3&gt;Sweet&lt;/h3&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;p&gt;Red apples are sweeter than green ones.&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;/section&gt;</li>
+<li> &lt;/section&gt;</li>
+<li> <strong style="color: olive;">&lt;section&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Color&lt;/h2&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&lt;p&gt;Apples come in various colors.&lt;/p&gt;</li>
+<li> &lt;/section&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
@@ -1305,28 +1306,28 @@ This example is a simple document, with a hyperlink that, once clicked, displays
 
 Extract of source code:
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&lt;h1&gt;This is an example of embedded table of content&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;h1&gt;First section of the document (this is a h1)&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;This is a subheading...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;First subsection of the first section (a h2)&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;p&gt;Blah Blah...&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h1&gt;Second section of the document (a h1)&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h2&gt;First subsection (a h2)&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/section&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;aside&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;h3&gt;Table of contents&lt;/h3&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;a href="javascript:(function(){...})();" </strong></li>
-<li style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp; &nbsp; &nbsp; title="TableDeMatiere"&gt;</strong></li>
-<li style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp; &nbsp; &nbsp; Click here to display the table of contents!</strong></li>
-<li style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp; &nbsp;&lt;/a&gt;</strong></li>
-<li style="margin-bottom: 0px;"> &lt;/aside&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;body&gt;</li>
+<li>&lt;h1&gt;This is an example of embedded table of content&lt;/h1&gt;</li>
+<li> &lt;section&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;h1&gt;First section of the document (this is a h1)&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;This is a subheading...</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h2&gt;First subsection of the first section (a h2)&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;p&gt;Blah Blah...&lt;/p&gt;</li>
+<li>&nbsp;&lt;/section&gt;</li>
+<li> &lt;section&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h1&gt;Second section of the document (a h1)&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h2&gt;First subsection (a h2)&lt;/h2&gt;</li>
+<li> &lt;/section&gt;</li>
+<li> &lt;aside&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;h3&gt;Table of contents&lt;/h3&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;a href="javascript:(function(){...})();" </strong></li>
+<li><strong style="color: olive;">&nbsp; &nbsp; &nbsp; &nbsp; title="TableDeMatiere"&gt;</strong></li>
+<li><strong style="color: olive;">&nbsp; &nbsp; &nbsp; &nbsp; Click here to display the table of contents!</strong></li>
+<li><strong style="color: olive;">&nbsp; &nbsp; &nbsp;&lt;/a&gt;</strong></li>
+<li> &lt;/aside&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
@@ -1371,89 +1372,89 @@ There must not be more than one `<main>` element in a document,
 + And finally, here are some examples (from [the HTML5 specification](https://tinyurl.com/y2dt6kbn))  that mix the `<main>` element with the other sectioning elements already seen in the course:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!-- other content --&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&lt;main&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;h1&gt;Skateboards&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;The skateboard helps kids to get around.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;article&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;h2&gt;Longboards&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Longboards are a type of skateboard with a longer </li>
-<li style="margin-bottom: 0px;">wheelbase and larger, softer wheels.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/article&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;article&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;h2&gt;Electric Skateboards&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;p&gt;These no longer require the propelling of the skateboard by means of the feet; rather an electric motor propels the board, fed by an electric battery.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/article&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&lt;/main&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;!-- other content --&gt;</li>
+<li value="1">&lt;!-- other content --&gt;</li>
+<li> </li>
+<li>&lt;main&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;h1&gt;Skateboards&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp;&lt;p&gt;The skateboard helps kids to get around.&lt;/p&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;article&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;h2&gt;Longboards&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Longboards are a type of skateboard with a longer </li>
+<li>wheelbase and larger, softer wheels.&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;/article&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;article&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;h2&gt;Electric Skateboards&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;p&gt;These no longer require the propelling of the skateboard by means of the feet; rather an electric motor propels the board, fed by an electric battery.&lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;... &lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;/article&gt;</li>
+<li> </li>
+<li>&lt;/main&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;!-- other content --&gt;</li>
 </ol></div>
 
 
 Here is another example (also from the specification). Here the `<main>` element contains a `<nav>` element consisting of links to subsections of the main content:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Graduation Ceremony Summer 2022&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;header&gt;The Lawson Academy:</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;nav&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2&gt;Click these links to navigate...&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="courses.html"&gt;Courses&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="fees.html"&gt;Fees&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a&gt;Graduation&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/nav&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;main&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h1&gt;Graduation&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;nav&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2&gt;Please choose:&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#ceremony"&gt;Ceremony&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#graduates"&gt;Graduates&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#awards"&gt;Awards&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/nav&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="ceremony"&gt;Ceremony&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Opening Procession&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Speech by Valedictorian&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Speech by Class President&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Presentation of Diplomas&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Closing Speech by Headmaster&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="graduates"&gt;Graduates&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eileen Williams&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Andy Maseyk&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Clara Faulkner&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Gez Lemon&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eloisa Faulkner&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="awards"&gt;Awards&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Clara Faulkner&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eloisa Faulkner&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/main&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;footer&gt;Copyright 2012 B.lawson&lt;/footer&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/html&gt;</li>
+<li value="1"> &lt;!DOCTYPE html&gt;</li>
+<li>&nbsp;&nbsp; &lt;html lang="en"&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Graduation Ceremony Summer 2022&lt;/title&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;body&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;header&gt;The Lawson Academy:</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;nav&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2&gt;Click these links to navigate...&lt;/h2&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="courses.html"&gt;Courses&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="fees.html"&gt;Fees&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a&gt;Graduation&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/nav&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/header&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;main&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h1&gt;Graduation&lt;/h1&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;nav&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2&gt;Please choose:&lt;/h2&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#ceremony"&gt;Ceremony&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#graduates"&gt;Graduates&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;&lt;a href="#awards"&gt;Awards&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/nav&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="ceremony"&gt;Ceremony&lt;/h2&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Opening Procession&lt;/p&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Speech by Valedictorian&lt;/p&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Speech by Class President&lt;/p&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Presentation of Diplomas&lt;/p&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Closing Speech by Headmaster&lt;/p&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="graduates"&gt;Graduates&lt;/h2&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eileen Williams&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Andy Maseyk&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Clara Faulkner&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Gez Lemon&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eloisa Faulkner&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;h2 id="awards"&gt;Awards&lt;/h2&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;ul&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Clara Faulkner&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Eloisa Faulkner&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li&gt;Blanca Sainz Garcia&lt;/li&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/ul&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/main&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;footer&gt;Copyright 2012 B.lawson&lt;/footer&gt;</li>
+<li>&nbsp;&nbsp; &lt;/body&gt;</li>
+<li> &lt;/html&gt;</li>
 </ol></div>
 
 
@@ -1552,18 +1553,18 @@ Let's go back to our blog example and see what can be improved:
 Also note that in this example, we used H1s after each sectioning element, and we still get a hierarchy, some H1s are inside an `<article>` that is in a `<section>` (this corresponds to the third example given in the "heading and sectioning elements" part of the course):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong style="color: olive;">&lt;section&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Blog posts for April 2012&lt;/h1&gt;</strong> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;article&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;&lt;a href=""&gt;Information about this example&lt;/a&gt;&lt;/h1&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;This example is a modified version of &lt;a href="https://example.com/blog/index.html"&gt;https://example.com/blog/index.html&lt;/a&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/article&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<li value="1"><strong style="color: olive;">&lt;section&gt;</strong></li>
+<li>&nbsp; &nbsp;&lt;header&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Blog posts for April 2012&lt;/h1&gt;</strong> </li>
+<li>&nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&nbsp; &nbsp;<strong style="color: olive;">&lt;article&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;&lt;a href=""&gt;Information about this example&lt;/a&gt;&lt;/h1&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;This example is a modified version of &lt;a href="https://example.com/blog/index.html"&gt;https://example.com/blog/index.html&lt;/a&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;&lt;/article&gt;</li>
+<li>&lt;/section&gt;</li>
 </ol></div>
 
 
@@ -1577,16 +1578,16 @@ Beware that this technique will require you to use some CSS styling, and may con
 We need to add a heading in the `<nav>` element. This will both fix the outline of the document by removing the untitled entry, and will also make screen readers happy as they will better vocalize the structure of the page (it will say "entering nav" followed by the vocalization of the heading content).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;nav&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;header&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Navigation menu&lt;/h1&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: olive;">&lt;/header&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;span&gt;Blog&lt;/span&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href=""&gt;About&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href=""&gt;Contact&lt;/a&gt;&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/ul&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/nav&gt;</li>
+<li value="1">&lt;nav&gt;</li>
+<li>&nbsp; &nbsp;<strong style="color: olive;">&lt;header&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h1&gt;Navigation menu&lt;/h1&gt;</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: olive;">&lt;/header&gt;</strong></li>
+<li>&nbsp; &nbsp;&lt;ul&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;span&gt;Blog&lt;/span&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href=""&gt;About&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;li&gt;&lt;a href=""&gt;Contact&lt;/a&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp;&lt;/ul&gt;</li>
+<li>&lt;/nav&gt;</li>
 </ol></div>
 
 
@@ -1627,27 +1628,27 @@ In the previous section, we saw how to embed a table of contents using some Java
 Let's add this piece of code (we removed the JS details from this extract):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;aside&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;a href="javascript:(function(){...});" </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;title="TableOfContents"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; Click here to display the table of contents!</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/a&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/aside&gt; </li>
+<li value="1">&lt;aside&gt;</li>
+<li>&nbsp; &nbsp;&lt;h1&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;a href="javascript:(function(){...});" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;title="TableOfContents"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; Click here to display the table of contents!</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;/a&gt;</li>
+<li>&nbsp; &nbsp;&lt;/h1&gt;</li>
+<li> &lt;/aside&gt; </li>
 </ol></div>
 
 
 We also added a `<main>` element to identify the main content of the page composed of the big section with all blog posts:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;main&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;header&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;h2&gt;Blog posts for April 2012&lt;/h2&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;...</li>
-<li style="margin-bottom: 0px;">&lt;/main&gt;</li>
+<li value="1">&lt;main&gt;</li>
+<li>&nbsp; &lt;section&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;header&gt; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;h2&gt;Blog posts for April 2012&lt;/h2&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;...</li>
+<li>&lt;/main&gt;</li>
 </ol></div>
 
 
@@ -1662,12 +1663,12 @@ So, while this is just a warning, we do prefer to use H1s only as top level elem
 Extract from source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;nav&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Navigation menu&lt;/h2&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
-<li style="margin-bottom: 0px;">&lt;/nav&gt;</li>
+<li value="1">&lt;nav&gt;</li>
+<li>&nbsp; &nbsp;&lt;header&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: olive;">&lt;h2&gt;Navigation menu&lt;/h2&gt;</strong></li>
+<li>&nbsp; &nbsp;&lt;/header&gt;</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&lt;/nav&gt;</li>
 </ol></div>
 
 
@@ -1730,21 +1731,21 @@ __Example #1: a `<section>` on the left and an `<aside>` on the right, using the
 This example uses the following HTML structure (notice that we use the "HTML entity syntax" for displaying "<" or ">". For example, `&lt;` displays a "<" character).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;header&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;section&amp;gt;&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;aside&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;aside&amp;gt;&nbsp;&lt;br&gt; float: right;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/aside&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;footer&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/footer&gt;</li>
+<li value="1">&lt;header&gt;</li>
+<li> &lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;</li>
+<li>&lt;/header&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;section&gt;</li>
+<li> &lt;code&gt;&amp;lt;section&amp;gt;&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
+<li>&lt;/section&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;aside&gt;</li>
+<li> &lt;code&gt;&amp;lt;aside&amp;gt;&nbsp;&lt;br&gt; float: right;&lt;/code&gt;</li>
+<li>&lt;/aside&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;footer&gt;</li>
+<li> &lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt;</li>
+<li>&lt;/footer&gt;</li>
 </ol></div>
 
 
@@ -1768,25 +1769,25 @@ Here we show how to make a 3 column layout using the CSS float property.
 HTML code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;header&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/header&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;section&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/section&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;footer&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>footer<span style="line-height: 23.2727279663086px;">&amp;gt;</span>&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/footer&gt;</li>
+<li value="1">&lt;header&gt;</li>
+<li> &lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;</li>
+<li>&lt;/header&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;section&gt;</li>
+<li> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
+<li>&lt;/section&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;section&gt;</li>
+<li> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
+<li>&lt;/section&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;section&gt;</li>
+<li> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>section<span style="color: lightblue; line-height: 23.2727279663086px;">&amp;gt;</span>&nbsp;&lt;br&gt; float: left;&lt;/code&gt;</li>
+<li>&lt;/section&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;footer&gt;</li>
+<li> &lt;code&gt;<span style="line-height: 23.2727279663086px;">&amp;lt;</span>footer<span style="line-height: 23.2727279663086px;">&amp;gt;</span>&lt;/code&gt;</li>
+<li>&lt;/footer&gt;</li>
 </ol></div>
 
 
