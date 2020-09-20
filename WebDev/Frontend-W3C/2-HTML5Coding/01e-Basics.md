@@ -92,11 +92,10 @@
     </tbody>
     </table>
 
-+ [Microdata tools](#154-microdata-tools)
-  + generators
-    + The [Ultimate Microdata Generator](https://tinyurl.com/yaxpeuoq)
-    + The [MicroData Generator](https://tinyurl.com/yyrpwsg7)
-    + The [Schema Markup Generator (JSON-LD)](https://tinyurl.com/y6aupftz)
++ [Microdata tools](#154-microdata-tools) - generators
+  + The [Ultimate Microdata Generator](https://tinyurl.com/yaxpeuoq)
+  + The [MicroData Generator](https://tinyurl.com/yyrpwsg7)
+  + The [Schema Markup Generator (JSON-LD)](https://tinyurl.com/y6aupftz)
 
 
 
