@@ -47,8 +47,7 @@
     <li style="margin-bottom: 0px;">}</li>
     </ol></div>
 
-
-  + using `-` shaped icon to callops details
+  + using `-` shaped icon to collapse details
 
     <div><ol>
     <li style="margin-bottom: 0px;" value="1">details<span style="color: hotpink;">[open]</span> summary:<span style="color: hotpink;">after {</li>
@@ -56,6 +55,7 @@
     <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FFFFFF</li>
     <li style="margin-bottom: 0px;">}</li>
     </ol></div>
+
 
 + [The `<time>` element](#the-time-element)
   + useful for marking a time or a duration in a document
@@ -130,7 +130,7 @@
         + “M” for minutes
         + “S” for seconds
     + “T” after the “P” marker indicating a more accurate duration time, e.g., `<time datetime="PT4H 6M 12.55S">` a duration of 4 hours, 6 minutes and 12.55 seconds
-    + the <time> element with no attributes
+    + the <time> element w/o attributes
       + the value between the opening `<time>` and closing `</time>` should follow the syntax given by the specification
       + recommended to use a `datetime` attribute
 
@@ -153,7 +153,7 @@
     </ol></div>
   
     + force the download of an image with a filename different from its original filename on the server side
-    + original image" "normal.gif"
+    + original image: "normal.gif"
     + downloaded file: "MichelBuffa.gif"
   + security: the image should be located on the same domain as the HTML page that contains the link
 
