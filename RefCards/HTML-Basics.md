@@ -109,6 +109,7 @@
     </ol></div>
 
   + `<!DOCTYPE html>`: used by tools and specifying the rules used by an HTML or an XHTML page
+    + required but in practice not always need a doctype because any common web browser will render document regardless
     + rules in "Document Type Definitions" (DTDs)
     + not used by Web browsers to validate the structure of an HTML page
     + using only "rules" contained in their own "HTML engine"

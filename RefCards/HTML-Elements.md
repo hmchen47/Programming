@@ -280,6 +280,7 @@
     + headings of _equal or higher rank_: new (implied) sections
     + headings of _lower rank_: implied subsections that are part of the previous one
     + `<h1>` inside a `<section>`: the browser lowers its default size automatically
+  + default content: anything not embedded in one of the sectioning elements
 
 + [Best practices of sectioning elements](../WebDev/Frontend-W3C/2-HTML5Coding/01c-Basics.md#136-best-practices-when-using-sectioning-elements)
   + always add a heading to explicit sectioning content
@@ -304,7 +305,9 @@
   + constraints
     + no more than one `<main>` element in a document
     + not a descendant of an `<article>`, `<aside>`, `<footer>`, `<header>`, or `<nav>` element
-  + best practice: split page content into "regions" defined by the 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
+  + best practice:
+    + split page content into "regions" defined by the 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
+    + add a `<main>` to document if other sectioning elemets used
 
 + [Best practices](../WebDev/Frontend-W3C/2-HTML5Coding/01c-Basics.md#139-the-blog-example-applying-best-practices)
   + some H1s inside an `<article>` in a `<section>`
