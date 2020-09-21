@@ -139,6 +139,27 @@ As stated in the grading policy page, they count towards 15% of your final grade
   Explanation: No, the `<aside>` element is used to display content not necessary for understanding the main content. It is often used for adverts, tags, recommended navigation, etc.
   
 
+#### Headers and footers (13-14)
+
+13. Headers and footers
+
+  We can have `<header>...</header>` and `<footer>...</footer>` ONLY at the beginning of the document, not in other sectioning elements like `</article>` or `</section>` (True/False)
+
+  Ans: False<br/>
+  Explanation: Headers and footers can be added in any sectioning element.
+
+
+14. Header and headings
+
+  What are the correct following statements about `<header>` and headings? (3 correct answers)
+
+  a. We call "headings" the `<h1>`...`<h6>` elements.<br/>
+  b. The `<header>` element is just a container that is useful to regroup one or more headings with other HTML content.<br/>
+  c. `<header>` `<h1>` This HTML5 course is great!`</h1>` `</header>` will be rendered the same as `<h1>`This HTML5 course is great!`</h1>`<br/>
+  d. `<header>`This HTML5 course is great!`</header>` will be rendered the same as `<h1>`This HTML5 course is great!`</h1>`<br/>
+  
+  Ans: abc<br/>
+  Explanation: The `<header>` is just a container. Use it when you have more than just a simple heading.
 
 
 
