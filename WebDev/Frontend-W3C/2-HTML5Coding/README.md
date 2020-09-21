@@ -22,11 +22,11 @@
 
 ## Week 2: HTML5 Multimedia
 
-+ 2.1 [Video introduction - Week 2](./02-Multimedia.md#)
-+ 2.2 [Streaming multimedia content](./02-Multimedia.md#)
-+ 2.3 [Subtitles and closed captions](./02-Multimedia.md#)
-+ 2.4 [Webcam, microphone: the getUserMedia API](./02-Multimedia.md#)
-+ 2.5 [Exercises - Week 2](./02-Multimedia.md#)
++ 2.1 [Video introduction - Week 2](./02a-Multimedia.md)
++ 2.2 [Streaming multimedia content](./02b-Multimedia.md)
++ 2.3 [Subtitles and closed captions](./02c-Multimedia.md)
++ 2.4 [Webcam, microphone: the getUserMedia API](./02d-Multimedia.md)
++ 2.5 [Exercises - Week 2](./02e-Multimedia.md)
  
 
 ## Week 3: HTML5 Graphics
