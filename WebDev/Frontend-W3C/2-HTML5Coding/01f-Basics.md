@@ -326,6 +326,109 @@ As stated in the grading policy page, they count towards 15% of your final grade
   Explanation: The right answer is the second one, example `<span translate="no" class="author">Michel Ham</span>`.
 
 
+#### Microdata (27-34)
+
+27. Microdata (2 correct answers)
+
+  Which of the following statements are true for microdata?
+
+  a. They are mandatory in order to be indexed by search engines.
+  b. They are meant to be processed by machines, not read by humans.
+  c. A page with proper microdata will be better indexed and may appear in search results with an enhanced presentation.
+  d. They have been created by Google and Microsoft.
+  e. There are many vocabularies (schemas) of microdata for describing Persons, Movies, Organizations, etc.
+
+  Ans: bce<br>
+  Explanation: Microdata are meant to be processed by machines, in particular by search engines and Web crawlers. Web sites with good microdata will be better indexed and have a higher rank. Some microdata values will appear in search results too, with an enhanced presentation (this depends on the search engine, you need to read their documentation related to SEO - Search Engine Optimization). And there are many vocabularies available, new ones being published every month. You can even define your own vocabulary.
+
+
+28. Find the site!
+  
+  What is the name of the Web site that describes a lot of microdata schemas, and has been created at the initiative of Google, Microsoft, Yahoo and Yandex?
+
+  a. schema.org<br/>
+  b. schemas.org<br/>
+  c. schemas.com<br/>
+  d. microdata.org<br/>
+  e. search.org<br/>
+
+  Ans: a
+
+
+29. Find the attribute part 1
+
+  `<section ... AAA ...>`
+
+  What is the attribute name to specify that the section above is a container for microdata; what would you use instead of AAA?
+
+  Ans: itemscope or itemScope or ItemScope<br>
+  Explanation: The correct answer is `itemscope` like in `<section itemscope ... >`
+
+
+30. Find the attribute part 2
+
+  `<section ... AAA="http://schema.org/Person">`
+
+  What is the attribute name to specify a microdata schema, that replaces AAA in the example above?
+
+  Ans: itemtype or itemType or ItemType<br>
+  Explanation: The correct answer is `itemtype` like in `<section ... itemtype="http://schema.org/Person">`
+
+
+31. What is my job?
+
+  <pre>&lt;div itemscope itemtype="http://schema.org/Person"&gt;
+      My name is &lt;span itemprop="name"&gt;Michel Buffa&lt;/span&gt;,
+      And I'm a &lt;span itemprop="<b>AAA</b>"&gt;professor/researcher&lt;/span&gt;
+      at the University of Nice, in France.
+  &lt;/div&gt;
+  </pre>
+
+  What property name would you put instead of AAA?
+
+  Ans: jobTitle or jobtitle or JobTitle<br>
+  Explanation: The `jobTitle` property is the correct one for describing a person's job.
+
+32. Nested microdata
+
+  Is it possible to nest microdata items inside one another? (Yes/No)
+
+  Ans: Yes<br>
+  Explanation: Yes, you can for example nest the address of a person inside a container that describes this person.
+
+
+33. Multiple properties with the same name
+
+  Is it possible to have in a container that describes, for example, a person, several microdata properties that have the same name, but with different values? (Yes/No)
+
+  Ans: Yes<br>
+  Explanation: Yes, we can have multiple properties with the same name, for example, a person can have multiple urls for multiple home pages, that will be describe with the `url` property of the schema Person.
+
+
+34. Harrison Ford produced Star Wars?
+
+  <pre class="prettyprint  linenums:1">&lt;div itemtype="http://schema.org/Movie"&gt;
+
+    Title: &lt;span itemprop="name"&gt;Star Wars&lt;/span&gt;
+    Rating: &lt;span itemprop="contentRating"&gt;Select Rating&lt;/span&gt;
+    Genre: &lt;span itemprop="genre"&gt;Space Opera&lt;/span&gt;
+    Director:&lt;span itemprop="director"&gt;Georges Lucas&lt;/span&gt;
+    &lt;div itemprop="actors" itemscope itemtype="https://schema.org/People"&gt;
+      Actor: &lt;span itemprop="name"&gt;Mark Hamill&lt;/span&gt;
+      Actor: &lt;span itemprop="name"&gt;Carrie Fisher&lt;/span&gt;
+    &lt;/div&gt;
+    Production Company:&lt;span itemprop="productionCompany"&gt;Harrison Ford&lt;/span&gt;
+
+    &lt;/div&gt;</pre>
+
+  Is the document above correct with respect to microdata? Check for the proper use of itemscope, itemtype and itemprop.
+
+  a. No<br/>
+  b. Yes, but Harrison Ford is not the guy who produced Star Wars!<br/>
+
+  Ans: <span style="color: cyan;">No</span>, xYes<br>
+  Explanation: The document is incorrect, an itemscope attribute is missing in the main `<div>` at the top of the hierarchy. We would need `<div itemscope itemtype="http://schema.org/Movie">`; and indeed Harrison Ford has never produced Star Wars!<br/>Also, we invented the http://schema.org/People vocabulary, and also invented the "actors" property. This does not make the document incorrect. You can create your own vocabularies and use them, same with properties. In terms of syntax, it's correct.
+  
 
 
 
