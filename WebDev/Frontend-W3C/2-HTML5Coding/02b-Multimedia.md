@@ -5,12 +5,36 @@
 
 ### 2.2.0 Lecture Notes
 
++ [The `<video>` element](#221-the-video-element)
+	+ HTML5 Flash Killers: `<video>` and `<canvas>` elements
+	+ `<video>` element: a DOM member
+		+ CSS styling applied
+		+ manipulation w/ the DOM API
+	+ example code
+
+		<div class="source-code"><ol class="linenums">
+		<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"320"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"240"</span><span class="pln"> </span><span class="atn">controls</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
+		<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"movie.mp4"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+		<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"movie.ogg"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/ogg"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+		<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Your browser does not support the </span><span class="tag">&lt;video&gt;</span><span class="pln"> element.</span></li>
+		<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+		</ol></div>
+
+		+ `controls` attribute: a control panel displayed with play/stop/volume/progress widgets
+		+ usually browser using the first format it recognizes, but some browsers choosing a "preferred" format
+	+ unable to embed a YouTube or DailyMotion video using the `<video>` element
+		+ using rather complex techniques to prevent people from using them with the `<video>` element
+		+ embedding an `<iframe>` to render the HTML5 videos in one's own Web site
+		+ usually an "embed" button close to the videos that prompts people with some HTML code that you can copy and paste for embedding
+		+ YouTube example: `<iframe width="560" height="315" src="https://www.youtube.com/watch?v=9NTrwrfI-X4" frameborder="0" allowfullscreen></iframe>`
+
 
 
 
 ### 2.2.1 The `<video>` element
 
 The `<video>` element of HTML5 is one of the two "Flash killers" (the other being the `<canvas>` element). It was designed to replace horrible things like embedded Flash objects that used to be around.
+
 
 #### Before HTML5, how did we embed videos in a Web page?
 
@@ -37,7 +61,7 @@ Indeed, this was the only way to embed a YouTube video (fortunately, YouTube has
 
 #### With HTML5:
 
-The new way of doing things is a lot better... (please open [this live example at JS Bin](https://tinyurl.com/y2242ym7). ([Local Example](src/2.2.1-example1.html))
+The new way of doing things is a lot better... (please open [this live example at JS Bin](https://tinyurl.com/y2242ym7)). [[Local Example](src/2.2.1-example1.html)]
 
 <video controls="controls" poster="https://bit.ly/2JtB40Q">
 	<!-- I have three versions of the video encoded with
@@ -46,7 +70,7 @@ The new way of doing things is a lot better... (please open [this live example a
 	<source src="https://html5doctor.com/demos/video-canvas-magic/video.webm" type="video/webm">
 	<source src="https://html5doctor.com/demos/video-canvas-magic/video.ogg" type="video/ogg">
 	<source src="https://html5doctor.com/demos/video-canvas-magic/video.mp4" type="video/mp4">
-</video><br/>
+</video><br/><br/>
 
 The source code of this example shows the typical usage of the `<video>` element:
 
@@ -110,7 +134,10 @@ The YouTube video embedded in this page by the above code: it's HTML5 but it's n
 
 1. The video element is like any other HTML element: I can style it using CSS and interact programmatically with it using the JavaScript DOM API. (True/False)
 
-  Ans: 
+  Ans: True<br/>
+	Explanation: Indeed, the `<video>` element is, like other HTML elements, a first class citizen of the DOM and can be styled using CSS or manipulated using the JavaScript DOM API.
+
+
 
 
 
