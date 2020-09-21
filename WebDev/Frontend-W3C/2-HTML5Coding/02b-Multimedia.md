@@ -28,6 +28,14 @@
 		+ usually an "embed" button close to the videos that prompts people with some HTML code that you can copy and paste for embedding
 		+ YouTube example: `<iframe width="560" height="315" src="https://www.youtube.com/watch?v=9NTrwrfI-X4" frameborder="0" allowfullscreen></iframe>`
 
++ [The `<audio>` element](#222-the-audio-element)
+	+ embedding an audio player into a Web page
+	+ dedicated for streamed audio
+	+ similar to the `<video>` element, both in its use and in its API
+	+ reduced version of the `<video>` on attributes, event set and JavaScript API 
+	+ 
+
+
 
 
 
