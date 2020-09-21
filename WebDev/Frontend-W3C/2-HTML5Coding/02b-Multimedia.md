@@ -33,7 +33,9 @@
 	+ dedicated for streamed audio
 	+ similar to the `<video>` element, both in its use and in its API
 	+ reduced version of the `<video>` on attributes, event set and JavaScript API 
-	+ 
+	+ using the `controls` attribute in order to render the play/stop, time, volume and progress widgets
+	+ text message btw the `<audio>`...`</audio>` tags: displayed if the Web browser doesn't support the <audio> element
+	+ several `<source>`...`</source>` elements: link to different audio formats for the same file
 
 
 
@@ -216,6 +218,75 @@ Notice the other similarities: between the `<audio>`...`</audio>` tags, we added
 	d. The <audio> element<br/>
 	e. The JavaScript sound.js library<br/>
 	
-	Ans: 
+	Ans: bd, xde<br/>
+	Explanation: HTML5 provides the `<audio>` element for streaming audio content, and the WebAudio API for playing samples loaded in memory, for synthesizing music or for real time sound processing.
+
+
+### 2.2.3 Attributes of `<video>` and `<audio>`
+
+#### Live coding video: usage of the different attributes
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V001400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=150/>
+</a><br/>
+
+[Transcript](https://tinyurl.com/y3c8fcg6)
+
+
+#### Most useful attributes of the `<video>` element
+
+Here are the most common attributes you can use with the `<video>` element. They are self explanatory...
+
++ `src`: source of the video.
++ `width` and `height`: size of the video. If unspecified, the default width and height of the video will be used. If you specify one dimension but not the other, the browser will adjust the size of the unspecified dimension to preserve the aspect ratio of the video.
++ `controls`: If this boolean attribute is present, the browser displays its own controls for video playback and volume.
++ `poster`: This attribute allows you to specify an image that the browser will use while video is being downloaded, or until the user starts playing the video. If this attribute is not specified, the first frame of the video will be used instead.
++ `autoplay`: This attribute asks the browser to start playing the video automatically as soon as the page is ready.
++ `preload`:  The preload attribute is used when autoplay is not used. It tells the browser what to do before a user plays a video. This attribute is a hint - the browser may ignore it. While autoplay and preload are mutually exclusive, if both are present, then preload is ignored. Possible values:
++ `none`: do nothing. This saves bandwidth, no video will be downloaded in background before a user or a call to the play() method starts playing the video.
++ `metadata`: download metadata, such as length of the video or its format.
++ `auto` (default value): the browser will decide. This will depend on the implementation, and on the kind of connection: wifi, 3G, data roaming etc.
++ `loop`: Another boolean attribute that indicates to play the video in loop mode (and it starts again when finished).
+
+__Be careful if you target mobile applications or if you have multiple videos on the same page__
+
+The autoplay attribute is not recommended if your Web site targets mobile applications, as it may consume bandwidth even if the user is not interested in watching the proposed video. If you target mobile devices, we recommend using preload=none as well, as the default value for this attribute is auto.
+
+__Best practice__: do not use autoplay and add preload="none" if you target mobile devices or if you have multiple audio/video on the same page.  For example, this page contains many audio elements and it does not make sense to have them preload or autoplay.
+
+
+__About the poster attribute__
+
+If the `poster` attribute is missing, usually the first non-blank frame of the video will be used as the image that is shown when the video is not playing. 
+
+About the `autoplay` attribute for general use
+
+Do not abuse of the `autoplay` attribute. We talked earlier about mobile applications, but even on desktop applications it's usually a bad idea to use it (except for WebCams and for some animations with small video loops, without sound, or for sites like YouTube, with just videos). This is the testimony of a user in this course forum: "_When I'm following the news, I open several headlines in separate tabs. And then all of them start screaming at me with some autoplays. I know this is supposed to make me watch the video, but for me - it makes me close the loud tab and try another source._"
+
+__Best practice__: think twice before using the autoplay attribute, even for desktop applications.
+
+
+#### Attributes of the `<audio>` element
+
+The attributes you can use with the `<audio>` element are a subset of those available for the `<video>` element. Except for the poster attribute, they are all recognized and have the expected meanings: 
+
++ `src`: source of an audio stream.
++ `controls`: if this attribute is present, the browser displays its own controls for audio playback and volume.
++ `autoplay`: tells the browser to start playing the audio stream automatically as soon as the page is ready - please read details in the above table.
++ `preload`: tells the browser what to do before a user plays a sound - please read details in the above table.
++ `loop`:  indicates to play the audio stream in loop mode (start again when finished).
+
+As with the `<video>` element, the same best practice in regard to preload and autoplay attributes should be followed.
+
+
+#### Knowledge check 2.2.3
+
+Which of the following statements about the preload attribute is correct?
+
++ When present, it tells the browser to load multiple multimedia files in advance.
++ If this attribute is present, the browser checks if the multimedia content can be loaded from its cache.
++ This attribute can take different values that will avoid preloading mutimedia content, or on the contrary, that will tell the browser to preload this content, or tell the browser to preload only some multimedia content metadata.
++ If this attribute is present in an audio or video element, the multimedia content is preloaded as soon as the page is loaded.
+
 
 
