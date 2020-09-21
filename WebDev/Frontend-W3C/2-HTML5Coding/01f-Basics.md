@@ -162,7 +162,61 @@ As stated in the grading policy page, they count towards 15% of your final grade
   Explanation: The `<header>` is just a container. Use it when you have more than just a simple heading.
 
 
+#### Headings (15-18)
 
+15. Headings and sectioning content
+
+  What best practices have been presented in the course? (2 correct answers)
+
+  a. Whenever possible, try not to use `<article>` or `<section>`. Instead, use a heading (`<h1>`...`<h6>`) to define an implicit "section of a document".
+  b. `<h1>`...`<h6>` define a hierarchy that can be used to generate a table of contents.
+  c. You should use at least one heading after each sectioning content or after the `<body>` of the document.
+  d. It is necessary to use `<h1>` immediately after each sectioning content, as we did in the first version of the blog example presented in the course.
+
+  Ans: bc<br/>
+  Explanation: 
+    + a) The first answer is false: it is good practice to explicitly define sections instead of relying on the fact that H1...H6 implicitly define a section in the document. 
+    + b) The second answer is true: H1...H6 indeed define a hierarchy. 
+    + c) The third answer is true: screen readers will read the headings aloud, making the document accessible to people with vision impairments. 
+    + d) The fourth answer is false: having an H1 after each sectioning element is practical but not mandatory. It's not even recommended today since most screen readers/browsers do not yet implement the renumbering of the hierarchy levels when H1s are inside sections.
+
+
+16. Displaying a table of contents
+
+  Displaying the table of contents helps understanding the global structure of the document? (True/False)
+
+  Ans: True<br/>
+  Explanation: Looking at the table of contents helps to locate errors in the structure.
+
+
+
+17. Tools for displaying the table of contents
+
+  To see the table of contents of an HTML5 document: (3 correct answers)
+
+  a. I can use a browser extension.<br/>
+  a. I have to write some JavaScript code myself, and look at the Document Object Model structure of the document.<br/>
+  a. I can use a piece of JavaScript code that implements the outline algorithm that computes the different hierarchy levels.<br/>
+  a. There are online Web sites where you can copy and paste HTML code or the URL of a document, and that will display the table of contents.<br/>
+  a. Displaying the table of contents is a feature implemented by default in nearly all major modern Web browsers; no need to do anything but to select this feature in one menu of the browser.<br/>
+
+  Ans: acd<br/>
+  Explanation: You do not need to write any code yourself, tools exist both as browser extensions or ready-to-go JavaScript code you can embed, as shown in the course. There are also Web sites with useful tools that display the table of contents of HTML code that you paste or from a URL. No browser today implements the table of contents rendering natively. Correct answers are 1, 3 and 4.
+
+
+18. Displaying table of contents for debugging
+
+  Does the table of contents help debugging accessibility of my document?
+
+  a. No<br/>
+  b. It shows missing headings as "Untitled" entries<br/>
+  c. The table of contents does not display invalid sections<br/>
+
+  Ans: c<br/>
+  Explanation: Indeed, untitled entries in the table of contents show the lack of a heading in this particular section of the document. And it is good practice to have at least a heading after each section.
+
+
+  
 
 
 
