@@ -28,6 +28,35 @@
 		+ usually an "embed" button close to the videos that prompts people with some HTML code that you can copy and paste for embedding
 		+ YouTube example: `<iframe width="560" height="315" src="https://www.youtube.com/watch?v=9NTrwrfI-X4" frameborder="0" allowfullscreen></iframe>`
 
++ [Most common attributes of `<video>` element](#most-useful-attributes-of-the-video-element)
+	+ `src`: source of the video.
+	+ `width` and `height`:
+		+ size of the video. 
+		+ default: width and height of the video if unspecified
+		+ only one dimension specified: adjusting the size of the unspecified dimension to preserve the aspect ratio of the video
+	+ `controls`: display its own controls for video playback and volume
+	+ `poster`:
+		+ specify an image that the browser will use while video is being downloaded, or until the user starts playing the video
+		+ not specified: 1st frame of the video used
+	+ `autoplay` (Boolean): browser to start playing the video automatically as soon as the page is ready
+	+ `preload`:
+		+ used when autoplay not used
+		+ telling the browser what to do before a user plays a video
+		+ hint: the browser may ignore it
+		+ `autoplay` and `preload` mutually exclusive, if both are present, then preload is ignored.
+		+ Possible values:
+			+ `none`: do nothing. no video downloaded in background before a user or a call to the play() method starts playing the video.
+			+ `metadata`: download metadata, such as length of the video or its format.
+			+ `auto` (default value): the browser decides, depending on the implementation, and on the kind of connection: wifi, 3G, data roaming etc.
+	+ `loop` (Boolean): play the video in loop mode (and it starts again when finished).
+
++ [Recommendation & Best Practices for `<video>` element](#most-useful-attributes-of-the-video-element)
+	+ mobile application or multiple videos in a page
+		+ not using `autoplay` attribute
+		+ `preload=none` to save bandwidth
+	+ `poster` attribute: usually the first non-blank frame of the video if missing
+	+ limiting the use of `autoplay` attribute
+
 + [The `<audio>` element](#222-the-audio-element)
 	+ embedding an audio player into a Web page
 	+ dedicated for streamed audio
@@ -37,8 +66,13 @@
 	+ text message btw the `<audio>`...`</audio>` tags: displayed if the Web browser doesn't support the <audio> element
 	+ several `<source>`...`</source>` elements: link to different audio formats for the same file
 
-
-
++ [Most common attributes of `<audio>` element](#attributes-of-the-audio-element)
+	+ `src`: source of an audio stream.
+	+ `controls` (Boolean): display controls for audio playback and volume.
+	+ `autoplay`: start playing the audio stream automatically as soon as the page is ready
+	+ `preload`: tells the browser what to do before a user plays a sound - please read details in the above table.
+	+ `loop`: play the audio stream in loop mode
+	+ best practice in regard to `preload` and `autoplay` attributes should be followed as `<video>` element
 
 
 ### 2.2.1 The `<video>` element
@@ -242,15 +276,15 @@ Here are the most common attributes you can use with the `<video>` element. They
 + `controls`: If this boolean attribute is present, the browser displays its own controls for video playback and volume.
 + `poster`: This attribute allows you to specify an image that the browser will use while video is being downloaded, or until the user starts playing the video. If this attribute is not specified, the first frame of the video will be used instead.
 + `autoplay`: This attribute asks the browser to start playing the video automatically as soon as the page is ready.
-+ `preload`:  The preload attribute is used when autoplay is not used. It tells the browser what to do before a user plays a video. This attribute is a hint - the browser may ignore it. While autoplay and preload are mutually exclusive, if both are present, then preload is ignored. Possible values:
-+ `none`: do nothing. This saves bandwidth, no video will be downloaded in background before a user or a call to the play() method starts playing the video.
-+ `metadata`: download metadata, such as length of the video or its format.
-+ `auto` (default value): the browser will decide. This will depend on the implementation, and on the kind of connection: wifi, 3G, data roaming etc.
++ `preload`:  The `preload` attribute is used when `autoplay` is not used. It tells the browser what to do before a user plays a video. This attribute is a hint - the browser may ignore it. While `autoplay` and `preload` are mutually exclusive, if both are present, then `preload` is ignored. Possible values:
+	+ `none`: do nothing. This saves bandwidth, no video will be downloaded in background before a user or a call to the play() method starts playing the video.
+	+ `metadata`: download metadata, such as length of the video or its format.
+	+ `auto` (default value): the browser will decide. This will depend on the implementation, and on the kind of connection: wifi, 3G, data roaming etc.
 + `loop`: Another boolean attribute that indicates to play the video in loop mode (and it starts again when finished).
 
 __Be careful if you target mobile applications or if you have multiple videos on the same page__
 
-The autoplay attribute is not recommended if your Web site targets mobile applications, as it may consume bandwidth even if the user is not interested in watching the proposed video. If you target mobile devices, we recommend using preload=none as well, as the default value for this attribute is auto.
+The `autoplay` attribute is not recommended if your Web site targets mobile applications, as it may consume bandwidth even if the user is not interested in watching the proposed video. If you target mobile devices, we recommend using `preload=none` as well, as the default value for this attribute is `auto`.
 
 __Best practice__: do not use autoplay and add preload="none" if you target mobile devices or if you have multiple audio/video on the same page.  For example, this page contains many audio elements and it does not make sense to have them preload or autoplay.
 
@@ -281,12 +315,17 @@ As with the `<video>` element, the same best practice in regard to preload and a
 
 #### Knowledge check 2.2.3
 
-Which of the following statements about the preload attribute is correct?
+1. Which of the following statements about the `preload` attribute is correct?
 
-+ When present, it tells the browser to load multiple multimedia files in advance.
-+ If this attribute is present, the browser checks if the multimedia content can be loaded from its cache.
-+ This attribute can take different values that will avoid preloading mutimedia content, or on the contrary, that will tell the browser to preload this content, or tell the browser to preload only some multimedia content metadata.
-+ If this attribute is present in an audio or video element, the multimedia content is preloaded as soon as the page is loaded.
+	a. When present, it tells the browser to load multiple multimedia files in advance.
+	b. If this attribute is present, the browser checks if the multimedia content can be loaded from its cache.
+	c. This attribute can take different values that will avoid preloading mutimedia content, or on the contrary, that will tell the browser to preload this content, or tell the browser to preload only some multimedia content metadata.
+	d. If this attribute is present in an audio or video element, the multimedia content is preloaded as soon as the page is loaded.
+
+	Ans: <span style="color: magenta;">c</span>, xa, xd<br/>
+	Explanation: The `preload` attribute can have different values: `none`, `metadata` or `auto`, and will give hints to the browser for preloading multimedia content.
+
+
 
 
 
