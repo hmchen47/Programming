@@ -148,7 +148,9 @@
   + constraints
     + no more than one `<main>` element in a document
     + not a descendant of an `<article>`, `<aside>`, `<footer>`, `<header>`, or `<nav>` element
-  + best practice: split page content into "regions" defined by the 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
+  + best practice:
+    + split page content into "regions" defined by the 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
+    + add a `<main>` to document if other sectioning elemets used
 
 + [Best practices](#139-the-blog-example-applying-best-practices)
   + some H1s inside an `<article>` in a `<section>`
