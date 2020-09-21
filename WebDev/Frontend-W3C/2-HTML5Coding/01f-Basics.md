@@ -216,7 +216,116 @@ As stated in the grading policy page, they count towards 15% of your final grade
   Explanation: Indeed, untitled entries in the table of contents show the lack of a heading in this particular section of the document. And it is good practice to have at least a heading after each section.
 
 
-  
+#### Other elements and attributes (19-26)
+
+19. Which element?
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick="window.open('https://tinyurl.com/y3yws87p')"
+      src    ="https://tinyurl.com/y39xph3f"
+      alt    ="example of summary details, the question asks which HTML element is used to display the short text that is displayed when summary/details is unfolded"
+      title  ="example of summary details, the question asks which HTML element is used to display the short text that is displayed when summary/details is unfolded"
+    />
+  </figure>
+
+  What element is used for the part with a green background? Just type the name of the element without "<" and ">" characters. For example type P, not `<P>` if the answer is the `<P>` element.
+
+  Ans: summary or Summary or SUMMARY<br/>
+  Explanation: The part at the top is the `<summary>`
+
+
+20. CSS Styling?
+
+  Can we easily style `<summary>` and `<details>`?
+
+  a. Yes, CSS rules can be used like color, background-color etc, and some browsers propose non standard pseudo-classes for the icon, depending on the state of the summary element (folded / unfolded)
+  b. Yes but we can only style them using proprietary browser-dependant pseudo classes
+  c. No, there is no support for styling these elements
+
+  Ans: a<br/>
+  Explanation: The right answer is the last one: we can use regular CSS properties; some of them will work like color, margin, padding, etc, and browser-dependent pseudo classes can be used for customizing dedicated properties like the small icon.
+
+
+21. Correct schema
+
+  What is the correct schema from schema.org for describing a person's address?
+
+  a. https://schema.org/LocalAddress<br/>
+  b. https://schema.org/PostalAddress<br/>
+  c. https://schema.org/SurfaceAddress<br/>
+  d. https://schema.org/Address<br/>
+
+  Ans: b<br/>
+  Explanation: The right schema is https://schema.org/PostalAddress.
+
+
+22. Duration value?
+
+  <pre>&lt;h2&gt;Recipe:&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt; Preparation time: &lt;time datetime="<b>AAAA</b>"&gt;30 minutes&lt;/time&gt; &lt;/li&gt;
+  &lt;/ul&gt;
+  </pre>
+
+  What textual value should be entered in place of the AAAA string in the above example?
+
+  Ans: PT30M or PT30m or 30M or 30m<br/>
+  Explanation: A duration value in minutes is of the form PT30M where "P" means "Period", "T" means "Time" and "M" means Minutes
+
+
+23. Date?
+
+  `Michel was born <time datetime="?">April 16, 1965</time>.`
+
+  What value should you put instead of the ? string (answer is 10 characters)?
+
+  Ans: 1965-04-16<br/>
+  Explanation: The right syntax is YEAR-MONTH-DAY, so the right answer is 1965-04-16.
+
+
+24. Highlighting text?
+
+  Which HTML5 element has been designed to highlight text?
+
+  a. `<ht>`
+  b. No element is particularly dedicated, I can use use CSS to change the background of a part of text, for example by surrounding it with `<span style="background-color:yellow">`...`<span>`
+  c. `<mark>`<br/>
+  d. `<bold>`<br/>
+  e. `<highlight>`<br/>
+
+  Ans: c<br/>
+  Explanation: The `<mark>` element has been designed to highlight text. By default is makes the text background yellow, but as it affects also the DOM it adds also semantics to the document (and can be searched from the JavaScript DOM API).
+
+
+25. Missing attribute...
+
+  <pre>&lt;a href="http://users.polytech.unice.fr/~buffa/normal.gif"
+    <b>AAA</b>="MichelBuffa.jpg"&gt;
+      download a picture of Michel Buffa as a file named MichelBuffa.jpg
+  &lt;/a&gt;
+  </pre>
+
+  What would you put instead of AAA in the above code?
+
+  Ans: download or Download or DOWNLOAD<br/>
+  Explanation: The `download` attribute of the A element has been designed to download a linked file with another name than its remote filename.
+
+
+26. Michel Ham or Michel Jambon?
+
+  Which attribute and value pair can be used to avoid translating parts of text when used with translation services such as Google or Microsoft translate?
+
+  a. translate=no<br/>
+  b. Only service dependent attributes can be used. You have to read the documentation of translate.google.com and microsofttranslator.com services.<br/>
+  c. translate=yes<br/>
+  d. ignoretranslation=true<br/>
+  e. notranslate=true<br/>
+
+  Ans: a<br/>
+  Explanation: The right answer is the second one, example `<span translate="no" class="author">Michel Ham</span>`.
+
+
 
 
 
