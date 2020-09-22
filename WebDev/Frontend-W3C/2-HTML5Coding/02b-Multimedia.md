@@ -317,15 +317,420 @@ As with the `<video>` element, the same best practice in regard to preload and a
 
 1. Which of the following statements about the `preload` attribute is correct?
 
-	a. When present, it tells the browser to load multiple multimedia files in advance.
-	b. If this attribute is present, the browser checks if the multimedia content can be loaded from its cache.
-	c. This attribute can take different values that will avoid preloading mutimedia content, or on the contrary, that will tell the browser to preload this content, or tell the browser to preload only some multimedia content metadata.
-	d. If this attribute is present in an audio or video element, the multimedia content is preloaded as soon as the page is loaded.
+	a. When present, it tells the browser to load multiple multimedia files in advance.<br/>
+	b. If this attribute is present, the browser checks if the multimedia content can be loaded from its cache.<br/>
+	c. This attribute can take different values that will avoid preloading mutimedia content, or on the contrary, that will tell the browser to preload this content, or tell the browser to preload only some multimedia content metadata.<br/>
+	d. If this attribute is present in an audio or video element, the multimedia content is preloaded as soon as the page is loaded.<br/>
 
 	Ans: <span style="color: magenta;">c</span>, xa, xd<br/>
 	Explanation: The `preload` attribute can have different values: `none`, `metadata` or `auto`, and will give hints to the browser for preloading multimedia content.
 
 
+### 2.2.4 Styling media players with CSS
+
+The `<video>` and `<audio>` elements are just like other HTML elements, so CSS can be used for styling, including CSS transitions, animations and transforms (this was not possible with Flash technology).
+
+
+#### An example of an audio player with some style
+
+You can try this example [online at JSBin](https://jsbin.com/zoquru/2/edit?html,css,output) ([Local Example 1](src/2.2.4-example1.html))
+
+To add some styling to the basic example we saw when we introduced the `<audio>` element, we just add a `<figure>` with two children: an `<img>` and a `<figcaption>`. Inside the `<figcaption>` we add the `<audio>` element from the previous example.
+
+MOVE THE MOUSE POINTER OVER THIS PLAYER'S ELEMENTS! (Effect not shown due to CSS pseudo-class selector)
+
+<figure style="width : 420px;;
+    text-align:center; padding : 6px; background : white; margin : 0 11px 0px 0; border :solid 1px #888888; border-radius : 8px ;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Nokota_Horses.jpg" width="300"> <figcaption style="font-size : .8em; padding : 6px 8px; background : #dddddd; display :block; text-align :center; font-family : georgia, serif; font-style : italic; border-radius : 7px ;"> Press Play to hear the horse !<br/> <audio controls="controls" style="margin: auto;">
+  <source src="https://mainline.i3s.unice.fr/mooc/horse.ogg" type="audio/ogg">
+  <source src="https://mainline.i3s.unice.fr/mooc/horse.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio> </figcaption></figure><br/>
+
+HTML source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;figure</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"figaudio1"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"imghorse"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"200"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://upload.wikimedia.org/wikipedia/commons/d/d4/Nokota_Horses.jpg"</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp;alt</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"a horse"</span><span class="tag">/&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;figcaption</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"figcptionaudio1"</span><span class="tag">&gt;</span><span class="pln"> Press Play to hear the horse! </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;audio</span><span class="pln"> </span><span class="atn">controls</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"audio/ogg"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"audio/mp3"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the audio element.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Download the audio/video in</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">”https://mainline.i3s.unice.fr/mooc/horse.ogg”</span><span class="tag">&gt;</span><span class="pln">OGG</span><span class="tag">&lt;/a&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;or </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">”https://mainline.i3s.unice.fr/mooc/horse.mp3”</span><span class="tag">&gt;</span><span class="pln">MP3</span><span class="tag">&lt;/a&gt;</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; format.</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/audio&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/figcaption&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/figure&gt;</span></li>
+</ol></div>
+
+
+CSS source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">#figaudio1 {</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width </span><span class="pun">:</span><span class="pln"> </span><span class="lit">420px</span><span class="pun">;;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln">center</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding </span><span class="pun">:</span><span class="pln"> </span><span class="lit">6px</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background </span><span class="pun">:</span><span class="pln"> white</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; margin </span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">11px</span><span class="pln"> </span><span class="lit">0px</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border </span><span class="pun">:</span><span class="pln">solid </span><span class="lit">1px</span><span class="pln"> </span><span class="com">#888888;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">-</span><span class="pln">radius </span><span class="pun">:</span><span class="pln"> </span><span class="lit">8px</span><span class="pln"> </span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="com">#figcptionaudio1 {</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">size </span><span class="pun">:</span><span class="pln"> </span><span class="pun">.</span><span class="lit">8em</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding </span><span class="pun">:</span><span class="pln"> </span><span class="lit">6px</span><span class="pln"> </span><span class="lit">8px</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background </span><span class="pun">:</span><span class="pln"> </span><span class="com">#dddddd; </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; display </span><span class="pun">:</span><span class="pln">block</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align </span><span class="pun">:</span><span class="pln">center</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">family </span><span class="pun">:</span><span class="pln"> georgia</span><span class="pun">,</span><span class="pln"> serif</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">style </span><span class="pun">:</span><span class="pln"> italic</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">-</span><span class="pln">radius </span><span class="pun">:</span><span class="pln"> </span><span class="lit">7px</span><span class="pln"> </span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">#figaudio1 &gt; img {</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background </span><span class="pun">:</span><span class="pln"> </span><span class="com">#eeeeee;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding </span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border </span><span class="pun">:</span><span class="pln"> solid </span><span class="lit">1px</span><span class="pln"> </span><span class="com">#444444;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">/* For audio and img transitions/animation */</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">audio</span><span class="pun">,</span><span class="pln"> </span><span class="com">#figaudio1 &gt; img {</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transition</span><span class="pun">:</span><span class="pln">all </span><span class="lit">0.5s</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">#figaudio1 &gt; img:hover {</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">20px</span><span class="pln"> rgba</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.4</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transform</span><span class="pun">:</span><span class="pln"> scale</span><span class="pun">(</span><span class="lit">1.05</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">audio</span><span class="pun">:</span><span class="pln">hover</span><span class="pun">,</span><span class="pln"> audio</span><span class="pun">:</span><span class="pln">focus</span><span class="pun">,</span><span class="pln"> audio</span><span class="pun">:</span><span class="pln">active </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">20px</span><span class="pln"> rgba</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.4</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transform</span><span class="pun">:</span><span class="pln"> scale</span><span class="pun">(</span><span class="lit">1.05</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Changing the size of a video on the fly using CSS transforms
+
+__Resizing and rotating a video as the mouse pointer comes over it__
+
+See this [example online](https://tinyurl.com/y3gh2gms) (where you can modify the code on the fly) or just play the following video, and move the mouse pointer in and out of the video while it's playing.
+
+<video id="w3devCampusVideoTransition" controls="controls">
+	<!-- I have three versions of the video encoded with
+	     different codecs.  The browser will automatically
+	     choose the first one it knows it can play. -->
+	<source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm" type="video/webm">
+	<source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg" type="video/ogg">
+	<source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4" type="video/mp4">
+</video>
+
+This example uses the pseudo CSS class :hover in order to track the `mouseover` event. On mouseover, it uses a CSS `transition` property that interpolates the changes in the scale and orientation of the video element (done using a `transform` CSS property).
+
+The corresponding HTML source code is:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"w3devCampusVideo"</span></strong><span class="pln"> </span><span class="atn">autoplay</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">video/webm</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">video/ogg</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">video/mp4</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
+</ol></div>
+
+... and the CSS source code is as follows:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">#w3devCampusVideo {</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">300px</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>transition</strong></span><strong><span class="pun">:</span><span class="pln"> all </span><span class="lit">0.5s</span><span class="pln"> ease</span><span class="pun">-</span><span class="kwd">in</span><span class="pun">-</span><span class="kwd">out</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">#w3devCampusVideo<strong>:hover</strong>&nbsp;{ </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="lit">400px</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transform</span><span class="pun">:</span><span class="pln">rotate</span><span class="pun">(-</span><span class="lit">5deg</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+__Fullscreen video that resizes and maintains ratios. Uses simple JavaScript to modify CSS properties__
+
+This is a trendy way of displaying videos. For a while, the [PayPal Web site](https://tinyurl.com/yxe56fp7) used a small size video that looped and started playing as soon as the page was loaded. One of the JsBin examples below uses this video. 
+
+<figure style="margin: 0.5em; text-align: center;">
+	<img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+		onclick="window.open('https://tinyurl.com/y5skfhor')"
+		src    ="https://tinyurl.com/yy8u724k"
+		alt    ="paypal web site with full screen video"
+		title  ="paypal web site with full screen video"
+	/>
+</figure>
+
+
+Below you will find two examples that show how to do this trick. The first is for a "regular" video, using the `<video>` and `<source>` elements. This technique can also be used on any YouTube embedded videos (see Example 2 below).
+
+The interesting part is that we use a 100% standard (and really small and simple) JavaScript code here to handle the window `resize` events and we just set regular CSS properties width and height of the video element, to resize the video.
+
+
+__Example #1: with a regular video__
+
+[Online at JS Bin](https://jsbin.com/gezudoy/edit?html,css,js,console,output) ([Local Example 2](src/2.2.4-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+	<img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+		onclick="window.open('https://tinyurl.com/y5skfhor')"
+		src    ="https://tinyurl.com/y5baoc64"
+		alt    ="Samurai pizzacat video full screen with css and dom events"
+		title  ="Samurai pizzacat video full screen with css and dom events"
+	/>
+</figure>
+
+
+Here is the HTML code. It's really simple, just notice the <body onload="init();"> which calls the JavaScript init() function right after the page is loaded.
+
+<<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">Full width video like PayPal site</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><strong><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span></strong><span class="tag">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;video</span><span class="pln"> </span><span class="atn"><strong>id</strong></span><strong><span class="pun">=</span><span class="atv">"myVideo"</span></strong><span class="pln"> </span><span class="atn">autoplay</span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &lt;source</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/webm</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/ogg</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/mp4</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/video&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+
+Here is the CSS (remove margins, remove padding, hide parts that could overflow from the <body>):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">body </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; margin</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; overflow</span><span class="pun">:</span><span class="pln">hidden</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+And now the JavaScript code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// function called when the page is loaded</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// For initial value</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">innerWidth</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">innerHeight</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// For dealing with window resize</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">onresize </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">innerWidth</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">innerHeight</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+__Example #2: with a YouTube video__
+
+[Online at JS Bin](https://jsbin.com/yoreco/1/edit?html,css,js,output)  ([Local Example 3](src/2.2.4-example3.html))
+
+The CSS and JavaScript codes for this example are exactly the same as in Example #1.
+
+<figure style="margin: 0.5em; text-align: center;">
+	<img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+		onclick="window.open('https://tinyurl.com/y5skfhor')"
+		src    ="https://tinyurl.com/y3j3cs9u"
+		alt    ="full screen video from youtube"
+		title  ="full screen video from youtube"
+	/>
+</figure>
+
+
+#### Full screen video, pure CSS approaches
+
+1. Let's use the video from the PayPal Web site, played full screen using only very simple CSS.
+
+	In this example ([online at JSBin](https://tinyurl.com/y2jw87hj)), the video does not rescale; it's just cropped if the browser window is resized. Enlarge your browser and you'll see a man with a phone on the right. Resize your browser and you'll see only part of the video.
+
+	<figure style="margin: 0.5em; text-align: center;">
+		<img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+			onclick="window.open('https://tinyurl.com/y5skfhor')"
+			src    ="https://tinyurl.com/y2zhgkxv"
+			alt    ="Paypal video full screen"
+			title  ="Paypal video full screen"
+		/>
+	</figure>
+
+CSS code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> body </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; margin</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; padding</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; overflow</span><span class="pun">:</span><span class="pln">hidden</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">video </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; height</span><span class="pun">:</span><span class="kwd">auto</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+2. Full screen video with CSS effects
+
+	This time the video is zoomed in so that it's much bigger than the browser's window. When we resize the browser, the part of the video that is visible adapts itself. It's not "real resize" of the video.
+
+	Try the [example and read the explanation in this article by Dudley Storey](https://tinyurl.com/yxldqdt2). Also available as a [simplified JsBin example](https://tinyurl.com/y2m2lnjf).
+
+	<figure style="margin: 0.5em; text-align: center;">
+		<img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+			onclick="window.open('https://tinyurl.com/y5skfhor')"
+			src    ="https://tinyurl.com/y22o92ej"
+			alt    ="full screen video pure CSS"
+			title  ="full screen video pure CSS"
+		/>
+	</figure>
+
+
+HTML code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">Full screen video, example from demosthene.info by </span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;header&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;video</span><span class="pln"> </span><span class="atn">autoplay</span><span class="pun"></span><span class="atv"></span><span class="pln"> </span><span class="atn">loop</span><span class="pun">=</span><span class="atv">""</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; poster</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/polina.jpg"</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; id</span><span class="pun">=</span><span class="atv">"bgvid"</span><span class="tag">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/polina.webm"</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/polina.mp4"</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/video&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/header&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;section&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h1&gt;</span><span class="pln">https://demosthenes.info/blog/777/Create-Fullscreen-HTML5-Page-</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">Background-Video</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/section&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+CSS code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">html</span><span class="pun">,</span><span class="pln"> body</span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">white</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">%;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">header</span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">%;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">image</span><span class="pun">:</span><span class="pln"> url</span><span class="pun">(</span><span class="str">'https://dupontcours.free.fr/IMG/dots.png'</span><span class="pun">),</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pln">url</span><span class="pun">(</span><span class="str">'#'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">repeat</span><span class="pun">:</span><span class="pln"> repeat</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">no</span><span class="pun">-</span><span class="pln">repeat</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">auto</span><span class="pun">,</span><span class="pln"> cover</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">position</span><span class="pun">:</span><span class="pln"> center center</span><span class="pun">,</span><span class="pln"> top left</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln"> sans</span><span class="pun">-</span><span class="pln">serif</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#051a00;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">header video </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; position</span><span class="pun">:</span><span class="kwd">fixed</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; top</span><span class="pun">:</span><span class="lit">50</span><span class="pun">%;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; left</span><span class="pun">:</span><span class="lit">50</span><span class="pun">%;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; min</span><span class="pun">-</span><span class="pln">width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; min</span><span class="pun">-</span><span class="pln">height</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="kwd">auto</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="kwd">auto</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; z</span><span class="pun">-</span><span class="pln">index</span><span class="pun">:-</span><span class="lit">100</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transform</span><span class="pun">:</span><span class="pln">translateX</span><span class="pun">(-</span><span class="lit">50</span><span class="pun">%)</span><span class="pln"> translateY</span><span class="pun">(-</span><span class="lit">50</span><span class="pun">%);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+The trick here is that:
+
++ the video is in the header, and the header has a plotted transparent background that is repeated in X and Y (see lines 8 and 9).
++ The video is positioned so that it's origin (top left corner) is away from the visible surface (line 25), while it is set to take 100% of the surface (lines 20 and 21).
+
+Full screen video that resizes and keeps its ratio, using the viewport units.
+
+[Example on JsBin](https://output.jsbin.com/henaruv) ([Local example](src/1.2.3-example.html))
+
+This time we obtain the same result as with the first example that used JavaScript and a resize event. The video resizes correctly and keeps its ratio.
+
+CSS code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">body </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">video </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;width</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="lit">100vw</span><span class="pun">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>height</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="lit">100vh</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">object</span><span class="pun">-</span><span class="pln">fit</span><span class="pun">:</span><span class="pln"> cover</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">object</span><span class="pun">-</span><span class="pln">position</span><span class="pun">:</span><span class="pln"> center center</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+__Discussion: why can't we achieve perfect resizing with only CSS and the use of properties width=100% and height=100%?__
+
+Let's use the same video to compare the different approaches again:
+
+1. [Original approach](https://jsbin.com/zowuqey/edit?html,css,js,output), using JavaScript. This solution works on any browser, so we will focus on the two following methods, based on pure CSS.
+2. [Using CSS 100%](https://jsbin.com/sakujuv/1/edit?html,css,output) width and height properties (no JavaScript).
+3. [Using CSS viewport](https://jsbin.com/xureyu/3/edit?html,css,output) units for width and height (no JavasScript).
+
+Resizing the browser window shows that #1 (JavaScript) and #3 (viewport units) behave in the same way: the width or height of the video always fills the window (whichever is smaller), and we always see the whole video.
+
+__Conclusion__: we can get full size video without JavaScript by using viewport units, unless we need to support some old browsers (see their [current support on CanIUse](https://caniuse.com/#feat=viewport-units)).
+
+Setting the video to 100% `width` and `height` results in different behavior:
+
++ 100% means 100% of the size of the <body> tag.
++ The body tag's width is 100% of the browser window width, so the video is always full width.
++ The body tag's height, however, is determined by the size of its children: the body tag's height grows and shrinks to accommodate the size of the children.
++ If the browser window is made wide and short, the video is full width, the height is taller than the window, and part of the video is not visible. It seems that just using % does not get us the same effect.
+
+
+#### Knowledge check 2.2.4
+
+1. Using CSS, is it possible to apply geometric transformations to a video player, or to add shadows to an audio player? (Yes/No)
+
+	Ans: 
 
 
 
