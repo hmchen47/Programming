@@ -105,6 +105,25 @@
 		+ `<body>` tage w/ `height: 100%;`: determined by the size of its children, gorw or shrink according the size of its children
 		+ part of the video invisible as the browser window shorter the video height
 
++ [DOM JavaScript API](#225-control-players-from-javascript)
+	+ __mathods__: controlling the behavior, such as play(), pause(), etc.
+	+ __properties__:
+		+ read/write mode, e.g., volume
+		+ read-only mode, e.g., encoding, duration, etc.
+	+ __event__:
+		+ generated during the lifecycle of the element
+		+ processed using JavaScript callbacks
+		+ able to send events to control the video player
+	+ example:
+
+		<div class="source-code"><ol class="linenums">
+		<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">);</span></li>
+		<li class="L1" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'video.mp4'</span><span class="pun">;</span></li>
+		<li class="L2" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun">.</span><span class="pln">controls </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
+		<li class="L3" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">video</span><span class="pun">);</span></li>
+		</ol></div>
+
+
 
 
 ### 2.2.1 The `<video>` element
@@ -808,7 +827,8 @@ __Conclusion__:  you can very easily change the look and feel of the standard vi
 
 1. Once created or selected using the standard DOM API, can audio and video elements be manipulated as JavaScript objects? (Yes/No)
 
-	Ans: 
+	Ans: Yes<br/>
+	Explanation: Using the DOM API, it is possible to create programmatically an audio or video element and insert it into the HTML page. If it has already been declared, you can just select it from JavaScript. The JavaScript object created/selected has properties such as duration, currentTime, etc., and also has methods such as play(), stop(), etc. It can also send events (it is possible to monitor the progress for example) or receive events.
 
 
 
