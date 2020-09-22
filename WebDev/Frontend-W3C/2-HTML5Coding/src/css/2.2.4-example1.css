@@ -1,0 +1,41 @@
+#figaudio1 {
+   width : 420px;;
+   text-align:center;
+   padding : 6px;
+   background : white; 
+   margin : 0 11px 0px 0;
+   border :solid 1px #888888;
+   border-radius : 8px ;
+}
+
+#figcptionaudio1 {
+   font-size : .8em;
+   padding : 6px 8px;
+   background : #dddddd; 
+   display :block;
+   text-align :center;
+   font-family : georgia, serif;
+   font-style : italic;
+   border-radius : 7px ;
+}
+
+#figaudio1 > img {
+  background : #eeeeee;
+   padding : 5px;
+   border : solid 1px #444444;
+}
+
+/* For audio and img transitions/animation */
+audio, #figaudio1 > img {
+  transition:all 0.5s;
+}
+
+#figaudio1 > img:hover {
+  box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+  transform: scale(1.05);
+}
+
+audio:hover, audio:focus, audio:active {
+  box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+  transform: scale(1.05);
+}
