@@ -766,6 +766,53 @@ Setting the video to 100% `width` and `height` results in different behavior:
 	Explanation: The `<audio>` and `<video>` elements are like any other HTML element. CSS 2D and 3D transform rules can be applied, like in some of the examples in this page, that use the CSS transform property. Also, shadows can be added using the box-shadow property.
 
 
+### 2.2.5 Control players from JavaScript
+
+The `<video>` element has methods, properties/attributes and events that can be manipulated with JavaScript. Using the DOM API, it's possible to manipulate an audio or video element as a JavaScript object that has:
+
++ __Methods__ for controlling the behavior, such as play(), pause(), etc.
++ __Properties__ (duration, current position, etc.), either in read/write mode (such as volume), or in read-only mode (such as encoding, duration, etc.)
++ __Events__ generated during the life cycle of the element that can be processed using JavaScript callbacks. It is also possible to send events to control the video player
+
+Like any HTML element, the `<video>` element can be manipulated/created using the DOM JavaScript API. Here is an example of programmatically creating a `<video>` element:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'video.mp4'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun">.</span><span class="pln">controls </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">video</span><span class="pun">);</span></li>
+</ol></div>
+
+This will create a complete video player for the file "video.mp4", with control buttons, and will add it to the `<body>` element of the page.
+
+
+#### Example that shows how to call play/pause or rewind a video
+
+Please look at this [interesting example](https://jsbin.com/gowowoj/edit?html,output) (you can click on "edit in JsBin" to view the source, but we will give simpler and more detailed examples in the next section - this one is more to show what can be done). [[Local Example - Controls](src/2.2.5-controls.html)]
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y3qo49w6')"
+    src    ="https://tinyurl.com/y4skpsq5"
+    alt    ="video + use of the JavaScript API"
+		title  ="video + use of the JavaScript API"
+  />
+</figure>
+
+Note that in order to play the video, you must click on the "vid.play()" text. To pause it, you click on the "vid.pause()" text, and so on. _Notice the text at the top of the video, as well as the transparency._ The text can be selected, since all the elements displayed are pure DOM objects. You can zoom the page in and out, etc. This was not possible with the Flash technology.
+
+__Conclusion__:  you can very easily change the look and feel of the standard video player: use custom CSS and design your own control widgets. We can find many examples of such video players that offer extended functionalities on the Web. We will present some of them later in the course, but before that, let's see a little more of what we can do using the JavaScript API of the `<video>` element.
+
+
+#### Knowledge check 2.2.5
+
+1. Once created or selected using the standard DOM API, can audio and video elements be manipulated as JavaScript objects? (Yes/No)
+
+	Ans: 
+
+
+
+
 
 
 
