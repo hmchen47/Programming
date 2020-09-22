@@ -1014,6 +1014,149 @@ Let's see now, through a set of examples, how to use these most important proper
 	Explanation: If you try the intereactive demonstration, and play the example video, you will see that the duration property indicates the total length of the video. You will also see that the timeupdate event is emitted regularly while the video is being played?
 
 
+### 2.2.7 The `<video>` element JavaScript API
+
+The JavaScript API is useful for implementing playlists, making custom user interfaces and many other interesting things. The "enhanced HTML5 multimedia players" lesson presented further on the course relies heavily on this API.
+
+#### Example #1: how to use external buttons to control the player's behavior
+
+This example shows the first steps towards writing a custom video player. It shows basic usage of the JavaScript API for adding custom buttons to play/pause the video or to go back to the beginning by setting the `currentTime` property to zero.
+
+[Try it online](https://jsbin.com/wapaxex/3/edit?html,css,output), and look at the source code below. [Local Example - Buttons](src/2.2.7-example1.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yxvo5ont')"
+    src    ="https://tinyurl.com/y6qx3agb"
+    alt    ="use external buttons to control the player's behavior"
+    title  ="use external buttons to control the player's behavior"
+  />
+</figure>
+
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"vid"</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">video/webm</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;">...</li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">Example of custom controls:</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">playVideo</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">cursor</span><span class="pun">:</span><span class="pln"> pointer</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Play</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">pauseVideo</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">cursor</span><span class="pun">:</span><span class="pln"> pointer</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Pause</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">rewindVideo</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">cursor</span><span class="pun">:</span><span class="pln"> pointer</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Back to beginning</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#vid"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; function</span><span class="pln"> playVideo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; function</span><span class="pln"> pauseVideo</span><span class="pun">() {</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span class="pun">.</span><span class="pln">pause</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; function</span><span class="pln"> rewindVideo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span class="pun">.</span><span class="pln">currentTime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+ 
+
+_Explanations:_
+
++ _Lines 7, 9 and 11:_ we add a click listener to each button, in order to call a JavaScript function when the button is clicked.
++ _Line 14_: using the DOM API we get the JavaScript object that corresponds to the video element we inserted in the HTML document. This line is outside a function, it will be executed when the page loads.
++ _Lines 17 and 20_: we call methods from the API for playing/pausing the video.
++ _Line 24_: we modify the currentTime property in order to rewind the video. Note that `vid.load()` also rewinds the video, shows the poster image again, but also pauses the video. By using `currentTime=0` the playback does not stop.
+
+
+#### Example #2: how to detect the end of a video and start another one
+
+This example listens for the ended event, and calls a callback function when the video is ended.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"video.ogv"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; video not supported</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">'text/javascript'</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; var vid = document</span><span class="pun">.querySelector</span><span class="pun">(</span><span class="str">'#myVideo'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; vid.addEventListener</span><span class="pun">(</span><span class="str">'ended'</span><span class="pun">,&nbsp;</span><span class="pun"><span style="color: #000000; line-height: 23.2727279663086px; background-color: #ffffff;">playN</span><span style="color: #000000; line-height: 23.2727279663086px; background-color: #ffffff;">extVideo</span>,&nbsp;</span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; function</span><span class="pln">&nbsp;playNextVideo</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Whatever you want to do after the event, change the src attribute</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp;// of the video element, for example, in order to play another video</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+
+#### Example #3: how to manage playlists
+
+This example detects the end of a video then loads the next video, changes the src attribute of the video element and plays the video (see the online [example](https://jsbin.com/nuvejos/edit?html,output) [[Local Example - Playlist](srx/2.2.7-example3.html)]). 
+
+To try this example: use the progress cursor to go near the end of the first video that is being played and see how it continues with the next video. 
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!doctype html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;title&gt;</span><span class="pln">Sequential Movies</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> myVideo</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> currentVideo </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> sources </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="str">"https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4"</span><span class="pun">,</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="str">"https://www.archive.org/download/AnimatedMechanicalArtPiecesAtMit/P1120973_512kb.mp4"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">];</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Set the src of the video to the next URL in the playlist</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// If at the end we start again from beginning (the modulo </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// source.length does that)</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">function</span><span class="pln"> loadNextVideo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>myVideo</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> sources</span><span class="pun">[</span><span class="pln">currentVideo </span><span class="pun">%</span><span class="pln"> sources</span><span class="pun">.</span><span class="pln">length</span><span class="pun">]</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>myVideo</span><span class="pun">.</span><span class="pln">load</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>currentVideo</span><span class="pun">++;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// listener plays the video</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">function</span><span class="pln"> loadAndplayNextVideo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"playing "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> sources</span><span class="pun">[</span><span class="pln">currentVideo </span><span class="pun">%</span><span class="pln"> sources</span><span class="pun">.</span><span class="pln">length</span><span class="pun">])</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>loadNextVideo</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>myVideo</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Called when the page is loaded</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">(){</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// get the video element using the DOM api</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span>myVideo </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Define a callback function called each time a video ended</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span>myVideo</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'ended'</span><span class="pun">,</span><span class="pln"> loadAndplayNextVideo</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Load the first video when the page is loaded.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span>loadNextVideo</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag"><span class="tag"></span>&lt;/head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="atn">controls</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/video&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
++ _Line 9_: the JavaScript array that contains the URLs of the videos in the playlist. In this example, we've got only two of them, but if the array is larger the example will still work.
++ _Line 44_: When the page is loaded, an `init()` function is called.
++ _Lines 34-40_: we used the DOM to get the JavaScript object corresponding to the video element, then define a listener for the `ended` event. Each time a video will end, the `loadAndplayNextVideo()` callback will be called. As the video element has no src attribute by default, we also preload the first video (call to `loadNextVideo()` at line 38).
++ _Lines 17-21_: the `loadNextVideo()` function uses a variable called `currentVideo` that corresponds to the index of the current video. By setting `myVideo.src = sources [currentVideo % sources.length]`, we set the src of the video element to sources[0], then to sources[1], and as we increment the `currentVideo` index each time (line 19), if it becomes greater than 1, the modulo (the "%" symbol is the modulo in JavaScript) will make it "loop" between 0 and the number of videos in the playlist. In other words, when the last video ends, it starts back to the first one.
 
 
 
