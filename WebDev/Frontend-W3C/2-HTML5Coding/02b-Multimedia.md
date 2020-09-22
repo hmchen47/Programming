@@ -123,6 +123,90 @@
 		<li class="L3" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">video</span><span class="pun">);</span></li>
 		</ol></div>
 
++ [Categories of HTML elements](https://html.spec.whatwg.org/multipage/dom.html#content-categories)
+	+ Metadata content
+		+ set up the presentation or behavior of the rest of the content
+		+ set up the relationship of the document with other documents
+		+ convey other "out of band" information
+		+ list of elements: base, link, meta, noscript, script, style, template, title
+	+ Flow content: most elements that are used in the body of documents and applications
+	+ Sectioning content
+		+ define the scope of headings and footers
+		+ list of element: article, aside, nav, section
+	+ Heading content
+		+ define the header of a section
+		+ lis of elements: h1, h2, h3, h4, h5, h6, hgroup
+	+ Phrasing content
+		+ the text of the document, as well as elements that mark up that text at the intra-paragraph level
+		+ runs of phrasing content form paragraphs
+	+ Embedded content
+		+ import another resource into the document, or content from another vocabulary that is inserted into the document
+		+ list of element: audio, canvas, embed, iframe, img, math, object, picture, svg, video
+	+ Interactive content
+		+ specifically intended for user interaction
+		+ a (if the href attribute is present), audio (if the controls attribute is present), button, details, embed, iframeimg (if the usemap attribute is present), input (if the type attribute is not in the Hidden state), label, object (if the usemap attribute is present), select, textarea, video (if the controls attribute is present)
+
++ [The most interesting methods, properties, and events provided by the `<video>` element API](#226-the-javascript-api)
+
+	<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 40vw;" cellspacing="0" cellpadding="5" border="1">
+  	<caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.w3.org/2010/05/video/mediaevents.html">HTML5 Video Events and API</a></caption>
+		<thead>
+		<tr style="font-size: 1.2em;">
+			<th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+			<th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
+			<th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Events</th>
+		</tr>
+	<tbody>
+		<tr>
+			<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play()</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentSrc</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play</span></strong></td>
+		</tr>
+		<tr>
+			<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">pause()</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentTime</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">pause</span></strong></td>
+		</tr>
+		<tr>
+			<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">load()</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">startTime (readonly)</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">progress</span></strong></td>
+		</tr>
+		<tr>
+			<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">canPlayType()</strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">videoWidth</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">error</strong></td>
+		</tr>
+		<tr>
+			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">videoHeight</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">timeupdate</strong></td>
+		</tr>
+		<tr>
+			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">duration (readonly)</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">ended</strong></td>
+		</tr>
+		<tr>
+			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">ended (readonly)</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">abort</strong></td>
+		</tr>
+		<tr>
+			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">error</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">empty</strong></td>
+		</tr>
+		<tr>
+			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">paused (readonly)</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">emptied</strong></td>
+		</tr>
+		<tr>
+			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">muted</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">waiting</strong></td>
+		</tr>
+		<tr>
+			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">seeking</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">loadedmetadata</strong></td>
+		</tr>
+		<tr>
+			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">volume</span></strong></td> <td></td>
+		</tr>
+		<tr>
+			<td></td>	<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">height</span></strong></td> <td></td>
+		</tr>
+		<tr>
+			<td></td> <td> <p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">width</span></strong></p> </td> <td></td>
+		</tr>
+		<tr>
+			<td></td> <td> <p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;" face="courier new, courier, monospace">seekable (readonly)</span></strong></p> </td> <td></td>
+		</tr>
+		<tr>
+			<td></td> <td> <p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">played (readonly)</span></strong></p> </td> <td></td>
+		</tr>
+	</tbody>
+	</table>
 
 
 
@@ -841,7 +925,7 @@ The complete list of events can be found in the [HTML5 living standard specifica
 
 The list of properties can be found at the [W3C HTML5 Video Events and API page](https://tinyurl.com/2a3jncy). This page is interesting for Web developers because it shows an interactive view of the different values and events changing over time while the video is playing within the page.
 
-Click on the picture below to see it running online (or try the [direct link](https://www.w3.org/2010/05/video/mediaevents.html), [Local Example]), then play with the different buttons and look at the table of events and properties that will change in real time. The displayed names show the properties, events, and methods from the API.
+Click on the picture below to see it running online (or try the [direct link](https://www.w3.org/2010/05/video/mediaevents.html)), then play with the different buttons and look at the table of events and properties that will change in real time. The displayed names show the properties, events, and methods from the API.
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 35vw;"
@@ -856,13 +940,14 @@ Here is a table that shows the most interesting methods, properties, and events 
 
 We provide this as a quick reminder - keep in mind that the [complete list](https://tinyurl.com/yxeolk5k) is much longer! 
 
-<table style="border-collapse: collapse; border-spacing: 0px; table-layout: auto; border: 2px solid #0f0505; background-color: transparent; width: 57.5%; margin: auto;" dir="ltr" rules="all" frame="box" cellpadding="10" border="2">
+<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 40vw;" cellspacing="0" cellpadding="5" border="1">
+  <thead>
+  <tr style="font-size: 1.2em;">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Events</th>
+  </tr>
 <tbody>
-	<tr>
-	<td style="text-align: center; background-color: #2eced1; color: black;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Methods</strong></span></td>
-	<td style="text-align: center; background-color: #2eced1; color: black;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Properties</strong></span></td>
-	<td style="text-align: center; background-color: #2eced1; color: black;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Events</strong></span></td>
-	</tr>
 	<tr>
 		<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play()</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentSrc</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play</span></strong></td>
 	</tr>
@@ -925,7 +1010,10 @@ Let's see now, through a set of examples, how to use these most important proper
 	a. duration and timeupdate<br/>
 	b. currentTime and play<br/>
 
-	Ans: 
+	Ans: a<br/>
+	Explanation: If you try the intereactive demonstration, and play the example video, you will see that the duration property indicates the total length of the video. You will also see that the timeupdate event is emitted regularly while the video is being played?
+
+
 
 
 
