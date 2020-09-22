@@ -74,6 +74,38 @@
 	+ `loop`: play the audio stream in loop mode
 	+ best practice in regard to `preload` and `autoplay` attributes should be followed as `<video>` element
 
++ [Styling media palyers](#224-styling-media-players-with-css)
+	+ CSS w/ transitions, animations and transforms but not Flash technology
+	+ CSS: resizing and rotating a video as mouse hover
+		+ pseudo CSS class :`hover` to track `mouseover`event
+		+ `transition` property: interpolate the changes in the scale; e.g., `transition: all 0.5s ease-in-out;`
+		+ `transform` property: orientation of the video element; e.g., `transform:rotate(-5deg);`
+	+ Solutions for full screen video
+		+ full screen video: JavaScript modifying CSS properties
+			+ resizing and maintaing ratio for full screen
+			+ a trendy way to displaying videos
+			+ regular video & embedded YouTube
+				+ using `<video>` and `<source>` elements
+				+ applying JavaScript code to handle the window `resize` event
+				+ regular CSS properties `width` and `height` to resize
+			+ working on any browser and displayed the whole vidoe
+		+ full screen video: pure CSS
+			+ cropped video frame than rescaled
+			+ zoomed-in video to make video bigger than browser's window
+			+ placing the video within `<header>` element w/ transparent and repeated background; e.g., `background-image: url('https://dupontcours.free.fr/IMG/dots.png'),  url('#');` & `background-repeat: repeat, no-repeat;`
+			+ video position: origin (top left corner) away from the visible surface w/ 100% surface; e.g., `transform:translateX(-50%) translateY(-50%);` & `min-width:100%; min-height:100%;`
+			+ cropped video
+		+ full screen video: CSS `viewport` unit
+			+ using `viewport` instead of default video size; e.g., `width: 100vw; height: 100vh;`
+			+ behave the same as the 1st solution w/ JavaScript
+			+ dispalyed the whole video
+	+ effecct of `width: 100%; height: 100%`
+		+ 100% size of the tag
+		+ `<body>` tage w/ `width: 100%;`: the browser windows size, i.e., video always full width
+		+ `<body>` tage w/ `height: 100%;`: determined by the size of its children, gorw or shrink according the size of its children
+		+ part of the video invisible as the browser window shorter the video height
+
+
 
 ### 2.2.1 The `<video>` element
 
@@ -333,14 +365,14 @@ The `<video>` and `<audio>` elements are just like other HTML elements, so CSS c
 
 #### An example of an audio player with some style
 
-You can try this example [online at JSBin](https://jsbin.com/zoquru/2/edit?html,css,output) ([Local Example 1](src/2.2.4-example1.html))
+You can try this example [online at JSBin](https://jsbin.com/zoquru/2/edit?html,css,output) ([Local Example - Styling Audio player](src/2.2.4-example1.html))
 
 To add some styling to the basic example we saw when we introduced the `<audio>` element, we just add a `<figure>` with two children: an `<img>` and a `<figcaption>`. Inside the `<figcaption>` we add the `<audio>` element from the previous example.
 
 MOVE THE MOUSE POINTER OVER THIS PLAYER'S ELEMENTS! (Effect not shown due to CSS pseudo-class selector)
 
 <figure style="width : 420px;;
-    text-align:center; padding : 6px; background : white; margin : 0 11px 0px 0; border :solid 1px #888888; border-radius : 8px ;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Nokota_Horses.jpg" width="300"> <figcaption style="font-size : .8em; padding : 6px 8px; background : #dddddd; display :block; text-align :center; font-family : georgia, serif; font-style : italic; border-radius : 7px ;"> Press Play to hear the horse !<br/> <audio controls="controls" style="margin: auto;">
+    text-align:center; padding : 6px; background : white; margin : 0 11px 0px 0; border :solid 1px #888888; border-radius : 8px ;"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Nokota_Horses.jpg" width="300"> <figcaption style="font-size : .8em; padding : 6px 8px; background : #dddddd; display :block; text-align :center; font-family : georgia, serif; font-style : italic; border-radius : 7px ; color: black;"> Press Play to hear the horse !<br/> <audio controls="controls" style="margin: auto;">
   <source src="https://mainline.i3s.unice.fr/mooc/horse.ogg" type="audio/ogg">
   <source src="https://mainline.i3s.unice.fr/mooc/horse.mp3" type="audio/mp3">
   Your browser does not support the audio element.
@@ -362,10 +394,10 @@ HTML source code:
 <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the audio element.</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Download the audio/video in</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">”https://mainline.i3s.unice.fr/mooc/horse.ogg”</span><span class="tag">&gt;</span><span class="pln">OGG</span><span class="tag">&lt;/a&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;or </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">”https://mainline.i3s.unice.fr/mooc/horse.mp3”</span><span class="tag">&gt;</span><span class="pln">MP3</span><span class="tag">&lt;/a&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;or </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">”https://mainline.i3s.unice.fr/mooc/horse.mp3”</span><span class="tag">&gt;</span><span class="pln">MP3</span><span class="tag">&lt;/a&gt;</span><span class="pln"> </span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; format.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/audio&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/figcaption&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp;&nbsp;&nbsp; &nbsp;&lt;/audio&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;/figcaption&gt;</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/figure&gt;</span></li>
 </ol></div>
 
@@ -430,7 +462,7 @@ See this [example online](https://tinyurl.com/y3gh2gms) (where you can modify th
 	<source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm" type="video/webm">
 	<source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg" type="video/ogg">
 	<source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4" type="video/mp4">
-</video>
+</video><br/>
 
 This example uses the pseudo CSS class :hover in order to track the `mouseover` event. On mouseover, it uses a CSS `transition` property that interpolates the changes in the scale and orientation of the video element (done using a `transform` CSS property).
 
@@ -483,7 +515,7 @@ The interesting part is that we use a 100% standard (and really small and simple
 
 __Example #1: with a regular video__
 
-[Online at JS Bin](https://jsbin.com/gezudoy/edit?html,css,js,console,output) ([Local Example 2](src/2.2.4-example2.html))
+[Online at JS Bin](https://jsbin.com/gezudoy/edit?html,css,js,console,output) ([Local Example - Regular Video](src/2.2.4-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
 	<img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
@@ -497,7 +529,7 @@ __Example #1: with a regular video__
 
 Here is the HTML code. It's really simple, just notice the <body onload="init();"> which calls the JavaScript init() function right after the page is loaded.
 
-<<div class="source-code"><ol class="linenums">
+<div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
@@ -556,7 +588,7 @@ And now the JavaScript code:
 
 __Example #2: with a YouTube video__
 
-[Online at JS Bin](https://jsbin.com/yoreco/1/edit?html,css,js,output)  ([Local Example 3](src/2.2.4-example3.html))
+[Online at JS Bin](https://jsbin.com/yoreco/1/edit?html,css,js,output)  ([Local Example - YouTube](src/2.2.4-example3.html))
 
 The CSS and JavaScript codes for this example are exactly the same as in Example #1.
 
@@ -570,7 +602,7 @@ The CSS and JavaScript codes for this example are exactly the same as in Example
 </figure>
 
 
-#### Full screen video, pure CSS approaches
+__Full screen video, pure CSS approaches__
 
 1. Let's use the video from the PayPal Web site, played full screen using only very simple CSS.
 
@@ -682,9 +714,9 @@ The trick here is that:
 + the video is in the header, and the header has a plotted transparent background that is repeated in X and Y (see lines 8 and 9).
 + The video is positioned so that it's origin (top left corner) is away from the visible surface (line 25), while it is set to take 100% of the surface (lines 20 and 21).
 
-Full screen video that resizes and keeps its ratio, using the viewport units.
+__Full screen video that resizes and keeps its ratio, using the viewport units.__
 
-[Example on JsBin](https://output.jsbin.com/henaruv) ([Local example](src/1.2.3-example.html))
+[Example on JsBin](https://output.jsbin.com/henaruv) ([Local example - Full Screen w/ Viewport](src/2.2.4-example4.html))
 
 This time we obtain the same result as with the first example that used JavaScript and a resize event. The video resizes correctly and keeps its ratio.
 
@@ -730,7 +762,10 @@ Setting the video to 100% `width` and `height` results in different behavior:
 
 1. Using CSS, is it possible to apply geometric transformations to a video player, or to add shadows to an audio player? (Yes/No)
 
-	Ans: 
+	Ans: Yes<br/>
+	Explanation: The `<audio>` and `<video>` elements are like any other HTML element. CSS 2D and 3D transform rules can be applied, like in some of the examples in this page, that use the CSS transform property. Also, shadows can be added using the box-shadow property.
+
+
 
 
 
