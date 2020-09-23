@@ -77,6 +77,22 @@
     + the `currentTime` property: knowing exactly where we are in the video
     + an external library to render in an HTML5 canvas the bars corresponding to the current video explanations
 
++ [Pros of customized video players](#advantages-and-disadvantages-of-using-a-custom-player)
+  + advantages of enhanced video players
+    + support all kinds of subtitle formats
+    + customizable look'n'feel
+    + full screen mode w/o broders on old browsers
+    + consistent look'n'feel for browsers
+    + fast playback
+    + sharing buttons for social media
+    + support chapters
+    + support scrub bar thumbnails
+    + extra features foor better accessibility
+    + and so on...
+  + advantages of using the `<video>` elements
+    + total control
+    + no need for external dependecies
+    + lightweight: prevent from downloading JavaScript and CSS code
 
 
 ### 2.3.1 HTML5 captioning
@@ -765,7 +781,7 @@ Open source, and made for developers, [video.js](https://videojs.com/) comes wit
 </figure>
 
 
-__Which should I use? the <video> element and my own customizations or an out of the box enhanced player?__
+__Which should I use? the `<video>` element and my own customizations or an out of the box enhanced player?__
 
 Either solution (basic player or enhanced player) is good and HTML5 compliant.
 
