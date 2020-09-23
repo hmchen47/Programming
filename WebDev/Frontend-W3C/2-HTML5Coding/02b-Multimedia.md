@@ -209,6 +209,42 @@
 	</table>
 
 
++ The `<video>` element JavaScript API
+	+ useful for implementing playlists, making custom user interfaces and many other interesting things
+	+ use external buttons to control the player's behavior
+		+ HTML code
+			+ `<button onclick="playVideo();" style="cursor: pointer;">Play</button>`
+			+ `<button onclick="pauseVideo();" style="cursor: pointer;">Pause</button>`
+		+ JavaScript:
+			+ `vid = document.querySelector("#vid");`: get the JavaScript object corresponding to the video element
+			+ `vid.play();` & `vid.pause()`: methods from API for plating/pausing the video
+			+ `vid.currentTime = 0;`: rewind the video
+			+ `vid.load()`: rewind the video to `vid.currentTime = 0` and pause the video
+	+ detect end of the video and start another one
+		+ HTML code: `vid.addEventListener('ended', playNextVideo, false);`
+		+ JavaScript: 
+
+			```js
+			function playNextVideo(e) {
+				// Whatever you want to do after the event, change the src attribute
+				// of the video element, for example, in order to play another video
+			}
+			```
+
+	+ manage playlist
+		+ HTML code
+			+ `var sources = ["https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4", "https://www.archive.org/.../P1120973_512kb.mp4"];`: a list for videos to play
+			+ `<body onload="init()">`: call `init()` as the page loaded
+		+ JavaScript:
+			+ `myVideo = document.querySelector("#myVideo");`: used the DOM to get the JavaScript object corresponding to the video element
+			+ `myVideo.addEventListener('ended', loadAndplayNextVideo, false);`: define the listerner for the `ended` event
+			+ `loadNextVideo();`: callback function to react the `ended` event
+				+ `currentVideo`: a variable corresonding to the the index of the current video
+				+ `myVideo.src = sources [currentVideo % sources.length]`: set the src of the video element to `sources[0]`, then to `sources[1]`, and nodule w/ the length of the list to repeat the playing
+
+
+
+
 
 ### 2.2.1 The `<video>` element
 
@@ -1097,7 +1133,7 @@ This example listens for the ended event, and calls a callback function when the
 
 #### Example #3: how to manage playlists
 
-This example detects the end of a video then loads the next video, changes the src attribute of the video element and plays the video (see the online [example](https://jsbin.com/nuvejos/edit?html,output) [[Local Example - Playlist](srx/2.2.7-example3.html)]). 
+This example detects the end of a video then loads the next video, changes the src attribute of the video element and plays the video (see the online [example](https://jsbin.com/nuvejos/edit?html,output) [[Local Example - Playlist](src/2.2.7-example3.html)]). 
 
 To try this example: use the progress cursor to go near the end of the first video that is being played and see how it continues with the next video. 
 
