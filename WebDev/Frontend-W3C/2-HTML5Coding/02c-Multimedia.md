@@ -65,6 +65,17 @@
   + creating subtitles/captions from scratch
   + enhanced HTML5 video player using `<video>`, `<source>` & `<track>` elements
 
++ The `<track>` JavaScript API
+  + powerful API that is used to develop many interesting features
+    + dynamically building a navigation menu
+    + synchronizing page content w/ timestamps in the WebVTT file
+    + displaying all the subtitles/captions at once
+    + making an app for creating on the fly subtitles/captions
+    + etc.
+  + sync guitar tablatures and music score with a video
+    + JavaScript code listens to the `ontimeupdate` event while the video is playing
+    + the `currentTime` property: knowing exactly where we are in the video
+    + an external library to render in an HTML5 canvas the bars corresponding to the current video explanations
 
 
 
@@ -708,6 +719,124 @@ Some JavaScript code listens to the `ontimeupdate` event while the video is play
 
 ### 2.3.8 Enhanced HTML5 video players
 
+There are numerous "enhanced" video players; most are free and open source, some are commercial. They offer lots of features, which are listed below. Not all of these features are available in every player, this list just illustrates what can be added to the standard `<video>` element. 
+
+We call them "HTML5 enhanced video players" because on top of being based on the `<video>` element, they come with custom features, custom look'n'feel, chapters, etc., based on a JavaScript API that makes such customizations possible.
+
+
+#### Accessible players
+
+For those of you interested in this particular topic, here is a very good resource that compares most of the players presented in this section, in terms of accessibility. This resource has links to players designed especially for people with disabilities: [accessible media players and resources](https://tinyurl.com/yywpkanp).
+
+
+#### Advantages and disadvantages of using a custom player
+
+__Advantages of enhanced video players:__
+
++ Support for all kinds of subtitle formats
++ Customizable look'n'feel (add your logo, custom themes, etc.)
++ Full screen mode without borders on old browsers (today's implementations of the `<video>` element support full screen mode)
++ Consistent look'n'feel across browsers (menus for subtitles, etc.)
++ 1.5x, 2x, 3x speeds for fast playback
++ Social buttons for sharing on Facebook, Twitter, etc.
++ Support for chapters
++ Support for scrub bar thumbnails
++ Extra features for better accessibility
++ And so on...
+
+__Advantages of relying only on the `<video>` element  rather than on an enhanced player:__
+
++ Total control!
++ No need for external dependencies
++ Lightweight: no need to download lots of JavaScript and CSS code (also, Flash fallbacks in some cases)
+
+
+#### Video.js: a framework for building your own custom video player
+
+Open source, and made for developers, [video.js](https://videojs.com/) comes with many plugins (chapters, thumbnails etc.). 
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y2ndcobj')"
+    src    ="https://tinyurl.com/y35sl96w"
+    alt    ="VideoJS examples"
+    title  ="VideoJS examples"
+  />
+</figure>
+
+
+__Which should I use? the <video> element and my own customizations or an out of the box enhanced player?__
+
+Either solution (basic player or enhanced player) is good and HTML5 compliant.
+
+Popular players such as [JWPlayer](https://www.jwplayer.com/) have many explanations and examples on their Web sites, and are either free of charge or come with free versions.
+
+Interesting comparisons and reviews are available on the following Web sites:
+
++ Comparison matrix of most of [existing HTML5 video players](https://videosws.praegnanz.de/)
++ [10 HTML5 video players compared](https://tinyurl.com/y4fmzwwd)
+
+
+#### Example screenshots
+
+Scrub Bar thumbnails (JWPlayer)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y2ndcobj')"
+    src    ="https://tinyurl.com/y4v7ajv2"
+    alt    ="scrub bar thumbnails"
+    title  ="scrub bar thumbnails"
+  />
+</figure>
+
+
+Custom look'n'feel and logo (Sublime video player):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y2ndcobj')"
+    src    ="https://tinyurl.com/y6bko6jz"
+    alt    ="custom look'n'feel and logo"
+    title  ="custom look'n'feel and logo"
+  />
+</figure>
+
+
+Chapters and chapter thumbnails (JWPlayer):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y2ndcobj')"
+    src    ="https://tinyurl.com/y28oo95x"
+    alt    ="chapters and chapter thumbnails"
+    title  ="chapters and chapter thumbnails"
+  />
+</figure>
+
+
+PayPal accessible player:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y2ndcobj')"
+    src    ="https://tinyurl.com/y5cwgplp"
+    alt    ="paypal accessible player"
+    title  ="paypal accessible player"
+  />
+</figure>
+
+
+LeanBack (says "free for non-commercial use", licensing is not very clear...):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y2ndcobj')"
+    src    ="https://tinyurl.com/y3njxae3"
+    alt    ="leanback free and open source"
+    title  ="leanback free and open source"
+  />
+</figure>
 
 
 
