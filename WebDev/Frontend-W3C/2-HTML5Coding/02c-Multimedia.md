@@ -855,12 +855,35 @@ LeanBack (says "free for non-commercial use", licensing is not very clear...):
 </figure>
 
 
-
-
 ### 2.3.9 Discussion and projects
 
+Here is the discussion forum dedicated to "closed captions and subtitles". Do not hesitate to post comments and questions, as well as to share your creations here.
+
+Some topics of discussion and optional projects:
+
+#### Suggested topics
+
+What tools do you use for adding subtitles to videos?
+Did you have problems with encoding foreign languages?
+What subtitle format do you use? WebVTT or .srt or something else?
 
 
+#### Optional projects
 
+Here are a few project ideas. Your classmates and the team who prepared the course will all be glad to try them and give some feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
+__Project 1 (very easy)__: add some subtitles of your own on one of your videos. Share your step by step experience. This will be a valuable resource for your classmates.
+
+See an example that might help:
+
++ [Very simple example on JsBin with a video and subtitles](https://jsbin.com/jicanav/2/edit?html,css,output). Note the use of the `crossorigin` attribute of the <video> element. The subtitles were created by hand (using amara).
+
+__Project 2 (easy)__: try to style some of the subtitles, set their position, etc.
+
+Example that can help:
+
++ Try it on JSBin: [Samurai Pizza Cat](https://jsbin.com/fadayoq/3/edit?html,css,output) with subtitled lyrics grabbed from the [Wikiquote Web site](https://en.wikiquote.org/wiki/Samurai_Pizza_Cats#Main_Title_Song), and synchronized using [amara](https://amara.org/en/).
+
+__Project 3 (with JavaScript knowledge)__: Please write a karaoke player with a small list of songs for people to choose from.
 
 
