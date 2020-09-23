@@ -641,8 +641,11 @@ Examples of what you can achieve using chapters (more details are shown in the [
 
 ### 2.3.6 Tools for creating WebVTT files
 
+Many tools are available to make and edit HTML5 video and caption/subtitles:
 
-
++ __Tools for converting existing file formats to  WebVTT files__, such as the `.srt` format, which is popular in the DivX/AVI/Mkv scene. This [article](https://tinyurl.com/y3cug5zk) reviews 3 of them, but there are many more. Do a quick Web search and you will get plenty of results.
++ __Tools for creating subtitles/captions from scratch. Use these to generate a WebVTT file.__ You can embed the `<track>` element in your own videos, on your own Web pages, or upload the WebVTT file to YouTube.  We recommend [amara](https://amara.org/en/). It's a free online tool that is very easy to use. Check the "add subtitles/captions to your video" unit of this course. 
++ __Enhanced HTML5 video players__ that use the `<video>`, `<source>` and `<track>` elements under the hood. They also provide many extra features, including __support for subtitle/caption formats other than WebVTT (by converting on the fly)__.
 
 
 ### 2.3.7 The <track> JavaScript API
