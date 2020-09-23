@@ -566,7 +566,71 @@ Example source code:
 
 ### 2.3.5 Chapters
 
+Adding chapters is very similar to adding subtitles/captions. Look at line 5 in the code below, where we use an extra `<track>` element with a `kind="chapters"` attribute.
 
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">poster</span><span class="pun">=</span><span class="atv">"webvtt_talk.png"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%</span><span class="atv">"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"webvtt_talk.webm"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"webvtt_talk.mp4"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"webvtt_talk.ogv"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"nav"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"webvtt_talk_navigation.vtt"</span><span class="pln"> </span><strong><span class="atn">kind</span><span class="pun">=</span><span class="atv">"chapters"</span></strong><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"cc"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"webvtt_talk_captions.vtt"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"captions"</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span class="pun">=</span><span class="atv">"captions"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span><span class="atn">default</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+</ol></div>
+
+Here is an example of WebVTT files with defined chapters. Each "CUE" at lines 3, 7, 11, ... can bear any name. We use "Chapter 1, Chapter 2, Ending, etc." but you are free to name them as you choose.
+
+What makes them special is that the track has an attribute `kind="chapters"`. 
+
+It's also easy to process them, and for example, to generate a custom navigation menu, using the `<track>` JavaScript API (explained later in this section).
+
+Example of a WebVTT file that defines chapters:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT FILE</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span style="color: #660066;" color="#660066">Chapter</span>&nbsp;</span><span class="lit">1</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">10.700</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">Title</span><span class="pln"> </span><span class="typ">Slide</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="typ">Chapter</span><span class="pln">&nbsp;</span><span class="lit">2</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">10.700</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">47.600</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="typ">Introduction</span><span class="pln"> </span><span class="kwd">by</span><span class="pln"> </span><span class="typ">Naomi</span><span class="pln"> </span><span class="typ">Black</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="typ">Chapter</span><span class="pln">&nbsp;</span><span class="lit">3</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">47.600</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">50.100</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="typ">Impact</span><span class="pln"> of </span><span class="typ">Captions</span><span class="pln"> on the </span><span class="typ">Web</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">Chapter</span><span class="pln">&nbsp;</span><span class="lit">4</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">50.100</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">03</span><span class="pun">:</span><span class="lit">33.000</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="typ">Requirements</span><span class="pln"> of a </span><span class="typ">Video</span><span class="pln"> text format</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span style="color: #660066;" color="#660066">Ending</span></span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">03</span><span class="pun">:</span><span class="lit">33.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">04</span><span class="pun">:</span><span class="lit">57.766</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="typ">Simple</span><span class="pln"> </span><span class="typ">WebVTT</span><span class="pln"> file</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span style="color: #660066;" color="#660066">Greetings</span>&nbsp;</span><span class="lit">6</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">04</span><span class="pun">:</span><span class="lit">57.766</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">06</span><span class="pun">:</span><span class="lit">16.666</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">Styled</span><span class="pln"> </span><span class="typ">WebVTT</span><span class="pln"> file</span></li>
+</ol></div>
+
+Examples of what you can achieve using chapters (more details are shown in the [W3Cx HTML5 Apps and Games course](https://www.edx.org/course/html5-apps-and-games)).
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/yyurmkx4" ismap target="_blank">
+    <img style="margin: 0.1em;" height=200
+      src  ="https://tinyurl.com/yy8eglzq" 
+      alt  ="jwplayer and chapters" 
+      title="jwplayer and chapters"
+    >
+    <img style="margin: 0.1em;" height=200
+      src  ="https://tinyurl.com/yxa7e2ng" 
+      alt  ="sublimevideo player takes into account chapters" 
+      title="sublimevideo player takes into account chapters"
+    >
+  </a>
+</div>
 
 
 
