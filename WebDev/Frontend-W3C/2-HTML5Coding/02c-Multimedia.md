@@ -18,6 +18,18 @@
   + `label` attribute: displayed in the GUI control that is included in the default HTML5 video player
   + `srclang`: the language for the text track data, MUST present if `kind=subtitles`
 
++ The `WebVTT` format
+  + WebVTT: The Web Video Text Tracks Format
+  + files containing text for captions and subtitles, and much more..
+  + used with the `src` attribute of the `<track>` element
+  + format: a starting and ending time, plus a value (the text that will be displayed), followed by a blank line (blank lines are separators between elements)
+  + "cue"
+    + (optional) an ID useful when using the track element JavaScript API, in particular the `getCueById()` method of `TextTrack` object
+    + types of ID:
+      + numeric ID; e.g., `9`
+      + string ID; e.g., `opening`
+  + able to be displayed multiple lines w/o blank lines
+
 
 
 ### 2.3.1 HTML5 captioning
@@ -225,11 +237,11 @@ And here is an extract of the corresponding [sintel-captions.vtt](https://mainli
 <li class="L7" style="margin-bottom: 0px;"><span class="str">Thank you.</span></li>
 </ol></div>
 
-This format is rather simple, but we still recommend reading this excellent article from Mozilla Developer Network that explains in detail all the different options.
+This format is rather simple, but we still recommend reading [this excellent article from Mozilla Developer Network](https://tinyurl.com/y3sxj9a3) that explains in detail all the different options.
 
 Each "element" in this file has a starting and ending time, plus a value (the text that will be displayed), followed by a blank line (blank lines are separators between elements).
 
-__Each element is called "a cue"__, and may optionally have an ID that will be useful when using the track element JavaScript API, in particular the getCueById() method of TextTrack objects. How to use these will be taught in the "advanced HTML5" course, soon on W3Cx
+__Each element is called "a cue"__, and may optionally have an ID that will be useful when using the track element JavaScript API, in particular the `getCueById()` method of `TextTrack` objects. How to use these will be taught in the "advanced HTML5" course, soon on W3Cx
 
 Example of numeric IDs:
 
