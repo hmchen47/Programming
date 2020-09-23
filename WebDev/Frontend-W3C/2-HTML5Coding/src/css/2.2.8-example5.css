@@ -1,0 +1,478 @@
+.badges {
+  background-color: darkgrey;
+  height: 100%;
+  margin: 0 auto;
+  max-height: 100px;
+  max-width: 100px;
+  width: 100%;
+}
+
+.badges a {
+  background-color: #e44d26;
+  height: 100%;
+  max-height: 100px;
+  max-width: 100px;
+  width: 100%;
+}
+
+.banner {
+  background-color: #e44d26;
+  color: #fff;
+  font-size: 400%;
+  margin: 0;
+  padding-bottom: .5%;
+  text-shadow: -1px 0 2px #000, 0 1px 2px #000, 1px 0 2px #000, 0 -1px 2px #000;
+  width: 100%;
+}
+
+.container {
+  background-color: #D3D3D3;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.denote {
+  margin-top: 0;
+  text-align: right;
+  width: 100%;
+}
+
+.denote,
+.signup span,
+figcaption,
+footer {
+  font-size: 80%;
+}
+
+.drop {
+  margin: 2%;
+  width: 20%;
+}
+
+.dropZone {
+  background: darkgrey;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  height: 8em;
+  overflow: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.leftSide {
+  border-right: 1px solid #000;
+}
+
+.leftSide dl {
+  display: block;
+  margin: 0 auto;
+  text-align: left;
+  width: 50%;
+}
+
+.page {
+  background-color: #f16529;
+  border-bottom: 1px solid #000;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 200%;
+  margin: 0;
+  padding-bottom: .2%;
+  text-shadow: -1px 0 2px #000, 0 1px 2px #000, 1px 0 2px #000, 0 -1px 2px #000;
+  width: 100%;
+}
+
+.player {
+  background: #000;
+  margin: 0 auto;
+  max-width: 640px;
+  overflow: hidden;
+  width: 95%;
+}
+
+.player button {
+  background-color: #004080;
+  border: none;
+  color: #D3D3D3;
+  float: left;
+  font-size: 100%;
+  height: 1.75em;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  width: 15%;
+}
+
+.player button:hover,
+.player input:hover {
+  background-color: #00509F;
+  color: #fff;
+  cursor: pointer;
+}
+
+.player input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: #004080;
+  border: none;
+  color: #D3D3D3;
+  float: left;
+  height: 1.5em;
+  margin: 0;
+  padding: 0;
+  width: 40%;
+}
+
+.player input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+.player input[type=range]::-webkit-slider-thumb {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: #00509F;
+  border: 1px solid #D3D3D3;
+  box-sizing: border-box;
+  height: 1.5em;
+  width: 1em;
+}
+
+.player video {
+  background: #000;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 10% auto;
+  max-width: 640px;
+  width: 100%;
+}
+
+.result {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 640px;
+  width: 100%;
+}
+
+.rightSide {
+  border-left: 1px solid #000;
+}
+
+.selfie {
+  height: 100%;
+  max-width: 128px;
+  width: 100%;
+}
+
+.sideNavBar a {
+  width: 100%;
+}
+
+.signup {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: left;
+  width: 95%;
+}
+
+.signup div {
+  display: inline-block;
+  margin-bottom: .8%;
+  width: 100%;
+}
+
+.signup input {
+  background: darkgrey;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  height: 1.5em;
+  width: 50%;
+}
+
+.signup input:focus {
+  background-color: #fff;
+  color: #000;
+}
+
+.signup input:hover {
+  background-color: #FFF;
+  cursor: default;
+}
+
+.signup input:required:valid {
+  background-color: #fff;
+  border-color: #e44d26;
+  color: #000;
+}
+
+.signup input:valid {
+  background: #fff;
+  border-color: #e44d26;
+}
+
+.signup input[type=button] {
+  background-color: #004080;
+  color: #D3D3D3;
+}
+
+.signup input[type=button]:hover,
+.signup input[type=file]:hover,
+input[type=submit]:hover {
+  cursor: pointer;
+}
+
+.signup input[type=date] {
+  font-size: 130%;
+}
+
+.signup input[type=file] {
+  background: #004080;
+  border: none;
+  color: #D3D3D3;
+  display: block;
+  float: left;
+  height: 1.5em;
+  width: 50%;
+}
+
+.signup label {
+  color: #000;
+  display: inline-block;
+  margin-left: 2.5%;
+  width: 25%;
+}
+
+.signup progress {
+  background-color: #004080;
+  border: none;
+  display: block;
+  float: right;
+  height: 1.7em;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+}
+
+.signup span {
+  margin-left: .2em;
+  width: 20%;
+}
+
+.staticMap {
+  background-color: #e44d26;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  color: #fff;
+  height: 100%;
+  margin: 0 auto;
+  max-height: 200px;
+  max-width: 200px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.thumbs {
+  background-color: darkgrey;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+}
+
+.thumbs img {
+  height: 100%;
+  margin: 2%;
+  max-width: 128px;
+  width: 20%;
+}
+
+.thumbs img:hover {
+  border: 1px solid #FFF;
+  cursor: pointer;
+}
+
+.top {
+  border-bottom: 1px solid #000;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.topNavBar a {
+  float: left;
+  width: 20%;
+}
+
+.topNavBar li,
+.sideNavBar li {
+  list-style-type: none;
+}
+
+.topNavBar,
+.sideNavBar {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-input-placeholder {
+  color: #000;
+}
+
+::-moz-placeholder {
+  color: #000;
+}
+
+:-ms-input-placeholder {
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-thumb,
+.player input[type=range]:hover {
+  background-color: #00509F;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+  background-color: #004080;
+}
+
+:focus {
+  outline: #000;
+}
+
+a {
+  background-color: #004080;
+  color: #fff;
+  display: block;
+  font-size: 120%;
+  height: 1.4em;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+a:hover,
+summary:hover,
+.signup input[type=button]:hover,
+.signup input[type=file]:hover,
+input[type=submit]:hover {
+  background-color: #00509F;
+  color: #fff;
+  font-weight: 600;
+}
+
+article {
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+}
+
+aside {
+  background-color: darkgrey;
+  border-bottom: 1px solid #000;
+  box-sizing: border-box;
+  float: left;
+  overflow: hidden;
+  padding-bottom: 5%;
+  width: 20%;
+}
+
+body {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  background-color: grey;
+  color: #000;
+  font-family: Verdana "Geneva" sans-serif;
+  font-size: 11px;
+  text-align: center;
+  user-select: none;
+}
+
+body:hover {
+  cursor: default;
+}
+
+canvas {
+  background-image: url("http://www.webbem.nl/images/dungeon.jpg");
+  border: 1px solid #000;
+}
+
+details {
+  background-color: darkgrey;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 60%;
+}
+
+footer {
+  background-color: #004080;
+  clear: both;
+  color: #D3D3D3;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+img {
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #004080;
+  border-color: #000;
+  color: #D3D3D3;
+  font-size: 120%;
+  margin-top: 1%;
+  width: 20%;
+}
+
+legend {
+  text-align: center;
+}
+
+mark {
+  background: #e44d26;
+}
+
+ol {
+  margin: 0 auto;
+  text-align: left;
+  width: 60%;
+}
+
+section {
+  float: left;
+  overflow: hidden;
+  padding-bottom: 5%;
+  width: 60%;
+}
+
+summary {
+  background-color: #004080;
+  color: #fff;
+  height: 1.4em;
+}
