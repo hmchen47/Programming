@@ -30,6 +30,11 @@
       + string ID; e.g., `opening`
   + able to be displayed multiple lines w/o blank lines
 
++ [Adding subtitles to a video](#233-adding-subtitles-to-a-video)
+  + required a video on one of the formats/codecs supported by the browsers you target; e.g., `H624` and `webm`
+  + video encoding software: [Handbrake](https://handbrake.fr/), [Super](https://www.erightsoft.com/SUPER.html), online video encoding services, such as [amara](https://amara.org/en/)
+
+
 
 
 
