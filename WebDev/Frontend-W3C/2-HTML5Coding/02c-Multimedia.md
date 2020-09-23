@@ -54,6 +54,11 @@
     + distinguishing different voices w/ different color
     + e.g., `<v Tarzan>Me Tarzan...` & `<v Jane>That would make me Jane`
 
++ Chapter in subtitles/captions
+  + generate a custom navigation menu
+  + `kind=chapters` in `<track>` element
+  + `Chapter x`, `Ending` & `Greetings` in WebVTT file
+  + e.g., `<track id="nav" src="webvtt_talk_navigation.vtt" kind="chapters" srclang="en">`
 
 
 ### 2.3.1 HTML5 captioning
