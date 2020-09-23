@@ -368,11 +368,181 @@ Once your subtitles/captions are ok, you will be able to upload them to YouTube,
 </figure>
 
 
-
-
 ### 2.3.4 Styling captions
 
+In this section, we will look at different possibilities for styling and positioning  the text displayed as captions/subtitles while playing a video.
 
+This [example on JSBin](https://output.jsbin.com/lopudu) shows how we can do that (look at the HTML in JSBin). ([Local Example - Styling Cation](src/2.3.4-example1.html))
+
+The WebVTT file is shown below. Notice the new attributes that have been added on the right end of the duration values:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">05.000</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="typ">These</span><span class="pln"> captions test some features of the </span><span class="typ">WebVTT</span><span class="pln"> formats </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">06.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">10.000</span><strong><span class="pln"> line</span><span class="pun">:</span><span class="lit">5</span><span class="pun">%</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue </span><span class="kwd">is</span><span class="pln"> positioned at the top of the video</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">11.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">15.000</span><strong><span class="pln"> position</span><span class="pun">:</span><span class="lit">5</span><span class="pun">%</span><span class="pln"> align</span><span class="pun">:</span><span class="pln">start</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue </span><span class="kwd">is</span><span class="pln"> positioned at the left side of the video</span><span class="pun">.</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">16.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">20.000</span><span class="pln"> position</span><span class="pun">:</span><span class="lit">95</span><span class="pun">%</span><strong><span class="pln"> align</span><span class="pun">:</span><span class="kwd">end</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="typ">And</span><span class="pln"> </span><span class="kwd">this</span><span class="pln"> one ate the right side</span><span class="pun">.</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">21.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">25.000</span><strong><span class="pln"> size</span><span class="pun">:</span><span class="lit">33</span><span class="pun">%</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue </span><span class="kwd">is</span><span class="pln"> only a third of the width of the video</span><span class="pun">,</span><span class="pln"> hence the multiple line breaks</span><span class="pun">.</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">26.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">30.000</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue contains </span><strong><span class="str">&lt;b&gt;</span></strong><span class="pln">bold</span><strong><span class="pun">&lt;/</span><span class="pln">b</span><span class="pun">&gt;</span></strong><span class="pln"> text</span><span class="pun">.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">31.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">35.000</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue contains </span><strong><span class="str">&lt;i&gt;</span></strong><span class="pln">italic</span><strong><span class="pun">&lt;/</span><span class="pln">i</span><span class="pun">&gt;</span></strong><span class="pln"> text</span><span class="pun">.</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">36.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">40.000</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue contains </span><strong><span class="str">&lt;u&gt;</span></strong><span class="pln">underlined</span><strong><span class="pun">&lt;/</span><span class="pln">u</span><span class="pun">&gt;</span></strong><span class="pln"> text</span><span class="pun">.</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">41.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">45.000</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue contains </span><strong><span class="str">&lt;b&gt;&lt;i&gt;&lt;u&gt;</span></strong><span class="pln">bold</span><span class="pun">,</span><span class="pln"> italic</span><span class="pun">,</span><span class="pln"> underlined</span><strong><span class="pun">&lt;</span><span class="str">/u&gt;&lt;/</span><span class="pln">i</span><span class="pun">&gt;&lt;/</span><span class="pln">b</span><span class="pun">&gt;</span></strong><span class="pln"> text</span><span class="pun">.</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">46.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">50.000</span></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pun">&lt;</span><span class="pln">c</span><span class="pun">.</span><span class="pln">myclass</span><span class="pun">&gt;</span></strong><span class="typ">This</span><span class="pln"> cue contains the </span><span class="kwd">class</span><span class="pln"> </span><span class="str">"myclass"</span><span class="pun">.</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="typ">Browsers</span><span class="pln"> that support </span><span class="pun">::</span><span class="pln">cue CSS should make it red</span><span class="pun">.<strong>&lt;/</strong></span><strong><span class="pln">c</span><span class="pun">&gt;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">51.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">55.000</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">The</span><span class="pln"> following cue contains two voices</span><span class="pun">.</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="typ">Tarzan</span><span class="pln"> should be blue </span><span class="kwd">and</span><span class="pln"> </span><span class="typ">Jane</span><span class="pln"> green</span><span class="pun">.</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">56.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">00.000</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">v </span><span class="typ">Tarzan</span><span class="pun">&gt;</span><span class="typ">Me</span><span class="pln"> </span><span class="typ">Tarzan</span><span class="pun">...</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">v </span><span class="typ">Jane</span><span class="pun">&gt;</span><span class="typ">That</span><span class="pln"> would make me </span><span class="typ">Jane</span><span class="pun">!</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">bigtext</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">01.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">05.000</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue has a unique id</span><span class="pun">.</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">Using</span><span class="pln"> CSS</span><span class="pun">,</span><span class="pln"> its font size should be </span><span class="lit">150</span><span class="pun">%.</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">06.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">10.000</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="typ">The</span><span class="pln"> </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">06.333</span><span class="pun">&gt;</span><span class="pln">text </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">06.666</span><span class="pun">&gt;</span><span class="kwd">in</span><span class="pln"> </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">07.000</span><span class="pun">&gt;</span><span class="kwd">this</span><span class="pln"> </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">07.333</span><span class="pun">&gt;</span><span class="pln">cue </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">07.666</span><span class="pun">&gt;</span><span class="pln">should </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">08.000</span><span class="pun">&gt;</span><span class="pln">grow</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">08.333</span><span class="pun">&gt;</span><span class="pln">one </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">08.666</span><span class="pun">&gt;</span><span class="pln">word </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">09.000</span><span class="pun">&gt;</span><span class="pln">at </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">09.333</span><span class="pun">&gt;</span><span class="pln">a </span><span class="pun">&lt;</span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">09.666</span><span class="pun">&gt;</span><span class="pln">time</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">11.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">15.000</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="typ">That</span><span class="str">'s it! For now...</span></li>
+</ol></div>
+
+
+#### How to position the subtitles
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/yy4aaax5" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y44rrucw" 
+      alt  ="This cue is only a third if the width of this video, hence the multiple line breaks." 
+      title="This cue is only a third if the width of this video, hence the multiple line breaks."
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y6jlz9jc" 
+      alt  ="This cue is positioned at the top of the video." 
+      title="This cue is positioned at the top of the video."
+    >
+  </a>
+</div>
+
+
+The video example tests nearly all the possibilities for positioning subtitles/captions, styling (using HTML element wrapping with `<b>`, `<i>`,  etc.), voicing (subtitles corresponding to different characters will be displayed in different colors) and CSS styling.
+
+It is possible to locate the cues in the video viewport using absolute or relative values. The attributes that position the text are located on the same line as the cue definition, like at line 9 of the previous WebVTT example file:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">11.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">15.000</span><strong><span style="color: #ff0000;"><span class="pln"> position</span><span class="pun">:</span><span class="lit">5</span><span class="pun">%</span><span class="pln"> align</span><span class="pun">:</span><span class="pln">start</span></span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="typ">This</span><span class="pln"> cue </span><span class="kwd">is</span><span class="pln"> positioned at the left side of the video</span><span class="pun">.</span></li>
+</ol></div>
+
+There are several possible values:
+
++ __line:5%__ means "vertical position at a line 5% of the height of the video viewport (it will be located at the top of the video, proportional to its vertical size).
++ __position:5% align:start__ means "regular location at the bottom of the video, the start of the sentence will be located at 5% of the width of the video", i.e., near the left side.
++ __position:95% align:end__ means "regular location at the bottom of the video, the end of the sentence will be at 95% of the horizontal width of the video".
++ __size:33%__ The size of each line will be one third of the size of the video. Since the sentence won't fit, it will be displayed in multiple lines.
+
+And so on. Please look at the video as it is self-explanatory.
+
+
+#### Use of <b>, <i>, <u> for styling subtitles / captions
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yy4aaax5')"
+    src    ="https://tinyurl.com/yyarrfuq"
+    alt    ="Using voicing for styling"
+    title  ="Using voicing for styling"
+  />
+</figure>
+
+
+#### Using CSS classes for styling
+
+It is possible to style using CSS classes as part of a cue value, using the `<c>` element. You can specify the CSS class that should be applied by adding "." followed by the name of your CSS class. Here is an example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;c.myclass&gt;</span><span class="pln">This cue contains the class "myclass". </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">Browsers that support ::cue CSS should make it red.</span><span class="tag">&lt;/c&gt;</span></li>
+</ol></div>
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yy4aaax5')"
+    src    ="https://tinyurl.com/y48bxcfm"
+    alt    ="Using voicing for styling"
+    title  ="Using voicing for styling"
+  />
+</figure>
+
+
+CSS rules used in this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;style</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">::</span><span class="pln">cue</span><span class="pun">(.</span><span class="pln">myclass</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> red</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">::</span><span class="pln">cue</span><span class="pun">(</span><span class="pln">v</span><span class="pun">[</span><span class="pln">voice</span><span class="pun">=</span><span class="str">"Tarzan"</span><span class="pun">])</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> blue</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">::</span><span class="pln">cue</span><span class="pun">(</span><span class="pln">v</span><span class="pun">[</span><span class="pln">voice</span><span class="pun">=</span><span class="str">"Jane"</span><span class="pun">])</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">::</span><span class="pln">cue</span><span class="pun">(#</span><span class="pln">bigtext</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pun">%;</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+</ol></div>
+
+The `::cue` pseudo element selector is used to match "cues" in the webVTT file. You add parenthesis and a secondary CSS selector to match cues that have a particular id, or a particular CSS class, etc. Look at the CSS above and at the extract from the webVTT file, play the video, you will understand how this works...
+
+Support differs from one browser to another, see [this compatibility table](https://caniuse.com/#feat=webvtt) (from CanIuse). Notice that most of the enhanced players presented further on in the course provide full support.
+
+
+#### Using voicing for styling: the `<v>` element
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yy4aaax5')"
+    src    ="https://tinyurl.com/yyv7y67j"
+    alt    ="Using voicing for styling"
+    title  ="Using voicing for styling"
+  />
+</figure>
+
+Using the `<v>` tag, you will distinguish different voices that should be displayed in different colors (depending on the HTML5 video player implementation). See the CSS presented in the previous section to see how to specify the colors for the different voices.
+
+Example source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">56.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">04.000</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">v </span><span class="typ">Tarzan</span><span class="pun">&gt;</span><span class="typ">Me</span><span class="pln"> </span><span class="typ">Tarzan</span><span class="pun">...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">v </span><span class="typ">Jane</span><span class="pun">&gt;</span><span class="typ">That</span><span class="pln"> would make me </span><span class="typ">Jane</span><span class="pun"></span></li>
+</ol></div>
+
+
+#### Knowledge check 2.3.4
+
+1. Is it possible to use CSS for styling subtitles or captions? (Yes/No)
+
+  Ans: 
 
 
 
