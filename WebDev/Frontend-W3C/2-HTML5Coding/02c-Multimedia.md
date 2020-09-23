@@ -6,7 +6,7 @@
 
 ### 2.3.0 Lecture Notes
 
-+ The `<track>` element
++ [The `<track>` element](#231-html5-captioning)
   + adding closed captions, subtitles, descriptions, and metadata to videos
   + `WebVTT` format used for describing a track file
   + __closed caption__: describing all relevant audio present in the video; e.g., fire, rain, birds, gun fights, etc.
@@ -18,7 +18,7 @@
   + `label` attribute: displayed in the GUI control that is included in the default HTML5 video player
   + `srclang`: the language for the text track data, MUST present if `kind=subtitles`
 
-+ The `WebVTT` format
++ [The `WebVTT` format](#232-the-webvtt-format)
   + WebVTT: The Web Video Text Tracks Format
   + files containing text for captions and subtitles, and much more..
   + used with the `src` attribute of the `<track>` element
@@ -29,6 +29,7 @@
       + numeric ID; e.g., `9`
       + string ID; e.g., `opening`
   + able to be displayed multiple lines w/o blank lines
+
 
 
 
@@ -289,16 +290,77 @@ The displayed text can span multiple lines, but blank lines are not allowed, as 
 
 
 
-
-
-### 2.3.2 The WebVTT format
-
-
-
-
-
 ### 2.3.3 Adding subtitles to a video
 
+Let's look at a simple example. First, you need a video on one of the formats/codecs supported by the browsers you target. A recommended codec is `H264`, but other formats, such as `webm`, may have some advantages if the browser supports them. For example, webm allows the video to start playing after a much shorter buffering time. In other words, try if possible to provide the video encoded with more than one codec.
+
+For this, use any sort of open source, free or commercial video encoding software, such as [Handbrake](https://handbrake.fr/) (free, open source) or [Super](https://www.erightsoft.com/SUPER.html) (free). There are also online video encoding services, and you can even upload your video to YouTube, let it encode your video in several resolutions and codecs, and use a browser extension such as [Video DownloadHelper](https://addons.mozilla.org/fr/firefox/addon/video-downloadhelper/) (for Firefox) to download the video in your chosen formats.
+
+So, let's suppose you have a video like the one below (we included it on YouTube for practical reasons). This video has subtitles (you can activate them in the YouTube player), but the goal of this lesson is to explain how we made them without using the YouTube embedded tools, which do not allow export the subtitle file to be exported in the webVTT format.
+
+<a href="https://youtu.be/wdnqBfwI2p0" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=150/>
+</a><br/>
+
+And you've also got it in `mp4/H264` and in `webm` formats. Here is how you can embed it in your page using the video element:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">500</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln">&nbsp;&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"videos/SameOldSongAndDanceRogerLathaudPart1MidRes.mp4"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="tag">&lt;source</span><span class="pln">&nbsp; &nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"videos/SameOldSongAndDanceRogerLathaudPart1MidRes.webm"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"videos/subtitles.vtt"</span><span class="pln">&nbsp; &nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln">&nbsp;srclang="en"&nbsp;</span><span class="atn">default</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
+</ol></div>
+
+At line 9, we added a <track> element to add English subtitles, as the guitar teacher there is speaking in French. We will now explain how we created this subtitle track.
+
+
+#### Adding subtitles to the video
+
+Now, we need to create a WebVTT file for this video. How can we synchronize an English translation of what the guitar teacher says in French?
+
+Many tools - both free and commercial - are available to add subtitles to a video. Most are native applications you need to install on your computer. However, a free and very practical tool is available for doing this 100% in a Web browser: [amara](https://amara.org/en/).
+
+Go to the above Web site, click on the "subtitle a video" link, then follow the different tutorials/instructions. It will ask for a YouTube URL, so it's better to first upload your video to YouTube (even in private mode). Once you have entered the URL of your video, you will have an online subtitles/caption editor. Enter your subtitles and sync them until you are happy with the results.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 35vw;"
+    onclick="window.open('https://tinyurl.com/y3rcrvpb')"
+    src    ="https://tinyurl.com/y5qp8n89"
+    alt    ="universalsubtitles"
+    title  ="universalsubtitles"
+  />
+</figure>
+
+
+Once your subtitles/captions are ok, you will be able to upload them to YouTube, or -this is what we wanted first- download them as WebVTT format:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y3rcrvpb')"
+    src    ="https://tinyurl.com/yxrko75l"
+    alt    ="download subtitles"
+    title  ="download subtitles"
+  />
+</figure>
+
+
+#### Try your subtitled/captioned video
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y3rcrvpb')"
+    src    ="https://tinyurl.com/y2cyavb5"
+    alt    ="subtitled/captioned video"
+    title  ="subtitled/captioned video"
+  />
+</figure>
 
 
 
