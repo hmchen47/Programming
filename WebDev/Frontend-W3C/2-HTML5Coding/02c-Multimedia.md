@@ -6,7 +6,17 @@
 
 ### 2.3.0 Lecture Notes
 
-
++ The `<track>` element
+  + adding closed captions, subtitles, descriptions, and metadata to videos
+  + `WebVTT` format used for describing a track file
+  + __closed caption__: describing all relevant audio present in the video; e.g., fire, rain, birds, gun fights, etc.
+  + __subtitle__: only for spoken words
+  + NB: unable to be used w/ `file://` url
+  + e.g., `<track src="https://mainline.i3s.unice.fr/mooc/sintel-captions.vtt" kind="captions" label="Closed Captions" default>`
+  + `kind` attribute: `subtitles`, `captions`, `descriptions`, `chapters` or `metadata`
+  + `default` attribute: track to be displayed by default when reading the video
+  + `label` attribute: displayed in the GUI control that is included in the default HTML5 video player
+  + `srclang`: the language for the text track data, MUST present if `kind=subtitles`
 
 
 
@@ -119,7 +129,13 @@ Note the use of some new attributes in the `<track>` element:
 
 #### Knowledge check 2.3.1
 
-What is the name of the element we must include inside a `<video>` element, in order to display captions and subtitles? Just type the name of the element, without < or > characters.
+1. What is the name of the element we must include inside a `<video>` element, in order to display captions and subtitles? Just type the name of the element, without &lt; or &gt; characters.
+
+  Ans: track<br>
+  Explanation: One or more `<track>` elements can be used.
+
+
+
 
 
 
