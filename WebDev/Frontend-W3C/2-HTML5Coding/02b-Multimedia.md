@@ -1379,3 +1379,35 @@ Screenshot:
 </figure>
 
 
+### 2.2.9 Discussion and projects
+
+This is the discussion forum dedicated to "streaming multimedia content". You are welcome to post comments and share your creations here, and of course ask questions.
+
+Some topics of discussion and optional projects:
+
+
+#### Suggested topics
+
++ Where do you host your video files (we are speaking about files that can be used with the `<video>` element directly, not on YouTube, DailyMotion, etc.)?
++ Have you already tried some of the enhanced audio or video players? Would you please share opinions or make a review of these players?
++ What tool do you use for encoding your audio and video files?
+
+
+#### Optional projects
+
+This might be useful (find [free videos](https://download.blender.org/peach/bigbuckbunny_movies/)).
+
+Here are a few ideas to play with the material learned in this section. Your classmates and the team who prepared the course will be happy to look at them and give feedback. Please post URLs of your work in this discussion forum. These projects are optional, meaning that they won't be graded.
+
+__Project 1 (very easy)__: find the "enhanced HTML5 video players" described in the course and try to use one of them to play a video. Do some customization as well, such as adding a logo, choosing a theme, etc.
+
+__Project 2 (easy)__: try to write a video or an audio player with a few custom buttons for play/stop/etc. When your custom player is done, please add a way to play several videos one after another (what we call a playlist), etc.
+
+Examples that can help you, created by students of earlier versions of this MOOC:
+
++ [A custom player with nice CSS and buttons](https://jsbin.com/dacevo/2/edit?html,css,output)
++ [Custom players with a small playlist composed of three songs by Queen](https://jsbin.com/vefiniq/5/edit?html,output)
++ [An awesome custom player created by @GeorgianaB, with playlist, progress bar, CSS3 animations, etc.](https://codepen.io/w3devcampus/pen/reQbow) Check this out!
+
+__Project 3 (with JavaScript knowledge)__: play a video file or an audio file with an external synchronization. Use the progress event and the `currentTime` property from the audio and video objects you can manipulate with the JavaScript API described in the course. For example, please display some text aside the video, and/or display a Wikipedia page in an iframe, and/or display a Google map if you know how to do it.
+
