@@ -655,10 +655,55 @@ Many tools are available to make and edit HTML5 video and caption/subtitles:
 + __Enhanced HTML5 video players__ that use the `<video>`, `<source>` and `<track>` elements under the hood. They also provide many extra features, including __support for subtitle/caption formats other than WebVTT (by converting on the fly)__.
 
 
-### 2.3.7 The <track> JavaScript API
+### 2.3.7 The `<track>` JavaScript API
+
+The `<track>` element comes with a powerful API that is used to develop many interesting features such as:
+
++ Dynamically building a navigation menu that shows the different chapters of the video,
++ Synchronizing page content with timestamps in the WebVTT file (for example: show a map next to the video, that shows the location corresponding to the video content),
++ Displaying all the subtitles/captions at once as HTML in the page,
++ Making an app for creating on the fly subtitles/captions,
++ Etc.
+
+#### Examples of use
+
+__Add a navigation menu to start playing the video at given chapters__
+
+This example shows a video with an enhanced progress bar that displays the different chapters as small "clickable" squares. Furthermore, using the JavaScript API of the <track> element, this Web site builds a navigation menu (on the right of the video):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y2rw88n4')"
+    src    ="https://tinyurl.com/y3p6k8xa"
+    alt    ="navigation menu using the track javascript api"
+    title  ="navigation menu using the track javascript api"
+  />
+</figure>
 
 
+__Sync video with Google Map and Google Street View__
 
+Check [this demo](https://simpl.info/track/map/index.html) (only on Chrome) by [Sam Dutton](https://samdutton.com/): it shows a video that comes with a WebVTT file that contains longitudes and latitudes. When the video plays, JavaScript functions are called at given times and get the longitude and latitude. A Google Map and a Google Street views are updated in real time.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 35vw;"
+    onclick="window.open('https://tinyurl.com/y2rw88n4')"
+    src    ="https://tinyurl.com/y5ox7v9s"
+    alt    ="video sync with map and street view"
+    title  ="video sync with map and street view"
+  />
+</figure>
+
+
+__Sync guitar tablatures and music score with a video__
+
+This example shows how we manage to render music scores in real time as the video plays. 
+
+Some JavaScript code listens to the `ontimeupdate` event while the video is playing. We use the `currentTime` property of the video to know exactly where we are in the video. Finally, we also rely on an external library to render in an HTML5 canvas the bars corresponding to the current video explanations. We render in real time guitar pro tablatures using the alphatab.net library.
+
+<a href="https://youtu.be/JyNSyL-MmFI" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="demo video" width=150/>
+</a><br/>
 
 
 ### 2.3.8 Enhanced HTML5 video players
