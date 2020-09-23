@@ -12,12 +12,12 @@
 		+ manipulation w/ the DOM API
 	+ example code
 
-		<div class="source-code"><ol class="linenums">
-		<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"320"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"240"</span><span class="pln"> </span><span class="atn">controls</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
-		<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"movie.mp4"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-		<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"movie.ogg"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/ogg"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-		<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Your browser does not support the </span><span class="tag">&lt;video&gt;</span><span class="pln"> element.</span></li>
-		<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+		<div><ol>
+		<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>width</span><span>=</span><span>"320"</span><span> </span><span>height</span><span>=</span><span>"240"</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
+		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.mp4"</span><span> </span><span>type</span><span>=</span><span>"video/mp4"</span><span> </span><span>/&gt;</span></li>
+		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.ogg"</span><span> </span><span>type</span><span>=</span><span>"video/ogg"</span><span> </span><span>/&gt;</span></li>
+		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;Your browser does not support the </span><span>&lt;video&gt;</span><span> element.</span></li>
+		<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
 		</ol></div>
 
 		+ `controls` attribute: a control panel displayed with play/stop/volume/progress widgets
@@ -116,11 +116,11 @@
 		+ able to send events to control the video player
 	+ example:
 
-		<div class="source-code"><ol class="linenums">
-		<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">);</span></li>
-		<li class="L1" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'video.mp4'</span><span class="pun">;</span></li>
-		<li class="L2" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun">.</span><span class="pln">controls </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-		<li class="L3" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">video</span><span class="pun">);</span></li>
+		<div><ol>
+		<li style="margin-bottom: 0px;" value="1"><span>var</span><span> video </span><span>=</span><span> document</span><span>.</span><span>createElement</span><span>(</span><span>'video'</span><span>);</span></li>
+		<li style="margin-bottom: 0px;"><span>video</span><span>.</span><span>src </span><span>=</span><span> </span><span>'video.mp4'</span><span>;</span></li>
+		<li style="margin-bottom: 0px;"><span>video</span><span>.</span><span>controls </span><span>=</span><span> </span><span>true</span><span>;</span></li>
+		<li style="margin-bottom: 0px;"><span>document</span><span>.</span><span>body</span><span>.</span><span>appendChild</span><span>(</span><span>video</span><span>);</span></li>
 		</ol></div>
 
 + [Categories of HTML elements](https://html.spec.whatwg.org/multipage/dom.html#content-categories)
@@ -255,20 +255,20 @@ The `<video>` element of HTML5 is one of the two "Flash killers" (the other bein
 
 Like this!
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;object</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"425"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"344"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;param</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"movie"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"https://www.youtube.com/v/9sEI1AUFJKw&amp;hl=en_GB&amp;fs=1&amp;"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/param&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;param</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"allowFullScreen"</span><span class="pln">&nbsp; &nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"true"</span><span class="tag">&gt;&lt;/param&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;param</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"allowscriptaccess"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"always"</span><span class="tag">&gt;&lt;/param&gt;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;embed</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://www.youtube.com/v/9sEI1AUFJKw&amp;hl=en_GB&amp;fs=1&amp;"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"application/x-shockwave-flash"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">allowscriptaccess</span><span class="pun">=</span><span class="atv">"always"</span><span class="pln"> </span><span class="atn">allowfullscreen</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">width</span><span class="pun">=</span><span class="atv">"425"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"344"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/embed&gt;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/object&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;object</span><span> </span><span>width</span><span>=</span><span>"425"</span><span> </span><span>height</span><span>=</span><span>"344"</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;param</span><span> </span><span>name</span><span>=</span><span>"movie"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>value</span><span>=</span><span>"https://www.youtube.com/v/9sEI1AUFJKw&amp;hl=en_GB&amp;fs=1&amp;"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;/param&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;param</span><span> </span><span>name</span><span>=</span><span>"allowFullScreen"</span><span>&nbsp; &nbsp;</span><span>value</span><span>=</span><span>"true"</span><span>&gt;&lt;/param&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;param</span><span> </span><span>name</span><span>=</span><span>"allowscriptaccess"</span><span> </span><span>value</span><span>=</span><span>"always"</span><span>&gt;&lt;/param&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;embed</span><span> </span><span>src</span><span>=</span><span>"https://www.youtube.com/v/9sEI1AUFJKw&amp;hl=en_GB&amp;fs=1&amp;"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>type</span><span>=</span><span>"application/x-shockwave-flash"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>allowscriptaccess</span><span>=</span><span>"always"</span><span> </span><span>allowfullscreen</span><span>=</span><span>"true"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>width</span><span>=</span><span>"425"</span><span> </span><span>height</span><span>=</span><span>"344"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;/embed&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/object&gt;</span></li>
 </ol></div>
 
 Indeed, this was the only way to embed a YouTube video (fortunately, YouTube has changed that now). Furthermore, embedding a Flash player made it impossible to watch videos on some mobile platforms (especially Apple devices).
@@ -289,12 +289,12 @@ The new way of doing things is a lot better... (please open [this live example a
 
 The source code of this example shows the typical usage of the `<video>` element:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"320"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"240"</span><span class="pln"> </span><span class="atn">controls</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"movie.mp4"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"movie.ogg"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/ogg"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Your browser does not support the </span><span class="tag">&lt;video&gt;</span><span class="pln"> element.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>width</span><span>=</span><span>"320"</span><span> </span><span>height</span><span>=</span><span>"240"</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.mp4"</span><span> </span><span>type</span><span>=</span><span>"video/mp4"</span><span> </span><span>/&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.ogg"</span><span> </span><span>type</span><span>=</span><span>"video/ogg"</span><span> </span><span>/&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;Your browser does not support the </span><span>&lt;video&gt;</span><span> element.</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
 </ol></div>
 
 Please note that:
@@ -325,8 +325,8 @@ __An example using YouTube:__
 
 Here is the HTML code you need to copy and paste in order to embed a video (in this case, a tutorial that tells you how to embed a YouTube video):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;iframe</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"560"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"315"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://www.youtube.com/watch?v=9NTrwrfI-X4"</span><span class="pln"> </span><span class="atn">frameborder</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">allowfullscreen</span><span class="tag">&gt;&lt;/iframe&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;iframe</span><span> </span><span>width</span><span>=</span><span>"560"</span><span> </span><span>height</span><span>=</span><span>"315"</span><span> </span><span>src</span><span>=</span><span>"https://www.youtube.com/watch?v=9NTrwrfI-X4"</span><span> </span><span>frameborder</span><span>=</span><span>"0"</span><span> </span><span>allowfullscreen</span><span>&gt;&lt;/iframe&gt;</span></li>
 </ol></div>
 
 The YouTube video embedded in this page by the above code: it's HTML5 but it's not a `<video>` element directly inserted in the HTML of this page, it's an `<iframe>`:
@@ -378,27 +378,27 @@ Press play to stream the neigh of a horse:
 
 As you can see, the code is very similar to the basic `<video>` element usage.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>&lt;title&gt;</span><span class="pln">horse song</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span>&lt;/head&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span>&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>&lt;audio</span><span class="pln"> </span><span class="atn">controls</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"audio/ogg"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"audio/mp3"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span></span>Your browser does not support the audio element.</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span></span>Download the audio/video in</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span><span class="tag">&gt;</span><span class="pln">OGG</span><span class="tag">&lt;/a&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>or </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span class="tag">&gt;</span><span class="pln">MP3</span><span class="tag">&lt;/a&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>format.</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>&lt;/audio&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span>&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp; </span><span>&lt;head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>/&gt;</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;title&gt;</span><span>horse song</span><span>&lt;/title&gt;</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span>&lt;/head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span>&lt;body&gt;</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;audio</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span><span> </span><span>type</span><span>=</span><span>"audio/ogg"</span><span> </span><span>/&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span> </span><span>type</span><span>=</span><span>"audio/mp3"</span><span> </span><span>/&gt;</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span></span><span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span></span>Your browser does not support the audio element.</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span></span><span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span></span>Download the audio/video in</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span><span>&gt;</span><span>OGG</span><span>&lt;/a&gt;</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>or </span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span>&gt;</span><span>MP3</span><span>&lt;/a&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>format.</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;/audio&gt;</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp;&nbsp; </span><span></span>&lt;/body&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
@@ -519,72 +519,72 @@ MOVE THE MOUSE POINTER OVER THIS PLAYER'S ELEMENTS! (Effect not shown due to CSS
 
 HTML source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;figure</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"figaudio1"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"imghorse"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"200"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://upload.wikimedia.org/wikipedia/commons/d/d4/Nokota_Horses.jpg"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp;alt</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"a horse"</span><span class="tag">/&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;figcaption</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"figcptionaudio1"</span><span class="tag">&gt;</span><span class="pln"> Press Play to hear the horse! </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;audio</span><span class="pln"> </span><span class="atn">controls</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"audio/ogg"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"audio/mp3"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the audio element.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Download the audio/video in</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">”https://mainline.i3s.unice.fr/mooc/horse.ogg”</span><span class="tag">&gt;</span><span class="pln">OGG</span><span class="tag">&lt;/a&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;or </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">”https://mainline.i3s.unice.fr/mooc/horse.mp3”</span><span class="tag">&gt;</span><span class="pln">MP3</span><span class="tag">&lt;/a&gt;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; format.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp;&nbsp;&nbsp; &nbsp;&lt;/audio&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;/figcaption&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/figure&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;figure</span><span> </span><span>id</span><span>=</span><span>"figaudio1"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>&lt;img</span><span> </span><span>id</span><span>=</span><span>"imghorse"</span><span> </span><span>width</span><span>=</span><span>"200"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>src</span><span>=</span><span>"https://upload.wikimedia.org/wikipedia/commons/d/d4/Nokota_Horses.jpg"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;alt</span><span> </span><span>=</span><span> </span><span>"a horse"</span><span>/&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>&lt;figcaption</span><span> </span><span>id</span><span>=</span><span>"figcptionaudio1"</span><span>&gt;</span><span> Press Play to hear the horse! </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;audio</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>"audio/ogg"</span><span> </span><span>/&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>"audio/mp3"</span><span> </span><span>/&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the audio element.</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;Download the audio/video in</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>”https://mainline.i3s.unice.fr/mooc/horse.ogg”</span><span>&gt;</span><span>OGG</span><span>&lt;/a&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;or </span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>”https://mainline.i3s.unice.fr/mooc/horse.mp3”</span><span>&gt;</span><span>MP3</span><span>&lt;/a&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; format.</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;&nbsp; &nbsp;&lt;/audio&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp; </span><span>&lt;/figcaption&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/figure&gt;</span></li>
 </ol></div>
 
 
 CSS source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">#figaudio1 {</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width </span><span class="pun">:</span><span class="pln"> </span><span class="lit">420px</span><span class="pun">;;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln">center</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding </span><span class="pun">:</span><span class="pln"> </span><span class="lit">6px</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background </span><span class="pun">:</span><span class="pln"> white</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; margin </span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">11px</span><span class="pln"> </span><span class="lit">0px</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border </span><span class="pun">:</span><span class="pln">solid </span><span class="lit">1px</span><span class="pln"> </span><span class="com">#888888;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">-</span><span class="pln">radius </span><span class="pun">:</span><span class="pln"> </span><span class="lit">8px</span><span class="pln"> </span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com">#figcptionaudio1 {</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">size </span><span class="pun">:</span><span class="pln"> </span><span class="pun">.</span><span class="lit">8em</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding </span><span class="pun">:</span><span class="pln"> </span><span class="lit">6px</span><span class="pln"> </span><span class="lit">8px</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background </span><span class="pun">:</span><span class="pln"> </span><span class="com">#dddddd; </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; display </span><span class="pun">:</span><span class="pln">block</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align </span><span class="pun">:</span><span class="pln">center</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">family </span><span class="pun">:</span><span class="pln"> georgia</span><span class="pun">,</span><span class="pln"> serif</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">style </span><span class="pun">:</span><span class="pln"> italic</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">-</span><span class="pln">radius </span><span class="pun">:</span><span class="pln"> </span><span class="lit">7px</span><span class="pln"> </span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">#figaudio1 &gt; img {</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background </span><span class="pun">:</span><span class="pln"> </span><span class="com">#eeeeee;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding </span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border </span><span class="pun">:</span><span class="pln"> solid </span><span class="lit">1px</span><span class="pln"> </span><span class="com">#444444;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">/* For audio and img transitions/animation */</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">audio</span><span class="pun">,</span><span class="pln"> </span><span class="com">#figaudio1 &gt; img {</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transition</span><span class="pun">:</span><span class="pln">all </span><span class="lit">0.5s</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">#figaudio1 &gt; img:hover {</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">20px</span><span class="pln"> rgba</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.4</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transform</span><span class="pun">:</span><span class="pln"> scale</span><span class="pun">(</span><span class="lit">1.05</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">audio</span><span class="pun">:</span><span class="pln">hover</span><span class="pun">,</span><span class="pln"> audio</span><span class="pun">:</span><span class="pln">focus</span><span class="pun">,</span><span class="pln"> audio</span><span class="pun">:</span><span class="pln">active </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">20px</span><span class="pln"> rgba</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.4</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transform</span><span class="pun">:</span><span class="pln"> scale</span><span class="pun">(</span><span class="lit">1.05</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>#figaudio1 {</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; width </span><span>:</span><span> </span><span>420px</span><span>;;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; text</span><span>-</span><span>align</span><span>:</span><span>center</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; padding </span><span>:</span><span> </span><span>6px</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; background </span><span>:</span><span> white</span><span>;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; margin </span><span>:</span><span> </span><span>0</span><span> </span><span>11px</span><span> </span><span>0px</span><span> </span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; border </span><span>:</span><span>solid </span><span>1px</span><span> </span><span>#888888;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; border</span><span>-</span><span>radius </span><span>:</span><span> </span><span>8px</span><span> </span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>#figcptionaudio1 {</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; font</span><span>-</span><span>size </span><span>:</span><span> </span><span>.</span><span>8em</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; padding </span><span>:</span><span> </span><span>6px</span><span> </span><span>8px</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; background </span><span>:</span><span> </span><span>#dddddd; </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; display </span><span>:</span><span>block</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; text</span><span>-</span><span>align </span><span>:</span><span>center</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; font</span><span>-</span><span>family </span><span>:</span><span> georgia</span><span>,</span><span> serif</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; font</span><span>-</span><span>style </span><span>:</span><span> italic</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; border</span><span>-</span><span>radius </span><span>:</span><span> </span><span>7px</span><span> </span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>#figaudio1 &gt; img {</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; background </span><span>:</span><span> </span><span>#eeeeee;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; padding </span><span>:</span><span> </span><span>5px</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; border </span><span>:</span><span> solid </span><span>1px</span><span> </span><span>#444444;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>/* For audio and img transitions/animation */</span></li>
+<li style="margin-bottom: 0px;"><span>audio</span><span>,</span><span> </span><span>#figaudio1 &gt; img {</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; transition</span><span>:</span><span>all </span><span>0.5s</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>#figaudio1 &gt; img:hover {</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; box</span><span>-</span><span>shadow</span><span>:</span><span> </span><span>15px</span><span> </span><span>15px</span><span> </span><span>20px</span><span> rgba</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>0.4</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; transform</span><span>:</span><span> scale</span><span>(</span><span>1.05</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>audio</span><span>:</span><span>hover</span><span>,</span><span> audio</span><span>:</span><span>focus</span><span>,</span><span> audio</span><span>:</span><span>active </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; box</span><span>-</span><span>shadow</span><span>:</span><span> </span><span>15px</span><span> </span><span>15px</span><span> </span><span>20px</span><span> rgba</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>0.4</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; transform</span><span>:</span><span> scale</span><span>(</span><span>1.05</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
 </ol></div>
 
 
@@ -607,30 +607,30 @@ This example uses the pseudo CSS class :hover in order to track the `mouseover` 
 
 The corresponding HTML source code is:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"w3devCampusVideo"</span></strong><span class="pln"> </span><span class="atn">autoplay</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">video/webm</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">video/ogg</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">video/mp4</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><strong><span>id</span><span>=</span><span>"w3devCampusVideo"</span></strong><span> </span><span>autoplay</span><span> </span><span>controls</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>video/webm</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>video/ogg</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>video/mp4</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span><span> </span></li>
 </ol></div>
 
 ... and the CSS source code is as follows:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">#w3devCampusVideo {</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">300px</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>transition</strong></span><strong><span class="pun">:</span><span class="pln"> all </span><span class="lit">0.5s</span><span class="pln"> ease</span><span class="pun">-</span><span class="kwd">in</span><span class="pun">-</span><span class="kwd">out</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">#w3devCampusVideo<strong>:hover</strong>&nbsp;{ </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="lit">400px</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transform</span><span class="pun">:</span><span class="pln">rotate</span><span class="pun">(-</span><span class="lit">5deg</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>#w3devCampusVideo {</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; width</span><span>:</span><span> </span><span>300px</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; <strong>transition</strong></span><strong><span>:</span><span> all </span><span>0.5s</span><span> ease</span><span>-</span><span>in</span><span>-</span><span>out</span><span>;</span></strong></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>#w3devCampusVideo<strong>:hover</strong>&nbsp;{ </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; width</span><span>:</span><span>400px</span><span>;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; transform</span><span>:</span><span>rotate</span><span>(-</span><span>5deg</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
 </ol></div>
 
 __Fullscreen video that resizes and maintains ratios. Uses simple JavaScript to modify CSS properties__
@@ -668,60 +668,60 @@ __Example #1: with a regular video__
 
 Here is the HTML code. It's really simple, just notice the <body onload="init();"> which calls the JavaScript init() function right after the page is loaded.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">Full width video like PayPal site</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><strong><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span></strong><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;video</span><span class="pln"> </span><span class="atn"><strong>id</strong></span><strong><span class="pun">=</span><span class="atv">"myVideo"</span></strong><span class="pln"> </span><span class="atn">autoplay</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &lt;source</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/webm</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/ogg</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/mp4</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/video&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;html lang="en"&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;title&gt;</span><span>Full width video like PayPal site</span><span>&lt;/title&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;body</span><span> </span><strong><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span></strong><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;video</span><span> </span><span><strong>id</strong></span><strong><span>=</span><span>"myVideo"</span></strong><span> </span><span>autoplay</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &lt;source</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/webm</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/ogg</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/mp4</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/video&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/body&gt;</span></li>
 </ol></div>
 
 
 Here is the CSS (remove margins, remove padding, hide parts that could overflow from the <body>):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">body </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; margin</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; overflow</span><span class="pun">:</span><span class="pln">hidden</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>body </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; margin</span><span>:</span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; padding</span><span>:</span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; overflow</span><span>:</span><span>hidden</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
 </ol></div>
 
 
 And now the JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// function called when the page is loaded</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// For initial value</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">innerWidth</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">innerHeight</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// For dealing with window resize</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">onresize </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">innerWidth</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">innerHeight</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>var</span><span> video</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>// function called when the page is loaded</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;video </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>"#myVideo"</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>// For initial value</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;video</span><span>.</span><span>width </span><span>=</span><span> window</span><span>.</span><span>innerWidth</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;video</span><span>.</span><span>height </span><span>=</span><span> window</span><span>.</span><span>innerHeight</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>// For dealing with window resize</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;window</span><span>.</span><span>onresize </span><span>=</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;video</span><span>.</span><span>width </span><span>=</span><span> window</span><span>.</span><span>innerWidth</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;video</span><span>.</span><span>height </span><span>=</span><span> window</span><span>.</span><span>innerHeight</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>};</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
 </ol></div>
 
 
@@ -758,17 +758,17 @@ __Full screen video, pure CSS approaches__
 
 CSS code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> body </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; margin</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; padding</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; overflow</span><span class="pun">:</span><span class="pln">hidden</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">video </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; height</span><span class="pun">:</span><span class="kwd">auto</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span> body </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; margin</span><span>:</span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; padding</span><span>:</span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; overflow</span><span>:</span><span>hidden</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>video </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; width</span><span>:</span><span>100</span><span>%;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; height</span><span>:</span><span>auto</span><span>;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
 </ol></div>
 
 2. Full screen video with CSS effects
@@ -789,62 +789,62 @@ CSS code:
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">Full screen video, example from demosthene.info by </span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;header&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;video</span><span class="pln"> </span><span class="atn">autoplay</span><span class="pun"></span><span class="atv"></span><span class="pln"> </span><span class="atn">loop</span><span class="pun">=</span><span class="atv">""</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; poster</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/polina.jpg"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; id</span><span class="pun">=</span><span class="atv">"bgvid"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/polina.webm"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/polina.mp4"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/video&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/header&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;section&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h1&gt;</span><span class="pln">https://demosthenes.info/blog/777/Create-Fullscreen-HTML5-Page-</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">Background-Video</span><span class="tag">&lt;/h1&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/section&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;html lang="en"&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;title&gt;</span><span>Full screen video, example from demosthene.info by </span><span>&lt;/title&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;body&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;header&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&lt;video</span><span> </span><span>autoplay</span><span></span><span></span><span> </span><span>loop</span><span>=</span><span>""</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; poster</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/polina.jpg"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; id</span><span>=</span><span>"bgvid"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/polina.webm"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>"video/webm"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/polina.mp4"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>"video/mp4"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&lt;/video&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/header&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;section&gt;</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>&lt;h1&gt;</span><span>https://demosthenes.info/blog/777/Create-Fullscreen-HTML5-Page-</span></li>
+<li style="margin-bottom: 0px;"><span>Background-Video</span><span>&lt;/h1&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/section&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/body&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
 CSS code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">html</span><span class="pun">,</span><span class="pln"> body</span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">white</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">%;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">header</span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">%;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">image</span><span class="pun">:</span><span class="pln"> url</span><span class="pun">(</span><span class="str">'https://dupontcours.free.fr/IMG/dots.png'</span><span class="pun">),</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pln">url</span><span class="pun">(</span><span class="str">'#'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">repeat</span><span class="pun">:</span><span class="pln"> repeat</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">no</span><span class="pun">-</span><span class="pln">repeat</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">auto</span><span class="pun">,</span><span class="pln"> cover</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">position</span><span class="pun">:</span><span class="pln"> center center</span><span class="pun">,</span><span class="pln"> top left</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln"> sans</span><span class="pun">-</span><span class="pln">serif</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#051a00;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">header video </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; position</span><span class="pun">:</span><span class="kwd">fixed</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; top</span><span class="pun">:</span><span class="lit">50</span><span class="pun">%;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; left</span><span class="pun">:</span><span class="lit">50</span><span class="pun">%;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; min</span><span class="pun">-</span><span class="pln">width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; min</span><span class="pun">-</span><span class="pln">height</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="kwd">auto</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="kwd">auto</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; z</span><span class="pun">-</span><span class="pln">index</span><span class="pun">:-</span><span class="lit">100</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; transform</span><span class="pun">:</span><span class="pln">translateX</span><span class="pun">(-</span><span class="lit">50</span><span class="pun">%)</span><span class="pln"> translateY</span><span class="pun">(-</span><span class="lit">50</span><span class="pun">%);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>html</span><span>,</span><span> body</span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; color</span><span>:</span><span>white</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; height</span><span>:</span><span> </span><span>100</span><span>%;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>header</span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; height</span><span>:</span><span> </span><span>100</span><span>%;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; background</span><span>-</span><span>image</span><span>:</span><span> url</span><span>(</span><span>'https://dupontcours.free.fr/IMG/dots.png'</span><span>),</span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>url</span><span>(</span><span>'#'</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; background</span><span>-</span><span>repeat</span><span>:</span><span> repeat</span><span>,</span><span> </span><span>no</span><span>-</span><span>repeat</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; background</span><span>-</span><span>size</span><span>:</span><span> </span><span>auto</span><span>,</span><span> cover</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; background</span><span>-</span><span>position</span><span>:</span><span> center center</span><span>,</span><span> top left</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; font</span><span>-</span><span>family</span><span>:</span><span> sans</span><span>-</span><span>serif</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; color</span><span>:</span><span> </span><span>#051a00;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>header video </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; position</span><span>:</span><span>fixed</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; top</span><span>:</span><span>50</span><span>%;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; left</span><span>:</span><span>50</span><span>%;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; min</span><span>-</span><span>width</span><span>:</span><span>100</span><span>%;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; min</span><span>-</span><span>height</span><span>:</span><span>100</span><span>%;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; width</span><span>:</span><span>auto</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; height</span><span>:</span><span>auto</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; z</span><span>-</span><span>index</span><span>:-</span><span>100</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; transform</span><span>:</span><span>translateX</span><span>(-</span><span>50</span><span>%)</span><span> translateY</span><span>(-</span><span>50</span><span>%);</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
 </ol></div>
 
 
@@ -861,19 +861,19 @@ This time we obtain the same result as with the first example that used JavaScri
 
 CSS code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">body </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">video </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;width</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="lit">100vw</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>height</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="lit">100vh</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">object</span><span class="pun">-</span><span class="pln">fit</span><span class="pun">:</span><span class="pln"> cover</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">object</span><span class="pun">-</span><span class="pln">position</span><span class="pun">:</span><span class="pln"> center center</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>body </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;margin</span><span>:</span><span> </span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>video </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;position</span><span>:</span><span> absolute</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; <strong>&nbsp;width</strong></span><strong><span>:</span><span> </span><span>100vw</span><span>;</span></strong></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;<strong>height</strong></span><strong><span>:</span><span> </span><span>100vh</span><span>;</span></strong></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><strong><span>object</span><span>-</span><span>fit</span><span>:</span><span> cover</span><span>;</span></strong></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><strong><span>object</span><span>-</span><span>position</span><span>:</span><span> center center</span><span>;</span></strong></li>
+<li style="margin-bottom: 0px;"><span>}</span></li>
 </ol></div>
 
 
@@ -915,11 +915,11 @@ The `<video>` element has methods, properties/attributes and events that can be 
 
 Like any HTML element, the `<video>` element can be manipulated/created using the DOM JavaScript API. Here is an example of programmatically creating a `<video>` element:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'video.mp4'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun">.</span><span class="pln">controls </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">video</span><span class="pun">);</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>var</span><span> video </span><span>=</span><span> document</span><span>.</span><span>createElement</span><span>(</span><span>'video'</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>video</span><span>.</span><span>src </span><span>=</span><span> </span><span>'video.mp4'</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>video</span><span>.</span><span>controls </span><span>=</span><span> </span><span>true</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>document</span><span>.</span><span>body</span><span>.</span><span>appendChild</span><span>(</span><span>video</span><span>);</span></li>
 </ol></div>
 
 This will create a complete video player for the file "video.mp4", with control buttons, and will add it to the `<body>` element of the page.
@@ -1072,33 +1072,33 @@ This example shows the first steps towards writing a custom video player. It sho
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"vid"</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">video/webm</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;">...</li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">Example of custom controls:</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">playVideo</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">cursor</span><span class="pun">:</span><span class="pln"> pointer</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Play</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">pauseVideo</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">cursor</span><span class="pun">:</span><span class="pln"> pointer</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Pause</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">rewindVideo</span><span class="pun">();</span><span class="atv">"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">cursor</span><span class="pun">:</span><span class="pln"> pointer</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Back to beginning</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#vid"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; function</span><span class="pln"> playVideo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; function</span><span class="pln"> pauseVideo</span><span class="pun">() {</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span class="pun">.</span><span class="pln">pause</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; function</span><span class="pln"> rewindVideo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span class="pun">.</span><span class="pln">currentTime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>id</span><span>=</span><span>"vid"</span><span> </span><span>controls</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>video/webm</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&lt;p&gt;</span><span>Example of custom controls:</span><span>&lt;/p&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>playVideo</span><span>();</span><span>"</span><span> </span><span>style</span><span>=</span><span>"</span><span>cursor</span><span>:</span><span> pointer</span><span>;</span><span>"</span><span>&gt;</span><span>Play</span><span>&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>pauseVideo</span><span>();</span><span>"</span><span> </span><span>style</span><span>=</span><span>"</span><span>cursor</span><span>:</span><span> pointer</span><span>;</span><span>"</span><span>&gt;</span><span>Pause</span><span>&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>rewindVideo</span><span>();</span><span>"</span><span> </span><span>style</span><span>=</span><span>"</span><span>cursor</span><span>:</span><span> pointer</span><span>;</span><span>"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;Back to beginning</span><span>&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>&lt;script&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; vid </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>"#vid"</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; function</span><span> playVideo</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span>.</span><span>play</span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; }</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; function</span><span> pauseVideo</span><span>() {</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span>.</span><span>pause</span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; }</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; function</span><span> rewindVideo</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;vid</span><span>.</span><span>currentTime </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; }</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/script&gt;</span></li>
 </ol></div>
  
 
@@ -1114,20 +1114,20 @@ _Explanations:_
 
 This example listens for the ended event, and calls a callback function when the video is ended.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"video.ogv"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; video not supported</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">'text/javascript'</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; var vid = document</span><span class="pun">.querySelector</span><span class="pun">(</span><span class="str">'#myVideo'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; vid.addEventListener</span><span class="pun">(</span><span class="str">'ended'</span><span class="pun">,&nbsp;</span><span class="pun"><span style="color: #000000; line-height: 23.2727279663086px; background-color: #ffffff;">playN</span><span style="color: #000000; line-height: 23.2727279663086px; background-color: #ffffff;">extVideo</span>,&nbsp;</span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; function</span><span class="pln">&nbsp;playNextVideo</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Whatever you want to do after the event, change the src attribute</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp;// of the video element, for example, in order to play another video</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>src</span><span>=</span><span>"video.ogv"</span><span> </span><span>id</span><span>=</span><span>"myVideo"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; video not supported</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&lt;script</span><span> </span><span>type</span><span>=</span><span>'text/javascript'</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; var vid = document</span><span>.querySelector</span><span>(</span><span>'#myVideo'</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; vid.addEventListener</span><span>(</span><span>'ended'</span><span>,&nbsp;</span><span><span style="color: #000000; line-height: 23.2727279663086px; background-color: #ffffff;">playN</span><span style="color: #000000; line-height: 23.2727279663086px; background-color: #ffffff;">extVideo</span>,&nbsp;</span><span>false</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span></span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; function</span><span>&nbsp;playNextVideo</span><span>(</span><span>e</span><span>)</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>// Whatever you want to do after the event, change the src attribute</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;// of the video element, for example, in order to play another video</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/script&gt;</span></li>
 </ol></div>
 
 
@@ -1137,56 +1137,56 @@ This example detects the end of a video then loads the next video, changes the s
 
 To try this example: use the progress cursor to go near the end of the first video that is being played and see how it continues with the next video. 
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!doctype html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;title&gt;</span><span class="pln">Sequential Movies</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> myVideo</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> currentVideo </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> sources </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="str">"https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4"</span><span class="pun">,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="str">"https://www.archive.org/download/AnimatedMechanicalArtPiecesAtMit/P1120973_512kb.mp4"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">];</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Set the src of the video to the next URL in the playlist</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// If at the end we start again from beginning (the modulo </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// source.length does that)</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">function</span><span class="pln"> loadNextVideo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>myVideo</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> sources</span><span class="pun">[</span><span class="pln">currentVideo </span><span class="pun">%</span><span class="pln"> sources</span><span class="pun">.</span><span class="pln">length</span><span class="pun">]</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>myVideo</span><span class="pun">.</span><span class="pln">load</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>currentVideo</span><span class="pun">++;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// listener plays the video</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">function</span><span class="pln"> loadAndplayNextVideo</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"playing "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> sources</span><span class="pun">[</span><span class="pln">currentVideo </span><span class="pun">%</span><span class="pln"> sources</span><span class="pun">.</span><span class="pln">length</span><span class="pun">])</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>loadNextVideo</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>myVideo</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Called when the page is loaded</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">(){</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// get the video element using the DOM api</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span>myVideo </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Define a callback function called each time a video ended</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span>myVideo</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'ended'</span><span class="pun">,</span><span class="pln"> loadAndplayNextVideo</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Load the first video when the page is loaded.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span>loadNextVideo</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag"><span class="tag"></span>&lt;/head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="atn">controls</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/video&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;!doctype html&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &lt;head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>/&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&lt;title&gt;</span><span>Sequential Movies</span><span>&lt;/title&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&lt;script&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>var</span><span> myVideo</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>var</span><span> currentVideo </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>var</span><span> sources </span><span>=</span><span> </span><span>[</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>"https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4"</span><span>,</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>"https://www.archive.org/download/AnimatedMechanicalArtPiecesAtMit/P1120973_512kb.mp4"</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>];</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>// Set the src of the video to the next URL in the playlist</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>// If at the end we start again from beginning (the modulo </span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>// source.length does that)</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>function</span><span> loadNextVideo</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span></span><span><span><span><span>&nbsp; </span></span></span></span><span><span><span><span><span>&nbsp; </span></span></span></span>myVideo</span><span>.</span><span>src </span><span>=</span><span> sources</span><span>[</span><span>currentVideo </span><span>%</span><span> sources</span><span>.</span><span>length</span><span>]</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span></span><span><span><span><span>&nbsp; </span></span></span></span><span><span><span><span><span>&nbsp; </span></span></span></span>myVideo</span><span>.</span><span>load</span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span></span><span><span><span><span>&nbsp; </span></span></span></span><span><span><span><span><span>&nbsp; </span></span></span></span>currentVideo</span><span>++;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>// listener plays the video</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>function</span><span> loadAndplayNextVideo</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span></span><span><span><span><span>&nbsp; </span></span></span>console</span><span>.</span><span>log</span><span>(</span><span>"playing "</span><span> </span><span>+</span><span> sources</span><span>[</span><span>currentVideo </span><span>%</span><span> sources</span><span>.</span><span>length</span><span>])</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span></span><span><span><span><span>&nbsp; </span></span></span>loadNextVideo</span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span></span><span><span><span><span>&nbsp; </span></span></span>myVideo</span><span>.</span><span>play</span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>// Called when the page is loaded</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>function</span><span> init</span><span>(){</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>// get the video element using the DOM api</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>myVideo </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>"#myVideo"</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>// Define a callback function called each time a video ended</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>myVideo</span><span>.</span><span>addEventListener</span><span>(</span><span>'ended'</span><span>,</span><span> loadAndplayNextVideo</span><span>,</span><span> </span><span>false</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>// Load the first video when the page is loaded.</span></li>
+<li style="margin-bottom: 0px;"><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>loadNextVideo</span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&lt;/script&gt;</span></li>
+<li style="margin-bottom: 0px;"><span><span></span>&lt;/head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>()</span><span>"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&lt;video</span><span> </span><span>id</span><span>=</span><span>"myVideo"</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>controls</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&nbsp; </span><span>&lt;/video&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/body&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 + _Line 9_: the JavaScript array that contains the URLs of the videos in the playlist. In this example, we've got only two of them, but if the array is larger the example will still work.
@@ -1240,43 +1240,43 @@ This example also shows how to handle failures. See the code and play with this 
 
 Here is an example of a piece of code for handling errors during video playback:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">vid</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'error'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; logEvent</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">,</span><span class="str">'red'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> logEvent</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">,</span><span class="pln"> color</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">.</span><span class="pln">type</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> </span><span class="str">'error'</span><span class="pun">:</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> error </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">).</span><span class="pln">error</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">error</span><span class="pun">.</span><span class="pln">code</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">MEDIA_ERR_ABORTED</span><span class="pun">:</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"fetching aborted at the user's request"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">MEDIA_ERR_NETWORK</span><span class="pun">:</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"a network error caused the browser to stop fetching the media"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">MEDIA_ERR_DECODE</span><span class="pun">:</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"an error occurred while decoding the media"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">MEDIA_ERR_SRC_NOT_SUPPORTED</span><span class="pun">:</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"the media indicated by the src </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; attribute was not suitable"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">default</span><span class="pun">:</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"an error occurred"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;">}</li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>...</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>vid</span><span>.</span><span>addEventListener</span><span>(</span><span>'error'</span><span>,</span><span> </span><span>function</span><span>(</span><span>evt</span><span>)</span><span> </span><span>{</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; logEvent</span><span>(</span><span>evt</span><span>,</span><span>'red'</span><span>);</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>},</span><span> </span><span>false</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>...</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>function</span><span> logEvent</span><span>(</span><span>evt</span><span>,</span><span> color</span><span>)</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; switch</span><span> </span><span>(</span><span>evt</span><span>.</span><span>type</span><span>)</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>...</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> </span><span>'error'</span><span>:</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>var</span><span> error </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'video'</span><span>).</span><span>error</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>switch</span><span> </span><span>(</span><span>error</span><span>.</span><span>code</span><span>)</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> error</span><span>.</span><span>MEDIA_ERR_ABORTED</span><span>:</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span>.</span><span>innerHTML </span><span>=</span><span> </span><span>"fetching aborted at the user's request"</span><span>;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> error</span><span>.</span><span>MEDIA_ERR_NETWORK</span><span>:</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span>.</span><span>innerHTML </span><span>=</span><span> </span><span>"a network error caused the browser to stop fetching the media"</span><span>;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> error</span><span>.</span><span>MEDIA_ERR_DECODE</span><span>:</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span>.</span><span>innerHTML </span><span>=</span><span> </span><span>"an error occurred while decoding the media"</span><span>;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> error</span><span>.</span><span>MEDIA_ERR_SRC_NOT_SUPPORTED</span><span>:</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span>.</span><span>innerHTML </span><span>=</span><span> </span><span>"the media indicated by the src </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; attribute was not suitable"</span><span>;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>default</span><span>:</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span>.</span><span>innerHTML </span><span>=</span><span> </span><span>"an error occurred"</span><span>;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>break</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span><span>...</span></li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 
@@ -1298,52 +1298,52 @@ Note that on mobile phones, the video does not start until the user presses the 
 
 As explained by the [Apple Developer Web site](http://developer.apple.com/):  "The `buffered` property is a `TimeRanges` object: an array of start and stop times, not a single value. Consider what happens if the person watching the media uses the time scrubber to jump forward to a point in the movie that hasn’t loaded yet—the movie stops loading and jumps forward to the new point in time, then starts buffering again from there. So the `buffered` property can contain an array of discontinuous ranges. The example simply seeks the end of the array and reads the last value, so it actually shows the percentage into the movie duration for which there is data. "
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!doctype html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;title&gt;</span><span class="pln">JavaScript Progress Monitor</span><span class="tag">&lt;/title&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;<br></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;script</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; function</span><span class="pln"> getPercentProg</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> myVideo </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> endBuf </span><span class="pun">=</span><span class="pln"> myVideo</span><span class="pun">.</span><span class="pln">buffered</span><span class="pun">.</span><span class="pln">end</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> soFar </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(((</span><span class="pln">endBuf </span><span class="pun">/</span><span class="pln"> myVideo</span><span class="pun">.</span><span class="pln">duration</span><span class="pun">)</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">100</span><span class="pun">));</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"loadStatus"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> soFar </span><span class="pun">+</span><span class="pln"> </span><span class="str">'%'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; }</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; // Will be called as soon as the page is ready on desktop computer, </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; // Only when a user clicks on play control or image on mobile</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; function</span><span class="pln"> myAutoPlay</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> myVideo </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; function</span><span class="pln"> addMyListeners</span><span class="pun">(){</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> myVideo </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'progress'</span><span class="pun">,</span><span class="pln"> getPercentProg</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Calls autoplay only if the device is adapted</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'canplaythrough'</span><span class="pun">,</span><span class="pln"> myAutoPlay</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">addMyListeners</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;h1&gt;</span><span class="pln">Check progression of buffering before playing a movie. Useful withy </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; slow&nbsp;</span><span class="pln">connexion (3G, etc.)</span><span class="tag">&lt;/h1&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;div&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://html5doctor.com/demos/video-canvas-magic/video.webm</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/webm</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://html5doctor.com/demos/video-canvas-magic/video.ogg</span><span class="pln">&nbsp;&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/ogg</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://html5doctor.com/demos/video-canvas-magic/video.mp4</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/mp4</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/video&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"loadStatus"</span><span class="tag">&gt;</span><span class="pln">Buffering...</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;!doctype html&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;html lang="en"&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &lt;head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;title&gt;</span><span>JavaScript Progress Monitor</span><span>&lt;/title&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;<br></span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;script</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; function</span><span> getPercentProg</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> myVideo </span><span>=</span><span> document</span><span>.</span><span>getElementsByTagName</span><span>(</span><span>'video'</span><span>)[</span><span>0</span><span>];</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> endBuf </span><span>=</span><span> myVideo</span><span>.</span><span>buffered</span><span>.</span><span>end</span><span>(</span><span>0</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> soFar </span><span>=</span><span> parseInt</span><span>(((</span><span>endBuf </span><span>/</span><span> myVideo</span><span>.</span><span>duration</span><span>)</span><span> </span><span>*</span><span> </span><span>100</span><span>));</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span>.</span><span>getElementById</span><span>(</span><span>"loadStatus"</span><span>).</span><span>innerHTML </span><span>=</span><span> soFar </span><span>+</span><span> </span><span>'%'</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; }</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; // Will be called as soon as the page is ready on desktop computer, </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; // Only when a user clicks on play control or image on mobile</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; function</span><span> myAutoPlay</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> myVideo </span><span>=</span><span> document</span><span>.</span><span>getElementsByTagName</span><span>(</span><span>'video'</span><span>)[</span><span>0</span><span>];</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span>.</span><span>play</span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; }</span></li>
+<li style="margin-bottom: 0px;"><span></span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; function</span><span> addMyListeners</span><span>(){</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> myVideo </span><span>=</span><span> document</span><span>.</span><span>getElementsByTagName</span><span>(</span><span>'video'</span><span>)[</span><span>0</span><span>];</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span>.</span><span>addEventListener</span><span>(</span><span>'progress'</span><span>,</span><span> getPercentProg</span><span>,</span><span> </span><span>false</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// Calls autoplay only if the device is adapted</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span>.</span><span>addEventListener</span><span>(</span><span>'canplaythrough'</span><span>,</span><span> myAutoPlay</span><span>,</span><span> </span><span>false</span><span>);</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; }</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &lt;/script&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/head&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>addMyListeners</span><span>()</span><span>"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;h1&gt;</span><span>Check progression of buffering before playing a movie. Useful withy </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; slow&nbsp;</span><span>connexion (3G, etc.)</span><span>&lt;/h1&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;div&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;video</span><span> </span><span>controls</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://html5doctor.com/demos/video-canvas-magic/video.webm</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/webm</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://html5doctor.com/demos/video-canvas-magic/video.ogg</span><span>&nbsp;&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/ogg</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://html5doctor.com/demos/video-canvas-magic/video.mp4</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/mp4</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;/video&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;p</span><span> </span><span>id</span><span>=</span><span>"loadStatus"</span><span>&gt;</span><span>Buffering...</span><span>&lt;/p&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/div&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/body&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
