@@ -863,9 +863,9 @@ Some topics of discussion and optional projects:
 
 #### Suggested topics
 
-What tools do you use for adding subtitles to videos?
-Did you have problems with encoding foreign languages?
-What subtitle format do you use? WebVTT or .srt or something else?
++ What tools do you use for adding subtitles to videos?
++ Did you have problems with encoding foreign languages?
++ What subtitle format do you use? WebVTT or .srt or something else?
 
 
 #### Optional projects
@@ -876,7 +876,7 @@ __Project 1 (very easy)__: add some subtitles of your own on one of your videos.
 
 See an example that might help:
 
-+ [Very simple example on JsBin with a video and subtitles](https://jsbin.com/jicanav/2/edit?html,css,output). Note the use of the `crossorigin` attribute of the <video> element. The subtitles were created by hand (using amara).
++ [Very simple example on JsBin with a video and subtitles](https://jsbin.com/jicanav/2/edit?html,css,output). Note the use of the `crossorigin` attribute of the `<video>` element. The subtitles were created by hand (using amara).
 
 __Project 2 (easy)__: try to style some of the subtitles, set their position, etc.
 
