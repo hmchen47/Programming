@@ -34,7 +34,25 @@
   + required a video on one of the formats/codecs supported by the browsers you target; e.g., `H624` and `webm`
   + video encoding software: [Handbrake](https://handbrake.fr/), [Super](https://www.erightsoft.com/SUPER.html), online video encoding services, such as [amara](https://amara.org/en/)
 
++ [Styling captions](#234-styling-captions)
+  + __line:5%__: vertical position at a line 5% of the height of the video viewport (located at the top of the video, proportional to its vertical size)
+  + __position:5% align:start__: regular location at the bottom of the video, the start of the sentence will be located at 5% of the width of the video, i.e., near the left side
+  + __position:95% align:end__: regular location at the bottom of the video, the end of the sentence will be at 95% of the horizontal width of the video
+  + __size:33%__: The size of each line will be one third of the size of the video (displayed in multiple lines)
+  + use of `<b>`, `<i>`, `<u>` for styling subtitles / captions
+  + CSS rules example
 
+    <div class="source-code"><ol class="linenums">
+    <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;c.myclass&gt;</span><span class="pln">This cue contains the class "myclass". </span></li>
+    <li class="L1" style="margin-bottom: 0px;"><span class="pln">Browsers that support ::cue CSS should make it red.</span><span class="tag">&lt;/c&gt;</span></li>
+    </ol></div>
+
+    + `::cue` pseudo element selector: used to match "cues" in the webVTT file
+    + add parenthesis and a secondary CSS selector to match cues that have a particular id, or a particular CSS class
+  + `<v>` element
+    + voicing for styling
+    + distinguishing different voices w/ different color
+    + e.g., `<v Tarzan>Me Tarzan...` & `<v Jane>That would make me Jane`
 
 
 
@@ -436,12 +454,12 @@ The WebVTT file is shown below. Notice the new attributes that have been added o
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/yy4aaax5" ismap target="_blank">
-    <img style="margin: 0.1em;" height=150
+    <img style="margin: 0.1em;" height=200
       src  ="https://tinyurl.com/y44rrucw" 
       alt  ="This cue is only a third if the width of this video, hence the multiple line breaks." 
       title="This cue is only a third if the width of this video, hence the multiple line breaks."
     >
-    <img style="margin: 0.1em;" height=150
+    <img style="margin: 0.1em;" height=200
       src  ="https://tinyurl.com/y6jlz9jc" 
       alt  ="This cue is positioned at the top of the video." 
       title="This cue is positioned at the top of the video."
@@ -469,7 +487,7 @@ There are several possible values:
 And so on. Please look at the video as it is self-explanatory.
 
 
-#### Use of <b>, <i>, <u> for styling subtitles / captions
+#### Use of `<b>`, `<i>`, `<u>` for styling subtitles / captions
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
@@ -542,8 +560,8 @@ Example source code:
 
 1. Is it possible to use CSS for styling subtitles or captions? (Yes/No)
 
-  Ans: 
-
+  Ans: Yes <br/>
+  Explanation: Yes, CSS can be used since subtitles and captions can be pure HTML with id and class attributes. They can also include spans, bold, italic markers, etc.
 
 
 ### 2.3.5 Chapters
