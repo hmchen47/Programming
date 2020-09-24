@@ -78,6 +78,114 @@ Support of stream is [very good in all modern browsers](https://caniuse.com/#fea
   Explanation: getUserMedia is part of the WebRTC specification, but it's related to the `<video>` element too. Indeed, it can be used to redirect the Webcam video stream to a `<video>` element. If this element has the autoplay attribute, it will display the video stream as soon as it is available.
 
 
+### 2.4.2 More on getUserMedia
+
+Let's see some more examples of what we can do with the getUserMedia API: start/stop the Webcam, take a screenshot from the current video stream from the Webcam, and apply CSS effects in real time. Below, we give links to some cool examples available on the Web.
+
+#### How to stop/release the Webcam
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y6xzkams')"
+    src    ="https://tinyurl.com/y5cs88ya"
+    alt    ="start and stop the Webcam"
+    title  ="start and stop the Webcam"
+  />
+</figure>
+
+[Online version at JSBin](https://output.jsbin.com/hafigop) ([Local Example - video controls](src/2.4.2-example1.html))
+
+In order to stop the Webcam and make the hardware "unlock it", you need to call the `stop()` method of the video stream.
+
+Modified version of the previous example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Webcam start/stop</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; let webcamStream</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; function</span><span class="pln"> startWebcam</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // request video and audio stream from the user's webcam</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; navigator</span><span class="pun">.</span><span class="pln">mediaDevices</span><span class="pun">.</span><span class="pln">getUserMedia</span><span class="pun">({</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; audio</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; video</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; })</span>.<span class="pln" style="background-color: #ffffff;">then</span><span class="pun" style="background-color: #ffffff;">((</span><span class="pln" style="background-color: #ffffff;">stream</span><span class="pun" style="background-color: #ffffff;">)</span><span class="pln" style="background-color: #ffffff;"> </span><span class="pun" style="background-color: #ffffff;">=&gt;</span><span class="pln" style="background-color: #ffffff;"> </span><span class="pun" style="background-color: #ffffff;">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; let video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#video'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; video</span><span class="pun">.</span><span class="pln">srcObject </span><span class="pun">=</span><span class="pln"> stream</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; video</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; webcamStream </span><span class="pun">=</span><span class="pln"> stream</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }).catch((error) =&gt; {</span></li>
+<li class="L0" style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; console.log('navigator.getUserMedia error: ', error);</li>
+<li class="L0" style="margin-bottom: 0px;">&nbsp; &nbsp; });</li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; function</span><span class="pln"> stopWebcam</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; webcamStream</span><span class="pun">.</span><span class="pln">getTracks</span><span class="pun">()[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">stop</span><span class="pun">();</span><span class="pln"> </span><span class="com">// audio</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; webcamStream</span><span class="pun">.</span><span class="pln">getTracks</span><span class="pun">()[</span><span class="lit">1</span><span class="pun">].</span><span class="pln">stop</span><span class="pun">();</span><span class="pln"> </span><span class="com">// video</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;video</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">400</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">400</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"video"</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;&lt;/video&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;p&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">startWebcam</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Start WebCam</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">stopWebcam</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Stop WebCam</span><span class="tag">&lt;/button&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;/p&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+__Explanations__:
+
++ _Lines 11-13_: we call `navigator.getUserMedia`. The parameters indicate that we want to capture the video and the audio from the current device (default Webcam). The call to `getUserMedia` returns an ES6 promise: the then(stream) method that follows.
++ _Line 14_: the `then(stream)` method is called in case of success and gets the current audio/video stream as parameter. This is passed by the browser to your JavaScript code. 
++ _Lines 15-19_: The line 16 sets the audio/video stream of the default Webcam to the `srcObject` attribute of the video element, while line 18 starts displaying it in the video player (there can be more than one Webcam, we'll see how to select one in particular next). Line 19 stores the stream in a global variable so that we can use it from another function (for stopping/starting the Webcam...)
++ _Lines 19-23_ define the `catch` method called in case of error (it could be that the Webcam cannot be accessed, or authorizations have not been granted).
++ _Lines 25-27_: a function for stopping the Webcam. We use the global variable `webcamStream` here, that has been initialized when we started using the Webcam in line 19. We have to stop separately the audio and the video streams.
+
+
+#### Other examples that mix what we've seen in previous chapters, but this time with a live video stream
+
+__Applying CSS effects on a video element with a live webcam__
+
+Try this example that shows how to use the getUserMedia API. Note the CSS effects (click on the video to cycle from one effect to another). This works in Chrome/Firefox/Opera: see the [online version at JSBin](https://output.jsbin.com/jerayag). ([Local Example - Webcam w/ CSS](src/2.4.2-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y6xzkams')"
+    src    ="https://tinyurl.com/y3claauz"
+    alt    ="css filter effects on live stream"
+    title  ="css filter effects on live stream"
+  />
+</figure>
+
+
+
+#### Taking a snapshot from the live Webcam stream
+
+The trick is to copy and paste the current image from the video stream into a `<canvas>` element. Check out the [online version at JSBin](https://output.jsbin.com/debekod) (click on the "edit in JSBin" link on top left of the running Web app. to see the complete source code). ([Local Example - Webcam Snapshot](src/2.4.2-example3.html))
+
+We will look at this example in greater detail in the next course section (related to the `<canvas>` element). For the time being, just play with the example. Also note that the source code extract visible in the following screenshot corresponds to an old version, so we recommend that you look at the complete source code in the JSBin running example.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y6xzkams')"
+    src    ="https://tinyurl.com/y3claauz"
+    alt    ="take screenshot of live video stream"
+    title  ="take screenshot of live video stream"
+  />
+</figure>
+
+
+#### Impressive demonstrations available on the Web
+
++ [WebCam pixelization! Fun!](https://codepen.io/dlueth/pen/zBhwv)
++ A MUST TRY: [Paul Neave's WebGL Camera Effects](http://neave.com/webcam/html5/)
 
 
 
