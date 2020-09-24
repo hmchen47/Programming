@@ -478,3 +478,103 @@ Source code extract:
 </ol></div>
 
 
+### 2.4.5 The MediaRecorder API
+
+Let's start by playing with an example: record, replay and download the video stream captured using a Webcam. You can [try this example on JSBin](https://output.jsbin.com/cogozom). ([Local Example - Recording](src/2.4.5-example1.html))
+
+Click "start recording", then press the play button on the video element on the right of the app. You can also click the "download" button to download a .webm file, playable offline with a media player such as [VLC](https://www.videolan.org/).
+
+Screenshot that shows on the left the webcam video stream, and on the right the same stream recorded and playable in a HTML video element
+
+#### Five steps are needed to use the mediaRecorder object
+
+__1 - Create a mediaRecorder from a stream__
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yykzd3po')"
+    src    ="https://tinyurl.com/y4gznu76"
+    alt    ="Source code extract:"
+    title  ="Source code extract:"
+  />
+</figure>
+
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> options </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">mimeType</span><span class="pun">:</span><span class="pln"> </span><span class="str">'video/webm; codecs=vp9'</span><span class="pun">};</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">mediaRecorder </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MediaRecorder</span><span class="pun">(</span><span class="pln">stream</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">);</span></li>
+</ol></div>
+
+
+__2 - Add a "data handler" and call the start() method of the mediaRecorder object__
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> recordedChunks </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"> </span><span class="com">// will hold the recorded stream</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">mediaRecorder</span><span class="pun">.</span><span class="pln">ondataavailable </span><span class="pun">=</span><span class="pln"> handleDataAvailable</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">mediaRecorder</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> handleDataAvailable</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">.</span><span class="pln">size </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; recordedChunks</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp;}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// ...</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">}</span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ Line 1: we declare an array of bytes that will hold the recorded stream.
++ Line 2: we declare the callback function that will be called while the stream is being captured. While the Webcam will be used, every xxx seconds, chunks of data will be passed to the `handleDataAvailable` function.
++ Lines 5-10: this function collects the chunk of data that corresponds to a few seconds of video, and stores it in the recordedChunks byte array.
+
+
+__3 - When you've finished recording, tell the mediaRecorder to stop__
+
+When you're done, you need to call the stop() method of the mediaRecorder object. This will end the periodic execution of the `handleDataAvailable` method, and stop the data capture.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">mediaRecorder</span><span class="pun">.</span><span class="pln">stop</span><span class="pun">();</span></li>
+</ol></div>
+
+
+__4 - Create a blob (binary large object) with the collected data, and use it to set the src attribute of an HTML5 video player__
+
+This piece of code creates a blob with the `recordedChunks` array. Use the `URL.createObjectURL(recordedChunks)` standard method to create another object that can be used as a value to set the src attribute of an HTML5 video element.
+
+Like that, the recorded stream can be played using a standard HTML5 video element.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> play</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> superBuffer </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Blob</span><span class="pun">(</span><span class="pln">recordedChunks</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;videoElement</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">URL</span><span class="pun">.</span><span class="pln">createObjectURL</span><span class="pun">(</span><span class="pln">superBuffer</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+__5 - Download the captured stream__
+
+A trick consists in creating, on the fly, an invisible link with a `download` attribute (see Week 1) and a `href` attribute  that points to the blob object containing the recorded stream encoded using a given codec, then generate programmatically a `click` event on the link. This will force the browser to download a file of type `video/webm` to the hard disk.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> download</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> blob </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Blob</span><span class="pun">(</span><span class="pln">recordedChunks</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'video/webm'</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; });</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> url </span><span class="pun">=</span><span class="pln"> URL</span><span class="pun">.</span><span class="pln">createObjectURL</span><span class="pun">(</span><span class="pln">blob</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'a'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; a</span><span class="pun">.</span><span class="pln">style </span><span class="pun">=</span><span class="pln"> </span><span class="str">'display: none'</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; a</span><span class="pun">.</span><span class="pln">href </span><span class="pun">=</span><span class="pln"> url</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; a</span><span class="pun">.</span><span class="pln">download </span><span class="pun">=</span><span class="pln"> </span><span class="str">'test.webm'</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; a</span><span class="pun">.</span><span class="pln">click</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; window</span><span class="pun">.</span><span class="pln">URL</span><span class="pun">.</span><span class="pln">revokeObjectURL</span><span class="pun">(</span><span class="pln">url</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+
+
