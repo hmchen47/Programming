@@ -35,6 +35,15 @@
   + [WebRTC](https://www.w3.org/TR/webrtc/): a W3C specification for P2P audio/video/data Real Time Communication
 
 
++ [Webcam resolutions](#244-webcam-resolution)
+  + "constraint" object: 
+    + As constraints applied to an existing local video stream using the "change constraints" API, where it may cause the video engine to reconfigure the device or codec for that particular stream.
+    + As constraints applied to an incoming video stream using the "change constrains" API on a MediaStreamTrack, where it serves to inform the video engine about the desirable properties of the video track, which may lead to the video engine choosing to reencode the video and/or signal a remote video source that it wishes certain constraints to be put in place.
+  + [example](#full-example-choose-between-3-different-resolutions)
+  + [rear and front camera in smartphone](#selecting-the-front-or-rear-camera-on-smartphones)
+
+
+
 
 ### 2.4.1 Webcam
 
@@ -269,7 +278,7 @@ Use this [Web app that systematically tests a set of "preferred resolutions"](ht
 
 #### Full example: choose between 3 different resolutions
 
-[Online example at JSBin](https://output.jsbin.com/howodaw), with some browsers the QVGA resolution might not be supported. ([Local Example - Resolutions](src.2.4.4-example2.html))
+[Online example at JSBin](https://output.jsbin.com/howodaw), with some browsers the QVGA resolution might not be supported. ([Local Example - Resolutions](src.2.4.4-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
