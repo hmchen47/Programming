@@ -3,9 +3,9 @@
 ## 2.4 Webcam, microphone: the getUserMedia API
 
 
-## 2.4.0 Lecture Notes
+### 2.4.0 Lecture Notes
 
-+ The `getUserMedia` API
++ [The `getUserMedia` API - Webcam access](#241-webcam)
   + useful for controlling a Webcam video stream
   + one component of the WebRTC specification
   + not considered a "real" part of the HTML5 specification
@@ -16,6 +16,20 @@
     + `navigator.getUserMedia(params)` method: get this stream
     + returns an ES6 promise (ES stands for ECMAScript and the scripting language that forms the basis of JavaScript)
   + mandatory to access the page that contains the JavaScript code through `https://`
+
++ [The `getUserMedia` API - start/stop the Webcam](#242-more-on-getusermedia)
+  + `navigator.mediaDevices.getUserMedia({audio: true, video: true})`: 
+    + parameters to capture the video and the audio from the current device (default Webcam)
+    + return an ES6 promise
+  + `then(stream)` method: get the current audio/video stream as parameter if success
+  + `video.srcObject = stream;`: set the audio/video stream of the default Webcam to the `srcObject` attribute of the video element
+  + `video.play();`: displaying stream in the video player
+  + `webcamStream = stream;`: store the stream in a global variable
+  + `catch((error)`: catch error event
+  + `webcamStream.getTracks()[0].stop(); // audio`: stopping audio of the Webcam
+  + `webcamStream.getTracks()[1].stop(); // video`: stopping video of the Webcam
+
+
 
 
 
