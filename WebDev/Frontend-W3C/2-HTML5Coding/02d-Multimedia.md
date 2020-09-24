@@ -225,4 +225,247 @@ Below is an [example of real time audio processing of the microphone](https://we
 </figure>
 
 
+### 2.4.4 Webcam resolution
+
+It is possible to set "hints" for the preferred cam/resolution during video capture. This is done by using a ["constraint" object](https://tinyurl.com/y5teklb4) that is passed as a parameter to the `getUserMedia(...)` method. It's just the same object we passed in the basic example: `navigator.getUserMedia({video:true}, success, error)` except that this time this object is a little more complex.
+
+For more information, this [article on MDN about the getUserMedia API](https://tinyurl.com/q8dses4) gives great examples on how to set the camera resolution and/or to choose the front or back camera when using a mobile phone.  
+
+Typical use: check out this source code extract below, also [available online at JSBin](https://output.jsbin.com/howodaw). ([Local Example - Camera Resultion](src/2.4.4-example1.html))
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> vgaConstraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>video</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">640</span><span class="pln"> </span><span class="pun">},</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">360</span><span class="pln"> </span><span class="pun">}</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp;}</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> hdConstraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;video</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> min</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1280</span><span class="pln"> </span><span class="pun">},</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> min</span><span class="pun">:</span><span class="pln"> </span><span class="lit">720</span><span class="pln"> </span><span class="pun">}</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp;}</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> constraints </span><span class="pun">=</span><span class="pln"> hdConstraints</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">mediaDevices</span><span class="pun">.</span><span class="pln">getUserMedia</span><span class="pun">(</span><span class="pln">constraints</span><span class="pun">)</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">.</span><span class="kwd">then</span><span class="pun">((</span><span class="pln">stream</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{...}</span></li>
+</ol></div>
+
+
+#### How to check which resolutions are supported by a browser?
+
+Use this [Web app that systematically tests a set of "preferred resolutions"](https://webrtchacks.github.io/WebRTC-Camera-Resolution/) and compared them to the actual resolutions returned by the browser. Remember that the requested resolution is a hint, and there is no real guarantee that your configuration will allow it.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/yya4venl')"
+    src    ="https://tinyurl.com/y54hxx4a"
+    alt    ="Webapp for checking supported resolutions"
+    title  ="Webapp for checking supported resolutions"
+  />
+</figure>
+
+
+#### Full example: choose between 3 different resolutions
+
+[Online example at JSBin](https://output.jsbin.com/howodaw), with some browsers the QVGA resolution might not be supported. ([Local Example - Resolutions](src.2.4.4-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/yya4venl')"
+    src    ="https://tinyurl.com/y4mvemxb"
+    alt    ="Set cam resolution, example shows three buttons, you click and it captures the video webcam stream in a different resolution each time"
+    title  ="Set cam resolution, example shows three buttons, you click and it captures the video webcam stream in a different resolution each time"
+  />
+</figure>
+
+
+HTML code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span></span><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span>&lt;title&gt;</span><span class="pln">getUserMedia constraints for choosing resolution</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;h1&gt;</span><span class="pln">Set the camera resolution</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>Example adapted from: </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://www.simpl.info/getusermedia/constraints/"</span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>https://www.simpl.info/getusermedia/constraints/</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/a&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;br&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;p&gt;</span><span class="pln">Click a button to call </span><span class="tag">&lt;code&gt;</span><span class="pln">getUserMedia()</span><span class="tag">&lt;/code&gt;</span><span class="pln"> with appropriate resolution.</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"buttons"</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"qvga"</span><span class="tag">&gt;</span><span class="pln">QVGA</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"vga"</span><span class="tag">&gt;</span><span class="pln">VGA</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"hd"</span><span class="tag">&gt;</span><span class="pln">HD</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"dimensions"</span><span class="tag">&gt;&lt;/p&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">autoplay</span><span class="tag">&gt;&lt;/video&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp;</span><span class="tag">&lt;/body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+JavaScript code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">var vgaButton</span><span class="pun">,</span><span class="pln"> qvgaButton</span><span class="pun">,</span><span class="pln"> hdButton</span><span class="pun">,</span><span class="pln"> dimensions</span><span class="pun">,</span><span class="pln"> video</span><span class="pun">,</span><span class="pln"> stream</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vgaButton </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'button#vga'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; qvgaButton </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'button#qvga'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; hdButton </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'button#hd'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; dimensions </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'p#dimensions'</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Defines event listeners for the buttons that set the resolution</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; qvgaButton</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; getMedia</span><span class="pun">(</span><span class="pln">qvgaConstraints</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> vgaButton</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; getMedia</span><span class="pun">(</span><span class="pln">vgaConstraints</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> hdButton</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; getMedia</span><span class="pun">(</span><span class="pln">hdConstraints</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Trick: check regularly the size of the video element and display it.</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// When getUserMedia is called the video element changes it sizes but for </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// a while its size is zero pixels... or we check every half a second</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> video</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'play'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayVideoDimensions</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; },</span><span class="pln"> </span><span class="lit">500</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; });</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="com">// The different values for the constraints on resolution</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> qvgaConstraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">320</span><span class="pln"> </span><span class="pun">},</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">180</span><span class="pln"> </span><span class="pun">}</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pun">};</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> vgaConstraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">640</span><span class="pln"> </span><span class="pun">},</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">360</span><span class="pln"> </span><span class="pun">}</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pun">};</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> hdConstraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> min</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1280</span><span class="pln"> </span><span class="pun">},</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> min</span><span class="pun">:</span><span class="pln"> </span><span class="lit">720</span><span class="pln"> </span><span class="pun">}</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pun">};</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// The function that is called when a button has been clicked: it starts the video</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">// with the preferred resolution</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getMedia</span><span class="pun">(</span><span class="pln">constraints</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pln"> </span><span class="pun">(!!</span><span class="pln">stream</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; video</span><span class="pun">.</span><span class="pln">srcObject </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; stream</span><span class="pun">.</span><span class="pln">getTracks</span><span class="pun">()[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">stop</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">mediaDevices</span><span class="pun">.</span><span class="pln">getUserMedia</span><span class="pun">(</span><span class="pln">constraints</span><span class="pun">)</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">.</span><span class="kwd">then</span><span class="pun">((</span><span class="pln">stream</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; video</span><span class="pun">.</span><span class="pln">srcObject </span><span class="pun">=</span><span class="pln"> stream</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; video</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; window</span><span class="pun">.</span><span class="pln">stream </span><span class="pun">=</span><span class="pln"> stream</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">})</span>.<span class="kwd">catch</span><span class="pun">((</span><span class="pln">error</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'navigator.getUserMedia error: '</span><span class="pun">,</span><span class="pln"> error</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">});</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">// utility function that is called by the setInterval(...) every 0.5s, for</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// displaying the video dimensions</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayVideoDimensions</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; dimensions</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Actual video dimensions: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">videoWidth </span><span class="pun">+</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'x'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">videoHeight </span><span class="pun">+</span><span class="pln"> </span><span class="str">'px.'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Selecting the front or rear camera on smartphones
+
+Here are some other constraints you can set. In particular, look at the ones for selecting the front or rear camera (smartphones):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="com">// more on video resolution</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">constraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> min</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">,</span><strong><span class="pln"> ideal</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1280</span></strong><span class="pun">,</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1920</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;height</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> min</span><span class="pun">:</span><span class="pln"> </span><span class="lit">776</span><span class="pun">,</span><strong><span class="pln"> ideal</span><span class="pun">:</span><span class="pln"> </span><span class="lit">720</span></strong><span class="pun">,</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1080</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}<br><br></span></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="com">// Framerate</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">constraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> frameRate</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> ideal</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">};</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="com">// front and back camera (mobile), some examples</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> front </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'flip-button'</span><span class="pun">).</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> <br>&nbsp; &nbsp; front </span><span class="pun">=</span><span class="pln"> </span><span class="pun">!</span><span class="pln">front</span><span class="pun">;</span><span class="pln"> <br></span><span class="pun">};</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com"><br class="Apple-interchange-newline"><strong>// toggle front and back camera (mobile) by clicking a button</strong></span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">constraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> facingMode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">(</span><span class="pln">front</span><span class="pun">?</span><span class="pln"> </span><span class="str">"user"</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="str">"environment"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">};</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="com">// prefer front camera</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">constraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> audio</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><strong><span class="pln"> video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> facingMode</span><span class="pun">:</span><span class="pln"> </span><span class="str">"user"</span><span class="pln"> </span><span class="pun">}</span></strong><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">// require rear camera</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">constraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> audio</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><strong><span class="pln"> video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> facingMode</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> exact</span><span class="pun">:</span><span class="pln"> </span><span class="str">"environment"</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">}</span></strong><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Select input/output for audio and video streams
+
+Resource: [WebRTC samples: Select sources & outputs](https://webrtc.github.io/samples/src/content/devices/input-output/)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/yya4venl')"
+    src    ="https://tinyurl.com/y2t3cufd"
+    alt    ="webapp for selecting audio and video input/output"
+    title  ="webapp for selecting audio and video input/output"
+  />
+</figure>
+
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> gotDevices</span><span class="pun">(</span><span class="pln">deviceInfos</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">!==</span><span class="pln"> deviceInfos</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span><span class="pun">++</span><span class="pln">i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; var</span><span class="pln"> deviceInfo </span><span class="pun">=</span><span class="pln"> deviceInfos</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"device with id: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> deviceInfo</span><span class="pun">.</span><span class="pln">deviceId</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // possible values: audioinput, audiooutput, videoinput</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"device with kind: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> deviceInfo</span><span class="pun">.</span><span class="pln">kind</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // 'speaker' or 'camera' for example</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"device with label: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> deviceInfo</span><span class="pun">.</span><span class="pln">label</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; //... should build a menu, test kind/label and set</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // audioSource and videoSource variables</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// ...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> constraints </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; audio</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><strong><span class="pln">deviceId</span><span class="pun">:</span><span class="pln"> audioSource </span></strong><span class="pun">?</span><span class="pln"> </span><span class="pun">{</span><span class="pln">exact</span><span class="pun">:</span><span class="pln"> audioSource</span><span class="pun">}</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">},</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; video</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><strong><span class="pln">deviceId</span><span class="pun">:</span><span class="pln"> videoSource </span></strong><span class="pun">?</span><span class="pln"> </span><span class="pun">{</span><span class="pln">exact</span><span class="pun">:</span><span class="pln"> videoSource</span><span class="pun">}</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">mediaDevices</span><span class="pun">.</span><span class="pln">getUserMedia</span><span class="pun">(</span><span class="pln">constraints</span><span class="pun">).</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">then</span><span class="pun">(</span><span class="pln">gotStream</span><span class="pun">).</span><span class="kwd">then</span><span class="pun">(</span><span class="pln">gotDevices</span><span class="pun">).</span><span class="kwd">catch</span><span class="pun">(</span><span class="pln">handleError</span><span class="pun">);</span></li>
+</ol></div>
+
 
