@@ -1,0 +1,43 @@
+#output {
+  width: 307px;
+  height: 250px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #ccc;
+}
+#screenshot-stream {
+  width: initial;
+  height: initial;
+}
+#screenshot {
+  vertical-align: top;
+}
+.blur {
+  filter: blur(3px);
+}
+.brightness {
+  filter: brightness(5);
+}
+.contrast {
+  filter: contrast(8);
+}
+.hue-rotate {
+  filter: hue-rotate(90deg);
+}
+.hue-rotate2 {
+  filter: hue-rotate(180deg);
+}
+.hue-rotate3 {
+  filter: hue-rotate(270deg);
+}
+.saturate {
+  filter: saturate(10);
+}
+.grayscale {
+  filter: grayscale(1);
+}
+.sepia {
+  filter: sepia(1);
+}
+.invert {
+  filter: invert(1)
+}
