@@ -592,5 +592,32 @@ A trick consists in creating, on the fly, an invisible link with a `download` at
 </ol></div>
 
 
+### 2.4.6 Discussion and project
+
+Here is the discussion forum dedicated to this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+
+#### Suggested topics
+
++ Do you know applications that use getUserMedia (webcam, mic)? If so, please share!
++ Are you concerned about privacy? Implementations are secure so far, but are you scared that there could be some security holes?
++ Do you plan to use getUserMedia for your Web sites and/or Web applications? Getting a screenshot directly in a form by activating the webcam is cool, but do you plan to use it (support is very good in all modern browsers, mobile or desktop)?
+
+
+#### Optional project
+
+Write a small PhotoBooth app for taking selfies, and optionally save them using the download attribute or some tricks for saving them to disk automatically.
+
++ Example written by Fjordcarver, a student who previously followed this MOOC course , available [on JSBin](https://output.jsbin.com/bucevej). It uses the HTML5 canvas element for the small thumbnails below the webcam video. We'll study this element in Week 3.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yy6kpxpr')"
+    src    ="https://courses.edx.org/assets/courseware/v1/97023394fa7d27a62f537045d932894b/asset-v1:W3Cx+HTML5.1x+2T2020+type@asset+block/photobooth.jpg"
+    alt    ="a simple photobooth webapp"
+    title  ="a simple photobooth webapp"
+  />
+</figure>
+
 
 
