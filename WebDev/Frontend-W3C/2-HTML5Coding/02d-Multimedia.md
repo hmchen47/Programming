@@ -3,22 +3,45 @@
 ## 2.4 Webcam, microphone: the getUserMedia API
 
 
+## 2.4.0 Lecture Notes
+
++ The `getUserMedia` API
+  + useful for controlling a Webcam video stream
+  + one component of the WebRTC specification
+  + not considered a "real" part of the HTML5 specification
+  + dealing with video streams: always used in conjunction with the `<video>` element
+  + [specification](https://www.w3.org/TR/mediacapture-streams/)
+  + Webcam usage
+    + set the `srcObject` attribute of a `<video>` element to the live video stream object coming out of the Webcam
+    + `navigator.getUserMedia(params)` method: get this stream
+    + returns an ES6 promise (ES stands for ECMAScript and the scripting language that forms the basis of JavaScript)
+  + mandatory to access the page that contains the JavaScript code through `https://`
+
+
+
 ### 2.4.1 Webcam
 
 #### Introduction to the getUserMedia API
 
-The getUserMedia API is useful for controlling a Webcam video stream. This chapter presents the most interesting parts, related to the `<video>` and `<audio>` elements.
+The [getUserMedia API](https://www.w3.org/TR/mediacapture-streams/) is useful for controlling a Webcam video stream. This chapter presents the most interesting parts, related to the `<video>` and `<audio>` elements.
 
-While this API is one component of the WebRTC specification and therefore not considered a "real" part of the HTML5 specification, we still consider it relevant to the "multimedia" part of this course. The getUserMedia API, when dealing with video streams, is always used in conjunction with the `<video>` element.
+While this API is one component of the [WebRTC specification](https://www.w3.org/TR/webrtc/) and therefore not considered a "real" part of the HTML5 specification, we still consider it relevant to the "multimedia" part of this course. The getUserMedia API, when dealing with video streams, is always used in conjunction with the `<video>` element.
 
-screenshot of a webcam display in a web page
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y3aztar7')"
+    src    ="https://tinyurl.com/y5xy54qv"
+    alt    ="screenshot of a webcam display in a web page"
+    title  ="screenshot of a webcam display in a web page"
+  />
+</figure>
 
 
 #### Typical use of the getUserMedia API with a Webcam
 
-The main idea is to set the srcObject attribute of a `<video>` element to the live video stream object coming out of the Webcam. To get this stream, you'll have to call the `navigator.getUserMedia(params)` method from the getUserMedia API, that returns an [ES6 promise](https://developers.google.com/web/fundamentals/primers/promises) (ES stands for ECMAScript and is the scripting language that forms the basis of JavaScript). Do not panic if you do not know ES6's promises! The syntax is very simple, and you'll learn what you need from the provided examples.
+The main idea is to set the `srcObject` attribute of a `<video>` element to the live video stream object coming out of the Webcam. To get this stream, you'll have to call the `navigator.getUserMedia(params)` method from the getUserMedia API, that returns an [ES6 promise](https://developers.google.com/web/fundamentals/primers/promises) (ES stands for ECMAScript and is the scripting language that forms the basis of JavaScript). Do not panic if you do not know ES6's promises! The syntax is very simple, and you'll learn what you need from the provided examples.
 
-The stream is passed as a parameter to the `then()` method returned by the promise, as in this typical example ([you can try it at JSBin](https://output.jsbin.com/gakikop) - press the "edit in JSBin" button to see the source code):
+The stream is passed as a parameter to the `then()` method returned by the promise, as in this typical example ([you can try it at JSBin](https://output.jsbin.com/gakikop) - press the "edit in JSBin" button to see the source code) ([Local Example - Webcam](src/2.4.1-example1.html)):
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">autoplay</span><span class="tag">&gt;</span><span class="pln">Fallback msg here.</span><span class="tag">&lt;/video&gt;</span></li>
@@ -47,11 +70,12 @@ Support of stream is [very good in all modern browsers](https://caniuse.com/#fea
 #### Knowledge check 2.5.1
 
 1. What is getUserMedia?<br/>
-  a.A JavaScript API that can be used to redirect the Webcam video stream to a video element<br/>
-  b.An API which only works with WebRTC for audio conferencing<br/>
-  c.An upcoming API that is not available yet on browsers, but can be emulated by the video element<br/>
+  a. A JavaScript API that can be used to redirect the Webcam video stream to a video element<br/>
+  b. An API which only works with WebRTC for audio conferencing<br/>
+  c. An upcoming API that is not available yet on browsers, but can be emulated by the video element<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: getUserMedia is part of the WebRTC specification, but it's related to the `<video>` element too. Indeed, it can be used to redirect the Webcam video stream to a `<video>` element. If this element has the autoplay attribute, it will display the video stream as soon as it is available.
 
 
 
