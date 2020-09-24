@@ -10,7 +10,7 @@
   + one component of the WebRTC specification
   + not considered a "real" part of the HTML5 specification
   + dealing with video streams: always used in conjunction with the `<video>` element
-  + [specification](https://www.w3.org/TR/mediacapture-streams/)
+  + specification: https://www.w3.org/TR/mediacapture-streams/
   + Webcam usage
     + set the `srcObject` attribute of a `<video>` element to the live video stream object coming out of the Webcam
     + `navigator.getUserMedia(params)` method: get this stream
@@ -29,7 +29,10 @@
   + `webcamStream.getTracks()[0].stop(); // audio`: stopping audio of the Webcam
   + `webcamStream.getTracks()[1].stop(); // video`: stopping video of the Webcam
 
-
++ [Accessing the microphone](#243-using-the-microphone)
+  + `navigator.getUserMedia({audio:true}, onSuccess, onError)`: capture the microphone input
+  + `navigator.getUserMedia({video:true, audio:true}, onSuccess, onError)`: access the video and audio simultaneously
+  + [WebRTC](https://www.w3.org/TR/webrtc/): a W3C specification for P2P audio/video/data Real Time Communication
 
 
 
