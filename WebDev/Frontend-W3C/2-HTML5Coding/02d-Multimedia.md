@@ -170,9 +170,9 @@ __Applying CSS effects on a video element with a live webcam__
 Try this example that shows how to use the getUserMedia API. Note the CSS effects (click on the video to cycle from one effect to another). This works in Chrome/Firefox/Opera: see the [online version at JSBin](https://output.jsbin.com/jerayag). ([Local Example - Webcam w/ CSS](src/2.4.2-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y6xzkams')"
-    src    ="https://tinyurl.com/y3claauz"
+    src    ="https://tinyurl.com/yy2jzhuh"
     alt    ="css filter effects on live stream"
     title  ="css filter effects on live stream"
   />
@@ -201,6 +201,25 @@ We will look at this example in greater detail in the next course section (relat
 + [WebCam pixelization! Fun!](https://codepen.io/dlueth/pen/zBhwv)
 + A MUST TRY: [Paul Neave's WebGL Camera Effects](http://neave.com/webcam/html5/)
 
+
+### 2.4.3 Using the microphone
+
+Instead of using the getUserMedia API with: `navigator.getUserMedia({video:true}, onSuccess, onError)`, it is also possible to use `{audio:true}` for the first parameter. In this case, only the microphone input will be captured. Notice that `{video:true, audio:true}` is also accepted, if you write a video conferencing system and need to capture both the audio and the video (this is often the case when writing WebRTC applications). The [WebRTC](https://www.w3.org/TR/webrtc/) is another W3C specification for P2P audio/video/data Real Time Communication.
+
+Apart from videoconferencing, microphone input will be used for music Web apps, from the [WebAudio API](https://www.w3.org/TR/webaudio/). This API focuses on real time sound processing and music synthesis. This API is covered in the advanced W3Cx HTML5 course ([HTML5 Apps and Games](https://www.edx.org/course/html5-apps-and-games)).
+
+Do try some nice WebRTC applications like [Jitsi](https://jitsi.org/). Also check out the [WebAudio demonstrations](https://webaudiodemos.appspot.com/) written by Chris Wilson, esp. the one called "Input effects".
+
+Below is an [example of real time audio processing of the microphone](https://webaudiodemos.appspot.com/input/index.html) input using getUserMedia and WebAudio APIs:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/yxq32gur')"
+    src    ="https://tinyurl.com/y56hekwa"
+    alt    ="webaudio live processing"
+    title  ="webaudio live processing"
+  />
+</figure>
 
 
 
