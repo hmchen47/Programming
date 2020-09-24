@@ -42,6 +42,20 @@
   + [example](#full-example-choose-between-3-different-resolutions)
   + [rear and front camera in smartphone](#selecting-the-front-or-rear-camera-on-smartphones)
 
++ [The MediaRecorder API](#245-the-mediarecorder-api): [usage procedure](#five-steps-are-needed-to-use-the-mediarecorder-object)
+  + creating a mediaRecorder from a stream
+  + adding a "data handler" and call the `start()` method
+    + `var recordedChunks = []; // will hold the recorded stream`: an array of bytes to hold the recorded stream
+    + `mediaRecorder.ondataavailable = handleDataAvailable;`: declare the callback function to be called while the stream captured
+    + `function handleDataAvailable(event)`: a function collecting the chunk of data that corresponds to a few seconds of video, and store it in the recordedChunks byte array
+  + info mediaRecorder to stop while done
+    + `mediaRecorder.stop();`: end the periodic execution of the handleDataAvailable method, and stop the data capture
+  + creating a blob (large binary object) as the `src` attribute of the video player
+    + `recordedChunks` array: a blob
+    + `URL.createObjectURL(recordedChunks)`: create another object used ass a value to set the `src` attribute
+  + download the capture stream
+      + creating an invisible link with a `download` attribute and a `href` attribute that points to the blob object containing the recorded stream encoded using a given codec
+      + generate programmatically a click event on the link
 
 
 
@@ -505,8 +519,10 @@ __1 - Create a mediaRecorder from a stream__
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">mediaRecorder </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MediaRecorder</span><span class="pun">(</span><span class="pln">stream</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">);</span></li>
 </ol></div>
 
+... where streams is typically the object returned by the call to getUserMedia (see previous examples).
 
-__2 - Add a "data handler" and call the start() method of the mediaRecorder object__
+
+__2 - Add a "data handler" and call the `start()` method of the mediaRecorder object__
 
 Source code extract:
 
@@ -524,25 +540,25 @@ Source code extract:
 </ol></div>
 
 
-__Explanations:__
+Explanations:
 
-+ Line 1: we declare an array of bytes that will hold the recorded stream.
-+ Line 2: we declare the callback function that will be called while the stream is being captured. While the Webcam will be used, every xxx seconds, chunks of data will be passed to the `handleDataAvailable` function.
-+ Lines 5-10: this function collects the chunk of data that corresponds to a few seconds of video, and stores it in the recordedChunks byte array.
++ _Line 1_: we declare an array of bytes that will hold the recorded stream.
++ _Line 2_: we declare the callback function that will be called while the stream is being captured. While the Webcam will be used, every xxx seconds, chunks of data will be passed to the `handleDataAvailable` function.
++ _Lines 5-10_: this function collects the chunk of data that corresponds to a few seconds of video, and stores it in the recordedChunks byte array.
 
 
 __3 - When you've finished recording, tell the mediaRecorder to stop__
 
-When you're done, you need to call the stop() method of the mediaRecorder object. This will end the periodic execution of the `handleDataAvailable` method, and stop the data capture.
+When you're done, you need to call the `stop()` method of the mediaRecorder object. This will end the periodic execution of the `handleDataAvailable` method, and stop the data capture.
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">mediaRecorder</span><span class="pun">.</span><span class="pln">stop</span><span class="pun">();</span></li>
 </ol></div>
 
 
-__4 - Create a blob (binary large object) with the collected data, and use it to set the src attribute of an HTML5 video player__
+__4 - Create a blob (binary large object) with the collected data, and use it to set the `src` attribute of an HTML5 video player__
 
-This piece of code creates a blob with the `recordedChunks` array. Use the `URL.createObjectURL(recordedChunks)` standard method to create another object that can be used as a value to set the src attribute of an HTML5 video element.
+This piece of code creates a blob with the `recordedChunks` array. Use the `URL.createObjectURL(recordedChunks)` standard method to create another object that can be used as a value to set the `src` attribute of an HTML5 video element.
 
 Like that, the recorded stream can be played using a standard HTML5 video element.
 
