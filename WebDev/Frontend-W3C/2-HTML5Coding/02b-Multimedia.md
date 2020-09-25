@@ -18,14 +18,14 @@
 		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.ogg"</span><span> </span><span>type</span><span>=</span><span>"video/ogg"</span><span> </span><span>/&gt;</span></li>
 		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;Your browser does not support the </span><span>&lt;video&gt;</span><span> element.</span></li>
 		<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
-		</ol></div>
+		</ol></div><br/>
 
-		+ `controls` attribute: a control panel displayed with play/stop/volume/progress widgets
+		+ `controls` attribute: a control panel displayed w/ play/stop/volume/progress widgets
 		+ usually browser using the first format it recognizes, but some browsers choosing a "preferred" format
 	+ unable to embed a YouTube or DailyMotion video using the `<video>` element
-		+ using rather complex techniques to prevent people from using them with the `<video>` element
+		+ using rather complex techniques to prevent people from using them w/ the `<video>` element
 		+ embedding an `<iframe>` to render the HTML5 videos in one's own Web site
-		+ usually an "embed" button close to the videos that prompts people with some HTML code that you can copy and paste for embedding
+		+ usually an "embed" button close to the videos that prompts people w/ some HTML code that you can copy and paste for embedding
 		+ YouTube example: `<iframe width="560" height="315" src="https://www.youtube.com/watch?v=9NTrwrfI-X4" frameborder="0" allowfullscreen></iframe>`
 
 + [Most common attributes of `<video>` element](#most-useful-attributes-of-the-video-element)
@@ -45,7 +45,7 @@
 		+ hint: the browser may ignore it
 		+ `autoplay` and `preload` mutually exclusive, if both are present, then preload is ignored.
 		+ Possible values:
-			+ `none`: do nothing. no video downloaded in background before a user or a call to the play() method starts playing the video.
+			+ `none`: do nothing. no video downloaded in background before a user or a call to the `play()` method starts playing the video.
 			+ `metadata`: download metadata, such as length of the video or its format.
 			+ `auto` (default value): the browser decides, depending on the implementation, and on the kind of connection: wifi, 3G, data roaming etc.
 	+ `loop` (Boolean): play the video in loop mode (and it starts again when finished).
@@ -63,14 +63,14 @@
 	+ similar to the `<video>` element, both in its use and in its API
 	+ reduced version of the `<video>` on attributes, event set and JavaScript API 
 	+ using the `controls` attribute in order to render the play/stop, time, volume and progress widgets
-	+ text message btw the `<audio>`...`</audio>` tags: displayed if the Web browser doesn't support the <audio> element
+	+ text message btw the `<audio>`...`</audio>` tags: displayed if the Web browser doesn't support the `<audio>` element
 	+ several `<source>`...`</source>` elements: link to different audio formats for the same file
 
 + [Most common attributes of `<audio>` element](#attributes-of-the-audio-element)
 	+ `src`: source of an audio stream.
-	+ `controls` (Boolean): display controls for audio playback and volume.
+	+ `controls` (Boolean): display controls for audio playback and volume
 	+ `autoplay`: start playing the audio stream automatically as soon as the page is ready
-	+ `preload`: tells the browser what to do before a user plays a sound - please read details in the above table.
+	+ `preload`: tell the browser what to do before a user plays a sound
 	+ `loop`: play the audio stream in loop mode
 	+ best practice in regard to `preload` and `autoplay` attributes should be followed as `<video>` element
 
@@ -99,14 +99,14 @@
 			+ using `viewport` instead of default video size; e.g., `width: 100vw; height: 100vh;`
 			+ behave the same as the 1st solution w/ JavaScript
 			+ dispalyed the whole video
-	+ effecct of `width: 100%; height: 100%`
+	+ effect of `width: 100%; height: 100%`
 		+ 100% size of the tag
 		+ `<body>` tage w/ `width: 100%;`: the browser windows size, i.e., video always full width
 		+ `<body>` tage w/ `height: 100%;`: determined by the size of its children, gorw or shrink according the size of its children
 		+ part of the video invisible as the browser window shorter the video height
 
 + [DOM JavaScript API](#225-control-players-from-javascript)
-	+ __mathods__: controlling the behavior, such as play(), pause(), etc.
+	+ __methods__: controlling the behavior, such as `play()`, `pause()`, etc.
 	+ __properties__:
 		+ read/write mode, e.g., volume
 		+ read-only mode, e.g., encoding, duration, etc.
@@ -116,33 +116,33 @@
 		+ able to send events to control the video player
 	+ example:
 
-		<div><ol>
-		<li style="margin-bottom: 0px;" value="1"><span>var</span><span> video </span><span>=</span><span> document</span><span>.</span><span>createElement</span><span>(</span><span>'video'</span><span>);</span></li>
+		<div><ul>
+		<li style="margin-bottom: 0px;"><span>var</span><span> video </span><span>=</span><span> document</span><span>.</span><span>createElement</span><span>(</span><span>'video'</span><span>);</span></li>
 		<li style="margin-bottom: 0px;"><span>video</span><span>.</span><span>src </span><span>=</span><span> </span><span>'video.mp4'</span><span>;</span></li>
 		<li style="margin-bottom: 0px;"><span>video</span><span>.</span><span>controls </span><span>=</span><span> </span><span>true</span><span>;</span></li>
 		<li style="margin-bottom: 0px;"><span>document</span><span>.</span><span>body</span><span>.</span><span>appendChild</span><span>(</span><span>video</span><span>);</span></li>
-		</ol></div>
+		</ul></div>
 
 + [Categories of HTML elements](https://html.spec.whatwg.org/multipage/dom.html#content-categories)
 	+ Metadata content
 		+ set up the presentation or behavior of the rest of the content
-		+ set up the relationship of the document with other documents
+		+ set up the relationship of the document w/ other documents
 		+ convey other "out of band" information
 		+ list of elements: base, link, meta, noscript, script, style, template, title
-	+ Flow content: most elements that are used in the body of documents and applications
-	+ Sectioning content
+	+ flow content: most elements used in the body of documents and applications
+	+ sectioning content
 		+ define the scope of headings and footers
 		+ list of element: article, aside, nav, section
-	+ Heading content
+	+ heading content
 		+ define the header of a section
-		+ lis of elements: h1, h2, h3, h4, h5, h6, hgroup
-	+ Phrasing content
+		+ list of elements: h1, h2, h3, h4, h5, h6, hgroup
+	+ phrasing content
 		+ the text of the document, as well as elements that mark up that text at the intra-paragraph level
 		+ runs of phrasing content form paragraphs
-	+ Embedded content
+	+ embedded content
 		+ import another resource into the document, or content from another vocabulary that is inserted into the document
 		+ list of element: audio, canvas, embed, iframe, img, math, object, picture, svg, video
-	+ Interactive content
+	+ interactive content
 		+ specifically intended for user interaction
 		+ a (if the href attribute is present), audio (if the controls attribute is present), button, details, embed, iframeimg (if the usemap attribute is present), input (if the type attribute is not in the Hidden state), label, object (if the usemap attribute is present), select, textarea, video (if the controls attribute is present)
 
@@ -209,7 +209,7 @@
 	</table>
 
 
-+ The `<video>` element JavaScript API
++ [The `<video>` element JavaScript API](#227-the-video-element-javascript-api)
 	+ useful for implementing playlists, making custom user interfaces and many other interesting things
 	+ use external buttons to control the player's behavior
 		+ HTML code
@@ -240,9 +240,7 @@
 			+ `myVideo.addEventListener('ended', loadAndplayNextVideo, false);`: define the listerner for the `ended` event
 			+ `loadNextVideo();`: callback function to react the `ended` event
 				+ `currentVideo`: a variable corresonding to the the index of the current video
-				+ `myVideo.src = sources [currentVideo % sources.length]`: set the src of the video element to `sources[0]`, then to `sources[1]`, and nodule w/ the length of the list to repeat the playing
-
-
+				+ `myVideo.src = sources [currentVideo % sources.length]`: set the `src` of the video element to `sources[0]`, then to `sources[1]`, and module w/ the length of the list to repeat the playing
 
 
 
@@ -448,7 +446,7 @@ Here are the most common attributes you can use with the `<video>` element. They
 + `poster`: This attribute allows you to specify an image that the browser will use while video is being downloaded, or until the user starts playing the video. If this attribute is not specified, the first frame of the video will be used instead.
 + `autoplay`: This attribute asks the browser to start playing the video automatically as soon as the page is ready.
 + `preload`:  The `preload` attribute is used when `autoplay` is not used. It tells the browser what to do before a user plays a video. This attribute is a hint - the browser may ignore it. While `autoplay` and `preload` are mutually exclusive, if both are present, then `preload` is ignored. Possible values:
-	+ `none`: do nothing. This saves bandwidth, no video will be downloaded in background before a user or a call to the play() method starts playing the video.
+	+ `none`: do nothing. This saves bandwidth, no video will be downloaded in background before a user or a call to the `play()` method starts playing the video.
 	+ `metadata`: download metadata, such as length of the video or its format.
 	+ `auto` (default value): the browser will decide. This will depend on the implementation, and on the kind of connection: wifi, 3G, data roaming etc.
 + `loop`: Another boolean attribute that indicates to play the video in loop mode (and it starts again when finished).
@@ -909,7 +907,7 @@ Setting the video to 100% `width` and `height` results in different behavior:
 
 The `<video>` element has methods, properties/attributes and events that can be manipulated with JavaScript. Using the DOM API, it's possible to manipulate an audio or video element as a JavaScript object that has:
 
-+ __Methods__ for controlling the behavior, such as play(), pause(), etc.
++ __Methods__ for controlling the behavior, such as `play()`, `pause()`, etc.
 + __Properties__ (duration, current position, etc.), either in read/write mode (such as volume), or in read-only mode (such as encoding, duration, etc.)
 + __Events__ generated during the life cycle of the element that can be processed using JavaScript callbacks. It is also possible to send events to control the video player
 
@@ -948,7 +946,7 @@ __Conclusion__:  you can very easily change the look and feel of the standard vi
 1. Once created or selected using the standard DOM API, can audio and video elements be manipulated as JavaScript objects? (Yes/No)
 
 	Ans: Yes<br/>
-	Explanation: Using the DOM API, it is possible to create programmatically an audio or video element and insert it into the HTML page. If it has already been declared, you can just select it from JavaScript. The JavaScript object created/selected has properties such as duration, currentTime, etc., and also has methods such as play(), stop(), etc. It can also send events (it is possible to monitor the progress for example) or receive events.
+	Explanation: Using the DOM API, it is possible to create programmatically an audio or video element and insert it into the HTML page. If it has already been declared, you can just select it from JavaScript. The JavaScript object created/selected has properties such as duration, currentTime, etc., and also has methods such as `play()`, stop(), etc. It can also send events (it is possible to monitor the progress for example) or receive events.
 
 
 ### 2.2.6 The JavaScript API
