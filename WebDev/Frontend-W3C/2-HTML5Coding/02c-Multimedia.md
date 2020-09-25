@@ -68,13 +68,13 @@
   + use of `<b>`, `<i>`, `<u>` for styling subtitles / captions
   + CSS rules example
 
-    <div><ol>
+    <div><ol style="list-style-type: decimal;">
     <li style="margin-bottom: 0px;" value="1"><span>&lt;c.myclass&gt;</span><span>This cue contains the class "myclass". </span></li>
     <li style="margin-bottom: 0px;"><span>Browsers that support ::cue CSS should make it red.</span><span>&lt;/c&gt;</span></li>
     </ol></div><br/>
 
     + `::cue` pseudo element selector: used to match "cues" in the webVTT file
-    + add parenthesis and a secondary CSS selector to match cues that have a particular id, or a particular CSS class
+    + add parenthesis and a secondary CSS selector to match cues w/ a particular id, or a particular CSS class
   + `<v>` element
     + voicing for styling
     + distinguishing different voices w/ different color
@@ -91,14 +91,14 @@
   + creating subtitles/captions from scratch
   + enhanced HTML5 video player using `<video>`, `<source>` & `<track>` elements
 
-+ The `<track>` JavaScript API
-  + powerful API that is used to develop many interesting features
++ [The `<track>` JavaScript API](#237-the-track-javascript-api)
+  + powerful API used to develop many interesting features
     + dynamically building a navigation menu
     + synchronizing page content w/ timestamps in the WebVTT file
     + displaying all the subtitles/captions at once
     + making an app for creating on the fly subtitles/captions
     + etc.
-  + sync guitar tablatures and music score w/ a video
+  + example: sync guitar tablature and music score w/ a video
     + JavaScript code listens to the `ontimeupdate` event while the video is playing
     + the `currentTime` property: knowing exactly where we are in the video
     + an external library to render in an HTML5 canvas the bars corresponding to the current video explanations
@@ -107,13 +107,13 @@
   + advantages of enhanced video players
     + support all kinds of subtitle formats
     + customizable look'n'feel
-    + full screen mode w/o broders on old browsers
+    + full screen mode w/o borders on old browsers
     + consistent look'n'feel for browsers
     + fast playback
     + sharing buttons for social media
     + support chapters
     + support scrub bar thumbnails
-    + extra features foor better accessibility
+    + extra features for better accessibility
     + and so on...
   + advantages of using the `<video>` elements
     + total control
