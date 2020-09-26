@@ -62,5 +62,56 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 
 
 
+### 2.5.3 Quiz - Attributes of `<audio>` and `<video>` (5-8)
+
+5. Lost attributes...
+
+  Which of the following are valid attributes for the `<audio>` and `<video>` elements? (4 correct answers.)<br/>
+  a. stream<br/>
+  b. controls<br/>
+  c. src<br/>
+  d. loop<br/>
+  e. looping<br/>
+  f. autoplay<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+6. Dangerous attributes!
+
+  Which attribute is not recommended with mobile browsers or with documents that contain multiple videos?<br/>
+  a. src<br/>
+  b. controls<br/>
+  c. autoplay<br/>
+  d. poster<br/>
+  e. loop<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+7. Recommended attributes
+
+  What is considered good practice when you target mobile applications, or when your document contains a lot of audios/videos? (2 correct answers.)<br/>
+  a. use the autoplay attribute in audio and video elements<br/>
+  b. use the attribute preload="none" in audio and video elements<br/>
+  c. use the loop attribute in audio and video elements<br/>
+  d. omit the autoplay attribute in audio and video elements<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+8. HTML5 relaxed syntax and boolean attributes
+
+  We would like to have play/stop/pause buttons in our audio or video player. What should be added to the declaration of the video element? (2 correct answers.)<br/>
+  a. If we want just a play/pause button, but no stop button, we will add two attributes: `play="true"` and `stop="false"`<br/>
+  b. Just add an attribute named "controls" like in `<audio controls>`<br/>
+  c. Same as above, but you can also use `<audio controls="controls">`<br/>
+  d. Add this attribute: `showcontrols`<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
