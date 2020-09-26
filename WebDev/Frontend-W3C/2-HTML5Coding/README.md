@@ -31,12 +31,12 @@
 
 ## Week 3: HTML5 Graphics
 
-+ 3.1 [Video introduction - Week 3](./03-Graphics.md#)
-+ 3.2 [Basics of HTML5 canvas](./03-Graphics.md#)
-+ 3.3 [Immediate drawing mode](./03-Graphics.md#)
-+ 3.4 [Path drawing mode](./03-Graphics.md#)
-+ 3.5 [Colors, gradients, patterns, etc.](./03-Graphics.md#)
-+ 3.6 [Exercises - Week 3](./03-Graphics.md#)
++ 3.1 [Video introduction - Week 3](./03a-Graphics.md#)
++ 3.2 [Basics of HTML5 canvas](./03b-Graphics.md#)
++ 3.3 [Immediate drawing mode](./03c-Graphics.md#)
++ 3.4 [Path drawing mode](./03d-Graphics.md#)
++ 3.5 [Colors, gradients, patterns, etc.](./03e-Graphics.md#)
++ 3.6 [Exercises - Week 3](./03f-Graphics.md#)
 
 
 ## Week 4: HTML5 Animations
