@@ -7,14 +7,14 @@
 
 + [The `getUserMedia` API - Webcam access](#241-webcam)
   + useful for controlling a Webcam video stream
-  + one component of the WebRTC specification
+  + one component of the [WebRTC specification](https://www.w3.org/TR/webrtc/)
   + not considered a "real" part of the HTML5 specification
-  + dealing with video streams: always used in conjunction with the `<video>` element
+  + dealing w/ video streams: always used in conjunction w/ the `<video>` element
   + specification: https://www.w3.org/TR/mediacapture-streams/
   + Webcam usage
     + set the `srcObject` attribute of a `<video>` element to the live video stream object coming out of the Webcam
-    + `navigator.getUserMedia(params)` method: get this stream
-    + returns an ES6 promise (ES stands for ECMAScript and the scripting language that forms the basis of JavaScript)
+    + `navigator.getUserMedia(params)` method: get the stream
+    + return an [ES6 promise](https://tinyurl.com/y4atxcjf); ES = ECMAScript
   + mandatory to access the page that contains the JavaScript code through `https://`
 
 + [The `getUserMedia` API - start/stop the Webcam](#242-more-on-getusermedia)
@@ -25,7 +25,7 @@
   + `video.srcObject = stream;`: set the audio/video stream of the default Webcam to the `srcObject` attribute of the video element
   + `video.play();`: displaying stream in the video player
   + `webcamStream = stream;`: store the stream in a global variable
-  + `catch((error)`: catch error event
+  + `catch((error) => ...)`: catch error event
   + `webcamStream.getTracks()[0].stop(); // audio`: stopping audio of the Webcam
   + `webcamStream.getTracks()[1].stop(); // video`: stopping video of the Webcam
 
@@ -39,8 +39,42 @@
   + "constraint" object: 
     + As constraints applied to an existing local video stream using the "change constraints" API, where it may cause the video engine to reconfigure the device or codec for that particular stream.
     + As constraints applied to an incoming video stream using the "change constrains" API on a MediaStreamTrack, where it serves to inform the video engine about the desirable properties of the video track, which may lead to the video engine choosing to reencode the video and/or signal a remote video source that it wishes certain constraints to be put in place.
-  + [example](#full-example-choose-between-3-different-resolutions)
+  + [example: different resolutions](#full-example-choose-between-3-different-resolutions)
+    + buttons for different resolutions: `<button id="qvga">QVGA</button>`, `<button id="vga">VGA</button>` & `<button id="hd">HD</button>`
+    + initial buttons: ` vgaButton = document.querySelector('button#vga');`, `hdButton = document.querySelector('button#hd');`
+    + callback fucntion for different resultions: `getMedia(qvgaConstraints);`, ` getMedia(vgaConstraints);` & `getMedia(hdConstraints);`
+    + event listeners:
+
+      ```js
+      video.addEventListener('play', function() {
+          setTimeout(function() {
+                  displayVideoDimensions();
+              }, 500);
+          });
+      }
+      ```
+
+    + values for the constraints on resolutions
+
+      ```js
+      var qvgaConstraints = {
+          video: {
+              width: { max: 320 },
+              height: { max: 180 }
+          }
+      };
+      ```
+
   + [rear and front camera in smartphone](#selecting-the-front-or-rear-camera-on-smartphones)
+
+    ```js
+    document.getElementById('flip-button').onclick = function() {
+        front = !front;
+    };
+
+    // toggle front and back camera (mobile) by clicking a button
+    constraints = { video: { facingMode: (front? "user" : "environment") } };
+    ```
 
 + [The MediaRecorder API](#245-the-mediarecorder-api): [usage procedure](#five-steps-are-needed-to-use-the-mediarecorder-object)
   + creating a mediaRecorder from a stream
@@ -52,10 +86,10 @@
     + `mediaRecorder.stop();`: end the periodic execution of the handleDataAvailable method, and stop the data capture
   + creating a blob (large binary object) as the `src` attribute of the video player
     + `recordedChunks` array: a blob
-    + `URL.createObjectURL(recordedChunks)`: create another object used ass a value to set the `src` attribute
+    + `URL.createObjectURL(recordedChunks)`: create another object used as a value to set the `src` attribute
   + download the capture stream
-      + creating an invisible link with a `download` attribute and a `href` attribute that points to the blob object containing the recorded stream encoded using a given codec
-      + generate programmatically a click event on the link
+    + creating an invisible link w/ a `download` attribute and a `href` attribute that points to the blob object containing the recorded stream encoded using a given codec
+    + generate programmatically a click event on the link
 
 
 
@@ -79,7 +113,7 @@ While this API is one component of the [WebRTC specification](https://www.w3.org
 
 #### Typical use of the getUserMedia API with a Webcam
 
-The main idea is to set the `srcObject` attribute of a `<video>` element to the live video stream object coming out of the Webcam. To get this stream, you'll have to call the `navigator.getUserMedia(params)` method from the getUserMedia API, that returns an [ES6 promise](https://developers.google.com/web/fundamentals/primers/promises) (ES stands for ECMAScript and is the scripting language that forms the basis of JavaScript). Do not panic if you do not know ES6's promises! The syntax is very simple, and you'll learn what you need from the provided examples.
+The main idea is to set the `srcObject` attribute of a `<video>` element to the live video stream object coming out of the Webcam. To get this stream, you'll have to call the `navigator.getUserMedia(params)` method from the getUserMedia API, that returns an [ES6 promise](https://tinyurl.com/y4atxcjf) (ES stands for ECMAScript and is the scripting language that forms the basis of JavaScript). Do not panic if you do not know ES6's promises! The syntax is very simple, and you'll learn what you need from the provided examples.
 
 The stream is passed as a parameter to the `then()` method returned by the promise, as in this typical example ([you can try it at JSBin](https://output.jsbin.com/gakikop) - press the "edit in JSBin" button to see the source code) ([Local Example - Webcam](src/2.4.1-example1.html)):
 
