@@ -91,7 +91,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Elements </th>
+    <th rowspan="5" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Elements </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#definition-and-characteristics-of-elements"> Definition </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#document-metadata"> metadata </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#microdata"> Microdata </a> </td>
@@ -181,7 +181,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Multimedia </th>
+    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Multimedia </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#characteristics-of-image-element"> Image Elements </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#list-of-attributes-for-image-element"> Image Attributes </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-map-tag"> Map Attribute </a> </td>
@@ -197,7 +197,13 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#characteristics-of-the-video-elements"> Video Elements </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-video-tag"> Video Attributes </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-source-element"> Source Attributes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-track-element"> Track Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-track-element-and-webvtt-format"> Track Attributes & WebVTT </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#styling-video-player"> Styling Video Players </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
   </tr>
 
   <!-- CSS -->
@@ -327,6 +333,41 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
+
+
+  <!-- CSS -->
+
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> JavaScript </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-video-element"> Video Element </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-track-element"> Track Element </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-getusermedia-api---accessing-webcam--microphone"> getUserMedia API </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-mediarecorder-api"> MediaRecorder API </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+  </tr>
+
   </tbody>
 </table>
 
