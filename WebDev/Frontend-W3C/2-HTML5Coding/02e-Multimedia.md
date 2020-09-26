@@ -188,8 +188,8 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   a. They have properties, events and methods that can be manipulated from JavaScript<br/>
   b. They are written 100% in JavaScript<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Indeed, it means that, from JavaScript, we are able to call the `play()`, `stop()`, `pause()` methods, access the current time through the `currentTime` property or listen to progress events (for example when synchronizing things when a video is played).
 
 
 __Source code for the next 3 questions (12, 13 and 14)__
@@ -230,8 +230,8 @@ __Source code for the next 3 questions (12, 13 and 14)__
   b. `play()`<br/>
   c. `start()`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: There is no `start()` nor `go()` method in the JavaScript API of the video element. The right answer is `play()`.
 
 
 
@@ -243,8 +243,8 @@ __Source code for the next 3 questions (12, 13 and 14)__
   b. `pause()`<br/>
   c. `cancel()`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: There is no `cancel()` in the JavaScript API of the video element. The `stop()` method exists but it is for stopping the video (and once stopped, it cannot be resumed). The right answer is the `pause()` method.
 
 
 14. Be kind, rewind!
@@ -256,8 +256,8 @@ __Source code for the next 3 questions (12, 13 and 14)__
   c. currentTime<br/>
   d. time<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: c<br/>
+  Explanation: The `currentTime` property is in read/write. Its value changes during playback, but if we give it a value, then the video "jumps" to the position that corresponds to its value (in seconds).
 
 
 
@@ -271,7 +271,12 @@ __Source code for the next 3 questions (12, 13 and 14)__
   d. finished<br/>
   e. finish<br/>
 
-  Ans: 
+  Ans: c<br/>
+  Explanation: The course examples use the `ended` event to detect the end of a video playback. See the code from the example 1 in section 2.2.7 for instance: http://jsbin.com/temupe/1/edit.
+
+
+
+
 
 
 
