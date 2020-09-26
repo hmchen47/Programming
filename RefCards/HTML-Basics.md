@@ -69,6 +69,31 @@
 </div>
 
 
++ [Categories of HTML elements](https://html.spec.whatwg.org/multipage/dom.html#content-categories)
+	+ Metadata content
+		+ set up the presentation or behavior of the rest of the content
+		+ set up the relationship of the document w/ other documents
+		+ convey other "out of band" information
+		+ list of elements: base, link, meta, noscript, script, style, template, title
+	+ flow content: most elements used in the body of documents and applications
+	+ sectioning content
+		+ define the scope of headings and footers
+		+ list of element: article, aside, nav, section
+	+ heading content
+		+ define the header of a section
+		+ list of elements: h1, h2, h3, h4, h5, h6, hgroup
+	+ phrasing content
+		+ the text of the document, as well as elements that mark up that text at the intra-paragraph level
+		+ runs of phrasing content form paragraphs
+	+ embedded content
+		+ import another resource into the document, or content from another vocabulary that is inserted into the document
+		+ list of element: audio, canvas, embed, iframe, img, math, object, picture, svg, video
+	+ interactive content
+		+ specifically intended for user interaction
+		+ a (if the href attribute is present), audio (if the controls attribute is present), button, details, embed, iframeimg (if the usemap attribute is present), input (if the type attribute is not in the Hidden state), label, object (if the usemap attribute is present), select, textarea, video (if the controls attribute is present)
+
+
+
 ## Template
 
 ```html
