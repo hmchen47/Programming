@@ -388,8 +388,8 @@ __Source code for the next 3 questions (22, 23 and 24):__
   a. autoplay<br/>
   a. preload="none"<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The `autoplay` attribute is the one that should be used. It will play the video stream as soon as data become available.
 
 
 23. Video no audio
@@ -400,8 +400,8 @@ __Source code for the next 3 questions (22, 23 and 24):__
   b. {video:true, audio:false}<br/>
   c. {video}<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The second answer is correct: we pass as first parameter a JavaScript object with a set of properties/values. The second answer will enable video capture, without audio.
 
 
 24. Stream to URL
@@ -412,8 +412,8 @@ __Source code for the next 3 questions (22, 23 and 24):__
   b. Nothing, the stream is a UR, just use `output.srcObject = stream;`<br/>
   c. toURL as in: `output.srcObject = window.URL.toURL(stream);`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The second answer is correct. The `srcObject` property of the video object takes the stream directly.
 
 
 
@@ -430,8 +430,8 @@ __Source code for the next 3 questions (22, 23 and 24):__
   b. Test if getUserMedia works in your browser, with the standard syntax or with a vendor prefixed syntax, and set navigator.getUserMedia with the version that works<br/>
   c. Test if getUserMedia works in your current browser and if not choose a polyfill<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: Since 2012, the getUserMedia API has been supported by Google Chrome, Firefox and Opera, both on desktops and mobile devices, but you still need to use the prefixed version of the API (i.e. call webkitGetUserMedia or mozGetUserMedia instead of getuserMedia). These 4 lines of code will enable you to write your code without worrying about prefixes.
 
 
 
