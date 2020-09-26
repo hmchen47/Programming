@@ -31,6 +31,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   &lt;/video&gt;</pre>
 
   Why did we provide two different source entries in the above video element?<br/>
+  
   a. The browser will first use the format/codec it supports, or in some cases it will choose its "preferred" format/codec. Furthermore, some browsers do not recognize all codecs.<br/>
   b. This is actually useless as all browsers know how to play all popular formats/codecs.<br/>
   c. It is a requirement to propose at least two codecs.<br/>
@@ -45,6 +46,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   &lt;/video&gt;</pre>
 
   Will the above YouTube video example work (note that the video has public access)?<br/>
+
   a. Yes, but we need to have a YouTube account<br/>
   b. No<br/>
   c. Yes, without any constraint<br/>
@@ -67,6 +69,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 5. Lost attributes...
 
   Which of the following are valid attributes for the `<audio>` and `<video>` elements? (4 correct answers.)<br/>
+
   a. stream<br/>
   b. controls<br/>
   c. src<br/>
@@ -81,6 +84,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 6. Dangerous attributes!
 
   Which attribute is not recommended with mobile browsers or with documents that contain multiple videos?<br/>
+
   a. src<br/>
   b. controls<br/>
   c. autoplay<br/>
@@ -94,6 +98,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 7. Recommended attributes
 
   What is considered good practice when you target mobile applications, or when your document contains a lot of audios/videos? (2 correct answers.)<br/>
+
   a. use the autoplay attribute in audio and video elements<br/>
   b. use the attribute preload="none" in audio and video elements<br/>
   c. use the loop attribute in audio and video elements<br/>
@@ -106,6 +111,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 8. HTML5 relaxed syntax and boolean attributes
 
   We would like to have play/stop/pause buttons in our audio or video player. What should be added to the declaration of the video element? (2 correct answers.)<br/>
+
   a. If we want just a play/pause button, but no stop button, we will add two attributes: `play="true"` and `stop="false"`<br/>
   b. Just add an attribute named "controls" like in `<audio controls>`<br/>
   c. Same as above, but you can also use `<audio controls="controls">`<br/>
@@ -147,21 +153,30 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   &lt;/video&gt;</pre>
 
   What will the above code do?<br/>
+
     a. Play a 300px video as soon as it is ready, rotate and resize it to 400px instantaneously.<br/>
     b. Play a 300px video as soon as it is ready, rotate and resize it to 400px smoothly when the mouse cursor comes over it.<br/>
     c. The CSS rules will be ignored as the video element cannot be resized or rotated on the fly once it has started playing.<br/>
     d. Play a rotated video at size 400px as soon as the streamed content is ready to be played.<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: The second answer is correct: the video will play when the buffer is full enough, then if we put the mouse cursor over the video, it will smoothly resize and rotate (in 0.5s).
   
 
 
 10. Buttons with style!
 
   Does HTML5 enable us to change the style of default players' controls (the play/pause/stop buttons that appear when we add the controls attribute to an audio or video element)?
-    a. No, this is not possible.
-    b. No need to use JavaScript, the audio and video elements expose these controls, read the documentation to get their IDs and use CSS for that.
-    c. Yes, with JavaScript it's possible to use the DOM API to select and modify the different buttons of the default control bar.
 
-  Ans: 
+    a. No, this is not possible.<br/>
+    b. No need to use JavaScript, the audio and video elements expose these controls, read the documentation to get their IDs and use CSS for that.<br/>
+    c. Yes, with JavaScript it's possible to use the DOM API to select and modify the different buttons of the default control bar.<br/>
+
+  Ans: <span style="color: magenta;">a</span>, xc<br/>
+  Explanation: 
+    + Unfortunately, the standard control bar cannot be accessed using CSS or the DOM API. Instead, hide the standard controls (ommit the controls attribute) and use your own HTML buttons, sliders, etc. to control the audio or video element using their JavaScript API.
+    + Advanced users may argue that in some browsers, the audio and video players are implemented using Web Components, and that by setting some options in the devtools of the browser, it's possible to access the control bar widgets through the shadow DOM. But this is not something that would work on any browsers with default settings. Web Components will be studied in the HTML5 part-2 course.
+
+
+
 
