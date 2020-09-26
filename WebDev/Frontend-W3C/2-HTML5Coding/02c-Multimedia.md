@@ -33,7 +33,9 @@
     (blade rings)
     ```
 
-  + "cue"
+  + chapter
+    + defined in `track` elements with a `kind="chapters"` attribute
+    + a CUE with starting and ending times, and a text for its description
     + (optional) an ID useful when using the track element JavaScript API, in particular the `getCueById()` method of `TextTrack` object
     + types of ID:
       + numeric ID; e.g., `9`

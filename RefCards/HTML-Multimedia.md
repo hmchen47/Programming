@@ -713,7 +713,9 @@
   + files containing text for captions and subtitles, and much more..
   + used w/ the `src` attribute of the `<track>` element
   + format: a starting and ending time, plus a value (the text that will be displayed), followed by a blank line (blank lines are separators between elements)
-  + "cue"
+  + chapter
+    + defined in `track` elements with a `kind="chapters"` attribute
+    + a CUE with starting and ending times, and a text for its description
     + (optional) an ID useful when using the track element JavaScript API, in particular the `getCueById()` method of `TextTrack` object
     + types of ID:
       + numeric ID; e.g., `9`
