@@ -298,8 +298,8 @@ __Source code for the next 3 questions (16, 17 and 18):__
 
   What is the name of the attribute for setting the track type? What would you use instead of the AAA string in the source code above?
 
-  Ans: <br/>
-  Explanation: 
+  Ans: kind<br/>
+  Explanation: The correct attribute is `kind`, like in: `kind="subtitles"` or `kind="captions"`.
 
 
 
@@ -307,16 +307,16 @@ __Source code for the next 3 questions (16, 17 and 18):__
 
   What is the name of the attribute whose role is to inform the browser of the subtitle's description (to appear in the player menu when choosing subtitles)? What would you use instead of the BBB string in the source code above?
 
-  Ans: <br/>
-  Explanation: 
+  Ans: label<br/>
+  Explanation: The correct attribute is `label`, like in: `label="English for the Hard of Hearing"` or `label="French"`.
 
 
 18. Which language?
 
   What is the name of the attribute which will tell the browser what language is used by the track subtitles/captions? What would you use instead of the CCC string in the source code above?
 
-  Ans: <br/>
-  Explanation: 
+  Ans: srclang<br/>
+  Explanation: The correct attribute is `srclang`, like in: `srclang="fr"` or `srclang="en"`.
 
 
 19. Nice subtitles
@@ -328,19 +328,35 @@ __Source code for the next 3 questions (16, 17 and 18):__
 
   Is the above code correct? (Yes/No)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: Yes<br/>
+  Explanation: This is an extract from a .vtt file. We see here a CUE with a text value that contains some HTML markers. This is indeed correct: HTML is allowed in subtitles/captions.
 
 
 20. Karaoke duo?
 
   How can we distinguish different voices, to be displayed in different colors, in subtitles/captions (for example, a karaoke duo)?<br/>
 
-  a. Use <v nameOfVoice> followed by the text of the subtitle, like in: <v Michel> Hello dear students of this W3Cx course!<br/>
-  a. Use <voice nameOfVoice> followed by the text of the subtitle, like in <voice Michel> Hello dear students of this W3Cx course!<br/>
+  a. Use `<v nameOfVoice>` followed by the text of the subtitle, like in: `<v Michel>` Hello dear students of this W3Cx course!<br/>
+  a. Use `<voice nameOfVoice>` followed by the text of the subtitle, like in `<voice Michel>` Hello dear students of this W3Cx course!<br/>
 
-  Ans: <br/>
+  Ans: a<br/>
+  Explanation: Using the `<v>` tag, you can distinguish different voices that should be displayed in different colors (depending on the HTML5 video player implementation).
+
+
+21. Chapters
+
+  Which of these statements are true about chapters: (3 correct answers)
+
+  a. Chapters are defined with `<track kind="chapters" .../>`<br/>
+  b. Some enhanced players support chapters<br/>
+  c. Chapters are supported by all major browsers natively, without the need to use an enhanced player such as the ones presented in the course<br/>
+  d. Chapters use a particular syntax and are declared in files with the .chapters suffix<br/>
+  e. Chapters are defined in .vtt files<br/>
+
+  Ans: <span style="color: magenta;">abe</span>, xace<br/>
   Explanation: 
+    + Chapters are defined in track elements with a `kind="chapters"` attribute. Each chapter is a CUE with starting and ending times, and a text for its description. Optionally, each chapter can have an ID.
+    + As of 2015, no native implementation of the video element supports chapters. You will need to use one of the enhanced players presented in the course.
 
 
 
