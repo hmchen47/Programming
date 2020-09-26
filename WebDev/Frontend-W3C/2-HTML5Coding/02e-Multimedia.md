@@ -18,7 +18,8 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 
   The `<audio>` and `<video>` elements are for streaming multimedia content. (True/False)
 
-  Ans: 
+  Ans: True<br/>
+  Explanation: Yes, content played when using these elements is streamed from a remote server to the browser: a small part of the remote audio or video files is loaded in a buffer, and the media starts being played as soon as the buffer is full enough. Insufficient bandwidth may lead to the media being stopped in the middle if the buffer becomes empty.
 
 
 2. The codec nightmare!
@@ -34,8 +35,8 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   b. This is actually useless as all browsers know how to play all popular formats/codecs.<br/>
   c. It is a requirement to propose at least two codecs.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: It is always better to propose a video with different encodings. Usually, the browser will play the first one it is able to decode; also, some browsers may choose one particular codec if they support more than one of the proposed encodings.
   
 
 3. YouTube in your video element
@@ -48,15 +49,16 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   b. No<br/>
   c. Yes, without any constraint<br/>
   
-  Ans: 
-
+  Ans: b<br/>
+  Explanation: No, while the YouTube player is pure HTML5 and is based on the `<video>` element, YouTube only allows their videos to be embedded using an `<iframe>` element, as they inject advertising and do a lot more data processing than you can ever imagine.
 
 
 4. Audio reduction!
 
-  Are the attributes, event set and JavaScript API of the `<audio>` element exactly the same as those of the `<video>` element? (Yes/No)
+  Are the attributes, event set and JavaScript API of the `<audio>` element <u>exactly</u> the same as those of the `<video>` element? (Yes/No)
 
-  Ans:
+  Ans: No<br/>
+  Explanation: No, the attributes, event set and JavaScript API of the `<audio>` element are just a "reduced" version of the ones from the `<video>` element.
 
 
 
