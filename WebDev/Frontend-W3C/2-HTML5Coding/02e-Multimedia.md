@@ -276,7 +276,71 @@ __Source code for the next 3 questions (12, 13 and 14)__
 
 
 
+### 2.5.6 Quiz - Closed captions and subtitles (16-21)
 
+__Source code for the next 3 questions (16, 17 and 18):__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"272"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"640"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">poster</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/sintel.jpg"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">controls</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/sintel.mp4"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/sintel.webm"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/sintel-captions.vtt"</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>AAA</strong></span><span class="pun">=</span><span class="atv">"captions"</span><span class="pln"> </span><strong><span class="atn">BBB</span></strong><span class="pun">=</span><span class="atv">"Closed Captions"</span><span class="pln"> </span><strong><span class="atn">CCC</span></strong><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span><span class="atn">default</span><span class="tag">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+</ol></div>
+
+16. Captions or subtitles
+
+  What is the name of the attribute for setting the track type? What would you use instead of the AAA string in the source code above?
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+17. Nice subtitle/caption menu in the player?
+
+  What is the name of the attribute whose role is to inform the browser of the subtitle's description (to appear in the player menu when choosing subtitles)? What would you use instead of the BBB string in the source code above?
+
+  Ans: <br/>
+  Explanation: 
+
+
+18. Which language?
+
+  What is the name of the attribute which will tell the browser what language is used by the track subtitles/captions? What would you use instead of the CCC string in the source code above?
+
+  Ans: <br/>
+  Explanation: 
+
+
+19. Nice subtitles
+
+  Extract from a .vtt file:
+
+  <pre class="prettyprint  linenums:1">00:00:41.000 --&gt; 00:00:45.000
+  This course is about &lt;b&gt;&lt;i&gt;&lt;u&gt;HTML5!&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;.</pre>
+
+  Is the above code correct? (Yes/No)
+
+  Ans: <br/>
+  Explanation: 
+
+
+20. Karaoke duo?
+
+  How can we distinguish different voices, to be displayed in different colors, in subtitles/captions (for example, a karaoke duo)?<br/>
+
+  a. Use <v nameOfVoice> followed by the text of the subtitle, like in: <v Michel> Hello dear students of this W3Cx course!<br/>
+  a. Use <voice nameOfVoice> followed by the text of the subtitle, like in <voice Michel> Hello dear students of this W3Cx course!<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
