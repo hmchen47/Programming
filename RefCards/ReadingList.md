@@ -5,6 +5,7 @@
 
 + [Mathematics for Computer Science](https://tinyurl.com/mtcdtkz)
 + [Introduction to Discrete Mathematics for Computer Science Specialization - Coursera](https://www.coursera.org/specializations/discrete-mathematics)
++ [Principles of Discrete Applied Mathematics](https://tinyurl.com/y5m5fblp)
 
 
 ## Computer Science & Computer Engineer
