@@ -10,7 +10,7 @@
 Here is your opportunity to show that you can now play with multimedia content on the Web, and are ready to proceed with the rest of the course.
 
 Please complete the following 25 exercises in a timely manner. As stated in the grading policy page, they count towards 15% of your final grade.
-
+ 
 
 ### 2.5.2 Quiz - `<audio>` and `<video>` (1-4)
 
@@ -74,8 +74,8 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   e. looping<br/>
   f. autoplay<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: bcdf<br/>
+  Explanation: Correct attributes in the list are: controls, src, loop, and autoplay.
 
 
 6. Dangerous attributes!
