@@ -10,7 +10,7 @@
 Here is your opportunity to show that you can now play with multimedia content on the Web, and are ready to proceed with the rest of the course.
 
 Please complete the following 25 exercises in a timely manner. As stated in the grading policy page, they count towards 15% of your final grade.
- 
+  
 
 ### 2.5.2 Quiz - `<audio>` and `<video>` (1-4)
 
@@ -357,6 +357,81 @@ __Source code for the next 3 questions (16, 17 and 18):__
   Explanation: 
     + Chapters are defined in track elements with a `kind="chapters"` attribute. Each chapter is a CUE with starting and ending times, and a text for its description. Optionally, each chapter can have an ID.
     + As of 2015, no native implementation of the video element supports chapters. You will need to use one of the enhanced players presented in the course.
+
+
+### 2.5.7 Quiz - The getUserMedia API (22-25)
+
+__Source code for the next 3 questions (22, 23 and 24):__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><strong><span class="pln"> </span></strong><span class="pun"><strong>AAA</strong></span><span class="pun"></span><span class="tag">&gt;</span><span class="pln">Fallback msg here.</span><span class="tag">&lt;/video&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> onSuccess</span><span class="pun">(</span><span class="pln">stream</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> output </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myVideo'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;output</span><span class="pun">.</span><span class="pln">srcObject&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;<strong>CCC;</strong></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> onError</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// getUserMedia API not supported, or another application is using the webcam!</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">getUserMedia</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; navigator</span><span class="pun">.</span><span class="pln">getUserMedia</span><span class="pun">(<strong>BBB</strong></span><span class="pun">,</span><span class="pln"> onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+22. Display video stream from webcam?
+
+  Instead of AAA in the source code above, which attribute is used to start displaying the webcam stream as soon as it is available?<br/>
+
+  a. loop<br/>
+  a. autoplay<br/>
+  a. preload="none"<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+23. Video no audio
+
+  How do you indicate that you want to capture the webcam stream (only the video, not the audio)? What would you use instead of the BBB string in the source code above?<br/>
+
+  a. {video=true}<br/>
+  b. {video:true, audio:false}<br/>
+  c. {video}<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+24. Stream to URL
+
+  What would you use instead of the CCC string in the above code?<br/>
+
+  a. createObjectURL as in: `output.srcObject = window.URL.createObjectURL(stream);`<br/>
+  b. Nothing, the stream is a UR, just use `output.srcObject = stream;`<br/>
+  c. toURL as in: `output.srcObject = window.URL.toURL(stream);`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+25. What is that?
+
+  <pre class="prettyprint  linenums:1">    navigator.getUserMedia = ( navigator.getUserMedia ||
+                          navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia ||
+                          navigator.msGetUserMedia);</pre>
+
+  What does the above code do?<br/>
+
+  a. Does nothing as navigator.getUserMedia is supported by all major browsers<br/>
+  b. Test if getUserMedia works in your browser, with the standard syntax or with a vendor prefixed syntax, and set navigator.getUserMedia with the version that works<br/>
+  c. Test if getUserMedia works in your current browser and if not choose a polyfill<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
