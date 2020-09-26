@@ -31,7 +31,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   &lt;/video&gt;</pre>
 
   Why did we provide two different source entries in the above video element?<br/>
-  
+
   a. The browser will first use the format/codec it supports, or in some cases it will choose its "preferred" format/codec. Furthermore, some browsers do not recognize all codecs.<br/>
   b. This is actually useless as all browsers know how to play all popular formats/codecs.<br/>
   c. It is a requirement to propose at least two codecs.<br/>
@@ -177,6 +177,101 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
     + Unfortunately, the standard control bar cannot be accessed using CSS or the DOM API. Instead, hide the standard controls (ommit the controls attribute) and use your own HTML buttons, sliders, etc. to control the audio or video element using their JavaScript API.
     + Advanced users may argue that in some browsers, the audio and video players are implemented using Web Components, and that by setting some options in the devtools of the browser, it's possible to access the control bar widgets through the shadow DOM. But this is not something that would work on any browsers with default settings. Web Components will be studied in the HTML5 part-2 course.
 
+
+
+### 2.5.5 Quiz - JavaScript API (11-15)
+
+11. JavaScript API?
+
+  What do we mean by "audio and video elements have a JavaScript API"?<br/>
+
+  a. They have properties, events and methods that can be manipulated from JavaScript<br/>
+  b. They are written 100% in JavaScript<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+__Source code for the next 3 questions (12, 13 and 14)__
+
+<div class="source-code"><ol class="linenums">
+<li value="1" class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"vid"</span><span class="pln">&nbsp;poster="preview.png"&nbsp;</span><span class="atn">controls</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">="</span><span class="atv">https://html5doctor.com/demos/video-canvas-magic/video.mp4"</span><span class="pln"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">="</span><span class="atv">video/mp4"</span>&gt;</li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">Example of custom controls :</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">go</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Play</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun"></span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">haveARest</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Pause</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun"></span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">rewind</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Start from beginning</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; vid </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#vid"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> go</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>BBB</strong></span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">function</span><span class="pln"> haveARest</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>CCC</strong></span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> rewind</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>DDD</strong></span><span class="pln">&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+12. Which method to start?
+
+  Which method would you call to start playing the video, instead of BBB?<br/>
+
+  a. `go()`<br/>
+  b. `play()`<br/>
+  c. `start()`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+13. Which method to pause?
+
+  Which method would you call to pause the video, instead of CCC?<br/>
+
+  a. `stop()`<br/>
+  b. `pause()`<br/>
+  c. `cancel()`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+14. Be kind, rewind!
+
+  Which property would you use to rewind completely the video without stopping it (playback continues as if we jumped to the beginning), instead of the DDD string in the source code above? <br/>
+
+  a. progress<br/>
+  b. location<br/>
+  c. currentTime<br/>
+  d. time<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+
+15. Event for playlists?
+
+  Which event is used in the course to detect the end of video and implement playlist management?<br/>
+
+  a. end<br/>
+  b. chained<br/>
+  c. ended<br/>
+  d. finished<br/>
+  e. finish<br/>
+
+  Ans: 
 
 
 
