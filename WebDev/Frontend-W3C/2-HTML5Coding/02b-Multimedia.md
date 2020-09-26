@@ -34,7 +34,10 @@
 		+ size of the video. 
 		+ default: width and height of the video if unspecified
 		+ only one dimension specified: adjusting the size of the unspecified dimension to preserve the aspect ratio of the video
-	+ `controls`: display its own controls for video playback and volume
+	+ `controls`:
+		+ display its own controls for video playback and volume
+		+ a boolean attribute: omit as `controls="false"` or presence as `controls="true"` (not recommended)
+		+ `controls="controls"` same as `controls` attribute presence
 	+ `poster`:
 		+ specify an image that the browser will use while video is being downloaded, or until the user starts playing the video
 		+ not specified: 1st frame of the video used

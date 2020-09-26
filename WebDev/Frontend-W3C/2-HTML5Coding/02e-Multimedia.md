@@ -87,8 +87,8 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   d. poster<br/>
   e. loop<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: c<br/>
+  Explanation: The `autoplay` attribute is not recommended if your Web site targets mobile applications or has documents with multiple videos, as it may consume bandwidth even if the user is not interested in watching/listening to the proposed video/audio.
 
 
 7. Recommended attributes
@@ -99,8 +99,8 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   c. use the loop attribute in audio and video elements<br/>
   d. omit the autoplay attribute in audio and video elements<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: bd<br/>
+  Explanation: The `autoplay` attribute is not recommended if your Web site targets mobile applications or dislays documents with multiple videos, as it may consume bandwidth even if the user is not interested in watching/listening to the proposed video/audio. `preload="none"` is also highly recommended as the default value is "auto" and that may cause preloading data.
 
 
 8. HTML5 relaxed syntax and boolean attributes
@@ -111,7 +111,12 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   c. Same as above, but you can also use `<audio controls="controls">`<br/>
   d. Add this attribute: `showcontrols`<br/>
 
-  Ans: <br/>
-  Explanation: 
-
+  Ans: bd<br/>
+  Explanation:
+    + Right answer: add the `controls` boolean attribute.
+    + From the HTML5 specification: "A number of attributes are boolean attributes. The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.
+    + If the attribute is present, its value must either be the empty string nor a value that is an ASCII case-insensitive match for the attribute's canonical name, with no leading or trailing whitespace.
+    + The values "true" and "false" are not allowed on boolean attributes. To represent a false value, the attribute has to be omitted altogether. This means that controls="false" will be the same as controls="true" or controls="controls" or controls alone.
+    + It is bad practice to use controls="true" as one might think that controls="false" will have the opposite effect (and it won't: in order not to have controls, just ommit the attribute).
+    + To sum up, the right answers are: only adding controls or controls="controls". Both are valid.
 
