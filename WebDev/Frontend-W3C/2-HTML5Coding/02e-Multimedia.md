@@ -120,3 +120,48 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
     + It is bad practice to use controls="true" as one might think that controls="false" will have the opposite effect (and it won't: in order not to have controls, just ommit the attribute).
     + To sum up, the right answers are: only adding controls or controls="controls". Both are valid.
 
+
+### 2.5.4 Quiz - CSS styling of `<audio>` and `<video>` (9-10)
+
+9. Make me twist!
+
+  <pre>&lt;style&gt;
+      #W3DevCampusVideo {
+          width: 300px;
+          transition: all 0.5s ease-in-out;
+      }
+  
+      #W3DevCampusVideo:hover {
+          width:400px;
+          transform:rotate(-5deg);
+      }
+  &lt;/style&gt;
+  ...
+  &lt;video id="W3DevCampusVideo" autoplay controls&gt;
+      &lt;source src=https://html5doctor.com/demos/video-canvas-magic/video.webm
+              type=video/webm&gt;
+      &lt;source src=https://html5doctor.com/demos/video-canvas-magic/video.ogg
+              type=video/ogg&gt;
+      &lt;source src=https://html5doctor.com/demos/video-canvas-magic/video.mp4
+              type=video/mp4&gt;
+  &lt;/video&gt;</pre>
+
+  What will the above code do?<br/>
+    a. Play a 300px video as soon as it is ready, rotate and resize it to 400px instantaneously.<br/>
+    b. Play a 300px video as soon as it is ready, rotate and resize it to 400px smoothly when the mouse cursor comes over it.<br/>
+    c. The CSS rules will be ignored as the video element cannot be resized or rotated on the fly once it has started playing.<br/>
+    d. Play a rotated video at size 400px as soon as the streamed content is ready to be played.<br/>
+
+  Ans: 
+  
+
+
+10. Buttons with style!
+
+  Does HTML5 enable us to change the style of default players' controls (the play/pause/stop buttons that appear when we add the controls attribute to an audio or video element)?
+    a. No, this is not possible.
+    b. No need to use JavaScript, the audio and video elements expose these controls, read the documentation to get their IDs and use CSS for that.
+    c. Yes, with JavaScript it's possible to use the DOM API to select and modify the different buttons of the default control bar.
+
+  Ans: 
+
