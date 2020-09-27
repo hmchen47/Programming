@@ -4,6 +4,18 @@
 ## 3.2 Basics of HTML5 canvas
 
 
+### 3.2.0 Lecture Notes
+
++ JavaScript & HTML5
+  + adding js code in HTML page: `<script>`...`</script>`
+  + JavaScript code executed before the browser could see the rest of the page as the `<script></script>` is located before the `<body>`
+  + `console.log(...)`: display in the JavaScript console the message...
+  + eg. `<script> console.log("Some JavaScript code has been executed"); </script>`
+  + debug:
+    + dev. tool on web browser &gt; console tab &ge; error/log msgs
+    + allowing to type any JS command 
+
+
 ### 3.2.1 About JavaScript and HTML5
 
 HTML5 is composed of new elements, but it also comes with many JavaScript APIs for controlling video and sound, drawing and animating things in the new `<canvas>` element, for offline applications, persistence, geolocation, orientation, etc.
@@ -69,7 +81,7 @@ Let's look at [this example on JS Bin](https://jsbin.com/visariz/1/edit?html,out
 </tr>
 </tbody>
 </table>
-</div>
+</div><br/>
 
 The simplest way to add JavaScript code in an HTML page, is by using the `<script>`...`</script>` element.
 
