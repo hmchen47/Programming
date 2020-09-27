@@ -159,3 +159,95 @@ Without such tools, debugging JavaScript code is impossible. So you need to look
 Some of you may not be used to "asynchronous programming", "callbacks" etc. We recommend to read [this article on WikiPedia](https://en.wikipedia.org/wiki/Callback_%28computer_programming%29) and [this thread on StackOverflow](https://stackoverflow.com/questions/8736378/what-is-a-callback-in-java).
 
 
+
+### 3.2.2 The `<canvas>` element
+
+#### Video: introduction to the canvas
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V000400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/>
+
+
+#### The `<canvas>` element
+
+The `<canvas>` tag is one of the "Flash killer" features of HTML5. This course focuses on the fundamental drawing capabilities of the HTML5 canvas.
+
+For the [`<canvas>` element](https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element), the specification states that <i>"The canvas element provides scripts with a <strong>resolution-dependent bitmap canvas</strong>, which can be used for rendering graphs, game graphics, or other visual images on the fly."<i>
+
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>The canvas has been designed for pixel-based graphics</strong>, while SVG (Scalable Vector Graphics, another W3C standard) is for vector-based graphics.</p>
+
+Indeed, the canvas JavaScript drawing API supports different kind of shapes: lines, rectangles, ellipses, arcs, curves, text, images. Some drawing styles need to be specified that will affect the way shapes are drawn (color, drawing width, shadows, etc.). An alpha channel for drawing in transparent mode is also supported, as well as many advanced drawing modes and global filters (blur, etc.).
+
+The canvas is also used to do animations at 60 frames per second (useful for games), to display videos with special effects, to display a webcam stream, and so on.
+
+#### Examples
+
+__Example 1__
+
+[Foot Chinko](https://www.ravalmatic.com/portfolio/footchinko/) is one popular free HTML5 games:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yy3y7c4c')"
+    src    ="https://tinyurl.com/y3aschek"
+    alt    ="foot chinko one of the best html5 2D game of 2015"
+    title  ="foot chinko one of the best html5 2D game of 2015"
+  />
+</figure>
+
+
+__Example #2__
+
+Lots of data visualisation tools and JavaScript libraries use the HTML5 canvas element for [Data visualization](https://tinyurl.com/k6wk58p):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yy3y7c4c')"
+    src    ="https://tinyurl.com/y6or3n9c"
+    alt    ="html5 data visualization"
+    title  ="html5 data visualization"
+  />
+</figure>
+
+
+__Example #3__
+
+A version of [the arcade game Galaxian](https://intersoft.itch.io/galaxian), that runs at 60 frames per second in an HTML5 canvas element:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yy3y7c4c')"
+    src    ="https://tinyurl.com/y3zwgqnz"
+    alt    ="A version of the game Galaxian that runs at 60 frames/s in a canvas."
+    title  ="A version of the game Galaxian that runs at 60 frames/s in a canvas."
+  />
+</figure>
+
+
+Performance is  good, since most Web browsers (mobile and desktop) support hardware acceleration. 
+
+<div style="padding: 10px; border: 1px solid red;">
+<p><strong>Note</strong>: 3D drawing using the WebGL API is also possible in a <span style="font-family: 'courier new', courier;">&lt;canvas&gt;</span>, but will not be covered in this course. For the most curious among you, please have&nbsp;a look at the two popular libraries for doing 3D drawing/animation in a <span style="font-family: 'courier new', courier;">&lt;canvas&gt;</span>: <a href="https://www.babylonjs.com/" target="_blank">BabylonJS</a>&nbsp;and <a href="https://threejs.org/" target="_blank">ThreeJS</a>.</p>
+</div>
+
+
+#### External resources
+
++ Comprehensive [HTML5 canvas tutorials](http://www.html5canvastutorials.com/)
++ An [HTML Canvas Deep Dive](https://joshondesign.com/p/books/canvasdeepdive/title.html)
++ MDN's Web [docs: `<canvas>`: The Graphics Canvas element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
++ The `<canvas>` element is well supported by browsers:
+  + CanIUse: [browser support table](http://caniuse.com/#feat=canvas)
+  + MDN's [browser compatibility of `<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#Browser_compatibility)
+
+
+#### Knowledge check 3.2.2
+
+1. The HTML5 canvas is for:<br/>
+
+  a. Pixel-based graphics (bitmaps)<br/>
+  b. Vector-based graphics<br/>
+
+  Ans: 
+
