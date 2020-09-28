@@ -72,6 +72,11 @@
     + Serializing bitmaps to a file
     + Security with canvas elements
 
++ Accessible principles on `<canvas>`
+  + providing alternative content for what is drawn on the `<canvas>`
+  + exposing the location of shapes, paths, images drawn on the `<canvas>` to assistive technologies
+  + visually indicating whether or not a shape in the canvas had keyboard focus
+
 
   
 
@@ -326,6 +331,7 @@ Read more on this topic:
 
 + An article on [What the canvas element means for accessibility](https://www.creativebloq.com/web-design/canvas-element-accessibility-41514740)
 + From the W3C wiki: [Canvas Element Accessibility Issues](https://www.w3.org/html/wg/wiki/AddedElementCanvas)
+
 
 
 
