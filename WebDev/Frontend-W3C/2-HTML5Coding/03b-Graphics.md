@@ -6,14 +6,74 @@
 
 ### 3.2.0 Lecture Notes
 
-+ JavaScript & HTML5
++ [JavaScript & HTML5](#321-about-javascript-and-html5)
   + adding js code in HTML page: `<script>`...`</script>`
   + JavaScript code executed before the browser could see the rest of the page as the `<script></script>` is located before the `<body>`
   + `console.log(...)`: display in the JavaScript console the message...
   + eg. `<script> console.log("Some JavaScript code has been executed"); </script>`
   + debug:
     + dev. tool on web browser &gt; console tab &ge; error/log msgs
-    + allowing to type any JS command 
+    + allowing to type any JS command
+
++ [The `<canvas>` element](#322-the-canvas-element)
+  + provide scripts with a resolution-dependent bitmap canvas
+  + used for rendering graphs, game graphics, or other visual images on the fly
+  + designed for pixel-based graphics, while SVG (Scalable Vector Graphics, another W3C standard) for vector-based graphics
+  + shapes that canvas JavaScript drawing API supported: lines, rectangles, ellipses, arcs, curves, text, images
+  + drawing styles: affect the way shapes drawn, e.g., color, drawing width, shadows, etc.
+  + alpha channel: transparent mode
+  + common usages
+    + animations at 60 frames per second (useful for games)
+    + videos with special effects
+    + displaying a webcam stream
+    + and so on
+  + [35 incredible dataviz tools](https://www.creativebloq.com/design-tools/data-visualization-712402)
+    + [Chart Studio](https://plot.ly/): make charts, presentations and dashboards
+    + [DataHero](https://datahero.com/): pull together data from cloud services and create charts and dashboards
+    + [Chart.js](http://www.chartjs.org/): the perfect data visualization tool for hobbies and small projects
+    + [Tableau](https://public.tableau.com/): a popular data visualization tool packed with graphs, charts, maps and more
+    + [RAWGraphs](https://rawgraphs.io/): create vector-based data visualizations
+    + [Dygraphs](http://dygraphs.com/): a fast, flexible open source JavaScript charting library that allows users to explore and interpret dense data sets
+    + [ZingChart](http://www.zingchart.com/): a JavaScript charting library and feature-rich API set that lets users build interactive Flash or HTML5 charts
+    + [InstantAtlas](http://www.instantatlas.com/): a data viz tool with mapping
+    + [Modest Maps](http://modestmaps.com/): a lightweight, simple mapping tool for web designers that makes it easy to integrate and develop interactive maps within your site
+    + [Leaflet](http://leafletjs.com/): use OpenStreetMap data and integrate fully interactive data visualization in an HTML5/CSS3 wrapper
+    + [WolframAlpha](http://www.wolframalpha.com/): intelligently displaying charts in response to data queries, without the need for any configuration
+    + [Visualize Free](https://www.visualizefree.com/): a hosted tool that allows you to use publicly available datasets, or upload your own, and build interactive visualizations to illustrate the data
+    + [Better World Flux](http://www.betterworldflux.com/): lovely visualizations of some pretty depressing data
+    + [FusionCharts](http://www.fusioncharts.com/): 90+ charts and gauges, 965 data-driven maps, and ready-made business dashboards and demos, w/ extensive JavaScript API that makes it easy to integrate it with any AJAX application or JavaScript framework
+    + [jqPlot](http://www.jqplot.com/): a nice solution for line and point charts
+    + [D3.js](http://d3js.org/): a JavaScript library that uses HTML, SVG, and CSS to render some amazing diagrams and charts from a variety of data sources
+    + [[JavaScript InfoVis Toolkit]](http://thejit.org/): a modular structure, allowing you to only force visitors to download what's absolutely necessary to display your chosen data visualizations
+    + [jpGraph](http://jpgraph.net/): a PHP-based solution with a wide range of chart types
+    + [Highcharts](http://www.highcharts.com/): a JavaScript charting library with a huge range of chart options available
+    + [Google Charts](https://developers.google.com/chart/interactive/docs/): highly flexible and an excellent set of developer tools
+    + [Excel](https://tinyurl.com/y43wme3q): a good way of quickly exploring data, or creating visualizations for internal use, but the limited default set of colours, lines and styles make it difficult to create graphics that would be usable in a professional publication or website
+    + [CSV](http://en.wikipedia.org/wiki/Comma-separated_values)/[JSON]](http://www.json.org/): common formats for data
+    + [Crossfilter](http://square.github.com/crossfilter/): enable clients to wade through their data and create graphs and charts that double as interactive GUI widgets
+    + [Tangle](http://worrydream.com/Tangle/): trying to describe a complex interaction or equation, letting the reader tweak the input values and see the outcome for themselves provides both a sense of control and a powerful way to explore data
+    + [Polymaps](http://polymaps.org/): a mapping library that is aimed squarely at a data visualization audience
+    + [OpenLayers](http://openlayers.org/): probably the most robust of these mapping libraries
+    + [Kartograph](http://kartograph.org/): a simple and lightweight framework for building interactive map applications without Google Maps or any other mapping service
+    + [Carto](http://cartodb.com/): a must-know sitewith which you can combine tabular data with maps is second to none
+    + [Processing](http://processing.org/): the poster child for interactive visualizations
+    + [NodeBox](http://nodebox.net/): an OS X application for creating 2D graphics and visualizations
+    + [R](http://www.r-project.org/): statistical package used to parse large data sets
+    + [Weka](http://www.cs.waikato.ac.nz/ml/weka/): a good tool for classifying and clustering data based on various attributes – both powerful ways to explore data
+    + [Gephi](http://gephi.org/): a graph-based visualizer and data explorer about relatedness, social graphs and co-relations
+    + [iCharts](http://www.icharts.net/): a hosted solution for creating and presenting compelling charts for inclusion on your website
+    + [Flot](http://www.flotcharts.org/): a specialized plotting library for jQuery
+  + 3D drawing: possible using the WebGL API in a `<canvas>` w/ [BabylonJS](https://www.babylonjs.com/) and [ThreeJS](https://threejs.org/)
+  + [HTML standard](https://html.spec.whatwg.org/multipage/canvas.html) of the `<canvas>` element
+    + The 2D rendering context
+    + The ImageBitmap rendering context
+    + The OffscreenCanvas interface
+    + Color spaces and color correction
+    + Serializing bitmaps to a file
+    + Security with canvas elements
+
+
+  
 
 
 ### 3.2.1 About JavaScript and HTML5
@@ -173,13 +233,14 @@ Some of you may not be used to "asynchronous programming", "callbacks" etc. We r
 
 The `<canvas>` tag is one of the "Flash killer" features of HTML5. This course focuses on the fundamental drawing capabilities of the HTML5 canvas.
 
-For the [`<canvas>` element](https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element), the specification states that <i>"The canvas element provides scripts with a <strong>resolution-dependent bitmap canvas</strong>, which can be used for rendering graphs, game graphics, or other visual images on the fly."<i>
+For the [`<canvas>` element](https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element), the specification states that <i>"The canvas element provides scripts with a <strong>resolution-dependent bitmap canvas</strong>, which can be used for rendering graphs, game graphics, or other visual images on the fly."</i>
 
 <p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>The canvas has been designed for pixel-based graphics</strong>, while SVG (Scalable Vector Graphics, another W3C standard) is for vector-based graphics.</p>
 
 Indeed, the canvas JavaScript drawing API supports different kind of shapes: lines, rectangles, ellipses, arcs, curves, text, images. Some drawing styles need to be specified that will affect the way shapes are drawn (color, drawing width, shadows, etc.). An alpha channel for drawing in transparent mode is also supported, as well as many advanced drawing modes and global filters (blur, etc.).
 
 The canvas is also used to do animations at 60 frames per second (useful for games), to display videos with special effects, to display a webcam stream, and so on.
+
 
 #### Examples
 
@@ -199,7 +260,7 @@ __Example 1__
 
 __Example #2__
 
-Lots of data visualisation tools and JavaScript libraries use the HTML5 canvas element for [Data visualization](https://tinyurl.com/k6wk58p):
+Lots of data visualization tools and JavaScript libraries use the HTML5 canvas element for [Data visualization](https://tinyurl.com/k6wk58p):
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -249,5 +310,9 @@ Performance is  good, since most Web browsers (mobile and desktop) support hardw
   a. Pixel-based graphics (bitmaps)<br/>
   b. Vector-based graphics<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: The canvas has been designed for pixel based graphics. SVG, another W3C standard, is for vector-based graphics (parametric, resolution independant).
+
+
+
 
