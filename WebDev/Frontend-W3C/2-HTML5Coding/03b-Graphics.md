@@ -86,7 +86,43 @@
   + X axis: from the left to the right
   + Y axis: from the top to the bottom
 
-
++ [Drawing rectangle](#326-drawing-rectangles-in-a-canvas)
+  + simple drawing
+    + add the `<canvas>` element into an HTML page
+      + selector to identify the canvas itself
+      + specify the size of canvas w/ `width` an d`height` attributes
+      + NOT supported message placed btw opening and closing tags
+      + canvas transparent by default
+      + e.g., `<canvas id="myCanvas" width="300" height="225">`
+      + CSS styling make it visible, e.g., ` border:1px solid black;`
+      + multiple canvas allowed in a page
+    + select the `<canvas>` element for use from JavaScript
+      + element in the DOM, e.g., `var canvas = document.getElementById("myCanvas");`
+      + CSS selector syntax for selecting elements, e.g, `var canvas = document.querySelector("#myCanvas");`
+    + get a "2D context" associated with the canvas, useful for drawing and setting drawing properties (color, etc.)
+      + `context`: a particular object as the core of the canvas JavaScript API providing methods for drawing
+      + access the context: `var ctx=canvas.getContext('2d');`
+      + set filled color: `ctx.fillStyle='red';`
+      + draw filled rectangle: `ctx.fillRect(x, y, width, height);`
+  + only access elements when the DOM is ready
+    + select and get 2D context via `init()` function
+    + `init()` only called after the page entirely loaded
+    + unable to access the elements of the page before the page loaded entirely and before the DOM ready
+    + ways to achieve the requirement
+      + add `onload` attribute w/ `<body>` element, e.g., `<body onload="init();">` (good practice)
+      + put the JavaScript code at the end of the document, just before `</body>` between `<script>`...`</script>`
+  + access drawing context before manipulating it
+    + the drawing context defines the drawing methods and properties
+    + good practice: get the canvas, the context, the width and height of the canvas and other global objects in this "init" function
+  + example: filled rectangle
+    + `fillstyle` property: assign a color, a gradient, or a pattern; e.g., `ctx.fillStyle='#FF0000';`
+    + `fillRect(top left X coordinate, top left Y coordinate, width, height)` method: draw a filled rectangle
+  + summary of drawing on a canvas
+    + declare the canvas, remembering to add an `id` attribute, and fallback content
+    + get a reference to the canvas in a JavaScript variable using the DOM API
+    + get the context for drawing in that canvas
+    + specify some drawing properties (optional)
+    + draw the shape
 
 
 
@@ -393,7 +429,7 @@ The coordinate system used for drawing in canvases is similar to the one used by
 
 <a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V001500_DTH.mp4" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
-</a><br/>
+</a><br/><br/>
 
 [Transcript](https://tinyurl.com/yy7clvze)
 
@@ -481,7 +517,7 @@ Draw a filled rectangle:
 
 #### Complete example that draws a filled rectangle in red
 
-[Try it online at JS Bin](https://jsbin.com/felujew/1/edit?html,output) ([Local Example - Filled Rectangle](src/3.2.6-example.html))
+[Try it online at JS Bin](https://jsbin.com/felujew/1/edit?html,output) ([Local Example - Filled Rectangle](src/3.2.6-example1.html))
 
 Result:
 
@@ -581,20 +617,21 @@ The way the rectangle will be filled depends on the current value of several pro
 
 #### Summary of the different steps
 
-<ol><ol>
-<li><strong>Declare the canvas,</strong>&nbsp;remembering to add an <span style="font-family: 'courier new', courier;">id</span> attribute, and fallback content: &nbsp;<br><span style="font-family: 'courier new', courier;">&lt;canvas id="myCanvas" width="200" height="200"&gt;<br>...fallback content...<br>&lt;/canvas&gt;</span></li>
-<li><strong>Get a reference to the canvas in a JavaScript variable</strong> using the DOM API: <br><span style="font-family: 'courier new', courier;">var canvas=document.getElementById('myCanvas');</span></li>
-<li>&gt;<strong>Get the context for drawing in that canvas</strong>: &nbsp;<br><span style="font-family: 'courier new', courier;">var ctx=canvas.getContext('2d');</span></li>
-<li><strong>Specify some drawing properties</strong> (optional): &nbsp;<br><span style="font-family: 'courier new', courier;">ctx.fillStyle='#FF0000';</span></li>
-<li><strong>Draw some shapes</strong>: <br><span style="font-family: 'courier new', courier;">ctx.fillRect(0,0,80,100);</span></li>
-</ol></ol>
+<ol>
+  <li><strong>Declare the canvas,</strong>&nbsp;remembering to add an <span style="font-family: 'courier new', courier;">id</span> attribute, and fallback content: &nbsp;<br><span style="font-family: 'courier new', courier;">&lt;canvas id="myCanvas" width="200" height="200"&gt;<br>...fallback content...<br>&lt;/canvas&gt;</span></li>
+  <li><strong>Get a reference to the canvas in a JavaScript variable</strong> using the DOM API: <br><span style="font-family: 'courier new', courier;">var canvas=document.getElementById('myCanvas');</span></li>
+  <li>&gt; <strong>Get the context for drawing in that canvas</strong>: &nbsp;<br><span style="font-family: 'courier new', courier;">var ctx=canvas.getContext('2d');</span></li>
+  <li><strong>Specify some drawing properties</strong> (optional): &nbsp;<br><span style="font-family: 'courier new', courier;">ctx.fillStyle='#FF0000';</span></li>
+  <li><strong>Draw some shapes</strong>: <br><span style="font-family: 'courier new', courier;">ctx.fillRect(0,0,80,100);</span></li>
+</ol>
 
 
 #### Knowledge check 3.2.6
 
 1. Drawing shapes in a canvas is only possible from JavaScript, and the canvas must be selected using the DOM API first, using document.getElementById(...), document.querySelector(...), etc. (True/False)
 
-  Ans: 
+  Ans: True<br/>
+  Explanation: Indeed, while setting an image background in a canvas using CSS is possible, drawing shapes is done by using the canvas JavaScript API.
 
 
 
