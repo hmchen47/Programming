@@ -77,7 +77,9 @@
   + exposing the location of shapes, paths, images drawn on the `<canvas>` to assistive technologies
   + visually indicating whether or not a shape in the canvas had keyboard focus
 
-
++ `<canvas>` cheetsheet
+  + [PDF file](https://tinyurl.com/y6cvfxv9)
+  + [HTML file](https://tinyurl.com/kxm2vxf)
   
 
 
@@ -335,7 +337,7 @@ Read more on this topic:
 
 ### 3.2.4 HTML canvas cheatsheet
 
-We recommend these 2 quick references (or [cheatsheets](https://en.wikipedia.org/wiki/Cheat_sheet)) below. Do not hesitate to keep your favorite one open in a separate browser ta
+We recommend these 2 quick references (or [cheatsheets](https://en.wikipedia.org/wiki/Cheat_sheet)) below. Do not hesitate to keep your favorite one open in a separate browser tab
 
 1. As a [PDF file](https://tinyurl.com/y6cvfxv9), this canvas cheatsheet:
 
@@ -359,6 +361,7 @@ We recommend these 2 quick references (or [cheatsheets](https://en.wikipedia.org
     title  ="Snapshot of a canvas sheet API"
   />
 </figure>
+
 
 
 
