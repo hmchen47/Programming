@@ -72,15 +72,22 @@
     + Serializing bitmaps to a file
     + Security with canvas elements
 
-+ Accessible principles on `<canvas>`
++ [Accessible principles on `<canvas>`](#323-canvas-and-accessibility)
   + providing alternative content for what is drawn on the `<canvas>`
   + exposing the location of shapes, paths, images drawn on the `<canvas>` to assistive technologies
   + visually indicating whether or not a shape in the canvas had keyboard focus
 
-+ `<canvas>` cheetsheet
++ [`<canvas>` cheetsheet](#324-html-canvas-cheatsheet)
   + [PDF file](https://tinyurl.com/y6cvfxv9)
   + [HTML file](https://tinyurl.com/kxm2vxf)
   
++ [canvas coordinate system](#325-coordinate-system)
+  + (0, 0): the top left corner
+  + X axis: from the left to the right
+  + Y axis: from the top to the bottom
+
+
+
 
 
 ### 3.2.1 About JavaScript and HTML5
@@ -376,9 +383,8 @@ The coordinate system used for drawing in canvases is similar to the one used by
   />
 </figure>
 
-
-X axis is horizontal, directed to the right
-Y axis is vertical, directed downwards
++ X axis is horizontal, directed to the right
++ Y axis is vertical, directed downwards
 
 
 
