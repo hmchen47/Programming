@@ -124,7 +124,48 @@
     + specify some drawing properties (optional)
     + draw the shape
 
-+ 
++ [Drawing principles](#327-drawing-principles)
+  + `fillstyle` property:
+    + a property if the context, similar ti a CSS property
+    + possible values: a color, a pattern (texture), or a gradient
+    + default: color black
+    + using the value of the property to fill part of t the drawing
+    + as long as not modifyied, all drawing commands using the current value
+  + `fillRect(x, y, width, height)` method:
+    + a call to this method draws a filled rectangle
+    + `x` & `y`: the coordinates of the top left corner of the rectangle
+    + e.g., `ctx.fillStyle='pink'; ctxfillRect(10, 10, 200, 200);` - draw a pink filled rectangle, from (10, 10) to (210, 210)
+  + `strokeStyle` property:
+    + a property of the context indicating how the shape's outline rendered
+    + possible values: a color, a pattern (texture), or a gradient
+  + `strokeRect(x, y, width, height)` method: 
+    + draw the wireframe mode of a rectangle w/ `strokStyle' property
+    + e.g., `ctx.strokeStyle='blue'; ctx.strokeRect(10, 10, 200, 200);` - draw the outline of a rectangle fron (10, 10) to (210, 210)
+  + `clearRect(x, y, width, height)` method:
+    + erase the specifid rectangle
+    + draw the rectangle w/ color = "transaprent black" as the init state of rectangle
+    + e.g., `ctx.strokStyle='pink'; ctxfillRect(10, 10, 200, 200); ctx.clearRect(50, 50, 20, 20);` - draw a pink filled rectangle but clear a rectangle within it from (50, 50) to (70, 70)
+  + `linewidth` property: a property applied only in `strok` mode w/ value in `px`
+  + `font` property: specify the font property of the context, syntax sam as in CSS fir using 'system font", e,g,. `ctx.font = 'italic 20pt Calibri';`
+  + `ctx.fillText(str, x, y)` method:
+    + draw text message `str` at (x, y) position, e.g., `ctx.fillText("hello", 70, 22)`
+    + `fillStyle` property to modify the color of the message
+  + summary 
+    + "strok":
+      + wireframe of outlined
+      + a prefix for setting properties or calling methods thaat effect wireframe shapes
+    + "fill": filled the shapes
+    + `ctx.strokStype=...`: set the property of wireframe shapes
+    + `ctx.fillStyle=...`: set the property of filled shapes
+    + `ctx.strokRect(x, t, width, lenth)1`: draw wireframe rectangle from (x, y) to (x+width, y+height)
+    + `ctx.fillRect(x, t, width, lenth)1`: draw filled rectangle from (x, y) to (x+width, y+height)
+    + `ctx.lineWidth`: set the line width of wireframe shapes
+    + `ctx.strokeText(message, x, y)` or `ctx.fillText(message, x, y)`: draw a text message for wireframe text or filled text respectively
+    + `ctx.font`: set the character font w/ values used in CSS syntax, e.g., `ctx.font = 'italic 20pt Calibri';`
+
+
+
+
 
 
 ### 3.2.1 About JavaScript and HTML5
@@ -675,7 +716,7 @@ The two first parameters are the coordinates of the top left corner of the recta
 Produces this result:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yyjtw55d')"
     src    ="https://tinyurl.com/yyq5abh2"
     alt    ="filled rectangle"
@@ -696,7 +737,7 @@ __strokeRect(x, y, width, height): like fillRect(...), but instead of drawing a 
 </ol></div>
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yyjtw55d')"
     src    ="https://tinyurl.com/y4s8bjld"
     alt    ="stroked rectangle"
@@ -720,7 +761,7 @@ Actually it draws it in a color called "transparent black" (!) that corresponds 
 The result is:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yyjtw55d')"
     src    ="https://tinyurl.com/y4zlqqnz"
     alt    ="clear rect"
@@ -736,7 +777,7 @@ __Example #1: draw a wireframe red rectangle, width lineWidth = 3 pixels__
 [Interactive example available here at JSBin](https://jsbin.com/kiduwa/edit?html,output) ([Local Example - Wireframed Rectangle](src/3.2.7-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yyjtw55d')"
     src    ="https://tinyurl.com/y5t8r9ec"
     alt    ="wireframe red rectangle with line width = 3 pixels"
@@ -767,14 +808,14 @@ Let's continue with another example. This time we will draw several shapes that 
 [Online example on JS Bin](https://jsbin.com/zarihi/edit?html,output) ([Local Example - Two Filled Rectangles](src/3.2.7-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yyjtw55d')"
-    src    ="image"
-    alt    ="text"
-    title  ="text"
+    src    ="https://tinyurl.com/y34wpnwh"
+    alt    ="rectangles and text that shares colors"
+    title  ="rectangles and text that shares colors"
   />
 </figure>
-rectangles and text that shares colors
+
 
 Source code extract:
 
@@ -826,7 +867,10 @@ If you would like to draw the filled text message in green, for example, you sho
   c. ctx.lineWidth=10; ctx.strokeStyle='blue'; ctx.strokeRect(10, 10, 200, 400);<br/>
   d. ctx.width=10; ctx.color='blue'; ctx.strokeRect(10, 10, 200, 400);<br/>
 
-  Ans: 
+  Ans: c<br/>
+  Explanation: Correct answer is the third one: ctx.line does not exist, the correct way to set the width of outlines is by using the `ctx.lineWidth` property. ctx.color does not exist: we set colors by using the `ctx.strokeStyle` or `ctx.fillStyle` properties, the parameters to the ctx.strokeRect methods are (x, y, width, height).
+
+
 
 
 
