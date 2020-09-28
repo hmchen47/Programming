@@ -124,6 +124,7 @@
     + specify some drawing properties (optional)
     + draw the shape
 
++ 
 
 
 ### 3.2.1 About JavaScript and HTML5
@@ -634,6 +635,198 @@ The way the rectangle will be filled depends on the current value of several pro
   Explanation: Indeed, while setting an image background in a canvas using CSS is possible, drawing shapes is done by using the canvas JavaScript API.
 
 
+
+### 3.2.7 Drawing principles
+
+#### More about the "context" object
+
+Before we go on, we should take some time to clarify the way we draw on HTML5 canvases. We already mentioned that we use a graphic context for all the main operations. Whenever a shape, a text, or an image is drawn, the current values of the different properties of the graphic context are taken into account. Some are relevant only for certain kinds of shapes or drawing modes, but you must be aware that it is always the current values of these drawing properties that are used.
+
+Later on we'll see that there are ways to save and restore this whole set of values, but for now, let's examine in greater detail some of the properties and methods we've already encountered, and introduce new ones.
+
+
+#### More about properties and methods of the context object
+
++ __fillStyle is a property of the context, similar in a way to a CSS property__
+
+Its value can be one of the following:
+
++ a color,
++ a pattern (texture), or
++ a gradient.
+
+The default value is the color black. Any kind of drawing in "fill mode" will use the value of this property to determine how to render the "filled part" of the drawing: any filled rectangle will be filled black by default, any filled circle will be filled in black, and so on.
+
+As long as we don't modify the value of this property, all drawing commands for filled shapes will use the current value.
+
+Note that we will study in detail how to use colors, gradients and patterns later, but for now we introduce some properties and values so that you can understand the principles of canvas drawing.
+
+`fillStyle` and the other context properties can be considered to be "global variables" of the context.
+
+__fillRect(x, y, width, height):  a call to this method draws a filled rectangle__
+
+The two first parameters are the coordinates of the top left corner of the rectangle. This method uses the current value of the `fillStyle` property to determine how to fill the rectangle.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'pink'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+</ol></div>
+
+Produces this result:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yyjtw55d')"
+    src    ="https://tinyurl.com/yyq5abh2"
+    alt    ="filled rectangle"
+    title  ="filled rectangle"
+  />
+</figure>
+
+
+__strokeStyle is a property of the context similar to fillStyle, but this time for indicating how the shape's outline should be rendered__
+
+The possible values are the same as those for the fillStyle property: a color, a pattern, or a gradient. This property will be taken into account when wireframe shapes are drawn.
+
+__strokeRect(x, y, width, height): like fillRect(...), but instead of drawing a filled rectangle the rectangle is drawn in wireframe mode__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeStyle</span><span class="pun">=</span><span class="str">'blue'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+</ol></div>
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yyjtw55d')"
+    src    ="https://tinyurl.com/y4s8bjld"
+    alt    ="stroked rectangle"
+    title  ="stroked rectangle"
+  />
+</figure>
+
+
+Only the outline of the rectangle will be drawn, and it will be drawn using the value of the strokeStyle property.
+
+__clearRect(x, y, width, height): a call to this method erases the specified rectangle__
+
+Actually it draws it in a color called "transparent black" (!) that corresponds to the initial state of the rectangle as if no drawing had occurred.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'pink'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+</ol></div>
+
+The result is:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yyjtw55d')"
+    src    ="https://tinyurl.com/y4zlqqnz"
+    alt    ="clear rect"
+    title  ="clear rect"
+  />
+</figure>
+
+
+#### Let's see some simple examples
+
+__Example #1: draw a wireframe red rectangle, width lineWidth = 3 pixels__
+
+[Interactive example available here at JSBin](https://jsbin.com/kiduwa/edit?html,output) ([Local Example - Wireframed Rectangle](src/3.2.7-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yyjtw55d')"
+    src    ="https://tinyurl.com/y5t8r9ec"
+    alt    ="wireframe red rectangle with line width = 3 pixels"
+    title  ="wireframe red rectangle with line width = 3 pixels"
+  />
+</figure>
+
+
+Extract from the source code (the part that draws the rectangle):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// draw a red rectangle, line width=3 pixels</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">3</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+Here, we used "stroke" instead of "fill" in the property and method names (lines 4 and 5): strokeStyle instead of fillStyle, strokeRect(...) instead of fillRect(...).
+
+We also introduced a new property of the context, that applies only when drawing in "stroke" mode, the lineWidth property (line 3), that is used for setting the width of the shape outline. The value is in pixels.
+
+__Example #2: draw two filled red rectangles with a blue outline of 5 pixels and some text__
+
+Let's continue with another example. This time we will draw several shapes that share the same colors - they will be filled in red, with a blue outline. We also show how to draw a text message with a given font.
+
+[Online example on JS Bin](https://jsbin.com/zarihi/edit?html,output) ([Local Example - Two Filled Rectangles](src/3.2.7-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yyjtw55d')"
+    src    ="image"
+    alt    ="text"
+    title  ="text"
+  />
+</figure>
+rectangles and text that shares colors
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// set the global context values</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle</span><span class="pun">=</span><span class="str">'blue'</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// font for all text drawing</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">'italic 20pt Calibri'</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// Draw the two filled red rectangles</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">110</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Draw the two blue wireframe rectangles</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">110</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Draw a message above the rectangles</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"hello"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">22</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+This example shows the "global" nature of the context properties. Once you set the filled color to red, any shapes you draw in filled mode will be red. This is true for all the context properties. We set some of these properties in lines 3-7, and all following calls to context methods for drawing rectangles or text will depend on them. The two filled rectangles at lines 10-11 will be red, the two wireframe rectangles drawn at lines 14-15 will be blue, etc.
+
+Line 18 shows how to draw a text message at an X position of 70 and a Y position of 22. The font is set at line 7 using the font property of the context.  The syntax is the same we use in CSS for using "system fonts".
+
+If you would like to draw the filled text message in green, for example, you should set the `ctx.fillStyle` property to "green" after you draw the rectangles and before you draw the text (i.e just before line 18).
+
+
+#### Summary of what we've learned
+
++ "stroke" means "wireframe" or "outlined", it is a prefix for setting properties or calling methods that will affect wireframe shapes, "fill" is a prefix for filled shapes.
++ To set the properties of wireframe shapes use `ctx.strokeStyle= ...`, for filled shapes use `ctx.fillStyle=...` So far the values we have used are colors, expressed as strings. Example: `ctx.strokeStyle  = 'blue';`
++ To draw a wireframe rectangle use `ctx.strokeRect(x, y, width, height)`, to draw a filled rectangle use `ctx.fillRect(x, y, width, height);`
++ To set the line width of wireframe shapes, use the `ctx.lineWidth property`. Example `ctx.lineWidth = 10; ctx.strokeRect(0, 0, 100, 100);`  will draw a 100x100 rectangle in wireframe mode, with an outline width of 10 pixels.
++ To draw a text message use `ctx.strokeText(message, x, y)` or `ctx.fillText(message, x, y)`, for wireframe text or filled text respectively.
++ To set the character font use the `ctx.font` property; the value is a font in CSS syntax, for example:  `ctx.font = 'italic 20pt Calibri';`
+
+
+#### Knowledge check 3.2.7
+
+1. How would you draw a blue wireframe rectangle at 10, 10, width=200, height=400 with a lineWidth of 10 pixels?<br/>
+
+  a. ctx.line=10; ctx.color='blue'; ctx.strokeRect(10, 10, 200, 400);<br/>
+  b. ctx.lineWidth=10; ctx.color='blue'; ctx.strokeRect(200, 400, 10, 10);<br/>
+  c. ctx.lineWidth=10; ctx.strokeStyle='blue'; ctx.strokeRect(10, 10, 200, 400);<br/>
+  d. ctx.width=10; ctx.color='blue'; ctx.strokeRect(10, 10, 200, 400);<br/>
+
+  Ans: 
 
 
 
