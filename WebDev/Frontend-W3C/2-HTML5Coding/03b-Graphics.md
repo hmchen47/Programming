@@ -363,6 +363,22 @@ We recommend these 2 quick references (or [cheatsheets](https://en.wikipedia.org
 </figure>
 
 
+### 3.2.5 Coordinate system
+
+The coordinate system used for drawing in canvases is similar to the one used by many drawing APIs like Java2D: the (0 , 0) is in the top left corner while the X axis is going to the right and the Y axis to the bottom, as  shown in the following picture (by Mark Pilgrim):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yxopdcdh')"
+    src    ="https://tinyurl.com/y4kyo9ew"
+    alt    ="coordinate system for canvas"
+    title  ="coordinate system for canvas"
+  />
+</figure>
+
+
+X axis is horizontal, directed to the right
+Y axis is vertical, directed downwards
 
 
 
