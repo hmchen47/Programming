@@ -314,5 +314,20 @@ Performance is  good, since most Web browsers (mobile and desktop) support hardw
   Explanation: The canvas has been designed for pixel based graphics. SVG, another W3C standard, is for vector-based graphics (parametric, resolution independant).
 
 
+### 3.2.3 Canvas and accessibility
+
+The dynamic nature of the `<canvas>` element has made it difficult to use in applications that need to be accessible to people with disabilities. To be accessible, it must meet the following principles:
+
++ Providing alternative content for what is drawn on the `<canvas>`,
++ Exposing the location of shapes, paths, images drawn on the `<canvas>` to assistive technologies,
++ Visually indicating whether or not a shape in the canvas had keyboard focus.
+
+Read more on this topic: 
+
++ An article on [What the canvas element means for accessibility](https://www.creativebloq.com/web-design/canvas-element-accessibility-41514740)
++ From the W3C wiki: [Canvas Element Accessibility Issues](https://www.w3.org/html/wg/wiki/AddedElementCanvas)
+
+
+
 
 
