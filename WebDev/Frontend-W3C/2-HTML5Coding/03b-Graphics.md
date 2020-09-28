@@ -333,6 +333,35 @@ Read more on this topic:
 + From the W3C wiki: [Canvas Element Accessibility Issues](https://www.w3.org/html/wg/wiki/AddedElementCanvas)
 
 
+### 3.2.4 HTML canvas cheatsheet
+
+We recommend these 2 quick references (or [cheatsheets](https://en.wikipedia.org/wiki/Cheat_sheet)) below. Do not hesitate to keep your favorite one open in a separate browser ta
+
+1. As a [PDF file](https://tinyurl.com/y6cvfxv9), this canvas cheatsheet:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yydo9x7z')"
+    src    ="https://tinyurl.com/y4fhj9mz"
+    alt    ="snapshot of an HTML Canvas cheatsheet from skilled.com"
+    title  ="snapshot of an HTML Canvas cheatsheet from skilled.com"
+  />
+</figure>
+
+
+2. Another resource, as an [HTML file](https://tinyurl.com/kxm2vxf):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yydo9x7z')"
+    src    ="https://tinyurl.com/yyzk6eb2"
+    alt    ="Snapshot of a canvas sheet API"
+    title  ="Snapshot of a canvas sheet API"
+  />
+</figure>
+
+
+
 
 
 
