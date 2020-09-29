@@ -25,6 +25,57 @@
   + Obtain a 2D context from the canvas element.
   + Draw graphics using the draw functions of 2D context.
 
++ [Drawing text](#332-drawing-text)
+  + two main methods: `ctx.strokeText(message, x, y)` and `ctx.fillText(message, x, y)`
+  + `ctx.font` property
+    + specify the font style (plain, bold, italic), the size, and the font name
+    + accepted values: font-style, font-weight, font-size, font-face
+    + possible values
+      + font-style: normal, italic, oblique
+      + font-weight: normal, bold, bolder, lighter
+      + font-size: a size in pixels or in points, such as 60pt, 20px, 36px, etc.
+      + font-face: Arial, Calibri, Times, Courier, etc. Some font faces may not work in all browsers
+    + examples:
+      + `context.font = "60pt Calibri";`
+      + `context.font = "normal normal 20px Verdana";`
+      + `context.font = "normal 36px Arial";`
+      + `context.font = "italic bold 36px Arial";`
+  + `fillText()` & `strokeText()` methods
+    + syntax: `fillText(message, x, y[, maxWidth])` & `strokeText(message, x, y[, maxWidth])`
+    + draw a text message at the origin of the baseline position
+    + `maxWidth`: force the text to fit into a given width, distorting it if necessary
+  + `ctx.measureText()` method
+    + get the current width in pixels of a given text
+    + taking into account the diverse properties involved such as font, size, shadow, lineWidth, etc.
+  + `ctx.textbaseline` property
+    + change the way the text horizontal drawn
+    + used to specify the different ways one can position the baseline of a given text
+    + default: `alphabetic`
+    + tell how the `y` parameter of the `fillText("some text", x, y)` and `strokeText("some text", x, y)` methods interpreted
+    + possible values
+  + `textAlign` property
+    + how the x parameter will be used when calling `strokeText("some text", x, y)` and `fillText("some text", x, y)`
+    + possible values: left, center, right, start, end
+  
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y5wfa4y5" ismap target="_blank">
+          <img style="margin: 0.1em;" width=20vw
+            src    ="https://tinyurl.com/yxa5jg2k"
+            alt    ="text baseline"
+            title  ="text baseline"
+          >
+          <img style="margin: 0.1em;" width=20vw
+            src    ="https://tinyurl.com/y2kwbxfo"
+            alt    ="horizontal text alignment"
+            title  ="horizontal text alignment"
+          >
+        </a>
+      </div>
+
+
+
+
+
 
 
 ### 3.3.1 Immediate mode
@@ -144,7 +195,7 @@ It also provides a set of context properties for setting the character font and 
 #### Typical use
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y5wfa4y5')"
     src    ="https://tinyurl.com/y5o9r5bn"
     alt    ="example of text drawn in a canvas"
@@ -166,7 +217,7 @@ Source code extract:
 <li class="L7" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">strokeText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
 </ol></div>
 
-Look at the [code from the example](https://jsbin.com/dazefoz/1/edit?html,output) provided: change the position where the text is drawn, change font attributes, etc. ([Local Example - Typical Use](src/3.3.32-example.html))
+Look at the [code from the example](https://jsbin.com/dazefoz/1/edit?html,output) provided: change the position where the text is drawn, change font attributes, etc. ([Local Example - Typical Use](src/3.3.2-example1.html))
 
 
 #### The context.font property
@@ -204,10 +255,10 @@ There is a fourth optional parameter maxWidth that forces the text to fit into a
 
 #### Example that uses the maxWidth  parameter of the strokeText() or fillText() methods
 
-Try it [online](https://jsbin.com/quweqab/1/edit?html,output): ([Local Example - maxWidth](src/3.3.2-example1.html))
+Try it [online](https://jsbin.com/quweqab/1/edit?html,output): ([Local Example - maxWidth](src/3.3.2-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y5wfa4y5')"
     src    ="https://tinyurl.com/y3a63ey3"
     alt    ="distorded text"
@@ -240,10 +291,10 @@ Source code extract:
 
 #### Measuring the width of a given text (bounding box)
 
-Try this [example online](https://jsbin.com/kecezim/1/edit?html,output):  ([Local Example - Text Width](src/3.3.2-example2.html))
+Try this [example online](https://jsbin.com/kecezim/1/edit?html,output):  ([Local Example - Text Width](src/3.3.2-example3.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y5wfa4y5')"
     src    ="https://tinyurl.com/y4tq6pb3"
     alt    ="measure text width"
@@ -265,7 +316,7 @@ Source code extract from this example:
 <li class="L5" style="margin-bottom: 0px;"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln"> context</span><span class="pun">.</span><span class="pln">strokeText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="kwd"><span style="color: #000000;" color="#000000">v</span>ar</span><span class="pln"> textMetrics </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">measureText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">);</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> textMetrics </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">measureText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">);</span></strong></li>
 <li class="L9" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> width </span><span class="pun">=</span><span class="pln"> textMetrics</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></strong></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="com">// Draw a text that displays the width of the previous drawn text</span></li>
@@ -281,7 +332,7 @@ Source code extract from this example:
 
 #### The ctx.textbaseline property: change the way the text is horizontally drawn
 
-[Try this example at JSBin](https://jsbin.com/haxiru/1/edit?html,output) (borrowed and adapted from [Jenkov's canvas tutorial](http://tutorials.jenkov.com/html5-canvas/text.html)): ([Local Example - Text Horizontal Draw](src/3.3.2-example3.html))
+[Try this example at JSBin](https://jsbin.com/haxiru/1/edit?html,output) (borrowed and adapted from [Jenkov's canvas tutorial](http://tutorials.jenkov.com/html5-canvas/text.html)): ([Local Example - Text Horizontal Draw](src/3.3.2-example4.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -348,7 +399,7 @@ Typical use (taken from the example above):
 Try this [example online](https://jsbin.com/yapiqi/1/edit?html,output):  ([Local Example - Horizontal alignment](src/43.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y5wfa4y5')"
     src    ="https://tinyurl.com/y2kwbxfo"
     alt    ="horizontal text alignment"
@@ -372,7 +423,7 @@ Typical use (source code taken from the above example):
 <li class="L7" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"left"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">80</span><span class="pun">);</span></li>
 <li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textAlign </span><span class="pun">=</span><span class="pln"> </span><span class="str">"right"</span><span class="pun">;</span></strong></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"right"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-</ol></div>
+</ol></div><br/>
 
 
 #### Knowledge check 3.3.2
@@ -385,8 +436,11 @@ Typical use (source code taken from the above example):
   e. ctx.textBaseline<br/>
   f. ctx.textOutlineWidth<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: ade<br/>
+  Explanation: Of those listed, only `font`, `textAlign` and `textBaseline` are valid. Of course, other properties are relevant too: `strokeStyle`, `fillStyle`, lineWidth etc.
+
+
+
 
 
 
