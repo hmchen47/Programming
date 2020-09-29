@@ -163,7 +163,18 @@
     + `ctx.strokeText(message, x, y)` or `ctx.fillText(message, x, y)`: draw a text message for wireframe text or filled text respectively
     + `ctx.font`: set the character font w/ values used in CSS syntax, e.g., `ctx.font = 'italic 20pt Calibri';`
 
-
++ [2D transformations](#328-2d-transformations)
+  + translate (or rotate, or scale) the original coordinate system instead of modifying all the coordinates passed as parameters to each call to drawing methods
+  + order of transformation: translate, rotate, and then scale
+  + `ctx.translate(offsetX, offsetY)`
+    + translation to shift (0, 0) to (offsetX, offsetY)
+    + chhange tghe position if the corrdinate system first and then draw the shape
+  + `ctx.rotate(angle)`: rotate the coordinate system w/ angle in radians
+  + `ctx.scale (sx, sy)`:
+    + `scale(1, 1)`: no zoom, remain the same
+    + `scale(2, 2)`: zooming 2x
+    + `scale(0.5, 0.5)`: zoom out to see the drawings half as big as before
+  + `drawArrow(startX, startY, endX, endY, width, color)`: 
 
 
 
@@ -883,122 +894,121 @@ Let's start with some simple examples before looking at how we use 2D transforms
 
 #### Examples
 
-+ __Let's draw three rectangles!__
+__Let's draw three rectangles!__
 
-  If we draw three rectangles of size 100x200 in a 400x400 canvas, one at (0, 0) and another at (150, 0), and a third at (300, 0), here is the result and the corresponding code:
+If we draw three rectangles of size 100x200 in a 400x400 canvas, one at (0, 0) and another at (150, 0), and a third at (300, 0), here is the result and the corresponding code:
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
-      onclick="window.open('https://tinyurl.com/yxld47ah')"
-      src    ="https://tinyurl.com/y4689hee"
-      alt    ="3 green rectangles"
-      title  ="3 green rectangles"
-    />
-  </figure>
-
-
-  JavaScript code extract (see [the online example at JS Bin](https://jsbin.com/yefuleq/1/edit?html,output) for the complete running code): ([Local Example - 3Green Bars](src/3.2.8-example1.html))
-
-  <div class="source-code"><ol class="linenums">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">300</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-  </ol></div>
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
+    onclick="window.open('https://tinyurl.com/yxld47ah')"
+    src    ="https://tinyurl.com/y4689hee"
+    alt    ="3 green rectangles"
+    title  ="3 green rectangles"
+  />
+</figure>
 
 
-+ __Let's modify the code so that we can draw these rectangles at any X and Y position__
+JavaScript code extract (see [the online example at JS Bin](https://jsbin.com/yefuleq/1/edit?html,output) for the complete running code): ([Local Example - 3 Green Bars](src/3.2.8-example1.html))
 
-  What if we wanted to draw these 3 rectangles at another position, as a group? We would like to draw all of them a little closer to the bottom, for example... Let's add some parameters to the function:  the X and Y position of the rectangles.
-
-  The full JavaScript code is (see [online running example](https://jsbin.com/jesonuh/edit?html,output)): ([Local Example - Translated 3 green Bards](src/3.2.8-example2.html))
-
-  <div class="source-code"><ol class="linenums">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// This function is called after the page is loaded</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 1 - Get the canvas</span></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 2 - Get the context</span></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 3 - we can draw</span></li>
-  <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawSomething</span><span class="pun">(</span><strong><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span></strong><span class="pun">);</span></li>
-  <li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// draw&nbsp;3 rectangles</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span></strong><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">+</span><span class="lit">150</span></strong><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">+</span><span class="lit">300</span></strong><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-  <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-  </ol></div>
+<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">300</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
 
 
-  At line 10, we called the `drawSomething(...)` function with 0 and 100 as parameters, meaning "please add an offset of 0 in X and 100 in Y directions to what is drawn by the function...
+__Let's modify the code so that we can draw these rectangles at any X and Y position__
 
-  If you look at the code of the modified function, you will see that each call to `fillRect(...)` uses the x and y parameters instead of hard coded values. In this way, if we call it with parameters (0, 100), then all rectangles will be drawn 100 pixels to the bottom (offset in y). Here is the result:
+What if we wanted to draw these 3 rectangles at another position, as a group? We would like to draw all of them a little closer to the bottom, for example... Let's add some parameters to the function:  the X and Y position of the rectangles.
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
-      onclick="window.open('https://tinyurl.com/yxld47ah')"
-      src    ="https://tinyurl.com/y6zntfgt"
-      alt    ="rectangles are drawn 100 pixels towards the bottom"
-      title  ="rectangles are drawn 100 pixels towards the bottom"
-    />
-  </figure>
+The full JavaScript code is (see [online running example](https://jsbin.com/jesonuh/edit?html,output)): ([Local Example - Translated 3 green Bards](src/3.2.8-example2.html))
 
+<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// This function is called after the page is loaded</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 1 - Get the canvas</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 2 - Get the context</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 3 - we can draw</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawSomething</span><span class="pun">(</span><strong><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span></strong><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// draw&nbsp;3 rectangles</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span></strong><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">+</span><span class="lit">150</span></strong><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">+</span><span class="lit">300</span></strong><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
 
-+ __Now, let's draw a small monster's head with rectangles__
+At line 10, we called the `drawSomething(...)` function with 0 and 100 as parameters, meaning "please add an offset of 0 in X and 100 in Y directions to what is drawn by the function...
 
-  Now we can start having some fun... let's draw a monster's head using only rectangles ([online version](https://jsbin.com/viqove/1/edit?html,output)): ([Local Example - Face](src/3.2.8-example3.html))
+If you look at the code of the modified function, you will see that each call to `fillRect(...)` uses the x and y parameters instead of hard coded values. In this way, if we call it with parameters (0, 100), then all rectangles will be drawn 100 pixels to the bottom (offset in y). Here is the result:
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
-      onclick="window.open('https://tinyurl.com/yxld47ah')"
-      src    ="https://tinyurl.com/y4tt9mrg"
-      alt    ="monster made of rectangles"
-      title  ="monster made of rectangles"
-    />
-  </figure>
-
-
-  An extract of the JavaScript source code is:
-
-  <div class="source-code"><ol class="linenums">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// head</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// eyes</span></li>
-  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
-  <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">35</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-  <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">140</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// interior of eye</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'yellow'</span><span class="pun">;</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">43</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">143</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Nose</span></li>
-  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'black'</span><span class="pun">;</span></li>
-  <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">90</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">70</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">80</span><span class="pun">);</span></li>
-  <li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Mouth</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'purple'</span><span class="pun">;</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">60</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">165</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-  </ol></div>
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
+    onclick="window.open('https://tinyurl.com/yxld47ah')"
+    src    ="https://tinyurl.com/y6zntfgt"
+    alt    ="rectangles are drawn 100 pixels towards the bottom"
+    title  ="rectangles are drawn 100 pixels towards the bottom"
+  />
+</figure>
 
 
-  As you can see, the code uses the same technique, becomes less and less readable. The Xs and Ys at the beginning of each call makes understanding the code harder, etc.
+__Now, let's draw a small monster's head with rectangles__
 
-  However, there is a way to simplify this => 2D geometric transformations! 
+Now we can start having some fun... let's draw a monster's head using only rectangles ([online version](https://jsbin.com/viqove/1/edit?html,output)): ([Local Example - Monster](src/3.2.8-example3.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
+    onclick="window.open('https://tinyurl.com/yxld47ah')"
+    src    ="https://tinyurl.com/y4tt9mrg"
+    alt    ="monster made of rectangles"
+    title  ="monster made of rectangles"
+  />
+</figure>
+
+
+An extract of the JavaScript source code is:
+
+<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// head</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// eyes</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">35</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">140</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// interior of eye</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'yellow'</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">43</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">143</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Nose</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'black'</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">90</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">70</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">80</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Mouth</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'purple'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">60</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">165</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+
+As you can see, the code uses the same technique, becomes less and less readable. The Xs and Ys at the beginning of each call makes understanding the code harder, etc.
+
+However, there is a way to simplify this => 2D geometric transformations! 
 
 
 #### Geometric transformations: changing the coordinate system
@@ -1007,7 +1017,7 @@ The idea behind 2D transformations is that instead of modifying all the coordina
 
 Let's take a piece of code that draws something corresponding to the original coordinate system, located at the top left corner of the canvas:
 
-<div class="source-code"><ol class="linenums">
+<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// head</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
@@ -1037,7 +1047,7 @@ Let's take a piece of code that draws something corresponding to the original co
 <li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
 
-This code is the just the same as in the previous example except that we removed all Xs and Yx in the code. We also added at the end (lines 25-26) two lines of code that draw the coordinate system. The `drawArrow(startX, startY, endX, endY, width, color)` function is a utility function that we will present later. You can see it in the source code of the complete [online example on JS Bin](https://jsbin.com/fidisig/1/edit?html,output): look in the JavaScript tab. ([Local Example - Monster](src/3.2.8-example4.html))
+This code is the just the same as in the previous example except that we removed all Xs and Yx in the code. We also added at the end (lines 25-26) two lines of code that draw the coordinate system. The `drawArrow(startX, startY, endX, endY, width, color)` function is a utility function that we will present later. You can see it in the source code of the complete [online example on JS Bin](https://jsbin.com/fidisig/1/edit?html,output): look in the JavaScript tab. ([Local Example - Monster w/ Arrows](src/3.2.8-example4.html))
 
 Note that the X and Y parameters are useless for now...
 
@@ -1053,93 +1063,94 @@ Result:
 </figure>
 
 
-+ __Translation using `ctx.translate(offsetX, offsetY)`__
+__Translation using `ctx.translate(offsetX, offsetY)`__
 
-  Now, instead of simply calling drawMonster(0, 0), we will call first `ctx.translate(100, 100)`, and look at the result (online code: https://jsbin.com/yuhamu/2/edit) ([Local Example - Translated Monster](src/3/2/8-example6.html))
+Now, instead of simply calling drawMonster(0, 0), we will call first `ctx.translate(100, 100)`, and look at the result (online code: https://jsbin.com/yuhamu/2/edit) ([Local Example - Translated Monster](src/3.2.8-example5.html))
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
-      onclick="window.open('https://tinyurl.com/yxld47ah')"
-      src    ="https://tinyurl.com/y6889etu"
-      alt    ="translated monster"
-      title  ="translated monster"
-    />
-  </figure>
-
-
-  JavaScript code extract:
-
-  <div class="source-code"><ol class="linenums">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> drawMonster</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
-  </ol></div>
-
-  Line 1 changes the position of the coordinate system, line 2 draws a monster in the new translated coordinate system. All subsequent calls to drawing methods will be affected and will work in this new system too.
-
-+ __Other transformations: rotate, scale__
-
-  There are other transformations available:
-
-  + `ctx.rotate(angle)`, with angle in radians. Note that the order of transformations is important: usually we translate, then rotate, then scale... If you change this order, you need to know what you are doing...
-  + `ctx.scale (sx, sy)`, where `scale(1, 1)` corresponds to "no zoom", `scale(2, 2)` corresponds to "zooming 2x" and `scale(0.5, 0.5)` corresponds to zooming out to see the drawings half as big as before. If you do not use the same values for sx and sy, you do "asymmetric scaling", you can distort a shape horizontally or vertically. Try changing the values in the source code of the next online examples.
-
-  Here is the previous example, but this time we translated the coordinate system, then rotated it with an angle equal to PI/4 , then we scaled it so that units are half as big (see the [example online](https://jsbin.com/sozehu/1/edit?html,js,output)): ([Local Example - Rotated Monster](src/3.2.8-example8.html))
-
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
-      onclick="window.open('https://tinyurl.com/yxld47ah')"
-      src    ="https://tinyurl.com/yxd8e86n"
-      alt    ="coordinate system translated, rotated and scaled"
-      title  ="coordinate system translated, rotated and scaled"
-    />
-  </figure>
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
+    onclick="window.open('https://tinyurl.com/yxld47ah')"
+    src    ="https://tinyurl.com/y6889etu"
+    alt    ="translated monster"
+    title  ="translated monster"
+  />
+</figure>
 
 
-  And here is the code of the transformations we used, followed by the call to the function that draws the monster:
+JavaScript code extract:
 
-  <div class="source-code"><ol class="linenums">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">4</span><span class="pun">);</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">scale</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">);</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln"> drawMonster</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
-  </ol></div>
+<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> drawMonster</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
+</ol></div>
 
-  _Line 1/2/3_ does and _Line 4_ draws the monster in this new translated, rotated, scaled coordinate system:
+Line 1 changes the position of the coordinate system, line 2 draws a monster in the new translated coordinate system. All subsequent calls to drawing methods will be affected and will work in this new system too.
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/yxld47ah" ismap target="_blank">
-      <img style="margin: 0.1em;" height=200
-      src    ="https://tinyurl.com/y325erh4"
-      alt    ="translate coordinate system"
-      title  ="translate coordinate system"
-      >
-      <img style="margin: 0.1em;" height=200
-      src    ="https://tinyurl.com/y64zhwde"
-      alt    ="rotate coordinate system"
-      title  ="rotate coordinate system"
-      >
-      <img style="margin: 0.1em;" height=200
-      src    ="https://tinyurl.com/y57c25w9"
-      alt    ="scale coordinate system"
-      title  ="scale coordinate system"
-      >
-      <img style="margin: 0.1em;" height=200
-      src    ="https://tinyurl.com/yxd8e86n"
-      alt    ="coordinate system translated, rotated and scaled"
-      title  ="coordinate system translated, rotated and scaled"
-      >
-    </a>
-  </div>
+
+__Other transformations: rotate, scale__
+
+There are other transformations available:
+
++ `ctx.rotate(angle)`, with angle in radians. Note that the order of transformations is important: usually we translate, then rotate, then scale... If you change this order, you need to know what you are doing...
++ `ctx.scale (sx, sy)`, where `scale(1, 1)` corresponds to "no zoom", `scale(2, 2)` corresponds to "zooming 2x" and `scale(0.5, 0.5)` corresponds to zooming out to see the drawings half as big as before. If you do not use the same values for sx and sy, you do "asymmetric scaling", you can distort a shape horizontally or vertically. Try changing the values in the source code of the next online examples.
+
+Here is the previous example, but this time we translated the coordinate system, then rotated it with an angle equal to PI/4 , then we scaled it so that units are half as big (see the [example online](https://jsbin.com/sozehu/1/edit?html,js,output)): ([Local Example - Rotated Monster](src/3.2.8-example6.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
+    onclick="window.open('https://tinyurl.com/yxld47ah')"
+    src    ="https://tinyurl.com/yxd8e86n"
+    alt    ="coordinate system translated, rotated and scaled"
+    title  ="coordinate system translated, rotated and scaled"
+  />
+</figure>
+
+
+And here is the code of the transformations we used, followed by the call to the function that draws the monster:
+
+<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">4</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">scale</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> drawMonster</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
+</ol></div>
+
+_Line 1/2/3_ does and _Line 5_ draws the monster in this new translated, rotated, scaled coordinate system:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/yxld47ah" ismap target="_blank">
+    <img style="margin: 0.1em;" height=200
+    src    ="https://tinyurl.com/y325erh4"
+    alt    ="translate coordinate system"
+    title  ="translate coordinate system"
+    >
+    <img style="margin: 0.1em;" height=200
+    src    ="https://tinyurl.com/y64zhwde"
+    alt    ="rotate coordinate system"
+    title  ="rotate coordinate system"
+    >
+    <img style="margin: 0.1em;" height=200
+    src    ="https://tinyurl.com/y57c25w9"
+    alt    ="scale coordinate system"
+    title  ="scale coordinate system"
+    >
+    <img style="margin: 0.1em;" height=200
+    src    ="https://tinyurl.com/yxd8e86n"
+    alt    ="coordinate system translated, rotated and scaled"
+    title  ="coordinate system translated, rotated and scaled"
+    >
+  </a>
+</div>
 
 
 __BEWARE: all drawings to come will be in that modified coordinate system!__
 
 If we draw two shapes at two different positions, they will be relative to this new coordinate system.
 
-For example, this code (online at https://jsbin.com/yuhamu/4/edit): ([Local Example - Monster w/ Diamon](src/3.2.8-example9.html))
+For example, this code (online at https://jsbin.com/yuhamu/4/edit): ([Local Example - Monster w/ Diamon](src/3.2.8-example7.html))
 
-<div class="source-code"><ol class="linenums">
+<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">4</span><span class="pun">);</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">scale</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">);</span></li>
@@ -1153,14 +1164,13 @@ For example, this code (online at https://jsbin.com/yuhamu/4/edit): ([Local Exam
 ... gives this result:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 12vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/yxld47ah')"
     src    ="https://tinyurl.com/y26lbae8"
     alt    ="monster and rectangle in the same coordinate system"
     title  ="monster and rectangle in the same coordinate system"
   />
 </figure>
-
 
 
 #### How can we reset the coordinate system, how can we go back to the previous one?
@@ -1182,8 +1192,11 @@ ctx.strokeRect(0, 0, 100, 100);
   c. x=200, y=200, size unchanged<br/>
   d. x=200, y=200, twice the size<br/>
 
-  Ans: <br/>
-  Explanation:
+  Ans: a<br/>
+  Explanation: The original coordinate system is translated from (0, 0) to (100, 100), then we apply a scaling x2, so the rectangle will be twice the original size (200x200 instead of 100x100), but the scaling does not change the origin of the coordinate system. To sum up: the rectangle will be drawn in (100, 100), twice the size.
+
+
+
 
 
 
