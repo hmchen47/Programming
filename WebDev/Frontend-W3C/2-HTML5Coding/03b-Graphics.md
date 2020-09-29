@@ -1301,6 +1301,37 @@ Source code extract of this function: notice at lines 3 and 26 how we save/resto
   Explanation: This function changes the context (properties, coordinate system), it should save/restore the context following the good practice presented in this page of the course.
   
 
+### 3.2.10 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects:
+
+
+#### Suggested topics
+
++ Did you already know about 2D geometric transforms?
++ Have you used 2D geometric transforms in other languages such as Java, Processing, Python, etc.?
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will all be glad to try them and give some feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
+__Project 1 (easy)__: Make a small drawing by just using rectangles and text  (a car, a monster, a head, or whatever you like).
+
+__Project 2__: Make a histogram (bar charts made of filled rectangles) as an array of integer values such as: `var data = [1, 12, 20, 14, 13, 9, 5]`, for example.
+
+__Project 3 (harder, for those who know JavaScript and a little bit of math)__: Try to draw a human shaped robot using different 2D transforms (translate, rotate). Build a hierarchic skeleton (if we rotate the arm, the forearm and the hand should follow). This can be done by having the function that draws an arm save the context, move the coordinate system, call another function that draws the forearm, that saves the context, move the coordinate system to the end of the arm, call the function that draws the hand, etc. By consecutively calling functions from one another, with each function that saves the context -- moves the coordinate system -- calls another function -- restores the context, we can build a hierarchy of coordinate systems.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y4jo6xns')"
+    src    ="https://tinyurl.com/y32mh6e8"
+    alt    ="Small hierarchized robot"
+    title  ="Small hierarchized robot"
+  />
+</figure>
 
 
 
