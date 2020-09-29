@@ -1196,6 +1196,102 @@ ctx.strokeRect(0, 0, 100, 100);
   Explanation: The original coordinate system is translated from (0, 0) to (100, 100), then we apply a scaling x2, so the rectangle will be twice the original size (200x200 instead of 100x100), but the scaling does not change the origin of the coordinate system. To sum up: the rectangle will be drawn in (100, 100), twice the size.
 
 
+### 3.2.9 Saving and restoring the context
+
+#### Live coding video: saving and restoring the context
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V001600_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y27bkcz2)
+
+
+There are two methods for saving and restoring the context properties: `ctx.save()` and `ctx.restore()`.
+
+What will be saved: `fillStyle` and `strokeStyle`, lineWidth, the previous coordinate system, etc.. Meaning that ALL properties that affect drawing!
+
+A call to `ctx.save()` will probably save the context property values in a hardware register on your graphics card. Multiple contexts can be saved consecutively and restored.
+
+Contexts saved will be stacked, the last one that has been saved will be restored by the next call to `restore()`, so it is very important to have one restore for each save.
+
+<div style="border: 1px solid red; margin: 20px; padding: 10px;">
+  <p style="text-align: center;"><em><strong>Best practice</strong>: save the context at the beginning of any function <br>that changes the context, restore it at the end of the function!</em></p>
+</div>
+
+
+#### Example of a function that changes the context and restores it after execution
+
+Online example: https://jsbin.com/moporu/2/edit ([Local Example - Translated Monster](src/3.2.9-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y34n2a5p')"
+    src    ="https://tinyurl.com/y5l22xcu"
+    alt    ="example of context save / restore : a monster is drawn by a function that saves and restored the context, then a rectangle is draw, with context as it was previously "
+    title  ="example of context save / restore : a monster is drawn by a function that saves and restored the context, then a rectangle is draw, with context as it was previously "
+  />
+</figure>
+
+
+We took the last example (the one with the monster, from the previous page of the course), and slightly modified the function that draws the monster:
+
++ We added parameters for setting the position and orientation of the monster, and added calls to `ctx.translate(x, y)` and `ctx.rotate(angle)` in the function.
++ We added parameters for the head color and eye color.
++ We saved the context at the beginning of the function (BEST PRACTICE),
++ We restored it at the end (BEST PRACTICE).
+
+Source code extract of this function: notice at lines 3 and 26 how we save/restore the context at the beginning/end. Right after saving the context, we modify the coordinate system (lines 7-8). The rest of the code is nearly the same as in the last version of the monster example.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">,</span><span class="pln"> headColor</span><span class="pun">,</span><span class="pln"> eyeColor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Moves the coordinate system so that the monster is drawn</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// at position (x, y)</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// head</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">headColor</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// eyes</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">35</span><span class="pun">,</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">140</span><span class="pun">,</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// interior of eye</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">eyeColor</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">43</span><span class="pun">,</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">143</span><span class="pun">,</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// BEST PRACTICE!</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Knowledge check 3.2.9
+
+<pre>function drawShape(x, y) {
+    ctx.translate(x, y);
+    ctx.strokeStyle='red';
+    ctx.lineWidth=10;
+    ctx.strokeRect(0,0,200,200);
+ }
+</pre>
+
+1. Is the above code well written?<br/>
+
+  a. Yes, but this function changes the context: it should save/restore the context at the beginning/end of its body.<br/>
+  b. Yes, I don't see any error in it!<br/>
+
+  Ans: 
+
+
 
 
 
