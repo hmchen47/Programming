@@ -102,6 +102,20 @@
   + best practice: only draw an image that is fully loaded, use the `onload` callback!
   + `window.onload = function() {...};`: execute after the page loaded, i.e., the large image file loaded first, then draw images in the canvas
 
++ [Drawing images from a video stream](#334-drawing-images-from-a-video-stream)
+  + `drawImage` method
+    + take a video element as its first parameter
+    + drawn is the one currently played by the video stream
+    + e.g., `ctx.drawImage(video, 0, 0, 320, 180);`, `ctx.drawImage(video, 0, 180, 320, 180);` & `ctx.drawImage(video, 320, 180, 320, 180);`
+  + `setInterval(function, delay)` method: make the browser execute the processFrame function each delayed ms
+  + rotating video effect: `function drawRotatingVideo(x, y) {...}`
+    + use of context save/restore primordial as this function changes the coordinate system at each call; e.g., `ctx.save();` & `ctx.restore();`
+    + translating and rotating; e.g., `ctx.translate(x, y);`, `ctx.rotate(angle += 0.01);` & `ctx.translate(-80, -45);`
+      + second translates the coordinate system backwards with half of the size of the image that is drawn
+      + making the image rotate around the center of the rectangle, instead of around the top left corner at (0, 0) by default
+
+
+
 
 ### 3.3.1 Immediate mode
 
