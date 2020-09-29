@@ -176,6 +176,14 @@
     + `scale(0.5, 0.5)`: zoom out to see the drawings half as big as before
   + `drawArrow(startX, startY, endX, endY, width, color)`: 
 
++ [Saving and Restoring the context](#329-saving-and-restoring-the-context)
+  + `ctx.save()` & `ctx.restore()` methods
+    + saving the context properties
+    + saved properties: all properties effecting the drawing
+    + probably save the context property values in a hardware register on the graphics card
+    + multiple contexts able to be saved consectively and restored
+    + multiple contexts saved in stacked manner
+  + best practice: save the context before any activities moodifying the context, and restore it at the end of the activities, in particular, a fucntion
 
 
 
@@ -1289,8 +1297,9 @@ Source code extract of this function: notice at lines 3 and 26 how we save/resto
   a. Yes, but this function changes the context: it should save/restore the context at the beginning/end of its body.<br/>
   b. Yes, I don't see any error in it!<br/>
 
-  Ans: 
-
+  Ans: a<br/>
+  Explanation: This function changes the context (properties, coordinate system), it should save/restore the context following the good practice presented in this page of the course.
+  
 
 
 
