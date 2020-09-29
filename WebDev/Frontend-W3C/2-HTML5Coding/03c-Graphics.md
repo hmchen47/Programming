@@ -3,6 +3,29 @@
 
 ## 3.3 Immediate drawing mode
 
+### 3.3.0 Lecture Notes
+
++ [Drawing modes of graphics](#331-immediate-mode)
+  + immediate mode:
+    + the HTML5 canvas in this mode
+    + as soon as drawn a shape on the canvas, the canvas no longer knows anything about that shape
+    + shape visible, but unable to manipulate that shape individually
+    + executing a call to a drawing method means immediately drawing in the canvas
+    + easier to program as all graphic instructions produce results as soon as the instructions are executed
+    + only a few methods work in immediate drawing mode
+    + all shapes, including rectangles, text, images, etc.
+  + path/buffered mode:
+    + useful for drawing lines, curves, arcs, and also rectangles
+    + fill a buffer then execute all buffered orders at once to enable optimization and parallelism
+  + rectangles: the only shapes that have methods for drawing them immediately and also other methods for drawing them in "path/buffered mode"
+
++ [Steps to draw graphics on an HTML5 canvas](http://tutorials.jenkov.com/html5-canvas/overview.html)
+  + Wait for the page to be fully loaded.
+  + Obtain a reference to the canvas element.
+  + Obtain a 2D context from the canvas element.
+  + Draw graphics using the draw functions of 2D context.
+
+
 
 ### 3.3.1 Immediate mode
 
@@ -14,10 +37,12 @@ While drawing rectangles with `strokeRect` or `fillRect`, drawing text or drawin
 
 Another mode called "path mode" or "buffered mode" will be seen later in this course, which will be useful for drawing lines, curves, arcs, and also rectangles. Rectangles are the only shapes that have methods for drawing them immediately and also other methods for drawing them in "_path/buffered mode_".
 
-Example: drawing rectangles in immediate mode using best practice
+
+#### Example: drawing rectangles in immediate mode using best practice
+
 Let's give an example that draws several rectangles, filled or wireframe, with different colors and line widths.
 
-[Online example on JSBin](https://jsbin.com/wijoqak/1/edit?html,output) ([Local Example - Lines and Colors](src/3/3/1-example1.html))
+[Online example on JSBin](https://jsbin.com/wijoqak/1/edit?html,output) ([Local Example - Lines and Colors](src/3.3.1-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -105,7 +130,11 @@ Source code:
   a. The HTML5 canvas works all the time in a special mode called "immediate drawing mode". It's easier to program as all graphic instructions produce results as soon as the instructions are executed. All methods that produce drawings work in this way.<br/>
   b. The HTML5 canvas' graphic context provides a few drawing methods that work in "immediate drawing mode". When calling these methods, the drawings appear on the canvas as soon as the instructions are executed.<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: Only a few methods work in immediate drawing mode and are described in this part of the course. Others (lines, arcs, etc.) work in "path mode" or "buffered mode", and these methods will be studied later on.
+
+
+### 
 
 
 
