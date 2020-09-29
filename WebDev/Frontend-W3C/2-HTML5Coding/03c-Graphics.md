@@ -116,7 +116,6 @@
 
 
 
-
 ### 3.3.1 Immediate mode
 
 In the previous sections, we learned how to draw filled or wireframe rectangles.
@@ -793,6 +792,69 @@ __Explanations:__
 + _Line 21_: We implemented a rotating video effect in the drawRotatingVideo. The use of context save/restore is primordial as this function changes the coordinate system at each call, translating and rotating it. Notice the extra translation at line 31 that translates the coordinate system backwards with half of the size of the image that is drawn. We did this in order to make the image rotate around the center of the rectangle, instead of around the top left corner at (0, 0) by default. Try commenting out this line in the running example and you will see what we mean.
 
 
+### 3.3.5 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects:
+
+
+#### Suggested topics
+
++ Drawing images is a bit tricky for JavaScript newcomers as it involves loading them asynchronously before drawing. Do you have any further questions about this? 
++ Did you know we can also draw images from the Webcam? If we start from the Week 2 examples which use the getUserMedia API, it is possible to take screenshots of a person in front of the Webcam. Use the video that plays the Webcam stream as the first parameter of `drawImage(...)`. This is useful for registering forms, for example.
+
+
+#### Optional projects 
+
+Here are a few project ideas. Your classmates and the team who prepared the course will be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
+__Project 1 (easy)__: Make a funny application by mixing all the things seen so far: images, colors, texts, video...
+
+__Project 2__: Write a small application triggering a screenshot from the Webcam.
+
+__Project 3 (a bit harder, need to know how to use CSS positioning and the CSS z-index property)__: Try to position a canvas on top of a video element and draw shapes on top of the video.
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y3gv7b7t" ismap target="_blank">
+    <img style="margin: 0.1em;" width=300
+    src    ="https://tinyurl.com/y4kvv99x"
+    alt    ="canvas and video superposed. Text is drawn on the canvas"
+    title  ="canvas and video superposed. Text is drawn on the canvas"
+    >
+  </a>
+  <a href="url" ismap target="_blank">
+    <img style="margin: 0.1em;" width=300
+    src    ="https://tinyurl.com/y5ptvzuu"
+    alt    ="canvas and video"
+    title  ="canvas and video"
+    >
+  </a>
+</div>
+
+
+__Project 4 (follow-up of project 3)__: Play two videos in loop mode at the same time, and draw the current image of the video 2 in the canvas on top of video 1, in a smaller size.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3gv7b7t')"
+    src    ="https://tinyurl.com/yxqeqv9u"
+    alt    ="video 2 drawn on top of video 1"
+    title  ="video 2 drawn on top of video 1"
+  />
+</figure>
+
+
+Other example:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3gv7b7t')"
+    src    ="https://tinyurl.com/y2nmno46"
+    alt    ="two videos one on top of the other"
+    title  ="two videos one on top of the other"
+  />
+</figure>
 
 
 
