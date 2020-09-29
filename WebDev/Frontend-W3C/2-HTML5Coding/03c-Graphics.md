@@ -694,7 +694,90 @@ Results with a very large image (5160x3270 pixels):
   Explanation: The `onload` callback is a way to be sure that an image is loaded. It is very important to check that an image is loaded before drawing it in a canvas.
   
 
+### 3.3.4 Drawing images from a video stream
 
+The `drawImage(...)` function can take a video element as its first parameter. The image that will be drawn is the one currently played by the video stream. This can be done at video frequency on most modern computers or mobile devices.
+
+[Online example at jsBin](https://jsbin.com/canotip/1/edit?html,output) ([Local Example - Drawing Video Image](src/3.3.4-example1.html))
+
+This example shows:
+
++ a `<video>` element on top, and four images drawn in a canvas below.
++ The images are drawn every XXX milliseconds using the setInterval(function, delay) method.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y6sgaaek')"
+    src    ="https://tinyurl.com/y67qnpa7"
+    alt    ="video wall with on top a video element playing a streames video file, and at bottom a canvas with the current video image drawn 4 times, including a rotating one"
+    title  ="video wall with on top a video element playing a streames video file, and at bottom a canvas with the current video image drawn 4 times, including a rotating one"
+  />
+</figure>
+
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> video</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> angle </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>video </strong></span><strong><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'sourcevid'</span><span class="pun">);</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>setInterval</strong></span><strong><span class="pun">(</span><span class="str">"processFrame()"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">25</span><span class="pun">); // call processFrame&nbsp;each 25ms</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> processFrame</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span>&nbsp; &nbsp;<span class="pln">ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">video</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">);<br><br></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawRotatingVideo</span><span class="pun">(</span><span class="lit">480</span><span class="pun">,</span><span class="pln"> </span><span class="lit">90</span><span class="pun">);<br><br></span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pln" style="line-height: 1.6;">ctx</span><span class="pun" style="line-height: 1.6;">.</span><span class="pln" style="line-height: 1.6;">drawImage</span><span class="pun" style="line-height: 1.6;">(</span><span class="pln" style="line-height: 1.6;">video</span><span class="pun" style="line-height: 1.6;">,</span><span class="pln" style="line-height: 1.6;"> </span><span class="lit" style="line-height: 1.6;">0</span><span class="pun" style="line-height: 1.6;">,</span><span class="pln" style="line-height: 1.6;"> </span><span class="lit" style="line-height: 1.6;">180</span><span class="pun" style="line-height: 1.6;">,</span><span class="pln" style="line-height: 1.6;"> </span><span class="lit" style="line-height: 1.6;">320</span><span class="pun" style="line-height: 1.6;">,</span><span class="pln" style="line-height: 1.6;"> </span><span class="lit" style="line-height: 1.6;">180</span><span class="pun" style="line-height: 1.6;">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">video</span><span class="pun">,</span><span class="pln"> </span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">,</span><span class="pln"> </span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawRotatingVideo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Clear the zone at the top right quarter of the canvas</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// We are going to change the coordinate system, save the context!</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// translate, rotate and recenter the image at its "real" center, </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//not the top left corner</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">0.01</span><span class="pun">); // rotate and increment the current angle</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(-</span><span class="lit">80</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">45</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">video</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">160</span><span class="pun">,</span><span class="pln"> </span><span class="lit">90</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// restore the context</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">()</span><span class="atv">"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">This is a </span><span class="tag">&lt;video&gt;</span><span class="pln"> element: </span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"sourcevid"</span><span class="pln"> </span><span class="atn">autoplay</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">loop</span><span class="pun">=</span><span class="atv">"true"</span><span class="tag">&gt;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/BigBuckBunny_640x360.mp4"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/BigBuckBunny_640x360.ogv"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/ogg"</span><span class="tag">/&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">This is a </span><span class="tag">&lt;canvas&gt;</span><span class="pln"> element: </span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"620"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"360"</span><span class="tag">&gt;&lt;/canvas&gt;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ _Line 11_: the call to `setInterval` will make the browser execute the processFrame function each 25ms.
++ _Lines 15, 17 and 18_: in processFrame, `drawImage(...)` is called 3 times with the video element passed as first parameter.
++ _Line 43_: the video element declared at line 43 has `autoplay=true` and `loop=true`, it starts playing the video as soon as possible and will loop it.
++ _Line 21_: We implemented a rotating video effect in the drawRotatingVideo. The use of context save/restore is primordial as this function changes the coordinate system at each call, translating and rotating it. Notice the extra translation at line 31 that translates the coordinate system backwards with half of the size of the image that is drawn. We did this in order to make the image rotate around the center of the rectangle, instead of around the top left corner at (0, 0) by default. Try commenting out this line in the running example and you will see what we mean.
 
 
 
