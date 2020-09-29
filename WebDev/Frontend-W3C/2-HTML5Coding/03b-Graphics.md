@@ -183,7 +183,7 @@
     + probably save the context property values in a hardware register on the graphics card
     + multiple contexts able to be saved consectively and restored
     + multiple contexts saved in stacked manner
-  + best practice: save the context before any activities moodifying the context, and restore it at the end of the activities, in particular, a fucntion
+  + best practice: save the context before any activities modifying the context, and restore it at the end of the activities, in particular, a function
 
 
 
@@ -1332,9 +1332,6 @@ __Project 3 (harder, for those who know JavaScript and a little bit of math)__: 
     title  ="Small hierarchized robot"
   />
 </figure>
-
-
-
 
 
 
