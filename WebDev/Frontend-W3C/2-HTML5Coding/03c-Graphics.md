@@ -59,12 +59,12 @@
   
       <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
         <a href="https://tinyurl.com/y5wfa4y5" ismap target="_blank">
-          <img style="margin: 0.1em;" width=20vw
+          <img style="margin: 0.1em;" width=300
             src    ="https://tinyurl.com/yxa5jg2k"
             alt    ="text baseline"
             title  ="text baseline"
           >
-          <img style="margin: 0.1em;" width=20vw
+          <img style="margin: 0.1em;" width=100
             src    ="https://tinyurl.com/y2kwbxfo"
             alt    ="horizontal text alignment"
             title  ="horizontal text alignment"
@@ -72,9 +72,35 @@
         </a>
       </div>
 
++ [Drawing images](#333-drawing-images)
+  + wait for the image loaded before drawing
+  + loading images: an asynchronous process
+  + possible to draw images from a video stream, images corresponding to another canvas content, or images that are defined by  HTML elements in the page
+  + procedure to draw image
+    + create a JavaScript Image object, e.g., `var imageObj = new Image();`
+    + send an asynchronous request in the background by the browser w/ the `src` attribute of this object with the URL of the image file; e.g., `imageObj.src = "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"; };`
+    + call the `onload` callback associated with the image; e.g., `window.onload = function () {...}`
+    + draw the image only from inside this callback; e.g., `context.drawImage(imageObj, 0, 0);`
+  + `drawImage` method: numerous variants
+    + `drawImage(img, x, y)`: draw the image at position x, y, keeping the original image size
+    + `drawImage(img, x, y, sizeX, sizeY)`: same as before except that the image drawn is resized.
+    + `drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)`: for drawing sub-images, (sx, sy, sw, sh) define the source rectangle, while dx, dy, dw, sh define the target rectangle
 
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+          onclick="window.open('https://tinyurl.com/yyucaazn')"
+          src    ="https://tinyurl.com/yyuawz85"
+          alt    ="drawing images with subimages"
+          title  ="drawing images with subimages"
+        />
+      </figure>
 
-
+    + e.g., `context.drawImage(imageObj, 0, 10, 100, 100);`, `context.drawImage(imageObj, 80, 10, 150, 150);` & `context.drawImage(imageObj, 0, 0, 512, 100, 100, 250, 256, 50);`
+  + image defined in `<img src="...">`
+    + add an `<img>` in the document, then the browser starts downloading it in background
+    + draw w/ `document.querySelector(#img)`: work well w/ most of small images $\to# asynchronous process
+  + best practice: only draw an image that is fully loaded, use the `onload` callback!
+  + `window.onload = function() {...};`: execute after the page loaded, i.e., the large image file loaded first, then draw images in the canvas
 
 
 
@@ -443,7 +469,8 @@ Typical use (source code taken from the above example):
 
 ### 3.3.3 Drawing images
 
-Load images in the background, wait for them to be loaded before drawing!
+__Load images in the background, wait for them to be loaded before drawing!__
+
 Working with images is rather simple, except that we need the images to be fully loaded into memory before drawing them. Loading images is an asynchronous process we need to take care of. Working with multiple images might also be difficult for beginners. We present a multiple image loader later on in this course.
 
 It is also possible to draw images from a video stream, images corresponding to another canvas content, or images that are defined by <img> HTML elements in the page. We will see that as well in the following parts of this chapter.
@@ -456,7 +483,7 @@ But let's start with a basic example!
 Try [this example online](https://tinyurl.com/y6hqthlk): ([Local Example - Image](src/3.3.3-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yyucaazn')"
     src    ="https://tinyurl.com/yyn5twc2"
     alt    ="html5 logo"
@@ -515,7 +542,7 @@ __There are numerous variants of the `drawImage(...)` context method at <i>line 
 See picture below :
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/yyucaazn')"
     src    ="https://tinyurl.com/yyuawz85"
     alt    ="drawing images with subimages"
@@ -529,7 +556,7 @@ See picture below :
 [Online example](https://jsbin.com/yetozeh/1/edit?html,css,output): ([Local Example - Image Variants](src/3.3.3-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yyucaazn')"
     src    ="https://tinyurl.com/y4enxq32"
     alt    ="variants of drawImages, with the HTML5 logo drawn at different sizes, or with just a sub part of it"
@@ -566,7 +593,7 @@ Source code extract:
 </ol></div>
 
 
-#### Example #3: draw an image defined in the page by an <img src="..."> element
+#### Example #3: draw an image defined in the page by an `<img src="...">` element
 
 Sometimes, you may want to draw an image that is already declared in the HTML document as an `<img src="...">` element. Remember that when you add an `<img>` in the document, the browser starts downloading it in background. 
 
@@ -596,7 +623,7 @@ If you try to draw an image that is not loaded or partially loaded, you will hav
 <p style="text-align: center;"><strong><em>Best practice: </em></strong><em>only draw an image that is fully loaded, use <br>the </em><em><span style="font-family: 'courier new', courier;">onload</span> callback!</em></p>
 </div>
 
-__GOOD =>__ the right way to do this is shown in this [online example](https://jsbin.com/sejoyen/1/edit?html,css,output), that starts drawing only from the onload callback function: ([Local Example - Remote Image](src/3.3.3-example.html))
+__GOOD =>__ the right way to do this is shown in this [online example](https://jsbin.com/sejoyen/1/edit?html,css,output), that starts drawing only from the onload callback function: ([Local Example - onboard callback](src/3.3.3-example3.html))
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
@@ -642,7 +669,7 @@ __GOOD =>__ the right way to do this is shown in this [online example](https://j
 </ol></div>
 
 
-With large image files, this will not break nor produce unexpected results - see the [related JsBin example](http://jsbin.com/wasiwa/1/edit?html,css,output). The [DOM Level 2 Events specification](https://tinyurl.com/y3qf2q6q) says: "<i>The load event occurs when the DOM implementation finishes loading all content within a document, <strong>all frames</strong> within a FRAMESET, or an OBJECT element.</i>" ([Local Example - Large Image](src/3.3.3-example.html))
+With large image files, this will not break nor produce unexpected results - see the [related JsBin example](http://jsbin.com/wasiwa/1/edit?html,css,output). The [DOM Level 2 Events specification](https://tinyurl.com/y3qf2q6q) says: "<i>The load event occurs when the DOM implementation finishes loading all content within a document, <strong>all frames</strong> within a FRAMESET, or an OBJECT element.</i>" ([Local Example - Large Image](src/3.3.3-example4.html))
 
 Results with a very large image (5160x3270 pixels):
 
@@ -656,7 +683,6 @@ Results with a very large image (5160x3270 pixels):
 </figure>
 
 
-
 #### Knowledge check 3.3.3
 
 1. In this page, we mentioned an "onload callback"... why?<br/>
@@ -664,8 +690,10 @@ Results with a very large image (5160x3270 pixels):
   a. For checking that an image has been loaded entirely before we try to draw it in a canvas.<br/>
   b. It's just a recommendation, checking if an image is loaded is generally not necessary before trying to draw it, as it will appear anyway line by line as image data arrive in the browser.<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: The `onload` callback is a way to be sure that an image is loaded. It is very important to check that an image is loaded before drawing it in a canvas.
   
+
 
 
 
