@@ -103,7 +103,6 @@
   + `window.onload = function() {...};`: execute after the page loaded, i.e., the large image file loaded first, then draw images in the canvas
 
 
-
 ### 3.3.1 Immediate mode
 
 In the previous sections, we learned how to draw filled or wireframe rectangles.
