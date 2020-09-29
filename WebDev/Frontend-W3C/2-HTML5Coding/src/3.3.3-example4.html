@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+       <meta charset="utf-8"/>
+        <title>Simple image drawing in a canvas</title>
+        <script>
+            var canvas, context;
+
+            window.onload = function () {
+                canvas = document.getElementById("myCanvas");
+                context = canvas.getContext("2d");
+
+                draw();
+            };
+
+            function draw() {
+                var imageObj = document.querySelector("#logo");
+
+               
+                    console.log("image is already loaded, we draw it!"); 
+                    // Original image drawn with size = 100x100 pixels
+                    context.drawImage(imageObj, 0, 10, 100, 100);
+                    // with size = 150x150
+                    context.drawImage(imageObj, 80, 10, 150, 150);
+                    // with size = 200x200
+                    context.drawImage(imageObj, 210, 10, 200, 200);
+
+                    // draw the sub image at 0, 0, width = 512, height = 100
+                    // at position 100, 250, with a width of 256 and a height of 50
+                    context.drawImage(imageObj, 0, 0, 512, 100, 100, 250, 256, 50);
+                
+            }
+        </script>
+        <link rel="stylesheet" href="css/3.3.3-example2.css">
+    </head>
+    <body>
+        <p>A canvas with the image that is further in the page, loaded by the <code>&lt;img src=...&gt;</code> tag. This is not the recommended way to load images, except if the image is already in your page. In that case you should take care that it has been fully loaded, using the <code>document.getElementById(imageId).onload =...</code> callback.<br/>
+        <canvas id="myCanvas" width="512" height="512"></canvas>
+        <p>Original image as an &lt;img&gt; element:
+        </p>
+        <img id="logo" alt="logo" src="https://mainline.i3s.unice.fr/mooc/texture_85_by_voyager168-d670m68.jpg" width="512" height="512">
+    </body>
+</html>
+
