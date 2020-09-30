@@ -692,3 +692,174 @@ Source code:
 Try commenting the line in the online example and see the results!
 
 
+### 3.4.8 Drawing circles and arcs
+
+The `ctx.arc(cx, cy, radius, startAngle, endAngle, drawInverse)` method is useful for drawing arcs of circles. It takes the center of the circle/arc, its radius, the starting angle of the arc (turning clockwise), the ending angle of the arc, and an optional parameter we will talk about later.
+
+Note: the figures in this page have been borrowed from the [HTML5 Canvas Tutorials Web site](https://www.html5canvastutorials.com/tutorials/html5-canvas-arcs/).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y7wuv8vt')"
+    src    ="https://tinyurl.com/ydxcvvmr"
+    alt    ="drawing circle, coordinate system"
+    title  ="drawing circle, coordinate system"
+  />
+</figure>
+
+
+
+#### Typical usage
+
+Typical usage for drawing an arc/circle/ellipse is:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">centerX</span><span class="pun">,</span><span class="pln"> centerY</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">,</span><span class="pln"> startAngle</span><span class="pun">,</span><span class="pln"> endAngle</span><span class="pun">);</span><span class="pln"> </span><span class="com">// clockwise drawing</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">centerX</span><span class="pun">,</span><span class="pln"> centerY</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">,</span><span class="pln"> startAngle</span><span class="pun">,</span><span class="pln"> endAngle</span><span class="pun">,</span><span class="pln"> </span><strong><span class="kwd">false</span></strong><span class="pun">);</span></li>
+</ol></div>
+
+The angles are in radians (between `0` and `2*Math.PI`). The arc is drawn clockwise. Beware that this may not seem natural if you're used to the trigonometric order.
+
+The last parameter is optional and has a value of `false` by default. If `true`, instead of drawing an arc of circle that corresponds to the parameters, it will draw its complementary. See the examples below to see the difference.
+
+
+#### Examples
+
+__Example #1: drawing an arc with radius = 50, starting angle = 0, end angle = PI/2__
+
+Try this [example online](https://jsbin.com/vusijenele/edit?html,output): ([Local Example - Arc w/ Radius](src/3.4.8-example1.html))
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// we ommited the last parameter</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,&nbsp;</span><span class="lit">75</span><span class="pun">,&nbsp;</span><span class="lit">50</span><span class="pun">,&nbsp;</span><span class="lit">0</span><span class="pun">,&nbsp;</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">lineWidth&nbsp;</span><span class="pun">=&nbsp;</span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+</ol></div>
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 5vw;"
+    onclick="window.open('https://tinyurl.com/y7wuv8vt')"
+    src    ="https://tinyurl.com/y95m6q4x"
+    alt    ="arc of circle"
+    title  ="arc of circle"
+  />
+</figure>
+
+
+If we change the last parameter (we omitted it, so it took a value of `false` by default):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// we omitted the last parameter</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,&nbsp;</span><span class="lit">75</span><span class="pun">,&nbsp;</span><span class="lit">50</span><span class="pun">,&nbsp;</span><span class="lit">0</span><span class="pun">,&nbsp;</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">2, <strong>true</strong></span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">lineWidth&nbsp;</span><span class="pun">=&nbsp;</span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+</ol></div>
+
+Then, the result is the "complementary" of the previous arc:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y7wuv8vt')"
+    src    ="https://tinyurl.com/ycpj7h8g"
+    alt    ="complementary of previous arc is drawn"
+    title  ="complementary of previous arc is drawn"
+  />
+</figure>
+
+
+
+__Example #2: drawing a Full circle (filled + outlined)__
+
+Try this [example](https://jsbin.com/juvicubata/edit?html,output): ([Local Example - Circle](src/3.4.8-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y7wuv8vt')"
+    src    ="https://tinyurl.com/ybn6755f"
+    alt    ="full circle outlined"
+    title  ="full circle outlined"
+  />
+</figure>
+
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">"2d"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> centerX </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> centerY </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> radius </span><span class="pun">=</span><span class="pln"> </span><span class="lit">70</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// Add to the path a full circle (from 0 to 2PI)</span></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">centerX</span><span class="pun">,</span><span class="pln"> centerY</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// With path drawing you can change the context</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// properties until a call to stroke() or fill() is performed</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"lightBlue"</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">// Draws the filled circle in light blue</span></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Prepare for the outline</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"black"</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// draws the path (the circle) AGAIN, this</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// time in wireframe</span></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="com">// Notice we called ctx.arc() only once ! And drew it twice </span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="com">// with different styles</span></strong></li>
+</ol></div>
+
+Notice that we called `ctx.arc()` only once! And drew it twice, with different styles, with calls to `ctx.stroke()` and `ctx.fill().` Each call drew the defined path in wireframe and in filled mode!
+
+
+#### Proposed projects
+
+__Project #1: modify the [previous example](https://jsbin.com/gaseramuse/edit?html,output) in order to get:__
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y7wuv8vt')"
+    src    ="https://tinyurl.com/ya6ox87h"
+    alt    ="half circle"
+    title  ="half circle"
+  />
+</figure>
+
+
+__Project #2: make a small program that draws a smiling head like this (or make something better!)__
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y7wuv8vt')"
+    src    ="https://tinyurl.com/ybqwpf2p"
+    alt    ="smiling head"
+    title  ="smiling head"
+  />
+</figure>
+
+
+#### Knowledge check 3.4.8
+
+<pre>ctx.beginPath();
+ctx.moveTo(100, 100);
+ctx.lineTo(200, 200);
+
+ctx.arc(500, 500, 100, 0, 2*Math.PI);
+ctx.stroke();
+</pre>
+
+1. Will the circle above be "connected" to the last extremity of the line drawn from (100, 100) to (200, 200)? (Yes/No)
+
+  Ans: 
+
+
