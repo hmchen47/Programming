@@ -901,3 +901,172 @@ ctx.stroke();
     + Another possibility would be to add the blank line ctx.moveTo(600, 500); without an extra `ctx.beginPath()`. In this case, the "pencil would jump" to the position where the circle starts being drawn (500, 500) + add the horizontal radius to the x pos, giving (600, 500).
 
 
+### 3.4.9 Drawing rounded rectangles
+
+There is another method called ctx.arcTo(x1, y1, x2, y2, radius), which is a bit complex to use, but very practical for drawing rounded rectangles.
+
+In fact, the arcTo(...) method draws an arc of a circle depending on some tangents. Let's look at these pictures for a better understanding (from [this original picture](http://www.dbp-consulting.com/tutorials/canvas/CanvasArcTo.html)):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick="window.open('https://tinyurl.com/y9gy7o2d')"
+    src    ="https://tinyurl.com/ycz22yx5"
+    alt    ="arcTo coordinates"
+    title  ="arcTo coordinates"
+  />
+</figure>
+
+
+
+#### Typical use
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">,</span><span class="pln"> y0</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">);</span></li>
+</ol></div>
+
+This method can be confusing. It was defined mainly for drawing rounded shapes like rounded rectangles. We used an excerpt here from the excellent [tutorial on the arcTo(...) method](http://www.dbp-consulting.com/tutorials/canvas/CanvasArcTo.html).
+
+It works like this:
+
+1. Draw an imaginary line through `(x0,y0)` and `(x1,y1)`, draw another imaginary line through `(x1,y1)` and `(x2,y2)`,
+1. Take an imaginary circle of radius r, and slide it up between the two lines until it just touches both lines. The two points at which the circle touches the lines are called the tangent points.
+1. `arcTo(x1, y1, x2, y2, r)` will draw a line from the current point (x0,y0) to the first tangent point on the line from `(x0,y0)` to `(x1,y1)`,
+1. It will also draw an arc from that tangent point to the other tangent point on the line from `(x1,y1)` to `(x2,y2)` along the circumference of the circle.
+1. Finally, it adds the tangent point where the arc ends up, on the line from (x1,y1) to `(x2,y2)` to the path as the new current point on the path.
+
+
+#### Examples
+
+
+__Example #1: simple use__
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y9gy7o2d')"
+    src    ="https://tinyurl.com/ycfsntdg"
+    alt    ="arcTO example 1"
+    title  ="arcTO example 1"
+  />
+</figure>
+
+
+Try this [interactive example](https://jsbin.com/hagozisiba/1/edit?html,output): ([Local Example - Simple Use](src/3.4.9-example1.html))
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">context</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#0000ff"</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+</ol></div>
+
+
+__Example #2: draw A rounded rectangle__
+
+Try this [interactive example](https://jsbin.com/vomuqaseti/1/edit?html,output):  ([Local Example - Rounded Rectangle](src/3.4.9-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y9gy7o2d')"
+    src    ="https://tinyurl.com/y8succvf"
+    alt    ="rounded rectangle"
+    title  ="rounded rectangle"
+  />
+</figure>
+
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> roundedRect</span><span class="pun">=</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="pln">width</span><span class="pun">,</span><span class="pln">height</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">,</span><span class="pln">fill</span><span class="pun">,</span><span class="pln">stroke</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// draw top and top right corner</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">radius</span><span class="pun">,</span><span class="pln">y</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="pln">radius</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// draw right side and bottom right corner</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// draw bottom and bottom left corner</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// draw left and top left corner</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="pln">x</span><span class="pun">+</span><span class="pln">radius</span><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">fill</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">stroke</span><span class="pun">){</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> canvas&nbsp;</span><span class="pun">=&nbsp;</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ctx &nbsp; &nbsp;</span><span class="pun">=&nbsp;</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">strokeStyle&nbsp;</span><span class="pun">=&nbsp;</span><span class="str">'rgb(150,0,0)'</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">fillStyle &nbsp;&nbsp;</span><span class="pun">=&nbsp;</span><span class="str">'rgb(0,150,0)'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">lineWidth &nbsp;&nbsp;</span><span class="pun">=&nbsp;</span><span class="lit">7</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">roundedRect</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,&nbsp;</span><span class="lit">15</span><span class="pun">,&nbsp;</span><span class="lit">15</span><span class="pun">,&nbsp;</span><span class="lit">160</span><span class="pun">,&nbsp;</span><span class="lit">120</span><span class="pun">,&nbsp;</span><span class="lit">20</span><span class="pun">,&nbsp;</span><span class="kwd">true</span><span class="pun">,&nbsp;</span><span class="kwd">true</span><span class="pun">);</span></li>
+</ol></div>
+
+In this example, each call to `ctx.arcTo(...)` draws a side plus a corner. This makes us suspect that the arcTo() method has been designed primarily for drawing rounded rectangles...
+
+
+__Example #3: comparison between lineTo and arcTo__
+
+This example at JS Bin is the same as the previous one, except that we added at the end of the roundedRect function the same lines of code that draw the rounded rectangle, but using lineTo instead of arcTo. Just take a look!
+
+[JSBin example](https://jsbin.com/wavizucule/1/edit?html,console,output) ([Local Example - LineTo vs. arcTo](src/3.4.9-example3.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y9gy7o2d')"
+    src    ="https://tinyurl.com/yc6ym2wt"
+    alt    ="lineTo vs arcTo"
+    title  ="lineTo vs arcTo"
+  />
+</figure>
+
+
+__Example #4: use the unrounded vertices in arcTo__
+
+For drawing a rounded square, this code also works:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">radius</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">,</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,&nbsp;</span><span class="pln">radius</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,&nbsp;</span><span class="pln">x</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,&nbsp;</span><span class="pln">radius</span><span class="pun">);</span><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,&nbsp;</span><span class="pln">x</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">,&nbsp;</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">);</span></li>
+</ol></div>
+
+which might be easier than trying to figure out where the arc will end like this:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">radius</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">,&nbsp;</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">radius</span><span class="pun">,&nbsp;</span><span class="pln">radius</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,&nbsp;</span><span class="pln">x</span><span class="pun">+</span><span class="pln">width</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">);</span><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">,&nbsp;</span><span class="pln">x</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">+</span><span class="pln">height</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">,&nbsp;</span><span class="pln">radius</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">arcTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">,&nbsp;</span><span class="pln">x</span><span class="pun">+</span><span class="pln">radius</span><span class="pun">,&nbsp;</span><span class="pln">y</span><span class="pun">,</span><span class="pln">radius</span><span class="pun">);</span></li>
+</ol></div>
+
+This could be particularly helpful if you are dealing with something other than a rectangle, like this rounded triangle ([try the code at JsBin](https://jsbin.com/depaxoxexi/edit?html,output)): ([Local Example - Triangle](src/3.4.9-example4.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y9gy7o2d')"
+    src    ="https://tinyurl.com/yask5w9x"
+    alt    ="rounded triangle"
+    title  ="rounded triangle"
+  />
+</figure>
+
+
+
+
+
