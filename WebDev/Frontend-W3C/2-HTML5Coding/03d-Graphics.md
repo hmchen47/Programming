@@ -51,6 +51,7 @@
     + using the `ctx.beginPath()` method to draw two different paths
     + `ctx.beginPath()` erase the buffer but not change any context properties
   + [good practice](#345-drawing-lines-in-immediate-mode): save/restore of the context at the beginning/end of the function to avoid affecting other functions' context
+  + [`ctx.closePath()` method](#347-closing-a-path): draw from the last point to the firs
 
 + [Drawing arrows](#346-drawing-arrows)
   + adapted from [Stackoverflow]( https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag)
@@ -652,7 +653,7 @@ In a later part of the course dedicated to curve drawing in a canvas, we will al
 
 ### 3.4.7 Closing a path
 
-The ctx.closePath() method indicates that we would like a closed path: draw from the last point to the first.
+The `ctx.closePath()` method indicates that we would like a closed path: draw from the last point to the first.
 
 Try this [interactive example](https://jsbin.com/kajuniyuma/edit?html,output): ([Local Example - Closing Path](src/3.4.7-example1.html))
 
@@ -685,8 +686,8 @@ Source code:
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
 </ol></div>
 
-+ _Lines 5-7_ corresponds to a path made of two consecutive lines. If we just call stroke() after that, two lines will be drawn on the canvas.
-+ _Line 10_ indicates that we would like a closed path. In this case, the call to stroke() at line 14 will draw the two lines plus an extra line that connects the last point of the path to the first one. It will draw a closed triangle!
++ _Lines 5-7_ corresponds to a path made of two consecutive lines. If we just call `stroke()` after that, two lines will be drawn on the canvas.
++ _Line 10_ indicates that we would like a closed path. In this case, the call to `stroke()` at line 14 will draw the two lines plus an extra line that connects the last point of the path to the first one. It will draw a closed triangle!
 
 Try commenting the line in the online example and see the results!
 
