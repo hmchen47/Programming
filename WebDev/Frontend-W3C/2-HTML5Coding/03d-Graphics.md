@@ -50,7 +50,7 @@
     + `fill()` or `stroke()` draws the whole path, even if disconnected, and even if already drawn
     + using the `ctx.beginPath()` method to draw two different paths
     + `ctx.beginPath()` erase the buffer but not change any context properties
-
+  + [good practice](#345-drawing-lines-in-immediate-mode): save/restore of the context at the beginning/end of the function to avoid affecting other functions' context
 
 
 
@@ -515,13 +515,14 @@ Here is an example (see [online example](https://jsbin.com/soferaraya/edit?html,
 Result:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
     onclick="window.open('https://tinyurl.com/yaoejj5d')"
     src    ="https://tinyurl.com/y83qzvku"
     alt    ="3 lines"
     title  ="3 lines"
   />
 </figure>
+
 
 
 
