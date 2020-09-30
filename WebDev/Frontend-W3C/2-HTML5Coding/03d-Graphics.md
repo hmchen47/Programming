@@ -46,6 +46,12 @@
     + call the `ctx.stroke()` or `ctx.fill()` to draw the path defined
   + `ctx.stroke()` or `ctx.fill()`: use the current values of the strokeStyle or fillStyle properties
   + `ctx.moveTo(x, y)` method: move the origin to the new origin (x, y) w/o connecting them
+  + [Drawing line w/ style](#344-drawing-lines-with-different-styles)
+    + `fill()` or `stroke()` draws the whole path, even if disconnected, and even if already drawn
+    + using the `ctx.beginPath()` method to draw two different paths
+    + `ctx.beginPath()` erase the buffer but not change any context properties
+
+
 
 
 
@@ -458,5 +464,11 @@ This time, in order to draw the two shapes differently, we defined two separate 
   a. It will empty the current path (reset the buffer of drawing orders), but it will not change the context properties.<br/>
   b. It will reset all properties of the graphic context.<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: Indeed, calling `ctx.beginPath()` will erase the buffer but will not change any context properties. This method is useful for starting a new path.
+
+
+
+
+
 
