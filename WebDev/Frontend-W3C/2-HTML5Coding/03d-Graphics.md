@@ -524,7 +524,117 @@ Result:
 </figure>
 
 
+### 3.4.6 Drawing arrows
 
+In this section, we present a function that draws arrows in a canvas, such as in the illustration below:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y94q93to')"
+    src    ="https://tinyurl.com/y78qe9qe"
+    alt    ="example of drawing arrows"
+    title  ="example of drawing arrows"
+  />
+</figure>
+
+
+You may find multiple implementations on the Web for drawing arrows in a canvas, but the one we are presenting has the advantage of being rather simple and enables you to set the color and line width of the arrows.
+
+#### Examples
+
+__Example #1:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Adapted from : https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> drawArrow</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,</span><span class="pln"> fromx</span><span class="pun">,</span><span class="pln"> fromy</span><span class="pun">,</span><span class="pln"> tox</span><span class="pun">,</span><span class="pln"> toy</span><span class="pun">,</span><span class="pln"> arrowWidth</span><span class="pun">,</span><span class="pln"> color</span><span class="pun">){</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//variables to be used when creating the arrow</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> headlen </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> angle </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">atan2</span><span class="pun">(</span><span class="pln">toy</span><span class="pun">-</span><span class="pln">fromy</span><span class="pun">,</span><span class="pln">tox</span><span class="pun">-</span><span class="pln">fromx</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> color</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//starting path of the arrow from the start square to the end square </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; //and drawing the stroke</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">fromx</span><span class="pun">,</span><span class="pln"> fromy</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">tox</span><span class="pun">,</span><span class="pln"> toy</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> arrowWidth</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//starting a new path from the head of the arrow to one of the sides of </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; //the point</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">tox</span><span class="pun">,</span><span class="pln"> toy</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">tox</span><span class="pun">-</span><span class="pln">headlen</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">cos</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">-</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">7</span><span class="pun">),</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy</span><span class="pun">-</span><span class="pln">headlen</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sin</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">-</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">7</span><span class="pun">));</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//path from the side point of the arrow, to the other side point</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">tox</span><span class="pun">-</span><span class="pln">headlen</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">cos</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">+</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">7</span><span class="pun">),</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy</span><span class="pun">-</span><span class="pln">headlen</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sin</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">+</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">7</span><span class="pun">));</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//path from the side point back to the tip of the arrow, and then </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; //again to the opposite side point</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">tox</span><span class="pun">,</span><span class="pln"> toy</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">tox</span><span class="pun">-</span><span class="pln">headlen</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">cos</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">-</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">7</span><span class="pun">),</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy</span><span class="pun">-</span><span class="pln">headlen</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sin</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">-</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">7</span><span class="pun">));</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//draws the paths created above</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+An arrow is made of one line (the arrow body) and three connected lines (the arrow head). 
+
+As we modify some context properties in this function, we call `save()` and `restore()` at the beginning and at the end of the function.
+
+This function can be improved in many ways: adding shadows, using `fill()` instead of `stroke()`, which gives strange results when the width is too big, etc.
+
+
+__Example #2__
+
+[Online example](https://jsbin.com/lebutokage/2/edit?html,output) that uses the above code: ([Local Example - Arrows](src/3.4.6-example1.html))
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> drawArrow</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> drawArrow</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">140</span><span class="pun">,</span><span class="pln"> </span><span class="lit">140</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">);</span></li>
+</ol></div>
+
+Result:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y94q93to')"
+    src    ="https://tinyurl.com/yd5gcg64"
+    alt    ="2 arrows"
+    title  ="2 arrows"
+  />
+</figure>
+
+
+
+#### How to draw nicer arrows?
+
+On the Web, you will find many different ways to draw arrows.
+
+This [article on drawing lines and arcs with arrow heads](http://www.dbp-consulting.com/tutorials/canvas/CanvasArrow.html) is worth reading. It details how to draw arrows with curved heads and different styles for the head. Note, however, that you will need to modify some parts if you want it to support different line widths, etc.
+
+Screenshot from a demo available on the above Web site:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y94q93to')"
+    src    ="https://tinyurl.com/y7j9jz6q"
+    alt    ="a clock with arrows"
+    title  ="a clock with arrows"
+  />
+</figure>
+
+
+In a later part of the course dedicated to curve drawing in a canvas, we will also show how to draw curved arrows, with very simple code (much simpler than the one used for drawing the clock's hands above).
 
 
 
