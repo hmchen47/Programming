@@ -52,6 +52,19 @@
     + `ctx.beginPath()` erase the buffer but not change any context properties
   + [good practice](#345-drawing-lines-in-immediate-mode): save/restore of the context at the beginning/end of the function to avoid affecting other functions' context
 
++ [Drawing arrows](#346-drawing-arrows)
+  + adapted from [Stackoverflow]( https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag)
+    + draw an arrow in a single function: `function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){...}`
+    + fixing the head length: `var headlen = 10;`
+    + calculate the angle from given the beginning (fromx, fromy1) to the end (arrow) (tox, toy): `var angle = Math.atan2(toy-fromy,tox-fromx);`
+    + store/restore the drawings in canvas: `ctx.save()` * `ctx.restor()`
+    + draw one line (the arrow body) w/ given width: `ctx.beginPath(); ctx.moveTo(fromx, fromy); ctx.lineTo(tox, toy); ctx.lineWidth = arrowWidth; ctx.stroke();`
+    + draw three connected lines (the arrow head)
+      + starting a new path from the head of the arrow to one of the sides of the point: `ctx.beginPath(); ctx.moveTo(tox, toy); ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7), toy-headlen*Math.sin(angle-Math.PI/7));`
+      + path from the side point of the arrow, to the other side point: `ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7), toy-headlen*Math.sin(angle+Math.PI/7));`
+      + path from the side point back to the tip of the arrow, and then again to the opposite side point: `ctx.lineTo(tox, toy); ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7), toy-headlen*Math.sin(angle-Math.PI/7));`
+    + draws the paths created above: `ctx.stroke();`
+  + [drawing lines and arcs with arrow heads](http://www.dbp-consulting.com/tutorials/canvas/CanvasArrow.html)
 
 
 
@@ -529,7 +542,7 @@ Result:
 In this section, we present a function that draws arrows in a canvas, such as in the illustration below:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
     onclick="window.open('https://tinyurl.com/y94q93to')"
     src    ="https://tinyurl.com/y78qe9qe"
     alt    ="example of drawing arrows"
