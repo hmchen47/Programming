@@ -3,6 +3,38 @@
 ## 3.4 Path drawing mode
 
 
+### 3.4.0 Lecture Notes
+
++ [Intermediate mode vs. path mode](#341-immediate-mode-vs-path-mode)
+  + intermediate mode
+    + executing a call to a drawing method immediately drawing in the canvas
+    + as soon as they are executed
+      + the results are displayed on screen
+      + the drawings are performed
+      + pixels on the canvas area change their colors
+      + etc.
+    + example methods: `drawImage(...)`, `fillRect(x, y, width, height)`, `strokeRect(x, y, width, height)`, `fillText(message, x, y)` and `strokeText(message, x, y)`
+  + path mode
+    + fill a buffer then execute all buffered orders at once to enable optimization and parallelism
+    + first send drawing orders to the graphics processor, and these orders are stored in a buffer
+    + then call methods to draw the whole buffer at once
+    + parallelism: GPU of the graphics card hardware able to parallelize the computations
+    + example: instead of calling `strokeRect(...)` or `fillRect(...)` many times, just call `rect(...)` method of the context once
+    + slightly faster execution time
+    + `ctx.beginPath()`: reset the buffer (empty its contents) to start a new buffer / path
+  
++ [Time measuring](#341-immediate-mode-vs-path-mode)
+  + `console.time(name_of_timer)` and `console.timeEnd(name_of_timer)`: used to calculate time elapsed
+  + results displayed only in the browser's console
+
++ [Summary of path mode principles](#341-immediate-mode-vs-path-mode)
+  + call drawing methods that work in path mode, e.g., `ctx.rect(...)` instead of `ctx.strokeRect(...)` or `ctx.fillRect(...)`
+  + `ctx.stroke()` or `ctx.fill()`: draw the buffer's contents
+  + two consecutive calls to `ctx.stroke()` will draw the buffer contents twice
+  + use `ctx.beginPath()` to empty it if needed
+  + path drawing faster than immediate drawing (parallelization possible)
+
+
 ### 3.4.1 Immediate mode vs. path mode
 
 
@@ -12,11 +44,12 @@ In the previous examples, we saw how to draw rectangles using the `fillRect(x, y
 
 We also learned how to draw a text message using the `fillText(message, x, y)` and `strokeText(message, x, y)` methods that draws a text in filled and wireframe mode, respectively.
 
-Many rectangles drawn on a canvasThese methods, along with the `drawImage(...)` method already seen in section 3.3.3, are "immediate methods": as soon as they are executed, the results are displayed on screen, the drawings are performed, pixels on the canvas area change their colors, etc.
+These methods, along with the `drawImage(...)` method already seen in section 3.3.3, are "immediate methods": as soon as they are executed, the results are displayed on screen, the drawings are performed, pixels on the canvas area change their colors, etc.
 
 Here is a code extract that will draw 1000 random rectangles in a canvas, using immediate mode rectangle drawing calls.
 
-[Online example](https://jsbin.com/yenuvikuno/1/edit?html,output): ([Local Example - Immediate Mode](src/3.4.1-example1.html))
+
+[Online example](https://jsbin.com/yenuvikuno/1/edit?html,output): ([Local Example - Random Rectangles](src/3.4.1-example1.html))
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">;</span></li>
@@ -131,7 +164,12 @@ A call to `ctx.beginPath()` will reset the buffer (empty its contents). We will 
   a. Enables parallelization by storing drawing instructions in a buffer of the graphics card.<br/>
   b. Draws shapes that compose a path immediately after each instruction is executed.<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: The first answer is correct. All drawing methods of the context that work in path mode will store instructions in a buffer. These instructions will be interpreted and shapes drawn in the canvas only when we call `ctx.stroke()` or `ctx.fill()`.
+  
+
+
+
 
 
 
