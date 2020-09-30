@@ -34,6 +34,19 @@
   + use `ctx.beginPath()` to empty it if needed
   + path drawing faster than immediate drawing (parallelization possible)
 
++ [Drawing lines in path mode](#343-drawing-lines)
+  + path drawing: `ctx.moveTo(x, y)` in conjunction w/ other drawing methods ending in "To", such as `ctx.lineTo(x, y)`
+  + consecutive calls to ctx.lineTo(x, y): store in the path/buffer a set of connected lines
+  + draw altogether by a single call to `ctx.stroke()` or `ctx.fill()`
+  + procedure of drawing lines
+    + put the "pencil" somewhere w/ a call to `ctx.moveTo(x1, y1)`, origin of the 1st line
+    + call `ctx.lineTo(x2, y2)` to draw a line from origin (x1, y1) to position(x2, y2), then (x2, y2) serve as an origin for the next line
+    + call `ctx.lineTo(x3, y3)` to draw a new line from (x2, y2) to (x3, y3), and (x3, y3) as the new origin
+    + repeat the previous steps to draw more lines
+    + call the `ctx.stroke()` or `ctx.fill()` to draw the path defined
+  + `ctx.stroke()` or `ctx.fill()`: use the current values of the strokeStyle or fillStyle properties
+  + `ctx.moveTo(x, y)` method: move the origin to the new origin (x, y) w/o connecting them
+
 
 ### 3.4.1 Immediate mode vs. path mode
 
@@ -204,7 +217,7 @@ Note the call to `ctx.stroke()` or `ctx.fill()` will use the current values of t
 Here is the [example online](https://jsbin.com/wolurahofa/1/edit?html,output): ([Local Example - Grid](src/3.4.3-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y436ts2w')"
     src    ="https://tinyurl.com/ybgcv49l"
     alt    ="a blue grid made of multiple vertical and horizontal lines"
@@ -240,10 +253,10 @@ In this example, the entire grid is drawn during the execution of the last line 
 
 #### Mixing filled and wireframe shapes (and immediate and path modes)
 
-Try this [interactive example](https://jsbin.com/fatayogapo/1/edit?html,js,output): ([Local Example - Mixing styles and modes]src/3.4.3-example2.html)
+Try this [interactive example](https://jsbin.com/fatayogapo/1/edit?html,js,output): ([Local Example - Mixing styles and modes](src/3.4.3-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
     onclick="window.open('https://tinyurl.com/y436ts2w')"
     src    ="https://tinyurl.com/y64548a3"
     alt    ="two consecutive lines and a filled rectangle in immediate mode"
@@ -274,7 +287,7 @@ This example shows that filled and wireframe shapes should be drawn differently 
 #### Drawing a single path made with disconnected lines / parts
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y436ts2w')"
     src    ="https://tinyurl.com/y69gh9ql"
     alt    ="One path made of two disconnected lines"
@@ -309,11 +322,12 @@ In this last example, we simply called the `moveTo()` method between each part o
 
 1. How would you draw a line from (10, 10) to (100, 100)?<br/>
 
-  a. `ctx.moveTo(10, 10); ctx.lineTo(100, 100); ct<br/>x. stroke();`<br/>
-  b. `ctx.LineTo(10, 10, 100, 100); ctx.stroke()<br/>;`<br/>
+  a. `ctx.moveTo(10, 10); ctx.lineTo(100, 100); ctx. stroke();`<br/>
+  b. `ctx.LineTo(10, 10, 100, 100); ctx.stroke();`<br/>
   c. `ctx.line(10, 10, 100, 100); ctx.stroke();`<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: First, you must move the "pencil" to the starting position (10, 10), and second, draw a line to the ending position (100, 100). Finally, you must call stroke() to execute the drawing orders in the buffer.
 
 
 
