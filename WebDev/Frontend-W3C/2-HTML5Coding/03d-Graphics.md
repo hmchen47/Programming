@@ -67,6 +67,41 @@
     + draws the paths created above: `ctx.stroke();`
   + [drawing lines and arcs with arrow heads](http://www.dbp-consulting.com/tutorials/canvas/CanvasArrow.html)
 
++ [Drawing circles and arcs](#348-drawing-circles-and-arcs)
+  + [HTML5 Canvas Arc Tutorials](https://www.html5canvastutorials.com/tutorials/html5-canvas-arcs/)
+  + `ctx.arc(cx, cy, radius, startAngle, endAngle, drawInverse)` method: used for drawing arcs of circles
+  + parameters: center of the circle/arc, radius, starting angle of the arc (turning clockwise), the ending angle of the arc, and an optional parameter
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick="window.open('https://tinyurl.com/y7wuv8vt')"
+        src    ="https://tinyurl.com/ydxcvvmr"
+        alt    ="drawing circle, coordinate system"
+        title  ="drawing circle, coordinate system"
+      />
+    </figure>
+
+    + optional parameter:
+      + false: (default) drawing an arc of circle corresponding to the parameters
+      + true: drawing complementary
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y7wuv8vt" ismap target="_blank">
+          <img style="margin: 0.1em;" height=100
+            src    ="https://tinyurl.com/y95m6q4x"
+            alt    ="arc of circle"
+            title  ="arc of circle"
+          >
+          <img style="margin: 0.1em;" height=100
+            src    ="https://tinyurl.com/ycpj7h8g"
+            alt    ="complementary of previous arc is drawn"
+            title  ="complementary of previous arc is drawn"
+          >
+        </a>
+      </div>
+
+    + radius between `0` and `2*Math.PI`
+  + drawing circle: call `ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);` once w/ `startAngle = 0` and `endAngle = 2*Math.PI`
 
 
 
@@ -478,7 +513,7 @@ This time, in order to draw the two shapes differently, we defined two separate 
   a. It will empty the current path (reset the buffer of drawing orders), but it will not change the context properties.<br/>
   b. It will reset all properties of the graphic context.<br/>
 
-  Ans: a<br/>
+  Ans: <span style="color: magenta;">a</span>, xb<br/>
   Explanation: Indeed, calling `ctx.beginPath()` will erase the buffer but will not change any context properties. This method is useful for starting a new path.
 
 
@@ -860,6 +895,9 @@ ctx.stroke();
 
 1. Will the circle above be "connected" to the last extremity of the line drawn from (100, 100) to (200, 200)? (Yes/No)
 
-  Ans: 
+  Ans: <span style="color: magenta;">Yes</span>, xNo<br/>
+  Explanation: 
+    + Indeed, arcs and lines are working in "path mode", so the final drawing produced by the above code will show a line going from (100, 100) to (200, 200), then another line that goes from (200, 200) to the first pixel of the circle outline (corresponding to the arc at angle=0: 100 pixels to the right of the circle center), and the circle of radius = 100, centered in (500, 500). In order to avoid having this line, the easiest solution would be to use TWO paths here. Insert `ctx.stroke()`; `ctx.beginPath()` in the blank line in the code above and you will get a line and a circle, disconnected.
+    + Another possibility would be to add the blank line ctx.moveTo(600, 500); without an extra `ctx.beginPath()`. In this case, the "pencil would jump" to the position where the circle starts being drawn (500, 500) + add the horizontal radius to the x pos, giving (600, 500).
 
 
