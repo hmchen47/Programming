@@ -168,6 +168,33 @@
     + compute the rotated endpoints of the two lines of the arrow head: `tx.moveTo(endPointX - (arrowWidth * Math.sin(arrowAngle - Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle - Math.PI / 6))); ctx.lineTo(endPointX, endPointY); ctx.lineTo(endPointX - (arrowWidth * Math.sin(arrowAngle + Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle + Math.PI / 6)));`
     + complete drawing: `ctx.stroke(); ctx.closePath();`
 
++ [Drawing B&eacute;zier curves](#3412-bzier-curves)
+  + `ctx.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY)` method
+    + used mostly for drawing "S" shapes or asymmetric curves
+    + defined by a context point, like quadratic curves, two control points that define two tangents, and an ending point (see diagram)
+    + 1st part of the curve: tangential to the imaginary line defined by the context point and the first control point
+    + 2nd part of the curve: tangential to the imaginary line defined by the second control point and the ending point
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick="window.open('https://tinyurl.com/y27jjh7y')"
+        src    ="https://tinyurl.com/y6rotc24"
+        alt    ="A bezier curve is defined by the current context point, two control points, and an ending point. The first part of the curve is tangential to the imaginary line that is defined by the context point and the first control point. The second part of the curve is tangential to the imaginary line that is defined by the second control point and the ending point."
+        title  ="A bezier curve is defined by the current context point, two control points, and an ending point."
+      />
+    </figure>
+
+  + interactive applications & tool
+    + [Canvas Bézier Curve Example](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html)
+    + [IvanK Lib graphics demos](http://lib.ivank.net/?p=demos&d=bezier)
+    + Nice video tutorial: [Bézier curves under the hood](https://vimeo.com/106757336)
+    + [bezierCurveTo command generator](https://www.victoriakirst.com/beziertool/)
+  + typical use: 
+    + move to context point (initial point): `ctx.moveTo(contextX, contextY);`
+    + draw B&eacute;zier curve: `ctx.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY);`
+  + 
+
+  
 
 
 ### 3.4.1 Immediate mode vs. path mode
@@ -1298,10 +1325,10 @@ It computes the angle of the arrow at its endpoint (line 14) in order to compute
 Notice that once again, as we modify the context properties (color, lineWidth) in the body of the function, we save and restore the context at the beginning / end of the function.
 
 
-### 3.4.12 Bézier curves
+### 3.4.12 B&eacute;zier curves
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y8wrd29d')"
     src    ="https://tinyurl.com/yblxspul"
     alt    ="bezier curve in S"
@@ -1314,10 +1341,10 @@ Notice that once again, as we modify the context properties (color, lineWidth) i
 
 #### Introduction
 
-Bézier curves are interesting - used mostly for drawing "S" shapes or asymmetric curves.
+B&eacute;zier curves are interesting - used mostly for drawing "S" shapes or asymmetric curves.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick="window.open('https://tinyurl.com/y8wrd29d')"
     src    ="https://tinyurl.com/ydzyueee"
     alt    ="bezier curve control points"
@@ -1328,18 +1355,18 @@ Bézier curves are interesting - used mostly for drawing "S" shapes or asymmetri
 
 (Picture taken from the [HTML5 Canvas Tutorials Web site](https://www.html5canvastutorials.com/tutorials/html5-canvas-bezier-curves/))
 
-Bézier curves are defined by a context point, like quadratic curves, two control points that define two tangents, and an ending point.
+B&eacute;zier curves are defined by a context point, like quadratic curves, two control points that define two tangents, and an ending point.
 
 The first part of the curve is tangential to the imaginary line defined by the context point and the first control point. The second part of the curve is tangential to the imaginary line defined by the second control point and the ending point.
 
 The best way to understand how they work is to check out one of these interactive applications:
 
-+ [Canvas Bézier Curve Example](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html)
++ [Canvas B&eacute;zier Curve Example](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html)
 + [IvanK Lib graphics demos](http://lib.ivank.net/?p=demos&d=bezier)
-+ Nice video tutorial: [Bézier curves under the hood](https://vimeo.com/106757336)
++ Nice video tutorial: [B&eacute;zier curves under the hood](https://vimeo.com/106757336)
 
 
-#### Typical usage of Bézier curves
+#### Typical usage of B&eacute;zier curves
 
 Source code:
 
@@ -1358,10 +1385,10 @@ Source code:
 
 __Example #1__
 
-Try this [interactive example](https://jsbin.com/jeribimohi/1/edit?html,output): ([Local Example - Curve](src/3.4.11-example.html))
+Try this [interactive example](https://jsbin.com/jeribimohi/1/edit?html,output): ([Local Example - Curve](src/3.4.12-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y8wrd29d')"
     src    ="https://tinyurl.com/ya6wxkem"
     alt    ="bezier curve example"
@@ -1384,10 +1411,10 @@ Try this [interactive example](https://jsbin.com/jeribimohi/1/edit?html,output):
 
 __Example #2: with lines, quadratic, and bezier curves in a path__
 
-Try this [example online](https://jsbin.com/nizopekodi/edit?html,output): ([Local Example - Lines, Quadratic, and Bezier Curve](src/3.4.11-example.html))
+Try this [example online](https://jsbin.com/nizopekodi/edit?html,output): ([Local Example - Lines, Quadratic, and Bezier Curve](src/3.4.12-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y8wrd29d')"
     src    ="https://tinyurl.com/yd8qao4j"
     alt    ="path with bezier curve, quadratic curve and line in the same, closed path"
@@ -1429,10 +1456,9 @@ Note how the different parts are linked together and make a "path":
 </figure>
 
 
+#### Interesting, interactive tool for generating code that draws B&eacute;zier curves
 
-#### Interesting, interactive tool for generating code that draws Bézier curves
-
-This Bézier tool ("HTML5 <canvas> bezierCurveTo command generator") is available online: try it!
+This B&eacute;zier tool ("HTML5 `<canvas>` bezierCurveTo command generator") is available [online](https://www.victoriakirst.com/beziertool/): try it!
 
 Screenshot:
 
