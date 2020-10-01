@@ -159,6 +159,15 @@
     <li class="L6" style="margin-bottom: 0px;"><span class="pun"><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.</span><span class="pln">stroke</span><span class="pun">();</span><span class="pln"> </span></li>
     </ol></div>
 
+  + [curved arrow](#3411-curved-arrows)
+    + function: `function drawCurvedArrow(startPointX, startPointY, endPointX, endPointY, quadPointX, quadPointY, lineWidth, arrowWidth, color) {...}`
+    + save/restore context at beginning/end of function: `ctx.save();` & `ctx.restore();`
+    + compute angle of the end tangeant, useful for drawing the arrow head: `var arrowAngle = Math.atan2(quadPointX - endPointX, quadPointY - endPointY) + Math.PI;`
+    + start a new path: `ctx.beginPath();`
+    + draw body of the arrow: `ctx.moveTo(startPointX, startPointY); ctx.quadraticCurveTo(quadPointX, quadPointY, endPointX, endPointY);`
+    + compute the rotated endpoints of the two lines of the arrow head: `tx.moveTo(endPointX - (arrowWidth * Math.sin(arrowAngle - Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle - Math.PI / 6))); ctx.lineTo(endPointX, endPointY); ctx.lineTo(endPointX - (arrowWidth * Math.sin(arrowAngle + Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle + Math.PI / 6)));`
+    + complete drawing: `ctx.stroke(); ctx.closePath();`
+
 
 
 ### 3.4.1 Immediate mode vs. path mode
