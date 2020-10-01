@@ -1472,5 +1472,31 @@ Screenshot:
 </figure>
 
 
+### 3.4.13 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects:
+
+
+#### Suggested topics
+
++ On the Web, please find utility functions for drawing ellipses, stars, polygons, etc. and share them with your fellow students. You can also write some of your own.
++ Do you know tools that help work with curves? Please share them too...
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
+__Project 1 (easy)__: Create a small monster using rectangles, arcs, lines, etc. Just drawing a monster head will do the work. Start with something simple: a circle for the head, two squares for the eyes, a line for the mouth, etc., then set some colors and line widths.
+
+__Project 2__: Same as above but make use of patterns.
+
+__Project 3 (harder)__: Try to draw the current image of a video played in background, hidden using CSS, as the animated background of the canvas.
+
+__Project 4 (follow-up of project 3)__: You can also use the trick with the video to create animated textures for the eyes, skin, etc.
+
+
 
 
