@@ -1298,6 +1298,153 @@ It computes the angle of the arrow at its endpoint (line 14) in order to compute
 Notice that once again, as we modify the context properties (color, lineWidth) in the body of the function, we save and restore the context at the beginning / end of the function.
 
 
+### 3.4.12 Bézier curves
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y8wrd29d')"
+    src    ="https://tinyurl.com/yblxspul"
+    alt    ="bezier curve in S"
+    title  ="bezier curve in S"
+  />
+</figure>
+
+(image taken from [SitePoint](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html))
+
+
+#### Introduction
+
+Bézier curves are interesting - used mostly for drawing "S" shapes or asymmetric curves.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y8wrd29d')"
+    src    ="https://tinyurl.com/ydzyueee"
+    alt    ="bezier curve control points"
+    title  ="bezier curve control points"
+  />
+</figure>
+
+
+(Picture taken from the [HTML5 Canvas Tutorials Web site](https://www.html5canvastutorials.com/tutorials/html5-canvas-bezier-curves/))
+
+Bézier curves are defined by a context point, like quadratic curves, two control points that define two tangents, and an ending point.
+
+The first part of the curve is tangential to the imaginary line defined by the context point and the first control point. The second part of the curve is tangential to the imaginary line defined by the second control point and the ending point.
+
+The best way to understand how they work is to check out one of these interactive applications:
+
++ [Canvas Bézier Curve Example](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html)
++ [IvanK Lib graphics demos](http://lib.ivank.net/?p=demos&d=bezier)
++ Nice video tutorial: [Bézier curves under the hood](https://vimeo.com/106757336)
+
+
+#### Typical usage of Bézier curves
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">contextX</span><span class="pun">,</span><span class="pln"> contextY</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">bezierCurveTo</span><span class="pun">(</span><span class="pln">controlX1</span><span class="pun">,</span><span class="pln"> controlY1</span><span class="pun">,</span><span class="pln"> controlX2</span><span class="pun">,</span><span class="pln"> controlY2</span><span class="pun">,</span><span class="pln"> endX</span><span class="pun">,</span><span class="pln"> endY</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// Optional : set lineWidth and stroke color</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#0000ff"</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// Draw!</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+</ol></div>
+
+
+#### Examples
+
+__Example #1__
+
+Try this [interactive example](https://jsbin.com/jeribimohi/1/edit?html,output): ([Local Example - Curve](src/3.4.11-example.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y8wrd29d')"
+    src    ="https://tinyurl.com/ya6wxkem"
+    alt    ="bezier curve example"
+    title  ="bezier curve example"
+  />
+</figure>
+
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">context</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">bezierCurveTo</span><span class="pun">(</span><span class="lit">290</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">400</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#0000ff"</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+</ol></div>
+
+
+__Example #2: with lines, quadratic, and bezier curves in a path__
+
+Try this [example online](https://jsbin.com/nizopekodi/edit?html,output): ([Local Example - Lines, Quadratic, and Bezier Curve](src/3.4.11-example.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y8wrd29d')"
+    src    ="https://tinyurl.com/yd8qao4j"
+    alt    ="path with bezier curve, quadratic curve and line in the same, closed path"
+    title  ="path with bezier curve, quadratic curve and line in the same, closed path"
+  />
+</figure>
+
+
+Extract from source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">context</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">160</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">quadraticCurveTo</span><span class="pun">(</span><span class="lit">230</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">bezierCurveTo</span><span class="pun">(</span><span class="lit">290</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">300</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">400</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">90</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">// TRY COMMENTING THIS LINE OUT</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">closePath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#0000ff"</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+</ol></div>
+
+In this example we use the `closePath()` method to draw a line between the last path point and the first path point (line 11), so that the drawing looks like a pair of goggles.
+
+Note how the different parts are linked together and make a "path":
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y8wrd29d')"
+    src    ="https://tinyurl.com/y8bgqhpy"
+    alt    ="path composition explained"
+    title  ="path composition explained"
+  />
+</figure>
+
+
+
+#### Interesting, interactive tool for generating code that draws Bézier curves
+
+This Bézier tool ("HTML5 <canvas> bezierCurveTo command generator") is available online: try it!
+
+Screenshot:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y8wrd29d')"
+    src    ="https://tinyurl.com/ybbz6ljz"
+    alt    ="bezier curves code generator"
+    title  ="bezier curves code generator"
+  />
+</figure>
+
 
 
 
