@@ -103,6 +103,37 @@
     + radius between `0` and `2*Math.PI`
   + drawing circle: call `ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);` once w/ `startAngle = 0` and `endAngle = 2*Math.PI`
 
++ [Drawing rounded rectangles](#349-drawing-rounded-rectangles)
+  + `ctx.arcTo(x1, y1, x2, y2, radius)` method: a bit complex to use, but very practical for drawing rounded rectangles
+  + rounded rectangle corners: draw an arc of a circle depending on some tangents
+    + draw imaginary lines: `(x0, y0)` & `(x1, y1)` and `(x1, y1)` & `(x2, y2)`
+    + tangent points: take an imaginary circle of radius `r` and slide it up two lines until touching both lines
+    + `arcTo(x1, y1, x2, y2, r)`: draw an arc line from the current point `(x0, y0)` to the first tangent point on the line from `(x0, y0)` to `(x1, y1)`
+    + draw an arc from that tangent point to another tangent point on the line from `(x1, y1)` to `(x2, y2)` along the circumference of the circle
+    + add the tangent point wher the arc ends up, on the line from `(x1, y1)` to `(x2, y2)` tot he path as the new current point on the path
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+          onclick="window.open('http://www.dbp-consulting.com/tutorials/canvas/CanvasArcTo.html')"
+          src    ="https://tinyurl.com/ycz22yx5"
+          alt    ="arcTo coordinates"
+          title  ="arcTo coordinates"
+        />
+      </figure>
+
+  + rounded rectangle
+    + function: `var roundedRect=function(ctx,x,y,width,height,radius,fill,stroke) {...}`
+    + draw top and top right corner: `ctx.moveTo(x+radius,y); ctx.arcTo(x+width,y,x+width,y+radius,radius);`
+    + draw right side and bottom right corner: `ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);`
+    + draw bottom and bottom left corner: `ctx.arcTo(x,y+height,x,y+height-radius,radius);`
+    + draw left and top left corner: `ctx.arcTo(x,y,x+radius,y,radius);`
+    + fill inside: `if(fill) { ctx.fill(); }`
+    + draw stoke:  `if(stroke){ ctx.stroke(); }`
+    + usage: `var canvas = document.getElementById('myCanvas'); var ctx    = canvas.getContext('2d'); ctx.strokeStyle = 'rgb(150,0,0)'; ctx.fillStyle   = 'rgb(0,150,0)'; ctx.lineWidth   = 7; roundedRect(ctx, 15, 15, 160, 120, 20, true, true);`
+    + alternative: `ctx.moveTo(x+radius, y); ctx.arcTo(x+width, y,x+width, y+height, radius); ctx.arcTo(x+width, y+height, x, y+height, radius);  ctx.arcTo(x, y+height, x, y,radius); ctx.arcTo(x, y, x+width, y,radius);`
+
+
+
 
 
 ### 3.4.1 Immediate mode vs. path mode
@@ -903,9 +934,9 @@ ctx.stroke();
 
 ### 3.4.9 Drawing rounded rectangles
 
-There is another method called ctx.arcTo(x1, y1, x2, y2, radius), which is a bit complex to use, but very practical for drawing rounded rectangles.
+There is another method called `ctx.arcTo(x1, y1, x2, y2, radius)`, which is a bit complex to use, but very practical for drawing rounded rectangles.
 
-In fact, the arcTo(...) method draws an arc of a circle depending on some tangents. Let's look at these pictures for a better understanding (from [this original picture](http://www.dbp-consulting.com/tutorials/canvas/CanvasArcTo.html)):
+In fact, the `arcTo(...)` method draws an arc of a circle depending on some tangents. Let's look at these pictures for a better understanding (from [this original picture](http://www.dbp-consulting.com/tutorials/canvas/CanvasArcTo.html)):
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
@@ -932,13 +963,13 @@ It works like this:
 
 1. Draw an imaginary line through `(x0,y0)` and `(x1,y1)`, draw another imaginary line through `(x1,y1)` and `(x2,y2)`,
 1. Take an imaginary circle of radius r, and slide it up between the two lines until it just touches both lines. The two points at which the circle touches the lines are called the tangent points.
-1. `arcTo(x1, y1, x2, y2, r)` will draw a line from the current point (x0,y0) to the first tangent point on the line from `(x0,y0)` to `(x1,y1)`,
+1. `arcTo(x1, y1, x2, y2, r)` will draw a line from the current point `(x0,y0)` to the first tangent point on the line from `(x0,y0)` to `(x1,y1)`,
 1. It will also draw an arc from that tangent point to the other tangent point on the line from `(x1,y1)` to `(x2,y2)` along the circumference of the circle.
-1. Finally, it adds the tangent point where the arc ends up, on the line from (x1,y1) to `(x2,y2)` to the path as the new current point on the path.
+1. Finally, it adds the tangent point where the arc ends up, on the line from `(x1,y1)` to `(x2,y2)` to the path as the new current point on the path.
+
 
 
 #### Examples
-
 
 __Example #1: simple use__
 
