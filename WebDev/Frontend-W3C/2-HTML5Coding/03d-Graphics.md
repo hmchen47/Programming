@@ -132,6 +132,32 @@
     + usage: `var canvas = document.getElementById('myCanvas'); var ctx    = canvas.getContext('2d'); ctx.strokeStyle = 'rgb(150,0,0)'; ctx.fillStyle   = 'rgb(0,150,0)'; ctx.lineWidth   = 7; roundedRect(ctx, 15, 15, 160, 120, 20, true, true);`
     + alternative: `ctx.moveTo(x+radius, y); ctx.arcTo(x+width, y,x+width, y+height, radius); ctx.arcTo(x+width, y+height, x, y+height, radius);  ctx.arcTo(x, y+height, x, y,radius); ctx.arcTo(x, y, x+width, y,radius);`
 
++ [Drawing quadratic curve](#3410-quadratic-curves)
+  + defined by a starting point (called a "context point"), a control point, and an ending point
+  + curve fitting the tangents between the context and control points and between the control and ending points
+  + define the context point: `moveTo(x, y)` or the ending point of a previous path
+  + the control point controls the curvature: moving the control point farther $\to$ a sharper curve
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://www.html5canvastutorials.com/tutorials/html5-canvas-quadratic-curves/')"
+        src    ="https://tinyurl.com/y93lpz8k"
+        alt    ="quadratic curve"
+        title  ="quadratic curve"
+      />
+    </figure>
+
+  + typical use
+
+    <div class="source-code"><ol class="linenums">
+    <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">context.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">contextX</span><span class="pun">,</span><span class="pln"> contextY</span><span class="pun">);</span></li>
+    <li class="L1" style="margin-bottom: 0px;"><span class="pun">context.</span><span class="pln">quadraticCurveTo</span><span class="pun">(</span><span class="pln">controlX</span><span class="pun">,</span><span class="pln"> controlY</span><span class="pun">,</span><span class="pln"> endX</span><span class="pun">,</span><span class="pln"> endY</span><span class="pun">);</span></li>
+    <li class="L2" style="margin-bottom: 0px;"><span class="com">// Optional : set lineWidth and stroke color</span></li>
+    <li class="L3" style="margin-bottom: 0px;"><span class="pun"><span style="line-height: 23.2727279663086px;">context</span>.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+    <li class="L4" style="margin-bottom: 0px;"><span class="pun"><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#0000ff"</span><span class="pun">;</span></li>
+    <li class="L5" style="margin-bottom: 0px;"><span class="com">// Draw!</span></li>
+    <li class="L6" style="margin-bottom: 0px;"><span class="pun"><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.</span><span class="pln">stroke</span><span class="pun">();</span><span class="pln"> </span></li>
+    </ol></div>
 
 
 
@@ -1138,7 +1164,7 @@ The control point controls the curvature - if we move the control point farther 
 
 __Example #1: quadratic curve__
 
-Try this [interactive example](https://jsbin.com/zabefafuge/1/edit?html,output): ([Local Example - Quadratic Curve](src/3.4.9-example1.html))
+Try this [interactive example](https://jsbin.com/zabefafuge/1/edit?html,output): ([Local Example - Quadratic Curve](src/3.4.10-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
@@ -1171,7 +1197,7 @@ We set a starting point in line 6: `moveTo(...)`, then set the control and endin
 
 __Example #2: lines connected with a quadratic curve__
 
-Try this [interactive example](https://jsbin.com/sahemetere/1/edit?html,output): ([Local Example - Connect w/ Quadratic curve](src/3.4.9-example2.html))
+Try this [interactive example](https://jsbin.com/sahemetere/1/edit?html,output): ([Local Example - Connect w/ Quadratic curve](src/3.4.10-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -1184,6 +1210,20 @@ Try this [interactive example](https://jsbin.com/sahemetere/1/edit?html,output):
 
 
 Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">context</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">80</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">quadraticCurveTo</span><span class="pun">(</span><span class="lit">230</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">90</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#0000ff"</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">context</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+</ol></div>
+
 
 
 
