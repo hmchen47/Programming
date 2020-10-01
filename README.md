@@ -270,7 +270,7 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#format-of-color"> Format </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#list-of-color-properties"> Properties </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#important-references"> References </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Color.md"> Name & Values </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
