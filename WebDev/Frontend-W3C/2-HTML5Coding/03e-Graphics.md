@@ -2,6 +2,20 @@
 
 ## 3.5 Colors, gradients, patterns, etc.
 
+### 2.5.0 Lecture Notes
+
++ [Colors and transparency](#colors-and-transparency)
+  + same syntax for [colors supported by CSS3](https://www.w3.org/TR/css-color-3/)
+  + rgba =  red, green, blue & alpha channel
+  + alpha channel: value btw 0 (completely transparent) and 1 (opaque)
+  + examples:
+    + `ctx.strokeStyle = 'red';`
+    + `ctx.fillStyle = "#00ff00";`
+    + `ctx.strokeStyle = "rgb(0, 0, 255)";`
+    + `ctx.fillStyle = "rgba(0, 0, 255, 0.5)";`
+  + 
+
+
 
 ### 3.5.1 Canvas context: colors
 
@@ -30,14 +44,25 @@ Here is an example that shows how to draw different filled rectangles in blue, w
 
 Try [it online](https://jsbin.com/famoxoteju/1/edit?html,output): ([Local Example - Transparency](src/3.5.1-example1.html))
 
-transparent rgba color example
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yxtz9qk2')"
+    src    ="https://tinyurl.com/y4te8ph7"
+    alt    ="transparent rgba color example"
+    title  ="transparent rgba color example"
+  />
+</figure>
 
 
 #### Knowledge check 3.5.1
 
 1. Do the color values that can be used to set the `fillStyle` or `strokeStyle` follow the CSS3 syntax? (Yes/No)
 
-  Ans: 
+  Ans: Yes<br/>
+  Explanation: The syntax of the colors follows the CSS3 syntax.
+
+
+
 
 
 
