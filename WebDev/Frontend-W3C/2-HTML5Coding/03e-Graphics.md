@@ -912,6 +912,208 @@ Here is the function:
 </ol></div>
 
 
+### 3.5.6 Drawing shadows
+
+#### Context properties to draw with shadows
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y299m8e8')"
+    src    ="https://tinyurl.com/y2j8qrd9"
+    alt    ="a green shadowed rectangle"
+    title  ="a green shadowed rectangle"
+  />
+</figure>
+
+
+There are 4 properties of the canvas context that are useful for indicating that we want to draw shapes with shadows:
+
++ `shadowColor`: color to use for shadows,
++ `shadowBlur`: blur level for shadows,
++ `shadowOffsetX`: horizontal distance of the shadow from the shape,
++ `shadowOffsetY`: vertical distance of the shadow from the shape
+
+
+#### Examples
+
+__Example #1: simple shadow__
+
+[Online example](https://jsbin.com/kimohoyore/edit?html,output) gives this result: ([Local Example - Simple Shadow](src/3.5.6-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y299m8e8')"
+    src    ="https://tinyurl.com/y3784b7x"
+    alt    ="two shadowed rectangles"
+    title  ="two shadowed rectangles"
+  />
+</figure>
+
+
+HTML source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> init</span><span class="pun">();</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"400"</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="atv">800</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/canvas&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // call to a function that will set the 4 context properties for shadows</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; setShadow</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // all drawings that will occur will cast shadows</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// first green filled rectangle</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#22FFDD"</span><span class="pun">;</span><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// second stroked rectangle</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"purple"</span><span class="pun">;</span><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">// We define the 4 properties in a dedicated function, for clarity</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> setShadow</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowColor </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Grey"</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// color</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowBlur </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// blur level</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowOffsetX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// horizontal offset</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowOffsetY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// vertical offset</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ _Lines 21-27_: we set the 4 properties that define shadows in a dedicated function, for better clarity.
++ _Line 8_: we called this function once before drawing the rectangles.
++ _Lines 11-18_: we draw a filled and a stroked rectangle. Both rectangles cast shadows.
+
+
+__Example #2: unwanted shadows!__
+
+Let's take a [previous example](https://jsbin.com/juyevutoli/1/edit?html,output), the one that draws a filled circle with an outline: ([Local Example - Circle](src/3.5.6-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y299m8e8')"
+    src    ="https://tinyurl.com/ybn6755f"
+    alt    ="filled circle with outline"
+    title  ="filled circle with outline"
+  />
+</figure>
+
+
+Now, let's add a shadow to it (see the [example online](https://jsbin.com/kimafojixa/edit?html,output)): ([Local Example - Undesired Shadows](src/3.5.6-example3.html))
+
+Here is an extract from the code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// Add to the path a full circle (from 0 to 2PI)</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">centerX</span><span class="pun">,</span><span class="pln"> centerY</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// With path drawing you can change the context</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">// properties until a call to stroke() or fill() is performed</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"lightBlue"</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="com">// add shadows before drawing the filled circle</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> addShadows</span><span class="pun">();</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// Draws the filled circle in light blue</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// Prepare for the outline</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"black"</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="com">// draws the path AGAIN (the circle), this</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// time in wireframe</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">/</span><span class="com">/ Notice we only once called context.arc()! And drew it twice </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// with different styles</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><strong><span class="pln"> addShadows</span><span class="pun">()</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowColor </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Grey"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// color</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowBlur </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// blur level</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowOffsetX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp;</span><span class="com">// horizontal offset</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowOffsetY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp;</span><span class="com">// vertical offset</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+
+And here is the result:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y299m8e8')"
+    src    ="https://tinyurl.com/yxolb727"
+    alt    ="unwanted shadow casted by the outline"
+    title  ="unwanted shadow casted by the outline"
+  />
+</figure>
+
+
+Ah, indeed, the call to `ctx.fill()` casts a shadow, but the call to `ctx.stroke()`, that paints the whole path again, casts a shadow too, and this time the outline produces an unwanted shadow... How can we avoid this effect, while using the same technique for drawing the path?
+
+The trick is to save the context before setting the shadow properties, then draw the filled circle, then restore the context (to its previous state: without shadows), then draw the outlined circle by calling `ctx.stroke()`.
+
+Correct version of the code (see [online](https://jsbin.com/patumofama/edit?html,output)): ([Local Example - Corrected Shadow](src/3.5.6-example4.html))
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="com">// save the context before setting shadows and drawing the filled circle</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// With path drawing you can change the context</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// properties until a call to stroke() or fill() is performed</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"lightBlue"</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="com">// add shadows before drawing the filled circle</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>addShadows</strong></span><strong><span class="pun">();</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draws the filled circle in light blue</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="com">// restore the context to its previous saved state</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+</ol></div>
+
+And here is the final result:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y299m8e8')"
+    src    ="https://tinyurl.com/y3g8mfqe"
+    alt    ="unwanted shadow disappeared"
+    title  ="unwanted shadow disappeared"
+  />
+</figure>
+
+
+#### Knowledge check 3.5.6
+
+1. Shadows are set using the `strokeStyle` or `fillStyle` property of the context? (Yes/No)
+
+  Ans: 
 
 
 
