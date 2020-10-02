@@ -759,8 +759,124 @@ Please try: `repeat-x`, `repeat-y` or `no-repeat` as acceptable values. Just cha
   eXPLANATION: Patterns can be used with all kinds of shapes, and with both `strokeStyle` and `fillStyle`
 
 
-  
 
+### 3.5.5 A multiple image loader
+
+#### Draw with multiple patterns? We need to load all of them before drawing! 
+
+Below are 4 rectangles drawn with 4 different patterns.
+
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y6yxw84l')"
+    src    ="https://tinyurl.com/y3c8cz7c"
+    alt    ="4 rectangles drawn with different patterns"
+    title  ="4 rectangles drawn with different patterns"
+  />
+</figure>
+
+We said earlier that we cannot draw before the image used by a pattern is loaded. This can become rapidly complicated if we need to draw using multiple patterns. We need a way to load all images and then, _only when all images have been loaded, start drawing_.
+
+JavaScript is an asynchronous language. When you set the src attribute of an image, then an asynchronous request is sent by the browser, and then after a while, the onload callback is called... The difficult part to understand for those who are not familiar with JavaScript is that these requests are done in parallel and we do not know when, and in what order, the images will be loaded.
+
+__The solution is to use a multiple image loader that counts the loaded images and calls a function you pass when done!__
+
+The trick is to have an array of URLs that will be used by our multiple image loader, then in the onload callback, this will be called once per image loaded, so we can count the number of images effectively loaded.
+
+When all images have been loaded, we call a callback function that has been passed to our loader.
+
+A complete example code that produces the result shown at the beginning of this page is at [available online](https://jsbin.com/suxiwif/edit?html,output) at JsBin. ([Local Example - Multiple Image Pattern](src/3.5.5-example1.html))
+
+
+#### Define the list of images to be loaded
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// List of images to load, we used a JavaScript object instead of </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// an array, so that named indexes (aka properties)</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// can be used -&gt; easier to manipulate</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> imagesToLoad </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;flowers</span><span class="pun">: </span><span class="pln"></span><span class="str">'https://i.ibb.co/4NN9Sgn/flowers.jpg'</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;lion</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://i.ibb.co/3NyqKnY/lion.jpg'</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;blackAndWhiteLys</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://i.ibb.co/VNLVpcL/final.jpg'</span><span class="pun">,</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;tiledFloor</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; 'https://i.ibb.co/Dt6txmG/repeatable-Pattern.jpg'</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+</ol></div>
+
+Notice that instead of using a traditional array, we defined this list as a JavaScript object, with properties whose names will be easier to manipulate (flowers, lion, tiledFloor, etc.).
+
+
+#### The image loader function
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> loadImages</span><span class="pun">(</span><span class="pln">imagesToBeLoaded</span><span class="pun">,</span><span class="pln"> drawCallback</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> imagesLoaded </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> loadedImages </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> numberOfImagesToLoad </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// get num of&nbsp;images to load</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> name </span><span class="kwd">in</span><span class="pln"> imagesToBeLoaded</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;numberOfImagesToLoad</span><span class="pun">++;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> name </span><span class="kwd">in</span><span class="pln"> imagesToBeLoaded</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span class="pun">[</span><span class="pln">name</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span class="pun">[</span><span class="pln">name</span><span class="pun">].</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(++</span><span class="pln">loadedImages </span><span class="pun">&gt;=</span><span class="pln"> numberOfImagesToLoad</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawCallback</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="com">// if</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">};</span><span class="pln"> </span><span class="com">// function</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span class="pun">[</span><span class="pln">name</span><span class="pun">].</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> imagesToBeLoaded</span><span class="pun">[</span><span class="pln">name</span><span class="pun">];</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="com">// for</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span><span class="com">// function</span></li>
+</ol></div>
+
+__Explanations:__
+
++ This function takes as a parameter the list of images to be loaded, and a drawCallback function that will be called only once all images have been loaded. This callback takes as a parameter a new object that is the list of images that have been loaded (see line 16).
++ We first count the number of images to load (lines 7-9), then for each image to be loaded we create a new JavaScript image object (line 12) and set its src attribute (line 19) - this will start to load the image.
++ When an image comes in, the onload callback is called (line 14) and inside, we increment the number of images loaded (line 15) and test if this number is >=  the total number of images that should be loaded. If this is the case, the callback function is called (line 16).
+
+
+#### Example of use of this loader
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> loadImages</span><span class="pun">(</span><span class="pln">imagesToLoad</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; patternFlowers </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">.</span><span class="pln">flowers</span><span class="pun">,</span><span class="pln"> </span><span class="str">'repeat'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; patternLion &nbsp; &nbsp;</span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">.</span><span class="pln">lion</span><span class="pun">,</span><span class="pln"> </span><span class="str">'repeat'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; patternBW </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">.</span><span class="pln">blackAndWhiteLys</span><span class="pun">,</span><span class="pln"> </span><span class="str">'repeat'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; patternFloor &nbsp;&nbsp;</span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">.</span><span class="pln">tiledFloor</span><span class="pun">,</span><span class="pln"> </span><span class="str">'repeat'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawRectanglesWithPatterns</span><span class="pun">();</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">});</span><span class="pln"> </span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ Line 1 is the call to the image loader, the first parameter is the list of images to be loaded, while the second parameter is the callback function that will be called once all images have been loaded.
++ Lines 2-5: in this callback we create patterns from the loaded images (note the use of the property names imagesLoaded.flowers, etc. that makes the code easier to read).
++ Line 7: then we call a function that will draw the rectangles.
+
+Here is the function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawRectanglesWithPatterns</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">patternFloor</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">patternLion</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">patternFlowers</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">patternBW</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
 
 
 
