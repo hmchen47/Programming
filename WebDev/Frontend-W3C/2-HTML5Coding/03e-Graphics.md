@@ -193,11 +193,11 @@ Let's look at color in a little more detail, and see how we can use gradients or
 
 You can use [the same syntax for colors that is supported by CSS3](https://www.w3.org/TR/css3-color/). The next lines show possible values/syntaxes.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#00ff00"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"rgb(0, 0, 255)"</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"rgba(0, 0, 255, 0.5)"</span><span class="pun">;</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>'red'</span><span>;</span></li>
+<li><span>ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"#00ff00"</span><span>;</span></li>
+<li><span>ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"rgb(0, 0, 255)"</span><span>;</span></li>
+<li><span>ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"rgba(0, 0, 255, 0.5)"</span><span>;</span></li>
 </ol></div>
 
 Note that:
@@ -254,16 +254,16 @@ __Step #1: define a linear gradient__
 
 Syntax: 
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">createLinearGradient</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">,</span><span class="pln">y0</span><span class="pun">,</span><span class="pln">x1</span><span class="pun">,</span><span class="pln">y1</span><span class="pun">);</span><span class="pln"> </span></li>
+<div class="source-code"><ol>
+<li value="1"><span>ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>x0</span><span>,</span><span>y0</span><span>,</span><span>x1</span><span>,</span><span>y1</span><span>);</span><span> </span></li>
 </ol></div>
 
 ... where the `(x0, y0)` and `(x1, y1)` parameters define "the direction of the gradient" (as a vector with a starting and an ending point). This direction is an invisible line along which the colors that compose the gradient will be interpolated.
 
 Let's see an example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> grdFrenchFlag </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createLinearGradient</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">300</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
+<div class="source-code"><ol>
+<li value="1"><span> grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>0</span><span>);</span></li>
 </ol></div>
 
 This line defines the direction of the gradient: a virtual, invisible line that goes from the top left corner of the canvas (0, 0) to the top right corner of the canvas (300, 0). The interpolated colors will propagate along this line. 
@@ -277,10 +277,10 @@ We will add a set of "colors" and "stops" to this gradient. The stops go from 0 
 
 Here is an example that corresponds to an interpolated version of the French flag, going from blue to white, then to red, with proportional intervals. We define three colors, blue at position 0, white at position 0.5 and red at position 1:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> grdFrenchFlag</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"blue"</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> grdFrenchFlag</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="str">"white"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> grdFrenchFlag</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"red"</span><span class="pun">);</span><span class="pln"> </span></li>
+<div class="source-code"><ol>
+<li value="1"><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0</span><span>,</span><span> </span><span>"blue"</span><span>);</span><span> </span></li>
+<li><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0.5</span><span>,</span><span> </span><span>"white"</span><span>);</span></li>
+<li><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>1</span><span>,</span><span> </span><span>"red"</span><span>);</span><span> </span></li>
 </ol></div>
 
 
@@ -290,9 +290,9 @@ First, let's set the `fillStyle` or `strokeStyle` of the context with this gradi
 
 In our example, the gradient corresponds to an invisible rectangle that fills the canvas. If we draw a rectangle of the canvas size, it should be filled with the entire gradient:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> grdFrenchFlag</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">300</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
+<div class="source-code"><ol>
+<li value="1"><span> ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>200</span><span>);</span></li>
 </ol></div>
 
 The result is shown below: a big rectangle that fills the whole canvas, with colors going from blue (left) to white (middle) to red (right).
@@ -311,8 +311,8 @@ The result is shown below: a big rectangle that fills the whole canvas, with col
 
 If you modify the source code that defines the direction of the gradient as follows...
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">grdFrenchFlag </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createLinearGradient</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">300</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>200</span><span>);</span></li>
 </ol></div>
 
 ... then you will define a gradient that goes from the top left corner of the canvas to the bottom right of the canvas. Let's see what it does (see [online version](https://jsbin.com/gisinezini/edit?html,js,output)): ([Local Example - Gradient Direction](src/3.5.2-example2.html))
@@ -348,43 +348,43 @@ Note that the canvas has its default background color where we did not draw anyt
 
 Here is the code that draws the checkboard:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> grdFrenchFlag</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
+<div class="source-code"><ol>
+<li value="1"><span> ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>100</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>200</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>50</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>150</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>250</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>100</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>200</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>50</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>150</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>250</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
 </ol></div>
 
 This code is rather ugly isn't it? It would have been better  to use a loop...
 
 Here is function that draws a chessboard ([online example at JsBin](https://jsbin.com/netijalofu/1/edit?html,output)): ([Loca Example - Chessboard](src/3.5.2-example4.html))
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// n = number of cells per row/column</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> drawCheckboard</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> grdFrenchFlag</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> l </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> h </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cellWidth </span><span class="pun">=</span><span class="pln"> l </span><span class="pun">/</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cellHeight </span><span class="pun">=</span><span class="pln"> h </span><span class="pun">/</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">j </span><span class="pun">=</span><span class="pln">&nbsp;i % 2</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">cellWidth</span><span class="pun">*i</span><span class="pun">,</span><span class="pln"> cellHeight</span><span class="pun">*</span><span class="pln">j</span><span class="pun">,</span><span class="pln"> cellWidth</span><span class="pun">,</span><span class="pln"> cellHeight</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>// n = number of cells per row/column</span></li>
+<li><span>function</span><span> drawCheckboard</span><span>(</span><span>n</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> l </span><span>=</span><span> canvas</span><span>.</span><span>width</span><span>;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> h </span><span>=</span><span> canvas</span><span>.</span><span>height</span><span>;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> cellWidth </span><span>=</span><span> l </span><span>/</span><span> n</span><span>;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> cellHeight </span><span>=</span><span> h </span><span>/</span><span> n</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>for</span><span>(</span><span>i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> n</span><span>;</span><span> i</span><span>++</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>for</span><span>(</span><span>j </span><span>=</span><span>&nbsp;i % 2</span><span>;</span><span> j </span><span>&lt;</span><span> n</span><span>;</span><span> j</span><span>++)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>cellWidth</span><span>*i</span><span>,</span><span> cellHeight</span><span>*</span><span>j</span><span>,</span><span> cellWidth</span><span>,</span><span> cellHeight</span><span>);</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span></li>
+<li><span>&nbsp; &nbsp; </span><span>}</span></li>
+<li><span>}</span></li>
 </ol></div>
 
 The two loops (_lines 11-15_) draw only one cell out of two (see the `j = i % 2` at _line 12_). i is the column number and if the column is odd or even, either we draw or we do not draw a rectangle.
@@ -408,17 +408,17 @@ Just as we used `fillStyle` and `fillRect` for drawing rectangles filled with a 
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawCheckboard</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> grdFrenchFlag</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">j </span><span class="pun">=</span><span class="pln">&nbsp;<span style="color: #006666;" color="#006666">i % 2</span></span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln"><strong>stroke</strong>Rect</span><span class="pun">(</span><span class="pln">cellWidth</span><span class="pun">*i</span><span class="pun">,</span><span class="pln"> cellHeight</span><span class="pun">*</span><span class="pln">j</span><span class="pun">,</span><span class="pln"> cellWidth</span><span class="pun">,</span><span class="pln"> cellHeight</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>function</span><span> drawCheckboard</span><span>(</span><span>n</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; <strong>ctx</strong></span><strong><span>.</span><span>strokeStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></strong></li>
+<li><strong><span>&nbsp; &nbsp; ctx</span><span>.</span><span>lineWidth</span><span>=</span><span>10</span><span>;</span></strong></li>
+<li>&nbsp; &nbsp; ...</li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>for</span><span>(</span><span>i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> n</span><span>;</span><span> i</span><span>++</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>for</span><span>(</span><span>j </span><span>=</span><span>&nbsp;<span style="color: #006666;" color="#006666">i % 2</span></span><span>;</span><span> j </span><span>&lt;</span><span> n</span><span>;</span><span> j</span><span>++)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span><strong>stroke</strong>Rect</span><span>(</span><span>cellWidth</span><span>*i</span><span>,</span><span> cellHeight</span><span>*</span><span>j</span><span>,</span><span> cellWidth</span><span>,</span><span> cellHeight</span><span>);</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span><span> </span></li>
+<li><span>&nbsp; &nbsp; </span><span>}</span></li>
+<li><span>}</span></li>
 </ol></div>
 
 
@@ -426,8 +426,8 @@ Extract from source code:
 
 Let's go back to the very first example on this page - the one with the blue-white-red interpolated French flag. This time we will define a smaller gradient. Instead of going from (0, 0) to (300, 0), it will go from (100, 0) to (200, 0), while the canvas remains the same (width=300, height=200).
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> grdFrenchFlag </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createLinearGradient</span><span class="pun">(</span><strong><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span></strong><span class="pun">);</span></li>
+<div class="source-code"><ol>
+<li value="1"><span> grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><strong><span>100</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>0</span></strong><span>);</span></li>
 </ol></div>
 
 Like in the first example we will draw a filled rectangle that is the same size as the canvas. Here is the online version, and here is a screenshot of the result:
@@ -449,8 +449,8 @@ We notice that "before" the gradient starts, the first color of the gradient is 
 
 Nothing special; we will "see through the drawn shapes", and the parts of the gradient that are located in the canvas area will be shown. You can try this example that defines a gradient twice the size of the canvas: 
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">grdFrenchFlag </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createLinearGradient</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><strong><span class="lit">600</span><span class="pun">,</span><span class="pln"> </span><span class="lit">400</span></strong><span class="pun">);</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><strong><span>600</span><span>,</span><span> </span><span>400</span></strong><span>);</span></li>
 </ol></div>
 
 And if we draw the same rectangle with the canvas size, here is the result:
@@ -488,35 +488,35 @@ It suffices to create a new gradient before drawing each filled rectangle, and s
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> setGradient</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; grdFrenchFlag </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createLinearGradient</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; grdFrenchFlag</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"blue"</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; grdFrenchFlag</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="str">"white"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; grdFrenchFlag</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"red"</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // set the new gradient to the current fillStyle</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> grdFrenchFlag</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com">// n = number of cells per row/column</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> drawCheckboard</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> l </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> h </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cellWidth </span><span class="pun">=</span><span class="pln"> l </span><span class="pun">/</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cellHeight </span><span class="pun">=</span><span class="pln"> h </span><span class="pun">/</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">+=</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> cellWidth</span><span class="pun">*(</span><span class="pln">i</span><span class="pun">+</span><span class="pln">j</span><span class="pun">%</span><span class="lit">2</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> cellHeight</span><span class="pun">*</span><span class="pln">j</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>setGradient</strong></span><strong><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> x</span><span class="pun">+</span><span class="pln">cellWidth</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">+</span><span class="pln">cellHeight</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> cellWidth</span><span class="pun">,</span><span class="pln"> cellHeight</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>function</span><span> setGradient</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> width</span><span>,</span><span> height</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> width</span><span>,</span><span> height</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0</span><span>,</span><span> </span><span>"blue"</span><span>);</span><span> </span></li>
+<li><span>&nbsp; &nbsp; grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0.5</span><span>,</span><span> </span><span>"white"</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>1</span><span>,</span><span> </span><span>"red"</span><span>);</span><span> </span></li>
+<li><span>&nbsp; &nbsp; // set the new gradient to the current fillStyle</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
+<li><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>// n = number of cells per row/column</span></li>
+<li><span>function</span><span> drawCheckboard</span><span>(</span><span>n</span><span>)</span><span> </span><span>{</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>var</span><span> l </span><span>=</span><span> canvas</span><span>.</span><span>width</span><span>;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>var</span><span> h </span><span>=</span><span> canvas</span><span>.</span><span>height</span><span>;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>var</span><span> cellWidth </span><span>=</span><span> l </span><span>/</span><span> n</span><span>;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>var</span><span> cellHeight </span><span>=</span><span> h </span><span>/</span><span> n</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>for</span><span>(</span><span>i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> n</span><span>;</span><span> i</span><span>+=</span><span>2</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>for</span><span>(</span><span>j </span><span>=</span><span> </span><span>0</span><span>;</span><span> j </span><span>&lt;</span><span> n</span><span>;</span><span> j</span><span>++)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>var</span><span> x </span><span>=</span><span> cellWidth</span><span>*(</span><span>i</span><span>+</span><span>j</span><span>%</span><span>2</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>var</span><span> y </span><span>=</span><span> cellHeight</span><span>*</span><span>j</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>setGradient</strong></span><strong><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> x</span><span>+</span><span>cellWidth</span><span>,</span><span> y</span><span>+</span><span>cellHeight</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> cellWidth</span><span>,</span><span> cellHeight</span><span>);</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>}</span></li>
+<li><span>}</span></li>
 </ol></div>
 
 We wrote a function `setGradient(startX, startY, endX, endY)` that creates a gradient and set the `fillStyle` context property so that any filled shape drawn will have this gradient.
@@ -593,16 +593,16 @@ Here is an example of a radial gradient that interpolates the color of the rainb
 
 The gradient is defined as follows:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> grd </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><strong><span class="pln">createRadialGradient</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"red"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.17</span><span class="pun">,</span><span class="pln"> </span><span class="str">"orange"</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.33</span><span class="pun">,</span><span class="pln"> </span><span class="str">"yellow"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="str">"green"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.666</span><span class="pun">,</span><span class="pln"> </span><span class="str">"blue"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"violet"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> grd</span><span class="pun">;</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>var</span><span> grd </span><span>=</span><span> context</span><span>.</span><strong><span>createRadialGradient</span><span>(</span><span>150</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>30</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>100</span><span>);</span></strong></li>
+<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0</span><span>,</span><span> </span><span>"red"</span><span>);</span></li>
+<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.17</span><span>,</span><span> </span><span>"orange"</span><span>);</span></li>
+<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.33</span><span>,</span><span> </span><span>"yellow"</span><span>);</span></li>
+<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.5</span><span>,</span><span> </span><span>"green"</span><span>);</span></li>
+<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.666</span><span>,</span><span> </span><span>"blue"</span><span>);</span></li>
+<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>1</span><span>,</span><span> </span><span>"violet"</span><span>);</span></li>
+<li><span> </span></li>
+<li><span> context</span><span>.</span><span>fillStyle </span><span>=</span><span> grd</span><span>;</span></li>
 </ol></div>
 
 The method from the context object `createRadialGradient(cx1, cy1, radius1, cx2, cy2, radius2)` takes as the first three parameters the "starting" circle of the gradient, and as the three last parameters, the "ending circle".
@@ -673,46 +673,46 @@ There are a few steps we have to take before doing this:
 
 1. __Create a JavaScript image object__
 
-  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln">&nbsp;imageObj&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;new Image();</span></li>
+  <div class="source-code"><ol style="list-style-type: decimal;">
+  <li value="1"><span>var</span><span>&nbsp;imageObj&nbsp;</span><span>=</span><span>&nbsp;new Image();</span></li>
   </ol></div>
 
 2. __Define a callback function that will be called once the image has been fully loaded__ in memory; we cannot draw before the image has been loaded.
 
-  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">...</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+  <div class="source-code"><ol style="list-style-type: decimal;">
+  <li value="1"><span>imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){</span></li>
+  <li><span> </span><span>...</span></li>
+  <li><span>}</span></li>
   </ol></div>
 
 3. __Set the source of this image to the URL of the pattern__ (in our example with [url of the pattern](https://tinyurl.com/y6snxuju)),
 
-  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://www.myserver.com/myRepeatablePattern.png"</span><span class="pun">;</span><span class="pln"> </span></li>
+  <div class="source-code"><ol style="list-style-type: decimal;">
+  <li value="1"><span>imageObj</span><span>.</span><span>src </span><span>=</span><span> </span><span>"https://www.myserver.com/myRepeatablePattern.png"</span><span>;</span><span> </span></li>
   </ol></div>
 
 4. As soon as step 3 is executed, an HTTP request is sent in background by the browser, and when the image is loaded in memory, the callback defined at step 2 is called. We create a pattern object inside, from the loaded image:
 
-  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// callback called asynchronously, after the src attribute of imageObj is set</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){&nbsp;</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // We enter here when the image is loaded, we create a pattern object.</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // It is good practice to set this as a global variable, easier to share</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>pattern1 </strong></span><strong><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"repeat"</span><span class="pun">);</span></strong></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+  <div class="source-code"><ol style="list-style-type: decimal;">
+  <li value="1"><span> </span><span>// callback called asynchronously, after the src attribute of imageObj is set</span></li>
+  <li><span> imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){&nbsp;</span></li>
+  <li><span>&nbsp; &nbsp; // We enter here when the image is loaded, we create a pattern object.</span></li>
+  <li><span>&nbsp; &nbsp; // It is good practice to set this as a global variable, easier to share</span></li>
+  <li><span>&nbsp; &nbsp; <strong>pattern1 </strong></span><strong><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"repeat"</span><span>);</span></strong></li>
+  <li><span>};</span></li>
   </ol></div>
 
 5. __Inside the callback function (or inside a function called from inside the callback) we can draw.__
 
-  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// callback called asynchronously, after the src attribute of imageObj is set</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; pattern1 </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"repeat"</span><span class="pun">);</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Draw a textured rectangle</span></strong></li>
-  <li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> pattern1</span><span class="pun">;</span></strong></li>
-  <li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">800</span><span class="pun">);</span></strong></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+  <div class="source-code"><ol style="list-style-type: decimal;">
+  <li value="1"><span> </span><span>// callback called asynchronously, after the src attribute of imageObj is set</span></li>
+  <li><span> imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){</span></li>
+  <li><span>&nbsp; &nbsp; pattern1 </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"repeat"</span><span>);</span></li>
+  <li><span> </span></li>
+  <li><strong><span>&nbsp; &nbsp;&nbsp;</span><span>// Draw a textured rectangle</span></strong></li>
+  <li><strong><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> pattern1</span><span>;</span></strong></li>
+  <li><strong><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>10</span><span>,</span><span> </span><span>10</span><span>,</span><span> </span><span>500</span><span>,</span><span> </span><span>800</span><span>);</span></strong></li>
+  <li><span>};</span></li>
   </ol></div>
 
 
@@ -736,65 +736,65 @@ Here we have two rectangles drawn using a pattern (an image that can be repeated
 
 HTML source code:
 
-<div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"500"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the canvas tag. </span><span class="tag">&lt;/canvas&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div class="source-code"><ol style="list-style-type: decimal;">
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
+<li><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"500"</span><span> </span><span>height</span><span>=</span><span>"400"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the canvas tag. </span><span>&lt;/canvas&gt;</span></li>
+<li><span>&nbsp; &nbsp;&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 JavaScript source code:
 
-<div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> pattern1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myCanvas'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// We need 1) to create an empty image object, 2) to set a callback function</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// that will be called when the image is fully loaded, 3) to create a </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// pattern object, 4) to set the fillStyle or the strokeStyle property of </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// the context with this pattern, 5) to draw something</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// WE CANNOT DRAW UNTIL THE IMAGE IS FULLY LOADED -&gt; draw from inside the</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// onload callback only !</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Allocate an image</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> imageObj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com"><span style="color: #000000;" color="#000000">&nbsp; &nbsp;</span>// 2 - callback called asynchronously, after the src attribute of imageObj </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// is set</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// We enter here only when the image has been loaded by the browser</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// 4 - Pattern creation using the image object</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// Instead of "repeat", try different values : repeat-x, repeat-y, </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// or no-repeat, You may draw larger shapes in order to see </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// different results</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// It is good practice to leave this as a global variable if it</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// will be reused by other functions</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; pattern1 </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"repeat"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// 5 - Draw things. Here a textured rectangle</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> pattern1</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span>// ... And a wireframe one</li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">20</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle</span><span class="pun">=</span><span class="pln">pattern1</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">230</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; };</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // 3 - Send the request to load the image</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // Setting the src attribute&nbsp;will tell the browser to send an asynchronous </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // request.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; // When the browser gets an answer, the callback above will be called</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://www.dreamstime.com/colourful-flowers-repeatable-pattern-thumb18692760.jpg"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div class="source-code"><ol style="list-style-type: decimal;">
+<li value="1"><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>,</span><span> pattern1</span><span>;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;canvas </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'#myCanvas'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp;ctx </span><span>=</span><span> canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// We need 1) to create an empty image object, 2) to set a callback function</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// that will be called when the image is fully loaded, 3) to create a </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// pattern object, 4) to set the fillStyle or the strokeStyle property of </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// the context with this pattern, 5) to draw something</span></li>
+<li><span>&nbsp; &nbsp;</span><strong><span>// WE CANNOT DRAW UNTIL THE IMAGE IS FULLY LOADED -&gt; draw from inside the</span></strong></li>
+<li><strong><span>&nbsp; &nbsp;</span><span>// onload callback only !</span></strong></li>
+<li><span> </span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 1 - Allocate an image</span></li>
+<li><span>&nbsp; &nbsp;</span><span>var</span><span> imageObj </span><span>=</span><span> </span><span>new</span><span> </span><span>Image</span><span>();</span></li>
+<li><span>&nbsp;</span></li>
+<li><span><span style="color: #000000;" color="#000000">&nbsp; &nbsp;</span>// 2 - callback called asynchronously, after the src attribute of imageObj </span></li>
+<li><span>&nbsp; &nbsp;// is set</span></li>
+<li><span>&nbsp; &nbsp;imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>// We enter here only when the image has been loaded by the browser</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>// 4 - Pattern creation using the image object</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>// Instead of "repeat", try different values : repeat-x, repeat-y, </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>// or no-repeat, You may draw larger shapes in order to see </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>// different results</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>// It is good practice to leave this as a global variable if it</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>// will be reused by other functions</span></li>
+<li><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; pattern1 </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"repeat"</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>// 5 - Draw things. Here a textured rectangle</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> pattern1</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>10</span><span>,</span><span> </span><span>10</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>200</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span>// ... And a wireframe one</li>
+<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>lineWidth</span><span>=</span><span>20</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>strokeStyle</span><span>=</span><span>pattern1</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>strokeRect</span><span>(</span><span>230</span><span>,</span><span> </span><span>20</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>100</span><span>);</span></li>
+<li><span>&nbsp; };</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; // 3 - Send the request to load the image</span></li>
+<li><span>&nbsp; // Setting the src attribute&nbsp;will tell the browser to send an asynchronous </span></li>
+<li><span>&nbsp; // request.</span></li>
+<li><span>&nbsp; // When the browser gets an answer, the callback above will be called</span></li>
+<li><span>&nbsp; imageObj</span><span>.</span><span>src </span><span>=</span><span> </span><span>"https://www.dreamstime.com/colourful-flowers-repeatable-pattern-thumb18692760.jpg"</span><span>;</span><span> </span></li>
+<li><span>}</span></li>
 </ol></div><br/>
 
 
@@ -816,8 +816,8 @@ Online version [here](https://jsbin.com/hexomamiyi/1/edit?html,output) and here 
 
 You can change the way the pattern is repeated by modifying the second parameter of this method:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">pattern1 </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"<strong>repeat</strong>"</span><span class="pun">);</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>pattern1 </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"<strong>repeat</strong>"</span><span>);</span></li>
 </ol></div>
 
 Please try: `repeat-x`, `repeat-y` or `no-repeat` as acceptable values. Just change this line in the online example and you will see live results.
@@ -867,17 +867,17 @@ A complete example code that produces the result shown at the beginning of this 
 
 #### Define the list of images to be loaded
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// List of images to load, we used a JavaScript object instead of </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// an array, so that named indexes (aka properties)</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// can be used -&gt; easier to manipulate</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> imagesToLoad </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;flowers</span><span class="pun">: </span><span class="pln"></span><span class="str">'https://i.ibb.co/4NN9Sgn/flowers.jpg'</span><span class="pun">,</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;lion</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://i.ibb.co/3NyqKnY/lion.jpg'</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;blackAndWhiteLys</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://i.ibb.co/VNLVpcL/final.jpg'</span><span class="pun">,</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;tiledFloor</span><span class="pun">:</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; 'https://i.ibb.co/Dt6txmG/repeatable-Pattern.jpg'</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div class="source-code"><ol>
+<li value="1"><span> </span><span>// List of images to load, we used a JavaScript object instead of </span></li>
+<li><span> </span><span>// an array, so that named indexes (aka properties)</span></li>
+<li><span> </span><span>// can be used -&gt; easier to manipulate</span></li>
+<li><span> </span><span>var</span><span> imagesToLoad </span><span>=</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;flowers</span><span>: </span><span></span><span>'https://i.ibb.co/4NN9Sgn/flowers.jpg'</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;lion</span><span>:</span><span> </span><span>'https://i.ibb.co/3NyqKnY/lion.jpg'</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;blackAndWhiteLys</span><span>:</span><span> </span><span>'https://i.ibb.co/VNLVpcL/final.jpg'</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;tiledFloor</span><span>:</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; 'https://i.ibb.co/Dt6txmG/repeatable-Pattern.jpg'</span></li>
+<li><span> </span><span>};</span></li>
 </ol></div>
 
 Notice that instead of using a traditional array, we defined this list as a JavaScript object, with properties whose names will be easier to manipulate (flowers, lion, tiledFloor, etc.).
@@ -885,28 +885,28 @@ Notice that instead of using a traditional array, we defined this list as a Java
 
 #### The image loader function
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> loadImages</span><span class="pun">(</span><span class="pln">imagesToBeLoaded</span><span class="pun">,</span><span class="pln"> drawCallback</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> imagesLoaded </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> loadedImages </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> numberOfImagesToLoad </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// get num of&nbsp;images to load</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> name </span><span class="kwd">in</span><span class="pln"> imagesToBeLoaded</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;numberOfImagesToLoad</span><span class="pun">++;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> name </span><span class="kwd">in</span><span class="pln"> imagesToBeLoaded</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span class="pun">[</span><span class="pln">name</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span class="pun">[</span><span class="pln">name</span><span class="pun">].</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(++</span><span class="pln">loadedImages </span><span class="pun">&gt;=</span><span class="pln"> numberOfImagesToLoad</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawCallback</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="com">// if</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">};</span><span class="pln"> </span><span class="com">// function</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span class="pun">[</span><span class="pln">name</span><span class="pun">].</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> imagesToBeLoaded</span><span class="pun">[</span><span class="pln">name</span><span class="pun">];</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="com">// for</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span><span class="com">// function</span></li>
+<div class="source-code"><ol>
+<li value="1"><span> </span><span>function</span><span> loadImages</span><span>(</span><span>imagesToBeLoaded</span><span>,</span><span> drawCallback</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>var</span><span> imagesLoaded </span><span>=</span><span> </span><span>{};</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>var</span><span> loadedImages </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>var</span><span> numberOfImagesToLoad </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>// get num of&nbsp;images to load</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>for</span><span>(</span><span>var</span><span> name </span><span>in</span><span> imagesToBeLoaded</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;numberOfImagesToLoad</span><span>++;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>for</span><span>(</span><span>var</span><span> name </span><span>in</span><span> imagesToBeLoaded</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span>[</span><span>name</span><span>]</span><span> </span><span>=</span><span> </span><span>new</span><span> </span><span>Image</span><span>();</span></li>
+<li><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span>[</span><span>name</span><span>].</span><span>onload </span><span>=</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span>(++</span><span>loadedImages </span><span>&gt;=</span><span> numberOfImagesToLoad</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawCallback</span><span>(</span><span>imagesLoaded</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span><span>// if</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>};</span><span> </span><span>// function</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span>[</span><span>name</span><span>].</span><span>src </span><span>=</span><span> imagesToBeLoaded</span><span>[</span><span>name</span><span>];</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span><span> </span><span>// for</span></li>
+<li><span>}</span><span> </span><span>// function</span></li>
 </ol></div>
 
 __Explanations:__
@@ -918,15 +918,15 @@ __Explanations:__
 
 #### Example of use of this loader
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> loadImages</span><span class="pun">(</span><span class="pln">imagesToLoad</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; patternFlowers </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">.</span><span class="pln">flowers</span><span class="pun">,</span><span class="pln"> </span><span class="str">'repeat'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; patternLion &nbsp; &nbsp;</span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">.</span><span class="pln">lion</span><span class="pun">,</span><span class="pln"> </span><span class="str">'repeat'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; patternBW </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">.</span><span class="pln">blackAndWhiteLys</span><span class="pun">,</span><span class="pln"> </span><span class="str">'repeat'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; patternFloor &nbsp;&nbsp;</span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imagesLoaded</span><span class="pun">.</span><span class="pln">tiledFloor</span><span class="pun">,</span><span class="pln"> </span><span class="str">'repeat'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawRectanglesWithPatterns</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">});</span><span class="pln"> </span></li>
+<div class="source-code"><ol>
+<li value="1"><span> loadImages</span><span>(</span><span>imagesToLoad</span><span>,</span><span> </span><span>function</span><span>(</span><span>imagesLoaded</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; patternFlowers </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>flowers</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; patternLion &nbsp; &nbsp;</span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>lion</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; patternBW </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>blackAndWhiteLys</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; patternFloor &nbsp;&nbsp;</span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>tiledFloor</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; drawRectanglesWithPatterns</span><span>();</span><span> </span></li>
+<li><span> </span><span>});</span><span> </span></li>
 </ol></div>
 
 
@@ -938,20 +938,20 @@ __Explanations:__
 
 Here is the function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawRectanglesWithPatterns</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">patternFloor</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">patternLion</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">patternFlowers</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">patternBW</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>function</span><span> drawRectanglesWithPatterns</span><span>()</span><span> </span><span>{</span><span> </span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternFloor</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternLion</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>200</span><span>,</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternFlowers</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternBW</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>200</span><span>,</span><span>200</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
+<li><span> </span><span>}</span></li>
 </ol></div>
 
 
@@ -995,47 +995,47 @@ __Example #1: simple shadow__
 
 HTML source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> init</span><span class="pun">();</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"400"</span><span class="pln"> </span><span class="atn">height</span><span class="pln"> </span><span class="pun">=</span><span class="atv">800</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/canvas&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
+<li><span>&lt;body</span><span> </span><span>onload</span><span> </span><span>=</span><span> init</span><span>();</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"400"</span><span> </span><span>height</span><span> </span><span>=</span><span>800</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
+<li><span>&lt;/canvas&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 JavaScript source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // call to a function that will set the 4 context properties for shadows</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; setShadow</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // all drawings that will occur will cast shadows</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// first green filled rectangle</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#22FFDD"</span><span class="pun">;</span><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// second stroked rectangle</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"purple"</span><span class="pun">;</span><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">// We define the 4 properties in a dedicated function, for clarity</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> setShadow</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowColor </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Grey"</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// color</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowBlur </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// blur level</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowOffsetX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// horizontal offset</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowOffsetY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// vertical offset</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; ctx </span><span>=</span><span> canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; // call to a function that will set the 4 context properties for shadows</span></li>
+<li><span>&nbsp; &nbsp; setShadow</span><span>();</span></li>
+<li><span>&nbsp; &nbsp; // all drawings that will occur will cast shadows</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// first green filled rectangle</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"#22FFDD"</span><span>;</span><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>20</span><span>,</span><span> </span><span>20</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>100</span><span>);</span><span> </span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// second stroked rectangle</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"purple"</span><span>;</span><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>lineWidth</span><span>=</span><span>10</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>strokeRect</span><span>(</span><span>20</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>100</span><span>);</span></li>
+<li><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>// We define the 4 properties in a dedicated function, for clarity</span></li>
+<li><span>function</span><span> setShadow</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowColor </span><span>=</span><span> </span><span>"Grey"</span><span>;</span><span>&nbsp; &nbsp;&nbsp;</span><span>// color</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowBlur </span><span>=</span><span> </span><span>20</span><span>;</span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>// blur level</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowOffsetX </span><span>=</span><span> </span><span>15</span><span>;</span><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>// horizontal offset</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowOffsetY </span><span>=</span><span> </span><span>15</span><span>;</span><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>// vertical offset</span></li>
+<li><span>}</span></li>
 </ol></div>
 
 
@@ -1064,41 +1064,41 @@ Now, let's add a shadow to it (see the [example online](https://jsbin.com/kimafo
 
 Here is an extract from the code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">// Add to the path a full circle (from 0 to 2PI)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">centerX</span><span class="pun">,</span><span class="pln"> centerY</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">// With path drawing you can change the context</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">// properties until a call to stroke() or fill() is performed</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"lightBlue"</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="com">// add shadows before drawing the filled circle</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> addShadows</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">// Draws the filled circle in light blue</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">// Prepare for the outline</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"black"</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com">// draws the path AGAIN (the circle), this</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">// time in wireframe</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">/</span><span class="com">/ Notice we only once called context.arc()! And drew it twice </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">// with different styles</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><strong><span class="pln"> addShadows</span><span class="pun">()</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowColor </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Grey"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// color</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowBlur </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// blur level</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowOffsetX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp;</span><span class="com">// horizontal offset</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">shadowOffsetY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp;</span><span class="com">// vertical offset</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>...</span></li>
+<li><span> ctx</span><span>.</span><span>beginPath</span><span>();</span></li>
+<li><span> </span></li>
+<li><span>// Add to the path a full circle (from 0 to 2PI)</span></li>
+<li><span> ctx</span><span>.</span><span>arc</span><span>(</span><span>centerX</span><span>,</span><span> centerY</span><span>,</span><span> radius</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>2</span><span>*</span><span>Math</span><span>.</span><span>PI</span><span>,</span><span> </span><span>false</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>// With path drawing you can change the context</span></li>
+<li><span>// properties until a call to stroke() or fill() is performed</span></li>
+<li><span> ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"lightBlue"</span><span>;</span></li>
+<li><span> </span></li>
+<li><strong><span>// add shadows before drawing the filled circle</span></strong></li>
+<li><strong><span> addShadows</span><span>();</span></strong></li>
+<li><span> </span></li>
+<li><span>// Draws the filled circle in light blue</span></li>
+<li><span> ctx</span><span>.</span><span>fill</span><span>();</span></li>
+<li><span> </span></li>
+<li><span>// Prepare for the outline</span></li>
+<li><span> ctx</span><span>.</span><span>lineWidth </span><span>=</span><span> </span><span>5</span><span>;</span></li>
+<li><span> ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"black"</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>// draws the path AGAIN (the circle), this</span></li>
+<li><span>// time in wireframe</span></li>
+<li><span> ctx</span><span>.</span><span>stroke</span><span>();</span></li>
+<li><span> </span></li>
+<li><span>/</span><span>/ Notice we only once called context.arc()! And drew it twice </span></li>
+<li><span>// with different styles</span></li>
+<li><span>...</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>function</span><strong><span> addShadows</span><span>()</span></strong><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowColor </span><span>=</span><span> </span><span>"Grey"</span><span>;</span><span> </span><span>// color</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowBlur </span><span>=</span><span> </span><span>20</span><span>;</span><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>// blur level</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowOffsetX </span><span>=</span><span> </span><span>15</span><span>;</span><span>&nbsp; &nbsp;</span><span>// horizontal offset</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowOffsetY </span><span>=</span><span> </span><span>15</span><span>;</span><span>&nbsp; &nbsp;</span><span>// vertical offset</span></li>
+<li><span> </span><span>}</span></li>
 </ol></div>
 
 
@@ -1120,24 +1120,24 @@ The trick is to save the context before setting the shadow properties, then draw
 
 Correct version of the code (see [online](https://jsbin.com/patumofama/edit?html,output)): ([Local Example - Corrected Shadow](src/3.5.6-example4.html))
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="com">// save the context before setting shadows and drawing the filled circle</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// With path drawing you can change the context</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// properties until a call to stroke() or fill() is performed</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"lightBlue"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="com">// add shadows before drawing the filled circle</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>addShadows</strong></span><strong><span class="pun">();</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draws the filled circle in light blue</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="com">// restore the context to its previous saved state</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>...</span><span> </span></li>
+<li><span> </span><strong><span>// save the context before setting shadows and drawing the filled circle</span></strong></li>
+<li><span>&nbsp;<strong>ctx</strong></span><strong><span>.</span><span>save</span><span>();</span></strong></li>
+<li><span> </span></li>
+<li><span> </span><span>// With path drawing you can change the context</span></li>
+<li><span> </span><span>// properties until a call to stroke() or fill() is performed</span></li>
+<li><span>&nbsp;ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"lightBlue"</span><span>;</span></li>
+<li><span> </span></li>
+<li><span> </span><strong><span>// add shadows before drawing the filled circle</span></strong></li>
+<li><span>&nbsp;<strong>addShadows</strong></span><strong><span>();</span></strong></li>
+<li><span> </span></li>
+<li><span> </span><span>// Draws the filled circle in light blue</span></li>
+<li><span>&nbsp;ctx</span><span>.</span><span>fill</span><span>();</span></li>
+<li><span> </span></li>
+<li><span> </span><strong><span>// restore the context to its previous saved state</span></strong></li>
+<li><span>&nbsp;<strong>ctx</strong></span><strong><span>.</span><span>restore</span><span>();</span></strong></li>
+<li><span>...</span></li>
 </ol></div>
 
 And here is the final result:
@@ -1172,8 +1172,8 @@ They apply to all shapes that are drawn in path mode (lines, curves, arcs) and s
 
 We have seen this before. This is done by changing the value (in pixels) of the lineWidth property of the context:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pln">ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></strong><span class="pln"> </span><span class="com">// set the thickness of every shape drawn in stroke/wireframe mode to 10 pixels</span></li>
+<div class="source-code"><ol>
+<li value="1"><strong><span>ctx</span><span>.</span><span>lineWidth </span><span>=</span><span> </span><span>10</span><span>;</span></strong><span> </span><span>// set the thickness of every shape drawn in stroke/wireframe mode to 10 pixels</span></li>
 </ol></div>
 
 Here is a complete example where we draw with a lineWidth of 20 pixels. You can play with the [complete interactive example here](https://jsbin.com/bixugayaba/edit?html,output): ([Local Example - Thickness](src/3.5.7-example1.html))
@@ -1190,43 +1190,43 @@ Here is a complete example where we draw with a lineWidth of 20 pixels. You can 
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span>&lt;title&gt;</span><span class="pln">A simple example of lineWidth property use</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp; </span></span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp; </span></span><span class="tag">&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"500"</span><span class="tag">&gt;</span><span class="pln">Your browser does not support the canvas tag.</span><span class="tag">&lt;/canvas&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span><span class="tag">&lt;script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span></span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span></span><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// first path</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// second part of the path</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln"><span class="pln">&nbsp; </span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;</span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// indicate stroke color + draw first part of the path</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#0000FF"</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Current line thickness is 20 pixels </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draws a rectangle</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">230</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span></span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div class="source-code"><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&lt;head&gt;</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span></span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span></span><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span>&lt;title&gt;</span><span>A simple example of lineWidth property use</span><span>&lt;/title&gt;</span></li>
+<li><span> </span></li>
+<li><span><span>&nbsp; </span></span><span>&lt;/head&gt;</span></li>
+<li><span><span>&nbsp; </span></span><span>&lt;body&gt;</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span></span><span>&lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"500"</span><span>&gt;</span><span>Your browser does not support the canvas tag.</span><span>&lt;/canvas&gt;</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span></span><span>&lt;script&gt;</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span></span><span>var</span><span> canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span></span><span>var</span><span> ctx </span><span>=</span><span> canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span> </span><span>// first path</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>moveTo</span><span>(</span><span>20</span><span>,</span><span> </span><span>20</span><span>);</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>lineTo</span><span>(</span><span>100</span><span>,</span><span> </span><span>100</span><span>);</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>lineTo</span><span>(</span><span>100</span><span>,</span><span> </span><span>0</span><span>);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span> </span><span>// second part of the path</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span><span>&nbsp; </span></span></span></span>ctx</span><span>.</span><span>moveTo</span><span>(</span><span>120</span><span>,</span><span> </span><span>20</span><span>);</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp;&nbsp;</span></span></span>ctx</span><span>.</span><span>lineTo</span><span>(</span><span>200</span><span>,</span><span> </span><span>100</span><span>);</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>lineTo</span><span>(</span><span>200</span><span>,</span><span> </span><span>0</span><span>);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span> </span><span>// indicate stroke color + draw first part of the path</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"#0000FF"</span><span>;</span></li>
+<li><span> </span><span>// Current line thickness is 20 pixels </span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>lineWidth </span><span>=</span><span> </span><span>20</span><span>;</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>stroke</span><span>();</span></li>
+<li><span>&nbsp;</span></li>
+<li><span> </span><span>// Draws a rectangle</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>strokeRect</span><span>(</span><span>230</span><span>,</span><span> </span><span>10</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>100</span><span>);</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span></span><span>&lt;/script&gt;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span></span><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
