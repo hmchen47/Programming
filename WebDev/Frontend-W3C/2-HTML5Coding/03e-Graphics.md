@@ -13,7 +13,52 @@
     + `ctx.fillStyle = "#00ff00";`
     + `ctx.strokeStyle = "rgb(0, 0, 255)";`
     + `ctx.fillStyle = "rgba(0, 0, 255, 0.5)";`
-  + 
+  
++ [Linear Gradient](#352-canvas-context-linear-gradients)
+  + visible gradient: draw shapes on top of the invisible gradient
+  + procedure to create gradients
+    + define linear gradient: `ctx.createLinearGradient(x0,y0,x1,y1);`
+      + `(x0, y0)` and `(x1, y1)` parameters define "the direction of the gradient"
+      + a vector with a starting and an ending point
+      + direction: an invisible line along which the colors that compose the gradient interpolated
+      + examples
+        + `grdFrenchFlag = ctx.createLinearGradient(0, 0, 300, 0);`
+          + a virtual, invisible line that goes from the top left corner of the canvas (0, 0) to the top right corner of the canvas (300, 0)
+          + interpolated colors propagated along this line
+        + `grdFrenchFlag = ctx.createLinearGradient(0, 0, 300, 200);`: a diagonal direction from (0, 0) to (300, 200)
+      + good practice: create/initialize reused gradient in a function called when the page is loaded and to store it in a global variable
+    + add a number of "color stops" to this gradient
+      + add a set of "colors" and "stops" to this gradient
+      + stops: from 0 (beginning of the virtual line defined just above), to 1 (end of the virtual line)
+      + color associated w/ stop=0.5: right in the middle of the virtual line
+      + example: `grdFrenchFlag.addColorStop(0, "blue"); grdFrenchFlag.addColorStop(0.5, "white"); grdFrenchFlag.addColorStop(1, "red");`
+    + draw some shapes
+      + set the `fillStyle` or `strokeStyle` of the context with this gradient
+      + draw some shapes "on top of the gradient"
+      + example: `ctx.fillStyle = grdFrenchFlag; ctx.fillRect(0, 0, 300, 200);`
+  + [cheeseboard w/ gradient](#drawing-shapes-that-do-not-cover-the-whole-gradient)
+    + default background color: not drawing anything
+    + draw cheeseboard w/ gradient: `ctx.fillStyle = grdFrenchFlag;  ctx.fillRect(0, 0, 50, 50); ctx.fillRect(100, 0, 50, 50);  ctx.fillRect(200, 0, 50, 50); ctx.fillRect(50, 50, 50, 50);  ctx.fillRect(150, 50, 50, 50); ...`
+    + alternative solution: `function drawCheckboard(n) {...}`: two loops draw only one cell out of two
+  + [outlined shapes with gradients](#drawing-outlined-shapes-with-gradients)
+    + use `strokeStyle` and `strokeRect` in order to draw wireframed rectangles
+    + used the `lineWidth` property to set the outline of the rectangles
+  + [gradient smaller than the canvas](#what-happens-if-we-define-a-gradient-smaller-than-the-canvas)
+    + e.g., `grdFrenchFlag = ctx.createLinearGradient(100, 0, 200, 0);` as canvas w/ width=300, height=200
+    + 1st color of the gradient: repeated w/o any interpolation (columns 0-100 are all blue)
+    + "see through" and the gradient drawn (columns 100-200)
+    + the last color of the gradient repeated w/0 any interpolation (columns 200-300 are red)
+  + [gradient bigger than the canvas](#what-happens-if-we-define-a-gradient-bigger-than-the-canvas)
+    + e.g., `grdFrenchFlag = ctx.createLinearGradient(0, 0, 600, 400);`
+    + red color beyond the bottom right corner
+  + [same gradient in each cell](#draw-shapes-that-share-the-same-gradient-as-a-whole)
+    + creates a gradient and set the fillStyle context property: `function setGradient(x, y, width, height) {...}`
+      + create linear gradient w/ given width and height: `grdFrenchFlag = ctx.createLinearGradient(x, y, width, height);`
+      + set pattern: `grdFrenchFlag.addColorStop(0, "blue"); grdFrenchFlag.addColorStop(0.5, "white"); grdFrenchFlag.addColorStop(1, "red");`
+      + set the new gradient to the current `fillStyle`: `ctx.fillStyle = grdFrenchFlag;`
+    + draw  check board w/ n rows and columns: `function drawCheckboard(n) {`...}`
+      + calculate the width and height for each cell: `var cellWidth = l / n; var cellHeight = h / n;`
+      + two for loops w/ alternate patterned cells: ` for(i = 0; i < n; i+=2) {  for(j = 0; j < n; j++) { var x = cellWidth*(i+j%2); var y = cellHeight*j; setGradient(x, y, x+cellWidth, y+cellHeight); ctx.fillRect(x, y, cellWidth, cellHeight); }}`
 
 
 
@@ -279,7 +324,9 @@ Like in the first example we will draw a filled rectangle that is the same size 
 
 We notice that "before" the gradient starts, the first color of the gradient is repeated without any interpolation (columns 0-100 are all blue), then we "see through" and the gradient is drawn (columns 100-200), then the last color of the gradient is repeated without any interpolation (columns 200-300 are red).
 
-What happens if xe define a gradient bigger than the canvas?
+
+#### What happens if we define a gradient bigger than the canvas?
+
 Nothing special; we will "see through the drawn shapes", and the parts of the gradient that are located in the canvas area will be shown. You can try this example that defines a gradient twice the size of the canvas: 
 
 <div class="source-code"><ol class="linenums">
@@ -300,7 +347,9 @@ And if we draw the same rectangle with the canvas size, here is the result:
 
 The red color is beyond the bottom right corner.... we see only the top left quarter of the gradient.
 
-Draw shapes that share the same gradient as a whole
+
+#### Draw shapes that share the same gradient as a whole
+
 This time, we would like to draw the chessboard with the gradient in each cell. How can we do this with one single gradient?
 
 We can't! At least we can't without recreating it for each cell!
@@ -401,7 +450,11 @@ grdFrenchFlag.addColorStop(1, "red");
   a. A gradient that goes from (0, 0) to (300, 0), defining an invisible line. Colors will be interpolated horizontally along this line. Shapes drawn in the canvas between X=0 and X=300 will be drawn using interpolated colors defined by this gradient.<br/>
   b. Same as above but colors will be interpolated diagonally.<br/>
   
-  Ans: 
+  Ans: a<br/>
+  Explanation: This line defines the direction of the gradient: a virtual, invisible line that goes from the top left corner of the canvas (0, 0) to the top right corner of the canvas (300, 0). The interpolated colors will propagate along this line. Shapes drawn in the canvas between X=0 and X=300 will be drawn using interpolated colors defined by this gradient. Shapes further than X=300 will be all red.
+
+
+
 
 
 
