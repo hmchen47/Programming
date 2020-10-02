@@ -1308,8 +1308,26 @@ In the example, try different values for the `miterLimit` property. You'll see t
   Explanation: Indeed, the value of the `lineCap` property defines the shape of the line ends.
 
 
-  
 
+### 3.5.8 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects:
+
+
+#### Suggested topics
+
++ The course did not cover all of them, but there are multiple libraries built on top of the canvas for visualizing data, for writing games, etc. If you have experience with some, please post reviews and share experiences in this discussion forum.
++ Next week we will see how to do animations and how to manage user interactions (mouse, keyboard). What are your expectations?
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will all be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
++ __Project 1 (easy)__: Take any of the previous suggested projects, and improve them with shadows, gradients, patterns, etc.
++ __Project 2 (a bit harder)__: Try to use the multiple image loader showed in the course, in one of your projects.
 
 
 
