@@ -58,7 +58,39 @@
       + set the new gradient to the current `fillStyle`: `ctx.fillStyle = grdFrenchFlag;`
     + draw  check board w/ n rows and columns: `function drawCheckboard(n) {`...}`
       + calculate the width and height for each cell: `var cellWidth = l / n; var cellHeight = h / n;`
-      + two for loops w/ alternate patterned cells: ` for(i = 0; i < n; i+=2) {  for(j = 0; j < n; j++) { var x = cellWidth*(i+j%2); var y = cellHeight*j; setGradient(x, y, x+cellWidth, y+cellHeight); ctx.fillRect(x, y, cellWidth, cellHeight); }}`
+      + two for loops w/ alternate patterned cells: 
+
+        ```js
+        for(i = 0; i < n; i+=2) {
+          for(j = 0; j < n; j++) {
+            var x = cellWidth*(i+j%2);
+            var y = cellHeight*j;
+            setGradient(x, y, x+cellWidth, y+cellHeight);
+            ctx.fillRect(x, y, cellWidth, cellHeight);
+          }
+        }
+        ```
+
++ [Radial gradients](#353-canvas-context-radial-gradients)
+  + creating gradients that propagate/interpolate colors along circles instead of propagating/interpolating along a virtual line, like linear gradients
+  + an invisible shape on the screen
+  + the radial gradient made of two circles: an inner and an outer circle
+  + colors interpolated btw two circles
+  + `createRadialGradient(cx1, cy1, radius1, cx2, cy2, radius2)` method:
+    + `(cx1, cy1)` w/ `radius1`: the "starting" circle of the gradient
+    + `(cx2, cy2)` w/ `radius2`: the "ending" circle of the gradient
+  + the "first color" defined for the inner circle, the "last color" corresponding to the outer circle
+    + the first color: color inside the first circle
+    + the last color: color outside the outer circle
+    + interpolated colors btw these two circles
+  + example
+    + defind the inner and outter circles: `var grd = context.createRadialGradient(150, 100, 30, 150, 100, 100);`
+    + add color circles: `grd.addColorStop(0, "red");`, `grd.addColorStop(0.17, "orange");`, ..., `grd.addColorStop(1, "violet");`
+    + fill all radial gradients: `context.fillStyle = grd`
+  + [off center radial gradients](#what-happens-if-the-circles-are-not-located-at-the-same-place): `grd = ctx.createRadialGradient(150, 100, 30, 210, 100, 100);`
+
+
+
 
 
 
