@@ -89,7 +89,19 @@
     + fill all radial gradients: `context.fillStyle = grd`
   + [off center radial gradients](#what-happens-if-the-circles-are-not-located-at-the-same-place): `grd = ctx.createRadialGradient(150, 100, 30, 210, 100, 100);`
 
-
++ [Patterns / Textures](#354-canvas-context-patternstextures)
+  + principle of "pattern" drawing: based on repeating an image for filling the surface of objects to be drawn (either filled or stroked)
+  + SYNTAX: `context.createPattern(image,"repeat|repeat-x|repeat-y|no-repeat");`
+  + procedure of creating pattern
+    + creating a Javascript image object; e.g., `var imageObj = new Image();`
+    + define a callback function called once the fully loaded image in memory; e.g., `imageObj.onload = function(){...}`
+    + set the source image tot he URL of the pattern; e.g., `imageObj.src = "https://www.myserver.com/myRepeatablePattern.png";`
+    + an HTTP request sent in background by the browser and loading the image into memory, then call the callback function
+      + callback called asynchronously, after the `src` attribute of `imageObj` is set: `imageObj.onload = function(){...}`
+      + enter `imageObj.onload` after image loaded to create a pattern object: `pattern1 = ctx.createPattern(imageObj, "repeat");`
+      + good practice: set the pattern as a global variable, easier to share
+    + draw pattern within the callback function
+      + draw a textured rectangle: `ctx.fillStyle = pattern1; ctx.fillRect(10, 10, 500, 800);`
 
 
 
@@ -574,24 +586,24 @@ To illustrate this principle, in the next examples, we are going to draw rectang
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/yymdr2v8')"
-    src    ="image"
-    alt    ="text"
-    title  ="text"
+    src    ="https://tinyurl.com/y37v3nkh"
+    alt    ="an example of repeateable pattern"
+    title  ="an example of repeateable pattern"
   />
 </figure>
-an example of repeateable pattern
+
 
 There are a few steps we have to take before doing this:
 
 1. __Create a JavaScript image object__
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln">&nbsp;imageObj&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;new Image();</span></li>
   </ol></div>
 
 2. __Define a callback function that will be called once the image has been fully loaded__ in memory; we cannot draw before the image has been loaded.
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">...</span></li>
   <li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
@@ -599,13 +611,13 @@ There are a few steps we have to take before doing this:
 
 3. __Set the source of this image to the URL of the pattern__ (in our example with [url of the pattern](https://tinyurl.com/y6snxuju)),
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://www.myserver.com/myRepeatablePattern.png"</span><span class="pun">;</span><span class="pln"> </span></li>
   </ol></div>
 
 4. As soon as step 3 is executed, an HTTP request is sent in background by the browser, and when the image is loaded in memory, the callback defined at step 2 is called. We create a pattern object inside, from the loaded image:
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// callback called asynchronously, after the src attribute of imageObj is set</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="pln"> imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){&nbsp;</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // We enter here when the image is loaded, we create a pattern object.</span></li>
@@ -616,7 +628,7 @@ There are a few steps we have to take before doing this:
 
 5. __Inside the callback function (or inside a function called from inside the callback) we can draw.__
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// callback called asynchronously, after the src attribute of imageObj is set</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="pln"> imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
   <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; pattern1 </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"repeat"</span><span class="pun">);</span></li>
@@ -648,7 +660,7 @@ Here we have two rectangles drawn using a pattern (an image that can be repeated
 
 HTML source code:
 
-<div class="source-code"><ol class="linenums">
+<div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
@@ -660,7 +672,7 @@ HTML source code:
 
 JavaScript source code:
 
-<div class="source-code"><ol class="linenums">
+<div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> pattern1</span><span class="pun">;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -707,7 +719,7 @@ JavaScript source code:
 <li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; // When the browser gets an answer, the callback above will be called</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://www.dreamstime.com/colourful-flowers-repeatable-pattern-thumb18692760.jpg"</span><span class="pun">;</span><span class="pln"> </span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-</ol></div>
+</ol></div><br/>
 
 
 __Example 2: the repeatability of a pattern__
@@ -739,11 +751,14 @@ Please try: `repeat-x`, `repeat-y` or `no-repeat` as acceptable values. Just cha
 
 1. Patterns are images that can be used to "fill" shapes, eventually repeating themselves?<br/>
 
-  a. Yes, but only with filled shapes; patterns cannot be used with the strokeStyle property of the context.<br/>
+  a. Yes, but only with filled shapes; patterns cannot be used with the `strokeStyle` property of the context.<br/>
   b. Yes<br/>
   c. No<br/>
 
-  Ans: 
+  Ans: B<BR/>
+  eXPLANATION: Patterns can be used with all kinds of shapes, and with both `strokeStyle` and `fillStyle`
+
+
   
 
 
