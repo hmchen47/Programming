@@ -1146,7 +1146,150 @@ And here is the final result:
 
 
 
+### 3.5.7 Styling lines
 
+Several context properties can be used to set the thickness of the shape outlines, the way line end caps are drawn, etc.
+
+They apply to all shapes that are drawn in path mode (lines, curves, arcs) and some also apply to rectangles.
+
+
+#### Line style: change the line thickness
+
+We have seen this before. This is done by changing the value (in pixels) of the lineWidth property of the context:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pln">ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></strong><span class="pln"> </span><span class="com">// set the thickness of every shape drawn in stroke/wireframe mode to 10 pixels</span></li>
+</ol></div>
+
+Here is a complete example where we draw with a lineWidth of 20 pixels. You can play with the [complete interactive example here](https://jsbin.com/bixugayaba/edit?html,output): ([Local Example - Thickness](src/3.5.7-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/yyo8vyv8')"
+    src    ="https://tinyurl.com/y6n2l3op"
+    alt    ="line width changed"
+    title  ="line width changed"
+  />
+</figure>
+
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span>&lt;title&gt;</span><span class="pln">A simple example of lineWidth property use</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp; </span></span><span class="tag">&lt;/head&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp; </span></span><span class="tag">&lt;body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"500"</span><span class="tag">&gt;</span><span class="pln">Your browser does not support the canvas tag.</span><span class="tag">&lt;/canvas&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span><span class="tag">&lt;script&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span></span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span></span><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// first path</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// second part of the path</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln"><span class="pln">&nbsp; </span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;</span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// indicate stroke color + draw first part of the path</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"#0000FF"</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Current line thickness is 20 pixels </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draws a rectangle</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">230</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span></span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp;<span class="pln">&nbsp; </span></span></span><span class="tag">&lt;/body&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+#### Line style: changing the end caps for a line
+
+The `lineCap` property of the context indicates the way line end caps are rendered. Possible values are `butt` (default), `round`, `square` (from top to bottom in the next illustration). Note that a value of "round" or "square" makes the lines slightly longer than the default value "butt".
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 5vw;"
+    onclick="window.open('https://tinyurl.com/yyo8vyv8')"
+    src    ="https://tinyurl.com/y4v4jaco"
+    alt    ="line cap values"
+    title  ="line cap values"
+  />
+</figure>
+
+
+Try the [next example interactively](https://jsbin.com/reqavetipu/1/edit?html,output): ([Local Example - Line End Cap](src/5.3.7-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/yyo8vyv8')"
+    src    ="https://tinyurl.com/y4sytr78"
+    alt    ="line cap values table"
+    title  ="line cap values table"
+  />
+</figure>
+
+
+Note that in this example, the rectangle is not affected. It has no line ends visible - all its sides meet. However, the next property we're going to look at will have an effect on rectangles!
+
+
+#### Line style: setting the type of corner when two lines meet
+
+The `lineJoin` property of the context indicates the way corners are rendered, when two lines meet. Possible values are miter (the default) for creating sharp corners, `round`, or `bevel` for "cut corners".
+
+Try the [next example interactively](https://jsbin.com/yivaraposi/1/edit?html,output): ([Local Example - Corner Type](src/5.3.7-example3.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/yyo8vyv8')"
+    src    ="https://tinyurl.com/y4mganaj"
+    alt    ="lineJoin value table"
+    title  ="lineJoin value table"
+  />
+</figure>
+
+
+#### Line style: specific case of lineJoin="miter", the `miterLimit` property, a way to avoid looooooong corners!
+
+The `miterLimit` property value corresponds to the maximum miter length: the distance between the inner corner and the outer corner where two lines meet. When the angle of a corner between two lines gets smaller, the miter length grows and can become too long.
+
+In order to avoid this situation, we can set the miterLimit property of the context to a threshold value. If the miter length exceeds the miterLimit value, then the corner will be rendered as if the lineJoin property had been set to "bevel" and the corner will be "cut".
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/yyo8vyv8')"
+    src    ="https://tinyurl.com/y4vh9opq"
+    alt    ="miterLimit property shown with 3 different angles, we see that the part tha goes out of the angle can become very long"
+    title  ="miterLimit property shown with 3 different angles, we see that the part tha goes out of the angle can become very long"
+  />
+</figure>
+
+
+You can try an interactive example [here](https://jsbin.com/nadaloqebu/edit?html,output).
+
+In the example, try different values for the `miterLimit` property. You'll see that the way the corners are rendered changes at values around 2 and 3.
+
+
+#### Knowledge check 3.5.7
+
+1. Which context property defines the shape of line extremities?<br/>
+
+  a. lineWidth<br/>
+  b. lineCap<br/>
+  c. lineJoin<br/>
+
+  Ans: 
 
 
 
