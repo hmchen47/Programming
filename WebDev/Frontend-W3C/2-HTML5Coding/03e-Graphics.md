@@ -103,6 +103,39 @@
     + draw pattern within the callback function
       + draw a textured rectangle: `ctx.fillStyle = pattern1; ctx.fillRect(10, 10, 500, 800);`
 
++ [Multi-image Pattern](#355-a-multiple-image-loader)
+  + load all image before drawing
+  + only when all images have been loaded, start drawing.
+  + solution: use a multiple image loader that counts the loaded images and calls a function you pass when done
+  + an array of URLs that used by multiple image loader
+  + onload callback called once per image loaded to count the number of images effectively loaded
+  + list of images to load: `var imagesToLoad = { flowers: 'https://i.ibb.co/4NN9Sgn/flowers.jpg', lion: 'https://i.ibb.co/3NyqKnY/lion.jpg', ...}`
+  + image loader function: `function loadImages(imagesToBeLoaded, drawCallback) {...}`
+    + parameters: the list of images to be loaded & drawCallback function called only once all images loaded
+    + counting the number of images to load: ` for(var name in imagesToBeLoaded) { numberOfImagesToLoad++; }`
+    + iterate to load all images: `for(var name in imagesToBeLoaded) {...}`
+    + onload callback function within iteration and draw pattern only all images loaded
+
+      ```js
+      imagesLoaded[name].onload = function() {
+          if(++loadedImages >= numberOfImagesToLoad) {
+              drawCallback(imagesLoaded);
+          } // if
+      }; // function
+      ```
+
+  + use of image loader: `loadImages(imagesToLoad, function(imagesLoaded) {...}`
+    + create patterns from the loaded image: `patternFlowers = ctx.createPattern(imagesLoaded.flowers, 'repeat'); patternLion    = ctx.createPattern(imagesLoaded.lion, 'repeat'); patternBW = ctx.createPattern(imagesLoaded.blackAndWhiteLys, 'repeat'); patternFloor   = ctx.createPattern(imagesLoaded.tiledFloor, 'repeat');`
+    + call a function to draw the rectangle: `drawRectanglesWithPatterns();`
+  + function to draw rectangle w/ patterns: `function drawRectanglesWithPatterns() {...}`
+    + draw each pattern w/ given rectangle area
+    + floor pattern on top left corner: `ctx.fillStyle=patternFloor; ctx.fillRect(0,0,200,200);`
+    + Lion pattern on top right corner: `ctx.fillStyle=patternLion; ctx.fillRect(200,0,200,200);`
+    + flower pattern on bottom left corner: `ctx.fillStyle=patternFlowers; ctx.fillRect(0,200,200,200);`
+    + black-white pattern on the bottom right corner: `ctx.fillStyle=patternBW; ctx.fillRect(200,200,200,200);`
+  
+
+
 
 
 
@@ -584,7 +617,7 @@ The principle of "pattern" drawing is based on repeating an image (if the image 
 To illustrate this principle, in the next examples, we are going to draw rectangles using this pattern: 
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yymdr2v8')"
     src    ="https://tinyurl.com/y37v3nkh"
     alt    ="an example of repeateable pattern"
@@ -649,7 +682,7 @@ __Example #1: draw two rectangles with a pattern (one filled, one stroked)__
 Here we have two rectangles drawn using a pattern (an image that can be repeated along the X and Y axis). The first is a filled rectangle while the second is "stroked" with a lineWidth of 10 pixels.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yymdr2v8')"
     src    ="https://tinyurl.com/y37v3nkh"
     alt    ="example of painting with patterns"
@@ -729,7 +762,7 @@ To "better" see the repeatability of the pattern, here is the same example with 
 Online version [here](https://jsbin.com/hexomamiyi/1/edit?html,output) and here is the result: ([Local Example - Repeated Pattern](src/3.5.4-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/yymdr2v8')"
     src    ="https://tinyurl.com/y49sxv9n"
     alt    ="same example with bigger canvas and bigger rectangles"
@@ -768,7 +801,7 @@ Below are 4 rectangles drawn with 4 different patterns.
 
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y6yxw84l')"
     src    ="https://tinyurl.com/y3c8cz7c"
     alt    ="4 rectangles drawn with different patterns"
