@@ -454,7 +454,81 @@ grdFrenchFlag.addColorStop(1, "red");
   Explanation: This line defines the direction of the gradient: a virtual, invisible line that goes from the top left corner of the canvas (0, 0) to the top right corner of the canvas (300, 0). The interpolated colors will propagate along this line. Shapes drawn in the canvas between X=0 and X=300 will be drawn using interpolated colors defined by this gradient. Shapes further than X=300 will be all red.
 
 
+### 3.5.3 Canvas context: radial gradients
 
+#### Basic principle / syntax: define two circles at gradient creation
+
+Radial gradients are for creating gradients that propagate/interpolate colors along circles instead of propagating/interpolating along a virtual line, like linear gradients.
+
+Here is an example of a radial gradient that interpolates the color of the rainbow (see the [online version](https://jsbin.com/hovulegacu/1/edit?html,output)): ([Local Example - Gradient Circle](src/3.5.3-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y4bf7lzs')"
+    src    ="https://tinyurl.com/yxo2oayb"
+    alt    ="radial gradient example: circles with the rainbow colors"
+    title  ="radial gradient example: circles with the rainbow colors"
+  />
+</figure>
+
+The gradient is defined as follows:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> grd </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><strong><span class="pln">createRadialGradient</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"red"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.17</span><span class="pun">,</span><span class="pln"> </span><span class="str">"orange"</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.33</span><span class="pun">,</span><span class="pln"> </span><span class="str">"yellow"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="str">"green"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.666</span><span class="pun">,</span><span class="pln"> </span><span class="str">"blue"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> grd</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"violet"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> grd</span><span class="pun">;</span></li>
+</ol></div>
+
+The method from the context object `createRadialGradient(cx1, cy1, radius1, cx2, cy2, radius2)` takes as the first three parameters the "starting" circle of the gradient, and as the three last parameters, the "ending circle".
+
+In the above example, the gradients starts at a circle located at (150, 100), with a radius of 30, and propagates to a circle with the same center as the first (150, 100), but with a bigger radius of 100, as shown below:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y4bf7lzs')"
+    src    ="https://tinyurl.com/y5a24a63"
+    alt    ="radial gradient"
+    title  ="radial gradient"
+  />
+</figure>
+
+
+We added color stops using a method similar to that used for linear gradients.
+
+
+#### What happens if the circles are not located at the same place?
+
+You get some nice effects; here we set the second circle's center 60 pixels to the right of the first circle's center (cx = 210 instead of 150). [Online example](https://jsbin.com/masofafoti/edit?html,output): ([Local Example - Circles w/ different centers](src/3.5.3-example2.html))
+
+grd = ctx.createRadialGradient(150, 100, 30, 210, 100, 100);
+
+And here is the result:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y4bf7lzs')"
+    src    ="https://tinyurl.com/y427ngpr"
+    alt    ="radial gradient with circles non aligned"
+    title  ="radial gradient with circles non aligned"
+  />
+</figure>
+
+
+#### What happens if the gradient is smaller or larger than the shapes we draw?
+
+A gradient is an invisible shape on the screen: the radial gradient is made of two circles: an inner and an outer circle. Between these two circles, colors are interpolated.
+
+We call the "first color" the color defined for the inner circle, the "last color" the last color of the gradient, that corresponds to the outer circle:
+
++ The color inside the first circle will be the first color. In our example above, the first color is red: and the small circle of the gradient in our example is filled in red!
++ The color outside the outer circle will be the last color of the gradient - which is not interpolated. The last color in our example is purple, and it fills the rest of the filled rectangle area "after" the external circle of the gradient.
++ The colors between the two circles will be interpolated.
 
 
 
