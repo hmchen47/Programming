@@ -563,6 +563,192 @@ We call the "first color" the color defined for the inner circle, the "last colo
 + The colors between the two circles will be interpolated.
 
 
+### 3.5.4 Canvas context: patterns/textures
+
+#### Principle
+
+The principle of "pattern" drawing is based on repeating an image (if the image is smaller than the surface of the shape you are going to draw) for filling the surface of objects to be drawn (either filled or stroked).
+
+To illustrate this principle, in the next examples, we are going to draw rectangles using this pattern: 
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yymdr2v8')"
+    src    ="image"
+    alt    ="text"
+    title  ="text"
+  />
+</figure>
+an example of repeateable pattern
+
+There are a few steps we have to take before doing this:
+
+1. __Create a JavaScript image object__
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln">&nbsp;imageObj&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;new Image();</span></li>
+  </ol></div>
+
+2. __Define a callback function that will be called once the image has been fully loaded__ in memory; we cannot draw before the image has been loaded.
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">...</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+  </ol></div>
+
+3. __Set the source of this image to the URL of the pattern__ (in our example with [url of the pattern](https://tinyurl.com/y6snxuju)),
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://www.myserver.com/myRepeatablePattern.png"</span><span class="pun">;</span><span class="pln"> </span></li>
+  </ol></div>
+
+4. As soon as step 3 is executed, an HTTP request is sent in background by the browser, and when the image is loaded in memory, the callback defined at step 2 is called. We create a pattern object inside, from the loaded image:
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// callback called asynchronously, after the src attribute of imageObj is set</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){&nbsp;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // We enter here when the image is loaded, we create a pattern object.</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // It is good practice to set this as a global variable, easier to share</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>pattern1 </strong></span><strong><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"repeat"</span><span class="pun">);</span></strong></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+  </ol></div>
+
+5. __Inside the callback function (or inside a function called from inside the callback) we can draw.__
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// callback called asynchronously, after the src attribute of imageObj is set</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; pattern1 </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"repeat"</span><span class="pun">);</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+  <li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Draw a textured rectangle</span></strong></li>
+  <li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> pattern1</span><span class="pun">;</span></strong></li>
+  <li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">800</span><span class="pun">);</span></strong></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+  </ol></div>
+
+
+#### Examples
+
+__Example #1: draw two rectangles with a pattern (one filled, one stroked)__
+
+[Online example](https://jsbin.com/qicamatoqa/1/edit?html,output): ([Local Example - Filled & Stroked Patterns](src/3.5.4-example1.html))
+
+Here we have two rectangles drawn using a pattern (an image that can be repeated along the X and Y axis). The first is a filled rectangle while the second is "stroked" with a lineWidth of 10 pixels.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/yymdr2v8')"
+    src    ="https://tinyurl.com/y37v3nkh"
+    alt    ="example of painting with patterns"
+    title  ="example of painting with patterns"
+  />
+</figure>
+
+
+HTML source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"500"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the canvas tag. </span><span class="tag">&lt;/canvas&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> pattern1</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myCanvas'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// We need 1) to create an empty image object, 2) to set a callback function</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// that will be called when the image is fully loaded, 3) to create a </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// pattern object, 4) to set the fillStyle or the strokeStyle property of </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// the context with this pattern, 5) to draw something</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// WE CANNOT DRAW UNTIL THE IMAGE IS FULLY LOADED -&gt; draw from inside the</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// onload callback only !</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Allocate an image</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> imageObj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com"><span style="color: #000000;" color="#000000">&nbsp; &nbsp;</span>// 2 - callback called asynchronously, after the src attribute of imageObj </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// is set</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// We enter here only when the image has been loaded by the browser</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// 4 - Pattern creation using the image object</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// Instead of "repeat", try different values : repeat-x, repeat-y, </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// or no-repeat, You may draw larger shapes in order to see </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// different results</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// It is good practice to leave this as a global variable if it</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// will be reused by other functions</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com"></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; pattern1 </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"repeat"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// 5 - Draw things. Here a textured rectangle</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> pattern1</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span>// ... And a wireframe one</li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">20</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle</span><span class="pun">=</span><span class="pln">pattern1</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">230</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; };</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // 3 - Send the request to load the image</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // Setting the src attribute&nbsp;will tell the browser to send an asynchronous </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // request.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; // When the browser gets an answer, the callback above will be called</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://www.dreamstime.com/colourful-flowers-repeatable-pattern-thumb18692760.jpg"</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+__Example 2: the repeatability of a pattern__
+
+To "better" see the repeatability of the pattern, here is the same example with a 1000x1000 pixel wide canvas.
+
+Online version [here](https://jsbin.com/hexomamiyi/1/edit?html,output) and here is the result: ([Local Example - Repeated Pattern](src/3.5.4-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yymdr2v8')"
+    src    ="https://tinyurl.com/y49sxv9n"
+    alt    ="same example with bigger canvas and bigger rectangles"
+    title  ="same example with bigger canvas and bigger rectangles"
+  />
+</figure>
+
+
+You can change the way the pattern is repeated by modifying the second parameter of this method:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">pattern1 </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createPattern</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="str">"<strong>repeat</strong>"</span><span class="pun">);</span></li>
+</ol></div>
+
+Please try: `repeat-x`, `repeat-y` or `no-repeat` as acceptable values. Just change this line in the online example and you will see live results.
+
+
+#### Knowledge check 3.5.4
+
+1. Patterns are images that can be used to "fill" shapes, eventually repeating themselves?<br/>
+
+  a. Yes, but only with filled shapes; patterns cannot be used with the strokeStyle property of the context.<br/>
+  b. Yes<br/>
+  c. No<br/>
+
+  Ans: 
+  
+
+
+
+
 
 
 
