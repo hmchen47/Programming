@@ -164,6 +164,21 @@
       + restore the context (to its previous state: without shadows)
       + draw the outlined circle by calling `ctx.stroke()`
 
++ [Styling lines](#357-styling-lines)
+  + [line thickness](#line-style-change-the-line-thickness)
+    + changing the value (in pixels) of the `lineWidth` property of the context
+    + set the thickness of every shape drawn in stroke/wireframe mode to `x` pixels: `ctx.lineWidth = x;`
+  + [line end cap style](#line-style-changing-the-end-caps-for-a-line)
+    + `lineCap` property: the way line end caps rendered
+    + Possible values: `butt` (default), `round`, `square`
+  + [line corner type](#line-style-setting-the-type-of-corner-when-two-lines-meet)
+    + `lineJoin` property: the way corners rendered, when two lines meet
+    + Possible values: `miter` (the default) for creating sharp corners, `round`, or `bevel` for "cut corners"
+    + `miterLimit` property:
+      + the maximum `miter` length, a threshold value
+      + the distance between the inner corner and the outer corner where two lines meet
+      + the angle of a corner between two lines gets smaller, the miter length grows and become too long
+      + exceed the miterLimit value $\to$ the corner rendered as if `lineJoin = "bevel"` and the corner "cut"
 
 
 
@@ -1229,10 +1244,10 @@ The `lineCap` property of the context indicates the way line end caps are render
 </figure>
 
 
-Try the [next example interactively](https://jsbin.com/reqavetipu/1/edit?html,output): ([Local Example - Line End Cap](src/5.3.7-example2.html))
+Try the [next example interactively](https://jsbin.com/reqavetipu/1/edit?html,output): ([Local Example - Line End Cap](src/3.5.7-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/yyo8vyv8')"
     src    ="https://tinyurl.com/y4sytr78"
     alt    ="line cap values table"
@@ -1248,10 +1263,10 @@ Note that in this example, the rectangle is not affected. It has no line ends vi
 
 The `lineJoin` property of the context indicates the way corners are rendered, when two lines meet. Possible values are miter (the default) for creating sharp corners, `round`, or `bevel` for "cut corners".
 
-Try the [next example interactively](https://jsbin.com/yivaraposi/1/edit?html,output): ([Local Example - Corner Type](src/5.3.7-example3.html))
+Try the [next example interactively](https://jsbin.com/yivaraposi/1/edit?html,output): ([Local Example - Corner Type](src/3.5.7-example3.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/yyo8vyv8')"
     src    ="https://tinyurl.com/y4mganaj"
     alt    ="lineJoin value table"
@@ -1276,7 +1291,7 @@ In order to avoid this situation, we can set the miterLimit property of the cont
 </figure>
 
 
-You can try an interactive example [here](https://jsbin.com/nadaloqebu/edit?html,output).
+You can try an interactive example [here](https://jsbin.com/nadaloqebu/edit?html,output). ([Local Example - Limited Length](src/3.5.7-example4.html))
 
 In the example, try different values for the `miterLimit` property. You'll see that the way the corners are rendered changes at values around 2 and 3.
 
@@ -1289,7 +1304,11 @@ In the example, try different values for the `miterLimit` property. You'll see t
   b. lineCap<br/>
   c. lineJoin<br/>
 
-  Ans: 
+  Ans: <span style="color: magenta;">b</span>, xc<br/>
+  Explanation: Indeed, the value of the `lineCap` property defines the shape of the line ends.
+
+
+  
 
 
 
