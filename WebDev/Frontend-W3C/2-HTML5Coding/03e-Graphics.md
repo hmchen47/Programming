@@ -134,7 +134,35 @@
     + flower pattern on bottom left corner: `ctx.fillStyle=patternFlowers; ctx.fillRect(0,200,200,200);`
     + black-white pattern on the bottom right corner: `ctx.fillStyle=patternBW; ctx.fillRect(200,200,200,200);`
   
-
++ [Drawing shadows](#356-drawing-shadows)
+  + properties to draw shapes with shadows:
+    + `shadowColor`: color to use for shadows
+    + `shadowBlur`: blur level for shadows
+    + `shadowOffsetX`: horizontal distance of the shadow from the shape
+    + `shadowOffsetY`: vertical distance of the shadow from the shape
+  + example: simple shadow
+    + a function that will set the 4 context properties for shadows: `function setShadow() {...}`
+      + all drawings casting this shadows
+      + define the 4 properties for better clarity: `ctx.shadowColor = "Grey"; ctx.shadowBlur = 20; x.shadowOffsetX = 15; ctx.shadowOffsetY = 15;`
+    + green filled rectangle w/ shadow: `ctx.fillStyle = "#22FFDD"; ctx.fillRect(20, 20, 200, 100);`
+    + stroked rectangle w/ shadow: `ctx.strokeStyle = "purple";  ctx.lineWidth=10; ctx.strokeRect(20, 150, 200, 100);`
+  + example: unwanted shadow
+    + add the path a full circle: `ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);`
+    + w/ path drawing to change the context properties until a call to `stroke()` or `fill()` performed: `ctx.fillStyle = "lightBlue";
+    + add shadows before drawing the filled circle: `addShadows() {...}`
+      + set color: `ctx.shadowColor = "Grey"; // color`
+      + set shadow blur level: `ctx.shadowBlur = 20;      // blur level`
+      + set shadow horizontal level: `ctx.shadowOffsetX = 15;   // horizontal offset`
+      + set shadow vertical offset: `ctx.shadowOffsetY = 15;   // vertical offset`
+    + draw the filled circle in light blue: `ctx.fill();`
+    + set outline properties: `ctx.lineWidth = 5; ctx.strokeStyle = "black";`
+    + draw wireframe along the path: `ctx.stroke()`
+    + `ctx.fill()` and `ctx.stroke()` casts a shadow along the whole path $\to$ unwanted shadow inside the circle
+    + solution to remove unwanted shadow
+      + save the context before setting the shadow properties
+      + draw the filled circle
+      + restore the context (to its previous state: without shadows)
+      + draw the outlined circle by calling `ctx.stroke()`
 
 
 
@@ -1113,7 +1141,11 @@ And here is the final result:
 
 1. Shadows are set using the `strokeStyle` or `fillStyle` property of the context? (Yes/No)
 
-  Ans: 
+  Ans: <span style="color: magenta;">No</span>, xYes<br/>
+  Explanation" No, shadows have four properties just for them: `shadowColor`, `shadowBlur`, `shadowOffsetX` and `shadowOffsetY`.
+
+
+
 
 
 
