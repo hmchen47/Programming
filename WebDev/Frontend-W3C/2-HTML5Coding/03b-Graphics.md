@@ -194,7 +194,7 @@ So yes, during this course, in particular during Week 3 and 4, you will have to 
 
 Here we provide a basic introduction to JavaScript. If you want to learn more, many resources are available on the Web; this document is simply here to give you a head start. Remember that one great thing about these MOOCs courses is that everybody can help each other. Some students are very good in JavaScript and are usually very happy to help others when they encounter difficulties.
 
-<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>You will learn a lot by looking at examples, tweaking them, cloning and modifying them, etc.</strong> Many previous&nbsp;students who were real JavaScript beginners managed to do <span style="text-decoration: underline;">all</span> the assignments (drawing and animating a monster with keyboard/mouse interaction)! And they did this&nbsp;by just studying the provided examples.</p>
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>You will learn a lot by looking at examples, tweaking them, cloning and modifying them, etc.</strong> Many previous&nbsp;students who were real JavaScript beginners managed to do <span style="text-decoration: underline;">all the assignments (drawing and animating a monster with keyboard/mouse interaction)! And they did this&nbsp;by just studying the provided examples.</p>
 
 
 #### External resources
@@ -213,10 +213,10 @@ For that you will use __the dev. tools of your browser__. Press _F12_ in Windows
 
 Let's look at [this example on JS Bin](https://jsbin.com/visariz/1/edit?html,output): ([Local Example - JS](src/3.2.1-example1.html))
 
-<div class="rj_insertcode_html4strict" style="overflow: auto; width: 546.174987792969px; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
-<table class="html4strict" style="max-width: 100%; border-spacing: 0px; width: 545.599975585938px; background-color: transparent;">
+<div style="overflow: auto; width: 546.174987792969px; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<table style="max-width: 100%; border-spacing: 0px; width: 545.599975585938px; background-color: transparent;">
 <tbody>
-<tr class="li1">
+<tr>
 <td style="width: 1px; vertical-align: top; color: #676f73; border-right-style: dotted; border-right-color: #dddddd; font-size: 12px; text-align: right; background: #f0f0f0;">
 <pre style="padding: 0px 4px; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12px; color: #333333; border-radius: 4px; margin-top: 0px; margin-bottom: 0px; line-height: 20px; word-break: normal; border: 1px solid rgba(0, 0, 0, 0.14902); vertical-align: top; background: none;">1
 2
@@ -234,7 +234,7 @@ Let's look at [this example on JS Bin](https://jsbin.com/visariz/1/edit?html,out
 </pre>
 </td>
 <td style="margin-top: 0px; margin-bottom: 0px; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal; background: none;">
-<pre style="padding: 0px 4px; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12px; color: #333333; border-radius: 4px; margin-top: 0px; margin-bottom: 0px; line-height: 20px; word-break: normal; border: 1px solid rgba(0, 0, 0, 0.14902); vertical-align: top; background: none;"><span style="color: #00bbdd;">&lt;!DOCTYPE html&gt;</span>
+<pre style="padding: 0px 4px; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12px; color: #333333; border-radius: 4px; margin-top: 0px; margin-bottom: 0px; line-height: 20px; word-break: normal; border: 1px solid rgba(0, 0, 0, 0.14902); vertical-align: top; background: none;"><span style="color: #00bbdd;">&lt;!DOCTYPE html&gt;
 <span style="color: #009900;">&lt;<a style="color: purple;" href="https://december.com/html/4/element/html.html"><span style="font-weight: bold;">html <span style="text-decoration: underline;"> </span>lang="en"</span></a>&gt;</span>
 &nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="https://december.com/html/4/element/head.html"><span style="font-weight: bold;">head</span></a>&gt;</span>
 &nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="https://december.com/html/4/element/meta.html"><span style="font-weight: bold;">meta</span></a> <span style="color: #000066;">charset</span><span style="color: #66cc66;">=</span>utf-<span style="color: #cc66cc;">8</span> <span style="color: #66cc66;">/</span>&gt;</span>
@@ -504,12 +504,12 @@ Here are the different steps, in a little more detail, of the example demonstrat
 
 __1 - Add the `<canvas>` element into an HTML page__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"300"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"225"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Fallback content that will be displayed in case the web browser </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; does not&nbsp;</span><span class="pln" style="line-height: 1.6; background-color: #ffffff;">support the </span><span class="tag" style="line-height: 1.6; background-color: #ffffff;">canvas</span><span class="pln" style="line-height: 1.6; background-color: #ffffff;"> </span><span class="atn" style="line-height: 1.6; background-color: #ffffff;">tag</span><span class="pln" style="line-height: 1.6; background-color: #ffffff;">&nbsp;or in case scripting </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="line-height: 1.6; background-color: #ffffff;">&nbsp; &nbsp; is disabled.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/canvas&gt;</span></li>
+<div><ol>
+<li value="1">&lt;canvas id="myCanvas" width="300" height="225"&gt;</li>
+<li><&nbsp; &nbsp; Fallback content that will be displayed in case the web browser </li>
+<li>&nbsp; &nbsp; does not&nbsp;<span style="line-height: 1.6; background-color: darkblue; color: cyan;">support the canvas tag&nbsp;or in case scripting </span></li>
+<li><span style="line-height: 1.6; background-color: darkblue; color: cyan;">&nbsp; &nbsp; is disabled.</span></li>
+<li>&lt;/canvas&gt;</li>
 </ol></div>
 
 Place code similar to the above somewhere in an HTML page. This example defines an area of 300 by 225 pixels on which content can be rendered with JavaScript.
@@ -522,12 +522,12 @@ The three lines of CSS will create a border around the canvas with `id="myCanvas
 
 CSS code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">#myCanvas {</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<div><ol>
+<li value="1">&lt;style&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;#myCanvas {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; border:1px solid black;</li>
+<li>&nbsp; &nbsp; }</li>
+<li> &lt;/style&gt;</li>
 </ol></div>
 
 
@@ -537,14 +537,14 @@ We can have more than one `<canvas>` in a single page, and canvases will be mani
 
 For example with:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">var canvas = document.getElementById("myCanvas");</li>
 </ol></div>
 
 ... or with the querySelector() method introduced by HTML5, that use the CSS selector syntax for selecting elements:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">var canvas = document.querySelector("#myCanvas");</li>
 </ol></div>
 
 
@@ -558,20 +558,20 @@ It provides methods for drawing, like `fillRect(x, y, width, height)` for exampl
 
 Getting the context (do this only once):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">var ctx=canvas.getContext('2d');</li>
 </ol></div>
 
 Set the color for drawing filled shapes:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
+<div><ol>
+<li value="1"> ctx.fillStyle='red';</li>
 </ol></div>
 
 Draw a filled rectangle:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">100</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">ctx.fillRect(0,0,80,100);</li>
 </ol></div>
 
 
@@ -593,41 +593,41 @@ Result:
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="com">#myCanvas {</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span></span>border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;title&gt;</span><span class="pln">Canvas</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// This function is called after the page is loaded</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// 1 - Get the canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// 2 - Get the context</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// 3 - we can draw</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>drawSomething</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// draw a red rectangle</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'#FF0000'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span>&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"200"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"200"</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>Your browser does not support the canvas tag.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;/canvas&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span>&lt;/body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp;&nbsp; &lt;head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;style&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; #myCanvas {</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; border: 1px solid black;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; }</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/style&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Canvas&lt;/title&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;script&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; var canvas, ctx; </li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; function init() {</li>
+<li> // This function is called after the page is loaded</li>
+<li> // 1 - Get the canvas</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; canvas = document.getElementById('myCanvas');</li>
+<li> // 2 - Get the context</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; ctx=canvas.getContext('2d');</li>
+<li> // 3 - we can draw</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; drawSomething();</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; }</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; function drawSomething() {</li>
+<li> // draw a red rectangle</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; ctx.fillStyle='#FF0000';</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; ctx.fillRect(0,0,80,100);</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; }</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/script&gt;</li>
+<li>&nbsp;&nbsp; &lt;/head&gt;</li>
+<li>&nbsp;&nbsp; &lt;body onload="init();"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp; &lt;canvas id="myCanvas" width="200" height="200"&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; Your browser does not support the canvas tag.</li>
+<li>&nbsp;&nbsp; &nbsp; &lt;/canvas&gt;</li>
+<li>&nbsp;&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -653,8 +653,8 @@ __After the context is set, we can draw, but first let's set the current color f
 
 The example shows the use of the `fillStyle` property at line 27 - useful for specifying the way shapes will be filled. In our case this line indicates the color of all the filled shapes we are going to draw:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'#FF0000'</span><span class="pun">;</span></li>
+<div><ol>
+<li value="1">ctx.fillStyle='#FF0000';</li>
 </ol></div>
 
 The context property named `fillStyle` is used here. This property can be set with a color, a gradient, or a pattern. We will see examples of these later on in the course.
@@ -666,8 +666,8 @@ The example says that all filled shapes will use the color "#FF0000", which corr
 
 __Then we can draw:__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">100</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"> ctx.fillRect(0,0,80,100);</li>
 </ol></div>
 
 This line is a call to the method `fillRect(top left X coordinate, top left Y coordinate, width, height)`, which draws a filled rectangle.
@@ -726,9 +726,9 @@ __fillRect(x, y, width, height):  a call to this method draws a filled rectangle
 
 The two first parameters are the coordinates of the top left corner of the rectangle. This method uses the current value of the `fillStyle` property to determine how to fill the rectangle.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'pink'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"> ctx.fillStyle='pink';</li>
+<li> ctx.fillRect(10,10,200,200);</li>
 </ol></div>
 
 Produces this result:
@@ -749,9 +749,9 @@ The possible values are the same as those for the fillStyle property: a color, a
 
 __strokeRect(x, y, width, height): like fillRect(...), but instead of drawing a filled rectangle the rectangle is drawn in wireframe mode__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeStyle</span><span class="pun">=</span><span class="str">'blue'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"> ctx.strokeStyle='blue';</li>
+<li> ctx.strokeRect(10,10,200,200);</li>
 </ol></div>
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -770,10 +770,10 @@ __clearRect(x, y, width, height): a call to this method erases the specified rec
 
 Actually it draws it in a color called "transparent black" (!) that corresponds to the initial state of the rectangle as if no drawing had occurred.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'pink'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"> ctx.fillStyle='pink';</li>
+<li> ctx.fillRect(10,10,200,200);</li>
+<li> ctx.clearRect(50, 50, 20, 20);</li>
 </ol></div>
 
 The result is:
@@ -806,13 +806,13 @@ __Example #1: draw a wireframe red rectangle, width lineWidth = 3 pixels__
 
 Extract from the source code (the part that draws the rectangle):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// draw a red rectangle, line width=3 pixels</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">3</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1"> function drawSomething() {</li>
+<li>&nbsp; &nbsp; &nbsp;// draw a red rectangle, line width=3 pixels</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.lineWidth=3;</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.strokeStyle='red';</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.strokeRect(10,10,80,100);</li>
+<li> }</li>
 </ol></div>
 
 Here, we used "stroke" instead of "fill" in the property and method names (lines 4 and 5): strokeStyle instead of fillStyle, strokeRect(...) instead of fillRect(...).
@@ -837,26 +837,26 @@ Let's continue with another example. This time we will draw several shapes that 
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// set the global context values</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">=</span><span class="lit">5</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle</span><span class="pun">=</span><span class="str">'blue'</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// font for all text drawing</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">'italic 20pt Calibri'</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// Draw the two filled red rectangles</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">110</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Draw the two blue wireframe rectangles</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">110</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Draw a message above the rectangles</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"hello"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">22</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1"> function drawSomething() {</li>
+<li>&nbsp; &nbsp; &nbsp;// set the global context values</li>
+<li>&nbsp; &nbsp; ctx.lineWidth=5;</li>
+<li>&nbsp; &nbsp; ctx.fillStyle='red';</li>
+<li>&nbsp; &nbsp; ctx.strokeStyle='blue'</li>
+<li>&nbsp; &nbsp;&nbsp;// font for all text drawing</li>
+<li>&nbsp; &nbsp; ctx.font = 'italic 20pt Calibri';</li>
+<li> </li>
+<li>&nbsp; &nbsp; // Draw the two filled red rectangles</li>
+<li>&nbsp; &nbsp; ctx.fillRect(10, 30, 70, 150);</li>
+<li>&nbsp; &nbsp; ctx.fillRect(110, 30, 70, 150);</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Draw the two blue wireframe rectangles</li>
+<li>&nbsp; &nbsp; ctx.strokeRect(10, 30, 70, 150);</li>
+<li>&nbsp; &nbsp; ctx.strokeRect(110, 30, 70, 150);</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Draw a message above the rectangles</li>
+<li>&nbsp; &nbsp; ctx.fillText("hello", 70, 22); </li>
+<li> }</li>
 </ol></div>
 
 This example shows the "global" nature of the context properties. Once you set the filled color to red, any shapes you draw in filled mode will be red. This is true for all the context properties. We set some of these properties in lines 3-7, and all following calls to context methods for drawing rectangles or text will depend on them. The two filled rectangles at lines 10-11 will be red, the two wireframe rectangles drawn at lines 14-15 will be blue, etc.
@@ -917,14 +917,14 @@ If we draw three rectangles of size 100x200 in a 400x400 canvas, one at (0, 0) a
 
 JavaScript code extract (see [the online example at JS Bin](https://jsbin.com/yefuleq/1/edit?html,output) for the complete running code): ([Local Example - 3 Green Bars](src/3.2.8-example1.html))
 
-<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">300</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol style="list-style-type:decimal;">
+<li value="1"> function drawSomething() {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillStyle='lightgreen';</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillRect(0,0,100,200);</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillRect(150,0,100,200);</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillRect(300,0,100,200);</li>
+<li> }</li>
 </ol></div>
 
 
@@ -934,26 +934,26 @@ What if we wanted to draw these 3 rectangles at another position, as a group? We
 
 The full JavaScript code is (see [online running example](https://jsbin.com/jesonuh/edit?html,output)): ([Local Example - Translated 3 green Bards](src/3.2.8-example2.html))
 
-<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// This function is called after the page is loaded</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 1 - Get the canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 2 - Get the context</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// 3 - we can draw</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawSomething</span><span class="pun">(</span><strong><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span></strong><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com">// draw&nbsp;3 rectangles</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span></strong><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">+</span><span class="lit">150</span></strong><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><strong><span class="pln">x</span><span class="pun">+</span><span class="lit">300</span></strong><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol style="list-style-type:decimal;">
+<li value="1"> var canvas, ctx;</li>
+<li> </li>
+<li> function init() {</li>
+<li>&nbsp; &nbsp; // This function is called after the page is loaded</li>
+<li>&nbsp; &nbsp; // 1 - Get the canvas</li>
+<li>&nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp; // 2 - Get the context</li>
+<li>&nbsp; &nbsp; ctx=canvas.getContext('2d');</li>
+<li>&nbsp; &nbsp; // 3 - we can draw</li>
+<li>&nbsp; &nbsp; drawSomething(<strong>0, 100</strong>);</li>
+<li> }</li>
+<li> </li>
+<li> function drawSomething(<strong>x, y</strong>) {</li>
+<li>&nbsp; &nbsp; // draw&nbsp;3 rectangles</li>
+<li>&nbsp; &nbsp; ctx.fillStyle='lightgreen';</li>
+<li>&nbsp; &nbsp; ctx.fillRect(<strong>x,y</strong>,100,200);</li>
+<li>&nbsp; &nbsp; ctx.fillRect(<strong>x+150</strong>,y,100,200);</li>
+<li>&nbsp; &nbsp; ctx.fillRect(<strong>x+300</strong>,y,100,200);</li>
+<li> }</li>
 </ol></div>
 
 At line 10, we called the `drawSomething(...)` function with 0 and 100 as parameters, meaning "please add an offset of 0 in X and 100 in Y directions to what is drawn by the function...
@@ -986,30 +986,30 @@ Now we can start having some fun... let's draw a monster's head using only recta
 
 An extract of the JavaScript source code is:
 
-<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// head</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// eyes</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">35</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">140</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// interior of eye</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'yellow'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">43</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">143</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Nose</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'black'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">90</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">70</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">80</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Mouth</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'purple'</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="lit">60</span><span class="pun">,</span><span class="pln">y</span><span class="pun">+</span><span class="lit">165</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol style="list-style-type:decimal;">
+<li value="1"> function drawMonster(x, y) {</li>
+<li>&nbsp; &nbsp;// head</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='lightgreen';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(x,y,200,200);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// eyes</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='red';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(x+35,y+30,20,20);</li>
+<li>&nbsp; &nbsp;ctx.fillRect(x+140,y+30,20,20);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// interior of eye</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='yellow';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(x+43,y+37,10,10);</li>
+<li>&nbsp; &nbsp;ctx.fillRect(x+143,y+37,10,10);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Nose</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='black';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(x+90,y+70,20,80);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Mouth</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='purple';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(x+60,y+165,80,20);</li>
+<li> }</li>
 </ol></div>
 
 
@@ -1024,34 +1024,34 @@ The idea behind 2D transformations is that instead of modifying all the coordina
 
 Let's take a piece of code that draws something corresponding to the original coordinate system, located at the top left corner of the canvas:
 
-<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// head</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'lightgreen'</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// eyes</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">35</span><span class="pun">,</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">140</span><span class="pun">,</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// interior of eye</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'yellow'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">43</span><span class="pun">,</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">143</span><span class="pun">,</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Nose</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'black'</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">90</span><span class="pun">,</span><span class="lit">70</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">80</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Mouth</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'purple'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">60</span><span class="pun">,</span><span class="lit">165</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// coordinate system at (0, 0)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawArrow</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawArrow</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol style="list-style-type:decimal;">
+<li value="1"> function drawMonster(x, y) { </li>
+<li>&nbsp; &nbsp;// head</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='lightgreen';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(0,0,200,200);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// eyes</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='red';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(35,30,20,20);</li>
+<li>&nbsp; &nbsp;ctx.fillRect(140,30,20,20);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// interior of eye</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='yellow';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(43,37,10,10);</li>
+<li>&nbsp; &nbsp;ctx.fillRect(143,37,10,10);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Nose</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='black';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(90,70,20,80);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Mouth</li>
+<li>&nbsp; &nbsp;ctx.fillStyle='purple';</li>
+<li>&nbsp; &nbsp;ctx.fillRect(60,165,80,20);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// coordinate system at (0, 0)</li>
+<li>&nbsp; &nbsp;drawArrow(ctx, 0, 0, 100, 0, 10, 'red');</li>
+<li>&nbsp; &nbsp;drawArrow(ctx, 0, 0, 0, 100, 10, 'red');</li>
+<li>}</li>
 </ol></div>
 
 This code is the just the same as in the previous example except that we removed all Xs and Yx in the code. We also added at the end (lines 25-26) two lines of code that draw the coordinate system. The `drawArrow(startX, startY, endX, endY, width, color)` function is a utility function that we will present later. You can see it in the source code of the complete [online example on JS Bin](https://jsbin.com/fidisig/1/edit?html,output): look in the JavaScript tab. ([Local Example - Monster w/ Arrows](src/3.2.8-example4.html))
@@ -1086,9 +1086,9 @@ Now, instead of simply calling drawMonster(0, 0), we will call first `ctx.transl
 
 JavaScript code extract:
 
-<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> drawMonster</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
+<div><ol style="list-style-type:decimal;">
+<li value="1"> ctx.translate(100, 100);</li>
+<li> drawMonster(0, 0);</li>
 </ol></div>
 
 Line 1 changes the position of the coordinate system, line 2 draws a monster in the new translated coordinate system. All subsequent calls to drawing methods will be affected and will work in this new system too.
@@ -1115,12 +1115,12 @@ Here is the previous example, but this time we translated the coordinate system,
 
 And here is the code of the transformations we used, followed by the call to the function that draws the monster:
 
-<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">4</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">scale</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> drawMonster</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
+<div><ol style="list-style-type:decimal;">
+<li value="1"> ctx.translate(100, 100);</li>
+<li> ctx.rotate(Math.PI/4);</li>
+<li> ctx.scale(0.5, 0.5);</li>
+<li>&nbsp;</li>
+<li> drawMonster(0, 0);</li>
 </ol></div>
 
 _Line 1/2/3_ does and _Line 5_ draws the monster in this new translated, rotated, scaled coordinate system:
@@ -1157,15 +1157,15 @@ If we draw two shapes at two different positions, they will be relative to this 
 
 For example, this code (online at https://jsbin.com/yuhamu/4/edit): ([Local Example - Monster w/ Diamon](src/3.2.8-example7.html))
 
-<div class="source-code"><ol class="linenums" style="list-style-type:decimal;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">4</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">scale</span><span class="pun">(</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draw the monster at (0, 0)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> drawMonster</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draw a filled rectagle at (250, 0)</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<div><ol style="list-style-type:decimal;">
+<li value="1"> ctx.translate(100, 100);</li>
+<li> ctx.rotate(Math.PI/4);</li>
+<li> ctx.scale(0.5, 0.5);</li>
+<li> </li>
+<li> // Draw the monster at (0, 0)</li>
+<li> drawMonster(0, 0);</li>
+<li> // Draw a filled rectagle at (250, 0)</li>
+<li> ctx.fillRect(250, 0, 100, 100);</li>
 </ol></div>
 
 ... gives this result:
@@ -1250,34 +1250,34 @@ We took the last example (the one with the monster, from the previous page of th
 
 Source code extract of this function: notice at lines 3 and 26 how we save/restore the context at the beginning/end. Right after saving the context, we modify the coordinate system (lines 7-8). The rest of the code is nearly the same as in the last version of the monster example.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">,</span><span class="pln"> headColor</span><span class="pun">,</span><span class="pln"> eyeColor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Moves the coordinate system so that the monster is drawn</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// at position (x, y)</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// head</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">headColor</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// eyes</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">35</span><span class="pun">,</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">140</span><span class="pun">,</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// interior of eye</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">eyeColor</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">43</span><span class="pun">,</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">143</span><span class="pun">,</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// BEST PRACTICE!</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1"> function drawMonster(x, y, angle, headColor, eyeColor) { </li>
+<li>&nbsp; &nbsp;&nbsp;<strong>// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</strong></li>
+<li><strong>&nbsp; &nbsp; ctx.save();</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Moves the coordinate system so that the monster is drawn</li>
+<li>&nbsp; &nbsp;&nbsp;// at position (x, y)</li>
+<li>&nbsp; &nbsp; ctx.translate(x, y);</li>
+<li>&nbsp; &nbsp; ctx.rotate(angle);</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// head</li>
+<li>&nbsp; &nbsp; ctx.fillStyle=headColor;</li>
+<li>&nbsp; &nbsp; ctx.fillRect(0,0,200,200);</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// eyes</li>
+<li>&nbsp; &nbsp; ctx.fillStyle='red';</li>
+<li>&nbsp; &nbsp; ctx.fillRect(35,30,20,20);</li>
+<li>&nbsp; &nbsp; ctx.fillRect(140,30,20,20);</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// interior of eye</li>
+<li>&nbsp; &nbsp; ctx.fillStyle=eyeColor;</li>
+<li>&nbsp; &nbsp; ctx.fillRect(43,37,10,10);</li>
+<li>&nbsp; &nbsp; ctx.fillRect(143,37,10,10);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;... </li>
+<li>&nbsp; &nbsp;&nbsp;<strong>// BEST PRACTICE!</strong></li>
+<li><strong>&nbsp; &nbsp; ctx.restore();</strong></li>
+<li> }</li>
 </ol></div>
 
 
