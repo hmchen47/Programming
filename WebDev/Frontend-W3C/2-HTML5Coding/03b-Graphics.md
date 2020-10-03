@@ -8,11 +8,11 @@
 
 + [JavaScript & HTML5](#321-about-javascript-and-html5)
   + adding js code in HTML page: `<script>`...`</script>`
-  + JavaScript code executed before the browser could see the rest of the page as the `<script></script>` is located before the `<body>`
+  + JavaScript code executed before the browser could see the rest of the page as the `<script></script>` located before the `<body>`
   + `console.log(...)`: display in the JavaScript console the message...
   + eg. `<script> console.log("Some JavaScript code has been executed"); </script>`
   + debug:
-    + dev. tool on web browser &gt; console tab &ge; error/log msgs
+    + dev. tool on web browser &gt; console tab &gt; error/log msgs
     + allowing to type any JS command
 
 + [The `<canvas>` element](#322-the-canvas-element)
@@ -20,7 +20,7 @@
   + used for rendering graphs, game graphics, or other visual images on the fly
   + designed for pixel-based graphics, while SVG (Scalable Vector Graphics, another W3C standard) for vector-based graphics
   + shapes that canvas JavaScript drawing API supported: lines, rectangles, ellipses, arcs, curves, text, images
-  + drawing styles: affect the way shapes drawn, e.g., color, drawing width, shadows, etc.
+  + drawing styles: affect the way shapes drawn, e.g., color, width, shadows, etc.
   + alpha channel: transparent mode
   + common usages
     + animations at 60 frames per second (useful for games)
@@ -44,18 +44,18 @@
     + [FusionCharts](http://www.fusioncharts.com/): 90+ charts and gauges, 965 data-driven maps, and ready-made business dashboards and demos, w/ extensive JavaScript API that makes it easy to integrate it with any AJAX application or JavaScript framework
     + [jqPlot](http://www.jqplot.com/): a nice solution for line and point charts
     + [D3.js](http://d3js.org/): a JavaScript library that uses HTML, SVG, and CSS to render some amazing diagrams and charts from a variety of data sources
-    + [[JavaScript InfoVis Toolkit]](http://thejit.org/): a modular structure, allowing you to only force visitors to download what's absolutely necessary to display your chosen data visualizations
+    + [JavaScript InfoVis Toolkit](http://thejit.org/): a modular structure, allowing you to only force visitors to download what's absolutely necessary to display your chosen data visualizations
     + [jpGraph](http://jpgraph.net/): a PHP-based solution with a wide range of chart types
     + [Highcharts](http://www.highcharts.com/): a JavaScript charting library with a huge range of chart options available
     + [Google Charts](https://developers.google.com/chart/interactive/docs/): highly flexible and an excellent set of developer tools
     + [Excel](https://tinyurl.com/y43wme3q): a good way of quickly exploring data, or creating visualizations for internal use, but the limited default set of colours, lines and styles make it difficult to create graphics that would be usable in a professional publication or website
-    + [CSV](http://en.wikipedia.org/wiki/Comma-separated_values)/[JSON]](http://www.json.org/): common formats for data
+    + [CSV](http://en.wikipedia.org/wiki/Comma-separated_values)/[JSON](http://www.json.org/): common formats for data
     + [Crossfilter](http://square.github.com/crossfilter/): enable clients to wade through their data and create graphs and charts that double as interactive GUI widgets
     + [Tangle](http://worrydream.com/Tangle/): trying to describe a complex interaction or equation, letting the reader tweak the input values and see the outcome for themselves provides both a sense of control and a powerful way to explore data
     + [Polymaps](http://polymaps.org/): a mapping library that is aimed squarely at a data visualization audience
     + [OpenLayers](http://openlayers.org/): probably the most robust of these mapping libraries
     + [Kartograph](http://kartograph.org/): a simple and lightweight framework for building interactive map applications without Google Maps or any other mapping service
-    + [Carto](http://cartodb.com/): a must-know sitewith which you can combine tabular data with maps is second to none
+    + [Carto](http://cartodb.com/): a must-know site with which you can combine tabular data with maps is second to none
     + [Processing](http://processing.org/): the poster child for interactive visualizations
     + [NodeBox](http://nodebox.net/): an OS X application for creating 2D graphics and visualizations
     + [R](http://www.r-project.org/): statistical package used to parse large data sets
@@ -90,10 +90,10 @@
   + simple drawing
     + add the `<canvas>` element into an HTML page
       + selector to identify the canvas itself
-      + specify the size of canvas w/ `width` an d`height` attributes
+      + specify the size of canvas w/ `width` and `height` attributes
       + NOT supported message placed btw opening and closing tags
       + canvas transparent by default
-      + e.g., `<canvas id="myCanvas" width="300" height="225">`
+      + e.g., `<canvas id="myCanvas" width="300" height="225">` 
       + CSS styling make it visible, e.g., ` border:1px solid black;`
       + multiple canvas allowed in a page
     + select the `<canvas>` element for use from JavaScript
@@ -126,41 +126,41 @@
 
 + [Drawing principles](#327-drawing-principles)
   + `fillstyle` property:
-    + a property if the context, similar ti a CSS property
+    + a property in the context, similar to a CSS property
     + possible values: a color, a pattern (texture), or a gradient
     + default: color black
-    + using the value of the property to fill part of t the drawing
-    + as long as not modifyied, all drawing commands using the current value
+    + using the value of the property to fill part of the drawing
+    + as long as not modified, all drawing commands using the current value
   + `fillRect(x, y, width, height)` method:
-    + a call to this method draws a filled rectangle
+    + draw a filled rectangle
     + `x` & `y`: the coordinates of the top left corner of the rectangle
-    + e.g., `ctx.fillStyle='pink'; ctxfillRect(10, 10, 200, 200);` - draw a pink filled rectangle, from (10, 10) to (210, 210)
+    + e.g., `ctx.fillStyle='pink'; ctx.fillRect(10, 10, 200, 200);` - draw a pink filled rectangle, from (10, 10) to (210, 210)
   + `strokeStyle` property:
-    + a property of the context indicating how the shape's outline rendered
+    + how the shape's outline rendered
     + possible values: a color, a pattern (texture), or a gradient
-  + `strokeRect(x, y, width, height)` method: 
-    + draw the wireframe mode of a rectangle w/ `strokStyle' property
-    + e.g., `ctx.strokeStyle='blue'; ctx.strokeRect(10, 10, 200, 200);` - draw the outline of a rectangle fron (10, 10) to (210, 210)
+  + `strokeRect(x, y, width, height)` method:
+    + draw the wireframe mode of a rectangle w/ `strokStyle` property
+    + e.g., `ctx.strokeStyle='blue'; ctx.strokeRect(10, 10, 200, 200);` - draw the outline of a rectangle from (10, 10) to (210, 210)
   + `clearRect(x, y, width, height)` method:
-    + erase the specifid rectangle
-    + draw the rectangle w/ color = "transaprent black" as the init state of rectangle
-    + e.g., `ctx.strokStyle='pink'; ctxfillRect(10, 10, 200, 200); ctx.clearRect(50, 50, 20, 20);` - draw a pink filled rectangle but clear a rectangle within it from (50, 50) to (70, 70)
-  + `linewidth` property: a property applied only in `strok` mode w/ value in `px`
-  + `font` property: specify the font property of the context, syntax sam as in CSS fir using 'system font", e,g,. `ctx.font = 'italic 20pt Calibri';`
+    + erase the specified rectangle
+    + draw the rectangle w/ color = "transparent black" as the `init` state of rectangle
+    + e.g., `ctx.strokStyle='pink'; ctx.fillRect(10, 10, 200, 200); ctx.clearRect(50, 50, 20, 20);` - draw a pink filled rectangle but clear a rectangle within it from (50, 50) to (70, 70)
+  + `linewidth` property: a property applied only in `stroke` mode w/ value in `px`
+  + `font` property: specify the font property of the context, syntax same as in CSS for using 'system font", e,g,. `ctx.font = 'italic 20pt Calibri';`
   + `ctx.fillText(str, x, y)` method:
     + draw text message `str` at (x, y) position, e.g., `ctx.fillText("hello", 70, 22)`
     + `fillStyle` property to modify the color of the message
   + summary 
-    + "strok":
-      + wireframe of outlined
-      + a prefix for setting properties or calling methods thaat effect wireframe shapes
+    + "stroke":
+      + wireframe of shapes
+      + a prefix for setting properties or calling methods that effect wireframe shapes
     + "fill": filled the shapes
-    + `ctx.strokStype=...`: set the property of wireframe shapes
+    + `ctx.strokStype=...`: set the property of wireframed shapes
     + `ctx.fillStyle=...`: set the property of filled shapes
-    + `ctx.strokRect(x, t, width, lenth)1`: draw wireframe rectangle from (x, y) to (x+width, y+height)
-    + `ctx.fillRect(x, t, width, lenth)1`: draw filled rectangle from (x, y) to (x+width, y+height)
-    + `ctx.lineWidth`: set the line width of wireframe shapes
-    + `ctx.strokeText(message, x, y)` or `ctx.fillText(message, x, y)`: draw a text message for wireframe text or filled text respectively
+    + `ctx.strokeRect(x, y, width, height)`: draw wireframe rectangle from (x, y) to (x+width, y+height)
+    + `ctx.fillRect(x, y, width, height)`: draw filled rectangle from (x, y) to (x+width, y+height)
+    + `ctx.lineWidth`: set the line width of wireframed shapes
+    + `ctx.strokeText(msg, x, y)` or `ctx.fillText(msg, x, y)`: draw a text msg for wireframed or filled text respectively
     + `ctx.font`: set the character font w/ values used in CSS syntax, e.g., `ctx.font = 'italic 20pt Calibri';`
 
 + [2D transformations](#328-2d-transformations)
@@ -168,13 +168,12 @@
   + order of transformation: translate, rotate, and then scale
   + `ctx.translate(offsetX, offsetY)`
     + translation to shift (0, 0) to (offsetX, offsetY)
-    + chhange tghe position if the corrdinate system first and then draw the shape
+    + change the position of the coordinate system then draw the shape
   + `ctx.rotate(angle)`: rotate the coordinate system w/ angle in radians
   + `ctx.scale (sx, sy)`:
     + `scale(1, 1)`: no zoom, remain the same
     + `scale(2, 2)`: zooming 2x
     + `scale(0.5, 0.5)`: zoom out to see the drawings half as big as before
-  + `drawArrow(startX, startY, endX, endY, width, color)`: 
 
 + [Saving and Restoring the context](#329-saving-and-restoring-the-context)
   + `ctx.save()` & `ctx.restore()` methods
