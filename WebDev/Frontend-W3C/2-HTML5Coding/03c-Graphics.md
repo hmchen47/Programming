@@ -20,10 +20,10 @@
   + rectangles: the only shapes that have methods for drawing them immediately and also other methods for drawing them in "path/buffered mode"
 
 + [Steps to draw graphics on an HTML5 canvas](http://tutorials.jenkov.com/html5-canvas/overview.html)
-  + Wait for the page to be fully loaded.
-  + Obtain a reference to the canvas element.
-  + Obtain a 2D context from the canvas element.
-  + Draw graphics using the draw functions of 2D context.
+  + Wait for the page fully loaded
+  + Obtain a reference to the canvas element
+  + Obtain a 2D context from the canvas element
+  + Draw graphics using the draw functions of 2D context
 
 + [Drawing text](#332-drawing-text)
   + two main methods: `ctx.strokeText(message, x, y)` and `ctx.fillText(message, x, y)`
@@ -36,10 +36,10 @@
       + font-size: a size in pixels or in points, such as 60pt, 20px, 36px, etc.
       + font-face: Arial, Calibri, Times, Courier, etc. Some font faces may not work in all browsers
     + examples:
-      + `context.font = "60pt Calibri";`
-      + `context.font = "normal normal 20px Verdana";`
-      + `context.font = "normal 36px Arial";`
-      + `context.font = "italic bold 36px Arial";`
+      + `ctx.font = "60pt Calibri";`
+      + `ctx.font = "normal normal 20px Verdana";`
+      + `ctx.font = "normal 36px Arial";`
+      + `ctx.font = "italic bold 36px Arial";`
   + `fillText()` & `strokeText()` methods
     + syntax: `fillText(message, x, y[, maxWidth])` & `strokeText(message, x, y[, maxWidth])`
     + draw a text message at the origin of the baseline position
@@ -51,20 +51,20 @@
     + change the way the text horizontal drawn
     + used to specify the different ways one can position the baseline of a given text
     + default: `alphabetic`
-    + tell how the `y` parameter of the `fillText("some text", x, y)` and `strokeText("some text", x, y)` methods interpreted
-    + possible values
+    + tell how the `y` parameter of the `fillText("msg", x, y)` and `strokeText("msg", x, y)` methods interpreted
+    + possible values (left diagram)
   + `textAlign` property
-    + how the x parameter will be used when calling `strokeText("some text", x, y)` and `fillText("some text", x, y)`
-    + possible values: left, center, right, start, end
+    + how the x parameter used when calling `strokeText("msg", x, y)` and `fillText("msg", x, y)`
+    + possible values: left, center, right, start, end (right diagram)
   
       <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
         <a href="https://tinyurl.com/y5wfa4y5" ismap target="_blank">
-          <img style="margin: 0.1em;" width=300
+          <img style="margin: 0.1em;" width=400
             src    ="https://tinyurl.com/yxa5jg2k"
             alt    ="text baseline"
             title  ="text baseline"
           >
-          <img style="margin: 0.1em;" width=100
+          <img style="margin: 0.1em;" width=150
             src    ="https://tinyurl.com/y2kwbxfo"
             alt    ="horizontal text alignment"
             title  ="horizontal text alignment"
@@ -75,16 +75,16 @@
 + [Drawing images](#333-drawing-images)
   + wait for the image loaded before drawing
   + loading images: an asynchronous process
-  + possible to draw images from a video stream, images corresponding to another canvas content, or images that are defined by  HTML elements in the page
+  + possible to draw images from a video stream, images corresponding to another canvas content, or images defined by  HTML elements in the page
   + procedure to draw image
     + create a JavaScript Image object, e.g., `var imageObj = new Image();`
-    + send an asynchronous request in the background by the browser w/ the `src` attribute of this object with the URL of the image file; e.g., `imageObj.src = "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"; };`
+    + send an asynchronous request in the background by the browser w/ the `src` attribute of this object with the URL of the image file; e.g., `imageObj.src = "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png";`
     + call the `onload` callback associated with the image; e.g., `window.onload = function () {...}`
     + draw the image only from inside this callback; e.g., `context.drawImage(imageObj, 0, 0);`
   + `drawImage` method: numerous variants
     + `drawImage(img, x, y)`: draw the image at position x, y, keeping the original image size
     + `drawImage(img, x, y, sizeX, sizeY)`: same as before except that the image drawn is resized.
-    + `drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)`: for drawing sub-images, (sx, sy, sw, sh) define the source rectangle, while dx, dy, dw, sh define the target rectangle
+    + `drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)`: for drawing sub-images, (sx, sy, sw, sh) define the source rectangle, while (dx, dy, dw, sh) define the target rectangle
 
       <figure style="margin: 0.5em; text-align: center;">
         <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -98,16 +98,16 @@
     + e.g., `context.drawImage(imageObj, 0, 10, 100, 100);`, `context.drawImage(imageObj, 80, 10, 150, 150);` & `context.drawImage(imageObj, 0, 0, 512, 100, 100, 250, 256, 50);`
   + image defined in `<img src="...">`
     + add an `<img>` in the document, then the browser starts downloading it in background
-    + draw w/ `document.querySelector(#img)`: work well w/ most of small images $\to# asynchronous process
-  + best practice: only draw an image that is fully loaded, use the `onload` callback!
+    + draw w/ `document.querySelector(#img)`: work well w/ most of small images $\to$ asynchronous process
+  + best practice: only draw an fully loaded image, use the `onload` callback!
   + `window.onload = function() {...};`: execute after the page loaded, i.e., the large image file loaded first, then draw images in the canvas
 
 + [Drawing images from a video stream](#334-drawing-images-from-a-video-stream)
   + `drawImage` method
     + take a video element as its first parameter
-    + drawn is the one currently played by the video stream
+    + drawn the one currently played by the video stream
     + e.g., `ctx.drawImage(video, 0, 0, 320, 180);`, `ctx.drawImage(video, 0, 180, 320, 180);` & `ctx.drawImage(video, 320, 180, 320, 180);`
-  + `setInterval(function, delay)` method: make the browser execute the processFrame function each delayed ms
+  + `setInterval(function, delay)` method: make the browser execute the processFrame function each delayed `delay` ms
   + rotating video effect: `function drawRotatingVideo(x, y) {...}`
     + use of context save/restore primordial as this function changes the coordinate system at each call; e.g., `ctx.save();` & `ctx.restore();`
     + translating and rotating; e.g., `ctx.translate(x, y);`, `ctx.rotate(angle += 0.01);` & `ctx.translate(-80, -45);`
