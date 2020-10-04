@@ -145,71 +145,71 @@ Let's give an example that draws several rectangles, filled or wireframe, with d
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2"><span class="pln">&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;title&gt;</span><span class="pln">Canvas</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
-<li class="L5"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;style&gt;</span></li>
-<li class="L6"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="com">#myCanvas {</span></li>
-<li class="L7"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
-<li class="L8"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L9"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L0"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln"></span><span class="tag"></span><span class="tag">&lt;script&gt;</span></li>
-<li class="L1"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L2"><span class="pln">&nbsp;</span></li>
-<li class="L3"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L5"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L6"><span class="pln">&nbsp;</span></li>
-<li class="L7"><span class="pln"> </span><span class="com">// black rectangle, default color (black)</span></li>
-<li class="L8"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L9"><span class="pln"> </span><span class="com">// outlined rectangle, default color</span></li>
-<li class="L0"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L1"><span class="pln">&nbsp;</span></li>
-<li class="L2"><span class="pln"> </span><span class="com">// outlined rectangle filled in red, outline blue</span></li>
-<li class="L3"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L4"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'lightBlue'</span><span class="pun">;</span></li>
-<li class="L5"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
-<li class="L6"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L7"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L8"><span class="pln">&nbsp;</span></li>
-<li class="L9"><span class="pln"> </span><span class="com">// A function to automatize previous drawing</span></li>
-<li class="L0"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="kwd">var</span><span class="pln"> angle </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI </span><span class="pun">/</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
-<li class="L1"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>drawFilledRectangle</span><span class="pun">(</span><span class="lit">300</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="str">'pink'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">);</span></li>
-<li class="L2"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>drawFilledRectangle</span><span class="pun">(</span><span class="lit">300</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'purple'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> angle </span><span class="pun">+</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">);</span></li>
-<li class="L3"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="pun">};</span></li>
-<li class="L4"><span class="pln">&nbsp;</span></li>
-<li class="L5"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="kwd">function</span><span class="pln"> drawFilledRectangle</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">,</span><span class="pln"> fillColor</span><span class="pun">,</span><span class="pln"> strokeColor</span><span class="pun">,</span><span class="pln"> lw</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6"><span class="pln"> </span><span class="com">// BEST PRACTICE : save if the function change the context or coordinate </span></li>
-<li class="L7"><span class="pln"> </span><span class="com">// system</span></li>
-<li class="L8"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L9"><span class="pln">&nbsp;</span></li>
-<li class="L0"><span class="pln"> </span><span class="com">// position coordinate system</span></li>
-<li class="L1"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L2"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span></li>
-<li class="L3"><span class="pln">&nbsp;</span></li>
-<li class="L4"><span class="pln"> </span><span class="com">// set colors, line width...</span></li>
-<li class="L5"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> lw</span><span class="pun">;</span></li>
-<li class="L6"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> fillColor</span><span class="pun">;</span></li>
-<li class="L7"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> strokeColor</span><span class="pun">;</span></li>
-<li class="L8"><span class="pln">&nbsp;</span></li>
-<li class="L9"><span class="pln"> </span><span class="com">// draw at 0, 0 as we translated the coordinate</span></li>
-<li class="L0"><span class="pln"> </span><span class="com">// system already</span></li>
-<li class="L1"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L2"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L3"><span class="pln">&nbsp;</span></li>
-<li class="L4"><span class="pln"> </span><span class="com">// BEST PRACTICE : a restore for a save!</span></li>
-<li class="L5"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span></span>ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L6"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L7"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L8"><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L9"><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;body&gt;</span></li>
-<li class="L0"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"578"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;</span></li>
-<li class="L1"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;/canvas&gt;</span></li>
-<li class="L2"><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L3"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp; &lt;head&gt;</li>
+<li>&nbsp; &nbsp; &lt;title&gt;Canvas&lt;/title&gt;</li>
+<li>&nbsp; &nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp; &nbsp; &lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; #myCanvas {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; border: 1px solid black;</li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &lt;/style&gt;</li>
+<li>&nbsp; &nbsp; &lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; var canvas, ctx;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; window.onload = function () {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx = canvas.getContext('2d');</li>
+<li>&nbsp;</li>
+<li> // black rectangle, default color (black)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillRect(10, 10, 100, 100);</li>
+<li> // outlined rectangle, default color</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.strokeRect(150, 10, 100, 100);</li>
+<li>&nbsp;</li>
+<li> // outlined rectangle filled in red, outline blue</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillStyle = 'red';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.strokeStyle = 'lightBlue';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.lineWidth = 10;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillRect(100, 150, 150, 150);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.strokeRect(100, 150, 150, 150);</li>
+<li>&nbsp;</li>
+<li> // A function to automatize previous drawing</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; var angle = Math.PI / 10;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; drawFilledRectangle(300, 150, 150, 150, 'pink', 'green', 10, angle);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; drawFilledRectangle(300, 150, 150, 150, 'yellow', 'purple', 10, angle + 0.5);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; };</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; function drawFilledRectangle(x, y, w, h, fillColor, strokeColor, lw, angle) {</li>
+<li> // BEST PRACTICE : save if the function change the context or coordinate </li>
+<li> // system</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.save();</li>
+<li>&nbsp;</li>
+<li> // position coordinate system</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.translate(x, y);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.rotate(angle);</li>
+<li>&nbsp;</li>
+<li> // set colors, line width...</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.lineWidth = lw;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillStyle = fillColor;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.strokeStyle = strokeColor;</li>
+<li>&nbsp;</li>
+<li> // draw at 0, 0 as we translated the coordinate</li>
+<li> // system already</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillRect(0, 0, w, h);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.strokeRect(0, 0, w, h);</li>
+<li>&nbsp;</li>
+<li> // BEST PRACTICE : a restore for a save!</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.restore();</li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &lt;/script&gt;</li>
+<li>&nbsp; &lt;/head&gt;</li>
+<li>&nbsp; &lt;body&gt;</li>
+<li>&nbsp; &nbsp; &lt;canvas id="myCanvas" width="578" height="400"&gt;</li>
+<li>&nbsp; &nbsp; &lt;/canvas&gt;</li>
+<li>&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -244,15 +244,15 @@ It also provides a set of context properties for setting the character font and 
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="pln">context</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">"60pt Calibri"</span><span class="pun">;</span></li>
-<li class="L1"><span class="com">// .. set color, lineWidth, shadow etc.</span></li>
-<li class="L2"><span class="pln"> </span></li>
-<li class="L3"><span class="com">// 10, 10 is the start of the baseline, bottom of left leg of the "H" in the </span></li>
-<li class="L4"><span class="com">// "Hello World" example.</span></li>
-<li class="L5"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L6"><span class="com">// Or</span></li>
-<li class="L7"><span class="pln">context</span><span class="pun">.</span><span class="pln">strokeText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">context.font = "60pt Calibri";</li>
+<li>// .. set color, lineWidth, shadow etc.</li>
+<li> </li>
+<li>// 10, 10 is the start of the baseline, bottom of left leg of the "H" in the </li>
+<li>// "Hello World" example.</li>
+<li> context.fillText("Hello World!", 10, 10); </li>
+<li>// Or</li>
+<li>context.strokeText("Hello World!", 10, 10);</li>
 </ol></div>
 
 Look at the [code from the example](https://jsbin.com/dazefoz/1/edit?html,output) provided: change the position where the text is drawn, change font attributes, etc. ([Local Example - Typical Use](src/3.3.2-example1.html))
@@ -285,9 +285,9 @@ The `fillText(message, x, y)` or `strokeText(message, x, y)` methods from the co
 
 There is a fourth optional parameter maxWidth that forces the text to fit into a given width, distorting it if necessary:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="pln">context</span><span class="pun">.</span><span class="pln">strokeText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> y</span><span class="pln">&nbsp;</span><span class="pun">[,</span><span class="pln"> maxWidth</span><span class="pun">]);</span><span class="pln"> </span></li>
-<li class="L1"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> y</span><span class="pln">&nbsp;</span><span class="pun">[,</span><span class="pln"> maxWidth</span><span class="pun">]);</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">context.strokeText("Hello World!", x, y&nbsp;[, maxWidth]); </li>
+<li> context.fillText("Hello World!", x, y&nbsp;[, maxWidth]); </li>
 </ol></div>
 
 
@@ -307,23 +307,23 @@ Try it [online](https://jsbin.com/quweqab/1/edit?html,output): ([Local Example -
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="pun">...</span></li>
-<li class="L1"><span class="pln">context</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">"60pt Calibri"</span><span class="pun">;</span></li>
-<li class="L2"><span class="pln"> context</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
-<li class="L3"><span class="pln"> context</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"blue"</span><span class="pun">;</span></li>
-<li class="L4"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"red"</span><span class="pun">;</span></li>
-<li class="L5"><span class="pln"> </span></li>
-<li class="L6"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L7"><span class="pln"> context</span><span class="pun">.</span><span class="pln">strokeText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L8"><span class="pln"> </span></li>
-<li class="L9"><span class="pln"> </span><span class="com">// Draw text with constrained width of 250 pixels</span></li>
-<li class="L0"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">160</span><span class="pun">,</span><span class="pln"> </span><strong><span class="lit">250</span></strong><span class="pun">);</span></li>
-<li class="L1"><span class="pln"> context</span><span class="pun">.</span><span class="pln">strokeText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">160</span><span class="pun">,</span><span class="pln"> </span><strong><span class="lit">250</span></strong><span class="pun">);</span></li>
-<li class="L2"><span class="pln"> </span></li>
-<li class="L3"><span class="com">// Constrain width to 150 pixels</span></li>
-<li class="L4"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">220</span><span class="pun">,</span><span class="pln"> </span><strong><span class="lit">150</span></strong><span class="pun">);</span></li>
-<li class="L5"><span class="pln"> context</span><span class="pun">.</span><span class="pln">strokeText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">220</span><span class="pun">,</span><span class="pln"> </span><strong><span class="lit">150</span></strong><span class="pun">);</span></li>
+<div><ol>
+<li value="1">...</li>
+<li>context.font = "60pt Calibri";</li>
+<li> context.lineWidth = 3;</li>
+<li> context.strokeStyle = "blue";</li>
+<li> context.fillStyle = "red";</li>
+<li> </li>
+<li> context.fillText("Hello World!", 10, 100);</li>
+<li> context.strokeText("Hello World!", 10, 100);</li>
+<li> </li>
+<li> // Draw text with constrained width of 250 pixels</li>
+<li> context.fillText("Hello World!", 10, 160, <strong>250</strong>);</li>
+<li> context.strokeText("Hello World!", 10, 160, <strong>250</strong>);</li>
+<li> </li>
+<li>// Constrain width to 150 pixels</li>
+<li> context.fillText("Hello World!", 10, 220, <strong>150</strong>);</li>
+<li> context.strokeText("Hello World!", 10, 220, <strong>150</strong>);</li>
 </ol></div>
 
 
@@ -345,26 +345,26 @@ The `ctx.measureText()` method can be used to get the current width in pixels of
 
 Source code extract from this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="pln">context</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">"60pt Calibri"</span><span class="pun">;</span></li>
-<li class="L1"><span class="pln"> context</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
-<li class="L2"><span class="pln"> context</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"blue"</span><span class="pun">;</span></li>
-<li class="L3"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"red"</span><span class="pun">;</span></li>
-<li class="L4"><span class="pln"> </span></li>
-<li class="L5"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L6"><span class="pln"> context</span><span class="pun">.</span><span class="pln">strokeText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L7"><span class="pln"> </span></li>
-<li class="L8"><strong><span class="kwd">var</span><span class="pln"> textMetrics </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">measureText</span><span class="pun">(</span><span class="str">"Hello World!"</span><span class="pun">);</span></strong></li>
-<li class="L9"><strong><span class="kwd">var</span><span class="pln"> width </span><span class="pun">=</span><span class="pln"> textMetrics</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></strong></li>
-<li class="L0"><span class="pln"> </span></li>
-<li class="L1"><span class="com">// Draw a text that displays the width of the previous drawn text</span></li>
-<li class="L2"><span class="pln"> context</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">"20pt Arial"</span><span class="pun">;</span></li>
-<li class="L3"><span class="pln"> context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Width of previous text: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> width </span><span class="pun">+</span><span class="pln"> </span><span class="str">"pixels"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L4"><span class="pln"> </span></li>
-<li class="L5"><span class="pln"> </span><span class="com">// Draw the baseline of the given width</span></li>
-<li class="L6"><span class="pln"> context</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L7"><span class="pln"> context</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">width</span><span class="pun">+</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L8"><span class="pln"> context</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<div><ol>
+<li value="1">context.font = "60pt Calibri";</li>
+<li> context.lineWidth = 3;</li>
+<li> context.strokeStyle = "blue";</li>
+<li> context.fillStyle = "red";</li>
+<li> </li>
+<li> context.fillText("Hello World!", 10, 100);</li>
+<li> context.strokeText("Hello World!", 10, 100);</li>
+<li> </li>
+<li><strong>var textMetrics = context.measureText("Hello World!");</strong></li>
+<li><strong>var width = textMetrics.width;</strong></li>
+<li> </li>
+<li>// Draw a text that displays the width of the previous drawn text</li>
+<li> context.font = "20pt Arial";</li>
+<li> context.fillText("Width of previous text: " + width + "pixels", 10, 150);</li>
+<li> </li>
+<li> // Draw the baseline of the given width</li>
+<li> context.moveTo(10, 100);</li>
+<li> context.lineTo(width+10, 100);</li>
+<li> context.stroke();</li>
 </ol></div>
 
 
@@ -422,13 +422,13 @@ Possible values:
 
 Typical use (taken from the example above):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textBaseline </span><span class="pun">=</span><span class="pln"> </span><span class="str">"top"</span><span class="pun">;</span></strong></li>
-<li class="L1"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"top"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">75</span><span class="pun">);</span></li>
-<li class="L2"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textBaseline </span><span class="pun">=</span><span class="pln"> </span><span class="str">"hanging"</span><span class="pun">;</span></strong></li>
-<li class="L3"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"hanging"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">75</span><span class="pun">);</span></li>
-<li class="L4"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textBaseline </span><span class="pun">=</span><span class="pln"> </span><span class="str">"middle"</span><span class="pun">;</span></strong></li>
-<li class="L5"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"middle"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">75</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"><strong>context.textBaseline = "top";</strong></li>
+<li>context.fillText("top", 0, 75);</li>
+<li><strong>context.textBaseline = "hanging";</strong></li>
+<li>context.fillText("hanging", 40, 75);</li>
+<li><strong>context.textBaseline = "middle";</strong></li>
+<li>context.fillText("middle", 120, 75);</li>
 </ol></div>
 
 
@@ -450,17 +450,17 @@ The `textAlign` property of the context tells how the x parameter will be used w
 
 Typical use (source code taken from the above example):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textAlign </span><span class="pun">=</span><span class="pln"> </span><span class="str">"center"</span><span class="pun">;</span></strong></li>
-<li class="L1"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"center"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L2"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textAlign </span><span class="pun">=</span><span class="pln"> </span><span class="str">"start"</span><span class="pun">;</span></strong></li>
-<li class="L3"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"start"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">);</span></li>
-<li class="L4"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textAlign </span><span class="pun">=</span><span class="pln"> </span><span class="str">"end"</span><span class="pun">;</span></strong></li>
-<li class="L5"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"end"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">60</span><span class="pun">);</span></li>
-<li class="L6"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textAlign </span><span class="pun">=</span><span class="pln"> </span><span class="str">"left"</span><span class="pun">;</span></strong></li>
-<li class="L7"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"left"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">80</span><span class="pun">);</span></li>
-<li class="L8"><strong><span class="pln">context</span><span class="pun">.</span><span class="pln">textAlign </span><span class="pun">=</span><span class="pln"> </span><span class="str">"right"</span><span class="pun">;</span></strong></li>
-<li class="L9"><span class="pln">context</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"right"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"><strong>context.textAlign = "center";</strong></li>
+<li>context.fillText("center", 250, 20);</li>
+<li><strong>context.textAlign = "start";</strong></li>
+<li>context.fillText("start", 250, 40);</li>
+<li><strong>context.textAlign = "end";</strong></li>
+<li>context.fillText("end", 250, 60);</li>
+<li><strong>context.textAlign = "left";</strong></li>
+<li>context.fillText("left", 250, 80);</li>
+<li><strong>context.textAlign = "right";</strong></li>
+<li>context.fillText("right", 250, 100);</li>
 </ol></div><br/>
 
 
@@ -506,36 +506,36 @@ Try [this example online](https://tinyurl.com/y6hqthlk): ([Local Example - Image
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
-<li class="L4"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;title&gt;</span><span class="pln">Simple image drawing in a canvas</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7"><span class="pln"> </span><span class="com">// Necessity to run this code only after the web page has been loaded.</span></li>
-<li class="L8"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
-<li class="L9"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="kwd">var</span><span class="pln"> context </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">"2d"</span><span class="pun">);</span></li>
-<li class="L0"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="kwd">var</span><span class="pln"> imageObj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
-<li class="L1"><span class="pln"> </span><span class="com">// Callback function called by the imageObj.src = .... line</span></li>
-<li class="L2"><span class="pln"> </span><span class="com">//located after this function</span></li>
-<li class="L3"><span class="pln"> </span><span class="pln"><strong><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></strong></span><span class="pln"><strong><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></strong></span><span class="pln"><strong><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span></strong>imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4"><span class="pln"> </span><span class="com">// Draw the image only when we have the guarantee </span></li>
-<li class="L5"><span class="pln"> </span><span class="com">// that it has been loaded</span></li>
-<li class="L6"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
-<li class="L7"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">};</span></li>
-<li class="L8"><span class="pln">&nbsp;</span></li>
-<li class="L9"><span class="pln"> </span><span class="com">// Calls the imageObj.onload function asynchronously</span></li>
-<li class="L0"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span></li>
-<li class="L1"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="str">"https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"</span><span class="pun">;</span></li>
-<li class="L2"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">};</span></li>
-<li class="L3"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L4"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;body&gt;</span></li>
-<li class="L6"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"512"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"512"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L7"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L8"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp;&nbsp; &lt;head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Simple image drawing in a canvas&lt;/title&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;script&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; window.onload = function () {</li>
+<li> // Necessity to run this code only after the web page has been loaded.</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; var canvas = document.getElementById("myCanvas");</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; var context = canvas.getContext("2d");</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; var imageObj = new Image();</li>
+<li> // Callback function called by the imageObj.src = .... line</li>
+<li> //located after this function</li>
+<li> <strong>&nbsp;&nbsp; </strong><strong>&nbsp;&nbsp; </strong><strong>&nbsp;&nbsp; </strong>imageObj.onload = function () {</li>
+<li> // Draw the image only when we have the guarantee </li>
+<li> // that it has been loaded</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; context.drawImage(imageObj, 0, 0);</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; };</li>
+<li>&nbsp;</li>
+<li> // Calls the imageObj.onload function asynchronously</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; imageObj.src =</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png";</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; };</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/script&gt;</li>
+<li>&nbsp;&nbsp; &lt;/head&gt;</li>
+<li>&nbsp;&nbsp; &lt;body&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;canvas id="myCanvas" width="512" height="512"&gt;&lt;/canvas&gt;</li>
+<li>&nbsp;&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 __Several things need to be explained here:__
@@ -579,29 +579,29 @@ See picture below :
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> imageObj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
-<li class="L1"><span class="pln">&nbsp;</span></li>
-<li class="L2"><span class="pln"> imageObj</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Try commenting/uncommenting the following lines to see the</span></li>
-<li class="L4"><span class="pln">&nbsp; &nbsp;</span><span class="com">// effect of the different drawImage variants</span></li>
-<li class="L5"><span class="pln"> </span></li>
-<li class="L6"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Original, big image</span></li>
-<li class="L7"><span class="pln">&nbsp; &nbsp;</span><span class="com">// context.drawImage(imageObj, 0, 10);</span></li>
-<li class="L8"><span class="pln"> </span></li>
-<li class="L9"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Original image drawn with size = 100x100 pixels</span></li>
-<li class="L0"><span class="pln">&nbsp; &nbsp;context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L1"><span class="pln">&nbsp; &nbsp;</span><span class="com">// with size = 150x150</span></li>
-<li class="L2"><span class="pln">&nbsp; &nbsp;context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">80</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L3"><span class="pln">&nbsp; &nbsp;</span><span class="com">// with size = 200x200</span></li>
-<li class="L4"><span class="pln">&nbsp; &nbsp;context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">210</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L5"><span class="pln">&nbsp;</span></li>
-<li class="L6"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the sub image at 0, 0, width = 512, height = 100</span></li>
-<li class="L7"><span class="pln">&nbsp;&nbsp;</span><span class="com">// at position 100, 250, with a width of 256 and a height of 50</span></li>
-<li class="L8"><span class="pln">&nbsp; context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">512</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">256</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li>
-<li class="L0"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L1"><span class="pln"> imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"</span><span class="pun">;</span></li>
-<li class="L2"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1"> var imageObj = new Image();</li>
+<li>&nbsp;</li>
+<li> imageObj.onload = function() {</li>
+<li>&nbsp; &nbsp;// Try commenting/uncommenting the following lines to see the</li>
+<li>&nbsp; &nbsp;// effect of the different drawImage variants</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Original, big image</li>
+<li>&nbsp; &nbsp;// context.drawImage(imageObj, 0, 10);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Original image drawn with size = 100x100 pixels</li>
+<li>&nbsp; &nbsp;context.drawImage(imageObj, 0, 10, 100, 100);</li>
+<li>&nbsp; &nbsp;// with size = 150x150</li>
+<li>&nbsp; &nbsp;context.drawImage(imageObj, 80, 10, 150, 150);</li>
+<li>&nbsp; &nbsp;// with size = 200x200</li>
+<li>&nbsp; &nbsp;context.drawImage(imageObj, 210, 10, 200, 200);</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;// draw the sub image at 0, 0, width = 512, height = 100</li>
+<li>&nbsp;&nbsp;// at position 100, 250, with a width of 256 and a height of 50</li>
+<li>&nbsp; context.drawImage(imageObj, 0, 0, 512, 100, 100, 250, 256, 50);</li>
+<li> };</li>
+<li> imageObj.src = "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png";</li>
+<li> };</li>
 </ol></div>
 
 
@@ -611,19 +611,19 @@ Sometimes, you may want to draw an image that is already declared in the HTML do
 
 __WRONG__ => indeed, you could try drawing it using some code like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="tag">&lt;body&gt;</span></li>
-<li class="L1"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"512"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"512"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L2"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Original image as an </span><span class="tag">&lt;img&gt;</span><span class="pln"> element:</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L3"><span class="pln"> </span><strong><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"logo"</span></strong></li>
-<li class="L4"><strong><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://fc07.deviantart.net/fs70/f/2013/149/b/8/texture_85_by_voyager168-d670m68.jpg"</span><span class="tag">&gt;</span></strong></li>
-<li class="L5"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pln">&nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
-<li class="L7"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">"2d"</span><span class="pun">);</span></li>
-<li class="L8"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> logo </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#logo"</span><span class="pun">);</span></li>
-<li class="L9"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">logo</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></strong></li>
-<li class="L0"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L1"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1">&lt;body&gt;</li>
+<li> &lt;canvas id="myCanvas" width="512" height="512"&gt;&lt;/canvas&gt;</li>
+<li> &lt;p&gt;Original image as an &lt;img&gt; element:&lt;/p&gt;</li>
+<li> <strong>&lt;img id="logo"</strong></li>
+<li><strong> src="https://fc07.deviantart.net/fs70/f/2013/149/b/8/texture_85_by_voyager168-d670m68.jpg"&gt;</strong></li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&nbsp;canvas = document.getElementById("myCanvas");</li>
+<li>&nbsp; &nbsp; &nbsp;var ctx = canvas.getContext("2d");</li>
+<li>&nbsp; &nbsp; &nbsp;var logo = document.querySelector("#logo");</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>ctx</strong><strong>.drawImage(logo, 0, 0, 100, 100);</strong></li>
+<li>&lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
@@ -632,52 +632,52 @@ Although you will find many examples on the Web that do it this way, they will o
 If you try to draw an image that is not loaded or partially loaded, you will have unexpected results!
 
 <div style="border: 1px solid red; margin: 20px; padding: 10px;">
-<p style="text-align: center;"><strong><em>Best practice: </em></strong><em>only draw an image that is fully loaded, use <br>the </em><em><span style="font-family: 'courier new', courier;">onload</span> callback!</em></p>
+<p style="text-align: center;"><strong><em>Best practice: </em></strong><em>only draw an image that is fully loaded, use <br>the </em><em><span style="font-family: 'courier new', courier;">onload callback!</em></p>
 </div>
 
 __GOOD =>__ the right way to do this is shown in this [online example](https://jsbin.com/sejoyen/1/edit?html,css,output), that starts drawing only from the onload callback function: ([Local Example - onboard callback](src/3.3.3-example3.html))
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
-<li class="L4"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;title&gt;</span><span class="pln">Simple image drawing in a canvas</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> context</span><span class="pun">,</span><span class="pln"> imageObj</span><span class="pun">;</span></li>
-<li class="L7"><span class="pln"> </span></li>
-<li class="L8"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
-<li class="L0"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>context </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">"2d"</span><span class="pun">);</span></li>
-<li class="L1"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>imageObj </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#logo"</span><span class="pun">);</span></li>
-<li class="L2"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>drawAllImages</span><span class="pun">();</span></li>
-<li class="L3"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">};</span></li>
-<li class="L4"><span class="pln"> </span></li>
-<li class="L5"><span class="pln"> </span></li>
-<li class="L6"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="kwd">function</span><span class="pln"> drawAllImages</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"image is already loaded, we draw it!"</span><span class="pun">);</span></li>
-<li class="L8"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="com">// Original image drawn with size = 100x100 pixels</span></li>
-<li class="L9"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L0"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="com">// with size = 150x150</span></li>
-<li class="L1"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">80</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L2"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="com">// with size = 200x200</span></li>
-<li class="L3"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">210</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L4"><span class="pln">&nbsp;</span></li>
-<li class="L5"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="com">// draw the sub image at 0, 0, width = 512, height = 100</span></li>
-<li class="L6"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="com">// at position 100, 250, with a width of 256 and a height of 50</span></li>
-<li class="L7"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">512</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">256</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L8"><span class="pln"> </span></li>
-<li class="L9"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L0"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L1"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L2"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;body&gt;</span></li>
-<li class="L3"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;p&gt;</span><span class="pln">A canvas with an image that is further in the page, loaded by the </span><span class="tag">&lt;code&gt;&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">...</span><span class="tag">&gt;&lt;/code&gt;</span><span class="pln"> tag. This is not the recommended way to load images, except if the image is already in your page. Use the onload callback to be sure that the image is in the page.</span></li>
-<li class="L4"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"512"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"512"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L5"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;p&gt;</span><span class="pln">Original image as an </span><span class="tag">&lt;img&gt;</span><span class="pln"> element:</span></li>
-<li class="L6"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L7"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"logo"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"html5 logo"</span><span class="tag">&gt;</span></li>
-<li class="L8"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp;&nbsp; &lt;head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Simple image drawing in a canvas&lt;/title&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;script&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; var canvas, context, imageObj;</li>
+<li> </li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; window.onload = function() {</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; canvas = document.getElementById("myCanvas");</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; context = canvas.getContext("2d");</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; imageObj = document.querySelector("#logo");</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; drawAllImages();</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; };</li>
+<li> </li>
+<li> </li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; function drawAllImages() {</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; console.log("image is already loaded, we draw it!");</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; // Original image drawn with size = 100x100 pixels</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; context.drawImage(imageObj, 0, 10, 100, 100);</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; // with size = 150x150</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; context.drawImage(imageObj, 80, 10, 150, 150);</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; // with size = 200x200</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; context.drawImage(imageObj, 210, 10, 200, 200);</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; // draw the sub image at 0, 0, width = 512, height = 100</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; // at position 100, 250, with a width of 256 and a height of 50</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; context.drawImage(imageObj, 0, 0, 512, 100, 100, 250, 256, 50); </li>
+<li> </li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; }</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/script&gt;</li>
+<li>&nbsp;&nbsp; &lt;/head&gt;</li>
+<li>&nbsp;&nbsp; &lt;body&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;A canvas with an image that is further in the page, loaded by the &lt;code&gt;&lt;img src=...&gt;&lt;/code&gt; tag. This is not the recommended way to load images, except if the image is already in your page. Use the onload callback to be sure that the image is in the page.</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;canvas id="myCanvas" width="512" height="512"&gt;&lt;/canvas&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;Original image as an &lt;img&gt; element:</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/p&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;img id="logo" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" alt="html5 logo"&gt;</li>
+<li>&nbsp;&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -729,58 +729,58 @@ This example shows:
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L1"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> video</span><span class="pun">;</span></li>
-<li class="L2"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L3"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> angle </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L4"><span class="pln">&nbsp;</span></li>
-<li class="L5"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6"><span class="pln">&nbsp; &nbsp;<strong>video </strong></span><strong><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'sourcevid'</span><span class="pun">);</span></strong></li>
-<li class="L7"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L8"><span class="pln">&nbsp; &nbsp;ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L9"><span class="pln">&nbsp;</span></li>
-<li class="L0"><span class="pln">&nbsp; &nbsp;<strong>setInterval</strong></span><strong><span class="pun">(</span><span class="str">"processFrame()"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">25</span><span class="pun">); // call processFrame&nbsp;each 25ms</span></strong></li>
-<li class="L1"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L2"><span class="pln">&nbsp;</span></li>
-<li class="L3"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> processFrame</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4"><span class="pln">&nbsp;</span>&nbsp; &nbsp;<span class="pln">ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">video</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">);<br><br></span></li>
-<li class="L1"><span class="pln">&nbsp; &nbsp; drawRotatingVideo</span><span class="pun">(</span><span class="lit">480</span><span class="pun">,</span><span class="pln"> </span><span class="lit">90</span><span class="pun">);<br><br></span></li>
-<li class="L2"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pln" style="line-height: 1.6;">ctx</span><span class="pun" style="line-height: 1.6;">.</span><span class="pln" style="line-height: 1.6;">drawImage</span><span class="pun" style="line-height: 1.6;">(</span><span class="pln" style="line-height: 1.6;">video</span><span class="pun" style="line-height: 1.6;">,</span><span class="pln" style="line-height: 1.6;"> </span><span class="lit" style="line-height: 1.6;">0</span><span class="pun" style="line-height: 1.6;">,</span><span class="pln" style="line-height: 1.6;"> </span><span class="lit" style="line-height: 1.6;">180</span><span class="pun" style="line-height: 1.6;">,</span><span class="pln" style="line-height: 1.6;"> </span><span class="lit" style="line-height: 1.6;">320</span><span class="pun" style="line-height: 1.6;">,</span><span class="pln" style="line-height: 1.6;"> </span><span class="lit" style="line-height: 1.6;">180</span><span class="pun" style="line-height: 1.6;">);</span></li>
-<li class="L4"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">video</span><span class="pun">,</span><span class="pln"> </span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">,</span><span class="pln"> </span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">);</span></li>
-<li class="L5"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L6"><span class="pln">&nbsp;</span></li>
-<li class="L7"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawRotatingVideo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Clear the zone at the top right quarter of the canvas</span></li>
-<li class="L9"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">320</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">);</span></li>
-<li class="L0"><span class="pln">&nbsp;</span></li>
-<li class="L1"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// We are going to change the coordinate system, save the context!</span></li>
-<li class="L2"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L3"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// translate, rotate and recenter the image at its "real" center, </span></li>
-<li class="L4"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//not the top left corner</span></li>
-<li class="L5"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L6"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">0.01</span><span class="pun">); // rotate and increment the current angle</span></li>
-<li class="L7"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(-</span><span class="lit">80</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">45</span><span class="pun">);</span></li>
-<li class="L8"><span class="pln">&nbsp;</span></li>
-<li class="L9"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">video</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">160</span><span class="pun">,</span><span class="pln"> </span><span class="lit">90</span><span class="pun">);</span></li>
-<li class="L0"><span class="pln">&nbsp;</span></li>
-<li class="L1"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// restore the context</span></li>
-<li class="L2"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L4"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L5"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L6"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L7"><span class="pln">&nbsp;</span></li>
-<li class="L8"><span class="pln"> </span><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">()</span><span class="atv">"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L9"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">This is a </span><span class="tag">&lt;video&gt;</span><span class="pln"> element: </span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L0"><span class="pln"> </span><strong><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"sourcevid"</span><span class="pln"> </span><span class="atn">autoplay</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">loop</span><span class="pun">=</span><span class="atv">"true"</span><span class="tag">&gt;</span></strong></li>
-<li class="L1"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/BigBuckBunny_640x360.mp4"</span><span class="pln"> </span></li>
-<li class="L1"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L2"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/BigBuckBunny_640x360.ogv"</span><span class="pln"> </span></li>
-<li class="L2"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/ogg"</span><span class="tag">/&gt;</span></li>
-<li class="L3"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span></li>
-<li class="L4"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">This is a </span><span class="tag">&lt;canvas&gt;</span><span class="pln"> element: </span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L5"><span class="pln"> </span><strong><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"620"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"360"</span><span class="tag">&gt;&lt;/canvas&gt;</span></strong></li>
-<li class="L6"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;script&gt;</li>
+<li>&nbsp; &nbsp;var video;</li>
+<li>&nbsp; &nbsp;var canvas, ctx;</li>
+<li>&nbsp; &nbsp;var angle = 0;</li>
+<li>&nbsp;</li>
+<li> function init() {</li>
+<li>&nbsp; &nbsp;<strong>video </strong><strong>= document.getElementById('sourcevid');</strong></li>
+<li>&nbsp; &nbsp;canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp;ctx = canvas.getContext('2d');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;<strong>setInterval</strong><strong>("processFrame()", 25); // call processFrame&nbsp;each 25ms</strong></li>
+<li> }</li>
+<li>&nbsp;</li>
+<li> function processFrame() {</li>
+<li>&nbsp;&nbsp; &nbsp;ctx.drawImage(video, 0, 0, 320, 180);<br><br></li>
+<li>&nbsp; &nbsp; drawRotatingVideo(480, 90);<br><br></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="line-height: 1.6;">ctx.drawImage(video, 0, 180, 320, 180);</span></li>
+<li>&nbsp; &nbsp; ctx.drawImage(video, 320, 180, 320, 180);</li>
+<li> }</li>
+<li>&nbsp;</li>
+<li> function drawRotatingVideo(x, y) {</li>
+<li>&nbsp; &nbsp; &nbsp;// Clear the zone at the top right quarter of the canvas</li>
+<li>&nbsp; &nbsp; ctx.clearRect(320, 0, 320, 180);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// We are going to change the coordinate system, save the context!</li>
+<li>&nbsp; &nbsp; ctx.save();</li>
+<li>&nbsp; &nbsp;&nbsp;// translate, rotate and recenter the image at its "real" center, </li>
+<li>&nbsp; &nbsp;&nbsp;//not the top left corner</li>
+<li>&nbsp; &nbsp; ctx.translate(x, y);</li>
+<li>&nbsp; &nbsp; ctx.rotate(angle += 0.01); // rotate and increment the current angle</li>
+<li>&nbsp; &nbsp; ctx.translate(-80, -45);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; ctx.drawImage(video, 0, 0, 160, 90);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// restore the context</li>
+<li>&nbsp; &nbsp; ctx.restore();</li>
+<li> }</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&nbsp;</li>
+<li> &lt;body onload="init()" &gt;</li>
+<li> &lt;p&gt;This is a &lt;video&gt; element: &lt;/p&gt;</li>
+<li> <strong>&lt;video id="sourcevid" autoplay="true" loop="true"&gt;</strong></li>
+<li> &lt;source src="https://mainline.i3s.unice.fr/mooc/BigBuckBunny_640x360.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/mp4" /&gt;</li>
+<li> &lt;source src="https://mainline.i3s.unice.fr/mooc/BigBuckBunny_640x360.ogv" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/ogg"/&gt;</li>
+<li> &lt;/video&gt;</li>
+<li> &lt;p&gt;This is a &lt;canvas&gt; element: &lt;/p&gt;</li>
+<li> <strong>&lt;canvas id="myCanvas" width="620" height="360"&gt;&lt;/canvas&gt;</strong></li>
+<li> &lt;/body&gt;</li>
 </ol></div>
 
 
