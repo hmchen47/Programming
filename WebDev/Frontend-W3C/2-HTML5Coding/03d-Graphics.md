@@ -150,13 +150,13 @@
   + typical use
 
     <div><ol style="list-style-type: decimal;">
-    <li style="margin-bottom: 0px;" value="1">context.moveTo(contextX, contextY);</li>
-    <li style="margin-bottom: 0px;">context.quadraticCurveTo(controlX, controlY, endX, endY);</li>
-    <li style="margin-bottom: 0px;">// Optional : set lineWidth and stroke color</li>
-    <li style="margin-bottom: 0px;"><span style="line-height: 23.2727279663086px;">context</span>.lineWidth = 5;</li>
-    <li style="margin-bottom: 0px;"><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.strokeStyle = "#0000ff";</li>
-    <li style="margin-bottom: 0px;">// Draw!</li>
-    <li style="margin-bottom: 0px;"><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.stroke(); </li>
+    <li value="1">context.moveTo(contextX, contextY);</li>
+    <li>context.quadraticCurveTo(controlX, controlY, endX, endY);</li>
+    <li>// Optional : set lineWidth and stroke color</li>
+    <li><span style="line-height: 23.2727279663086px;">context</span>.lineWidth = 5;</li>
+    <li><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.strokeStyle = "#0000ff";</li>
+    <li>// Draw!</li>
+    <li><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.stroke(); </li>
     </ol></div>
 
 + [Curved arrow](#3411-curved-arrows)
@@ -534,27 +534,27 @@ Here is a code extract that will draw 1000 random rectangles in a canvas, using 
 [Online example](https://jsbin.com/yenuvikuno/1/edit?html,output): ([Local Example - Random Rectangles](src/3.4.1-example1.html))
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas, ctx, w, h;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">function init() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx = canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; w = canvas.width;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; h = canvas.height;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.time("time to draw");</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;for(var i=0; i &lt; 1000; i++) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;var x = Math.random() * w;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;var y = Math.random() * h;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;var width = Math.random() * w;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;var height = Math.random() * h;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;ctx.strokeRect(x, y, width, height); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;}</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.timeEnd("time to draw");</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">var canvas, ctx, w, h;</li>
+<li> </li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp; ctx = canvas.getContext('2d');</li>
+<li> </li>
+<li>&nbsp; &nbsp; w = canvas.width;</li>
+<li>&nbsp; &nbsp; h = canvas.height;</li>
+<li> </li>
+<li>&nbsp; &nbsp; console.time("time to draw");</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;for(var i=0; i &lt; 1000; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var x = Math.random() * w;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var y = Math.random() * h;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var width = Math.random() * w;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var height = Math.random() * h;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx.strokeRect(x, y, width, height); </li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; console.timeEnd("time to draw");</li>
+<li>}</li>
 </ol></div>
 
 _Lines 12-18_ draw 1000 rectangles of random sizes in immediate mode. We also measure the time using the usual `console.time(name_of_timer)` and `console.timeEnd(name_of_timer)` that will write in the browser console the time elapsed. Note that `console.time(...)` and `console.timeEnd(...)` display results only in the browser's console, not in the JSBin console.
@@ -582,15 +582,15 @@ Same example as before, this time using the buffered mode for drawing rectangles
 Extract from source code (the part that draws the rectangles):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> for(var i=0; i &lt; 1000; i++) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;var x = Math.random() * w;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;var y = Math.random() * h;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;var width = Math.random() * w;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;var height = Math.random() * h;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>ctx</strong><strong>.rect(x, y, width, height); // store&nbsp;a rectangle in path/buffer</strong></li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"><strong> ctx.stroke(); // draws the whole buffer (the 1000 rectangles) at once</strong></li>
+<li value="1"> for(var i=0; i &lt; 1000; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;var x = Math.random() * w;</li>
+<li>&nbsp; &nbsp; &nbsp;var y = Math.random() * h;</li>
+<li>&nbsp; &nbsp; &nbsp;var width = Math.random() * w;</li>
+<li>&nbsp; &nbsp; &nbsp;var height = Math.random() * h;</li>
+<li> </li>
+<li>&nbsp; &nbsp; <strong>ctx</strong><strong>.rect(x, y, width, height); // store&nbsp;a rectangle in path/buffer</strong></li>
+<li> }</li>
+<li><strong> ctx.stroke(); // draws the whole buffer (the 1000 rectangles) at once</strong></li>
 </ol></div>
 
 
@@ -618,16 +618,16 @@ And here is what the timer gives: a slightly faster execution time. Changing 100
 A call to `ctx.beginPath()` will reset the buffer (empty its contents). We will see many more examples of using the Path drawing mode in another section later on this week. 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> // start a new buffer / path</li>
-<li style="margin-bottom: 0px;"><strong> ctx.beginPath();</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // all these orders are in a buffer/path</li>
-<li style="margin-bottom: 0px;"> ctx.moveTo(10, 10);</li>
-<li style="margin-bottom: 0px;"> ctx.lineTo(100, 100);</li>
-<li style="margin-bottom: 0px;"> ctx.lineTo(150, 70);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Draw the buffer</li>
-<li style="margin-bottom: 0px;"> ctx.stroke();</li>
+<li value="1"> // start a new buffer / path</li>
+<li><strong> ctx.beginPath();</strong></li>
+<li> </li>
+<li> // all these orders are in a buffer/path</li>
+<li> ctx.moveTo(10, 10);</li>
+<li> ctx.lineTo(100, 100);</li>
+<li> ctx.lineTo(150, 70);</li>
+<li> </li>
+<li> // Draw the buffer</li>
+<li> ctx.stroke();</li>
 </ol></div>
 
 
@@ -695,26 +695,26 @@ Here is the [example online](https://jsbin.com/wolurahofa/1/edit?html,output): (
 </figure>
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas=document.getElementById('myCanvas');</li>
-<li style="margin-bottom: 0px;">var ctx=canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Vertical lines</li>
-<li style="margin-bottom: 0px;">for (var x = 0.5; x &lt; 500; x += 10) { </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.moveTo(x, 0); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(x, 375);</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Horizontal lines</li>
-<li style="margin-bottom: 0px;">for (var y = 0.5; y &lt; 375; y += 10) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.moveTo(0, y); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(500, y);</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// Draw in blue</li>
-<li style="margin-bottom: 0px;">ctx.strokeStyle = "#0000FF";</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// Until the execution of the next line, nothing has been drawn!</li>
-<li style="margin-bottom: 0px;"> ctx.stroke(); </li>
+<li value="1">var canvas=document.getElementById('myCanvas');</li>
+<li>var ctx=canvas.getContext('2d');</li>
+<li> </li>
+<li>// Vertical lines</li>
+<li>for (var x = 0.5; x &lt; 500; x += 10) { </li>
+<li>&nbsp; &nbsp; ctx.moveTo(x, 0); </li>
+<li>&nbsp; &nbsp; ctx.lineTo(x, 375);</li>
+<li>}</li>
+<li> </li>
+<li>// Horizontal lines</li>
+<li>for (var y = 0.5; y &lt; 375; y += 10) {</li>
+<li>&nbsp; &nbsp; ctx.moveTo(0, y); </li>
+<li>&nbsp; &nbsp; ctx.lineTo(500, y);</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>// Draw in blue</li>
+<li>ctx.strokeStyle = "#0000FF";</li>
+<li>&nbsp;</li>
+<li>// Until the execution of the next line, nothing has been drawn!</li>
+<li> ctx.stroke(); </li>
 </ol></div>
 
 In this example, the entire grid is drawn during the execution of the last line of code, with the single call to `ctx.stroke()`.
@@ -734,21 +734,21 @@ Try this [interactive example](https://jsbin.com/fatayogapo/1/edit?html,js,outpu
 </figure>
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas=document.getElementById('myCanvas');</li>
-<li style="margin-bottom: 0px;">var ctx=canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">// a filled rectangle in immediate mode</li>
-<li style="margin-bottom: 0px;">ctx.fillStyle='#FF0000';</li>
-<li style="margin-bottom: 0px;">ctx.fillRect(0,0,80,100);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// two consecutive lines in path mode</li>
-<li style="margin-bottom: 0px;">ctx.moveTo(0,0);</li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100, 100); </li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100,0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// draws only the two lines in wireframe mode</li>
-<li style="margin-bottom: 0px;">ctx.strokeStyle = "#0000FF";</li>
-<li style="margin-bottom: 0px;">ctx.stroke();</li>
+<li value="1">var canvas=document.getElementById('myCanvas');</li>
+<li>var ctx=canvas.getContext('2d');</li>
+<li></li>
+<li>// a filled rectangle in immediate mode</li>
+<li>ctx.fillStyle='#FF0000';</li>
+<li>ctx.fillRect(0,0,80,100);</li>
+<li> </li>
+<li>// two consecutive lines in path mode</li>
+<li>ctx.moveTo(0,0);</li>
+<li>ctx.lineTo(100, 100); </li>
+<li>ctx.lineTo(100,0);</li>
+<li> </li>
+<li>// draws only the two lines in wireframe mode</li>
+<li>ctx.strokeStyle = "#0000FF";</li>
+<li>ctx.stroke();</li>
 </ol></div>
 
 This example shows that filled and wireframe shapes should be drawn differently (here a filled rectangle is drawn using a call to the `fillRect(...)` method while a wireframe set of connected lines is drawn using the `stroke()` method of the context).
@@ -766,22 +766,22 @@ This example shows that filled and wireframe shapes should be drawn differently 
 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas=document.getElementById('myCanvas');</li>
-<li style="margin-bottom: 0px;">var ctx=canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// first part of the path</li>
-<li style="margin-bottom: 0px;">ctx.moveTo(20,20);</li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100, 100); </li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100,0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// second part of the path, moveTo(...) is used to "jump" to another place</li>
-<li style="margin-bottom: 0px;">ctx.moveTo(120,20);</li>
-<li style="margin-bottom: 0px;">ctx.lineTo(200, 100); </li>
-<li style="margin-bottom: 0px;">ctx.lineTo(200,0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// indicate stroke color + draw the path</li>
-<li style="margin-bottom: 0px;">ctx.strokeStyle = "#0000FF";</li>
-<li style="margin-bottom: 0px;">ctx.stroke();</li>
+<li value="1">var canvas=document.getElementById('myCanvas');</li>
+<li>var ctx=canvas.getContext('2d');</li>
+<li> </li>
+<li>// first part of the path</li>
+<li>ctx.moveTo(20,20);</li>
+<li>ctx.lineTo(100, 100); </li>
+<li>ctx.lineTo(100,0);</li>
+<li> </li>
+<li>// second part of the path, moveTo(...) is used to "jump" to another place</li>
+<li>ctx.moveTo(120,20);</li>
+<li>ctx.lineTo(200, 100); </li>
+<li>ctx.lineTo(200,0);</li>
+<li> </li>
+<li>// indicate stroke color + draw the path</li>
+<li>ctx.strokeStyle = "#0000FF";</li>
+<li>ctx.stroke();</li>
 </ol></div>
 
 In this last example, we simply called the `moveTo()` method between each part of the path. And we called `stroke()` only once to draw the whole path.
@@ -836,26 +836,26 @@ What we will try first is to call stroke() after the first half of the path, the
 Here is the code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas=document.getElementById('myCanvas');</li>
-<li style="margin-bottom: 0px;">var ctx=canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// first part of the path</li>
-<li style="margin-bottom: 0px;">ctx.moveTo(20,20);</li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100, 100); </li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100,0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// indicate stroke color + draw first part of the path</li>
-<li style="margin-bottom: 0px;">ctx.strokeStyle = "#0000FF";</li>
-<li style="margin-bottom: 0px;">ctx.stroke();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// second part of the path</li>
-<li style="margin-bottom: 0px;">ctx.moveTo(120,20);</li>
-<li style="margin-bottom: 0px;">ctx.lineTo(200, 100); </li>
-<li style="margin-bottom: 0px;">ctx.lineTo(200,0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// indicate stroke color + draw the path</li>
-<li style="margin-bottom: 0px;">ctx.fillStyle = "pink";</li>
-<li style="margin-bottom: 0px;">ctx.fill();</li>
+<li value="1">var canvas=document.getElementById('myCanvas');</li>
+<li>var ctx=canvas.getContext('2d');</li>
+<li> </li>
+<li>// first part of the path</li>
+<li>ctx.moveTo(20,20);</li>
+<li>ctx.lineTo(100, 100); </li>
+<li>ctx.lineTo(100,0);</li>
+<li> </li>
+<li>// indicate stroke color + draw first part of the path</li>
+<li>ctx.strokeStyle = "#0000FF";</li>
+<li>ctx.stroke();</li>
+<li> </li>
+<li>// second part of the path</li>
+<li>ctx.moveTo(120,20);</li>
+<li>ctx.lineTo(200, 100); </li>
+<li>ctx.lineTo(200,0);</li>
+<li> </li>
+<li>// indicate stroke color + draw the path</li>
+<li>ctx.fillStyle = "pink";</li>
+<li>ctx.fill();</li>
 </ol></div>
 
 
@@ -890,29 +890,29 @@ What happened is:
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas=document.getElementById('myCanvas');</li>
-<li style="margin-bottom: 0px;">var ctx=canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// first part of the path</li>
-<li style="margin-bottom: 0px;">ctx.moveTo(20,20);</li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100, 100); </li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100,0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// indicate stroke color + draw first part of the path</li>
-<li style="margin-bottom: 0px;">ctx.strokeStyle = "#0000FF";</li>
-<li style="margin-bottom: 0px;">ctx.stroke();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"><strong>// start a new path, empty the current buffer</strong></li>
-<li style="margin-bottom: 0px;"><span style="color: #ffff00;"><strong>ctx.beginPath();</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// second part of the path</li>
-<li style="margin-bottom: 0px;">ctx.moveTo(120,20);</li>
-<li style="margin-bottom: 0px;">ctx.lineTo(200, 100); </li>
-<li style="margin-bottom: 0px;">ctx.lineTo(200,0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// indicate stroke color + draw the path</li>
-<li style="margin-bottom: 0px;">ctx.fillStyle = "pink";</li>
-<li style="margin-bottom: 0px;">ctx.fill();</li>
+<li value="1">var canvas=document.getElementById('myCanvas');</li>
+<li>var ctx=canvas.getContext('2d');</li>
+<li> </li>
+<li>// first part of the path</li>
+<li>ctx.moveTo(20,20);</li>
+<li>ctx.lineTo(100, 100); </li>
+<li>ctx.lineTo(100,0);</li>
+<li> </li>
+<li>// indicate stroke color + draw first part of the path</li>
+<li>ctx.strokeStyle = "#0000FF";</li>
+<li>ctx.stroke();</li>
+<li> </li>
+<li><strong>// start a new path, empty the current buffer</strong></li>
+<li><span style="color: #ffff00;"><strong>ctx.beginPath();</strong></li>
+<li> </li>
+<li>// second part of the path</li>
+<li>ctx.moveTo(120,20);</li>
+<li>ctx.lineTo(200, 100); </li>
+<li>ctx.lineTo(200,0);</li>
+<li> </li>
+<li>// indicate stroke color + draw the path</li>
+<li>ctx.fillStyle = "pink";</li>
+<li>ctx.fill();</li>
 </ol></div>
 
 This time, in order to draw the two shapes differently, we defined two separate paths. The way to do this is just to call `ctx.beginPath()` to start a new path. In this example, the first path has been drawn in wireframe mode, then a new path has been started that is drawn in filled mode.
@@ -938,26 +938,26 @@ It's interesting to see how we can write a single "draw line" function that take
 Here is the code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function drawLine(x1, y1, x2, y2, color, width) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.save();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // set color and lineWidth, if these parameters</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;// are not defined, do nothing (default values)</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;if(color)</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; ctx.strokeStyle = color;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;if(width)</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; ctx.lineWidth = width;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;// start a new path</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.beginPath();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.moveTo(x1, y1);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(x2, y2);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.stroke();</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.restore();</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">function drawLine(x1, y1, x2, y2, color, width) {</li>
+<li>&nbsp; &nbsp; ctx.save();</li>
+<li> </li>
+<li>&nbsp; &nbsp; // set color and lineWidth, if these parameters</li>
+<li>&nbsp; &nbsp;&nbsp;// are not defined, do nothing (default values)</li>
+<li>&nbsp; &nbsp;&nbsp;if(color)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.strokeStyle = color;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;if(width)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.lineWidth = width;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// start a new path</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li> </li>
+<li>&nbsp; &nbsp; ctx.moveTo(x1, y1);</li>
+<li>&nbsp; &nbsp; ctx.lineTo(x2, y2);</li>
+<li>&nbsp; &nbsp; ctx.stroke();</li>
+<li></li>
+<li>&nbsp; &nbsp; ctx.restore();</li>
+<li>}</li>
 </ol></div>
 
 Notice the save/restore of the context at the beginning/end of the function. This is a REALLY good practice to avoid affecting other functions' context.
@@ -968,9 +968,9 @@ Notice the save/restore of the context at the beginning/end of the function. Thi
 Here is an example (see [online example](https://jsbin.com/soferaraya/edit?html,output)): ([Local Example - 3 Lines](src/3.4.5-example1.html))
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> drawLine(0, 0, 100, 100);</li>
-<li style="margin-bottom: 0px;"> drawLine(0, 50, 150, 200, 'red');</li>
-<li style="margin-bottom: 0px;"> drawLine(10, 100, 100, 10, 'green', 10);</li>
+<li value="1"> drawLine(0, 0, 100, 100);</li>
+<li> drawLine(0, 50, 150, 200, 'red');</li>
+<li> drawLine(10, 100, 100, 10, 'green', 10);</li>
 </ol></div>
 
 Result:
@@ -1006,45 +1006,45 @@ You may find multiple implementations on the Web for drawing arrows in a canvas,
 __Example #1:__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">// Adapted from : https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag</li>
-<li style="margin-bottom: 0px;">function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;//variables to be used when creating the arrow</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;var headlen = 10;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;var angle = Math.atan2(toy-fromy,tox-fromx);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.save();</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.strokeStyle = color;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;//starting path of the arrow from the start square to the end square </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; //and drawing the stroke</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.beginPath();</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.moveTo(fromx, fromy);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(tox, toy);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineWidth = arrowWidth;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.stroke();</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;//starting a new path from the head of the arrow to one of the sides of </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; //the point</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.beginPath();</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.moveTo(tox, toy);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy-headlen*Math.sin(angle-Math.PI/7));</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;//path from the side point of the arrow, to the other side point</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7),</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy-headlen*Math.sin(angle+Math.PI/7));</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;//path from the side point back to the tip of the arrow, and then </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; //again to the opposite side point</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(tox, toy);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy-headlen*Math.sin(angle-Math.PI/7));</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;//draws the paths created above</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.stroke();</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.restore();</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">// Adapted from : https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag</li>
+<li>function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){</li>
+<li>&nbsp; &nbsp;&nbsp;//variables to be used when creating the arrow</li>
+<li>&nbsp; &nbsp;&nbsp;var headlen = 10;</li>
+<li>&nbsp; &nbsp;&nbsp;var angle = Math.atan2(toy-fromy,tox-fromx);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; ctx.save();</li>
+<li>&nbsp; &nbsp; ctx.strokeStyle = color;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;//starting path of the arrow from the start square to the end square </li>
+<li>&nbsp; &nbsp; //and drawing the stroke</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li>&nbsp; &nbsp; ctx.moveTo(fromx, fromy);</li>
+<li>&nbsp; &nbsp; ctx.lineTo(tox, toy);</li>
+<li>&nbsp; &nbsp; ctx.lineWidth = arrowWidth;</li>
+<li>&nbsp; &nbsp; ctx.stroke();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;//starting a new path from the head of the arrow to one of the sides of </li>
+<li>&nbsp; &nbsp; //the point</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li>&nbsp; &nbsp; ctx.moveTo(tox, toy);</li>
+<li>&nbsp; &nbsp; ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy-headlen*Math.sin(angle-Math.PI/7));</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;//path from the side point of the arrow, to the other side point</li>
+<li>&nbsp; &nbsp; ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy-headlen*Math.sin(angle+Math.PI/7));</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;//path from the side point back to the tip of the arrow, and then </li>
+<li>&nbsp; &nbsp; //again to the opposite side point</li>
+<li>&nbsp; &nbsp; ctx.lineTo(tox, toy);</li>
+<li>&nbsp; &nbsp; ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;toy-headlen*Math.sin(angle-Math.PI/7));</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;//draws the paths created above</li>
+<li>&nbsp; &nbsp; ctx.stroke();</li>
+<li></li>
+<li>&nbsp; &nbsp; ctx.restore();</li>
+<li>}</li>
 </ol></div>
 
 An arrow is made of one line (the arrow body) and three connected lines (the arrow head). 
@@ -1059,9 +1059,9 @@ __Example #2__
 [Online example](https://jsbin.com/lebutokage/2/edit?html,output) that uses the above code: ([Local Example - Arrows](src/3.4.6-example1.html))
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> drawArrow(ctx, 10, 10, 100, 100, 10, 'red');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> drawArrow(ctx, 100, 10, 140, 140, 3, 'black');</li>
+<li value="1"> drawArrow(ctx, 10, 10, 100, 100, 10, 'red');</li>
+<li> </li>
+<li> drawArrow(ctx, 100, 10, 140, 140, 3, 'black');</li>
 </ol></div>
 
 Result:
@@ -1117,20 +1117,20 @@ Try this [interactive example](https://jsbin.com/kajuniyuma/edit?html,output): (
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas=document.getElementById('myCanvas');</li>
-<li style="margin-bottom: 0px;">var ctx=canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Path made of three points (defines two lines)</li>
-<li style="margin-bottom: 0px;">ctx.moveTo(20,20);</li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100, 100); </li>
-<li style="margin-bottom: 0px;">ctx.lineTo(100,0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"><strong>// Close the path, try commenting this line</strong></li>
-<li style="margin-bottom: 0px;"><strong>ctx.closePath();</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// indicate stroke color + draw first part of the path</li>
-<li style="margin-bottom: 0px;">ctx.strokeStyle = "blue";</li>
-<li style="margin-bottom: 0px;">ctx.stroke();</li>
+<li value="1">var canvas=document.getElementById('myCanvas');</li>
+<li>var ctx=canvas.getContext('2d');</li>
+<li> </li>
+<li>// Path made of three points (defines two lines)</li>
+<li>ctx.moveTo(20,20);</li>
+<li>ctx.lineTo(100, 100); </li>
+<li>ctx.lineTo(100,0);</li>
+<li> </li>
+<li><strong>// Close the path, try commenting this line</strong></li>
+<li><strong>ctx.closePath();</strong></li>
+<li> </li>
+<li>// indicate stroke color + draw first part of the path</li>
+<li>ctx.strokeStyle = "blue";</li>
+<li>ctx.stroke();</li>
 </ol></div>
 
 + _Lines 5-7_ corresponds to a path made of two consecutive lines. If we just call `stroke()` after that, two lines will be drawn on the canvas.
@@ -1161,9 +1161,9 @@ Note: the figures in this page have been borrowed from the [HTML5 Canvas Tutoria
 Typical usage for drawing an arc/circle/ellipse is:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">ctx.arc(centerX, centerY, radius, startAngle, endAngle); // clockwise drawing</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">ctx.arc(centerX, centerY, radius, startAngle, endAngle, <strong>false</strong>);</li>
+<li value="1">ctx.arc(centerX, centerY, radius, startAngle, endAngle); // clockwise drawing</li>
+<li> </li>
+<li>ctx.arc(centerX, centerY, radius, startAngle, endAngle, <strong>false</strong>);</li>
 </ol></div>
 
 The angles are in radians (between `0` and `2*Math.PI`). The arc is drawn clockwise. Beware that this may not seem natural if you're used to the trigonometric order.
@@ -1178,12 +1178,12 @@ __Example #1: drawing an arc with radius = 50, starting angle = 0, end angle = P
 Try this [example online](https://jsbin.com/vusijenele/edit?html,output): ([Local Example - Arc w/ Radius](src/3.4.8-example1.html))
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">ctx.beginPath();</li>
-<li style="margin-bottom: 0px;">// we ommited the last parameter</li>
-<li style="margin-bottom: 0px;">ctx.arc(100,&nbsp;75,&nbsp;50,&nbsp;0,&nbsp;Math.PI/2);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">ctx.lineWidth&nbsp;=&nbsp;10;</li>
-<li style="margin-bottom: 0px;">ctx.stroke();</li>
+<li value="1">ctx.beginPath();</li>
+<li>// we ommited the last parameter</li>
+<li>ctx.arc(100,&nbsp;75,&nbsp;50,&nbsp;0,&nbsp;Math.PI/2);</li>
+<li>&nbsp;</li>
+<li>ctx.lineWidth&nbsp;=&nbsp;10;</li>
+<li>ctx.stroke();</li>
 </ol></div>
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -1199,12 +1199,12 @@ Try this [example online](https://jsbin.com/vusijenele/edit?html,output): ([Loca
 If we change the last parameter (we omitted it, so it took a value of `false` by default):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">ctx.beginPath();</li>
-<li style="margin-bottom: 0px;">// we omitted the last parameter</li>
-<li style="margin-bottom: 0px;">ctx.arc(100,&nbsp;75,&nbsp;50,&nbsp;0,&nbsp;Math.PI/2, <strong>true</strong>);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">ctx.lineWidth&nbsp;=&nbsp;10;</li>
-<li style="margin-bottom: 0px;">ctx.stroke();</li>
+<li value="1">ctx.beginPath();</li>
+<li>// we omitted the last parameter</li>
+<li>ctx.arc(100,&nbsp;75,&nbsp;50,&nbsp;0,&nbsp;Math.PI/2, <strong>true</strong>);</li>
+<li>&nbsp;</li>
+<li>ctx.lineWidth&nbsp;=&nbsp;10;</li>
+<li>ctx.stroke();</li>
 </ol></div>
 
 Then, the result is the "complementary" of the previous arc:
@@ -1237,33 +1237,33 @@ Try this [example](https://jsbin.com/juvicubata/edit?html,output): ([Local Examp
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas = document.getElementById("myCanvas");</li>
-<li style="margin-bottom: 0px;">var ctx = canvas.getContext("2d");</li>
-<li style="margin-bottom: 0px;">var centerX = canvas.width / 2;</li>
-<li style="margin-bottom: 0px;">var centerY = canvas.height / 2;</li>
-<li style="margin-bottom: 0px;">var radius = 70;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"><strong> ctx.beginPath();</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Add to the path a full circle (from 0 to 2PI)</li>
-<li style="margin-bottom: 0px;"><strong> ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// With path drawing you can change the context</li>
-<li style="margin-bottom: 0px;">// properties until a call to stroke() or fill() is performed</li>
-<li style="margin-bottom: 0px;"> ctx.fillStyle = "lightBlue";</li>
-<li style="margin-bottom: 0px;">// Draws the filled circle in light blue</li>
-<li style="margin-bottom: 0px;"><strong> ctx.fill();</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Prepare for the outline</li>
-<li style="margin-bottom: 0px;"> ctx.lineWidth = 5;</li>
-<li style="margin-bottom: 0px;"> ctx.strokeStyle = "black";</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// draws the path (the circle) AGAIN, this</li>
-<li style="margin-bottom: 0px;">// time in wireframe</li>
-<li style="margin-bottom: 0px;"><strong> ctx.stroke();</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"><strong>// Notice we called ctx.arc() only once ! And drew it twice </strong></li>
-<li style="margin-bottom: 0px;"><strong>// with different styles</strong></li>
+<li value="1">var canvas = document.getElementById("myCanvas");</li>
+<li>var ctx = canvas.getContext("2d");</li>
+<li>var centerX = canvas.width / 2;</li>
+<li>var centerY = canvas.height / 2;</li>
+<li>var radius = 70;</li>
+<li> </li>
+<li><strong> ctx.beginPath();</strong></li>
+<li> </li>
+<li>// Add to the path a full circle (from 0 to 2PI)</li>
+<li><strong> ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);</strong></li>
+<li> </li>
+<li>// With path drawing you can change the context</li>
+<li>// properties until a call to stroke() or fill() is performed</li>
+<li> ctx.fillStyle = "lightBlue";</li>
+<li>// Draws the filled circle in light blue</li>
+<li><strong> ctx.fill();</strong></li>
+<li> </li>
+<li> // Prepare for the outline</li>
+<li> ctx.lineWidth = 5;</li>
+<li> ctx.strokeStyle = "black";</li>
+<li> </li>
+<li>// draws the path (the circle) AGAIN, this</li>
+<li>// time in wireframe</li>
+<li><strong> ctx.stroke();</strong></li>
+<li> </li>
+<li><strong>// Notice we called ctx.arc() only once ! And drew it twice </strong></li>
+<li><strong>// with different styles</strong></li>
 </ol></div>
 
 Notice that we called `ctx.arc()` only once! And drew it twice, with different styles, with calls to `ctx.stroke()` and `ctx.fill().` Each call drew the defined path in wireframe and in filled mode!
@@ -1333,9 +1333,9 @@ In fact, the `arcTo(...)` method draws an arc of a circle depending on some tang
 #### Typical use
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">ctx.moveTo(x0, y0);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x1, y1, x2, y2, radius);</li>
+<li value="1">ctx.moveTo(x0, y0);</li>
+<li> </li>
+<li>ctx.arcTo(x1, y1, x2, y2, radius);</li>
 </ol></div>
 
 This method can be confusing. It was defined mainly for drawing rounded shapes like rounded rectangles. We used an excerpt here from the excellent [tutorial on the arcTo(...) method](http://www.dbp-consulting.com/tutorials/canvas/CanvasArcTo.html).
@@ -1367,13 +1367,13 @@ __Example #1: simple use__
 Try this [interactive example](https://jsbin.com/hagozisiba/1/edit?html,output): ([Local Example - Simple Use](src/3.4.9-example1.html))
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">context.beginPath();</li>
-<li style="margin-bottom: 0px;">context.moveTo(0, 20);</li>
-<li style="margin-bottom: 0px;">context.arcTo(100, 100, 200, 20, 50);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">context.lineWidth = 5;</li>
-<li style="margin-bottom: 0px;">context.strokeStyle = "#0000ff";</li>
-<li style="margin-bottom: 0px;">context.stroke();</li>
+<li value="1">context.beginPath();</li>
+<li>context.moveTo(0, 20);</li>
+<li>context.arcTo(100, 100, 200, 20, 50);</li>
+<li> </li>
+<li>context.lineWidth = 5;</li>
+<li>context.strokeStyle = "#0000ff";</li>
+<li>context.stroke();</li>
 </ol></div>
 
 
@@ -1394,36 +1394,36 @@ Try this [interactive example](https://jsbin.com/vomuqaseti/1/edit?html,output):
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var roundedRect=function(ctx,x,y,width,height,radius,fill,stroke) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.beginPath();</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;// draw top and top right corner</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx.moveTo(x+radius,y);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx.arcTo(x+width,y,x+width,y+radius,radius);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;// draw right side and bottom right corner</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;// draw bottom and bottom left corner</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx.arcTo(x,y+height,x,y+height-radius,radius);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;// draw left and top left corner</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx.arcTo(x,y,x+radius,y,radius);</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;if(fill) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; ctx.fill();</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;if(stroke){</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; ctx.stroke();</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;}</li>
-<li style="margin-bottom: 0px;">} </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">var canvas&nbsp;=&nbsp;document.getElementById('myCanvas');</li>
-<li style="margin-bottom: 0px;">var ctx &nbsp; &nbsp;=&nbsp;canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">ctx.strokeStyle&nbsp;=&nbsp;'rgb(150,0,0)';</li>
-<li style="margin-bottom: 0px;">ctx.fillStyle &nbsp;&nbsp;=&nbsp;'rgb(0,150,0)';</li>
-<li style="margin-bottom: 0px;">ctx.lineWidth &nbsp;&nbsp;=&nbsp;7;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">roundedRect(ctx,&nbsp;15,&nbsp;15,&nbsp;160,&nbsp;120,&nbsp;20,&nbsp;true,&nbsp;true);</li>
+<li value="1">var roundedRect=function(ctx,x,y,width,height,radius,fill,stroke) {</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li></li>
+<li>&nbsp; &nbsp;// draw top and top right corner</li>
+<li>&nbsp; &nbsp;ctx.moveTo(x+radius,y);</li>
+<li>&nbsp; &nbsp;ctx.arcTo(x+width,y,x+width,y+radius,radius);</li>
+<li>&nbsp; &nbsp;// draw right side and bottom right corner</li>
+<li>&nbsp; &nbsp;ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);</li>
+<li>&nbsp; &nbsp;// draw bottom and bottom left corner</li>
+<li>&nbsp; &nbsp;ctx.arcTo(x,y+height,x,y+height-radius,radius);</li>
+<li>&nbsp; &nbsp;// draw left and top left corner</li>
+<li>&nbsp; &nbsp;ctx.arcTo(x,y,x+radius,y,radius);</li>
+<li></li>
+<li>&nbsp; &nbsp;if(fill) {</li>
+<li>&nbsp; &nbsp; &nbsp; ctx.fill();</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;if(stroke){</li>
+<li>&nbsp; &nbsp; &nbsp; ctx.stroke();</li>
+<li>&nbsp; &nbsp;}</li>
+<li>} </li>
+<li> </li>
+<li>var canvas&nbsp;=&nbsp;document.getElementById('myCanvas');</li>
+<li>var ctx &nbsp; &nbsp;=&nbsp;canvas.getContext('2d');</li>
+<li> </li>
+<li>ctx.strokeStyle&nbsp;=&nbsp;'rgb(150,0,0)';</li>
+<li>ctx.fillStyle &nbsp;&nbsp;=&nbsp;'rgb(0,150,0)';</li>
+<li>ctx.lineWidth &nbsp;&nbsp;=&nbsp;7;</li>
+<li></li>
+<li>roundedRect(ctx,&nbsp;15,&nbsp;15,&nbsp;160,&nbsp;120,&nbsp;20,&nbsp;true,&nbsp;true);</li>
 </ol></div>
 
 In this example, each call to `ctx.arcTo(...)` draws a side plus a corner. This makes us suspect that the arcTo() method has been designed primarily for drawing rounded rectangles...
@@ -1450,21 +1450,21 @@ __Example #4: use the unrounded vertices in arcTo__
 For drawing a rounded square, this code also works:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">ctx.moveTo(x+radius,&nbsp;y);</li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x+width,&nbsp;y,x+width,&nbsp;y+height,&nbsp;radius);</li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x+width,&nbsp;y+height,&nbsp;x,&nbsp;y+height,&nbsp;radius);&nbsp;</li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x,&nbsp;y+height,&nbsp;x,&nbsp;y,radius);</li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x,&nbsp;y,&nbsp;x+width,&nbsp;y,radius);</li>
+<li value="1">ctx.moveTo(x+radius,&nbsp;y);</li>
+<li>ctx.arcTo(x+width,&nbsp;y,x+width,&nbsp;y+height,&nbsp;radius);</li>
+<li>ctx.arcTo(x+width,&nbsp;y+height,&nbsp;x,&nbsp;y+height,&nbsp;radius);&nbsp;</li>
+<li>ctx.arcTo(x,&nbsp;y+height,&nbsp;x,&nbsp;y,radius);</li>
+<li>ctx.arcTo(x,&nbsp;y,&nbsp;x+width,&nbsp;y,radius);</li>
 </ol></div>
 
 which might be easier than trying to figure out where the arc will end like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">ctx.moveTo(x+radius,&nbsp;y);</li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x+width,&nbsp;y,&nbsp;x+width,&nbsp;y+radius,&nbsp;radius);</li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x+width,&nbsp;y+height,&nbsp;x+width-radius,&nbsp;y+height,radius);&nbsp;</li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x,&nbsp;y+height,&nbsp;x,&nbsp;y+height-radius,&nbsp;radius);</li>
-<li style="margin-bottom: 0px;">ctx.arcTo(x,&nbsp;y,&nbsp;x+radius,&nbsp;y,radius);</li>
+<li value="1">ctx.moveTo(x+radius,&nbsp;y);</li>
+<li>ctx.arcTo(x+width,&nbsp;y,&nbsp;x+width,&nbsp;y+radius,&nbsp;radius);</li>
+<li>ctx.arcTo(x+width,&nbsp;y+height,&nbsp;x+width-radius,&nbsp;y+height,radius);&nbsp;</li>
+<li>ctx.arcTo(x,&nbsp;y+height,&nbsp;x,&nbsp;y+height-radius,&nbsp;radius);</li>
+<li>ctx.arcTo(x,&nbsp;y,&nbsp;x+radius,&nbsp;y,radius);</li>
 </ol></div>
 
 This could be particularly helpful if you are dealing with something other than a rectangle, like this rounded triangle ([try the code at JsBin](https://jsbin.com/depaxoxexi/edit?html,output)): ([Local Example - Triangle](src/3.4.9-example4.html))
@@ -1505,13 +1505,13 @@ The control point controls the curvature - if we move the control point farther 
 #### Typical use
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">context.moveTo(contextX, contextY);</li>
-<li style="margin-bottom: 0px;">context.quadraticCurveTo(controlX, controlY, endX, endY);</li>
-<li style="margin-bottom: 0px;">// Optional : set lineWidth and stroke color</li>
-<li style="margin-bottom: 0px;"><span style="line-height: 23.2727279663086px;">context</span>.lineWidth = 5;</li>
-<li style="margin-bottom: 0px;"><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.strokeStyle = "#0000ff";</li>
-<li style="margin-bottom: 0px;">// Draw!</li>
-<li style="margin-bottom: 0px;"><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.stroke(); </li>
+<li value="1">context.moveTo(contextX, contextY);</li>
+<li>context.quadraticCurveTo(controlX, controlY, endX, endY);</li>
+<li>// Optional : set lineWidth and stroke color</li>
+<li><span style="line-height: 23.2727279663086px;">context</span>.lineWidth = 5;</li>
+<li><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.strokeStyle = "#0000ff";</li>
+<li>// Draw!</li>
+<li><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.stroke(); </li>
 </ol></div>
 
 
@@ -1534,17 +1534,17 @@ Try this [interactive example](https://jsbin.com/zabefafuge/1/edit?html,output):
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var canvas=document.querySelector('#myCanvas1');</li>
-<li style="margin-bottom: 0px;">var context=canvas.getContext('2d');</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">context.beginPath();</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">context.moveTo(100, 20);</li>
-<li style="margin-bottom: 0px;">context.quadraticCurveTo(230, 200, 250, 20);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">context.lineWidth = 5;</li>
-<li style="margin-bottom: 0px;">context.strokeStyle = "#0000ff";</li>
-<li style="margin-bottom: 0px;">context.stroke();</li>
+<li value="1">var canvas=document.querySelector('#myCanvas1');</li>
+<li>var context=canvas.getContext('2d');</li>
+<li>&nbsp;</li>
+<li>context.beginPath();</li>
+<li>&nbsp;</li>
+<li>context.moveTo(100, 20);</li>
+<li>context.quadraticCurveTo(230, 200, 250, 20);</li>
+<li>&nbsp;</li>
+<li>context.lineWidth = 5;</li>
+<li>context.strokeStyle = "#0000ff";</li>
+<li>context.stroke();</li>
 </ol></div>
 
 We set a starting point in line 6: `moveTo(...)`, then set the control and ending points with a call to `quadraticCurve(...)`, at line 7, then set some properties for color, thickness, and finally we call the `stroke()` method for drawing the curve.
@@ -1567,16 +1567,16 @@ Try this [interactive example](https://jsbin.com/sahemetere/1/edit?html,output):
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">context.beginPath();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">context.moveTo(100, 20);</li>
-<li style="margin-bottom: 0px;">context.lineTo(200, 80);</li>
-<li style="margin-bottom: 0px;">context.quadraticCurveTo(230, 200, 250, 20);</li>
-<li style="margin-bottom: 0px;">context.lineTo(500, 90);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">context.lineWidth = 5;</li>
-<li style="margin-bottom: 0px;">context.strokeStyle = "#0000ff";</li>
-<li style="margin-bottom: 0px;">context.stroke();</li>
+<li value="1">context.beginPath();</li>
+<li> </li>
+<li>context.moveTo(100, 20);</li>
+<li>context.lineTo(200, 80);</li>
+<li>context.quadraticCurveTo(230, 200, 250, 20);</li>
+<li>context.lineTo(500, 90);</li>
+<li> </li>
+<li>context.lineWidth = 5;</li>
+<li>context.strokeStyle = "#0000ff";</li>
+<li>context.stroke();</li>
 </ol></div>
 
 
@@ -1598,44 +1598,44 @@ We propose a useful function for drawing curved arrows. The code is a modified v
 Source code of the function that draws a curved arrow:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function drawCurvedArrow(startPointX, startPointY,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;endPointX, endPointY,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;quadPointX, quadPointY,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lineWidth,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrowWidth, </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;// BEST PRACTICE: the function changes color and lineWidth -&gt; save context!</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.save();</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.strokeStyle = color;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineWidth = lineWidth;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;// angle of the end tangeant, useful for drawing the arrow head</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;var arrowAngle = Math.atan2(quadPointX - endPointX, quadPointY - endPointY) + Math.PI;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;// start a new path</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.beginPath();</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #800000;">// Body of the arrow</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.moveTo(startPointX, startPointY);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.quadraticCurveTo(quadPointX, quadPointY, endPointX, endPointY);</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #800000;">// Head of the arrow</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.moveTo(endPointX - (arrowWidth * Math.sin(arrowAngle - Math.PI / 6)), </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;endPointY - (arrowWidth * Math.cos(arrowAngle - Math.PI / 6)));</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(endPointX, endPointY);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.lineTo(endPointX - (arrowWidth * Math.sin(arrowAngle + Math.PI / 6)), </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;endPointY - (arrowWidth * Math.cos(arrowAngle + Math.PI / 6)));</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.stroke();</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.closePath();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;// BEST PRACTICE -&gt; restore the context as we saved it at the beginning</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;// of the function</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.restore();</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">function drawCurvedArrow(startPointX, startPointY,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;endPointX, endPointY,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;quadPointX, quadPointY,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lineWidth,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arrowWidth, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color) {</li>
+<li>&nbsp; &nbsp;&nbsp;// BEST PRACTICE: the function changes color and lineWidth -&gt; save context!</li>
+<li>&nbsp; &nbsp; ctx.save();</li>
+<li></li>
+<li>&nbsp; &nbsp; ctx.strokeStyle = color;</li>
+<li>&nbsp; &nbsp; ctx.lineWidth = lineWidth;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// angle of the end tangeant, useful for drawing the arrow head</li>
+<li>&nbsp; &nbsp;&nbsp;var arrowAngle = Math.atan2(quadPointX - endPointX, quadPointY - endPointY) + Math.PI;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// start a new path</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #800000;">// Body of the arrow</span></li>
+<li>&nbsp; &nbsp; ctx.moveTo(startPointX, startPointY);</li>
+<li>&nbsp; &nbsp; ctx.quadraticCurveTo(quadPointX, quadPointY, endPointX, endPointY);</li>
+<li></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #800000;">// Head of the arrow</span></li>
+<li>&nbsp; &nbsp; ctx.moveTo(endPointX - (arrowWidth * Math.sin(arrowAngle - Math.PI / 6)), </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;endPointY - (arrowWidth * Math.cos(arrowAngle - Math.PI / 6)));</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; ctx.lineTo(endPointX, endPointY);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; ctx.lineTo(endPointX - (arrowWidth * Math.sin(arrowAngle + Math.PI / 6)), </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;endPointY - (arrowWidth * Math.cos(arrowAngle + Math.PI / 6)));</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; ctx.stroke();</li>
+<li>&nbsp; &nbsp; ctx.closePath();</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// BEST PRACTICE -&gt; restore the context as we saved it at the beginning</li>
+<li>&nbsp; &nbsp;&nbsp;// of the function</li>
+<li>&nbsp; &nbsp; ctx.restore();</li>
+<li>}</li>
 </ol></div>
 
 This function takes as parameters the start and end points, the control point of the curve, the arrow width, the width of the arrow head.
@@ -1691,13 +1691,13 @@ The best way to understand how they work is to check out one of these interactiv
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">ctx.moveTo(contextX, contextY);</li>
-<li style="margin-bottom: 0px;">context.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY);</li>
-<li style="margin-bottom: 0px;">// Optional : set lineWidth and stroke color</li>
-<li style="margin-bottom: 0px;">context.lineWidth = 5;</li>
-<li style="margin-bottom: 0px;">context.strokeStyle = "#0000ff";</li>
-<li style="margin-bottom: 0px;">// Draw!</li>
-<li style="margin-bottom: 0px;">ctx.stroke();</li>
+<li value="1">ctx.moveTo(contextX, contextY);</li>
+<li>context.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY);</li>
+<li>// Optional : set lineWidth and stroke color</li>
+<li>context.lineWidth = 5;</li>
+<li>context.strokeStyle = "#0000ff";</li>
+<li>// Draw!</li>
+<li>ctx.stroke();</li>
 </ol></div>
 
 
@@ -1718,14 +1718,14 @@ Try this [interactive example](https://jsbin.com/jeribimohi/1/edit?html,output):
 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">context.beginPath();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">context.moveTo(100, 20);</li>
-<li style="margin-bottom: 0px;">context.bezierCurveTo(290, -40, 200, 200, 400, 100);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">context.lineWidth = 5;</li>
-<li style="margin-bottom: 0px;">context.strokeStyle = "#0000ff";</li>
-<li style="margin-bottom: 0px;">context.stroke();</li>
+<li value="1">context.beginPath();</li>
+<li> </li>
+<li>context.moveTo(100, 20);</li>
+<li>context.bezierCurveTo(290, -40, 200, 200, 400, 100);</li>
+<li> </li>
+<li>context.lineWidth = 5;</li>
+<li>context.strokeStyle = "#0000ff";</li>
+<li>context.stroke();</li>
 </ol></div>
 
 
@@ -1746,20 +1746,20 @@ Try this [example online](https://jsbin.com/nizopekodi/edit?html,output): ([Loca
 Extract from source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">context.beginPath();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">context.moveTo(100, 20);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">context.lineTo(200, 160);</li>
-<li style="margin-bottom: 0px;">context.quadraticCurveTo(230, 200, 250, 120);</li>
-<li style="margin-bottom: 0px;">context.bezierCurveTo(290, -40, 300, 200, 400, 150);</li>
-<li style="margin-bottom: 0px;">context.lineTo(500, 90);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// TRY COMMENTING THIS LINE OUT</li>
-<li style="margin-bottom: 0px;">context.closePath();</li>
-<li style="margin-bottom: 0px;">context.lineWidth = 5;</li>
-<li style="margin-bottom: 0px;">context.strokeStyle = "#0000ff";</li>
-<li style="margin-bottom: 0px;">context.stroke();</li>
+<li value="1">context.beginPath();</li>
+<li> </li>
+<li>context.moveTo(100, 20);</li>
+<li> </li>
+<li>context.lineTo(200, 160);</li>
+<li>context.quadraticCurveTo(230, 200, 250, 120);</li>
+<li>context.bezierCurveTo(290, -40, 300, 200, 400, 150);</li>
+<li>context.lineTo(500, 90);</li>
+<li> </li>
+<li>// TRY COMMENTING THIS LINE OUT</li>
+<li>context.closePath();</li>
+<li>context.lineWidth = 5;</li>
+<li>context.strokeStyle = "#0000ff";</li>
+<li>context.stroke();</li>
 </ol></div>
 
 In this example we use the `closePath()` method to draw a line between the last path point and the first path point (line 11), so that the drawing looks like a pair of goggles.
