@@ -2,15 +2,15 @@
 
 ## 3.4 Path drawing mode
 
-
+ 
 ### 3.4.0 Lecture Notes
 
 + [Intermediate mode vs. path mode](#341-immediate-mode-vs-path-mode)
   + intermediate mode
     + executing a call to a drawing method immediately drawing in the canvas
-    + as soon as they are executed
-      + the results are displayed on screen
-      + the drawings are performed
+    + as soon as they executed
+      + the results displayed on screen
+      + the drawings performed
       + pixels on the canvas area change their colors
       + etc.
     + example methods: `drawImage(...)`, `fillRect(x, y, width, height)`, `strokeRect(x, y, width, height)`, `fillText(message, x, y)` and `strokeText(message, x, y)`
@@ -36,7 +36,7 @@
 
 + [Drawing lines in path mode](#343-drawing-lines)
   + path drawing: `ctx.moveTo(x, y)` in conjunction w/ other drawing methods ending in "To", such as `ctx.lineTo(x, y)`
-  + consecutive calls to ctx.lineTo(x, y): store in the path/buffer a set of connected lines
+  + consecutive calls to `ctx.lineTo(x, y)`: store in the path/buffer a set of connected lines
   + draw altogether by a single call to `ctx.stroke()` or `ctx.fill()`
   + procedure of drawing lines
     + put the "pencil" somewhere w/ a call to `ctx.moveTo(x1, y1)`, origin of the 1st line
@@ -51,20 +51,20 @@
     + using the `ctx.beginPath()` method to draw two different paths
     + `ctx.beginPath()` erase the buffer but not change any context properties
   + [good practice](#345-drawing-lines-in-immediate-mode): save/restore of the context at the beginning/end of the function to avoid affecting other functions' context
-  + [`ctx.closePath()` method](#347-closing-a-path): draw from the last point to the firs
+  + [`ctx.closePath()` method](#347-closing-a-path): draw from the last point to the first point
 
 + [Drawing arrows](#346-drawing-arrows)
   + adapted from [Stackoverflow]( https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag)
-    + draw an arrow in a single function: `function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){...}`
-    + fixing the head length: `var headlen = 10;`
-    + calculate the angle from given the beginning (fromx, fromy1) to the end (arrow) (tox, toy): `var angle = Math.atan2(toy-fromy,tox-fromx);`
-    + store/restore the drawings in canvas: `ctx.save()` * `ctx.restor()`
-    + draw one line (the arrow body) w/ given width: `ctx.beginPath(); ctx.moveTo(fromx, fromy); ctx.lineTo(tox, toy); ctx.lineWidth = arrowWidth; ctx.stroke();`
-    + draw three connected lines (the arrow head)
-      + starting a new path from the head of the arrow to one of the sides of the point: `ctx.beginPath(); ctx.moveTo(tox, toy); ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7), toy-headlen*Math.sin(angle-Math.PI/7));`
-      + path from the side point of the arrow, to the other side point: `ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7), toy-headlen*Math.sin(angle+Math.PI/7));`
-      + path from the side point back to the tip of the arrow, and then again to the opposite side point: `ctx.lineTo(tox, toy); ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7), toy-headlen*Math.sin(angle-Math.PI/7));`
-    + draws the paths created above: `ctx.stroke();`
+  + draw an arrow in a single function: `function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){...}`
+  + fixing the head length: `var headlen = 10;`
+  + calculate the angle from given the beginning (fromx, fromy) to the end (arrow) (tox, toy): `var angle = Math.atan2(toy-fromy,tox-fromx);`
+  + store/restore the drawings in canvas: `ctx.save()` & `ctx.restor()`
+  + draw one line (the arrow body) w/ given width: `ctx.beginPath(); ctx.moveTo(fromx, fromy); ctx.lineTo(tox, toy); ctx.lineWidth = arrowWidth; ctx.stroke();`
+  + draw three connected lines (the arrow head)
+    + starting a new path from the head of the arrow to one of the sides of the point: `ctx.beginPath(); ctx.moveTo(tox, toy); ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7), toy-headlen*Math.sin(angle-Math.PI/7));`
+    + path from the side point of the arrow, to the other side point: `ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7), toy-headlen*Math.sin(angle+Math.PI/7));`
+    + path from the side point back to the tip of the arrow, and then again to the opposite side point: `ctx.lineTo(tox, toy); ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7), toy-headlen*Math.sin(angle-Math.PI/7));`
+  + draws the paths created above: `ctx.stroke();`
   + [drawing lines and arcs with arrow heads](http://www.dbp-consulting.com/tutorials/canvas/CanvasArrow.html)
 
 + [Drawing circles and arcs](#348-drawing-circles-and-arcs)
@@ -110,7 +110,7 @@
     + tangent points: take an imaginary circle of radius `r` and slide it up two lines until touching both lines
     + `arcTo(x1, y1, x2, y2, r)`: draw an arc line from the current point `(x0, y0)` to the first tangent point on the line from `(x0, y0)` to `(x1, y1)`
     + draw an arc from that tangent point to another tangent point on the line from `(x1, y1)` to `(x2, y2)` along the circumference of the circle
-    + add the tangent point wher the arc ends up, on the line from `(x1, y1)` to `(x2, y2)` tot he path as the new current point on the path
+    + add the tangent point where the arc ends up, on the line from `(x1, y1)` to `(x2, y2)` to the path as the new current point on the path
 
       <figure style="margin: 0.5em; text-align: center;">
         <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
@@ -121,16 +121,16 @@
         />
       </figure>
 
-  + rounded rectangle
-    + function: `var roundedRect=function(ctx,x,y,width,height,radius,fill,stroke) {...}`
-    + draw top and top right corner: `ctx.moveTo(x+radius,y); ctx.arcTo(x+width,y,x+width,y+radius,radius);`
-    + draw right side and bottom right corner: `ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);`
-    + draw bottom and bottom left corner: `ctx.arcTo(x,y+height,x,y+height-radius,radius);`
-    + draw left and top left corner: `ctx.arcTo(x,y,x+radius,y,radius);`
-    + fill inside: `if(fill) { ctx.fill(); }`
-    + draw stoke:  `if(stroke){ ctx.stroke(); }`
-    + usage: `var canvas = document.getElementById('myCanvas'); var ctx    = canvas.getContext('2d'); ctx.strokeStyle = 'rgb(150,0,0)'; ctx.fillStyle   = 'rgb(0,150,0)'; ctx.lineWidth   = 7; roundedRect(ctx, 15, 15, 160, 120, 20, true, true);`
-    + alternative: `ctx.moveTo(x+radius, y); ctx.arcTo(x+width, y,x+width, y+height, radius); ctx.arcTo(x+width, y+height, x, y+height, radius);  ctx.arcTo(x, y+height, x, y,radius); ctx.arcTo(x, y, x+width, y,radius);`
++ [Rounded rectangle](#349-drawing-rounded-rectangles)
+  + function: `var roundedRect=function(ctx,x,y,width,height,radius,fill,stroke) {...}`
+  + draw top and top right corner: `ctx.moveTo(x+radius,y); ctx.arcTo(x+width,y,x+width,y+radius,radius);`
+  + draw right side and bottom right corner: `ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);`
+  + draw bottom and bottom left corner: `ctx.arcTo(x,y+height,x,y+height-radius,radius);`
+  + draw left and top left corner: `ctx.arcTo(x,y,x+radius,y,radius);`
+  + fill inside: `if(fill) { ctx.fill(); }`
+  + draw stoke:  `if(stroke){ ctx.stroke(); }`
+  + usage: `var canvas = document.getElementById('myCanvas'); var ctx    = canvas.getContext('2d'); ctx.strokeStyle = 'rgb(150,0,0)'; ctx.fillStyle   = 'rgb(0,150,0)'; ctx.lineWidth   = 7; roundedRect(ctx, 15, 15, 160, 120, 20, true, true);`
+  + alternative: `ctx.moveTo(x+radius, y); ctx.arcTo(x+width, y,x+width, y+height, radius); ctx.arcTo(x+width, y+height, x, y+height, radius);  ctx.arcTo(x, y+height, x, y,radius); ctx.arcTo(x, y, x+width, y,radius);`
 
 + [Drawing quadratic curve](#3410-quadratic-curves)
   + defined by a starting point (called a "context point"), a control point, and an ending point
@@ -149,7 +149,7 @@
 
   + typical use
 
-    <div class="source-code"><ol class="linenums">
+    <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
     <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">context.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">contextX</span><span class="pun">,</span><span class="pln"> contextY</span><span class="pun">);</span></li>
     <li class="L1" style="margin-bottom: 0px;"><span class="pun">context.</span><span class="pln">quadraticCurveTo</span><span class="pun">(</span><span class="pln">controlX</span><span class="pun">,</span><span class="pln"> controlY</span><span class="pun">,</span><span class="pln"> endX</span><span class="pun">,</span><span class="pln"> endY</span><span class="pun">);</span></li>
     <li class="L2" style="margin-bottom: 0px;"><span class="com">// Optional : set lineWidth and stroke color</span></li>
@@ -159,14 +159,14 @@
     <li class="L6" style="margin-bottom: 0px;"><span class="pun"><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.</span><span class="pln">stroke</span><span class="pun">();</span><span class="pln"> </span></li>
     </ol></div>
 
-  + [curved arrow](#3411-curved-arrows)
-    + function: `function drawCurvedArrow(startPointX, startPointY, endPointX, endPointY, quadPointX, quadPointY, lineWidth, arrowWidth, color) {...}`
-    + save/restore context at beginning/end of function: `ctx.save();` & `ctx.restore();`
-    + compute angle of the end tangeant, useful for drawing the arrow head: `var arrowAngle = Math.atan2(quadPointX - endPointX, quadPointY - endPointY) + Math.PI;`
-    + start a new path: `ctx.beginPath();`
-    + draw body of the arrow: `ctx.moveTo(startPointX, startPointY); ctx.quadraticCurveTo(quadPointX, quadPointY, endPointX, endPointY);`
-    + compute the rotated endpoints of the two lines of the arrow head: `tx.moveTo(endPointX - (arrowWidth * Math.sin(arrowAngle - Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle - Math.PI / 6))); ctx.lineTo(endPointX, endPointY); ctx.lineTo(endPointX - (arrowWidth * Math.sin(arrowAngle + Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle + Math.PI / 6)));`
-    + complete drawing: `ctx.stroke(); ctx.closePath();`
++ [Curved arrow](#3411-curved-arrows)
+  + function: `function drawCurvedArrow(startPointX, startPointY, endPointX, endPointY, quadPointX, quadPointY, lineWidth, arrowWidth, color) {...}`
+  + save/restore context at beginning/end of function: `ctx.save();` & `ctx.restore();`
+  + compute angle of the end tangent, useful for drawing the arrow head: `var arrowAngle = Math.atan2(quadPointX - endPointX, quadPointY - endPointY) + Math.PI;`
+  + start a new path: `ctx.beginPath();`
+  + draw body of the arrow: `ctx.moveTo(startPointX, startPointY); ctx.quadraticCurveTo(quadPointX, quadPointY, endPointX, endPointY);`
+  + compute the rotated endpoints of the two lines of the arrow head: `tx.moveTo(endPointX - (arrowWidth * Math.sin(arrowAngle - Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle - Math.PI / 6))); ctx.lineTo(endPointX, endPointY); ctx.lineTo(endPointX - (arrowWidth * Math.sin(arrowAngle + Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle + Math.PI / 6)));`
+  + complete drawing: `ctx.stroke(); ctx.closePath();`
 
 + [Drawing B&eacute;zier curves](#3412-bzier-curves)
   + `ctx.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY)` method
@@ -189,7 +189,7 @@
     + [IvanK Lib graphics demos](http://lib.ivank.net/?p=demos&d=bezier)
     + Nice video tutorial: [Bézier curves under the hood](https://vimeo.com/106757336)
     + [bezierCurveTo command generator](https://www.victoriakirst.com/beziertool/)
-  + typical use: 
+  + typical use:
     + move to context point (initial point): `ctx.moveTo(contextX, contextY);`
     + draw B&eacute;zier curve: `ctx.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY);`
 
