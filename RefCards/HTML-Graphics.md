@@ -472,6 +472,34 @@
     + `ctx.strokeText(msg, x, y)` or `ctx.fillText(msg, x, y)`: draw a text msg for wireframed or filled text respectively
     + `ctx.font`: set the character font w/ values used in CSS syntax, e.g., `ctx.font = 'italic 20pt Calibri';`
 
++ [Drawing rounded rectangles](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#349-drawing-rounded-rectangles)
+  + `ctx.arcTo(x1, y1, x2, y2, radius)` method: a bit complex to use, but very practical for drawing rounded rectangles
+  + rounded rectangle corners: draw an arc of a circle depending on some tangents
+    + draw imaginary lines: `(x0, y0)` & `(x1, y1)` and `(x1, y1)` & `(x2, y2)`
+    + tangent points: take an imaginary circle of radius `r` and slide it up two lines until touching both lines
+    + `arcTo(x1, y1, x2, y2, r)`: draw an arc line from the current point `(x0, y0)` to the first tangent point on the line from `(x0, y0)` to `(x1, y1)`
+    + draw an arc from that tangent point to another tangent point on the line from `(x1, y1)` to `(x2, y2)` along the circumference of the circle
+    + add the tangent point where the arc ends up, on the line from `(x1, y1)` to `(x2, y2)` to the path as the new current point on the path
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+          onclick="window.open('http://www.dbp-consulting.com/tutorials/canvas/CanvasArcTo.html')"
+          src    ="https://tinyurl.com/ycz22yx5"
+          alt    ="arcTo coordinates"
+          title  ="arcTo coordinates"
+        />
+      </figure>
+
++ [Rounded rectangle](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#349-drawing-rounded-rectangles)
+  + function: `var roundedRect=function(ctx,x,y,width,height,radius,fill,stroke) {...}`
+  + draw top and top right corner: `ctx.moveTo(x+radius,y); ctx.arcTo(x+width,y,x+width,y+radius,radius);`
+  + draw right side and bottom right corner: `ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);`
+  + draw bottom and bottom left corner: `ctx.arcTo(x,y+height,x,y+height-radius,radius);`
+  + draw left and top left corner: `ctx.arcTo(x,y,x+radius,y,radius);`
+  + fill inside: `if(fill) { ctx.fill(); }`
+  + draw stoke:  `if(stroke){ ctx.stroke(); }`
+  + usage: `ctx.moveTo(x+radius, y); ctx.arcTo(x+width, y,x+width, y+height, radius); ctx.arcTo(x+width, y+height, x, y+height, radius);  ctx.arcTo(x, y+height, x, y,radius); ctx.arcTo(x, y, x+width, y,radius);`
+
 
 
 ## Drawing Text
@@ -557,7 +585,6 @@
   + rotating video effect: `function drawRotatingVideo(x, y) {...}`
     + use of context save/restore primordial as this function changes the coordinate system at each call
     + translating and rotating, requiring second translation to centralize the graph
-
 
 
 
