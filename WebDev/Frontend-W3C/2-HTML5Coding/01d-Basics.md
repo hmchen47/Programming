@@ -16,44 +16,44 @@
   + modifying color and background of the icon w/ `::-webkit-details-marker`
 
     <div><ol>
-      <li style="margin-bottom: 0px;" value="1">summary::-webkit-details-marker {</li>
-      <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color:#FF0000; </li>
-      <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;background:#FFFFFF; </li>
-      <li style="margin-bottom: 0px;">}</li>
+      <li value="1">summary::-webkit-details-marker {</li>
+      <li> &nbsp;&nbsp;&nbsp;&nbsp;color:#FF0000; </li>
+      <li> &nbsp;&nbsp;&nbsp;&nbsp;background:#FFFFFF; </li>
+      <li>}</li>
     </ol></div>
 
   + `details[open]` selector handling the unfolded `<details>`
 
     <div><ol>
-    <li style="margin-bottom: 0px;" value="1">details[open] summary::-webkit-details-marker {</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color:#0000FF; </li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;background:#00FFFF;</li>
-    <li style="margin-bottom: 0px;">}</li>
+    <li value="1">details[open] summary::-webkit-details-marker {</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;color:#0000FF; </li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;background:#00FFFF;</li>
+    <li>}</li>
     </ol></div>
 
   + using `+` shaped icon for expansion
 
     <div><ol>
-    <li style="margin-bottom: 0px;" value="1">summary:<span style="color: hotpink;">after {</li>
-    <li style="margin-bottom: 0px;"> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content<span style="color: hotpink;">: "+";</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FF00FF;</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;float: left;</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.5em;</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;margin: -5px 5px 0 0;</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;padding: 0;</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;text-align: center;</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;width: 20px;</li>
-    <li style="margin-bottom: 0px;">}</li>
+    <li value="1">summary:<span style="color: hotpink;">after {</li>
+    <li> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content<span style="color: hotpink;">: "+";</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;color: #FF00FF;</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;float: left;</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.5em;</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;margin: -5px 5px 0 0;</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;padding: 0;</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;text-align: center;</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;width: 20px;</li>
+    <li>}</li>
     </ol></div>
 
   + using `-` shaped icon to collapse details
 
     <div><ol>
-    <li style="margin-bottom: 0px;" value="1">details<span style="color: hotpink;">[open]</span> summary:<span style="color: hotpink;">after {</li>
-    <li style="margin-bottom: 0px;"> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content: "-";</li>
-    <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FFFFFF</li>
-    <li style="margin-bottom: 0px;">}</li>
+    <li value="1">details<span style="color: hotpink;">[open]</span> summary:<span style="color: hotpink;">after {</li>
+    <li> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content: "-";</li>
+    <li> &nbsp;&nbsp;&nbsp;&nbsp;color: #FFFFFF</li>
+    <li>}</li>
     </ol></div>
 
 
@@ -147,9 +147,9 @@
   + example
 
     <div><ol>
-    <li style="margin-bottom: 0px;">&lt;a href="normal.gif" <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">download</span>="MichelBuffa.gif"&gt;</li>
-    <li style="margin-bottom: 0px;">&nbsp; &nbsp; download a picture of Michel Buffa</li>
-    <li style="margin-bottom: 0px;">&lt;/a&gt;</li>
+    <li>&lt;a href="normal.gif" <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">download</span>="MichelBuffa.gif"&gt;</li>
+    <li>&nbsp; &nbsp; download a picture of Michel Buffa</li>
+    <li>&lt;/a&gt;</li>
     </ol></div>
   
     + force the download of an image with a filename different from its original filename on the server side
@@ -216,18 +216,18 @@ And here is what is displayed after clicking on the small arrow-shaped icon to t
 Here is the code of this example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&lt;html lang="en"&gt; ...<br></li>
-<li style="margin-bottom: 0px;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: hotpink;">&lt;details&gt;</li>
-<li style="margin-bottom: 0px;"> <span style="color: hotpink;">&lt;summary&gt;</li>
-<li style="margin-bottom: 0px;"> How to beat the boss...spoiler alert !</li>
-<li style="margin-bottom: 0px;"> <span style="color: hotpink;"> &lt;/summary&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt; Just aim to the red spots near his eyes&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: hotpink;">&lt;/details&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt; ...<br></li>
+<li>&lt;body&gt;</li>
+<li><span style="color: hotpink;">&lt;details&gt;</li>
+<li> <span style="color: hotpink;">&lt;summary&gt;</li>
+<li> How to beat the boss...spoiler alert !</li>
+<li> <span style="color: hotpink;"> &lt;/summary&gt;</li>
+<li> &lt;p&gt; Just aim to the red spots near his eyes&lt;/p&gt;</li>
+<li> &lt;p&gt;Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.&lt;/p&gt;</li>
+<li><span style="color: hotpink;">&lt;/details&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -273,20 +273,20 @@ Step3: click on embedded summary icon inside the part that has been previously u
 Source code of this example, see the summary/details inside another one:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;details&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;summary&gt;</li>
-<li style="margin-bottom: 0px;"> How to beat the boss...spoiler alert !</li>
-<li style="margin-bottom: 0px;"> &lt;/summary&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt; Just aim to the red spots near his eyes&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;details&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;summary&gt;</li>
-<li style="margin-bottom: 0px;"> Bonus and spoiler No 2: get a new weapon by cutting the tail of the boss.</li>
-<li style="margin-bottom: 0px;"> &lt;/summary&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;Before finishing him, try to cut his trail, you will get a new weapon&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;Just try to stay behind him as long as you can, hitting his tail with your melee weapon, after a few hits the trail will fall and you will get a new bonus weapon, then finish the boss.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/details&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/details&gt;</li>
+<li value="1">&lt;details&gt;</li>
+<li> &lt;summary&gt;</li>
+<li> How to beat the boss...spoiler alert !</li>
+<li> &lt;/summary&gt;</li>
+<li> &lt;p&gt; Just aim to the red spots near his eyes&lt;/p&gt;</li>
+<li> &lt;p&gt;Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.&lt;/p&gt;</li>
+<li> &lt;details&gt;</li>
+<li> &lt;summary&gt;</li>
+<li> Bonus and spoiler No 2: get a new weapon by cutting the tail of the boss.</li>
+<li> &lt;/summary&gt;</li>
+<li> &lt;p&gt;Before finishing him, try to cut his trail, you will get a new weapon&lt;/p&gt;</li>
+<li> &lt;p&gt;Just try to stay behind him as long as you can, hitting his tail with your melee weapon, after a few hits the trail will fall and you will get a new bonus weapon, then finish the boss.&lt;/p&gt;</li>
+<li> &lt;/details&gt;</li>
+<li> &lt;/details&gt;</li>
 </ol></div>
 
 
@@ -312,10 +312,10 @@ The color and background of the icon on the left are specified by the following 
 In this example: red arrow, white background.
 
 <div><ol>
-  <li style="margin-bottom: 0px;" value="1">summary::-webkit-details-marker {</li>
-  <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color:#FF0000; </li>
-  <li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;background:#FFFFFF; </li>
-  <li style="margin-bottom: 0px;">}</li>
+  <li value="1">summary::-webkit-details-marker {</li>
+  <li> &nbsp;&nbsp;&nbsp;&nbsp;color:#FF0000; </li>
+  <li> &nbsp;&nbsp;&nbsp;&nbsp;background:#FFFFFF; </li>
+  <li>}</li>
 </ol></div>
 
 
@@ -332,10 +332,10 @@ In this example: red arrow, white background.
 Once opened, the selector `details[open]` can style the icon when `<details>` is unfolded. In this example: blue arrow, turquoise background. Here is the corresponding CSS rule:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">details[open] summary::-webkit-details-marker {</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color:#0000FF; </li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;background:#00FFFF;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">details[open] summary::-webkit-details-marker {</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;color:#0000FF; </li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;background:#00FFFF;</li>
+<li>}</li>
 </ol></div>
 
 
@@ -364,27 +364,27 @@ CSS rules used in this example:
 Use a "+" shaped icon, pink, bold, etc... :
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">summary:<span style="color: hotpink;">after {</span></li>
-<li style="margin-bottom: 0px;"> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content</span><span style="color: hotpink;">: </span>"+";</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FF00FF;</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;float: left;</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.5em;</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;margin: -5px 5px 0 0;</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;padding: 0;</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;text-align: center;</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;width: 20px;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">summary:<span style="color: hotpink;">after {</span></li>
+<li> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content</span><span style="color: hotpink;">: </span>"+";</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;color: #FF00FF;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;float: left;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.5em;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;margin: -5px 5px 0 0;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;padding: 0;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;text-align: center;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;width: 20px;</li>
+<li>}</li>
 </ol></div>
 
 
 Use a "-" shaped icon, white, when details are displayed:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">details<span style="color: hotpink;">[open]</span> summary:<span style="color: hotpink;">after {</span></li>
-<li style="margin-bottom: 0px;"> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content</span>: "-";</li>
-<li style="margin-bottom: 0px;"> &nbsp;&nbsp;&nbsp;&nbsp;color: #FFFFFF</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">details<span style="color: hotpink;">[open]</span> summary:<span style="color: hotpink;">after {</span></li>
+<li> <span style="color: hotpink;">&nbsp;&nbsp;&nbsp;&nbsp;content</span>: "-";</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;color: #FFFFFF</li>
+<li>}</li>
 </ol></div>
 
 
@@ -487,12 +487,12 @@ The machine readable part adds semantics that can be used by search engines for 
 Example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">We open at <strong><span style="color: hotpink;">&lt;time&gt;</span>10:00&lt;/time&gt;</strong> every morning.</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">I have a meeting the <strong>&lt;time datetime="2020-02-14"&gt;Monday 14/02/</strong><strong>2020</strong>.&lt;/time<strong>&gt;</strong>. </li>
-<li style="margin-bottom: 0px;">Blog posts from the year <strong>&lt;time datetime="</strong><strong>2020"&gt;</strong><strong><strong>2020</strong>&lt;/time</strong><strong>&gt;</strong>.</li>
-<li style="margin-bottom: 0px;">Archives, blog posts for <strong>&lt;time datetime="2020-04"&gt;April 2020&lt;/time&gt;</strong></li>
-<li style="margin-bottom: 0px;">This recipe was published by Michel the <strong>&lt;time datetime="2020-04-16"&gt;April&nbsp;16, 2020</strong>&lt;/time<strong>&gt;</strong>.</li>
+<li value="1">We open at <strong><span style="color: hotpink;">&lt;time&gt;</span>10:00&lt;/time&gt;</strong> every morning.</li>
+<li> </li>
+<li>I have a meeting the <strong>&lt;time datetime="2020-02-14"&gt;Monday 14/02/</strong><strong>2020</strong>.&lt;/time<strong>&gt;</strong>. </li>
+<li>Blog posts from the year <strong>&lt;time datetime="</strong><strong>2020"&gt;</strong><strong><strong>2020</strong>&lt;/time</strong><strong>&gt;</strong>.</li>
+<li>Archives, blog posts for <strong>&lt;time datetime="2020-04"&gt;April 2020&lt;/time&gt;</strong></li>
+<li>This recipe was published by Michel the <strong>&lt;time datetime="2020-04-16"&gt;April&nbsp;16, 2020</strong>&lt;/time<strong>&gt;</strong>.</li>
 </ol></div>
 
 
@@ -572,11 +572,11 @@ _You still can’t represent dates before the Christian era, as years can’t be
 Examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;h2&gt;Recipe:&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;li&gt; Preparation time: &lt;time datetime="PT30M"&gt;30 minutes&lt;/time&gt; &lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&lt;li&gt; Cooking time: &nbsp; &nbsp;&nbsp;&lt;time datetime="PT10M"&gt;10 minutes&lt;/time&gt; &lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/ul&gt;</li>
+<li value="1">&lt;h2&gt;Recipe:&lt;/h2&gt;</li>
+<li>&lt;ul&gt;</li>
+<li>&nbsp; &lt;li&gt; Preparation time: &lt;time datetime="PT30M"&gt;30 minutes&lt;/time&gt; &lt;/li&gt;</li>
+<li>&nbsp;&nbsp;&lt;li&gt; Cooking time: &nbsp; &nbsp;&nbsp;&lt;time datetime="PT10M"&gt;10 minutes&lt;/time&gt; &lt;/li&gt;</li>
+<li>&lt;/ul&gt;</li>
 </ol></div>
 
 
@@ -608,16 +608,16 @@ Example 1: [jsBin online example](https://jsbin.com/tafelic/edit?html,output) an
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&lt;meta charset=utf-8 /&gt;</li>
-<li style="margin-bottom: 0px;">&lt;title&gt;JS Bin&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;Project is due in <strong>&lt;mark&gt;.zip format&lt;/mark&gt;</strong> next monday.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;meta charset=utf-8 /&gt;</li>
+<li>&lt;title&gt;JS Bin&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;p&gt;Project is due in <strong>&lt;mark&gt;.zip format&lt;/mark&gt;</strong> next monday.&lt;/p&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -636,12 +636,12 @@ Example 2:
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;pre&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;code&gt;&lt;mark&gt;var&lt;/mark&gt; i = 3;&lt;/code&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/pre&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;The var keyword is used to declare a variable in JavaScript.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;body&gt;</li>
+<li> &lt;pre&gt;</li>
+<li> &lt;code&gt;&lt;mark&gt;var&lt;/mark&gt; i = 3;&lt;/code&gt;</li>
+<li> &lt;/pre&gt;</li>
+<li> &lt;p&gt;The var keyword is used to declare a variable in JavaScript.&lt;/p&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
@@ -664,10 +664,10 @@ For example:
 ... comes with this CSS rule:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">mark {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; background-color: green;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color: yellow;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">mark {</li>
+<li>&nbsp; &nbsp; background-color: green;</li>
+<li>&nbsp; &nbsp; color: yellow;</li>
+<li>}</li>
 </ol></div>
 
 
@@ -695,23 +695,23 @@ __External resources:__
 Everyone knows the classic way to make hyperlinks, using `<a href="...">some text</a>`. What happens when you click on the hyperlink depends on the MIME type received by the browser. If you link to a file the browser knows how to render (an html page, a gif, jpg, or png image, etc.) there is a good chance that the MIME type received by the browser will be something like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">Content-type: text/html, text/plain, image/gif, image/jpg, etc.</li>
+<li value="1">Content-type: text/html, text/plain, image/gif, image/jpg, etc.</li>
 </ol></div>
 
 For example,  HTML code such as this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;a href="toto.jpg"&gt;</li>
-<li style="margin-bottom: 0px;" value="2">&nbsp; &nbsp; please right click this link to download </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; the toto.jpg picture&lt;/a&gt;</li>
+<li value="1">&lt;a href="toto.jpg"&gt;</li>
+<li value="2">&nbsp; &nbsp; please right click this link to download </li>
+<li>&nbsp; &nbsp; the toto.jpg picture&lt;/a&gt;</li>
 </ol></div>
 
 ...will ask the remote HTTP server to send back the `toto.jpg` file. The browser will receive in the response HTTP header from the server (and by default the browser will display the image in a new tab):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">...</li>
-<li style="margin-bottom: 0px;"> Content-type: image/jpg</li>
-<li style="margin-bottom: 0px;">...</li>
+<li value="1">...</li>
+<li> Content-type: image/jpg</li>
+<li>...</li>
 </ol></div>
 
 However, if the link points to some PHP code, Java servlet code, or any kind of script/application on the server side, this remote server code can send in its HTTP response a `Content-type` that may force the browser to download the image instead of rendering it.
@@ -719,33 +719,33 @@ However, if the link points to some PHP code, Java servlet code, or any kind of 
 It may also propose a name for the file to be downloaded that may be different from the one that appears in the URL of the `href` attribute. This can be done by generating, in addition to the Content-type line in the response HTTP header, a `Content-Disposition` line that looks like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">Content-Disposition: attachment; filename="<span style="color:green;">MyImage.png";</li>
+<li value="1">Content-Disposition: attachment; filename="<span style="color:green;">MyImage.png";</li>
 </ol></div>
 
 Here are some extracts from a Java Servlet that generate a zip file and forces the browser to propose downloading it using a specified name:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">protected void doGet(HttpServletRequest request, HttpServletResponse response) </li>
-<li style="margin-bottom: 0px;"> throws ServletException, IOException { </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;try {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// Build the zip file</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;String path = getServletContext().getRealPath("data");</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;File directory = new File(path); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;String[] files = directory.list(); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;if (files != null &amp;&amp; files.length &gt; 0) { </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;byte[] zip = zipFiles(directory, files); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ServletOutputStream sos = response.getOutputStream(); </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// generate a HTTP response that forces the download</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">response<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">.setContentType("application/zip"); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">response<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">.setHeader("Content-Disposition", </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">"attachment; filename=\"DATA.ZIP\""); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sos.write(zip); sos.flush(); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;} </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;} catch (Exception e) { </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;e.printStackTrace(); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;} </li>
-<li style="margin-bottom: 0px;"> }</li>
+<li value="1">protected void doGet(HttpServletRequest request, HttpServletResponse response) </li>
+<li> throws ServletException, IOException { </li>
+<li>&nbsp; &nbsp;try {</li>
+<li>&nbsp; &nbsp; &nbsp;// Build the zip file</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;String path = getServletContext().getRealPath("data");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;File directory = new File(path); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;String[] files = directory.list(); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if (files != null &amp;&amp; files.length &gt; 0) { </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;byte[] zip = zipFiles(directory, files); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ServletOutputStream sos = response.getOutputStream(); </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// generate a HTTP response that forces the download</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">response<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">.setContentType("application/zip"); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">response<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">.setHeader("Content-Disposition", </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">"attachment; filename=\"DATA.ZIP\""); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sos.write(zip); sos.flush(); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp;&nbsp;} catch (Exception e) { </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;e.printStackTrace(); </li>
+<li>&nbsp; &nbsp;&nbsp;} </li>
+<li> }</li>
 </ol></div>
 
 The above example will cause the browser that invoked this server-side code to start the download of a file named "DATA.ZIP".
@@ -756,9 +756,9 @@ The above example will cause the browser that invoked this server-side code to s
 HTML5 proposes the use of a new attribute named `download` to download resources rather than navigating to them. The example below shows how to trigger the download of an image by the browser (instead of rendering it, which is the default behavior) with a name different from the name of the resource.
 
 <div><ol>
-<li style="margin-bottom: 0px;">&lt;a href="normal.gif" <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">download="MichelBuffa.gif"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; download a picture of Michel Buffa</li>
-<li style="margin-bottom: 0px;">&lt;/a&gt;</li>
+<li>&lt;a href="normal.gif" <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">download="MichelBuffa.gif"&gt;</li>
+<li>&nbsp; &nbsp; download a picture of Michel Buffa</li>
+<li>&lt;/a&gt;</li>
 </ol></div>
 
 This will indeed force the download of an image with a filename different from its original filename on the server side. Here is a screen capture of the Web browser while downloading the picture. We can see in the status bar the name of the link (the image is "`normal.gif`") and the downloaded file is "`MichelBuffa.gif`":
@@ -824,7 +824,7 @@ _The attribute's keywords are the empty string, yes, and no. The empty string an
 __Example illustrating how to specify parts of an HTML element that should not be translated:__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;span <strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">translate</span>="no"</strong> class="author"&gt;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham&lt;/span&gt;</li>
+<li value="1">&lt;span <strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">translate</span>="no"</strong> class="author"&gt;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham&lt;/span&gt;</li>
 </ol></div>
 
 In the above example, a `` element defines an author (of a blog, for example) who is named Michel Ham. However, his family name is the same as pork and would be translated to "Michel Jambon" in French, or Michel Jamón in Spanish...
@@ -832,14 +832,14 @@ In the above example, a `` element defines an author (of a blog, for example) wh
 Using the translate="no" attribute should prevent this behavior...
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;span <strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">translate="no"</strong> class="author"&gt;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham&lt;/span&gt; is a professor </li>
-<li style="margin-bottom: 0px;"> from the University of Nice,France. </li>
+<li value="1">&lt;span <strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">translate="no"</strong> class="author"&gt;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham&lt;/span&gt; is a professor </li>
+<li> from the University of Nice,France. </li>
 </ol></div>
 
 Will be correctly translated into French by:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">"<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham est un professeur de l'Université de Nice, France."</li>
+<li value="1">"<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Michel Ham est un professeur de l'Université de Nice, France."</li>
 </ol></div>
 
 ...where all of the end of the sentence has been translated except the author's name.
@@ -850,7 +850,7 @@ __Inheritance between elements__
 When you define an element as not being translatable, its children inherit this behavior and are themselves not translatable. The reverse is also true. 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;p <strong><span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;">translate</span>="no"</strong>&gt;This is a text in a paragraph element, that should not be translated: the p element has a translate="no" attribute.<span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;">&lt;span&gt;</span> This part that is in a span element embedded within the paragraph. It does not have a translate attribute but inherits the translation-mode of the p and will not be translated too&lt;/span&gt;. This is the end of the paragraph...&lt;/ p&gt;</li>
+<li value="1">&lt;p <strong><span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;">translate</span>="no"</strong>&gt;This is a text in a paragraph element, that should not be translated: the p element has a translate="no" attribute.<span style="text-decoration: underline;"><span style="color: lightblue; text-decoration: underline;">&lt;span&gt;</span> This part that is in a span element embedded within the paragraph. It does not have a translate attribute but inherits the translation-mode of the p and will not be translated too&lt;/span&gt;. This is the end of the paragraph...&lt;/ p&gt;</li>
 </ol></div>
 
 
