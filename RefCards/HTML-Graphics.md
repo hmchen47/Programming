@@ -1,5 +1,30 @@
 # HTML4 - Graphics
 
+
+## Drawing Modes
+
++ [Drawing modes of graphics](../WebDev/Frontend-W3C/2-HTML5Coding/03c-Graphics.md#331-immediate-mode)
+  + immediate mode:
+    + the HTML5 canvas in this mode
+    + as soon as drawn a shape on the canvas, the canvas no longer knows anything about that shape
+    + shape visible, but unable to manipulate that shape individually
+    + executing a call to a drawing method means immediately drawing in the canvas
+    + easier to program as all graphic instructions produce results as soon as the instructions are executed
+    + only a few methods work in immediate drawing mode
+    + all shapes, including rectangles, text, images, etc.
+  + path/buffered mode:
+    + useful for drawing lines, curves, arcs, and also rectangles
+    + fill a buffer then execute all buffered orders at once to enable optimization and parallelism
+  + rectangles: the only shapes that have methods for drawing them immediately and also other methods for drawing them in "path/buffered mode"
+
++ [Steps to draw graphics on an HTML5 canvas](http://tutorials.jenkov.com/html5-canvas/overview.html)
+  + Wait for the page fully loaded
+  + Obtain a reference to the canvas element
+  + Obtain a 2D context from the canvas element
+  + Draw graphics using the draw functions of 2D context
+
+
+
 ## The `<canvas>` element
 
 + [The `<canvas>` element](../WebDev/Frontend-W3C/2-HTML5Coding/03b-Graphics.md#322-the-canvas-element)
@@ -92,6 +117,26 @@
     + `ctx.lineWidth`: set the line width of wireframed shapes
     + `ctx.strokeText(msg, x, y)` or `ctx.fillText(msg, x, y)`: draw a text msg for wireframed or filled text respectively
     + `ctx.font`: set the character font w/ values used in CSS syntax, e.g., `ctx.font = 'italic 20pt Calibri';`
+
+
+
+
+
+
+
+## 2D Transformations
+
++ [2D transformations](../WebDev/Frontend-W3C/2-HTML5Coding/03b-Graphics.md#328-2d-transformations)
+  + translate (or rotate, or scale) the original coordinate system instead of modifying all the coordinates passed as parameters to each call to drawing methods
+  + order of transformation: translate, rotate, and then scale
+  + `ctx.translate(offsetX, offsetY)`
+    + translation to shift (0, 0) to (offsetX, offsetY)
+    + change the position of the coordinate system then draw the shape
+  + `ctx.rotate(angle)`: rotate the coordinate system w/ angle in radians
+  + `ctx.scale (sx, sy)`:
+    + `scale(1, 1)`: no zoom, remain the same
+    + `scale(2, 2)`: zooming 2x
+    + `scale(0.5, 0.5)`: zoom out to see the drawings half as big as before
 
 
 
