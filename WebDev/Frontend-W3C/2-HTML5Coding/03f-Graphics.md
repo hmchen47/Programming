@@ -244,7 +244,7 @@ __Source code for the next question (6)__
   Explanation: Of course, the best practice is to save the context at the beginning of any function that changes the context, and then restore it at the end of the function.
 
 
-## 3.6.5 Immediate drawing mode (13-18)
+### 3.6.5 Immediate drawing mode (13-18)
 
 13. Immediate shapes?
 
@@ -374,5 +374,124 @@ __Source code for the next question (17)__
   Explanation: We have seen in the course that `drawImage` can be used to draw the current frame of a video being played.
 
 
+### 3.6.6 Path drawing mode (19-25)
+
+19. Path mode?
+
+  What is path mode useful for?
+
+  a. Enabling optimization and parallel processing - all drawing orders are stored in a buffer in the Graphic Processor Unit of the graphics card.<br/>
+  b. It's just useful for drawing lines, arcs and curves - there is nothing special about performance.<br/>
+  
+  Ans: <br/>
+  Explanation: 
 
 
+
+20. Choose the right shapes!
+
+  Which of the following shapes can be drawn in path mode? (3 correct answers.)
+
+  a. Line<br/>
+  b. Text<br/>
+  c. Circle or arc<br/>
+  d. Curve (Bézier, quadratic curve)<br/>
+  e. Image<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+21. Two or three lines? (Part 1)
+
+  <pre>ctx.moveTo(20,20);
+  ctx.lineTo(100, 100);
+  ctx.lineTo(100,0);
+  ctx.closePath();
+
+  ctx.strokeStyle = "red";
+  ctx.stroke();
+  </pre>
+
+  What does the above code do?
+
+  a. It draws a red wireframe triangle.<br/>
+  b. It draws two red lines.<br/>
+
+  Ans: <br/>
+  Explanation: 
+  
+
+22. Two or three lines? (Part 2)
+
+  <pre>ctx.strokeStyle = "blue";
+
+  ctx.moveTo(20,20);
+  ctx.lineTo(100, 100);
+  ctx.lineTo(100,0);
+  ctx.stroke();
+
+  ctx.moveTo(120,20);
+  ctx.lineTo(200, 100);
+  ctx.lineTo(200,0);
+  ctx.fillStyle = 'red'
+  ctx.fill();
+  </pre>
+
+  What will the above code produce as a final result on screen?
+
+  a. We will see two red filled triangles, one on the left with two blue lines, and the other triangle on the right.<br/>
+  b. We will see two blue lines, and on the right, a single red filled triangle.<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+23. Empty that buffer please!
+
+  What context method should we call to empty the buffer/clear the path?
+
+  a. `ctx.reset()`<br/>
+  b. `ctx.beginPath()`<br/>
+  c. `ctx.clearPath()`<br/>
+  d. `ctx.empty()`<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+24. Your watch on the right or left wrist?
+
+  <pre>// arc of circle starting from 0 to PI/2, located in (100, 100), with radius = 100
+  ctx.arc(100, 100, 100, 0, Math.PI/2);
+  ctx.stroke();
+  </pre>
+
+  The arcs are drawn...
+
+  a. Clockwise<br/>
+  b. Counterclockwise<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+25. "Black and blue", not my favorite Rolling Stones record...
+
+  <pre>// arc located in (100, 100), radius = 100, full circle from 0 to 2*PI
+  ctx.arc(100, 100, 100, 0, 2*Math.PI);
+  ctx.fillStyle = "lightBlue";
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = "black";
+  ctx.fill();
+  ctx.stroke();
+  </pre>
+
+  What if we execute the above code excerpt? Does it...
+
+  a. Draw just a filled, light blue circle.<br/>
+  b. Draw a light blue, filled, circle, with a black outline of 5px.<br/>
+  c. Draw a wireframe black circle, with an outline width of 5px.<br/>
+
+  Ans: <br/>
+  Explanation: 
