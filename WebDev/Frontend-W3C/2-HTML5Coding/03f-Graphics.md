@@ -243,8 +243,134 @@ __Source code for the next question (6)__
   Ans: a<br/>
   Explanation: Of course, the best practice is to save the context at the beginning of any function that changes the context, and then restore it at the end of the function.
 
-  
 
+## 3.6.5 Immediate drawing mode (13-18)
+
+13. Immediate shapes?
+
+  Which shapes can be drawn in immediate mode? (3 correct answers.)
+
+  a. Line<br/>
+  b. Image<br/>
+  c. Rectangle<br/>
+  d. Circle<br/>
+  e. Text<br/>
+  f. Polygon<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+14. Undersize me!
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick="window.open('https://tinyurl.com/y3aaeuzj')"
+      src    ="https://tinyurl.com/y3a63ey3"
+      alt    ="the text Hello World is written many times and in different sizes using maxWidth and in different colors using fillText"
+      title  ="the text Hello World is written many times and in different sizes using maxWidth and in different colors using fillText"
+    />
+  </figure>
+
+  How would you do the drawing above?
+
+  a. I would draw these shapes using images stretched with Photoshop, for example, and call ctx.drawImage(...).<br/>
+  b. I would use the maxWidth parameter of the strokeText or fillText method of the context.<br/>
+  c. I would use a different character font for each line, using the font property of the context.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+15. Not yet there...
+
+  Drawing images before they have been entirely loaded by the browser...
+
+  a. Is a bad practice.<br/>
+  b. Is ok, images will be drawn incomplete and the missing data will appear as data is loaded, line by line.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+__Source code for the next question (16)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// It is necessary to wait until the web page has loaded before running this code.</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> context </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">"2d"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> imageObj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>// load the image</strong></span></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="str">"https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="com">// draw the image</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></strong><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"512"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"512"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+16. Call me back please!
+
+  What's wrong with the above code?
+
+  a. The instruction at line 16 will try to draw an image without being sure it has entirely loaded.<br/>
+  b. Nothing.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+__Source code for the next question (17)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"512"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"512"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Original image as an </span><span class="tag">&lt;img&gt;</span><span class="pln"> element:</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"logo"</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://orig15.deviantart.net/0b3d/f/2013/149/b/8/texture_85_by_voyager168-d670m68.jpg"</span><span class="tag">&gt;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag"></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">"2d"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> logo </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#logo"</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>&nbsp;ctx</strong></span><strong><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">logo</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+17. Am I completely here?
+
+  Will the above code draw the image every time, even with a large image that is not in the browser's cache? (Yes/No)
+
+  Ans: <br/>
+  Explanation: 
+
+
+18. Video screenshot?
+
+  Can `ctx.drawImage(...)` take as first parameter a video and draw the current frame displayed in a video element?
+
+  a. Only with the Webcam stream<br/>
+  b. Yes<br/>
+  c. It depends on the codec<br/>
+  d. No<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
