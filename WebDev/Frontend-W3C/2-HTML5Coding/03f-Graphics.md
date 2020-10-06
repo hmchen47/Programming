@@ -383,8 +383,8 @@ __Source code for the next question (17)__
   a. Enabling optimization and parallel processing - all drawing orders are stored in a buffer in the Graphic Processor Unit of the graphics card.<br/>
   b. It's just useful for drawing lines, arcs and curves - there is nothing special about performance.<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Indeed, having multiple drawing orders in a buffer enables optimization.
 
 
 
@@ -398,8 +398,8 @@ __Source code for the next question (17)__
   d. Curve (Bézier, quadratic curve)<br/>
   e. Image<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: acd<br/>
+  Explanation: Lines, arcs and circles, and curves (Bézier, quadratic) are all in path mode.
 
 
 21. Two or three lines? (Part 1)
@@ -418,8 +418,8 @@ __Source code for the next question (17)__
   a. It draws a red wireframe triangle.<br/>
   b. It draws two red lines.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The call to `ctx.closePath()` will join the last extremity of the last line to the beginning of the path, forming a triangle.
   
 
 22. Two or three lines? (Part 2)
@@ -443,8 +443,8 @@ __Source code for the next question (17)__
   a. We will see two red filled triangles, one on the left with two blue lines, and the other triangle on the right.<br/>
   b. We will see two blue lines, and on the right, a single red filled triangle.<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The last call to `fill()` will execute all the drawing orders in the buffer: the two sets of lines will be drawn, and as we are in filled mode, they will appear as red triangles. The same example is in the course.
 
 
 23. Empty that buffer please!
@@ -456,8 +456,8 @@ __Source code for the next question (17)__
   c. `ctx.clearPath()`<br/>
   d. `ctx.empty()`<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The right answer is `ctx.beginPath()`. This method is very useful for drawing disconnected shapes that use path mode, and that have different colors, width, etc.
 
 
 24. Your watch on the right or left wrist?
@@ -472,8 +472,8 @@ __Source code for the next question (17)__
   a. Clockwise<br/>
   b. Counterclockwise<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Indeed, arcs are drawn clockwise.
 
 
 25. "Black and blue", not my favorite Rolling Stones record...
@@ -493,5 +493,13 @@ __Source code for the next question (17)__
   b. Draw a light blue, filled, circle, with a black outline of 5px.<br/>
   c. Draw a wireframe black circle, with an outline width of 5px.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The two consecutive calls to `fill()` and `stroke()` will draw the same shape, but using the relevant ctx properties: fill will draw a light blue filled circle, then stroke() will draw a black wireframe circle over it, with a line width of 10px. Final result will be a blue circle with a black wireframe.
+
+
+
+
+
+
+
+
