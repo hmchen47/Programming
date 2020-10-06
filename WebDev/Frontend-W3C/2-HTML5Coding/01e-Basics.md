@@ -111,53 +111,53 @@ This information is not visible to humans: it is pure _semantic information_. Po
 #### Quick example of microdata that describes a person
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;section</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/Person"</span></span></span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;h1&gt;</span><span>Contact Information</span><span>&lt;/h1&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;dl&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;dt&gt;</span><span>Name</span><span>&lt;/dt&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;dd</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"name"</span></span></span><span>&gt;</span><span>Michel Buffa</span><span>&lt;/dd&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &lt;dt&gt;</span><span>Position</span><span>&lt;/dt&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; </span><span>&lt;dd&gt;&lt;span<span style="color: #000000;" color="#000000">&nbsp;</span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"jobTitle"</span></span></span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Professor/Researcher/Scientist</span><span>&lt;/span&gt;</span><span> for</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span>&lt;span</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"affiliation"</span></span></span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; University of Côte d'Azur, France</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &lt;/dd&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/dl&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;!-- SURFACE ADDRESS GOES HERE --&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;h1&gt;</span><span>My different online public accounts</span><span>&lt;/h1&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;ul&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;li&gt;&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.twitter.com/micbuffa"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"url"</span></span></span><span>&gt;</span><span>Twitter profile</span><span>&lt;/a&gt;&lt;/li&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;li&gt;&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.blogger.com/micbuffa"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"url"</span></span></span><span>&gt;</span><span>Michel Buffa's blog</span><span>&lt;/a&gt;&lt;/li&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/ul&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/section&gt;</span></li>
+<li value="1"><span>&lt;section</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/Person"</span></span></span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;h1&gt;</span><span>Contact Information</span><span>&lt;/h1&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;dl&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;dt&gt;</span><span>Name</span><span>&lt;/dt&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;dd</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"name"</span></span></span><span>&gt;</span><span>Michel Buffa</span><span>&lt;/dd&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &lt;dt&gt;</span><span>Position</span><span>&lt;/dt&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>&lt;dd&gt;&lt;span<span style="color: #000000;" color="#000000">&nbsp;</span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"jobTitle"</span></span></span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Professor/Researcher/Scientist</span><span>&lt;/span&gt;</span><span> for</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span>&lt;span</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"affiliation"</span></span></span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; University of Côte d'Azur, France</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/span&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &lt;/dd&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/dl&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;!-- SURFACE ADDRESS GOES HERE --&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;h1&gt;</span><span>My different online public accounts</span><span>&lt;/h1&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;ul&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;li&gt;&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.twitter.com/micbuffa"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"url"</span></span></span><span>&gt;</span><span>Twitter profile</span><span>&lt;/a&gt;&lt;/li&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;li&gt;&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.blogger.com/micbuffa"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"url"</span></span></span><span>&gt;</span><span>Michel Buffa's blog</span><span>&lt;/a&gt;&lt;/li&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/ul&gt;</span></li>
+<li><span>&lt;/section&gt;</span></li>
 </ol></div>
 
 We can also add  another embedded data item in the middle, such as the person's address:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>...</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/</span><span>dl</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&lt;!--</span><span> SURFACE ADDRESS GOES HERE </span><span>--&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&lt;</span><span>dd <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"address"</span><span> itemscope </span></span></span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; <span style="color: hotpink;">itemtype</span></span><span style="color: hotpink;"><span>=</span><span>"https://schema.org/PostalAddress"</span></span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"streetAddress"</span></span></span><span>&gt;</span><span>10</span><span> promenade des anglais</span><span>&lt;/</span><span>span</span><span>&gt;&lt;</span><span>br</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"addressLocality"</span></span></span><span>&gt;</span><span>Nice</span><span>&lt;/</span><span>span</span><span>&gt;,</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"addressRegion"</span></span></span><span>&gt;</span><span>Alpes</span><span> maritimes</span><span>,</span><span> </span><span>France</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"postalCode"</span></span></span><span>&gt;</span><span>06410</span><span>&lt;/</span><span>span</span><span>&gt;&lt;</span><span>br</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"addressCountry"</span></span></span><span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"> itemscope</span></span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;">itemtype</span></span><span style="text-decoration: underline;"><span>=</span><span>"https://schema.org/Country"</span></span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"name"</span></span></span><span>&gt;</span><span>France</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/</span><span>dd</span><span>&gt;</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&lt;h1&gt;</span><span>My</span><span> different online </span><span>public</span><span> accounts</span><span>&lt;/</span><span>h1</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>...</span></li>
+<li value="1"><span>...</span></li>
+<li><span>&lt;/</span><span>dl</span><span>&gt;</span></li>
+<li><span> </span></li>
+<li><span>&lt;!--</span><span> SURFACE ADDRESS GOES HERE </span><span>--&gt;</span></li>
+<li><span> </span></li>
+<li><span>&lt;</span><span>dd <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"address"</span><span> itemscope </span></span></span></li>
+<li><span>&nbsp; &nbsp; <span style="color: hotpink;">itemtype</span></span><span style="color: hotpink;"><span>=</span><span>"https://schema.org/PostalAddress"</span></span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"streetAddress"</span></span></span><span>&gt;</span><span>10</span><span> promenade des anglais</span><span>&lt;/</span><span>span</span><span>&gt;&lt;</span><span>br</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"addressLocality"</span></span></span><span>&gt;</span><span>Nice</span><span>&lt;/</span><span>span</span><span>&gt;,</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"addressRegion"</span></span></span><span>&gt;</span><span>Alpes</span><span> maritimes</span><span>,</span><span> </span><span>France</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"postalCode"</span></span></span><span>&gt;</span><span>06410</span><span>&lt;/</span><span>span</span><span>&gt;&lt;</span><span>br</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"addressCountry"</span></span></span><span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"> itemscope</span></span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="text-decoration: underline;">itemtype</span></span><span style="text-decoration: underline;"><span>=</span><span>"https://schema.org/Country"</span></span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"name"</span></span></span><span>&gt;</span><span>France</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
+<li><span>&lt;/</span><span>dd</span><span>&gt;</span><span> </span></li>
+<li><span> </span></li>
+<li><span>&lt;h1&gt;</span><span>My</span><span> different online </span><span>public</span><span> accounts</span><span>&lt;/</span><span>h1</span><span>&gt;</span></li>
+<li><span> </span></li>
+<li><span>...</span></li>
 </ol></div>
 
 In the following sections, we look more closely at the `itemprop`, `itemscope` and `itemtype` attributes.
@@ -215,29 +215,29 @@ Let's have a look now at a (small) example of an about page. It renders as a ver
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;html lang="en"&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;head&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>utf-8</span><span> </span><span>/&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;title&gt;</span><span>Michel Buffa</span><span>&lt;/title&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/head&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;body&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;div</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/Person"</span></span></span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; My name is </span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"name"</span><span>&gt;</span><span>Michel Buffa</span><span>&lt;/span&gt;</span><span>,</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; And I'm a </span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"jobTitle"</span><span>&gt;</span><span>professor/researcher</span><span>&lt;/span&gt;</span><span> at</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.i3s.unice.fr/"</span><span> </span><span>itemprop</span><span>=</span><span>"affiliation"</span><span>&gt;</span><span>I3S </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; Laboratory</span><span>&lt;/a&gt;</span><span> in the south of France, near the city of Nice. My </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; email </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; is : </span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"email"</span><span>&gt;</span><span>micbuffa@gmail.com</span><span>&lt;/span&gt;</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; I live in the city of </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"address"</span><span> </span><span>itemscope</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span style="color: hotpink;"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="text-decoration: underline; color: hotpink;"><span>itemtype</span><span>=</span><span>"https://schema.org/PostalAddress"</span></span><span>&gt;</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"addressLocality"</span><span>&gt;</span><span>Biot</span><span>&lt;/span&gt;</span><span>, in a region named</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"addressRegion"</span><span>&gt;</span><span>Alpes Maritimes</span><span>&lt;/span&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &lt;/span&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;/div&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/body&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/html&gt;</span></li>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html lang="en"&gt;</span></li>
+<li><span>&lt;head&gt;</span></li>
+<li><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>utf-8</span><span> </span><span>/&gt;</span></li>
+<li><span>&lt;title&gt;</span><span>Michel Buffa</span><span>&lt;/title&gt;</span></li>
+<li><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span> </span><span>&lt;div</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/Person"</span></span></span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; My name is </span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"name"</span><span>&gt;</span><span>Michel Buffa</span><span>&lt;/span&gt;</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; And I'm a </span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"jobTitle"</span><span>&gt;</span><span>professor/researcher</span><span>&lt;/span&gt;</span><span> at</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.i3s.unice.fr/"</span><span> </span><span>itemprop</span><span>=</span><span>"affiliation"</span><span>&gt;</span><span>I3S </span></li>
+<li><span>&nbsp; &nbsp; Laboratory</span><span>&lt;/a&gt;</span><span> in the south of France, near the city of Nice. My </span></li>
+<li><span>&nbsp; &nbsp; email </span></li>
+<li><span>&nbsp; &nbsp; is : </span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"email"</span><span>&gt;</span><span>micbuffa@gmail.com</span><span>&lt;/span&gt;</span><span>.</span></li>
+<li><span>&nbsp; &nbsp; I live in the city of </span></li>
+<li><span>&nbsp; &nbsp; &lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"address"</span><span> </span><span>itemscope</span><span> </span></li>
+<li><span style="color: hotpink;"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="text-decoration: underline; color: hotpink;"><span>itemtype</span><span>=</span><span>"https://schema.org/PostalAddress"</span></span><span>&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"addressLocality"</span><span>&gt;</span><span>Biot</span><span>&lt;/span&gt;</span><span>, in a region named</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"addressRegion"</span><span>&gt;</span><span>Alpes Maritimes</span><span>&lt;/span&gt;</span></li>
+<li><span>&nbsp; &nbsp; &lt;/span&gt;</span></li>
+<li><span> </span><span>&lt;/div&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 Rendering of the page in a browser:
@@ -297,9 +297,9 @@ __1 - Define a container element by adding an itemscope attribute__
 First, you need to add an `itemscope` attribute to an HTML element. This will define the "global object" for which we will define properties. This element can be of different types that we will describe later, but for now let us keep looking at the same example we used in previous sections:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;section</span><span> </span><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/Person"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>...</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/section&gt;</span></li>
+<li value="1"><span>&lt;section</span><span> </span><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/Person"</span><span>&gt;</span></li>
+<li><span>...</span></li>
+<li><span>&lt;/section&gt;</span></li>
 </ol></div>
 
 We will look at the itemtype attribute later. Now that we have defined a global wrapper object/element (a Person in this case), we can  add properties inside this element to define the first name, last name, etc.
@@ -334,28 +334,28 @@ __Basics:__
 Now that you have defined a container element, you may add properties to the HTML inside:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;section</span><span> </span><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/Person"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;h1&gt;</span><span>Contact Information</span><span>&lt;/h1&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;dl&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;dt&gt;</span><span>Name</span><span>&lt;/dt&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;dd</span><span> </span><strong><span style="text-decoration: underline; color: hotpink;"><span>itemprop</span><span>=</span><span>"name"</span></span></strong><span>&gt;</span><span>Michel Buffa</span><span>&lt;/dd&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;dt&gt;</span><span>Position</span><span>&lt;/dt&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;dd&gt;&lt;span<span style="color: #000000;" color="#000000">&nbsp;</span></span><strong><span><span style="text-decoration: underline; color: hotpink;">itemprop</span></span><span style="text-decoration: underline; color: hotpink;"><span>=</span><span>"jobTitle"</span></span></strong><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Professor/Researcher/Scientist</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/span&gt;</span><span> for</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;span</span><span> </span><strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"affiliation"</span></span></span></strong><span>&gt;</span><span>University of Nice, </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; France</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/span&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/dd&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;/dl&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;h1&gt;</span><span>My different online public accounts</span><span>&lt;/h1&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;ul&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;li&gt;&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.twitter.com/micbuffa"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>&nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></strong></span><strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"url"</span></span></span></strong><span>&gt;</span><span>Twitter profile</span><span>&lt;/a&gt;&lt;/li&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;li&gt;&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.blogger.com/micbuffa"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></strong></span><strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"url"</span></span></span></strong><span>&gt;</span><span>Michel Buffa's blog</span><span>&lt;/a&gt;&lt;/li&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;/ul&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/section&gt;</span></li>
+<li value="1"><span>&lt;section</span><span> </span><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/Person"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;h1&gt;</span><span>Contact Information</span><span>&lt;/h1&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;dl&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;dt&gt;</span><span>Name</span><span>&lt;/dt&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;dd</span><span> </span><strong><span style="text-decoration: underline; color: hotpink;"><span>itemprop</span><span>=</span><span>"name"</span></span></strong><span>&gt;</span><span>Michel Buffa</span><span>&lt;/dd&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;dt&gt;</span><span>Position</span><span>&lt;/dt&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;dd&gt;&lt;span<span style="color: #000000;" color="#000000">&nbsp;</span></span><strong><span><span style="text-decoration: underline; color: hotpink;">itemprop</span></span><span style="text-decoration: underline; color: hotpink;"><span>=</span><span>"jobTitle"</span></span></strong><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Professor/Researcher/Scientist</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/span&gt;</span><span> for</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;span</span><span> </span><strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"affiliation"</span></span></span></strong><span>&gt;</span><span>University of Nice, </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; France</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/span&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/dd&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;/dl&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;h1&gt;</span><span>My different online public accounts</span><span>&lt;/h1&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;ul&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;li&gt;&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.twitter.com/micbuffa"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>&nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></strong></span><strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"url"</span></span></span></strong><span>&gt;</span><span>Twitter profile</span><span>&lt;/a&gt;&lt;/li&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;li&gt;&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.blogger.com/micbuffa"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemprop</span></span></strong></span><strong><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"url"</span></span></span></strong><span>&gt;</span><span>Michel Buffa's blog</span><span>&lt;/a&gt;&lt;/li&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;/ul&gt;</span></li>
+<li><span>&lt;/section&gt;</span></li>
 </ol></div>
 
 In this example, the container is a `<section>` that corresponds to a Person (we have one clue here: the name of the vocabulary given by the `itemtype` attribute), and each property defined inside this section is identified by the value of the `itemprop` attribute of sub-elements.
@@ -363,7 +363,7 @@ In this example, the container is a `<section>` that corresponds to a Person (we
 The line: 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;dd</span><span> </span><span>itemprop</span><span>=</span><span>"name"</span><span>&gt;</span><span>Michel Buffa</span><span>&lt;/dd&gt;</span></li>
+<li value="1"><span>&lt;dd</span><span> </span><span>itemprop</span><span>=</span><span>"name"</span><span>&gt;</span><span>Michel Buffa</span><span>&lt;/dd&gt;</span></li>
 </ol></div>
 
 ...defines a property called "name" that has a value of "Michel Buffa" (the text value between the opening and closing tags of the `<dd>` element).
@@ -378,26 +378,26 @@ Give an element inside a microdata container its own `itemscope` attribute with 
 Again, look at the Person/Address example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>...</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/</span><span>dl</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&lt;!--</span><span> SURFACE ADDRESS GOES HERE </span><span>--&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&lt;</span><span>dd itemprop</span><span>=</span><span>"address"</span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"> itemscope </span></span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemtype</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"https://schema.org/PostalAddress"</span></span></span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"streetAddress"</span><span>&gt;</span><span>10</span><span> promenade des anglais</span><span>&lt;/</span><span>span</span><span>&gt;&lt;</span><span>br</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"addressLocality"</span><span>&gt;</span><span>Nice</span><span>&lt;/</span><span>span</span><span>&gt;,</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"addressRegion"</span><span>&gt;</span><span>Alpes</span><span> maritimes</span><span>,</span><span> </span><span>France</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"postalCode"</span><span>&gt;</span><span>06410</span><span>&lt;/</span><span>span</span><span>&gt;&lt;</span><span>br</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"addressCountry"</span><span style="color: hotpink;"> itemscope </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemtype</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"https://schema.org/Country"</span></span></span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"name"</span><span>&gt;</span><span>France</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/</span><span>dd</span><span>&gt;</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&lt;h1&gt;</span><span>My</span><span> different online </span><span>public</span><span> accounts</span><span>&lt;/</span><span>h1</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>...</span></li>
+<li value="1"><span>...</span></li>
+<li><span>&lt;/</span><span>dl</span><span>&gt;</span></li>
+<li><span> </span></li>
+<li><span>&lt;!--</span><span> SURFACE ADDRESS GOES HERE </span><span>--&gt;</span></li>
+<li><span> </span></li>
+<li><span>&lt;</span><span>dd itemprop</span><span>=</span><span>"address"</span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"> itemscope </span></span></li>
+<li><span>&nbsp; &nbsp; <span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemtype</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"https://schema.org/PostalAddress"</span></span></span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"streetAddress"</span><span>&gt;</span><span>10</span><span> promenade des anglais</span><span>&lt;/</span><span>span</span><span>&gt;&lt;</span><span>br</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"addressLocality"</span><span>&gt;</span><span>Nice</span><span>&lt;/</span><span>span</span><span>&gt;,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"addressRegion"</span><span>&gt;</span><span>Alpes</span><span> maritimes</span><span>,</span><span> </span><span>France</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"postalCode"</span><span>&gt;</span><span>06410</span><span>&lt;/</span><span>span</span><span>&gt;&lt;</span><span>br</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"addressCountry"</span><span style="color: hotpink;"> itemscope </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">itemtype</span></span></span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>=</span><span>"https://schema.org/Country"</span></span></span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;</span><span>span itemprop</span><span>=</span><span>"name"</span><span>&gt;</span><span>France</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;/</span><span>span</span><span>&gt;</span></li>
+<li><span>&lt;/</span><span>dd</span><span>&gt;</span><span> </span></li>
+<li><span> </span></li>
+<li><span>&lt;h1&gt;</span><span>My</span><span> different online </span><span>public</span><span> accounts</span><span>&lt;/</span><span>h1</span><span>&gt;</span></li>
+<li><span> </span></li>
+<li><span>...</span></li>
 </ol></div>
 
 The properties at _lines 8-12_ refer to the address nested microdata (they are defined in the Address vocabulary, not the Person vocabulary), and "France" (_line 14_) is a property that refers to the Country vocabulary.
@@ -408,14 +408,14 @@ __Several properties with the same name but different values__
 It is possible to use the same property name several times in one microdata object, but with different values:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>...</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;h1&gt;</span><span>My</span><span> different online </span><span>public</span><span> accounts</span><span>&lt;/</span><span>h1</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;ul&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;li&gt;</span><span>&lt;</span><span>a href</span><span>=</span><span>"https://www.twitter.com/micbuffa"</span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span> itemprop</span><span>=</span><span>"url"</span></span></span><span>&gt;</span><span>Twitter</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; profile</span><span>&lt;</span><span>/a&gt;&lt;/</span><span>li</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;li&gt;</span><span>&lt;</span><span>a href</span><span>=</span><span>"https://www.blogger.com/micbuffa"</span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span> itemprop</span><span>=</span><span>"url"</span></span></span><span>&gt;</span><span>Michel</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; Buffa</span><span>'s blog&lt;/a&gt;&lt;/li&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> &lt;/ul&gt;</span></li>
+<li value="1"><span>...</span><span> </span></li>
+<li><span> </span><span>&lt;h1&gt;</span><span>My</span><span> different online </span><span>public</span><span> accounts</span><span>&lt;/</span><span>h1</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;ul&gt;</span></li>
+<li><span> </span><span>&lt;li&gt;</span><span>&lt;</span><span>a href</span><span>=</span><span>"https://www.twitter.com/micbuffa"</span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span> itemprop</span><span>=</span><span>"url"</span></span></span><span>&gt;</span><span>Twitter</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; profile</span><span>&lt;</span><span>/a&gt;&lt;/</span><span>li</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;li&gt;</span><span>&lt;</span><span>a href</span><span>=</span><span>"https://www.blogger.com/micbuffa"</span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span> itemprop</span><span>=</span><span>"url"</span></span></span><span>&gt;</span><span>Michel</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; Buffa</span><span>'s blog&lt;/a&gt;&lt;/li&gt;</span></li>
+<li><span> &lt;/ul&gt;</span></li>
 </ol></div>
 
 This defines the fact that Michel Buffa has two online accounts, and the two properties have the name `url`, each with its own value.
@@ -426,13 +426,13 @@ __It is possible to set more than one property at once, with the same value__
 Here are some microdata that represent a song. In this example, at line 5 we set  two different properties: `genre` and `keywords` with the same value (see the [MusicRecording schema definition](https://tinyurl.com/yxlrrp22)):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;div</span><span> </span><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/MusicRecording"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;h2&gt;</span><span>The song I just published</span><span>&lt;/h2&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;ul&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;li&gt;</span><span>Name: </span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"name"</span><span>&gt;</span><span>Please buy me on itunes, I need money!</span><span>&lt;/span&gt;&lt;/li&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;li&gt;</span><span>Band: </span><span>&lt;span</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"genre keywords"</span></span></span><span>&gt;</span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Punk, Ska</span></span><span>&lt;/span&gt;&lt;/li&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;/ul&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/div&gt;</span></li>
+<li value="1"><span>&lt;div</span><span> </span><span>itemscope</span><span> </span><span>itemtype</span><span>=</span><span>"https://schema.org/MusicRecording"</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;h2&gt;</span><span>The song I just published</span><span>&lt;/h2&gt;</span></li>
+<li><span> </span><span>&lt;ul&gt;</span></li>
+<li><span> </span><span>&lt;li&gt;</span><span>Name: </span><span>&lt;span</span><span> </span><span>itemprop</span><span>=</span><span>"name"</span><span>&gt;</span><span>Please buy me on itunes, I need money!</span><span>&lt;/span&gt;&lt;/li&gt;</span></li>
+<li><span> </span><span>&lt;li&gt;</span><span>Band: </span><span>&lt;span</span><span> </span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;"><span>itemprop</span><span>=</span><span>"genre keywords"</span></span></span><span>&gt;</span><span style="text-decoration: underline;"><span style="color: hotpink; text-decoration: underline;">Punk, Ska</span></span><span>&lt;/span&gt;&lt;/li&gt;</span></li>
+<li><span> </span><span>&lt;/ul&gt;</span></li>
+<li><span>&lt;/div&gt;</span></li>
 </ol></div>
 
 And so on...
@@ -471,19 +471,19 @@ If the `itemprop` attribute appears on a:
 For example, the value of a property defined in an `<img>` element will be the value of the src attribute:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;img</span><span> </span><span>itemprop</span><span>=</span><span>"image"</span><span> </span><span>src</span><span>=</span><span>"MichelBuffa.png"</span><span> </span><span>alt</span><span>=</span><span>"A great professor"</span><span>&gt;</span></li>
+<li value="1"><span>&lt;img</span><span> </span><span>itemprop</span><span>=</span><span>"image"</span><span> </span><span>src</span><span>=</span><span>"MichelBuffa.png"</span><span> </span><span>alt</span><span>=</span><span>"A great professor"</span><span>&gt;</span></li>
 </ol></div>
 
 Or for a `<time>`, it will be the value of the datetime attribute:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;time</span><span> </span><span>itemprop</span><span>=</span><span>"birthday"</span><span> </span><span>datetime</span><span>=</span><span>"1965-04-16"</span><span>&gt;</span><span>April 16, 1965</span><span>&lt;/time&gt;</span></li>
+<li value="1"><span>&lt;time</span><span> </span><span>itemprop</span><span>=</span><span>"birthday"</span><span> </span><span>datetime</span><span>=</span><span>"1965-04-16"</span><span>&gt;</span><span>April 16, 1965</span><span>&lt;/time&gt;</span></li>
 </ol></div>
 
 Or for an `<a>` element, the value will be the value of the href attribute:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.twitter.com/micbuffa"</span><span> </span><span>itemprop</span><span>=</span><span>"url"</span><span>&gt;</span><span>profile</span><span>&lt;/a&gt;</span></li>
+<li value="1"><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.twitter.com/micbuffa"</span><span> </span><span>itemprop</span><span>=</span><span>"url"</span><span>&gt;</span><span>profile</span><span>&lt;/a&gt;</span></li>
 </ol></div>
 
 
