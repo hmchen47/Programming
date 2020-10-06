@@ -773,5 +773,22 @@
     + `scale(0.5, 0.5)`: zoom out to see the drawings half as big as before
 
 
+## Color Properties
+
++ [Colors and transparency](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#colors-and-transparency)
+  + same syntax for [colors supported by CSS3](https://www.w3.org/TR/css-color-3/)
+  + rgba =  red, green, blue & alpha channel
+  + alpha channel: value btw 0 (completely transparent) and 1 (opaque)
+  + examples:
+    + `ctx.strokeStyle = 'red';`
+    + `ctx.fillStyle = "#00ff00";`
+    + `ctx.strokeStyle = "rgb(0, 0, 255)";`
+    + `ctx.fillStyle = "rgba(0, 0, 255, 0.5)";`
+  
+
+
+
+
+
 
 
