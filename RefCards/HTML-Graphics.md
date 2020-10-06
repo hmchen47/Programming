@@ -17,6 +17,30 @@
     + fill a buffer then execute all buffered orders at once to enable optimization and parallelism
   + rectangles: the only shapes that have methods for drawing them immediately and also other methods for drawing them in "path/buffered mode"
 
++ [Intermediate mode vs. path mode](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#341-immediate-mode-vs-path-mode)
+  + intermediate mode
+    + executing a call to a drawing method immediately drawing in the canvas
+    + as soon as they executed
+      + the results displayed on screen
+      + the drawings performed
+      + pixels on the canvas area change their colors
+      + etc.
+    + example methods: `drawImage(...)`, `fillRect(x, y, width, height)`, `strokeRect(x, y, width, height)`, `fillText(message, x, y)` and `strokeText(message, x, y)`
+  + path mode
+    + fill a buffer then execute all buffered orders at once to enable optimization and parallelism
+    + first send drawing orders to the graphics processor, and these orders are stored in a buffer
+    + then call methods to draw the whole buffer at once
+    + parallelism: GPU of the graphics card hardware able to parallelize the computations
+    + example: instead of calling `strokeRect(...)` or `fillRect(...)` many times, just call `rect(...)` method of the context once
+    + slightly faster execution time
+    + `ctx.beginPath()`: reset the buffer (empty its contents) to start a new buffer / path
+
++ [Summary of path mode principles](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#341-immediate-mode-vs-path-mode)
+  + call drawing methods that work in path mode, e.g., `ctx.rect(...)` instead of `ctx.strokeRect(...)` or `ctx.fillRect(...)`
+  + `ctx.stroke()` or `ctx.fill()`: draw the buffer's contents
+  + two consecutive calls to `ctx.stroke()` will draw the buffer contents twice
+  + use `ctx.beginPath()` to empty it if needed
+  + path drawing faster than immediate drawing (parallelization possible)
 
 
 
@@ -60,6 +84,8 @@
     + multiple contexts able to be saved consecutively and restored
   + __best practice__: save the context before any activities modifying the context, and restore it at the end of the activities, in particular, a function
 
++ [Time measuring](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#341-immediate-mode-vs-path-mode)
+  + `console.time(name_of_timer)` and `console.timeEnd(name_of_timer)`: used to calculate time elapsed
   + results displayed only in the browser's console
 
 
@@ -531,6 +557,7 @@
   + rotating video effect: `function drawRotatingVideo(x, y) {...}`
     + use of context save/restore primordial as this function changes the coordinate system at each call
     + translating and rotating, requiring second translation to centralize the graph
+
 
 
 
