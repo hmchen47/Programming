@@ -15,7 +15,6 @@
   + The actions a page can take such as interaction with the user, and customizing and changing the page according to any number of parameters
   + Allow a Web page to be more than just a document, but potentially a Web application, with nearly unlimited possibilities
 
-
 + [HTML5](../WebDev/Frontend-W3C/2-HTML5Coding/01b-Basics.md#122-what-is-html5)
   + published on 28 October 2014
   + features
@@ -29,6 +28,15 @@
   + typical two means
     + Open Web Platform: HTML5 specification, CSS, SVG, MathML, Geolocation, XMLHttpRequest, 2D Context, Web Fonts (WOFF) and others
     + HTML5 specification
+
++ [JavaScript & HTML5](../WebDev/Frontend-W3C/2-HTML5Coding/03b-Graphics.md#321-about-javascript-and-html5)
+  + adding js code in HTML page: `<script>`...`</script>`
+  + JavaScript code executed before the browser could see the rest of the page as the `<script></script>` located before the `<body>`
+  + `console.log(...)`: display in the JavaScript console the message...
+  + debug:
+    + dev. tool on web browser &gt; console tab &gt; error/log msgs
+    + allowing to type any JS command
+
 
 
 ## Tags, Elements and Attributes of HTML
