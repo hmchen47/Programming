@@ -52,7 +52,7 @@
     + used to specify the different ways one can position the baseline of a given text
     + default: `alphabetic`
     + tell how the `y` parameter of the `fillText("msg", x, y)` and `strokeText("msg", x, y)` methods interpreted
-    + possible values (left diagram)
+    + possible values: top, hanging, middle, alphabetic, ideographic, bottom-glyp (left diagram)
   + `textAlign` property
     + how the x parameter used when calling `strokeText("msg", x, y)` and `fillText("msg", x, y)`
     + possible values: left, center, right, start, end (right diagram)
