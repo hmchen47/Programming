@@ -41,10 +41,10 @@
 
 ## Week 4: HTML5 Animations
 
-+ 4.1 [Video introduction - Week 4](./04-Animations.md#)
-+ 4.2 [Basic animation techniques](./04-Animations.md#)
-+ 4.3 [Canvas and user interaction](./04-Animations.md#)
-+ 4.4 [Exercises - Week 4](./04-Animations.md#)
++ 4.1 [Video introduction - Week 4](./04a-Animations.md)
++ 4.2 [Basic animation techniques](./04b-Animations.md)
++ 4.3 [Canvas and user interaction](./04c-Animations.md)
++ 4.4 [Exercises - Week 4](./04d-Animations.md)
 
 
 
