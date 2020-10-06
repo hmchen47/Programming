@@ -18,7 +18,8 @@ Please complete the following 33 exercises in a timely manner. As stated in the 
 
   Nowadays, most major desktop browsers take advantage of hardware acceleration in their implementation of the canvas API: (True/False)
 
-  Ans: 
+  Ans: True<br/>
+  Explanation: Indeed, most (all?) major browsers use hardware acceleration for drawing and animating in the HTML5 canvas. This is also true of their respective mobile versions.
 
 
 2. Where is my context?
@@ -34,14 +35,15 @@ Please complete the following 33 exercises in a timely manner. As stated in the 
     }
   </pre>
 
-  How do you set the graphic context of the above canvas for drawing in 2D? What would you use instead of the AAA string in the code above?
+  How do you set the graphic context of the above canvas for drawing in 2D? What would you use instead of the __AAA__ string in the code above?
 
   a. `canvas.createContext('webgl');`<br/>
   b. `canvas.createContext('2d');`<br/>
   c. `canvas.getContext('2d');`<br/>
   d. `canvas.getContext();`<br/>
 
-  Ans: 
+  Ans: c<br/>
+  Explanation: The correct way to get a context for 2D graphics is `ctx = canvas.getContext('2d');`.
 
 
 3. Where is my pixel?
@@ -53,13 +55,14 @@ Please complete the following 33 exercises in a timely manner. As stated in the 
   c. In the bottom left quadrant of the canvas<br/>
   d. In the top left quadrant of the canvas<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: In the canvas coordinate system, the X axis is horizontal, directed to the right, and the Y axis is vertical, directed downwards. The (300, 100) position is located in the top right quadrant of the canvas.
 
 
 
 4. Prepare your backpack
 
-  What is absolutely necessary to do before drawing in a canvas? (4 correct answers.)
+  What is __absolutely necessary__ to do before drawing in a canvas? (4 correct answers.)
 
   a. Declare a canvas element in the HTML code.<br/>
   b. Add CSS rules for drawing a border around the canvas.<br/>
@@ -67,7 +70,8 @@ Please complete the following 33 exercises in a timely manner. As stated in the 
   d. Get the canvas graphic context (from the canvas object).<br/>
   e. Be sure that the page has been loaded and that the DOM is ready before trying to access the canvas element using the DOM API.<br/>
 
-  Ans: 
+  Ans: acde<br/>
+  Explanation: Indeed, we must 1) declare a canvas element in the HTML code, 2) access the canvas, but 3) be sure that the DOM of the page has been built before requesting the canvas using the DOM API (getElementById, querySelector etc.) and 4) get the grahic context from the canvas object. Having a CSS border is not necessary.
 
 
 5. Change my color!
@@ -86,7 +90,8 @@ Please complete the following 33 exercises in a timely manner. As stated in the 
   e. `canvas.color`<br/>
   f. `canvas.strokeStyle`<br/>
 
-  Ans: 
+  Ans: c<br/>
+  Explanation: We only set the color using a context property, not a canvas property: `strokeStyle` for wireframe shapes and `fillStyle` for filled shapes.
 
 
 __Source code for the next question (6)__
@@ -136,7 +141,8 @@ __Source code for the next question (6)__
   b. black (default color)<br/>
   c. red<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: `strokeStyle` for wireframe shapes and `fillStyle` for filled shapes are sort of "global variables". The call to `drawSomething()` will set the strokeStyle property to 'blue' (line 20), then all wireframe shapes drawn after this will be blue. `ctx.strokeRect(...)` will draw a blue wireframe rectangle.  Check this correction on JS Bin with the example from the question, you can clearly see a blue wireframe rectangle. Comment the call to `drawSomething()`, it will be black.
 
 
 7. Write me a message!
@@ -150,5 +156,12 @@ __Source code for the next question (6)__
   e. `ctx.setFont('italic 20pt Calibri');`<br/>
   f. `ctx.font = 'italic 20pt Calibri';`<br/>
 
-  Ans: 
+  Ans: df<br/>
+  Explanation: `ctx.fillText(message, x, y)` and `ctx.font` are correct.
+
+
+
+
+
+
 
