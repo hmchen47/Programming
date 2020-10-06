@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <title>Canvas</title>
+  </head>
+<body>
+
+<canvas id="myCanvas1" height = 400 width="800">Your browser does not support the canvas tag.</canvas>
+
+<script type="text/javascript">
+var canvas=document.querySelector('#myCanvas1');
+var context=canvas.getContext('2d');
+
+context.beginPath();
+
+context.moveTo(100, 20);
+context.quadraticCurveTo(230, 200, 250, 20);
+
+context.lineWidth = 5;
+context.strokeStyle = "#0000ff";
+context.stroke();
+
+</script>
+
+</body>
+</html>

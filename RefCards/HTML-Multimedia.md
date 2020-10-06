@@ -319,6 +319,17 @@
   + trying try the source files in sequence if the browser not supported the previous format file
 
 
++ [The `<audio>` element](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#222-the-audio-element)
+	+ embedding an audio player into a Web page
+	+ dedicated for streamed audio
+	+ similar to the `<video>` element, both in its use and in its API
+	+ reduced version of the `<video>` on attributes, event set and JavaScript API 
+	+ using the `controls` attribute in order to render the play/stop, time, volume and progress widgets
+	+ text message btw the `<audio>`...`</audio>` tags: displayed if the Web browser doesn't support the `<audio>` element
+	+ several `<source>`...`</source>` elements: link to different audio formats for the same file
+
+
+
 
 ### Attributes of the audio Tag
 
@@ -386,6 +397,16 @@
 </tbody>
 </table>
 
++ [Most common attributes of `<audio>` element](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#attributes-of-the-audio-element)
+	+ `src`: source of an audio stream.
+	+ `controls` (Boolean): display controls for audio playback and volume
+	+ `autoplay`: start playing the audio stream automatically as soon as the page is ready
+	+ `preload`: tell the browser what to do before a user plays a sound
+	+ `loop`: play the audio stream in loop mode
+	+ best practice in regard to `preload` and `autoplay` attributes should be followed as `<video>` element
+
+
+
 
 ### Attributes of the source Tag
 
@@ -414,6 +435,7 @@
   </tr>
 </tbody>
 </table>
+
 
 
 ## Video Element
@@ -462,13 +484,45 @@
       + including sound effects and other significant audio like music and lyrics and is usually in the same language as the audio
     + Subtitles: translate the language (for those who do not understand the language being spoken in the video)
   + able to add multiple &lt;track&gt; tags in video element to add multiple subtitle/caption tracks
-  + self-closing elemnt
+  + self-closing element
+
+
++ [The `<video>` element](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#221-the-video-element)
+	+ HTML5 Flash Killers: `<video>` and `<canvas>` elements
+	+ `<video>` element: a DOM member
+		+ CSS styling applied
+		+ manipulation w/ the DOM API
+	+ example code
+
+		<div><ol>
+		<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>width</span><span>=</span><span>"320"</span><span> </span><span>height</span><span>=</span><span>"240"</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
+		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.mp4"</span><span> </span><span>type</span><span>=</span><span>"video/mp4"</span><span> </span><span>/&gt;</span></li>
+		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.ogg"</span><span> </span><span>type</span><span>=</span><span>"video/ogg"</span><span> </span><span>/&gt;</span></li>
+		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;Your browser does not support the </span><span>&lt;video&gt;</span><span> element.</span></li>
+		<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
+		</ol></div><br/>
+
+		+ `controls` attribute: a control panel displayed w/ play/stop/volume/progress widgets
+		+ usually browser using the first format it recognizes, but some browsers choosing a "preferred" format
+	+ unable to embed a YouTube or DailyMotion video using the `<video>` element
+		+ using rather complex techniques to prevent people from using them w/ the `<video>` element
+		+ embedding an `<iframe>` to render the HTML5 videos in one's own Web site
+		+ usually an "embed" button close to the videos that prompts people w/ some HTML code that you can copy and paste for embedding
+		+ YouTube example: `<iframe width="560" height="315" src="https://www.youtube.com/watch?v=9NTrwrfI-X4" frameborder="0" allowfullscreen></iframe>`
+
++ [Recommendation & Best Practices for `<video>` element](/WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#most-useful-attributes-of-the-video-element)
+	+ mobile application or multiple videos in a page
+		+ not using `autoplay` attribute
+		+ `preload=none` to save bandwidth
+	+ `poster` attribute: usually the first non-blank frame of the video if missing
+	+ limiting the use of `autoplay` attribute
+
 
 
 ### Attributes of the video Tag
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#video-element">Attributes of &lt;video&gt; tag</a></caption>
+  <caption style="font-size: 1.5em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#video-element">Content Attributes of &lt;video&gt; tag</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff;" width="15%">Attribute</td>
@@ -538,6 +592,33 @@
 </table>
 
 
++ [Most common attributes of `<video>` element](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#most-useful-attributes-of-the-video-element)
+	+ `src`: source of the video.
+	+ `width` and `height`:
+		+ size of the video. 
+		+ default: width and height of the video if unspecified
+		+ only one dimension specified: adjusting the size of the unspecified dimension to preserve the aspect ratio of the video
+	+ `controls`:
+		+ display its own controls for video playback and volume
+		+ a boolean attribute: omit as `controls="false"` or presence as `controls="true"` (not recommended)
+		+ `controls="controls"` same as `controls` attribute presence
+	+ `poster`:
+		+ specify an image that the browser will use while video is being downloaded, or until the user starts playing the video
+		+ not specified: 1st frame of the video used
+	+ `autoplay` (Boolean): browser to start playing the video automatically as soon as the page is ready
+	+ `preload`:
+		+ used when autoplay not used
+		+ telling the browser what to do before a user plays a video
+		+ hint: the browser may ignore it
+		+ `autoplay` and `preload` mutually exclusive, if both are present, then preload is ignored.
+		+ Possible values:
+			+ `none`: do nothing. no video downloaded in background before a user or a call to the `play()` method starts playing the video.
+			+ `metadata`: download metadata, such as length of the video or its format.
+			+ `auto` (default value): the browser decides, depending on the implementation, and on the kind of connection: wifi, 3G, data roaming etc.
+	+ `loop` (Boolean): play the video in loop mode (and it starts again when finished).
+
+
+
 ### Attributes of the source Element
 
 <table style="font-family: arial,helvetica,sans-serif; max-width: 100%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -568,7 +649,9 @@
 </table>
 
 
-### Attributes of the track Element
+
+
+### Attributes of the `<track>` element and WebVTT Format
 
 
 <table style="font-family: arial,helvetica,sans-serif; margin: auto;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=100%>
@@ -612,5 +695,110 @@
     <td>Specifies the language of the track text data (required if kind="subtitles")</td>
   </tr>
 </tbody></table>
+
++ [The `<track>` element](../WebDev/Frontend-W3C/2-HTML5Coding/02c-Multimedia.md#231-html5-captioning)
+  + adding closed captions, subtitles, descriptions, and metadata to videos
+  + `WebVTT` format used for describing a track file
+  + __closed caption__: describing all relevant audio present in the video; e.g., fire, rain, birds, gun fights, etc.
+  + __subtitle__: only for spoken words
+  + NB: unable to be used w/ `file://` url
+  + e.g., `<track src="https://mainline.i3s.unice.fr/mooc/sintel-captions.vtt" kind="captions" label="Closed Captions" default>`
+  + `kind` attribute: `subtitles`, `captions`, `descriptions`, `chapters` or `metadata`
+  + `default` attribute: track to be displayed by default when reading the video
+  + `label` attribute: displayed in the GUI control included in the default HTML5 video player
+  + `srclang`: the language for the text track data, MUST present if `kind=subtitles`
+
++ [The `WebVTT` format](../WebDev/Frontend-W3C/2-HTML5Coding/02c-Multimedia.md#232-the-webvtt-format)
+  + WebVTT: The Web Video Text Tracks Format
+  + files containing text for captions and subtitles, and much more..
+  + used w/ the `src` attribute of the `<track>` element
+  + format: a starting and ending time, plus a value (the text that will be displayed), followed by a blank line (blank lines are separators between elements)
+  + chapter
+    + defined in `track` elements with a `kind="chapters"` attribute
+    + a CUE with starting and ending times, and a text for its description
+    + (optional) an ID useful when using the track element JavaScript API, in particular the `getCueById()` method of `TextTrack` object
+    + types of ID:
+      + numeric ID; e.g., `9`
+      + string ID; e.g., `opening`
+    + able to be displayed multiple lines w/o blank lines
+
++ [Adding subtitles to a video](../WebDev/Frontend-W3C/2-HTML5Coding/02c-Multimedia.md#233-adding-subtitles-to-a-video)
+  + required a video on one of the formats/codecs supported by the browsers you target; e.g., `H624` and `webm`
+  + video encoding software: [Handbrake](https://handbrake.fr/), [Super](https://www.erightsoft.com/SUPER.html)
+  + online video encoding services, such as [amara](https://amara.org/en/)
+
++ [Styling captions](../WebDev/Frontend-W3C/2-HTML5Coding/02c-Multimedia.md#234-styling-captions)
+  + __line:5%__: vertical position at a line 5% of the height of the video viewport (from top)
+  + __position:5% align:start__: regular location at the bottom of the video, the start of the sentence will be located at 5% of the width of the video, i.e., near the left side
+  + __position:95% align:end__: regular location at the bottom of the video, the end of the sentence will be at 95% of the horizontal width of the video
+  + __size:33%__: size of each line = 1/3 the size of the video (displayed in multiple lines)
+  + use of `<b>`, `<i>`, `<u>` for styling subtitles / captions
+  + `<v>` element
+    + voicing for styling
+    + distinguishing different voices w/ different color
+
++ [Chapter in subtitles/captions](../WebDev/Frontend-W3C/2-HTML5Coding/02c-Multimedia.md#235-chapters)
+  + generate a custom navigation menu
+  + `kind=chapters` in `<track>` element
+  + `Chapter x`, `Ending` & `Greetings` in WebVTT file
+
++ [Tools to create WebVTT files](../WebDev/Frontend-W3C/2-HTML5Coding/02c-Multimedia.md#236-tools-for-creating-webvtt-files)
+  + converting from other formats
+  + creating subtitles/captions from scratch
+  + enhanced HTML5 video player using `<video>`, `<source>` & `<track>` elements
+
++ [Pros of customized video players](../WebDev/Frontend-W3C/2-HTML5Coding/02c-Multimedia.md#advantages-and-disadvantages-of-using-a-custom-player)
+  + advantages of enhanced video players
+    + support all kinds of subtitle formats
+    + customizable look'n'feel
+    + full screen mode w/o borders on old browsers
+    + consistent look'n'feel for browsers
+    + fast playback
+    + sharing buttons for social media
+    + support chapters
+    + support scrub bar thumbnails
+    + extra features for better accessibility
+    + and so on...
+  + advantages of using the `<video>` elements
+    + total control
+    + no need for external dependencies
+    + lightweight: prevent from downloading JavaScript and CSS code
+
+
+
+
+### Styling Video Player
+
+
++ [Styling media palyers](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#224-styling-media-players-with-css)
+	+ CSS w/ transitions, animations and transforms but not Flash technology
+	+ CSS: resizing and rotating a video as mouse hover
+		+ pseudo CSS class :`hover` to track `mouseover`event
+		+ `transition` property: interpolate the changes in the scale; e.g., `transition: all 0.5s ease-in-out;`
+		+ `transform` property: orientation of the video element; e.g., `transform:rotate(-5deg);`
+	+ Solutions for full screen video
+		+ full screen video: JavaScript modifying CSS properties
+			+ resizing and maintaing ratio for full screen
+			+ a trendy way to displaying videos
+			+ regular video & embedded YouTube
+				+ using `<video>` and `<source>` elements
+				+ applying JavaScript code to handle the window `resize` event
+				+ regular CSS properties `width` and `height` to resize
+			+ working on any browser and displayed the whole vidoe
+		+ full screen video: pure CSS
+			+ cropped video frame than rescaled
+			+ zoomed-in video to make video bigger than browser's window
+			+ placing the video within `<header>` element w/ transparent and repeated background; e.g., `background-image: url('https://dupontcours.free.fr/IMG/dots.png'),  url('#');` & `background-repeat: repeat, no-repeat;`
+			+ video position: origin (top left corner) away from the visible surface w/ 100% surface; e.g., `transform:translateX(-50%) translateY(-50%);` & `min-width:100%; min-height:100%;`
+			+ cropped video
+		+ full screen video: CSS `viewport` unit
+			+ using `viewport` instead of default video size; e.g., `width: 100vw; height: 100vh;`
+			+ behave the same as the 1st solution w/ JavaScript
+			+ dispalyed the whole video
+	+ effect of `width: 100%; height: 100%`
+		+ 100% size of the tag
+		+ `<body>` tage w/ `width: 100%;`: the browser windows size, i.e., video always full width
+		+ `<body>` tage w/ `height: 100%;`: determined by the size of its children, gorw or shrink according the size of its children
+		+ part of the video invisible as the browser window shorter the video height
 
 

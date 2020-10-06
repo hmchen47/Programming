@@ -22,21 +22,21 @@
 
 ## Week 2: HTML5 Multimedia
 
-+ 2.1 [Video introduction - Week 2](./02-Multimedia.md#)
-+ 2.2 [Streaming multimedia content](./02-Multimedia.md#)
-+ 2.3 [Subtitles and closed captions](./02-Multimedia.md#)
-+ 2.4 [Webcam, microphone: the getUserMedia API](./02-Multimedia.md#)
-+ 2.5 [Exercises - Week 2](./02-Multimedia.md#)
++ 2.1 [Video introduction - Week 2](./02a-Multimedia.md)
++ 2.2 [Streaming multimedia content](./02b-Multimedia.md)
++ 2.3 [Subtitles and closed captions](./02c-Multimedia.md)
++ 2.4 [Webcam, microphone: the getUserMedia API](./02d-Multimedia.md)
++ 2.5 [Exercises - Week 2](./02e-Multimedia.md)
  
 
 ## Week 3: HTML5 Graphics
 
-+ 3.1 [Video introduction - Week 3](./03-Graphics.md#)
-+ 3.2 [Basics of HTML5 canvas](./03-Graphics.md#)
-+ 3.3 [Immediate drawing mode](./03-Graphics.md#)
-+ 3.4 [Path drawing mode](./03-Graphics.md#)
-+ 3.5 [Colors, gradients, patterns, etc.](./03-Graphics.md#)
-+ 3.6 [Exercises - Week 3](./03-Graphics.md#)
++ 3.1 [Video introduction - Week 3](./03a-Graphics.md#)
++ 3.2 [Basics of HTML5 canvas](./03b-Graphics.md#)
++ 3.3 [Immediate drawing mode](./03c-Graphics.md#)
++ 3.4 [Path drawing mode](./03d-Graphics.md#)
++ 3.5 [Colors, gradients, patterns, etc.](./03e-Graphics.md#)
++ 3.6 [Exercises - Week 3](./03f-Graphics.md#)
 
 
 ## Week 4: HTML5 Animations

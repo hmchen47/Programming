@@ -15,7 +15,6 @@
   + The actions a page can take such as interaction with the user, and customizing and changing the page according to any number of parameters
   + Allow a Web page to be more than just a document, but potentially a Web application, with nearly unlimited possibilities
 
-
 + [HTML5](../WebDev/Frontend-W3C/2-HTML5Coding/01b-Basics.md#122-what-is-html5)
   + published on 28 October 2014
   + features
@@ -29,6 +28,15 @@
   + typical two means
     + Open Web Platform: HTML5 specification, CSS, SVG, MathML, Geolocation, XMLHttpRequest, 2D Context, Web Fonts (WOFF) and others
     + HTML5 specification
+
++ [JavaScript & HTML5](../WebDev/Frontend-W3C/2-HTML5Coding/03b-Graphics.md#321-about-javascript-and-html5)
+  + adding js code in HTML page: `<script>`...`</script>`
+  + JavaScript code executed before the browser could see the rest of the page as the `<script></script>` located before the `<body>`
+  + `console.log(...)`: display in the JavaScript console the message...
+  + debug:
+    + dev. tool on web browser &gt; console tab &gt; error/log msgs
+    + allowing to type any JS command
+
 
 
 ## Tags, Elements and Attributes of HTML
@@ -67,6 +75,31 @@
     <img src="https://www.w3.org/community/webed/wiki/images/b/bc/Option.png" style="margin: 0.1em;" alt="An element can have attributes to refine its meaning" title="HTML elements" width="350">
   </a></div>
 </div>
+
+
++ [Categories of HTML elements](https://html.spec.whatwg.org/multipage/dom.html#content-categories)
+	+ Metadata content
+		+ set up the presentation or behavior of the rest of the content
+		+ set up the relationship of the document w/ other documents
+		+ convey other "out of band" information
+		+ list of elements: base, link, meta, noscript, script, style, template, title
+	+ flow content: most elements used in the body of documents and applications
+	+ sectioning content
+		+ define the scope of headings and footers
+		+ list of element: article, aside, nav, section
+	+ heading content
+		+ define the header of a section
+		+ list of elements: h1, h2, h3, h4, h5, h6, hgroup
+	+ phrasing content
+		+ the text of the document, as well as elements that mark up that text at the intra-paragraph level
+		+ runs of phrasing content form paragraphs
+	+ embedded content
+		+ import another resource into the document, or content from another vocabulary that is inserted into the document
+		+ list of element: audio, canvas, embed, iframe, img, math, object, picture, svg, video
+	+ interactive content
+		+ specifically intended for user interaction
+		+ a (if the href attribute is present), audio (if the controls attribute is present), button, details, embed, iframeimg (if the usemap attribute is present), input (if the type attribute is not in the Hidden state), label, object (if the usemap attribute is present), select, textarea, video (if the controls attribute is present)
+
 
 
 ## Template

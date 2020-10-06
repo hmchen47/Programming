@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+<title>Drawing text</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+<canvas id="myCanvas" width=500 height=300>Your browser does not support the canvas tag.</canvas>
+
+<script type="text/javascript">
+    var canvas=document.getElementById('myCanvas');
+    var context=canvas.getContext('2d');
+
+    context.font = "60pt Calibri";
+    context.lineWidth = 3;
+    context.strokeStyle = "blue";
+    context.fillStyle = "red";
+  
+    context.fillText("Hello World!", 10, 100);
+    context.strokeText("Hello World!", 10, 100);
+  
+    // Draw text with constrained width
+    context.fillText("Hello World!", 10, 160, 250);
+    context.strokeText("Hello World!", 10, 160, 250);
+  
+    context.fillText("Hello World!", 10, 220, 150);
+    context.strokeText("Hello World!", 10, 220, 150);
+  
+
+
+</script>
+
+</body>
+</html>
+

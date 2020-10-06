@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       <meta charset="utf-8">
+        <title>A simple example of lineWidth property use</title>
+      
+    </head>
+    <body>
+
+        <canvas id="myCanvas" width="500">Your browser does not support the canvas tag.</canvas>
+
+        <script>
+                      var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+// first path
+ctx.moveTo(20,20);
+ctx.lineTo(100, 100); 
+ctx.lineTo(100,30);
+ 
+// second part of the path
+ctx.moveTo(120,20);
+ctx.lineTo(200, 100); 
+ctx.lineTo(200,30);
+ 
+// indicate stroke color + draw first part of the path
+ctx.strokeStyle = "#0000FF";
+// Current line thickness is 20 pixels 
+ctx.lineWidth = 20;
+// Try different values : miter(default), bevel, round
+ctx.lineJoin="round";
+ctx.stroke();
+// Draws a rectangle
+ctx.strokeRect(230, 10, 100, 100);
+        </script>
+
+    </body>
+</html>
+
