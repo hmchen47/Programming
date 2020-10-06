@@ -12,7 +12,7 @@ Here is your opportunity to show that you can now play with multimedia content o
 Please complete the following 25 exercises in a timely manner. As stated in the grading policy page, they count towards 15% of your final grade.
   
 
-### 2.5.2 Quiz - `<audio>` and `<video>` (1-4)
+### 2.5.2 `<audio>` and `<video>` (1-4)
 
 1. Streaming?
 
@@ -64,7 +64,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 
 
 
-### 2.5.3 Quiz - Attributes of `<audio>` and `<video>` (5-8)
+### 2.5.3 Attributes of `<audio>` and `<video>` (5-8)
 
 5. Lost attributes...
 
@@ -127,7 +127,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
     + To sum up, the right answers are: only adding controls or controls="controls". Both are valid.
 
 
-### 2.5.4 Quiz - CSS styling of `<audio>` and `<video>` (9-10)
+### 2.5.4 CSS styling of `<audio>` and `<video>` (9-10)
 
 9. Make me twist!
 
@@ -179,7 +179,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 
 
 
-### 2.5.5 Quiz - JavaScript API (11-15)
+### 2.5.5 JavaScript API (11-15)
 
 11. JavaScript API?
 
@@ -194,32 +194,32 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
 
 __Source code for the next 3 questions (12, 13 and 14)__
 
-<div class="source-code"><ol class="linenums">
-<li value="1" class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"vid"</span><span class="pln">&nbsp;poster="preview.png"&nbsp;</span><span class="atn">controls</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">="</span><span class="atv">https://html5doctor.com/demos/video-canvas-magic/video.mp4"</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">="</span><span class="atv">video/mp4"</span>&gt;</li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">Example of custom controls :</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">go</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Play</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun"></span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">haveARest</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Pause</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun"></span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">rewind</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Start from beginning</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; vid </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#vid"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> go</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>BBB</strong></span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">function</span><span class="pln"> haveARest</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>CCC</strong></span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> rewind</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>DDD</strong></span><span class="pln">&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1" style="margin-bottom: 0px;"><span>&lt;video</span><span> </span><span>id</span><span>=</span><span>"vid"</span><span>&nbsp;poster="preview.png"&nbsp;</span><span>controls</span><span>&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>="</span><span>https://html5doctor.com/demos/video-canvas-magic/video.mp4"</span><span></span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>="</span><span>video/mp4"</span>&gt;</li>
+<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&lt;p&gt;</span><span>Example of custom controls :</span><span>&lt;/p&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;button</span><span> </span><span>class</span><span>=</span><span>"mybutton"</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>go</span><span>();</span><span>"</span><span>&gt;</span><span style="line-height: 1.6;">Play</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;button</span><span> </span><span>class</span><span></span><span>=</span><span>"mybutton"</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>haveARest</span><span>();</span><span>"</span><span>&gt;</span><span style="line-height: 1.6;">Pause</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;button</span><span> </span><span>class</span><span></span><span>=</span><span>"mybutton"</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>rewind</span><span>();</span><span>"</span><span>&gt;</span><span style="line-height: 1.6;">Start from beginning</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;script&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; vid </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>"#vid"</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>function</span><span> go</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; vid</span><span>.<strong>BBB</strong></span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>function</span><span> haveARest</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; vid</span><span>.<strong>CCC</strong></span><span>();</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>function</span><span> rewind</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; vid</span><span>.<strong>DDD</strong></span><span>&nbsp;</span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/script&gt;</span></li>
 </ol></div>
 
 12. Which method to start?
@@ -232,7 +232,6 @@ __Source code for the next 3 questions (12, 13 and 14)__
 
   Ans: b<br/>
   Explanation: There is no `start()` nor `go()` method in the JavaScript API of the video element. The right answer is `play()`.
-
 
 
 13. Which method to pause?
@@ -260,7 +259,6 @@ __Source code for the next 3 questions (12, 13 and 14)__
   Explanation: The `currentTime` property is in read/write. Its value changes during playback, but if we give it a value, then the video "jumps" to the position that corresponds to its value (in seconds).
 
 
-
 15. Event for playlists?
 
   Which event is used in the course to detect the end of video and implement playlist management?<br/>
@@ -276,22 +274,22 @@ __Source code for the next 3 questions (12, 13 and 14)__
 
 
 
-### 2.5.6 Quiz - Closed captions and subtitles (16-21)
+### 2.5.6 Closed captions and subtitles (16-21)
 
 __Source code for the next 3 questions (16, 17 and 18):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"272"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"640"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">poster</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/sintel.jpg"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">controls</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/sintel.mp4"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/sintel.webm"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/sintel-captions.vtt"</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>AAA</strong></span><span class="pun">=</span><span class="atv">"captions"</span><span class="pln"> </span><strong><span class="atn">BBB</span></strong><span class="pun">=</span><span class="atv">"Closed Captions"</span><span class="pln"> </span><strong><span class="atn">CCC</span></strong><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span><span class="atn">default</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>height</span><span>=</span><span>"272"</span><span> </span><span>width</span><span>=</span><span>"640"</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>poster</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/sintel.jpg"</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>crossorigin</span><span>=</span><span>"anonymous"</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>controls</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/sintel.mp4"</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"video/mp4"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/sintel.webm"</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"video/webm"</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/sintel-captions.vtt"</span><span>&nbsp; &nbsp; &nbsp; &nbsp;</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>AAA</strong></span><span>=</span><span>"captions"</span><span> </span><strong><span>BBB</span></strong><span>=</span><span>"Closed Captions"</span><span> </span><strong><span>CCC</span></strong><span>=</span><span>"en"</span><span> </span><span>default</span><span>&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
 </ol></div>
 
 16. Captions or subtitles
@@ -359,25 +357,25 @@ __Source code for the next 3 questions (16, 17 and 18):__
     + As of 2015, no native implementation of the video element supports chapters. You will need to use one of the enhanced players presented in the course.
 
 
-### 2.5.7 Quiz - The getUserMedia API (22-25)
+### 2.5.7 The getUserMedia API (22-25)
 
 __Source code for the next 3 questions (22, 23 and 24):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><strong><span class="pln"> </span></strong><span class="pun"><strong>AAA</strong></span><span class="pun"></span><span class="tag">&gt;</span><span class="pln">Fallback msg here.</span><span class="tag">&lt;/video&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> onSuccess</span><span class="pun">(</span><span class="pln">stream</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> output </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myVideo'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;output</span><span class="pun">.</span><span class="pln">srcObject&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;<strong>CCC;</strong></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> onError</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// getUserMedia API not supported, or another application is using the webcam!</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">getUserMedia</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; navigator</span><span class="pun">.</span><span class="pln">getUserMedia</span><span class="pun">(<strong>BBB</strong></span><span class="pun">,</span><span class="pln"> onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>id</span><span>=</span><span>"myVideo"</span><strong><span> </span></strong><span><strong>AAA</strong></span><span></span><span>&gt;</span><span>Fallback msg here.</span><span>&lt;/video&gt;</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;script&gt;</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>function</span><span> onSuccess</span><span>(</span><span>stream</span><span>)</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>var</span><span> output </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myVideo'</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;output</span><span>.</span><span>srcObject&nbsp;</span><span>=</span><span>&nbsp;<strong>CCC;</strong></span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>function</span><span> onError</span><span>()</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>// getUserMedia API not supported, or another application is using the webcam!</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span> </span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>if</span><span> </span><span>(</span><span>navigator</span><span>.</span><span>getUserMedia</span><span>)</span><span> </span><span>{</span></li>
+<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; navigator</span><span>.</span><span>getUserMedia</span><span>(<strong>BBB</strong></span><span>,</span><span> onSuccess</span><span>,</span><span> onError</span><span>);</span></li>
+<li style="margin-bottom: 0px;"><span> </span><span>}</span></li>
+<li style="margin-bottom: 0px;"><span>&lt;/script&gt;</span></li>
 </ol></div>
 
 22. Display video stream from webcam?
@@ -414,7 +412,6 @@ __Source code for the next 3 questions (22, 23 and 24):__
 
   Ans: b<br/>
   Explanation: The second answer is correct. The `srcObject` property of the video object takes the stream directly.
-
 
 
 25. What is that?
