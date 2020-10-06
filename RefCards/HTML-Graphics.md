@@ -592,6 +592,31 @@
 
 
 
+## Drawing Lines
+
++ [Drawing lines in path mode](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#343-drawing-lines)
+  + path drawing: `ctx.moveTo(x, y)` in conjunction w/ other drawing methods ending in "To", such as `ctx.lineTo(x, y)`
+  + consecutive calls to `ctx.lineTo(x, y)`: store in the path/buffer a set of connected lines
+  + draw altogether by a single call to `ctx.stroke()` or `ctx.fill()`
+  + procedure of drawing lines
+    + put the "pencil" somewhere w/ a call to `ctx.moveTo(x1, y1)`, origin of the 1st line
+    + call `ctx.lineTo(x2, y2)` to draw a line from origin (x1, y1) to position(x2, y2), then (x2, y2) serve as an origin for the next line
+    + call `ctx.lineTo(x3, y3)` to draw a new line from (x2, y2) to (x3, y3), and (x3, y3) as the new origin
+    + repeat the previous steps to draw more lines
+    + call the `ctx.stroke()` or `ctx.fill()` to draw the path defined
+  + `ctx.stroke()` or `ctx.fill()`: use the current values of the strokeStyle or fillStyle properties
+  + `ctx.moveTo(x, y)` method: move the origin to the new origin (x, y) w/o connecting them
+  + [Drawing line w/ style](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#344-drawing-lines-with-different-styles)
+    + `fill()` or `stroke()` draws the whole path, even if disconnected, and even if already drawn
+    + using the `ctx.beginPath()` method to draw two different paths
+    + `ctx.beginPath()` erase the buffer but not change any context properties
+  + [good practice](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#345-drawing-lines-in-immediate-mode): save/restore of the context at the beginning/end of the function to avoid affecting other functions' context
+  + [`ctx.closePath()` method](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#347-closing-a-path): draw from the last point to the first point
+
+
+
+
+
 
 
 ## 2D Transformations
