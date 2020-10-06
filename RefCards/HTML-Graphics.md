@@ -614,6 +614,22 @@
   + [`ctx.closePath()` method](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#347-closing-a-path): draw from the last point to the first point
 
 
++ [Line style](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#357-styling-lines)
+  + [line thickness](#line-style-change-the-line-thickness)
+    + changing the value (in pixels) of the `lineWidth` property of the context
+    + set the thickness of every shape drawn in stroke/wireframe mode to `x` pixels: `ctx.lineWidth = x;`
+  + [line end cap style](#line-style-changing-the-end-caps-for-a-line)
+    + `lineCap` property: the way line end caps rendered
+    + Possible values: `butt` (default), `round`, `square`
+  + [line corner type](#line-style-setting-the-type-of-corner-when-two-lines-meet)
+    + `lineJoin` property: the way corners rendered, when two lines meet
+    + Possible values: `miter` (the default) for creating sharp corners, `round`, or `bevel` for "cut corners"
+    + `miterLimit` property:
+      + the maximum `miter` length, a threshold value
+      + the distance between the inner corner and the outer corner where two lines meet
+      + the angle of a corner between two lines gets smaller, the miter length grows and become too long
+      + exceed the miterLimit value $\to$ the corner rendered as if `lineJoin = "bevel"` and the corner "cut"
+
 
 
 ## Drawing Arrows
@@ -755,7 +771,6 @@
     + `scale(1, 1)`: no zoom, remain the same
     + `scale(2, 2)`: zooming 2x
     + `scale(0.5, 0.5)`: zoom out to see the drawings half as big as before
-
 
 
 
