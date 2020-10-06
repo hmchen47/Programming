@@ -118,22 +118,22 @@ The main idea is to set the `srcObject` attribute of a `<video>` element to the 
 The stream is passed as a parameter to the `then()` method returned by the promise, as in this typical example ([you can try it at JSBin](https://output.jsbin.com/gakikop) - press the "edit in JSBin" button to see the source code) ([Local Example - Webcam](src/2.4.1-example1.html)):
 
 <div><ol>
-<li value="1"><span>&lt;video</span><span> </span><span>id</span><span>=</span><span>"myVideo"</span><span> </span><span>autoplay</span><span>&gt;</span><span>Fallback msg here.</span><span>&lt;/video&gt;</span></li>
-<li><span>&lt;script&gt;</span></li>
-<li><span></span><span>&nbsp; if</span><span> </span><span>(</span><span>navigator</span><span>.</span><span>getUserMedia</span><span>)</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp; // request video and audio stream from the user's webcam</span></li>
-<li><span>&nbsp; &nbsp; navigator</span><span>.</span><span>mediaDevices</span><span>.</span><span>getUserMedia</span><span>({</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; audio</span><span>:</span><span> </span><span>true</span><span>,</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; video</span><span>:</span><span> </span><span>true</span></li>
-<li><span></span><span>&nbsp; &nbsp; })</span>.<span style="background-color: #ffffff;">then((stream) =&gt; {</span></li>
-<li><span></span><span>&nbsp; &nbsp; &nbsp; var</span><span> video </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'#myVideo'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; video</span><span>.</span><span>srcObject </span><span>=</span><span> stream</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; video</span><span>.</span><span>play</span><span>();</span></li>
-<li><span></span><span>&nbsp; &nbsp; }).</span><span>catch</span><span>((</span><span>error</span><span>)</span><span> </span><span>=&gt;</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'navigator.getUserMedia error: '</span><span>,</span><span> error</span><span>);</span></li>
-<li><span></span><span>&nbsp; &nbsp; });</span><span> </span></li>
-<li><span> </span><span>}</span></li>
-<li><span>&lt;/script&gt;</span></li>
+<li value="1">&lt;video id="myVideo" autoplay&gt;Fallback msg here.&lt;/video&gt;</li>
+<li>&lt;script&gt;</li>
+<li>&nbsp; if (navigator.getUserMedia) {</li>
+<li>&nbsp; &nbsp; // request video and audio stream from the user's webcam</li>
+<li>&nbsp; &nbsp; navigator.mediaDevices.getUserMedia({</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; audio: true,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; video: true</li>
+<li>&nbsp; &nbsp; }).<span style="background-color: #ffffff;">then((stream) =&gt; {</span></li>
+<li>&nbsp; &nbsp; &nbsp; var video = document.querySelector('#myVideo');</li>
+<li>&nbsp; &nbsp; &nbsp; video.srcObject = stream;</li>
+<li>&nbsp; &nbsp; &nbsp; video.play();</li>
+<li>&nbsp; &nbsp; }).catch((error) =&gt; {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log('navigator.getUserMedia error: ', error);</li>
+<li>&nbsp; &nbsp; }); </li>
+<li> }</li>
+<li>&lt;/script&gt;</li>
 </ol></div>
 
 <p style="border: 1px solid; padding: 10px; margin: 10px; text-align: center;"><span style="color: #ff0000;"><strong>HTTPS is mandatory:</strong></span> for getUserMedia to work, it is mandatory to access the page that contains the JavaScript code through <span style="font-family: courier new, courier;">https://</span>. Otherwise you will get an error message. Note that all examples on JSBin use <span style="font-family: courier new, courier;">https://jsbin.com/</span>....</p>
@@ -174,44 +174,44 @@ In order to stop the Webcam and make the hardware "unlock it", you need to call 
 Modified version of the previous example:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span>&lt;head&gt;</span></li>
-<li><span> </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span> </span><span>&lt;title&gt;</span><span>Webcam start/stop</span><span>&lt;/title&gt;</span></li>
-<li><span> </span><span>&lt;script&gt;</span></li>
-<li><span>&nbsp; let webcamStream</span><span>;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span></span><span>&nbsp; function</span><span> startWebcam</span><span>()</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp; // request video and audio stream from the user's webcam</span></li>
-<li><span>&nbsp; &nbsp; navigator</span><span>.</span><span>mediaDevices</span><span>.</span><span>getUserMedia</span><span>({</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; audio</span><span>:</span><span> </span><span>true</span><span>,</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; video</span><span>:</span><span> </span><span>true</span></li>
-<li><span></span><span>&nbsp; &nbsp; })</span>.<span style="background-color: #ffffff;">then((stream) =&gt; {</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; let video </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'#video'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; video</span><span>.</span><span>srcObject </span><span>=</span><span> stream</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; video</span><span>.</span><span>play</span><span>();</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; webcamStream </span><span>=</span><span> stream</span><span>;</span></li>
-<li><span></span><span>&nbsp; &nbsp; }).catch((error) =&gt; {</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Webcam start/stop&lt;/title&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; let webcamStream;</li>
+<li>&nbsp;</li>
+<li>&nbsp; function startWebcam() {</li>
+<li>&nbsp; &nbsp; // request video and audio stream from the user's webcam</li>
+<li>&nbsp; &nbsp; navigator.mediaDevices.getUserMedia({</li>
+<li>&nbsp; &nbsp; &nbsp; audio: true,</li>
+<li>&nbsp; &nbsp; &nbsp; video: true</li>
+<li>&nbsp; &nbsp; }).<span style="background-color: #ffffff;">then((stream) =&gt; {</span></li>
+<li>&nbsp; &nbsp; &nbsp; let video = document.querySelector('#video');</li>
+<li>&nbsp; &nbsp; &nbsp; video.srcObject = stream;</li>
+<li>&nbsp; &nbsp; &nbsp; video.play();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; webcamStream = stream;</li>
+<li>&nbsp; &nbsp; }).catch((error) =&gt; {</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; console.log('navigator.getUserMedia error: ', error);</li>
 <li>&nbsp; &nbsp; });</li>
-<li><span></span><span>&nbsp; }</span></li>
-<li><span>&nbsp;</span></li>
-<li><span></span><span>&nbsp; function</span><span> stopWebcam</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; webcamStream</span><span>.</span><span>getTracks</span><span>()[</span><span>0</span><span>].</span><span>stop</span><span>();</span><span> </span><span>// audio</span></li>
-<li><span>&nbsp; &nbsp; webcamStream</span><span>.</span><span>getTracks</span><span>()[</span><span>1</span><span>].</span><span>stop</span><span>();</span><span> </span><span>// video</span></li>
-<li><span></span><span>&nbsp; }</span><span> </span></li>
-<li><span> </span><span>&lt;/script&gt;</span></li>
-<li><span>&lt;/head&gt;</span></li>
-<li><span>&lt;body</span><span> </span><span>&gt;</span></li>
-<li><span></span><span>&nbsp; &lt;video</span><span> </span><span>width</span><span>=</span><span>400</span><span> </span><span>height</span><span>=</span><span>400</span><span> </span><span>id</span><span>=</span><span>"video"</span><span> </span><span>controls</span><span>&gt;&lt;/video&gt;</span></li>
-<li><span></span><span>&nbsp; &lt;p&gt;</span></li>
-<li><span></span><span>&nbsp; &lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>startWebcam</span><span>();</span><span>"</span><span>&gt;</span><span>Start WebCam</span><span>&lt;/button&gt;</span></li>
-<li><span></span><span>&nbsp; &lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>stopWebcam</span><span>();</span><span>"</span><span>&gt;</span><span>Stop WebCam</span><span>&lt;/button&gt;</span><span> </span></li>
-<li><span></span><span>&nbsp; &lt;/p&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li>&nbsp; }</li>
+<li>&nbsp;</li>
+<li>&nbsp; function stopWebcam() {</li>
+<li>&nbsp; &nbsp; webcamStream.getTracks()[0].stop(); // audio</li>
+<li>&nbsp; &nbsp; webcamStream.getTracks()[1].stop(); // video</li>
+<li>&nbsp; } </li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body &gt;</li>
+<li>&nbsp; &lt;video width=400 height=400 id="video" controls&gt;&lt;/video&gt;</li>
+<li>&nbsp; &lt;p&gt;</li>
+<li>&nbsp; &lt;button onclick="startWebcam();"&gt;Start WebCam&lt;/button&gt;</li>
+<li>&nbsp; &lt;button onclick="stopWebcam();"&gt;Stop WebCam&lt;/button&gt; </li>
+<li>&nbsp; &lt;/p&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 __Explanations__:
@@ -291,22 +291,22 @@ For more information, this [article on MDN about the getUserMedia API](https://t
 Typical use: check out this source code extract below, also [available online at JSBin](https://output.jsbin.com/howodaw). ([Local Example - Camera Resultion](src/2.4.4-example1.html))
 
 <div><ol>
-<li value="1"><span>var</span><span> vgaConstraints </span><span>=</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;<strong>video</strong></span><strong><span>:</span><span> </span><span>{</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; width</span><span>:</span><span> </span><span>{</span><span> max</span><span>:</span><span> </span><span>640</span><span> </span><span>},</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; height</span><span>:</span><span> </span><span>{</span><span> max</span><span>:</span><span> </span><span>360</span><span> </span><span>}</span></strong></li>
-<li><strong><span></span><span>&nbsp; &nbsp;}</span></strong></li>
-<li><span>};</span></li>
-<li><span>var</span><span> hdConstraints </span><span>=</span><span> </span><span>{</span></li>
-<li><span>&nbsp; <strong>&nbsp;video</strong></span><strong><span>:</span><span> </span><span>{</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; width</span><span>:</span><span> </span><span>{</span><span> min</span><span>:</span><span> </span><span>1280</span><span> </span><span>},</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; height</span><span>:</span><span> </span><span>{</span><span> min</span><span>:</span><span> </span><span>720</span><span> </span><span>}</span></strong></li>
-<li><strong><span></span><span>&nbsp; &nbsp;}</span></strong></li>
-<li><span>};</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>let</span><span> constraints </span><span>=</span><span> hdConstraints</span><span>;</span></li>
-<li><span>navigator</span><span>.</span><span>mediaDevices</span><span>.</span><span>getUserMedia</span><span>(</span><span>constraints</span><span>)</span></li>
-<li><span>.</span><span>then</span><span>((</span><span>stream</span><span>)</span><span> </span><span>=&gt;</span><span> </span><span>{...}</span></li>
+<li value="1">var vgaConstraints = {</li>
+<li>&nbsp; &nbsp;<strong>video</strong><strong>: {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; width: { max: 640 },</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; height: { max: 360 }</strong></li>
+<li><strong>&nbsp; &nbsp;}</strong></li>
+<li>};</li>
+<li>var hdConstraints = {</li>
+<li>&nbsp; <strong>&nbsp;video</strong><strong>: {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; width: { min: 1280 },</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; height: { min: 720 }</strong></li>
+<li><strong>&nbsp; &nbsp;}</strong></li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>let constraints = hdConstraints;</li>
+<li>navigator.mediaDevices.getUserMedia(constraints)</li>
+<li>.then((stream) =&gt; {...}</li>
 </ol></div>
 
 
@@ -341,118 +341,118 @@ Use this [Web app that systematically tests a set of "preferred resolutions"](ht
 HTML code:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span>&nbsp; &lt;head&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>/&gt;</span></li>
-<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>&lt;title&gt;</span><span>getUserMedia constraints for choosing resolution</span><span>&lt;/title&gt;</span></li>
-<li><span><span>&nbsp; </span>&lt;/head&gt;</span></li>
-<li><span><span>&nbsp; </span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;h1&gt;</span><span>Set the camera resolution</span><span>&lt;/h1&gt;</span></li>
-<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span></span><span><span><span><span>&nbsp; </span></span></span>Example adapted from: </span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://www.simpl.info/getusermedia/constraints/"</span><span>&gt;</span></li>
-<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span></span><span><span><span><span>&nbsp; </span></span></span>https://www.simpl.info/getusermedia/constraints/</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;/a&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;br&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;p&gt;</span><span>Click a button to call </span><span>&lt;code&gt;</span><span>getUserMedia()</span><span>&lt;/code&gt;</span><span> with appropriate resolution.</span><span>&lt;/p&gt;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; </span><span>&lt;div</span><span> </span><span>id</span><span>=</span><span>"buttons"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;button</span><span> </span><span>id</span><span>=</span><span>"qvga"</span><span>&gt;</span><span>QVGA</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;button</span><span> </span><span>id</span><span>=</span><span>"vga"</span><span>&gt;</span><span>VGA</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;button</span><span> </span><span>id</span><span>=</span><span>"hd"</span><span>&gt;</span><span>HD</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;/div&gt;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; </span><span>&lt;p</span><span> </span><span>id</span><span>=</span><span>"dimensions"</span><span>&gt;&lt;/p&gt;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; </span><span>&lt;video</span><span> </span><span>autoplay</span><span>&gt;&lt;/video&gt;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp;</span><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp; &lt;head&gt;</li>
+<li>&nbsp; &nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp; &nbsp; &lt;title&gt;getUserMedia constraints for choosing resolution&lt;/title&gt;</li>
+<li>&nbsp; &lt;/head&gt;</li>
+<li>&nbsp; &lt;body onload="init();"&gt;</li>
+<li>&nbsp; &nbsp; &lt;h1&gt;Set the camera resolution&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; Example adapted from: </li>
+<li>&nbsp; &nbsp; &lt;a href="https://www.simpl.info/getusermedia/constraints/"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; https://www.simpl.info/getusermedia/constraints/</li>
+<li>&nbsp; &nbsp; &lt;/a&gt;</li>
+<li>&nbsp; &lt;br&gt;</li>
+<li>&nbsp; &lt;p&gt;Click a button to call &lt;code&gt;getUserMedia()&lt;/code&gt; with appropriate resolution.&lt;/p&gt;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &lt;div id="buttons"&gt;</li>
+<li>&nbsp; &nbsp; &lt;button id="qvga"&gt;QVGA&lt;/button&gt;</li>
+<li>&nbsp; &nbsp; &lt;button id="vga"&gt;VGA&lt;/button&gt;</li>
+<li>&nbsp; &nbsp; &lt;button id="hd"&gt;HD&lt;/button&gt;</li>
+<li>&nbsp; &lt;/div&gt;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &lt;p id="dimensions"&gt;&lt;/p&gt;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &lt;video autoplay&gt;&lt;/video&gt;</li>
+<li> </li>
+<li>&nbsp;&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
 JavaScript code:
 
 <div><ol>
-<li value="1"><span>var vgaButton</span><span>,</span><span> qvgaButton</span><span>,</span><span> hdButton</span><span>,</span><span> dimensions</span><span>,</span><span> video</span><span>,</span><span> stream</span><span>;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; vgaButton </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'button#vga'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; qvgaButton </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'button#qvga'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; hdButton </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'button#hd'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; dimensions </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'p#dimensions'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; video </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'video'</span><span>);</span></li>
-<li><span> </span></li>
-<li><span> </span></li>
-<li><span></span><span>&nbsp; &nbsp; // Defines event listeners for the buttons that set the resolution</span></li>
-<li><span>&nbsp; &nbsp; qvgaButton</span><span>.</span><span>onclick </span><span>=</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; getMedia</span><span>(</span><span>qvgaConstraints</span><span>);</span></li>
-<li><span> </span><span>};</span></li>
-<li><span> </span></li>
-<li><span> vgaButton</span><span>.</span><span>onclick </span><span>=</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; getMedia</span><span>(</span><span>vgaConstraints</span><span>);</span></li>
-<li><span> </span><span>};</span></li>
-<li><span> </span></li>
-<li><span> hdButton</span><span>.</span><span>onclick </span><span>=</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; getMedia</span><span>(</span><span>hdConstraints</span><span>);</span></li>
-<li><span> </span><span>};</span></li>
-<li><span>&nbsp;</span></li>
-<li><span> </span><span>// Trick: check regularly the size of the video element and display it.</span></li>
-<li><span> </span><span>// When getUserMedia is called the video element changes it sizes but for </span></li>
-<li><span> </span><span>// a while its size is zero pixels... or we check every half a second</span></li>
-<li><span> video</span><span>.</span><span>addEventListener</span><span>(</span><span>'play'</span><span>,</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; setTimeout</span><span>(</span><span>function</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayVideoDimensions</span><span>();</span></li>
-<li><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; },</span><span> </span><span>500</span><span>);</span></li>
-<li><span></span><span>&nbsp; &nbsp; });</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp;</span></li>
-<li><strong><span>// The different values for the constraints on resolution</span></strong></li>
-<li><strong><span>var</span><span> qvgaConstraints </span><span>=</span><span> </span><span>{</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; video</span><span>:</span><span> </span><span>{</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; width</span><span>:</span><span> </span><span>{</span><span> max</span><span>:</span><span> </span><span>320</span><span> </span><span>},</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; height</span><span>:</span><span> </span><span>{</span><span> max</span><span>:</span><span> </span><span>180</span><span> </span><span>}</span></strong></li>
-<li><strong><span></span><span>&nbsp; &nbsp; }</span></strong></li>
-<li><strong><span>};</span></strong></li>
-<li><strong><span>&nbsp;</span></strong></li>
-<li><strong><span>var</span><span> vgaConstraints </span><span>=</span><span> </span><span>{</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; video</span><span>:</span><span> </span><span>{</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; width</span><span>:</span><span> </span><span>{</span><span> max</span><span>:</span><span> </span><span>640</span><span> </span><span>},</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; height</span><span>:</span><span> </span><span>{</span><span> max</span><span>:</span><span> </span><span>360</span><span> </span><span>}</span></strong></li>
-<li><strong><span></span><span>&nbsp; &nbsp; }</span></strong></li>
-<li><strong><span>};</span></strong></li>
-<li><strong><span>&nbsp;</span></strong></li>
-<li><strong><span>var</span><span> hdConstraints </span><span>=</span><span> </span><span>{</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; video</span><span>:</span><span> </span><span>{</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; width</span><span>:</span><span> </span><span>{</span><span> min</span><span>:</span><span> </span><span>1280</span><span> </span><span>},</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; height</span><span>:</span><span> </span><span>{</span><span> min</span><span>:</span><span> </span><span>720</span><span> </span><span>}</span></strong></li>
-<li><strong><span></span><span>&nbsp; &nbsp; }</span></strong></li>
-<li><strong><span>};</span></strong></li>
-<li><span>&nbsp;</span></li>
-<li><span>// The function that is called when a button has been clicked: it starts the video</span></li>
-<li><span>// with the preferred resolution</span></li>
-<li><span>function</span><span> getMedia</span><span>(</span><span>constraints</span><span>)</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp; if</span><span> </span><span>(!!</span><span>stream</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; video</span><span>.</span><span>srcObject </span><span>=</span><span> </span><span>null</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; stream</span><span>.</span><span>getTracks</span><span>()[</span><span>0</span><span>].</span><span>stop</span><span>();</span></li>
-<li><span></span><span>&nbsp; &nbsp; }</span></li>
-<li><span> </span></li>
-<li><span>navigator</span><span>.</span><span>mediaDevices</span><span>.</span><span>getUserMedia</span><span>(</span><span>constraints</span><span>)</span></li>
-<li><span> </span><span>.</span><span>then</span><span>((</span><span>stream</span><span>)</span><span> </span><span>=&gt;</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; video</span><span>.</span><span>srcObject </span><span>=</span><span> stream</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; video</span><span>.</span><span>play</span><span>();</span></li>
-<li><span>&nbsp; &nbsp; window</span><span>.</span><span>stream </span><span>=</span><span> stream</span><span>;</span></li>
-<li><span> </span><span>})</span>.<span>catch</span><span>((</span><span>error</span><span>)</span><span> </span><span>=&gt;{</span></li>
-<li><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'navigator.getUserMedia error: '</span><span>,</span><span> error</span><span>);</span></li>
-<li><span> </span><span>});</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>// utility function that is called by the setInterval(...) every 0.5s, for</span></li>
-<li><span>// displaying the video dimensions</span></li>
-<li><span>function</span><span> displayVideoDimensions</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; dimensions</span><span>.</span><span>innerHTML </span><span>=</span><span> </span><span>'Actual video dimensions: '</span><span> </span><span>+</span><span> video</span><span>.</span><span>videoWidth </span><span>+</span></li>
-<li><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'x'</span><span> </span><span>+</span><span> video</span><span>.</span><span>videoHeight </span><span>+</span><span> </span><span>'px.'</span><span>;</span></li>
-<li><span>}</span></li>
+<li value="1">var vgaButton, qvgaButton, hdButton, dimensions, video, stream;</li>
+<li>&nbsp;</li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp; vgaButton = document.querySelector('button#vga');</li>
+<li>&nbsp; &nbsp; qvgaButton = document.querySelector('button#qvga');</li>
+<li>&nbsp; &nbsp; hdButton = document.querySelector('button#hd');</li>
+<li>&nbsp; &nbsp; dimensions = document.querySelector('p#dimensions');</li>
+<li>&nbsp; &nbsp; video = document.querySelector('video');</li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp; // Defines event listeners for the buttons that set the resolution</li>
+<li>&nbsp; &nbsp; qvgaButton.onclick = function() {</li>
+<li>&nbsp; &nbsp; getMedia(qvgaConstraints);</li>
+<li> };</li>
+<li> </li>
+<li> vgaButton.onclick = function() {</li>
+<li>&nbsp; &nbsp; getMedia(vgaConstraints);</li>
+<li> };</li>
+<li> </li>
+<li> hdButton.onclick = function() {</li>
+<li>&nbsp; &nbsp; getMedia(hdConstraints);</li>
+<li> };</li>
+<li>&nbsp;</li>
+<li> // Trick: check regularly the size of the video element and display it.</li>
+<li> // When getUserMedia is called the video element changes it sizes but for </li>
+<li> // a while its size is zero pixels... or we check every half a second</li>
+<li> video.addEventListener('play', function() {</li>
+<li>&nbsp; &nbsp; setTimeout(function() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayVideoDimensions();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; }, 500);</li>
+<li>&nbsp; &nbsp; });</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li><strong>// The different values for the constraints on resolution</strong></li>
+<li><strong>var qvgaConstraints = {</strong></li>
+<li><strong>&nbsp; &nbsp; video: {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; width: { max: 320 },</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; height: { max: 180 }</strong></li>
+<li><strong>&nbsp; &nbsp; }</strong></li>
+<li><strong>};</strong></li>
+<li><strong>&nbsp;</strong></li>
+<li><strong>var vgaConstraints = {</strong></li>
+<li><strong>&nbsp; &nbsp; video: {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; width: { max: 640 },</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; height: { max: 360 }</strong></li>
+<li><strong>&nbsp; &nbsp; }</strong></li>
+<li><strong>};</strong></li>
+<li><strong>&nbsp;</strong></li>
+<li><strong>var hdConstraints = {</strong></li>
+<li><strong>&nbsp; &nbsp; video: {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; width: { min: 1280 },</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; height: { min: 720 }</strong></li>
+<li><strong>&nbsp; &nbsp; }</strong></li>
+<li><strong>};</strong></li>
+<li>&nbsp;</li>
+<li>// The function that is called when a button has been clicked: it starts the video</li>
+<li>// with the preferred resolution</li>
+<li>function getMedia(constraints) {</li>
+<li>&nbsp; &nbsp; if (!!stream) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; video.srcObject = null;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; stream.getTracks()[0].stop();</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>navigator.mediaDevices.getUserMedia(constraints)</li>
+<li> .then((stream) =&gt; {</li>
+<li>&nbsp; &nbsp; video.srcObject = stream;</li>
+<li>&nbsp; &nbsp; video.play();</li>
+<li>&nbsp; &nbsp; window.stream = stream;</li>
+<li> }).catch((error) =&gt;{</li>
+<li>&nbsp; &nbsp; console.log('navigator.getUserMedia error: ', error);</li>
+<li> });</li>
+<li>&nbsp;</li>
+<li>// utility function that is called by the setInterval(...) every 0.5s, for</li>
+<li>// displaying the video dimensions</li>
+<li>function displayVideoDimensions() {</li>
+<li>&nbsp; &nbsp; dimensions.innerHTML = 'Actual video dimensions: ' + video.videoWidth +</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'x' + video.videoHeight + 'px.';</li>
+<li>}</li>
 </ol></div>
 
 
@@ -461,28 +461,28 @@ JavaScript code:
 Here are some other constraints you can set. In particular, look at the ones for selecting the front or rear camera (smartphones):
 
 <div><ol>
-<li value="1"><strong><span>// more on video resolution</span></strong></li>
-<li><strong><span>constraints </span><span>=</span><span> </span><span>{</span></strong></li>
-<li><span>&nbsp; &nbsp; video</span><span>:</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; width</span><span>:</span><span> </span><span>{</span><span> min</span><span>:</span><span> </span><span>1024</span><span>,</span><strong><span> ideal</span><span>:</span><span> </span><span>1280</span></strong><span>,</span><span> max</span><span>:</span><span> </span><span>1920</span><span> </span><span>},</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;height</span><span>:</span><span> </span><span>{</span><span> min</span><span>:</span><span> </span><span>776</span><span>,</span><strong><span> ideal</span><span>:</span><span> </span><span>720</span></strong><span>,</span><span> max</span><span>:</span><span> </span><span>1080</span><span> </span><span>}</span></li>
-<li><span></span><span>&nbsp; &nbsp; }</span></li>
-<li><span>}<br><br></span></li>
-<li><strong><span>// Framerate</span></strong></li>
-<li><strong><span>constraints </span><span>=</span><span> </span><span>{</span><span> video</span><span>:</span><span> </span><span>{</span><span> frameRate</span><span>:</span><span> </span><span>{</span><span> ideal</span><span>:</span><span> </span><span>10</span><span>,</span><span> max</span><span>:</span><span> </span><span>15</span><span> </span><span>}</span><span> </span><span>}</span><span> </span><span>};</span></strong></li>
-<li><span>&nbsp;</span></li>
-<li><strong><span>// front and back camera (mobile), some examples</span></strong></li>
-<li><strong><span>var</span><span> front </span><span>=</span><span> </span><span>false</span><span>;</span></strong></li>
-<li><span></span></li>
-<li><span>document</span><span>.</span><span>getElementById</span><span>(</span><span>'flip-button'</span><span>).</span><span>onclick </span><span>=</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span><span> <br>&nbsp; &nbsp; front </span><span>=</span><span> </span><span>!</span><span>front</span><span>;</span><span> <br></span><span>};</span></li>
-<li><span><br><strong>// toggle front and back camera (mobile) by clicking a button</strong></span></li>
-<li><strong><span>constraints </span><span>=</span><span> </span><span>{</span><span> video</span><span>:</span><span> </span><span>{</span><span> facingMode</span><span>:</span><span> </span><span>(</span><span>front</span><span>?</span><span> </span><span>"user"</span><span> </span><span>:</span><span> </span><span>"environment"</span><span>)</span><span> </span><span>}</span><span> </span><span>};</span></strong></li>
-<li><span>&nbsp;</span></li>
-<li><strong><span>// prefer front camera</span></strong></li>
-<li><span>constraints </span><span>=</span><span> </span><span>{</span><span> audio</span><span>:</span><span> </span><span>true</span><span>,</span><strong><span> video</span><span>:</span><span> </span><span>{</span><span> facingMode</span><span>:</span><span> </span><span>"user"</span><span> </span><span>}</span></strong><span> </span><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><strong><span>// require rear camera</span></strong></li>
-<li><span>constraints </span><span>=</span><span> </span><span>{</span><span> audio</span><span>:</span><span> </span><span>true</span><span>,</span><strong><span> video</span><span>:</span><span> </span><span>{</span><span> facingMode</span><span>:</span><span> </span><span>{</span><span> exact</span><span>:</span><span> </span><span>"environment"</span><span> </span><span>}</span><span> </span><span>}</span></strong><span> </span><span>}</span></li>
+<li value="1"><strong>// more on video resolution</strong></li>
+<li><strong>constraints = {</strong></li>
+<li>&nbsp; &nbsp; video: {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; width: { min: 1024,<strong> ideal: 1280</strong>, max: 1920 },</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;height: { min: 776,<strong> ideal: 720</strong>, max: 1080 }</li>
+<li>&nbsp; &nbsp; }</li>
+<li>}<br><br></li>
+<li><strong>// Framerate</strong></li>
+<li><strong>constraints = { video: { frameRate: { ideal: 10, max: 15 } } };</strong></li>
+<li>&nbsp;</li>
+<li><strong>// front and back camera (mobile), some examples</strong></li>
+<li><strong>var front = false;</strong></li>
+<li></li>
+<li>document.getElementById('flip-button').onclick = function() { <br>&nbsp; &nbsp; front = !front; <br>};</li>
+<li><br><strong>// toggle front and back camera (mobile) by clicking a button</strong></li>
+<li><strong>constraints = { video: { facingMode: (front? "user" : "environment") } };</strong></li>
+<li>&nbsp;</li>
+<li><strong>// prefer front camera</strong></li>
+<li>constraints = { audio: true,<strong> video: { facingMode: "user" }</strong> }</li>
+<li>&nbsp;</li>
+<li><strong>// require rear camera</strong></li>
+<li>constraints = { audio: true,<strong> video: { facingMode: { exact: "environment" } }</strong> }</li>
 </ol></div>
 
 
@@ -503,26 +503,26 @@ Resource: [WebRTC samples: Select sources & outputs](https://webrtc.github.io/sa
 Source code extract:
 
 <div><ol>
-<li value="1"><span>function</span><span> gotDevices</span><span>(</span><span>deviceInfos</span><span>)</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp; for</span><span> </span><span>(</span><span>var</span><span> i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>!==</span><span> deviceInfos</span><span>.</span><span>length</span><span>;</span><span> </span><span>++</span><span>i</span><span>)</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; var</span><span> deviceInfo </span><span>=</span><span> deviceInfos</span><span>[</span><span>i</span><span>];</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"device with id: "</span><span> </span><span>+</span><span> deviceInfo</span><span>.</span><span>deviceId</span><span>);</span></li>
-<li><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; // possible values: audioinput, audiooutput, videoinput</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"device with kind: "</span><span> </span><span>+</span><span> deviceInfo</span><span>.</span><span>kind</span><span>);</span></li>
-<li><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; // 'speaker' or 'camera' for example</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"device with label: "</span><span> </span><span>+</span><span> deviceInfo</span><span>.</span><span>label</span><span>);</span></li>
-<li><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; //... should build a menu, test kind/label and set</span></li>
-<li><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; // audioSource and videoSource variables</span></li>
-<li><span></span><span>&nbsp; &nbsp; }</span></li>
-<li><span>}</span></li>
-<li><span>// ...</span></li>
-<li><span>var</span><span> constraints </span><span>=</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; audio</span><span>:</span><span> </span><span>{</span><strong><span>deviceId</span><span>:</span><span> audioSource </span></strong><span>?</span><span> </span><span>{</span><span>exact</span><span>:</span><span> audioSource</span><span>}</span><span> </span><span>:</span><span> </span><span>undefined</span><span>},</span></li>
-<li><span>&nbsp; &nbsp; video</span><span>:</span><span> </span><span>{</span><strong><span>deviceId</span><span>:</span><span> videoSource </span></strong><span>?</span><span> </span><span>{</span><span>exact</span><span>:</span><span> videoSource</span><span>}</span><span> </span><span>:</span><span> </span><span>undefined</span><span>}</span></li>
-<li><span>};</span></li>
-<li><span></span></li>
-<li><span>navigator</span><span>.</span><span>mediaDevices</span><span>.</span><span>getUserMedia</span><span>(</span><span>constraints</span><span>).</span></li>
-<li><span> </span><span>then</span><span>(</span><span>gotStream</span><span>).</span><span>then</span><span>(</span><span>gotDevices</span><span>).</span><span>catch</span><span>(</span><span>handleError</span><span>);</span></li>
+<li value="1">function gotDevices(deviceInfos) {</li>
+<li>&nbsp; &nbsp; for (var i = 0; i !== deviceInfos.length; ++i) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; var deviceInfo = deviceInfos[i];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log("device with id: " + deviceInfo.deviceId);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // possible values: audioinput, audiooutput, videoinput</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log("device with kind: " + deviceInfo.kind);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // 'speaker' or 'camera' for example</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log("device with label: " + deviceInfo.label);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; //... should build a menu, test kind/label and set</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // audioSource and videoSource variables</li>
+<li>&nbsp; &nbsp; }</li>
+<li>}</li>
+<li>// ...</li>
+<li>var constraints = {</li>
+<li>&nbsp; &nbsp; audio: {<strong>deviceId: audioSource </strong>? {exact: audioSource} : undefined},</li>
+<li>&nbsp; &nbsp; video: {<strong>deviceId: videoSource </strong>? {exact: videoSource} : undefined}</li>
+<li>};</li>
+<li></li>
+<li>navigator.mediaDevices.getUserMedia(constraints).</li>
+<li> then(gotStream).then(gotDevices).catch(handleError);</li>
 </ol></div>
 
 
@@ -549,8 +549,8 @@ __1 - Create a mediaRecorder from a stream__
 
 
 <div><ol>
-<li value="1"><span>var</span><span> options </span><span>=</span><span> </span><span>{</span><span>mimeType</span><span>:</span><span> </span><span>'video/webm; codecs=vp9'</span><span>};</span></li>
-<li><span>mediaRecorder </span><span>=</span><span> </span><span>new</span><span> </span><span>MediaRecorder</span><span>(</span><span>stream</span><span>,</span><span> options</span><span>);</span></li>
+<li value="1">var options = {mimeType: 'video/webm; codecs=vp9'};</li>
+<li>mediaRecorder = new MediaRecorder(stream, options);</li>
 </ol></div>
 
 ... where streams is typically the object returned by the call to getUserMedia (see previous examples).
@@ -561,16 +561,16 @@ __2 - Add a "data handler" and call the `start()` method of the mediaRecorder ob
 Source code extract:
 
 <div><ol>
-<li value="1"><span>var</span><span> recordedChunks </span><span>=</span><span> </span><span>[];</span><span> </span><span>// will hold the recorded stream</span></li>
-<li><span>mediaRecorder</span><span>.</span><span>ondataavailable </span><span>=</span><span> handleDataAvailable</span><span>;</span></li>
-<li><span>mediaRecorder</span><span>.</span><span>start</span><span>();</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>function</span><span> handleDataAvailable</span><span>(</span><span>event</span><span>)</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp;if</span><span> </span><span>(</span><span>event</span><span>.</span><span>data</span><span>.</span><span>size </span><span>&gt;</span><span> </span><span>0</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; recordedChunks</span><span>.</span><span>push</span><span>(</span><span>event</span><span>.</span><span>data</span><span>);</span></li>
-<li><span></span><span>&nbsp; &nbsp;}</span><span> </span><span>else</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp;// ...</span></li>
-<li><span></span><span>}</span></li>
+<li value="1">var recordedChunks = []; // will hold the recorded stream</li>
+<li>mediaRecorder.ondataavailable = handleDataAvailable;</li>
+<li>mediaRecorder.start();</li>
+<li>&nbsp;</li>
+<li>function handleDataAvailable(event) {</li>
+<li>&nbsp; &nbsp;if (event.data.size &gt; 0) {</li>
+<li>&nbsp; &nbsp; &nbsp; recordedChunks.push(event.data);</li>
+<li>&nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp;// ...</li>
+<li>}</li>
 </ol></div>
 
 
@@ -586,7 +586,7 @@ __3 - When you've finished recording, tell the mediaRecorder to stop__
 When you're done, you need to call the `stop()` method of the mediaRecorder object. This will end the periodic execution of the `handleDataAvailable` method, and stop the data capture.
 
 <div><ol>
-<li value="1"><span>mediaRecorder</span><span>.</span><span>stop</span><span>();</span></li>
+<li value="1">mediaRecorder.stop();</li>
 </ol></div>
 
 
@@ -597,11 +597,11 @@ This piece of code creates a blob with the `recordedChunks` array. Use the `URL.
 Like that, the recorded stream can be played using a standard HTML5 video element.
 
 <div><ol>
-<li value="1"><span>function</span><span> play</span><span>()</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp;var</span><span> superBuffer </span><span>=</span><span> </span><span>new</span><span> </span><span>Blob</span><span>(</span><span>recordedChunks</span><span>);</span></li>
-<li><span>&nbsp; &nbsp;videoElement</span><span>.</span><span>src </span><span>=</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span>.</span><span>URL</span><span>.</span><span>createObjectURL</span><span>(</span><span>superBuffer</span><span>);</span></li>
-<li><span>}</span></li>
+<li value="1">function play() {</li>
+<li>&nbsp; &nbsp;var superBuffer = new Blob(recordedChunks);</li>
+<li>&nbsp; &nbsp;videoElement.src =</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window.URL.createObjectURL(superBuffer);</li>
+<li>}</li>
 </ol></div>
 
 
@@ -610,19 +610,19 @@ __5 - Download the captured stream__
 A trick consists in creating, on the fly, an invisible link with a `download` attribute (see Week 1) and a `href` attribute  that points to the blob object containing the recorded stream encoded using a given codec, then generate programmatically a `click` event on the link. This will force the browser to download a file of type `video/webm` to the hard disk.
 
 <div><ol>
-<li value="1"><span>function</span><span> download</span><span>()</span><span> </span><span>{</span></li>
-<li><span></span><span>&nbsp; &nbsp; var</span><span> blob </span><span>=</span><span> </span><span>new</span><span> </span><span>Blob</span><span>(</span><span>recordedChunks</span><span>,</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; type</span><span>:</span><span> </span><span>'video/webm'</span></li>
-<li><span></span><span>&nbsp; &nbsp; });</span></li>
-<li><span></span><span>&nbsp; &nbsp; var</span><span> url </span><span>=</span><span> URL</span><span>.</span><span>createObjectURL</span><span>(</span><span>blob</span><span>);</span></li>
-<li><span></span><span>&nbsp; &nbsp; var</span><span> a </span><span>=</span><span> document</span><span>.</span><span>createElement</span><span>(</span><span>'a'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; document</span><span>.</span><span>body</span><span>.</span><span>appendChild</span><span>(</span><span>a</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; a</span><span>.</span><span>style </span><span>=</span><span> </span><span>'display: none'</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; a</span><span>.</span><span>href </span><span>=</span><span> url</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; a</span><span>.</span><span>download </span><span>=</span><span> </span><span>'test.webm'</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; a</span><span>.</span><span>click</span><span>();</span></li>
-<li><span>&nbsp; &nbsp; window</span><span>.</span><span>URL</span><span>.</span><span>revokeObjectURL</span><span>(</span><span>url</span><span>);</span></li>
-<li><span>}</span></li>
+<li value="1">function download() {</li>
+<li>&nbsp; &nbsp; var blob = new Blob(recordedChunks, {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; type: 'video/webm'</li>
+<li>&nbsp; &nbsp; });</li>
+<li>&nbsp; &nbsp; var url = URL.createObjectURL(blob);</li>
+<li>&nbsp; &nbsp; var a = document.createElement('a');</li>
+<li>&nbsp; &nbsp; document.body.appendChild(a);</li>
+<li>&nbsp; &nbsp; a.style = 'display: none';</li>
+<li>&nbsp; &nbsp; a.href = url;</li>
+<li>&nbsp; &nbsp; a.download = 'test.webm';</li>
+<li>&nbsp; &nbsp; a.click();</li>
+<li>&nbsp; &nbsp; window.URL.revokeObjectURL(url);</li>
+<li>}</li>
 </ol></div>
 
 
