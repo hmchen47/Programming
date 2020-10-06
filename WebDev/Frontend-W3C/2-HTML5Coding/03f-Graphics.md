@@ -257,8 +257,8 @@ __Source code for the next question (6)__
   e. Text<br/>
   f. Polygon<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: bce<br/>
+  Explanation: Only `rectangles`, `text` and `images` can be drawn in immediate mode.
 
 
 
@@ -276,11 +276,11 @@ __Source code for the next question (6)__
   How would you do the drawing above?
 
   a. I would draw these shapes using images stretched with Photoshop, for example, and call ctx.drawImage(...).<br/>
-  b. I would use the maxWidth parameter of the strokeText or fillText method of the context.<br/>
+  b. I would use the `maxWidth` parameter of the `strokeText` or `fillText` method of the context.<br/>
   c. I would use a different character font for each line, using the font property of the context.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The `maxWidth` parameter of the `strokeText` or the `fillText` method of the context have been especially designed for setting constraints on the horizontal size of the text.
 
 
 
@@ -291,8 +291,9 @@ __Source code for the next question (6)__
   a. Is a bad practice.<br/>
   b. Is ok, images will be drawn incomplete and the missing data will appear as data is loaded, line by line.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: No, trying to draw an image that has not been completely loaded in memory will produce unpredictable results.
+
 
 
 __Source code for the next question (16)__
@@ -330,8 +331,8 @@ __Source code for the next question (16)__
   a. The instruction at line 16 will try to draw an image without being sure it has entirely loaded.<br/>
   b. Nothing.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The instruction at line 12 will start loading the image in the background. However, before the image has been entirely loaded, the instruction at line 16 will try to draw it. This will not work. We must be sure that the image has been entirely loaded before trying to draw it. The course shows how to create a callback function that will be called only when the image is ready to be drawn.
 
 
 __Source code for the next question (17)__
@@ -356,8 +357,8 @@ __Source code for the next question (17)__
 
   Will the above code draw the image every time, even with a large image that is not in the browser's cache? (Yes/No)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: No, this example comes from the course content. This code may work if the image is very small or is located in the browser cache, but we cannot repeat it often enough: you cannot draw an image in a canvas until you are 100% sure that it has been loaded into memory. The course shows how to do this, using the onload event. Here is the [correct version](https://jsbin.com/faqedu/edit), and here the [same version with a very large image](https://jsbin.com/mayoma/edit).
 
 
 18. Video screenshot?
@@ -369,8 +370,8 @@ __Source code for the next question (17)__
   c. It depends on the codec<br/>
   d. No<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: We have seen in the course that `drawImage` can be used to draw the current frame of a video being played.
 
 
 
