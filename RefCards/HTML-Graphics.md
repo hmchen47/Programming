@@ -635,6 +635,47 @@
 
 
 
+## Drawing Circles & Arcs
+
++ [Drawing circles and arcs](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#348-drawing-circles-and-arcs)
+  + [HTML5 Canvas Arc Tutorials](https://www.html5canvastutorials.com/tutorials/html5-canvas-arcs/)
+  + `ctx.arc(cx, cy, radius, startAngle, endAngle, drawInverse)` method: used for drawing arcs of circles
+  + parameters: center of the circle/arc, radius, starting angle of the arc (turning clockwise), the ending angle of the arc, and an optional parameter
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick="window.open('https://tinyurl.com/y7wuv8vt')"
+        src    ="https://tinyurl.com/ydxcvvmr"
+        alt    ="drawing circle, coordinate system"
+        title  ="drawing circle, coordinate system"
+      />
+    </figure>
+
+    + optional parameter:
+      + false: (default) drawing an arc of circle corresponding to the parameters
+      + true: drawing complementary
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y7wuv8vt" ismap target="_blank">
+          <img style="margin: 0.1em;" height=100
+            src    ="https://tinyurl.com/y95m6q4x"
+            alt    ="arc of circle"
+            title  ="arc of circle"
+          >
+          <img style="margin: 0.1em;" height=100
+            src    ="https://tinyurl.com/ycpj7h8g"
+            alt    ="complementary of previous arc is drawn"
+            title  ="complementary of previous arc is drawn"
+          >
+        </a>
+      </div>
+
+    + radius between `0` and `2*Math.PI`
+  + drawing circle: call `ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);` once w/ `startAngle = 0` and `endAngle = 2*Math.PI`
+
+
+
+
 
 
 
