@@ -510,8 +510,8 @@ __Source code for the next question (17)__
   c. A pattern<br/>
   d. A color<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: bde<br/>
+  Explanation: These context properties can get the value of a color, a pattern or a gradient.
 
 
 27. My favorite color is...
@@ -525,8 +525,8 @@ __Source code for the next question (17)__
   b. Opaque blue<br/>
   c. Opaque red<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Indeed the RGBA CSS3 notation for color takes as the fourth parameter an "alpha channel" that corresponds to the degree of transparency, between 0 (full transparency) and 1 (100% opaque). 0.5 means "half transparent".
 
 
 28. Color stop!
@@ -536,16 +536,16 @@ __Source code for the next question (17)__
   a. One of the set of points defining the distribution of colors along the gradient.<br/>
   a. The name of the last color of the gradient.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Once a gradient has been created, color stops are placed along it to define how the colors are distributed along the gradient. The color of the gradient at each stop is the color specified for that stop. Between each such stop, the colors and the alpha component must be linearly interpolated over the RGBA space without premultiplying the alpha value to find the color to use at that offset. Before the first stop, the color must be the color of the first stop. After the last stop, the color must be the color of the last stop. When there are no stops, the gradient is transparent black.
 
 
 29. Visible or not?
 
   A gradient is invisible until we draw shapes on top of it in the canvas? (True/False)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: True<br/>
+  Explanation: The concept of gradient is seen as an "invisible" rectangle or circle-like shape in which a set of colors are interpolated. The gradient becomes visible when we draw shapes on top of the invisible gradient, and when the fillStyle or strokeStyle property has this gradient as its value.
 
 
 30. Psychedelia!
@@ -561,7 +561,7 @@ __Source code for the next question (17)__
   </pre>
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
       onclick="window.open('https://tinyurl.com/y2zkyegy')"
       src    ="https://tinyurl.com/yxo2oayb"
       alt    ="first image shows a symmetric radial gradient, second image shows an asymmetric radial gradient"
@@ -572,18 +572,18 @@ __Source code for the next question (17)__
   Will this gradient produce a result like that in the first or in the second image?
 
   a. First<br/>
-  a. Second<br/>
+  b. Second<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: First<br/>
+  Explanation: The parameters of createLinearGradient define two circles. Colors will be interpolated from the outline of the first circle to the outline of the second one. The circles in `context.createRadialGradient(150, 100, 30, 150, 100, 100)` are located at the same place (150, 100). This will produce a symmetric gradient that corresponds to the first image.
 
 
 31. Pattern and images are the same?
 
   Unlike images, when using patterns we do not need to check if they have been loaded completely by the browser? (False/True)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: False<br/>
+  Explanation: No, this is false, patterns are images that will be used to draw shapes, eventually repeating them horizontally or vertically. It's necessary to define a callback function that will be called once the pattern has been fully loaded in memory (a pattern is an image), we cannot draw using a pattern before the corresponding image has been loaded.
 
 
 32. Who is standing in the shadow?
@@ -607,8 +607,8 @@ __Source code for the next question (17)__
   b. Two rectangles: one filled red with shadows, another one wireframe purple with an outline of 10px, also with shadows.<br/>
   c. Only the filled rectangle will have shadows, wireframe shapes are not affected.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The definition of shadows is correct (grey, small blur, corresponding to a light source in the top left corner), and will affect all shapes. The right answer is: the two rectangles will both have shadows.
 
 
 33. Please, set the line with style!
@@ -621,11 +621,8 @@ __Source code for the next question (17)__
   d. `lineJoints`<br/>
   e. `lineWidth`<br/>
 
-  Ans: <br/>
-  Explanation: 
-
-
-
+  Ans: ace<br/>
+  Explanation: lineCap, lineJoin and lineWidth are valid properties. The others do not exist.
 
 
 
