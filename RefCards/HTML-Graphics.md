@@ -35,6 +35,65 @@
   + __best practice__: save the context before any activities modifying the context, and restore it at the end of the activities, in particular, a function
 
 
+## Draw Rectangle
+
++ [Drawing rectangle](../WebDev/Frontend-W3C/2-HTML5Coding/03b-Graphics.md#326-drawing-rectangles-in-a-canvas)
+  + simple drawing
+    + add the `<canvas>` element into an HTML page
+      + selector to identify the canvas itself
+      + specify the size of canvas w/ `width` and `height` attributes
+      + NOT supported message placed btw opening and closing tags
+      + canvas transparent by default
+      + multiple canvas allowed in a page
+    + select the `<canvas>` element for use from JavaScript
+      + element in the DOM, e.g., `var canvas = document.getElementById("myCanvas");`
+      + CSS selector syntax for selecting elements, e.g, `var canvas = document.querySelector("#myCanvas");`
+    + get a "2D context" associated with the canvas, useful for drawing and setting drawing properties (color, etc.)
+      + `context`: a particular object as the core of the canvas JavaScript API providing methods for drawing
+      + access the context: `var ctx=canvas.getContext('2d');`
+      + set filled color: `ctx.fillStyle='red';`
+      + draw filled rectangle: `ctx.fillRect(x, y, width, height);`
+  + only access elements when the DOM is ready
+    + select and get 2D context via `init()` function
+    + unable to access the elements of the page before the page loaded entirely and before the DOM ready
+    + ways to achieve the requirement
+      + add `onload` attribute w/ `<body>` element, e.g., `<body onload="init();">` (__good practice__)
+      + put the JavaScript code at the end of the document, just before `</body>` between `<script>`...`</script>`
+  + access drawing context before manipulating it
+    + the drawing context defines the drawing methods and properties
+    + __good practice__: get the canvas, the context, the width and height of the canvas and other global objects in this "init" function
+  + summary of drawing on a canvas
+    + declare the canvas, remembering to add an `id` attribute, and fallback content
+    + get a reference to the canvas in a JavaScript variable using the DOM API
+    + get the context for drawing in that canvas
+    + specify some drawing properties (optional)
+    + draw the shape
+
++ [Drawing principles](../WebDev/Frontend-W3C/2-HTML5Coding/03b-Graphics.md#327-drawing-principles)
+  + `fillstyle` property: a property in the context, similar to a CSS property
+  + `fillRect(x, y, width, height)` method: draw a filled rectangle
+  + `strokeStyle` property: how the shape's outline rendered
+  + `strokeRect(x, y, width, height)` method: draw the wireframe mode of a rectangle w/ `strokStyle` property
+  + `clearRect(x, y, width, height)` method: erase the specified rectangle
+  + `linewidth` property: a property applied only in `stroke` mode w/ value in `px`
+  + `font` property: specify the font property of the context, syntax same as in CSS for using 'system font", e,g,. `ctx.font = 'italic 20pt Calibri';`
+  + `ctx.fillText(str, x, y)` method:
+    + draw text message `str` at (x, y) position
+    + `fillStyle` property to modify the color of the message
+  + summary 
+    + "stroke":
+      + wireframe of shapes
+      + a prefix for setting properties or calling methods that effect wireframe shapes
+    + "fill": filled the shapes
+    + `ctx.strokStype=...`: set the property of wireframed shapes
+    + `ctx.fillStyle=...`: set the property of filled shapes
+    + `ctx.strokeRect(x, y, width, height)`: draw wireframe rectangle from (x, y) to (x+width, y+height)
+    + `ctx.fillRect(x, y, width, height)`: draw filled rectangle from (x, y) to (x+width, y+height)
+    + `ctx.lineWidth`: set the line width of wireframed shapes
+    + `ctx.strokeText(msg, x, y)` or `ctx.fillText(msg, x, y)`: draw a text msg for wireframed or filled text respectively
+    + `ctx.font`: set the character font w/ values used in CSS syntax, e.g., `ctx.font = 'italic 20pt Calibri';`
+
+
 
 
 
