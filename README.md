@@ -205,6 +205,44 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
   </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Graphics </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-modes"> Drawing Modes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#the-canvas-element"> &lt;canvas&gt; Element </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#html-canvas-reference"> Reference </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-rectangle"> Rectangles </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-text"> Text </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-images"> Images </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-lines"> Lines </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-arrows"> Arrows </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-circles--arcs"> Arcs & Circles </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-curves-and-curve-arrows"> Curves & Curve Arrows </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#2d-transformations"> 2D Transformations </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#color-properties"> Color Properties </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#gradient-properties"> Gradient Properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#pattern-properties"> Pattern Properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#shadow-properties"> Shadow Properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
+  </tr>
 
   <!-- CSS -->
 
