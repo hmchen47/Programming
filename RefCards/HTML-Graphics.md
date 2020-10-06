@@ -788,6 +788,43 @@
 
 
 
+## Gradient Properties
+
++ [Linear Gradient](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#352-canvas-context-linear-gradients)
+  + visible gradient: draw shapes on top of the invisible gradient
+  + procedure to create gradients
+    + define linear gradient: `ctx.createLinearGradient(x0,y0,x1,y1);`
+      + direction: an invisible line along which the colors that compose the gradient interpolated
+      + __good practice__: create/initialize reused gradient in a function called when the page is loaded and to store it in a global variable
+    + add a number of "color stops" to this gradient
+    + draw some shapes
+      + set the `fillStyle` or `strokeStyle` of the context with this gradient
+      + draw some shapes "on top of the gradient"
+  + [cheeseboard w/ gradient](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#drawing-shapes-that-do-not-cover-the-whole-gradient)
+  + [outlined shapes with gradients](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#drawing-outlined-shapes-with-gradients)
+  + [gradient smaller than the canvas](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#what-happens-if-we-define-a-gradient-smaller-than-the-canvas)
+  + [gradient bigger than the canvas](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#what-happens-if-we-define-a-gradient-bigger-than-the-canvas)
+  + [same gradient in each cell](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#draw-shapes-that-share-the-same-gradient-as-a-whole)
+
++ [Radial gradients](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#353-canvas-context-radial-gradients)
+  + creating gradients that propagate/interpolate colors along circles instead of propagating/interpolating along a virtual line, like linear gradients
+  + an invisible shape on the screen
+  + the radial gradient made of two circles: an inner and an outer circle
+  + colors interpolated btw two circles
+  + `createRadialGradient(cx1, cy1, radius1, cx2, cy2, radius2)` method:
+    + `(cx1, cy1)` w/ `radius1`: the "starting" circle of the gradient
+    + `(cx2, cy2)` w/ `radius2`: the "ending" circle of the gradient
+  + the "first color" defined for the inner circle, the "last color" corresponding to the outer circle
+    + the first color: color inside the first circle
+    + the last color: color outside the outer circle
+    + interpolated colors btw these two circles
+  + example
+    + defind the inner and outter circles: `var grd = context.createRadialGradient(150, 100, 30, 150, 100, 100);`
+    + add color circles: `grd.addColorStop(0, "red");`, `grd.addColorStop(0.17, "orange");`, ..., `grd.addColorStop(1, "violet");`
+    + fill all radial gradients: `context.fillStyle = grd`
+  + [off center radial gradients](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#what-happens-if-the-circles-are-not-located-at-the-same-place): `grd = ctx.createRadialGradient(150, 100, 30, 210, 100, 100);`
+
+
 
 
 
