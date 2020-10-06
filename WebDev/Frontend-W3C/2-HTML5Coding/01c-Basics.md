@@ -522,7 +522,7 @@ HTML code:
 <li><span style="color: lightblue;">&lt;/header&gt;</li>
 <li><strong style="color: olive;"><span style="color: hotpink;">&lt;nav&gt;</strong></li>
 <li>&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">&lt;ul&gt;</li>
-<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;span&gt;Blog<span style="color: lightblue;">&lt;/span&gt;&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;span&gt;Blog&lt;/span&gt;&lt;/li&gt;</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;About<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;Contact<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
 <li>&nbsp; &nbsp;&nbsp;<span style="color: lightblue;">&lt;/ul&gt;</li>
@@ -534,27 +534,27 @@ And here is the CSS we used in this example for the `<nav>` element:
 
 <div><ol>
 <li value="1">nav&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1.5em<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">5px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">20px&nbsp;<span style="color: #006666;">50px</li>
+<li>&nbsp; &nbsp; font<span style="color: #666600;">-size:&nbsp;1.5em;</span></li>
+<li>&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;5px&nbsp;0;</span></li>
+<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;20px&nbsp;50px</span></li>
+<li><span style="color: #666600;">}</span></li>
+<li>nav li&nbsp;<span style="color: #666600;">{</span></li>
+<li>&nbsp; &nbsp; display<span style="color: #666600;">:&nbsp;inline;</span></li>
+<li>&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;0&nbsp;15px</span></li>
+<li><span style="color: #666600;">}</span></li>
+<li>nav li<span style="color: #666600;">:first-child&nbsp;{</span></li>
+<li>&nbsp; &nbsp; margin<span style="color: #666600;">-left:&nbsp;0</span></li>
 <li><span style="color: #666600;">}</li>
-<li>nav li&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp; display<span style="color: #666600;">:&nbsp;<span style="color: lightblue;">inline<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp; margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">15px</li>
+<li><span style="color: #666600;">*&nbsp;html nav ul&nbsp;{</span></li>
+<li>&nbsp; &nbsp; margin<span style="color: #666600;">-left:&nbsp;-15px</span></li>
 <li><span style="color: #666600;">}</li>
-<li>nav li<span style="color: #666600;">:first<span style="color: #666600;">-child&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp; margin<span style="color: #666600;">-left<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0</li>
-<li><span style="color: #666600;">}</li>
-<li><span style="color: #666600;">*&nbsp;html nav ul&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp; margin<span style="color: #666600;">-left<span style="color: #666600;">:&nbsp;<span style="color: #666600;">-<span style="color: #006666;">15px</li>
-<li><span style="color: #666600;">}</li>
-<li>nav span<span style="color: #666600;">,&nbsp;nav a&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">3px&nbsp;<span style="color: #006666;">15px&nbsp;<span style="color: #006666;">4px</li>
-<li><span style="color: #666600;">}</li>
-<li>nav span&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp; background<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#722;</li>
-<li>&nbsp; &nbsp; color<span style="color: #666600;">:&nbsp;<span style="color: #880000;">#fff</li>
-<li><span style="color: #666600;">}</li>
+<li>nav span<span style="color: #666600;">,&nbsp;nav a&nbsp;{</span></li>
+<li>&nbsp; &nbsp; padding<span style="color: #666600;">:&nbsp;3px&nbsp;15px&nbsp;4px</span></li>
+<li><span style="color: #666600;">}</span></li>
+<li>nav span&nbsp;<span style="color: #666600;">{</span></li>
+<li>&nbsp; &nbsp; background<span style="color: #666600;">:&nbsp;#722;</span></li>
+<li>&nbsp; &nbsp; color<span style="color: #666600;">:#fff</span></li>
+<li><span style="color: #666600;">}</span></li>
 </ol></div>
 
 
@@ -572,45 +572,45 @@ Now, we have one big `<section>` element that contains a set of `<article>` elem
 HTML code:
 
 <div><ol>
-<li value="1"><span style="color: lightblue;">&lt;section&gt;</li>
+<li value="1"><span style="color: lightblue;">&lt;section&gt;</span></li>
 <li></li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</span></li>
 <li>&nbsp; &nbsp; ...</li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</span></li>
 <li></li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</span></li>
 <li>&nbsp; &nbsp; ...</li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</span></li>
 <li></li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</span></li>
 <li>&nbsp; &nbsp; ...</li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</span></li>
 <li></li>
-<li><span style="color: lightblue;">&lt;/section&gt;</li>
+<li><span style="color: lightblue;">&lt;/section&gt;</span></li>
 </ol></div>
 
 
 And here is the CSS:
 
 <div><ol>
-<li value="1">section&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">float<span style="color: #666600;">:&nbsp;left<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">35px&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp;width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">70<span style="color: #666600;">%</li>
-<li><span style="color: #666600;">}</li>
-<li>section article&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp;margin<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">50px&nbsp;<span style="color: #006666;">40px<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">25px&nbsp;<span style="color: #006666;">0&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative</li>
-<li><span style="color: #666600;">}</li>
-<li>section header&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp;font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">1em<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0<span style="color: #666600;">;</li>
-<li><span style="color: #666600;">}</li>
-<li>section h2&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp;font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">2.3em<span style="color: #666600;">;</li>
-<li><span style="color: #666600;">}</li>
+<li value="1">section&nbsp;<span style="color: #666600;">{</span></li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">float:&nbsp;left;</span></li>
+<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;35px&nbsp;0;</span></li>
+<li>&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative;</span></li>
+<li>&nbsp; &nbsp;width<span style="color: #666600;">:&nbsp;70</span>%</span></li>
+<li><span style="color: #666600;">}</span></li>
+<li>section article&nbsp;<span style="color: #666600;">{</span></li>
+<li>&nbsp; &nbsp;margin<span style="color: #666600;">:&nbsp;0&nbsp;50px&nbsp;40px;</span></li>
+<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;25px&nbsp;0&nbsp;0;</span></li>
+<li>&nbsp; &nbsp;position<span style="color: #666600;">:&nbsp;relative</span></li>
+<li><span style="color: #666600;">}</span></li>
+<li>section header&nbsp;<span style="color: #666600;">{</span></li>
+<li>&nbsp; &nbsp;font<span style="color: #666600;">-size:&nbsp;1em;</span></li>
+<li>&nbsp; &nbsp;padding<span style="color: #666600;">:&nbsp;0;</span></li>
+<li><span style="color: #666600;">}</span></li>
+<li>section h2&nbsp;<span style="color: #666600;">{</span></li>
+<li>&nbsp; &nbsp;font<span style="color: #666600;">-size:&nbsp;2.3em;</span></li>
+<li><span style="color: #666600;">}</span></li>
 </ol></div>
 
 
@@ -634,37 +634,37 @@ Next, in each article in the section we have a header (to display the article ti
 Example for the first blog article:
 
 <div><ol>
-<li value="1"><span style="color: lightblue;">&lt;section&gt;</li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</li>
-<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;header&gt;</li>
-<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""<span style="color: lightblue;">&gt;Information about this example<span style="color: lightblue;">&lt;/a&gt;&lt;/h2&gt;</li>
-<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/header&gt;</li>
+<li value="1"><span style="color: lightblue;">&lt;section&gt;</span></li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;article&gt;</span></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;header&gt;</span></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;&lt;a&nbsp;<span style="color: pink;">href</span><span style="color: #666600;">=</span><span style="color: #008800;">""</span><span style="color: lightblue;">&gt;Information about this example</span><span style="color: lightblue;">&lt;/a&gt;&lt;/h2&gt;</span></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/header&gt;</span></li>
 <li></li>
-<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;p&gt;Try to move the mouse on different elements. The structure will be </li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;p&gt;</span>Try to move the mouse on different elements. The structure will be </li>
 <li>&nbsp; &nbsp; &nbsp;highlighted&nbsp;and you will be able</li>
 <li>&nbsp; &nbsp; &nbsp;to see the different inclusions of elements one in each other. If you </li>
 <li>&nbsp; &nbsp; &nbsp;move the&nbsp;cursor to this sentence,&nbsp;it will be highlighted in dark grey, </li>
 <li>&nbsp; &nbsp; &nbsp;showing the&nbsp;presence of an &amp;lt;<span style="color: lightblue;">article&amp;gt; element,&nbsp;surrounded by a</li>
-<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&amp;lt;section<span style="color: lightblue;">&amp;gt; element (light grey), etc. So we have some articles in </li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&amp;lt;section</span><span style="color: lightblue;">&amp;gt; element (light grey), etc. So we have some articles in </li>
 <li>&nbsp; &nbsp; &nbsp;a single section&nbsp;element. The page&nbsp;title at the top is a&nbsp;<span style="color: lightblue;">&amp;lt;header<span style="color: lightblue;">&amp;gt; <br></li>
 <li>&nbsp; &nbsp; &nbsp;element, while the tag cloud on the right is a&nbsp;<span style="color: lightblue;">&amp;lt;aside<span style="color: lightblue;">&amp;gt; element. The</li>
 <li>&nbsp; &nbsp; &nbsp;main menu on top (with Blog, About, Contact) is a&nbsp;<span style="color: lightblue;">&amp;lt;nav<span style="color: lightblue;">&amp;gt; element.<span style="color: lightblue;">&lt;/p&gt;</li>
 <li></li>
 <li>&nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;figure&gt;</li>
-<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;img&nbsp;<span style="color: pink;">src<span style="color: #666600;">=<span style="color: #008800;">"<span style="color: #008800;"><span style="color: #008800;">HTML5-tags.png"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;img&nbsp;</span><span style="color: pink;">src</span><span style="color: #666600;">=</span><span style="color: #008800;">"<span style="color: #008800;">HTML5-tags.png"</span></li>
 <li><span style="color: pink;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alt<span style="color: #666600;">=<span style="color: #008800;">"Example of HTML5 structural <span style="line-height: 1.6; background-color: #ffffff;">tags"<span style="line-height: 1.6; background-color: #ffffff;">&nbsp;<span style="line-height: 1.6; background-color: #ffffff;">/&gt;</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;figcaption&gt;</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fig. 1 : an example of how new structural elements could </li>
-<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;be used. This&nbsp;page put a &amp;lt;<span style="color: lightblue;">nav<span style="color: lightblue;">&amp;gt; on top, and&nbsp;does not have</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;be used. This&nbsp;page put a &amp;lt;<span style="color: lightblue;">nav</span><span style="color: lightblue;">&amp;gt;</span> on top, and&nbsp;does not have</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;headers and footer for each&nbsp;article, like in this figure,</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;but it could... By the way&nbsp;this is a</li>
-<li><span style="color: lightblue;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span style="color: lightblue;">&amp;lt;figcaption<span style="color: lightblue;">&amp;gt; inside a&nbsp;<span style="color: lightblue;">&amp;lt;figure<span style="color: lightblue;">&amp;gt; element...</li>
-<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/figcaption&gt;</li>
-<li><span style="color: lightblue;">&nbsp; &nbsp; &lt;/figure&gt;</li>
+<li><span style="color: lightblue;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span style="color: lightblue;">&amp;lt;figcaption</span><span style="color: lightblue;">&amp;gt; inside a&nbsp;</span><span style="color: lightblue;">&amp;lt;figure</span><span style="color: lightblue;">&amp;gt; element...</span></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;/figcaption&gt;</span></li>
+<li><span style="color: lightblue;">&nbsp; &nbsp; &lt;/figure&gt;</span></li>
 <li></li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;/article&gt;</span></li>
 <li>&nbsp; &nbsp;...</li>
-<li><span style="color: lightblue;">&lt;/section&gt;</li>
+<li><span style="color: lightblue;">&lt;/section&gt;</span></li>
 </ol></div>
 
 
@@ -697,10 +697,10 @@ CSS code:
 
 <div><ol>
 <li value="1">figcaption&nbsp;<span style="color: #666600;">{</li>
-<li>&nbsp; &nbsp; font<span style="color: #666600;">-style<span style="color: #666600;">:italic<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp; font<span style="color: #666600;">-size<span style="color: #666600;">:&nbsp;<span style="color: #006666;">0.8em<span style="color: #666600;">;</li>
-<li>&nbsp; &nbsp; width<span style="color: #666600;">:&nbsp;<span style="color: #006666;">100<span style="color: #666600;">%</li>
-<li><span style="color: #666600;">}</li>
+<li>&nbsp; &nbsp; font<span style="color: #666600;">-style:italic;</span></li>
+<li>&nbsp; &nbsp; font<span style="color: #666600;">-size:&nbsp;0.8em;</span></li>
+<li>&nbsp; &nbsp; width<span style="color: #666600;">:&nbsp;100%</span></li>
+<li><span style="color: #666600;">}</span></li>
 </ol></div>
 
 
@@ -717,10 +717,10 @@ After the long `<section>` element that contains all the blog articles displayed
 
 <div><ol>
 <li value="1"><span style="color: lightblue;">&lt;section&gt;</li>
-<li>.... all&nbsp;<span style="color: lightblue;">&lt;article&gt;...&nbsp;<span style="color: lightblue;">&lt;/article&gt;&nbsp;here....</li>
+<li>.... all&nbsp;<span style="color: lightblue;">&lt;article&gt;...&nbsp;&lt;/article&gt;&nbsp;here....</span></li>
 <li><span style="color: lightblue;">&lt;/section&gt;</li>
-<li><strong style="color: olive;"><span style="color: hotpink;">&lt;aside&gt;</strong></li>
-<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;Tag cloud<span style="color: lightblue;">&lt;/h2&gt;</li>
+<li><strong style="color: olive;"><span style="color: hotpink;">&lt;aside&gt;</strong></span></li>
+<li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;h2&gt;Tag cloud</span><span style="color: lightblue;">&lt;/h2&gt;</span></li>
 <li>&nbsp; &nbsp;<span style="color: lightblue;">&lt;ul&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"tag-cloud"<span style="color: lightblue;">&gt;</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w2"<span style="color: lightblue;">&gt;ajax<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: lightblue;">&lt;li&gt;&lt;a&nbsp;<span style="color: pink;">href<span style="color: #666600;">=<span style="color: #008800;">""&nbsp;<span style="color: pink;">rel<span style="color: #666600;">=<span style="color: #008800;">"tag"&nbsp;<span style="color: pink;">class<span style="color: #666600;">=<span style="color: #008800;">"w8"<span style="color: lightblue;">&gt;apple<span style="color: lightblue;">&lt;/a&gt;&lt;/li&gt;</li>
