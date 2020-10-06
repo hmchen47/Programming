@@ -202,10 +202,10 @@ Let's look at color in a little more detail, and see how we can use gradients or
 You can use [the same syntax for colors that is supported by CSS3](https://www.w3.org/TR/css3-color/). The next lines show possible values/syntaxes.
 
 <div><ol>
-<li value="1"><span>ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>'red'</span><span>;</span></li>
-<li><span>ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"#00ff00"</span><span>;</span></li>
-<li><span>ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"rgb(0, 0, 255)"</span><span>;</span></li>
-<li><span>ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"rgba(0, 0, 255, 0.5)"</span><span>;</span></li>
+<li value="1">ctx.strokeStyle = 'red';</li>
+<li>ctx.fillStyle = "#00ff00";</li>
+<li>ctx.strokeStyle = "rgb(0, 0, 255)";</li>
+<li>ctx.fillStyle = "rgba(0, 0, 255, 0.5)";</li>
 </ol></div>
 
 Note that:
@@ -263,7 +263,7 @@ __Step #1: define a linear gradient__
 Syntax: 
 
 <div><ol>
-<li value="1"><span>ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>x0</span><span>,</span><span>y0</span><span>,</span><span>x1</span><span>,</span><span>y1</span><span>);</span><span> </span></li>
+<li value="1">ctx.createLinearGradient(x0,y0,x1,y1); </li>
 </ol></div>
 
 ... where the `(x0, y0)` and `(x1, y1)` parameters define "the direction of the gradient" (as a vector with a starting and an ending point). This direction is an invisible line along which the colors that compose the gradient will be interpolated.
@@ -271,7 +271,7 @@ Syntax:
 Let's see an example:
 
 <div><ol>
-<li value="1"><span> grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>0</span><span>);</span></li>
+<li value="1"> grdFrenchFlag = ctx.createLinearGradient(0, 0, 300, 0);</li>
 </ol></div>
 
 This line defines the direction of the gradient: a virtual, invisible line that goes from the top left corner of the canvas (0, 0) to the top right corner of the canvas (300, 0). The interpolated colors will propagate along this line. 
@@ -286,9 +286,9 @@ We will add a set of "colors" and "stops" to this gradient. The stops go from 0 
 Here is an example that corresponds to an interpolated version of the French flag, going from blue to white, then to red, with proportional intervals. We define three colors, blue at position 0, white at position 0.5 and red at position 1:
 
 <div><ol>
-<li value="1"><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0</span><span>,</span><span> </span><span>"blue"</span><span>);</span><span> </span></li>
-<li><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0.5</span><span>,</span><span> </span><span>"white"</span><span>);</span></li>
-<li><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>1</span><span>,</span><span> </span><span>"red"</span><span>);</span><span> </span></li>
+<li value="1"> grdFrenchFlag.addColorStop(0, "blue"); </li>
+<li> grdFrenchFlag.addColorStop(0.5, "white");</li>
+<li> grdFrenchFlag.addColorStop(1, "red"); </li>
 </ol></div>
 
 
@@ -299,8 +299,8 @@ First, let's set the `fillStyle` or `strokeStyle` of the context with this gradi
 In our example, the gradient corresponds to an invisible rectangle that fills the canvas. If we draw a rectangle of the canvas size, it should be filled with the entire gradient:
 
 <div><ol>
-<li value="1"><span> ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>200</span><span>);</span></li>
+<li value="1"> ctx.fillStyle = grdFrenchFlag;</li>
+<li> ctx.fillRect(0, 0, 300, 200);</li>
 </ol></div>
 
 The result is shown below: a big rectangle that fills the whole canvas, with colors going from blue (left) to white (middle) to red (right).
@@ -320,7 +320,7 @@ The result is shown below: a big rectangle that fills the whole canvas, with col
 If you modify the source code that defines the direction of the gradient as follows...
 
 <div><ol>
-<li value="1"><span>grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>200</span><span>);</span></li>
+<li value="1">grdFrenchFlag = ctx.createLinearGradient(0, 0, 300, 200);</li>
 </ol></div>
 
 ... then you will define a gradient that goes from the top left corner of the canvas to the bottom right of the canvas. Let's see what it does (see [online version](https://jsbin.com/gisinezini/edit?html,js,output)): ([Local Example - Gradient Direction](src/3.5.2-example2.html))
@@ -357,19 +357,19 @@ Note that the canvas has its default background color where we did not draw anyt
 Here is the code that draws the checkboard:
 
 <div><ol>
-<li value="1"><span> ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>100</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>200</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>50</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>150</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>250</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>100</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>200</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>50</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>150</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
-<li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>250</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
+<li value="1"> ctx.fillStyle = grdFrenchFlag;</li>
+<li> ctx.fillRect(0, 0, 50, 50);</li>
+<li> ctx.fillRect(100, 0, 50, 50);</li>
+<li> ctx.fillRect(200, 0, 50, 50);</li>
+<li> ctx.fillRect(50, 50, 50, 50);</li>
+<li> ctx.fillRect(150, 50, 50, 50);</li>
+<li> ctx.fillRect(250, 50, 50, 50);</li>
+<li> ctx.fillRect(0, 100, 50, 50);</li>
+<li> ctx.fillRect(100, 100, 50, 50);</li>
+<li> ctx.fillRect(200, 100, 50, 50);</li>
+<li> ctx.fillRect(50, 150, 50, 50);</li>
+<li> ctx.fillRect(150, 150, 50, 50);</li>
+<li> ctx.fillRect(250, 150, 50, 50);</li>
 </ol></div>
 
 This code is rather ugly isn't it? It would have been better  to use a loop...
@@ -377,22 +377,22 @@ This code is rather ugly isn't it? It would have been better  to use a loop...
 Here is function that draws a chessboard ([online example at JsBin](https://jsbin.com/netijalofu/1/edit?html,output)): ([Loca Example - Chessboard](src/3.5.2-example4.html))
 
 <div><ol>
-<li value="1"><span>// n = number of cells per row/column</span></li>
-<li><span>function</span><span> drawCheckboard</span><span>(</span><span>n</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> l </span><span>=</span><span> canvas</span><span>.</span><span>width</span><span>;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> h </span><span>=</span><span> canvas</span><span>.</span><span>height</span><span>;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> cellWidth </span><span>=</span><span> l </span><span>/</span><span> n</span><span>;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> cellHeight </span><span>=</span><span> h </span><span>/</span><span> n</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>for</span><span>(</span><span>i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> n</span><span>;</span><span> i</span><span>++</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>for</span><span>(</span><span>j </span><span>=</span><span>&nbsp;i % 2</span><span>;</span><span> j </span><span>&lt;</span><span> n</span><span>;</span><span> j</span><span>++)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>cellWidth</span><span>*i</span><span>,</span><span> cellHeight</span><span>*</span><span>j</span><span>,</span><span> cellWidth</span><span>,</span><span> cellHeight</span><span>);</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span></li>
-<li><span>&nbsp; &nbsp; </span><span>}</span></li>
-<li><span>}</span></li>
+<li value="1">// n = number of cells per row/column</li>
+<li>function drawCheckboard(n) {</li>
+<li>&nbsp; &nbsp; ctx.fillStyle = grdFrenchFlag;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;var l = canvas.width;</li>
+<li>&nbsp; &nbsp;&nbsp;var h = canvas.height;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;var cellWidth = l / n;</li>
+<li>&nbsp; &nbsp;&nbsp;var cellHeight = h / n;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;for(i = 0; i &lt; n; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;for(j =&nbsp;i % 2; j &lt; n; j++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.fillRect(cellWidth*i, cellHeight*j, cellWidth, cellHeight); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp; }</li>
+<li>}</li>
 </ol></div>
 
 The two loops (_lines 11-15_) draw only one cell out of two (see the `j = i % 2` at _line 12_). i is the column number and if the column is odd or even, either we draw or we do not draw a rectangle.
@@ -417,16 +417,16 @@ Just as we used `fillStyle` and `fillRect` for drawing rectangles filled with a 
 Extract from source code:
 
 <div><ol>
-<li value="1"><span>function</span><span> drawCheckboard</span><span>(</span><span>n</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; <strong>ctx</strong></span><strong><span>.</span><span>strokeStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; ctx</span><span>.</span><span>lineWidth</span><span>=</span><span>10</span><span>;</span></strong></li>
+<li value="1">function drawCheckboard(n) {</li>
+<li>&nbsp; &nbsp; <strong>ctx</strong><strong>.strokeStyle = grdFrenchFlag;</strong></li>
+<li><strong>&nbsp; &nbsp; ctx.lineWidth=10;</strong></li>
 <li>&nbsp; &nbsp; ...</li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>for</span><span>(</span><span>i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> n</span><span>;</span><span> i</span><span>++</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>for</span><span>(</span><span>j </span><span>=</span><span>&nbsp;<span style="color: #006666;" color="#006666">i % 2</span></span><span>;</span><span> j </span><span>&lt;</span><span> n</span><span>;</span><span> j</span><span>++)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span><strong>stroke</strong>Rect</span><span>(</span><span>cellWidth</span><span>*i</span><span>,</span><span> cellHeight</span><span>*</span><span>j</span><span>,</span><span> cellWidth</span><span>,</span><span> cellHeight</span><span>);</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span><span> </span></li>
-<li><span>&nbsp; &nbsp; </span><span>}</span></li>
-<li><span>}</span></li>
+<li>&nbsp; &nbsp;&nbsp;for(i = 0; i &lt; n; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;for(j =&nbsp;<span style="color: #006666;" color="#006666">i % 2</span>; j &lt; n; j++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.<strong>stroke</strong>Rect(cellWidth*i, cellHeight*j, cellWidth, cellHeight); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;} </li>
+<li>&nbsp; &nbsp; }</li>
+<li>}</li>
 </ol></div>
 
 
@@ -435,7 +435,7 @@ Extract from source code:
 Let's go back to the very first example on this page - the one with the blue-white-red interpolated French flag. This time we will define a smaller gradient. Instead of going from (0, 0) to (300, 0), it will go from (100, 0) to (200, 0), while the canvas remains the same (width=300, height=200).
 
 <div><ol>
-<li value="1"><span> grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><strong><span>100</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>0</span></strong><span>);</span></li>
+<li value="1"> grdFrenchFlag = ctx.createLinearGradient(<strong>100, 0, 200, 0</strong>);</li>
 </ol></div>
 
 Like in the first example we will draw a filled rectangle that is the same size as the canvas. Here is the online version, and here is a screenshot of the result:
@@ -458,7 +458,7 @@ We notice that "before" the gradient starts, the first color of the gradient is 
 Nothing special; we will "see through the drawn shapes", and the parts of the gradient that are located in the canvas area will be shown. You can try this example that defines a gradient twice the size of the canvas: 
 
 <div><ol>
-<li value="1"><span>grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><strong><span>600</span><span>,</span><span> </span><span>400</span></strong><span>);</span></li>
+<li value="1">grdFrenchFlag = ctx.createLinearGradient(0, 0, <strong>600, 400</strong>);</li>
 </ol></div>
 
 And if we draw the same rectangle with the canvas size, here is the result:
@@ -497,34 +497,34 @@ It suffices to create a new gradient before drawing each filled rectangle, and s
 Extract from source code:
 
 <div><ol>
-<li value="1"><span>function</span><span> setGradient</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> width</span><span>,</span><span> height</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> width</span><span>,</span><span> height</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0</span><span>,</span><span> </span><span>"blue"</span><span>);</span><span> </span></li>
-<li><span>&nbsp; &nbsp; grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0.5</span><span>,</span><span> </span><span>"white"</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>1</span><span>,</span><span> </span><span>"red"</span><span>);</span><span> </span></li>
-<li><span>&nbsp; &nbsp; // set the new gradient to the current fillStyle</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>// n = number of cells per row/column</span></li>
-<li><span>function</span><span> drawCheckboard</span><span>(</span><span>n</span><span>)</span><span> </span><span>{</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>var</span><span> l </span><span>=</span><span> canvas</span><span>.</span><span>width</span><span>;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>var</span><span> h </span><span>=</span><span> canvas</span><span>.</span><span>height</span><span>;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>var</span><span> cellWidth </span><span>=</span><span> l </span><span>/</span><span> n</span><span>;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>var</span><span> cellHeight </span><span>=</span><span> h </span><span>/</span><span> n</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>for</span><span>(</span><span>i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> n</span><span>;</span><span> i</span><span>+=</span><span>2</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>for</span><span>(</span><span>j </span><span>=</span><span> </span><span>0</span><span>;</span><span> j </span><span>&lt;</span><span> n</span><span>;</span><span> j</span><span>++)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>var</span><span> x </span><span>=</span><span> cellWidth</span><span>*(</span><span>i</span><span>+</span><span>j</span><span>%</span><span>2</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>var</span><span> y </span><span>=</span><span> cellHeight</span><span>*</span><span>j</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>setGradient</strong></span><strong><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> x</span><span>+</span><span>cellWidth</span><span>,</span><span> y</span><span>+</span><span>cellHeight</span><span>);</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> cellWidth</span><span>,</span><span> cellHeight</span><span>);</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>}</span></li>
-<li><span>}</span></li>
+<li value="1">function setGradient(x, y, width, height) {</li>
+<li>&nbsp; &nbsp; grdFrenchFlag = ctx.createLinearGradient(x, y, width, height);</li>
+<li> </li>
+<li>&nbsp; &nbsp; grdFrenchFlag.addColorStop(0, "blue"); </li>
+<li>&nbsp; &nbsp; grdFrenchFlag.addColorStop(0.5, "white");</li>
+<li>&nbsp; &nbsp; grdFrenchFlag.addColorStop(1, "red"); </li>
+<li>&nbsp; &nbsp; // set the new gradient to the current fillStyle</li>
+<li>&nbsp; &nbsp; ctx.fillStyle = grdFrenchFlag;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>// n = number of cells per row/column</li>
+<li>function drawCheckboard(n) {</li>
+<li> </li>
+<li>&nbsp; &nbsp;var l = canvas.width;</li>
+<li>&nbsp; &nbsp;var h = canvas.height;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;var cellWidth = l / n;</li>
+<li>&nbsp; &nbsp;var cellHeight = h / n;</li>
+<li> </li>
+<li>&nbsp; &nbsp;for(i = 0; i &lt; n; i+=2) {</li>
+<li>&nbsp; &nbsp; &nbsp;for(j = 0; j &lt; n; j++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; var x = cellWidth*(i+j%2);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; var y = cellHeight*j;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>setGradient</strong><strong>(x, y, x+cellWidth, y+cellHeight);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillRect(x, y, cellWidth, cellHeight); </li>
+<li>&nbsp; &nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp;}</li>
+<li>}</li>
 </ol></div>
 
 We wrote a function `setGradient(startX, startY, endX, endY)` that creates a gradient and set the `fillStyle` context property so that any filled shape drawn will have this gradient.
@@ -602,15 +602,15 @@ Here is an example of a radial gradient that interpolates the color of the rainb
 The gradient is defined as follows:
 
 <div><ol>
-<li value="1"><span>var</span><span> grd </span><span>=</span><span> context</span><span>.</span><strong><span>createRadialGradient</span><span>(</span><span>150</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>30</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>100</span><span>);</span></strong></li>
-<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0</span><span>,</span><span> </span><span>"red"</span><span>);</span></li>
-<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.17</span><span>,</span><span> </span><span>"orange"</span><span>);</span></li>
-<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.33</span><span>,</span><span> </span><span>"yellow"</span><span>);</span></li>
-<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.5</span><span>,</span><span> </span><span>"green"</span><span>);</span></li>
-<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.666</span><span>,</span><span> </span><span>"blue"</span><span>);</span></li>
-<li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>1</span><span>,</span><span> </span><span>"violet"</span><span>);</span></li>
-<li><span> </span></li>
-<li><span> context</span><span>.</span><span>fillStyle </span><span>=</span><span> grd</span><span>;</span></li>
+<li value="1">var grd = context.<strong>createRadialGradient(150, 100, 30, 150, 100, 100);</strong></li>
+<li> grd.addColorStop(0, "red");</li>
+<li> grd.addColorStop(0.17, "orange");</li>
+<li> grd.addColorStop(0.33, "yellow");</li>
+<li> grd.addColorStop(0.5, "green");</li>
+<li> grd.addColorStop(0.666, "blue");</li>
+<li> grd.addColorStop(1, "violet");</li>
+<li> </li>
+<li> context.fillStyle = grd;</li>
 </ol></div>
 
 The method from the context object `createRadialGradient(cx1, cy1, radius1, cx2, cy2, radius2)` takes as the first three parameters the "starting" circle of the gradient, and as the three last parameters, the "ending circle".
@@ -682,45 +682,45 @@ There are a few steps we have to take before doing this:
 1. __Create a JavaScript image object__
 
   <div><ol style="list-style-type: decimal;">
-  <li value="1"><span>var</span><span>&nbsp;imageObj&nbsp;</span><span>=</span><span>&nbsp;new Image();</span></li>
+  <li value="1">var&nbsp;imageObj&nbsp;=&nbsp;new Image();</li>
   </ol></div>
 
 2. __Define a callback function that will be called once the image has been fully loaded__ in memory; we cannot draw before the image has been loaded.
 
   <div><ol style="list-style-type: decimal;">
-  <li value="1"><span>imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){</span></li>
-  <li><span> </span><span>...</span></li>
-  <li><span>}</span></li>
+  <li value="1">imageObj.onload = function(){</li>
+  <li> ...</li>
+  <li>}</li>
   </ol></div>
 
 3. __Set the source of this image to the URL of the pattern__ (in our example with [url of the pattern](https://tinyurl.com/y6snxuju)),
 
   <div><ol style="list-style-type: decimal;">
-  <li value="1"><span>imageObj</span><span>.</span><span>src </span><span>=</span><span> </span><span>"https://www.myserver.com/myRepeatablePattern.png"</span><span>;</span><span> </span></li>
+  <li value="1">imageObj.src = "https://www.myserver.com/myRepeatablePattern.png"; </li>
   </ol></div>
 
 4. As soon as step 3 is executed, an HTTP request is sent in background by the browser, and when the image is loaded in memory, the callback defined at step 2 is called. We create a pattern object inside, from the loaded image:
 
   <div><ol style="list-style-type: decimal;">
-  <li value="1"><span> </span><span>// callback called asynchronously, after the src attribute of imageObj is set</span></li>
-  <li><span> imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){&nbsp;</span></li>
-  <li><span>&nbsp; &nbsp; // We enter here when the image is loaded, we create a pattern object.</span></li>
-  <li><span>&nbsp; &nbsp; // It is good practice to set this as a global variable, easier to share</span></li>
-  <li><span>&nbsp; &nbsp; <strong>pattern1 </strong></span><strong><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"repeat"</span><span>);</span></strong></li>
-  <li><span>};</span></li>
+  <li value="1"> // callback called asynchronously, after the src attribute of imageObj is set</li>
+  <li> imageObj.onload = function(){&nbsp;</li>
+  <li>&nbsp; &nbsp; // We enter here when the image is loaded, we create a pattern object.</li>
+  <li>&nbsp; &nbsp; // It is good practice to set this as a global variable, easier to share</li>
+  <li>&nbsp; &nbsp; <strong>pattern1 </strong><strong>= ctx.createPattern(imageObj, "repeat");</strong></li>
+  <li>};</li>
   </ol></div>
 
 5. __Inside the callback function (or inside a function called from inside the callback) we can draw.__
 
   <div><ol style="list-style-type: decimal;">
-  <li value="1"><span> </span><span>// callback called asynchronously, after the src attribute of imageObj is set</span></li>
-  <li><span> imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){</span></li>
-  <li><span>&nbsp; &nbsp; pattern1 </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"repeat"</span><span>);</span></li>
-  <li><span> </span></li>
-  <li><strong><span>&nbsp; &nbsp;&nbsp;</span><span>// Draw a textured rectangle</span></strong></li>
-  <li><strong><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> pattern1</span><span>;</span></strong></li>
-  <li><strong><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>10</span><span>,</span><span> </span><span>10</span><span>,</span><span> </span><span>500</span><span>,</span><span> </span><span>800</span><span>);</span></strong></li>
-  <li><span>};</span></li>
+  <li value="1"> // callback called asynchronously, after the src attribute of imageObj is set</li>
+  <li> imageObj.onload = function(){</li>
+  <li>&nbsp; &nbsp; pattern1 = ctx.createPattern(imageObj, "repeat");</li>
+  <li> </li>
+  <li><strong>&nbsp; &nbsp;&nbsp;// Draw a textured rectangle</strong></li>
+  <li><strong>&nbsp; &nbsp; ctx.fillStyle = pattern1;</strong></li>
+  <li><strong>&nbsp; &nbsp; ctx.fillRect(10, 10, 500, 800);</strong></li>
+  <li>};</li>
   </ol></div>
 
 
@@ -745,64 +745,64 @@ Here we have two rectangles drawn using a pattern (an image that can be repeated
 HTML source code:
 
 <div><ol style="list-style-type: decimal;">
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
-<li><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"500"</span><span> </span><span>height</span><span>=</span><span>"400"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the canvas tag. </span><span>&lt;/canvas&gt;</span></li>
-<li><span>&nbsp; &nbsp;&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</li>
+<li>&lt;body onload="init();"&gt;</li>
+<li>&nbsp; &nbsp;&lt;canvas id="myCanvas" width="500" height="400"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the canvas tag. &lt;/canvas&gt;</li>
+<li>&nbsp; &nbsp;&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 JavaScript source code:
 
 <div><ol style="list-style-type: decimal;">
-<li value="1"><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>,</span><span> pattern1</span><span>;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;canvas </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>'#myCanvas'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp;ctx </span><span>=</span><span> canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// We need 1) to create an empty image object, 2) to set a callback function</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// that will be called when the image is fully loaded, 3) to create a </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// pattern object, 4) to set the fillStyle or the strokeStyle property of </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// the context with this pattern, 5) to draw something</span></li>
-<li><span>&nbsp; &nbsp;</span><strong><span>// WE CANNOT DRAW UNTIL THE IMAGE IS FULLY LOADED -&gt; draw from inside the</span></strong></li>
-<li><strong><span>&nbsp; &nbsp;</span><span>// onload callback only !</span></strong></li>
-<li><span> </span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 1 - Allocate an image</span></li>
-<li><span>&nbsp; &nbsp;</span><span>var</span><span> imageObj </span><span>=</span><span> </span><span>new</span><span> </span><span>Image</span><span>();</span></li>
-<li><span>&nbsp;</span></li>
-<li><span><span style="color: #000000;" color="#000000">&nbsp; &nbsp;</span>// 2 - callback called asynchronously, after the src attribute of imageObj </span></li>
-<li><span>&nbsp; &nbsp;// is set</span></li>
-<li><span>&nbsp; &nbsp;imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span><span>// We enter here only when the image has been loaded by the browser</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span><span>// 4 - Pattern creation using the image object</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span><span>// Instead of "repeat", try different values : repeat-x, repeat-y, </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span><span>// or no-repeat, You may draw larger shapes in order to see </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span><span>// different results</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span><span>// It is good practice to leave this as a global variable if it</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span><span>// will be reused by other functions</span></li>
-<li><span></span></li>
-<li><span>&nbsp; &nbsp; &nbsp; pattern1 </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"repeat"</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span><span>// 5 - Draw things. Here a textured rectangle</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> pattern1</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>10</span><span>,</span><span> </span><span>10</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>200</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; </span>// ... And a wireframe one</li>
-<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>lineWidth</span><span>=</span><span>20</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>strokeStyle</span><span>=</span><span>pattern1</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>strokeRect</span><span>(</span><span>230</span><span>,</span><span> </span><span>20</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>100</span><span>);</span></li>
-<li><span>&nbsp; };</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; // 3 - Send the request to load the image</span></li>
-<li><span>&nbsp; // Setting the src attribute&nbsp;will tell the browser to send an asynchronous </span></li>
-<li><span>&nbsp; // request.</span></li>
-<li><span>&nbsp; // When the browser gets an answer, the callback above will be called</span></li>
-<li><span>&nbsp; imageObj</span><span>.</span><span>src </span><span>=</span><span> </span><span>"https://www.dreamstime.com/colourful-flowers-repeatable-pattern-thumb18692760.jpg"</span><span>;</span><span> </span></li>
-<li><span>}</span></li>
+<li value="1">var canvas, ctx, pattern1;</li>
+<li>&nbsp;</li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp;canvas = document.querySelector('#myCanvas');</li>
+<li>&nbsp; &nbsp;ctx = canvas.getContext('2d');</li>
+<li> </li>
+<li>&nbsp; &nbsp;// We need 1) to create an empty image object, 2) to set a callback function</li>
+<li>&nbsp; &nbsp;// that will be called when the image is fully loaded, 3) to create a </li>
+<li>&nbsp; &nbsp;// pattern object, 4) to set the fillStyle or the strokeStyle property of </li>
+<li>&nbsp; &nbsp;// the context with this pattern, 5) to draw something</li>
+<li>&nbsp; &nbsp;<strong>// WE CANNOT DRAW UNTIL THE IMAGE IS FULLY LOADED -&gt; draw from inside the</strong></li>
+<li><strong>&nbsp; &nbsp;// onload callback only !</strong></li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp;// 1 - Allocate an image</li>
+<li>&nbsp; &nbsp;var imageObj = new Image();</li>
+<li>&nbsp;</li>
+<li><span style="color: #000000;" color="#000000">&nbsp; &nbsp;</span>// 2 - callback called asynchronously, after the src attribute of imageObj </li>
+<li>&nbsp; &nbsp;// is set</li>
+<li>&nbsp; &nbsp;imageObj.onload = function(){</li>
+<li>&nbsp; &nbsp; &nbsp; // We enter here only when the image has been loaded by the browser</li>
+<li>&nbsp; &nbsp; &nbsp; // 4 - Pattern creation using the image object</li>
+<li>&nbsp; &nbsp; &nbsp; // Instead of "repeat", try different values : repeat-x, repeat-y, </li>
+<li>&nbsp; &nbsp; &nbsp; // or no-repeat, You may draw larger shapes in order to see </li>
+<li>&nbsp; &nbsp; &nbsp; // different results</li>
+<li>&nbsp; &nbsp; &nbsp; // It is good practice to leave this as a global variable if it</li>
+<li>&nbsp; &nbsp; &nbsp; // will be reused by other functions</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; pattern1 = ctx.createPattern(imageObj, "repeat");</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; // 5 - Draw things. Here a textured rectangle</li>
+<li>&nbsp; &nbsp; &nbsp; ctx.fillStyle = pattern1;</li>
+<li>&nbsp; &nbsp; &nbsp; ctx.fillRect(10, 10, 200, 200);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; // ... And a wireframe one</li>
+<li>&nbsp; &nbsp; &nbsp; ctx.lineWidth=20;</li>
+<li>&nbsp; &nbsp; &nbsp; ctx.strokeStyle=pattern1;</li>
+<li>&nbsp; &nbsp; &nbsp; ctx.strokeRect(230, 20, 150, 100);</li>
+<li>&nbsp; };</li>
+<li> </li>
+<li>&nbsp; // 3 - Send the request to load the image</li>
+<li>&nbsp; // Setting the src attribute&nbsp;will tell the browser to send an asynchronous </li>
+<li>&nbsp; // request.</li>
+<li>&nbsp; // When the browser gets an answer, the callback above will be called</li>
+<li>&nbsp; imageObj.src = "https://www.dreamstime.com/colourful-flowers-repeatable-pattern-thumb18692760.jpg"; </li>
+<li>}</li>
 </ol></div><br/>
 
 
@@ -825,7 +825,7 @@ Online version [here](https://jsbin.com/hexomamiyi/1/edit?html,output) and here 
 You can change the way the pattern is repeated by modifying the second parameter of this method:
 
 <div><ol>
-<li value="1"><span>pattern1 </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"<strong>repeat</strong>"</span><span>);</span></li>
+<li value="1">pattern1 = ctx.createPattern(imageObj, "<strong>repeat</strong>");</li>
 </ol></div>
 
 Please try: `repeat-x`, `repeat-y` or `no-repeat` as acceptable values. Just change this line in the online example and you will see live results.
@@ -876,16 +876,16 @@ A complete example code that produces the result shown at the beginning of this 
 #### Define the list of images to be loaded
 
 <div><ol>
-<li value="1"><span> </span><span>// List of images to load, we used a JavaScript object instead of </span></li>
-<li><span> </span><span>// an array, so that named indexes (aka properties)</span></li>
-<li><span> </span><span>// can be used -&gt; easier to manipulate</span></li>
-<li><span> </span><span>var</span><span> imagesToLoad </span><span>=</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;flowers</span><span>: </span><span></span><span>'https://i.ibb.co/4NN9Sgn/flowers.jpg'</span><span>,</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;lion</span><span>:</span><span> </span><span>'https://i.ibb.co/3NyqKnY/lion.jpg'</span><span>,</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;blackAndWhiteLys</span><span>:</span><span> </span><span>'https://i.ibb.co/VNLVpcL/final.jpg'</span><span>,</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;tiledFloor</span><span>:</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; 'https://i.ibb.co/Dt6txmG/repeatable-Pattern.jpg'</span></li>
-<li><span> </span><span>};</span></li>
+<li value="1"> // List of images to load, we used a JavaScript object instead of </li>
+<li> // an array, so that named indexes (aka properties)</li>
+<li> // can be used -&gt; easier to manipulate</li>
+<li> var imagesToLoad = {</li>
+<li>&nbsp; &nbsp; &nbsp;flowers: 'https://i.ibb.co/4NN9Sgn/flowers.jpg',</li>
+<li>&nbsp; &nbsp; &nbsp;lion: 'https://i.ibb.co/3NyqKnY/lion.jpg',</li>
+<li>&nbsp; &nbsp; &nbsp;blackAndWhiteLys: 'https://i.ibb.co/VNLVpcL/final.jpg',</li>
+<li>&nbsp; &nbsp; &nbsp;tiledFloor: </li>
+<li>&nbsp; &nbsp; &nbsp; 'https://i.ibb.co/Dt6txmG/repeatable-Pattern.jpg'</li>
+<li> };</li>
 </ol></div>
 
 Notice that instead of using a traditional array, we defined this list as a JavaScript object, with properties whose names will be easier to manipulate (flowers, lion, tiledFloor, etc.).
@@ -894,27 +894,27 @@ Notice that instead of using a traditional array, we defined this list as a Java
 #### The image loader function
 
 <div><ol>
-<li value="1"><span> </span><span>function</span><span> loadImages</span><span>(</span><span>imagesToBeLoaded</span><span>,</span><span> drawCallback</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>var</span><span> imagesLoaded </span><span>=</span><span> </span><span>{};</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>var</span><span> loadedImages </span><span>=</span><span> </span><span>0</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>var</span><span> numberOfImagesToLoad </span><span>=</span><span> </span><span>0</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>// get num of&nbsp;images to load</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>for</span><span>(</span><span>var</span><span> name </span><span>in</span><span> imagesToBeLoaded</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;numberOfImagesToLoad</span><span>++;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>for</span><span>(</span><span>var</span><span> name </span><span>in</span><span> imagesToBeLoaded</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span>[</span><span>name</span><span>]</span><span> </span><span>=</span><span> </span><span>new</span><span> </span><span>Image</span><span>();</span></li>
-<li><span></span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span>[</span><span>name</span><span>].</span><span>onload </span><span>=</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span>(++</span><span>loadedImages </span><span>&gt;=</span><span> numberOfImagesToLoad</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawCallback</span><span>(</span><span>imagesLoaded</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span><span>// if</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>};</span><span> </span><span>// function</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded</span><span>[</span><span>name</span><span>].</span><span>src </span><span>=</span><span> imagesToBeLoaded</span><span>[</span><span>name</span><span>];</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span><span> </span><span>// for</span></li>
-<li><span>}</span><span> </span><span>// function</span></li>
+<li value="1"> function loadImages(imagesToBeLoaded, drawCallback) {</li>
+<li>&nbsp; &nbsp; &nbsp;var imagesLoaded = {};</li>
+<li>&nbsp; &nbsp; &nbsp;var loadedImages = 0;</li>
+<li>&nbsp; &nbsp; &nbsp;var numberOfImagesToLoad = 0;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// get num of&nbsp;images to load</li>
+<li>&nbsp; &nbsp; &nbsp;for(var name in imagesToBeLoaded) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;numberOfImagesToLoad++;</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;for(var name in imagesToBeLoaded) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded[name] = new Image();</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded[name].onload = function() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(++loadedImages &gt;= numberOfImagesToLoad) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawCallback(imagesLoaded);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} // if</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}; // function</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;imagesLoaded[name].src = imagesToBeLoaded[name];</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} // for</li>
+<li>} // function</li>
 </ol></div>
 
 __Explanations:__
@@ -927,14 +927,14 @@ __Explanations:__
 #### Example of use of this loader
 
 <div><ol>
-<li value="1"><span> loadImages</span><span>(</span><span>imagesToLoad</span><span>,</span><span> </span><span>function</span><span>(</span><span>imagesLoaded</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; patternFlowers </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>flowers</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; patternLion &nbsp; &nbsp;</span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>lion</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; patternBW </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>blackAndWhiteLys</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; patternFloor &nbsp;&nbsp;</span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>tiledFloor</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; drawRectanglesWithPatterns</span><span>();</span><span> </span></li>
-<li><span> </span><span>});</span><span> </span></li>
+<li value="1"> loadImages(imagesToLoad, function(imagesLoaded) {</li>
+<li>&nbsp; &nbsp; patternFlowers = ctx.createPattern(imagesLoaded.flowers, 'repeat');</li>
+<li>&nbsp; &nbsp; patternLion &nbsp; &nbsp;= ctx.createPattern(imagesLoaded.lion, 'repeat');</li>
+<li>&nbsp; &nbsp; patternBW = ctx.createPattern(imagesLoaded.blackAndWhiteLys, 'repeat');</li>
+<li>&nbsp; &nbsp; patternFloor &nbsp;&nbsp;= ctx.createPattern(imagesLoaded.tiledFloor, 'repeat');</li>
+<li> </li>
+<li>&nbsp; &nbsp; drawRectanglesWithPatterns(); </li>
+<li> }); </li>
 </ol></div>
 
 
@@ -947,19 +947,19 @@ __Explanations:__
 Here is the function:
 
 <div><ol>
-<li value="1"><span>function</span><span> drawRectanglesWithPatterns</span><span>()</span><span> </span><span>{</span><span> </span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternFloor</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternLion</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>200</span><span>,</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternFlowers</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternBW</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>200</span><span>,</span><span>200</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
-<li><span> </span><span>}</span></li>
+<li value="1">function drawRectanglesWithPatterns() { </li>
+<li>&nbsp; &nbsp; ctx.fillStyle=patternFloor;</li>
+<li>&nbsp; &nbsp; ctx.fillRect(0,0,200,200);</li>
+<li> </li>
+<li>&nbsp; &nbsp; ctx.fillStyle=patternLion;</li>
+<li>&nbsp; &nbsp; ctx.fillRect(200,0,200,200);</li>
+<li> </li>
+<li>&nbsp; &nbsp; ctx.fillStyle=patternFlowers;</li>
+<li>&nbsp; &nbsp; ctx.fillRect(0,200,200,200);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; ctx.fillStyle=patternBW;</li>
+<li>&nbsp; &nbsp; ctx.fillRect(200,200,200,200);</li>
+<li> }</li>
 </ol></div>
 
 
@@ -1004,46 +1004,46 @@ __Example #1: simple shadow__
 HTML source code:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
-<li><span>&lt;body</span><span> </span><span>onload</span><span> </span><span>=</span><span> init</span><span>();</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"400"</span><span> </span><span>height</span><span> </span><span>=</span><span>800</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
-<li><span>&lt;/canvas&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</li>
+<li>&lt;body onload = init();&gt;</li>
+<li>&nbsp; &nbsp; &lt;canvas id="myCanvas" width="400" height =800&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</li>
+<li>&lt;/canvas&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 JavaScript source code:
 
 <div><ol>
-<li value="1"><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; ctx </span><span>=</span><span> canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; // call to a function that will set the 4 context properties for shadows</span></li>
-<li><span>&nbsp; &nbsp; setShadow</span><span>();</span></li>
-<li><span>&nbsp; &nbsp; // all drawings that will occur will cast shadows</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>// first green filled rectangle</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"#22FFDD"</span><span>;</span><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>20</span><span>,</span><span> </span><span>20</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>100</span><span>);</span><span> </span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>// second stroked rectangle</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"purple"</span><span>;</span><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>lineWidth</span><span>=</span><span>10</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>strokeRect</span><span>(</span><span>20</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>100</span><span>);</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>// We define the 4 properties in a dedicated function, for clarity</span></li>
-<li><span>function</span><span> setShadow</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowColor </span><span>=</span><span> </span><span>"Grey"</span><span>;</span><span>&nbsp; &nbsp;&nbsp;</span><span>// color</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowBlur </span><span>=</span><span> </span><span>20</span><span>;</span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>// blur level</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowOffsetX </span><span>=</span><span> </span><span>15</span><span>;</span><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>// horizontal offset</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowOffsetY </span><span>=</span><span> </span><span>15</span><span>;</span><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>// vertical offset</span></li>
-<li><span>}</span></li>
+<li value="1">var canvas, ctx;</li>
+<li> </li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp; ctx = canvas.getContext('2d');</li>
+<li> </li>
+<li>&nbsp; &nbsp; // call to a function that will set the 4 context properties for shadows</li>
+<li>&nbsp; &nbsp; setShadow();</li>
+<li>&nbsp; &nbsp; // all drawings that will occur will cast shadows</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// first green filled rectangle</li>
+<li>&nbsp; &nbsp; ctx.fillStyle = "#22FFDD";&nbsp;</li>
+<li>&nbsp; &nbsp; ctx.fillRect(20, 20, 200, 100); </li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// second stroked rectangle</li>
+<li>&nbsp; &nbsp; ctx.strokeStyle = "purple";&nbsp;</li>
+<li>&nbsp; &nbsp; ctx.lineWidth=10;</li>
+<li>&nbsp; &nbsp; ctx.strokeRect(20, 150, 200, 100);</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>// We define the 4 properties in a dedicated function, for clarity</li>
+<li>function setShadow() {</li>
+<li>&nbsp; &nbsp; ctx.shadowColor = "Grey";&nbsp; &nbsp;&nbsp;// color</li>
+<li>&nbsp; &nbsp; ctx.shadowBlur = 20;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// blur level</li>
+<li>&nbsp; &nbsp; ctx.shadowOffsetX = 15;&nbsp; &nbsp; &nbsp;&nbsp;// horizontal offset</li>
+<li>&nbsp; &nbsp; ctx.shadowOffsetY = 15;&nbsp; &nbsp; &nbsp;&nbsp;// vertical offset</li>
+<li>}</li>
 </ol></div>
 
 
@@ -1073,40 +1073,40 @@ Now, let's add a shadow to it (see the [example online](https://jsbin.com/kimafo
 Here is an extract from the code:
 
 <div><ol>
-<li value="1"><span>...</span></li>
-<li><span> ctx</span><span>.</span><span>beginPath</span><span>();</span></li>
-<li><span> </span></li>
-<li><span>// Add to the path a full circle (from 0 to 2PI)</span></li>
-<li><span> ctx</span><span>.</span><span>arc</span><span>(</span><span>centerX</span><span>,</span><span> centerY</span><span>,</span><span> radius</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>2</span><span>*</span><span>Math</span><span>.</span><span>PI</span><span>,</span><span> </span><span>false</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>// With path drawing you can change the context</span></li>
-<li><span>// properties until a call to stroke() or fill() is performed</span></li>
-<li><span> ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"lightBlue"</span><span>;</span></li>
-<li><span> </span></li>
-<li><strong><span>// add shadows before drawing the filled circle</span></strong></li>
-<li><strong><span> addShadows</span><span>();</span></strong></li>
-<li><span> </span></li>
-<li><span>// Draws the filled circle in light blue</span></li>
-<li><span> ctx</span><span>.</span><span>fill</span><span>();</span></li>
-<li><span> </span></li>
-<li><span>// Prepare for the outline</span></li>
-<li><span> ctx</span><span>.</span><span>lineWidth </span><span>=</span><span> </span><span>5</span><span>;</span></li>
-<li><span> ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"black"</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>// draws the path AGAIN (the circle), this</span></li>
-<li><span>// time in wireframe</span></li>
-<li><span> ctx</span><span>.</span><span>stroke</span><span>();</span></li>
-<li><span> </span></li>
-<li><span>/</span><span>/ Notice we only once called context.arc()! And drew it twice </span></li>
-<li><span>// with different styles</span></li>
-<li><span>...</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>function</span><strong><span> addShadows</span><span>()</span></strong><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowColor </span><span>=</span><span> </span><span>"Grey"</span><span>;</span><span> </span><span>// color</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowBlur </span><span>=</span><span> </span><span>20</span><span>;</span><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>// blur level</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowOffsetX </span><span>=</span><span> </span><span>15</span><span>;</span><span>&nbsp; &nbsp;</span><span>// horizontal offset</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>shadowOffsetY </span><span>=</span><span> </span><span>15</span><span>;</span><span>&nbsp; &nbsp;</span><span>// vertical offset</span></li>
-<li><span> </span><span>}</span></li>
+<li value="1">...</li>
+<li> ctx.beginPath();</li>
+<li> </li>
+<li>// Add to the path a full circle (from 0 to 2PI)</li>
+<li> ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);</li>
+<li> </li>
+<li>// With path drawing you can change the context</li>
+<li>// properties until a call to stroke() or fill() is performed</li>
+<li> ctx.fillStyle = "lightBlue";</li>
+<li> </li>
+<li><strong>// add shadows before drawing the filled circle</strong></li>
+<li><strong> addShadows();</strong></li>
+<li> </li>
+<li>// Draws the filled circle in light blue</li>
+<li> ctx.fill();</li>
+<li> </li>
+<li>// Prepare for the outline</li>
+<li> ctx.lineWidth = 5;</li>
+<li> ctx.strokeStyle = "black";</li>
+<li> </li>
+<li>// draws the path AGAIN (the circle), this</li>
+<li>// time in wireframe</li>
+<li> ctx.stroke();</li>
+<li> </li>
+<li>// Notice we only once called context.arc()! And drew it twice </li>
+<li>// with different styles</li>
+<li>...</li>
+<li>&nbsp;</li>
+<li>function<strong> addShadows()</strong> {</li>
+<li>&nbsp; &nbsp; ctx.shadowColor = "Grey"; // color</li>
+<li>&nbsp; &nbsp; ctx.shadowBlur = 20;&nbsp; &nbsp; &nbsp;&nbsp;// blur level</li>
+<li>&nbsp; &nbsp; ctx.shadowOffsetX = 15;&nbsp; &nbsp;// horizontal offset</li>
+<li>&nbsp; &nbsp; ctx.shadowOffsetY = 15;&nbsp; &nbsp;// vertical offset</li>
+<li> }</li>
 </ol></div>
 
 
@@ -1129,23 +1129,23 @@ The trick is to save the context before setting the shadow properties, then draw
 Correct version of the code (see [online](https://jsbin.com/patumofama/edit?html,output)): ([Local Example - Corrected Shadow](src/3.5.6-example4.html))
 
 <div><ol>
-<li value="1"><span>...</span><span> </span></li>
-<li><span> </span><strong><span>// save the context before setting shadows and drawing the filled circle</span></strong></li>
-<li><span>&nbsp;<strong>ctx</strong></span><strong><span>.</span><span>save</span><span>();</span></strong></li>
-<li><span> </span></li>
-<li><span> </span><span>// With path drawing you can change the context</span></li>
-<li><span> </span><span>// properties until a call to stroke() or fill() is performed</span></li>
-<li><span>&nbsp;ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"lightBlue"</span><span>;</span></li>
-<li><span> </span></li>
-<li><span> </span><strong><span>// add shadows before drawing the filled circle</span></strong></li>
-<li><span>&nbsp;<strong>addShadows</strong></span><strong><span>();</span></strong></li>
-<li><span> </span></li>
-<li><span> </span><span>// Draws the filled circle in light blue</span></li>
-<li><span>&nbsp;ctx</span><span>.</span><span>fill</span><span>();</span></li>
-<li><span> </span></li>
-<li><span> </span><strong><span>// restore the context to its previous saved state</span></strong></li>
-<li><span>&nbsp;<strong>ctx</strong></span><strong><span>.</span><span>restore</span><span>();</span></strong></li>
-<li><span>...</span></li>
+<li value="1">... </li>
+<li> <strong>// save the context before setting shadows and drawing the filled circle</strong></li>
+<li>&nbsp;<strong>ctx</strong><strong>.save();</strong></li>
+<li> </li>
+<li> // With path drawing you can change the context</li>
+<li> // properties until a call to stroke() or fill() is performed</li>
+<li>&nbsp;ctx.fillStyle = "lightBlue";</li>
+<li> </li>
+<li> <strong>// add shadows before drawing the filled circle</strong></li>
+<li>&nbsp;<strong>addShadows</strong><strong>();</strong></li>
+<li> </li>
+<li> // Draws the filled circle in light blue</li>
+<li>&nbsp;ctx.fill();</li>
+<li> </li>
+<li> <strong>// restore the context to its previous saved state</strong></li>
+<li>&nbsp;<strong>ctx</strong><strong>.restore();</strong></li>
+<li>...</li>
 </ol></div>
 
 And here is the final result:
@@ -1181,7 +1181,7 @@ They apply to all shapes that are drawn in path mode (lines, curves, arcs) and s
 We have seen this before. This is done by changing the value (in pixels) of the lineWidth property of the context:
 
 <div><ol>
-<li value="1"><strong><span>ctx</span><span>.</span><span>lineWidth </span><span>=</span><span> </span><span>10</span><span>;</span></strong><span> </span><span>// set the thickness of every shape drawn in stroke/wireframe mode to 10 pixels</span></li>
+<li value="1"><strong>ctx.lineWidth = 10;</strong> // set the thickness of every shape drawn in stroke/wireframe mode to 10 pixels</li>
 </ol></div>
 
 Here is a complete example where we draw with a lineWidth of 20 pixels. You can play with the [complete interactive example here](https://jsbin.com/bixugayaba/edit?html,output): ([Local Example - Thickness](src/3.5.7-example1.html))
@@ -1199,42 +1199,42 @@ Here is a complete example where we draw with a lineWidth of 20 pixels. You can 
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;head&gt;</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span></span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span></span><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span>&lt;title&gt;</span><span>A simple example of lineWidth property use</span><span>&lt;/title&gt;</span></li>
-<li><span> </span></li>
-<li><span><span>&nbsp; </span></span><span>&lt;/head&gt;</span></li>
-<li><span><span>&nbsp; </span></span><span>&lt;body&gt;</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span></span><span>&lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"500"</span><span>&gt;</span><span>Your browser does not support the canvas tag.</span><span>&lt;/canvas&gt;</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span></span><span>&lt;script&gt;</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span></span><span>var</span><span> canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span></span><span>var</span><span> ctx </span><span>=</span><span> canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
-<li><span>&nbsp;</span></li>
-<li><span> </span><span>// first path</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>moveTo</span><span>(</span><span>20</span><span>,</span><span> </span><span>20</span><span>);</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>lineTo</span><span>(</span><span>100</span><span>,</span><span> </span><span>100</span><span>);</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>lineTo</span><span>(</span><span>100</span><span>,</span><span> </span><span>0</span><span>);</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span> </span><span>// second part of the path</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span><span>&nbsp; </span></span></span></span>ctx</span><span>.</span><span>moveTo</span><span>(</span><span>120</span><span>,</span><span> </span><span>20</span><span>);</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp;&nbsp;</span></span></span>ctx</span><span>.</span><span>lineTo</span><span>(</span><span>200</span><span>,</span><span> </span><span>100</span><span>);</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>lineTo</span><span>(</span><span>200</span><span>,</span><span> </span><span>0</span><span>);</span></li>
-<li><span>&nbsp;</span></li>
-<li><span> </span><span>// indicate stroke color + draw first part of the path</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"#0000FF"</span><span>;</span></li>
-<li><span> </span><span>// Current line thickness is 20 pixels </span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>lineWidth </span><span>=</span><span> </span><span>20</span><span>;</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>stroke</span><span>();</span></li>
-<li><span>&nbsp;</span></li>
-<li><span> </span><span>// Draws a rectangle</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span>ctx</span><span>.</span><span>strokeRect</span><span>(</span><span>230</span><span>,</span><span> </span><span>10</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>100</span><span>);</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp;&nbsp;<span>&nbsp; </span></span></span></span><span>&lt;/script&gt;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span><span>&nbsp;&nbsp;<span>&nbsp; </span></span></span><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp; &lt;head&gt;</li>
+<li>&nbsp;&nbsp;&nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp;&nbsp;&nbsp; &lt;title&gt;A simple example of lineWidth property use&lt;/title&gt;</li>
+<li> </li>
+<li>&nbsp; &lt;/head&gt;</li>
+<li>&nbsp; &lt;body&gt;</li>
+<li>&nbsp;&nbsp;&nbsp; &lt;canvas id="myCanvas" width="500"&gt;Your browser does not support the canvas tag.&lt;/canvas&gt;</li>
+<li>&nbsp;&nbsp;&nbsp; &lt;script&gt;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var ctx = canvas.getContext('2d');</li>
+<li>&nbsp;</li>
+<li> // first path</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.moveTo(20, 20);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.lineTo(100, 100);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.lineTo(100, 0);</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li> // second part of the path</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.moveTo(120, 20);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ctx.lineTo(200, 100);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.lineTo(200, 0);</li>
+<li>&nbsp;</li>
+<li> // indicate stroke color + draw first part of the path</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.strokeStyle = "#0000FF";</li>
+<li> // Current line thickness is 20 pixels </li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.lineWidth = 20;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.stroke();</li>
+<li>&nbsp;</li>
+<li> // Draws a rectangle</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.strokeRect(230, 10, 100, 100);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/script&gt;</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
