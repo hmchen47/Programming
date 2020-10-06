@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Webcam Example</title>
+</head>
+<body><video id="myVideo" autoplay>Fallback msg here.</video>
+  <script>
+     if (navigator.getUserMedia) {
+          // request video and audio stream from the user's webcam
+         navigator.mediaDevices.getUserMedia({
+           audio: true,
+           video: true
+         })
+       .then((stream) => {
+          var video = document.querySelector('#myVideo');
+          video.srcObject = stream;
+          video.play();
+     }).catch((error) => {
+      console.log('navigator.getUserMedia error: ', error);
+   }); 
+     }
+  </script>
+</body>
+</html>

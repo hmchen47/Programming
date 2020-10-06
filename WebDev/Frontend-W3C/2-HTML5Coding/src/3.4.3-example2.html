@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <title>Canvas</title>
+  </head>
+
+<canvas id="myCanvas">Your browser does not support the canvas tag.</canvas>
+
+<script type="text/javascript">
+var canvas=document.getElementById('myCanvas');
+var ctx=canvas.getContext('2d');
+  
+ctx.fillStyle='#FF0000';
+ctx.fillRect(0,0,80,100);
+ 
+ctx.moveTo(0,0);
+ctx.lineTo(100, 100); 
+ctx.lineTo(100,0);
+ 
+ctx.strokeStyle = "#0000FF";
+ctx.stroke();
+   
+</script>
+
+</body>
+</html>
+

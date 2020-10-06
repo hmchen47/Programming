@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <title>Canvas</title>
+  </head>
+<body>
+
+<canvas id="myCanvas">Your browser does not support the canvas tag.</canvas>
+
+<script type="text/javascript">
+var canvas=document.getElementById('myCanvas');
+var ctx=canvas.getContext('2d');
+  
+// Path made of three points (defines two lines)
+ctx.moveTo(20,20);
+ctx.lineTo(100, 100); 
+ctx.lineTo(100,0);
+  
+// Close the path, try commenting this line
+ctx.closePath();
+  
+// indicate stroke color + draw first part of the path
+ctx.strokeStyle = "blue";
+ctx.stroke();
+   
+</script>
+
+</body>
+</html>
+

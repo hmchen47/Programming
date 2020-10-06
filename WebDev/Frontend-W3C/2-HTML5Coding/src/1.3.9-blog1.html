@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple HTML5 blog</title>
+  <link rel="stylesheet" href="css/1.3.9-blog2.css">
+</head>
+<body>
+<header>
+	<h1>Simple <span>HTML5</span> blog</h1>
+</header>
+<nav>
+  <header>
+    Navigation menu
+  </header>
+	<ul>
+		<li><span>Blog</span></li>
+		<li><a href="">About</a></li>
+		<li><a href="">Contact</a></li>
+	</ul>
+</nav>
+<section>
+  <header>    
+    <h1>Blog posts for April 2020</h1>    
+  </header>
+  <article>
+    <header>
+      <h1><a href="">Information about this example</a></h1>
+    </header>
+    <p>Try to move the mouse on different elements. The structure will be highlighted and you will be able to see the different inclusions of elements one in each other. If you move the cursor to this sentence, it will be highlighted in dark grey, showing the presence of an &lt;article&gt; element, surrounded by a &lt;section&gt; element (light grey), etc. So we have some articles in a single section element. The page title at the top is a &lt;header&gt; element, while  the tag cloud on the right is a &lt;aside&gt; element. The main menu on top (with Blog, About, Contact) is a &lt;nav&gt; element.</p>
+     <figure>
+  <img src="https://i.ibb.co/HH7cz6w/Structuring-Tags.jpg" alt="Example of HTML5 structuring tags" />
+  <figcaption>
+    Fig. 1 : an example of how new structuring elements could be used. This page put a &lt;nav&gt; on top, and does not have headers and footer for each article, like in this figure, but it could... By the way, this is a &lt;figcaption&gt; inside a &lt;figure&gt; element...
+  </figcaption>
+</figure>
+      
+  </article>
+	<article>
+		<header>
+			<h1><a href="">History</a></h1>
+		</header>
+    
+		<p>Work on HTML 5 originally started in late 2003, as a proof of concept to show that it was possible to extend HTML 4's forms to provide many of the features that XForms 1.0 introduced, without requiring browsers to implement rendering engines that were incompatible with existing HTML Web pages. At this early stage, while the draft was already publicly available, and input was already being solicited from all sources, the specification was only under Opera Software's copyright.</p>
+		<p>In early 2004, some of the principles that underlie this effort, as well as an early draft proposal covering just forms-related features, were presented to the W3C jointly by Mozilla and Opera at a workshop discussing the future of Web Applications on the Web. The proposal was rejected on the grounds that the proposal conflicted with the previously chosen direction for the Web's evolution.</p>
+		<p>Shortly thereafter, Apple, Mozilla, and Opera jointly announced their intent to continue working on the effort. A public mailing list was created, and the drafts were moved to the WHATWG site. The copyright was subsequently amended to be jointly owned by all three vendors, and to allow reuse of the specifications.</p>
+		<p>In 2006, the W3C expressed interest in the specification, and created a working group chartered to work with the WHATWG on the development of the HTML 5 specifications. The working group opened in 2007. Apple, Mozilla, and Opera allowed the W3C to publish the specifications under the W3C copyright, while keeping versions with the less restrictive license on the WHATWG site.</p>
+		<p>Since then, both groups have been working together.</p>
+	</article>
+	<article>
+		<header>
+			<h1><a href="">HTML vs XHTML</a></h1>
+		</header>
+		<p>This specification defines an abstract language for describing documents and applications, and some APIs for interacting with in-memory representations of resources that use this language.</p>
+		<p>The in-memory representation is known as  DOM5 HTML , or  the DOM  for short.</p>
+		<p>There are various concrete syntaxes that can be used to transmit resources that use this abstract language, two of which are defined in this specification.</p>
+		<p>The first such concrete syntax is  HTML5 . This is the format recommended for most authors. It is compatible with most legacy Web browsers. If a document is transmitted with the MIME type text/html, then it will be processed as an  HTML5  document by Web browsers.</p>
+		<p>The second concrete syntax uses XML, and is known as  XHTML5 . When a document is transmitted with an XML MIME type, such as application/xhtml+xml, then it is processed by an XML processor by Web browsers, and treated as an  XHTML5  document. Authors are reminded that the processing for XML and HTML differs; in particular, even minor syntax errors will prevent an XML document from being rendered fully, whereas they would be ignored in the  HTML5  syntax.</p>
+		<p>The  DOM5 HTML ,  HTML5 , and  XHTML5  representations cannot all represent the same content. For example, namespaces cannot be represented using  HTML5 , but they are supported in  DOM5 HTML  and  XHTML5 . Similarly, documents that use the noscript feature can be represented using  HTML5 , but cannot be represented with  XHTML5  and  DOM5 HTML . Comments that contain the string  ->  can be represented in  DOM5 HTML  but not in  HTML5  and  XHTML5 . And so forth.</p>
+	</article>
+</section>
+<aside>
+	<h1>Tag cloud</h1>
+	<ul class="tag-cloud">
+		<li><a href="" rel="tag" class="w2">ajax</a></li>
+		<li><a href="" rel="tag" class="w8">apple</a></li>
+		<li><a href="" rel="tag" class="w3">css</a></li>
+		<li><a href="" rel="tag" class="w6">firefox</a></li>
+		<li><a href="" rel="tag" class="w8">google</a></li>
+		<li><a href="" rel="tag" class="w2">html</a></li>
+		<li><a href="" rel="tag" class="w2">internet explorer</a></li>
+		<li><a href="" rel="tag" class="w6">iphone</a></li>
+		<li><a href="" rel="tag" class="w9">css3</a></li>
+		<li><a href="" rel="tag" class="w2">ipod</a></li>
+		<li><a href="" rel="tag" class="w5">javascript</a></li>
+		<li><a href="" rel="tag" class="w1">jquery</a></li>
+		<li><a href="" rel="tag" class="w2">mac</a></li>
+		<li><a href="" rel="tag" class="w4">opera</a></li>
+		<li><a href="" rel="tag" class="w2">rss</a></li>
+		<li><a href="" rel="tag" class="w10">html5</a></li>
+		<li><a href="" rel="tag" class="w2">web</a></li>
+		<li><a href="" rel="tag" class="w8">web 2.0</a></li>
+		<li><a href="" rel="tag" class="w1">web-??????????</a></li>
+		<li><a href="" rel="tag" class="w3">windows</a></li>
+		<li><a href="" rel="tag" class="w2">yahoo</a></li>
+		<li><a href="" rel="tag" class="w7">youtube</a></li>
+	</ul>
+</aside>
+<footer>
+	<p>&copy; 2009 Some blog</p>
+</footer>
+</body>
+</html>
