@@ -71,8 +71,8 @@
   + CSS rules example
 
     <div><ol style="list-style-type: decimal;">
-    <li style="margin-bottom: 0px;" value="1"><span>&lt;c.myclass&gt;</span><span>This cue contains the class "myclass". </span></li>
-    <li style="margin-bottom: 0px;"><span>Browsers that support ::cue CSS should make it red.</span><span>&lt;/c&gt;</span></li>
+    <li value="1"><span>&lt;c.myclass&gt;</span><span>This cue contains the class "myclass". </span></li>
+    <li><span>Browsers that support ::cue CSS should make it red.</span><span>&lt;/c&gt;</span></li>
     </ol></div><br/>
 
     + `::cue` pseudo element selector: used to match "cues" in the webVTT file
@@ -150,9 +150,9 @@ The accessibility features of TV programs often propose both options for people 
 <p>The <span style="font-family: 'courier new', courier;">&lt;track&gt;</span> element cannot be used with a <span style="font-family: 'courier new', courier;">file://</span> URL. Please use <span style="font-family: 'courier new', courier;">https://</span> and a Web server. Your server must use a special MIME format for the <span style="font-family: 'courier new', courier;">.vtt</span> files: <span style="font-family: 'courier new', courier;">text/vtt;charset=utf-8 <span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">(set by default on most servers now).</span></span></p>
 <p>Examples of the lines to add to an Apache Web server:</p>
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;Files</span><span> </span><span>mysubtitle</span><span>.</span><span>vtt</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> ForceType text/vtt;charset=utf-8</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/Files&gt;</span></li>
+<li value="1"><span>&lt;Files</span><span> </span><span>mysubtitle</span><span>.</span><span>vtt</span><span>&gt;</span></li>
+<li><span> ForceType text/vtt;charset=utf-8</span></li>
+<li><span>&lt;/Files&gt;</span></li>
 </ol></div>
 </div>
 
@@ -170,17 +170,17 @@ Here is [an example on JsBin](https://jsbin.com/nuqejof/edit?html,output) ([Loca
 As seen in this screenshot, the example uses a `<track>` element to insert basic captions to the video: sounds and music are described, in addition to standard subtitles that correspond to what the different movie characters say.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>height</span><span>=</span><span>"272"</span><span> </span><span>width</span><span>=</span><span>"640"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>poster</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/q1fx20VZ-640.jpg"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>crossorigin</span><span>=</span><span>"anonymous"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>controls</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://<span style="background-color: #eeeeee;">mainline.i3s.unice.fr</span><span style="background-color: #eeeeee;">/</span>mooc/sintel.mp4"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"video/mp4"</span><span>&gt;</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://<span style="background-color: #eeeeee;">mainline.i3s.unice.fr</span><span style="background-color: #eeeeee;">/</span>mooc/sintel.webm"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"video/webm"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>src</span><span>=</span><span>"https://<span style="background-color: #eeeeee;">mainline.i3s.unice.fr</span><span style="background-color: #eeeeee;">/</span>mooc/sintel-captions.vtt"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span>kind</span><span>=</span><span>"captions"</span><span> </span><span>label</span><span>=</span><span>"Closed Captions"</span><span> </span><span>default</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
+<li value="1"><span>&lt;video</span><span> </span><span>height</span><span>=</span><span>"272"</span><span> </span><span>width</span><span>=</span><span>"640"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>poster</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/q1fx20VZ-640.jpg"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>crossorigin</span><span>=</span><span>"anonymous"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>controls</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://<span style="background-color: #eeeeee;">mainline.i3s.unice.fr</span><span style="background-color: #eeeeee;">/</span>mooc/sintel.mp4"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"video/mp4"</span><span>&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://<span style="background-color: #eeeeee;">mainline.i3s.unice.fr</span><span style="background-color: #eeeeee;">/</span>mooc/sintel.webm"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"video/webm"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>src</span><span>=</span><span>"https://<span style="background-color: #eeeeee;">mainline.i3s.unice.fr</span><span style="background-color: #eeeeee;">/</span>mooc/sintel-captions.vtt"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span>kind</span><span>=</span><span>"captions"</span><span> </span><span>label</span><span>=</span><span>"Closed Captions"</span><span> </span><span>default</span><span>&gt;</span></li>
+<li><span>&lt;/video&gt;</span></li>
 </ol></div>
 
 
@@ -198,22 +198,22 @@ Multiple tracks are needed to support different langages, video captions for the
 Below is an example ([from the specification](https://html.spec.whatwg.org/multipage/media.html#the-track-element)) that includes multiple `<track>` elements (subtitles for three languages and captions only for English):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>src</span><span>=</span><span>"brave.webm"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>kind</span><span>=</span><span>subtitles</span><span> </span><span>src</span><span>=</span><span>brave.en.vtt</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span>=</span><span>en</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span>=</span><span>"English"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>kind</span><span>=</span><span>captions</span><span> </span><span>src</span><span>=</span><span>brave.en.hoh.vtt</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span>=</span><span>en</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>label</span><span>=</span><span>"English for the Hard of Hearing"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>kind</span><span>=</span><span>subtitles</span><span> </span><span>src</span><span>=</span><span>brave.fr.vtt</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span>=</span><span>fr</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lang</span><span>=</span><span>fr</span><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span>=</span><span>"Français"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>kind</span><span>=</span><span>subtitles</span><span> </span><span>src</span><span>=</span><span>brave.de.vtt</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span>=</span><span>de</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lang</span><span>=</span><span>de</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span>=</span><span>"Deutsch"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
+<li value="1"><span>&lt;video</span><span> </span><span>src</span><span>=</span><span>"brave.webm"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>kind</span><span>=</span><span>subtitles</span><span> </span><span>src</span><span>=</span><span>brave.en.vtt</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span>=</span><span>en</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span>=</span><span>"English"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>kind</span><span>=</span><span>captions</span><span> </span><span>src</span><span>=</span><span>brave.en.hoh.vtt</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span>=</span><span>en</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>label</span><span>=</span><span>"English for the Hard of Hearing"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>kind</span><span>=</span><span>subtitles</span><span> </span><span>src</span><span>=</span><span>brave.fr.vtt</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span>=</span><span>fr</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lang</span><span>=</span><span>fr</span><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span>=</span><span>"Français"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;track</span><span> </span><span>kind</span><span>=</span><span>subtitles</span><span> </span><span>src</span><span>=</span><span>brave.de.vtt</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span>=</span><span>de</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lang</span><span>=</span><span>de</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span>=</span><span>"Deutsch"</span><span>&gt;</span></li>
+<li><span>&lt;/video&gt;</span></li>
 </ol></div>
 
 Note the use of some new attributes in the `<track>` element:
@@ -245,87 +245,87 @@ The "[WebVTT: The Web Video Text Tracks Format](http://dev.w3.org/html5/webvtt/)
 In [the JsBin example presented in the previous section](https://jsbin.com/bewuyuc/4/edit?html,output), we used a file called `sintel-captions.vtt`:
 
 <div style="line-height: 23.2727279663086px;"><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span>&nbsp;</span><span>height</span><span>=</span><span>"272"</span><span>&nbsp;</span><span>width</span><span>=</span><span>"640"</span><span></span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>poster</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/q1fx20VZ-640.jpg"</span><span></span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>crossorigin</span><span>=</span><span>"anonymous"</span><span></span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>controls</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;...</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;track</span><span>&nbsp;</span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr<span style="background-color: #eeeeee;">/mooc</span>/<strong>sintel-captions.vtt</strong>"</span><span></span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>kind</span><span>=</span><span>"captions"</span><span>&nbsp;</span><span>label</span><span>=</span><span>"Closed Captions"</span><span>&nbsp;</span><span>default</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
+<li value="1"><span>&lt;video</span><span>&nbsp;</span><span>height</span><span>=</span><span>"272"</span><span>&nbsp;</span><span>width</span><span>=</span><span>"640"</span><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>poster</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/q1fx20VZ-640.jpg"</span><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>crossorigin</span><span>=</span><span>"anonymous"</span><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>controls</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;...</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;track</span><span>&nbsp;</span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr<span style="background-color: #eeeeee;">/mooc</span>/<strong>sintel-captions.vtt</strong>"</span><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>kind</span><span>=</span><span>"captions"</span><span>&nbsp;</span><span>label</span><span>=</span><span>"Closed Captions"</span><span>&nbsp;</span><span>default</span><span>&gt;</span></li>
+<li><span>&lt;/video&gt;</span></li>
 </ol></div>
 
 And here is an extract of the corresponding [sintel-captions.vtt](https://mainline.i3s.unice.fr/mooc/sintel-captions.vtt) file:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>WEBVTT</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>01.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>02.042</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>drumbeat</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>07.167</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>12.025</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>plaintive violin solo playing</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>15.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>18.183</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>wind whistling</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>24.167</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>27.025</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>orchestra music swells</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>43.033</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>43.192</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>weapons clash</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>44.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>44.175</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>gasps</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>44.183</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>45.158</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>grunts</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>45.167</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>47.058</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>groaning</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>54.192</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>55.150</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>blade rings</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>55.158</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>57.008</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>bellowing</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>57.017</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>58.067</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>grunting</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>59.075</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>00.133</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>panting</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>05.108</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>06.125</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>cries </span><span>out</span><span> </span><span>in</span><span> agony</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>08.050</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>09.058</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>panting</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>12.092</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>13.142</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>panting</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>14.017</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>18.125</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>orchestra plays ominous low notes</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>31.058</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>35.133</span></li>
-<li style="margin-bottom: 0px;"><span>(</span><span>plaintive violin solo returns</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>46.158</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>49.058</span></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> blade has a dark past</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>51.092</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>54.108</span></li>
-<li style="margin-bottom: 0px;"><span>It</span><span> has shed much innocent blood</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>57.083</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>02</span><span>:</span><span>00.000</span></li>
-<li style="margin-bottom: 0px;"><span>You</span><span>'re a fool for traveling alone </span></li>
-<li style="margin-bottom: 0px;"><span> so completely unprepared. </span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00:02:01.100 --&gt; 00:02:03.033</span></li>
-<li style="margin-bottom: 0px;"><span>You'</span><span>re lucky your blood</span><span>'s still flowing.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00:02:04.183 --&gt; 00:02:06.075</span></li>
-<li style="margin-bottom: 0px;"><span>Thank you.</span></li>
+<li value="1"><span>WEBVTT</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>01.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>02.042</span></li>
+<li><span>(</span><span>drumbeat</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>07.167</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>12.025</span></li>
+<li><span>(</span><span>plaintive violin solo playing</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>15.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>18.183</span></li>
+<li><span>(</span><span>wind whistling</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>24.167</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>27.025</span></li>
+<li><span>(</span><span>orchestra music swells</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>43.033</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>43.192</span></li>
+<li><span>(</span><span>weapons clash</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>44.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>44.175</span></li>
+<li><span>(</span><span>gasps</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>44.183</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>45.158</span></li>
+<li><span>(</span><span>grunts</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>45.167</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>47.058</span></li>
+<li><span>(</span><span>groaning</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>54.192</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>55.150</span></li>
+<li><span>(</span><span>blade rings</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>55.158</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>57.008</span></li>
+<li><span>(</span><span>bellowing</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>57.017</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>58.067</span></li>
+<li><span>(</span><span>grunting</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>59.075</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>00.133</span></li>
+<li><span>(</span><span>panting</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>05.108</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>06.125</span></li>
+<li><span>(</span><span>cries </span><span>out</span><span> </span><span>in</span><span> agony</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>08.050</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>09.058</span></li>
+<li><span>(</span><span>panting</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>12.092</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>13.142</span></li>
+<li><span>(</span><span>panting</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>14.017</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>18.125</span></li>
+<li><span>(</span><span>orchestra plays ominous low notes</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>31.058</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>35.133</span></li>
+<li><span>(</span><span>plaintive violin solo returns</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>46.158</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>49.058</span></li>
+<li><span>This</span><span> blade has a dark past</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>51.092</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>54.108</span></li>
+<li><span>It</span><span> has shed much innocent blood</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>57.083</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>02</span><span>:</span><span>00.000</span></li>
+<li><span>You</span><span>'re a fool for traveling alone </span></li>
+<li><span> so completely unprepared. </span></li>
+<li><span> </span></li>
+<li><span>00:02:01.100 --&gt; 00:02:03.033</span></li>
+<li><span>You'</span><span>re lucky your blood</span><span>'s still flowing.</span></li>
+<li><span> </span></li>
+<li><span>00:02:04.183 --&gt; 00:02:06.075</span></li>
+<li><span>Thank you.</span></li>
 </ol></div>
 
 This format is rather simple, but we still recommend reading [this excellent article from Mozilla Developer Network](https://tinyurl.com/y3sxj9a3) that explains in detail all the different options.
@@ -337,29 +337,29 @@ __Each element is called "a cue"__, and may optionally have an ID that will be u
 Example of numeric IDs:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>9</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>21.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>22.000</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>to hear </span><span>from</span><span> </span><span>&lt;u&gt;</span><span>you</span><span>&lt;/</span><span>u</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>10</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>22.500</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>25.000</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>We</span><span> want to hear what inspires you </span><span>as</span><span> a developer</span></li>
+<li value="1"><span>9</span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>21.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>22.000</span><span> </span></li>
+<li><span>to hear </span><span>from</span><span> </span><span>&lt;u&gt;</span><span>you</span><span>&lt;/</span><span>u</span><span>&gt;</span></li>
+<li><span> </span></li>
+<li><span>10</span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>22.500</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>25.000</span><span> </span></li>
+<li><span>We</span><span> want to hear what inspires you </span><span>as</span><span> a developer</span></li>
 </ol></div>
 
 IDs may also be defined as strings, and values can use HTML as well:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>Opening</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>00.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>30.000</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>Welcome</span><span> to </span><span>our</span><span> </span><span>&lt;i&gt;</span><span>nice film</span><span>&lt;/</span><span>i</span><span>&gt;</span></li>
+<li value="1"><span>Opening</span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>00.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>30.000</span><span> </span></li>
+<li><span>Welcome</span><span> to </span><span>our</span><span> </span><span>&lt;i&gt;</span><span>nice film</span><span>&lt;/</span><span>i</span><span>&gt;</span></li>
 </ol></div>
 
 The displayed text can span multiple lines, but blank lines are not allowed, as they would be interpreted as a separator:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>00</span><span>:</span><span>01</span><span>:</span><span>57.083</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>02</span><span>:</span><span>00.000</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;p&gt;</span><span>You</span><span>'re a fool for traveling alone&lt;/p&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;p&gt;so completely unprepared.&lt;/p&gt;</span></li>
+<li value="1"><span>00</span><span>:</span><span>01</span><span>:</span><span>57.083</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>02</span><span>:</span><span>00.000</span></li>
+<li><span>&lt;p&gt;</span><span>You</span><span>'re a fool for traveling alone&lt;/p&gt;</span></li>
+<li><span>&lt;p&gt;so completely unprepared.&lt;/p&gt;</span></li>
 </ol></div>
 
 
@@ -395,17 +395,17 @@ So, let's suppose you have a video like the one below (we included it on YouTube
 And you've also got it in `mp4/H264` and in `webm` formats. Here is how you can embed it in your page using the video element:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>id</span><span>=</span><span>"myVideo"</span><span> </span><span>width</span><span>=</span><span>500</span><span> </span><span>controls</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>&lt;source</span><span>&nbsp;&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; src</span><span>=</span><span>"videos/SameOldSongAndDanceRogerLathaudPart1MidRes.mp4"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; type</span><span>=</span><span>"video/mp4"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; </span><span>&lt;source</span><span>&nbsp; &nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; src</span><span>=</span><span>"videos/SameOldSongAndDanceRogerLathaudPart1MidRes.webm"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; type</span><span>=</span><span>"video/webm"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;</span><span>&lt;track</span><span> </span><span>src</span><span>=</span><span>"videos/subtitles.vtt"</span><span>&nbsp; &nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span>=</span><span>"subtitles"</span><span>&nbsp;srclang="en"&nbsp;</span><span>default</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span><span> </span></li>
+<li value="1"><span>&lt;video</span><span> </span><span>id</span><span>=</span><span>"myVideo"</span><span> </span><span>width</span><span>=</span><span>500</span><span> </span><span>controls</span><span>&gt;</span></li>
+<li><span>&nbsp;&nbsp;</span><span>&lt;source</span><span>&nbsp;&nbsp;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; src</span><span>=</span><span>"videos/SameOldSongAndDanceRogerLathaudPart1MidRes.mp4"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; type</span><span>=</span><span>"video/mp4"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&lt;source</span><span>&nbsp; &nbsp;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; src</span><span>=</span><span>"videos/SameOldSongAndDanceRogerLathaudPart1MidRes.webm"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; type</span><span>=</span><span>"video/webm"</span><span>&gt;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp;&nbsp;</span><span>&lt;track</span><span> </span><span>src</span><span>=</span><span>"videos/subtitles.vtt"</span><span>&nbsp; &nbsp;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span>=</span><span>"subtitles"</span><span>&nbsp;srclang="en"&nbsp;</span><span>default</span><span>&gt;</span></li>
+<li><span>&lt;/video&gt;</span><span> </span></li>
 </ol></div>
 
 At line 9, we added a <track> element to add English subtitles, as the guitar teacher there is speaking in French. We will now explain how we created this subtitle track.
@@ -462,58 +462,58 @@ This [example on JSBin](https://output.jsbin.com/lopudu) shows how we can do tha
 The WebVTT file is shown below. Notice the new attributes that have been added on the right end of the duration values:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>WEBVTT</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>01.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>05.000</span></li>
-<li style="margin-bottom: 0px;"><span>These</span><span> captions test some features of the </span><span>WebVTT</span><span> formats </span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>06.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>10.000</span><strong><span> line</span><span>:</span><span>5</span><span>%</span></strong></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue </span><span>is</span><span> positioned at the top of the video</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>11.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>15.000</span><strong><span> position</span><span>:</span><span>5</span><span>%</span><span> align</span><span>:</span><span>start</span></strong></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue </span><span>is</span><span> positioned at the left side of the video</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>16.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>20.000</span><span> position</span><span>:</span><span>95</span><span>%</span><strong><span> align</span><span>:</span><span>end</span></strong></li>
-<li style="margin-bottom: 0px;"><span>And</span><span> </span><span>this</span><span> one ate the right side</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>21.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>25.000</span><strong><span> size</span><span>:</span><span>33</span><span>%</span></strong></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue </span><span>is</span><span> only a third of the width of the video</span><span>,</span><span> hence the multiple line breaks</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>26.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>30.000</span></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue contains </span><strong><span>&lt;b&gt;</span></strong><span>bold</span><strong><span>&lt;/</span><span>b</span><span>&gt;</span></strong><span> text</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>31.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>35.000</span></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue contains </span><strong><span>&lt;i&gt;</span></strong><span>italic</span><strong><span>&lt;/</span><span>i</span><span>&gt;</span></strong><span> text</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>36.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>40.000</span></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue contains </span><strong><span>&lt;u&gt;</span></strong><span>underlined</span><strong><span>&lt;/</span><span>u</span><span>&gt;</span></strong><span> text</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>41.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>45.000</span></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue contains </span><strong><span>&lt;b&gt;&lt;i&gt;&lt;u&gt;</span></strong><span>bold</span><span>,</span><span> italic</span><span>,</span><span> underlined</span><strong><span>&lt;</span><span>/u&gt;&lt;/</span><span>i</span><span>&gt;&lt;/</span><span>b</span><span>&gt;</span></strong><span> text</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>46.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>50.000</span></li>
-<li style="margin-bottom: 0px;"><strong><span>&lt;</span><span>c</span><span>.</span><span>myclass</span><span>&gt;</span></strong><span>This</span><span> cue contains the </span><span>class</span><span> </span><span>"myclass"</span><span>.</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>Browsers</span><span> that support </span><span>::</span><span>cue CSS should make it red</span><span>.<strong>&lt;/</strong></span><strong><span>c</span><span>&gt;</span></strong></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>51.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>55.000</span></li>
-<li style="margin-bottom: 0px;"><span>The</span><span> following cue contains two voices</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span>Tarzan</span><span> should be blue </span><span>and</span><span> </span><span>Jane</span><span> green</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>56.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>00.000</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;</span><span>v </span><span>Tarzan</span><span>&gt;</span><span>Me</span><span> </span><span>Tarzan</span><span>...</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;</span><span>v </span><span>Jane</span><span>&gt;</span><span>That</span><span> would make me </span><span>Jane</span><span>!</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>bigtext</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>01.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>05.000</span></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue has a unique id</span><span>.</span></li>
-<li style="margin-bottom: 0px;"><span>Using</span><span> CSS</span><span>,</span><span> its font size should be </span><span>150</span><span>%.</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>06.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>10.000</span></li>
-<li style="margin-bottom: 0px;"><span>The</span><span> </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>06.333</span><span>&gt;</span><span>text </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>06.666</span><span>&gt;</span><span>in</span><span> </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>07.000</span><span>&gt;</span><span>this</span><span> </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>07.333</span><span>&gt;</span><span>cue </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>07.666</span><span>&gt;</span><span>should </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>08.000</span><span>&gt;</span><span>grow</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>08.333</span><span>&gt;</span><span>one </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>08.666</span><span>&gt;</span><span>word </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>09.000</span><span>&gt;</span><span>at </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>09.333</span><span>&gt;</span><span>a </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>09.666</span><span>&gt;</span><span>time</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>11.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>15.000</span></li>
-<li style="margin-bottom: 0px;"><span>That</span><span>'s it! For now...</span></li>
+<li value="1"><span>WEBVTT</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>01.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>05.000</span></li>
+<li><span>These</span><span> captions test some features of the </span><span>WebVTT</span><span> formats </span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>06.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>10.000</span><strong><span> line</span><span>:</span><span>5</span><span>%</span></strong></li>
+<li><span>This</span><span> cue </span><span>is</span><span> positioned at the top of the video</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>11.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>15.000</span><strong><span> position</span><span>:</span><span>5</span><span>%</span><span> align</span><span>:</span><span>start</span></strong></li>
+<li><span>This</span><span> cue </span><span>is</span><span> positioned at the left side of the video</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>16.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>20.000</span><span> position</span><span>:</span><span>95</span><span>%</span><strong><span> align</span><span>:</span><span>end</span></strong></li>
+<li><span>And</span><span> </span><span>this</span><span> one ate the right side</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>21.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>25.000</span><strong><span> size</span><span>:</span><span>33</span><span>%</span></strong></li>
+<li><span>This</span><span> cue </span><span>is</span><span> only a third of the width of the video</span><span>,</span><span> hence the multiple line breaks</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>26.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>30.000</span></li>
+<li><span>This</span><span> cue contains </span><strong><span>&lt;b&gt;</span></strong><span>bold</span><strong><span>&lt;/</span><span>b</span><span>&gt;</span></strong><span> text</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>31.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>35.000</span></li>
+<li><span>This</span><span> cue contains </span><strong><span>&lt;i&gt;</span></strong><span>italic</span><strong><span>&lt;/</span><span>i</span><span>&gt;</span></strong><span> text</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>36.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>40.000</span></li>
+<li><span>This</span><span> cue contains </span><strong><span>&lt;u&gt;</span></strong><span>underlined</span><strong><span>&lt;/</span><span>u</span><span>&gt;</span></strong><span> text</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>41.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>45.000</span></li>
+<li><span>This</span><span> cue contains </span><strong><span>&lt;b&gt;&lt;i&gt;&lt;u&gt;</span></strong><span>bold</span><span>,</span><span> italic</span><span>,</span><span> underlined</span><strong><span>&lt;</span><span>/u&gt;&lt;/</span><span>i</span><span>&gt;&lt;/</span><span>b</span><span>&gt;</span></strong><span> text</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>46.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>50.000</span></li>
+<li><strong><span>&lt;</span><span>c</span><span>.</span><span>myclass</span><span>&gt;</span></strong><span>This</span><span> cue contains the </span><span>class</span><span> </span><span>"myclass"</span><span>.</span><span> </span></li>
+<li><span>Browsers</span><span> that support </span><span>::</span><span>cue CSS should make it red</span><span>.<strong>&lt;/</strong></span><strong><span>c</span><span>&gt;</span></strong></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>51.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>55.000</span></li>
+<li><span>The</span><span> following cue contains two voices</span><span>.</span></li>
+<li><span>Tarzan</span><span> should be blue </span><span>and</span><span> </span><span>Jane</span><span> green</span><span>.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>56.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>00.000</span></li>
+<li><span>&lt;</span><span>v </span><span>Tarzan</span><span>&gt;</span><span>Me</span><span> </span><span>Tarzan</span><span>...</span></li>
+<li><span>&lt;</span><span>v </span><span>Jane</span><span>&gt;</span><span>That</span><span> would make me </span><span>Jane</span><span>!</span></li>
+<li><span> </span></li>
+<li><span>bigtext</span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>01.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>05.000</span></li>
+<li><span>This</span><span> cue has a unique id</span><span>.</span></li>
+<li><span>Using</span><span> CSS</span><span>,</span><span> its font size should be </span><span>150</span><span>%.</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>06.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>10.000</span></li>
+<li><span>The</span><span> </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>06.333</span><span>&gt;</span><span>text </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>06.666</span><span>&gt;</span><span>in</span><span> </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>07.000</span><span>&gt;</span><span>this</span><span> </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>07.333</span><span>&gt;</span><span>cue </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>07.666</span><span>&gt;</span><span>should </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>08.000</span><span>&gt;</span><span>grow</span></li>
+<li><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>08.333</span><span>&gt;</span><span>one </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>08.666</span><span>&gt;</span><span>word </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>09.000</span><span>&gt;</span><span>at </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>09.333</span><span>&gt;</span><span>a </span><span>&lt;</span><span>00</span><span>:</span><span>01</span><span>:</span><span>09.666</span><span>&gt;</span><span>time</span></li>
+<li><span> </span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>11.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>15.000</span></li>
+<li><span>That</span><span>'s it! For now...</span></li>
 </ol></div>
 
 
@@ -540,8 +540,8 @@ The video example tests nearly all the possibilities for positioning subtitles/c
 It is possible to locate the cues in the video viewport using absolute or relative values. The attributes that position the text are located on the same line as the cue definition, like at line 9 of the previous WebVTT example file:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>00</span><span>:</span><span>00</span><span>:</span><span>11.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>15.000</span><strong><span style="color: #ff0000;"><span> position</span><span>:</span><span>5</span><span>%</span><span> align</span><span>:</span><span>start</span></span></strong></li>
-<li style="margin-bottom: 0px;"><span>This</span><span> cue </span><span>is</span><span> positioned at the left side of the video</span><span>.</span></li>
+<li value="1"><span>00</span><span>:</span><span>00</span><span>:</span><span>11.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>15.000</span><strong><span style="color: #ff0000;"><span> position</span><span>:</span><span>5</span><span>%</span><span> align</span><span>:</span><span>start</span></span></strong></li>
+<li><span>This</span><span> cue </span><span>is</span><span> positioned at the left side of the video</span><span>.</span></li>
 </ol></div>
 
 There are several possible values:
@@ -571,8 +571,8 @@ And so on. Please look at the video as it is self-explanatory.
 It is possible to style using CSS classes as part of a cue value, using the `<c>` element. You can specify the CSS class that should be applied by adding "." followed by the name of your CSS class. Here is an example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;c.myclass&gt;</span><span>This cue contains the class "myclass". </span></li>
-<li style="margin-bottom: 0px;"><span>Browsers that support ::cue CSS should make it red.</span><span>&lt;/c&gt;</span></li>
+<li value="1"><span>&lt;c.myclass&gt;</span><span>This cue contains the class "myclass". </span></li>
+<li><span>Browsers that support ::cue CSS should make it red.</span><span>&lt;/c&gt;</span></li>
 </ol></div>
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -588,12 +588,12 @@ It is possible to style using CSS classes as part of a cue value, using the `<c>
 CSS rules used in this example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span> </span><span>&lt;style</span><span> </span><span>type</span><span>=</span><span>"text/css"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>::</span><span>cue</span><span>(.</span><span>myclass</span><span>)</span><span> </span><span>{</span><span> color</span><span>:</span><span> red</span><span>;</span><span> </span><span>}</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>::</span><span>cue</span><span>(</span><span>v</span><span>[</span><span>voice</span><span>=</span><span>"Tarzan"</span><span>])</span><span> </span><span>{</span><span> color</span><span>:</span><span> blue</span><span>;</span><span> </span><span>}</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>::</span><span>cue</span><span>(</span><span>v</span><span>[</span><span>voice</span><span>=</span><span>"Jane"</span><span>])</span><span> </span><span>{</span><span> color</span><span>:</span><span> green</span><span>;</span><span> </span><span>}</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp;</span><span>::</span><span>cue</span><span>(#</span><span>bigtext</span><span>)</span><span> </span><span>{</span><span> font</span><span>-</span><span>size</span><span>:</span><span> </span><span>150</span><span>%;</span><span> </span><span>}</span></li>
-<li style="margin-bottom: 0px;"><span> </span><span>&lt;/style&gt;</span></li>
+<li value="1"><span> </span><span>&lt;style</span><span> </span><span>type</span><span>=</span><span>"text/css"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>::</span><span>cue</span><span>(.</span><span>myclass</span><span>)</span><span> </span><span>{</span><span> color</span><span>:</span><span> red</span><span>;</span><span> </span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>::</span><span>cue</span><span>(</span><span>v</span><span>[</span><span>voice</span><span>=</span><span>"Tarzan"</span><span>])</span><span> </span><span>{</span><span> color</span><span>:</span><span> blue</span><span>;</span><span> </span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>::</span><span>cue</span><span>(</span><span>v</span><span>[</span><span>voice</span><span>=</span><span>"Jane"</span><span>])</span><span> </span><span>{</span><span> color</span><span>:</span><span> green</span><span>;</span><span> </span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>::</span><span>cue</span><span>(#</span><span>bigtext</span><span>)</span><span> </span><span>{</span><span> font</span><span>-</span><span>size</span><span>:</span><span> </span><span>150</span><span>%;</span><span> </span><span>}</span></li>
+<li><span> </span><span>&lt;/style&gt;</span></li>
 </ol></div>
 
 The `::cue` pseudo element selector is used to match "cues" in the webVTT file. You add parenthesis and a secondary CSS selector to match cues that have a particular id, or a particular CSS class, etc. Look at the CSS above and at the extract from the webVTT file, play the video, you will understand how this works...
@@ -617,9 +617,9 @@ Using the `<v>` tag, you will distinguish different voices that should be displa
 Example source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>00</span><span>:</span><span>00</span><span>:</span><span>56.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>04.000</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;</span><span>v </span><span>Tarzan</span><span>&gt;</span><span>Me</span><span> </span><span>Tarzan</span><span>...</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;</span><span>v </span><span>Jane</span><span>&gt;</span><span>That</span><span> would make me </span><span>Jane</span><span></span></li>
+<li value="1"><span>00</span><span>:</span><span>00</span><span>:</span><span>56.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>04.000</span></li>
+<li><span>&lt;</span><span>v </span><span>Tarzan</span><span>&gt;</span><span>Me</span><span> </span><span>Tarzan</span><span>...</span></li>
+<li><span>&lt;</span><span>v </span><span>Jane</span><span>&gt;</span><span>That</span><span> would make me </span><span>Jane</span><span></span></li>
 </ol></div>
 
 
@@ -636,14 +636,14 @@ Example source code:
 Adding chapters is very similar to adding subtitles/captions. Look at line 5 in the code below, where we use an extra `<track>` element with a `kind="chapters"` attribute.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>poster</span><span>=</span><span>"webvtt_talk.png"</span><span> </span><span>style</span><span>=</span><span>"</span><span>width</span><span>:</span><span>100</span><span>%</span><span>"</span><span> </span><span>preload</span><span>=</span><span>"metadata"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk.webm"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk.mp4"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk.ogv"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;track</span><span> </span><span>id</span><span>=</span><span>"nav"</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk_navigation.vtt"</span><span> </span><strong><span>kind</span><span>=</span><span>"chapters"</span></strong><span> </span><span>srclang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;track</span><span> </span><span>id</span><span>=</span><span>"cc"</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk_captions.vtt"</span><span> </span><span>kind</span><span>=</span><span>"captions"</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span>=</span><span>"captions"</span><span> </span><span>srclang</span><span>=</span><span>"en"</span><span> </span><span>default</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
+<li value="1"><span>&lt;video</span><span> </span><span>poster</span><span>=</span><span>"webvtt_talk.png"</span><span> </span><span>style</span><span>=</span><span>"</span><span>width</span><span>:</span><span>100</span><span>%</span><span>"</span><span> </span><span>preload</span><span>=</span><span>"metadata"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk.webm"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk.mp4"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk.ogv"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;track</span><span> </span><span>id</span><span>=</span><span>"nav"</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk_navigation.vtt"</span><span> </span><strong><span>kind</span><span>=</span><span>"chapters"</span></strong><span> </span><span>srclang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;track</span><span> </span><span>id</span><span>=</span><span>"cc"</span><span> </span><span>src</span><span>=</span><span>"webvtt_talk_captions.vtt"</span><span> </span><span>kind</span><span>=</span><span>"captions"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; label</span><span>=</span><span>"captions"</span><span> </span><span>srclang</span><span>=</span><span>"en"</span><span> </span><span>default</span><span>&gt;</span></li>
+<li><span>&lt;/video&gt;</span></li>
 </ol></div>
 
 Here is an example of WebVTT files with defined chapters. Each "CUE" at lines 3, 7, 11, ... can bear any name. We use "Chapter 1, Chapter 2, Ending, etc." but you are free to name them as you choose.
@@ -655,31 +655,31 @@ It's also easy to process them, and for example, to generate a custom navigation
 Example of a WebVTT file that defines chapters:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>WEBVTT FILE</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span><span style="color: #660066;" color="#660066">Chapter</span>&nbsp;</span><span>1</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>00.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>10.700</span></li>
-<li style="margin-bottom: 0px;"><span>Title</span><span> </span><span>Slide</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>Chapter</span><span>&nbsp;</span><span>2</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>10.700</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>47.600</span></li>
-<li style="margin-bottom: 0px;"><span>Introduction</span><span> </span><span>by</span><span> </span><span>Naomi</span><span> </span><span>Black</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>Chapter</span><span>&nbsp;</span><span>3</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>00</span><span>:</span><span>47.600</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>50.100</span></li>
-<li style="margin-bottom: 0px;"><span>Impact</span><span> of </span><span>Captions</span><span> on the </span><span>Web</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>Chapter</span><span>&nbsp;</span><span>4</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>01</span><span>:</span><span>50.100</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>03</span><span>:</span><span>33.000</span></li>
-<li style="margin-bottom: 0px;"><span>Requirements</span><span> of a </span><span>Video</span><span> text format</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span><span style="color: #660066;" color="#660066">Ending</span></span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>03</span><span>:</span><span>33.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>04</span><span>:</span><span>57.766</span></li>
-<li style="margin-bottom: 0px;"><span>Simple</span><span> </span><span>WebVTT</span><span> file</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span><span style="color: #660066;" color="#660066">Greetings</span>&nbsp;</span><span>6</span></li>
-<li style="margin-bottom: 0px;"><span>00</span><span>:</span><span>04</span><span>:</span><span>57.766</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>06</span><span>:</span><span>16.666</span></li>
-<li style="margin-bottom: 0px;"><span>Styled</span><span> </span><span>WebVTT</span><span> file</span></li>
+<li value="1"><span>WEBVTT FILE</span></li>
+<li><span>&nbsp;</span></li>
+<li><span><span style="color: #660066;" color="#660066">Chapter</span>&nbsp;</span><span>1</span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>00.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>10.700</span></li>
+<li><span>Title</span><span> </span><span>Slide</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>Chapter</span><span>&nbsp;</span><span>2</span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>10.700</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>00</span><span>:</span><span>47.600</span></li>
+<li><span>Introduction</span><span> </span><span>by</span><span> </span><span>Naomi</span><span> </span><span>Black</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>Chapter</span><span>&nbsp;</span><span>3</span></li>
+<li><span>00</span><span>:</span><span>00</span><span>:</span><span>47.600</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>01</span><span>:</span><span>50.100</span></li>
+<li><span>Impact</span><span> of </span><span>Captions</span><span> on the </span><span>Web</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>Chapter</span><span>&nbsp;</span><span>4</span></li>
+<li><span>00</span><span>:</span><span>01</span><span>:</span><span>50.100</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>03</span><span>:</span><span>33.000</span></li>
+<li><span>Requirements</span><span> of a </span><span>Video</span><span> text format</span></li>
+<li><span>&nbsp;</span></li>
+<li><span><span style="color: #660066;" color="#660066">Ending</span></span></li>
+<li><span>00</span><span>:</span><span>03</span><span>:</span><span>33.000</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>04</span><span>:</span><span>57.766</span></li>
+<li><span>Simple</span><span> </span><span>WebVTT</span><span> file</span></li>
+<li><span>&nbsp;</span></li>
+<li><span><span style="color: #660066;" color="#660066">Greetings</span>&nbsp;</span><span>6</span></li>
+<li><span>00</span><span>:</span><span>04</span><span>:</span><span>57.766</span><span> </span><span>--&gt;</span><span> </span><span>00</span><span>:</span><span>06</span><span>:</span><span>16.666</span></li>
+<li><span>Styled</span><span> </span><span>WebVTT</span><span> file</span></li>
 </ol></div>
 
 Examples of what you can achieve using chapters (more details are shown in the [W3Cx HTML5 Apps and Games course](https://www.edx.org/course/html5-apps-and-games)).
