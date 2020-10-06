@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <title>Canvas</title>
+  </head>
+<body>
+
+<canvas id="myCanvas">Your browser does not support the canvas tag.</canvas>
+
+<script type="text/javascript">
+var canvas=document.getElementById('myCanvas');
+var ctx=canvas.getContext('2d');
+  
+// first part of the path
+ctx.moveTo(20,20);
+ctx.lineTo(100, 100); 
+ctx.lineTo(100,0);
+  
+// indicate stroke color + draw first part of the path
+ctx.strokeStyle = "#0000FF";
+ctx.stroke();
+  
+// start a new path, empty the current buffer
+ctx.beginPath();
+  
+// second part of the path
+ctx.moveTo(120,20);
+ctx.lineTo(200, 100); 
+ctx.lineTo(200,0);
+  
+// indicate stroke color + draw the path
+ctx.fillStyle = "pink";
+ctx.fill();
+   
+</script>
+
+</body>
+</html>
+

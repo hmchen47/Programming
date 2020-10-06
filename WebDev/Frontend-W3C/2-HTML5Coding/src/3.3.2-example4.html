@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>Drawing text</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+
+<canvas id="myCanvas" width=500 height=300>Your browser does not support the canvas tag.</canvas>
+
+<script type="text/javascript">
+    var canvas=document.getElementById('myCanvas');
+    var context=canvas.getContext('2d');
+
+   context.strokeStyle = "#000000";
+context.lineWidth  = 1;
+context.beginPath();
+context.moveTo(  0, 75);
+context.lineTo(500, 75);
+context.stroke();
+context.closePath();
+
+context.font      = "16px Verdana";
+context.fillStyle = "#000000";
+
+context.textBaseline = "top";
+context.fillText("top", 0, 75);
+
+context.textBaseline = "hanging";
+context.fillText("hanging", 40, 75);
+
+context.textBaseline = "middle";
+context.fillText("middle", 120, 75);
+
+context.textBaseline = "alphabetic";
+context.fillText("alphabetic", 200, 75);
+
+context.textBaseline = "ideographic";
+context.fillText("ideographic", 300, 75);
+
+context.textBaseline = "bottom";
+context.fillText("bottom-glyph", 400, 75);
+
+
+</script>
+
+</body>
+</html>
+

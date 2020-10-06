@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            #myCanvas {
+                border: 1px solid #9C9898;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                var centerX = canvas.width / 2;
+                var centerY = canvas.height / 2;
+                var radius = 70;
+                
+                ctx.beginPath();
+              
+                // Add to the path a full circle (from 0 to 2PI)
+                ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);
+              
+                // With path drawing you can change the context
+                // properties until a call to stroke() or fill() is performed
+                ctx.fillStyle = "lightBlue";
+                // Draws the filled circle in light blue
+                ctx.fill();
+              
+                // Prepare for the outline
+                ctx.lineWidth = 5;
+                ctx.strokeStyle = "black";
+             
+                // draws AGAIN the path (the circle), this
+                // time in wireframe
+                ctx.stroke();
+              
+              // Notice we called context.arc() only once ! And drew it twice 
+              // with different styles
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="578" height="200">
+        </canvas>
+    </body>
+</html>
+

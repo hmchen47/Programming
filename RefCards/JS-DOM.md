@@ -1,4 +1,4 @@
-# JavaScript - DOM
+# JavaScript - Document Object Model (DOM)
 
 
 ## The `<video>` element

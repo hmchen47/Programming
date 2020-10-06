@@ -15,7 +15,15 @@
 + [Introduction to Mathematical Programming - MIT](https://tinyurl.com/y5kyx76y)
 + [Fundamentals of Program Analysis - MIT](https://tinyurl.com/y632qdmx)
 + [Theory of Computation - MIT](https://tinyurl.com/y64s55ox)
-
++ Elasticsearch
+  + [Elasticsearch](https://en.wikipedia.org/wiki/Elasticsearch)
+  + [Using elasticsearch, logstash and kibana to create realtime dashboards - slides](https://tinyurl.com/yajg7zs6)
+  + [Introduction to ELK stack - NTU slides](http://www.tp1rc.edu.tw/tpnet2016/training/10513.pdf)
+  + [An Elasticsearch Tutorial: Getting Started](https://logz.io/blog/elasticsearch-tutorial/)
+  + [How to integrate the Elasticsearch Logstash Kibana (ELK) log analytics stack into IBM Bluemix - IBM](https://tinyurl.com/ya3u2qje)
+  + [Basic concepts about Elasticsearch -slides](https://tinyurl.com/yatolh2y)
+  + [Elasticsearch, Logstash, and Kibana (ELK) - Cert Slides](https://tinyurl.com/yddrhyyx)
+  + [Elasticsearch: The Definitive Guide - O'Reilly](https://tinyurl.com/y9wdhhgw)
 
 
 ## Web Develop
