@@ -201,7 +201,7 @@ Let's look at color in a little more detail, and see how we can use gradients or
 
 You can use [the same syntax for colors that is supported by CSS3](https://www.w3.org/TR/css3-color/). The next lines show possible values/syntaxes.
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>'red'</span><span>;</span></li>
 <li><span>ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> </span><span>"#00ff00"</span><span>;</span></li>
 <li><span>ctx</span><span>.</span><span>strokeStyle </span><span>=</span><span> </span><span>"rgb(0, 0, 255)"</span><span>;</span></li>
@@ -262,7 +262,7 @@ __Step #1: define a linear gradient__
 
 Syntax: 
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>x0</span><span>,</span><span>y0</span><span>,</span><span>x1</span><span>,</span><span>y1</span><span>);</span><span> </span></li>
 </ol></div>
 
@@ -270,7 +270,7 @@ Syntax:
 
 Let's see an example:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span> grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>0</span><span>);</span></li>
 </ol></div>
 
@@ -285,7 +285,7 @@ We will add a set of "colors" and "stops" to this gradient. The stops go from 0 
 
 Here is an example that corresponds to an interpolated version of the French flag, going from blue to white, then to red, with proportional intervals. We define three colors, blue at position 0, white at position 0.5 and red at position 1:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0</span><span>,</span><span> </span><span>"blue"</span><span>);</span><span> </span></li>
 <li><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>0.5</span><span>,</span><span> </span><span>"white"</span><span>);</span></li>
 <li><span> grdFrenchFlag</span><span>.</span><span>addColorStop</span><span>(</span><span>1</span><span>,</span><span> </span><span>"red"</span><span>);</span><span> </span></li>
@@ -298,7 +298,7 @@ First, let's set the `fillStyle` or `strokeStyle` of the context with this gradi
 
 In our example, the gradient corresponds to an invisible rectangle that fills the canvas. If we draw a rectangle of the canvas size, it should be filled with the entire gradient:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span> ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
 <li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>200</span><span>);</span></li>
 </ol></div>
@@ -319,7 +319,7 @@ The result is shown below: a big rectangle that fills the whole canvas, with col
 
 If you modify the source code that defines the direction of the gradient as follows...
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>300</span><span>,</span><span> </span><span>200</span><span>);</span></li>
 </ol></div>
 
@@ -356,7 +356,7 @@ Note that the canvas has its default background color where we did not draw anyt
 
 Here is the code that draws the checkboard:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span> ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
 <li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
 <li><span> ctx</span><span>.</span><span>fillRect</span><span>(</span><span>100</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>50</span><span>,</span><span> </span><span>50</span><span>);</span></li>
@@ -376,7 +376,7 @@ This code is rather ugly isn't it? It would have been better  to use a loop...
 
 Here is function that draws a chessboard ([online example at JsBin](https://jsbin.com/netijalofu/1/edit?html,output)): ([Loca Example - Chessboard](src/3.5.2-example4.html))
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>// n = number of cells per row/column</span></li>
 <li><span>function</span><span> drawCheckboard</span><span>(</span><span>n</span><span>)</span><span> </span><span>{</span></li>
 <li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></li>
@@ -416,7 +416,7 @@ Just as we used `fillStyle` and `fillRect` for drawing rectangles filled with a 
 
 Extract from source code:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>function</span><span> drawCheckboard</span><span>(</span><span>n</span><span>)</span><span> </span><span>{</span></li>
 <li><span>&nbsp; &nbsp; <strong>ctx</strong></span><strong><span>.</span><span>strokeStyle </span><span>=</span><span> grdFrenchFlag</span><span>;</span></strong></li>
 <li><strong><span>&nbsp; &nbsp; ctx</span><span>.</span><span>lineWidth</span><span>=</span><span>10</span><span>;</span></strong></li>
@@ -434,7 +434,7 @@ Extract from source code:
 
 Let's go back to the very first example on this page - the one with the blue-white-red interpolated French flag. This time we will define a smaller gradient. Instead of going from (0, 0) to (300, 0), it will go from (100, 0) to (200, 0), while the canvas remains the same (width=300, height=200).
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span> grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><strong><span>100</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>200</span><span>,</span><span> </span><span>0</span></strong><span>);</span></li>
 </ol></div>
 
@@ -457,7 +457,7 @@ We notice that "before" the gradient starts, the first color of the gradient is 
 
 Nothing special; we will "see through the drawn shapes", and the parts of the gradient that are located in the canvas area will be shown. You can try this example that defines a gradient twice the size of the canvas: 
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><strong><span>600</span><span>,</span><span> </span><span>400</span></strong><span>);</span></li>
 </ol></div>
 
@@ -496,7 +496,7 @@ It suffices to create a new gradient before drawing each filled rectangle, and s
 
 Extract from source code:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>function</span><span> setGradient</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> width</span><span>,</span><span> height</span><span>)</span><span> </span><span>{</span></li>
 <li><span>&nbsp; &nbsp; grdFrenchFlag </span><span>=</span><span> ctx</span><span>.</span><span>createLinearGradient</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> width</span><span>,</span><span> height</span><span>);</span></li>
 <li><span> </span></li>
@@ -601,7 +601,7 @@ Here is an example of a radial gradient that interpolates the color of the rainb
 
 The gradient is defined as follows:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>var</span><span> grd </span><span>=</span><span> context</span><span>.</span><strong><span>createRadialGradient</span><span>(</span><span>150</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>30</span><span>,</span><span> </span><span>150</span><span>,</span><span> </span><span>100</span><span>,</span><span> </span><span>100</span><span>);</span></strong></li>
 <li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0</span><span>,</span><span> </span><span>"red"</span><span>);</span></li>
 <li><span> grd</span><span>.</span><span>addColorStop</span><span>(</span><span>0.17</span><span>,</span><span> </span><span>"orange"</span><span>);</span></li>
@@ -681,13 +681,13 @@ There are a few steps we have to take before doing this:
 
 1. __Create a JavaScript image object__
 
-  <div class="source-code"><ol style="list-style-type: decimal;">
+  <div><ol style="list-style-type: decimal;">
   <li value="1"><span>var</span><span>&nbsp;imageObj&nbsp;</span><span>=</span><span>&nbsp;new Image();</span></li>
   </ol></div>
 
 2. __Define a callback function that will be called once the image has been fully loaded__ in memory; we cannot draw before the image has been loaded.
 
-  <div class="source-code"><ol style="list-style-type: decimal;">
+  <div><ol style="list-style-type: decimal;">
   <li value="1"><span>imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){</span></li>
   <li><span> </span><span>...</span></li>
   <li><span>}</span></li>
@@ -695,13 +695,13 @@ There are a few steps we have to take before doing this:
 
 3. __Set the source of this image to the URL of the pattern__ (in our example with [url of the pattern](https://tinyurl.com/y6snxuju)),
 
-  <div class="source-code"><ol style="list-style-type: decimal;">
+  <div><ol style="list-style-type: decimal;">
   <li value="1"><span>imageObj</span><span>.</span><span>src </span><span>=</span><span> </span><span>"https://www.myserver.com/myRepeatablePattern.png"</span><span>;</span><span> </span></li>
   </ol></div>
 
 4. As soon as step 3 is executed, an HTTP request is sent in background by the browser, and when the image is loaded in memory, the callback defined at step 2 is called. We create a pattern object inside, from the loaded image:
 
-  <div class="source-code"><ol style="list-style-type: decimal;">
+  <div><ol style="list-style-type: decimal;">
   <li value="1"><span> </span><span>// callback called asynchronously, after the src attribute of imageObj is set</span></li>
   <li><span> imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){&nbsp;</span></li>
   <li><span>&nbsp; &nbsp; // We enter here when the image is loaded, we create a pattern object.</span></li>
@@ -712,7 +712,7 @@ There are a few steps we have to take before doing this:
 
 5. __Inside the callback function (or inside a function called from inside the callback) we can draw.__
 
-  <div class="source-code"><ol style="list-style-type: decimal;">
+  <div><ol style="list-style-type: decimal;">
   <li value="1"><span> </span><span>// callback called asynchronously, after the src attribute of imageObj is set</span></li>
   <li><span> imageObj</span><span>.</span><span>onload </span><span>=</span><span> </span><span>function</span><span>(){</span></li>
   <li><span>&nbsp; &nbsp; pattern1 </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"repeat"</span><span>);</span></li>
@@ -744,7 +744,7 @@ Here we have two rectangles drawn using a pattern (an image that can be repeated
 
 HTML source code:
 
-<div class="source-code"><ol style="list-style-type: decimal;">
+<div><ol style="list-style-type: decimal;">
 <li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
 <li><span>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
 <li><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span></li>
@@ -756,7 +756,7 @@ HTML source code:
 
 JavaScript source code:
 
-<div class="source-code"><ol style="list-style-type: decimal;">
+<div><ol style="list-style-type: decimal;">
 <li value="1"><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>,</span><span> pattern1</span><span>;</span></li>
 <li><span>&nbsp;</span></li>
 <li><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
@@ -824,7 +824,7 @@ Online version [here](https://jsbin.com/hexomamiyi/1/edit?html,output) and here 
 
 You can change the way the pattern is repeated by modifying the second parameter of this method:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>pattern1 </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imageObj</span><span>,</span><span> </span><span>"<strong>repeat</strong>"</span><span>);</span></li>
 </ol></div>
 
@@ -875,7 +875,7 @@ A complete example code that produces the result shown at the beginning of this 
 
 #### Define the list of images to be loaded
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span> </span><span>// List of images to load, we used a JavaScript object instead of </span></li>
 <li><span> </span><span>// an array, so that named indexes (aka properties)</span></li>
 <li><span> </span><span>// can be used -&gt; easier to manipulate</span></li>
@@ -893,7 +893,7 @@ Notice that instead of using a traditional array, we defined this list as a Java
 
 #### The image loader function
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span> </span><span>function</span><span> loadImages</span><span>(</span><span>imagesToBeLoaded</span><span>,</span><span> drawCallback</span><span>)</span><span> </span><span>{</span></li>
 <li><span>&nbsp; &nbsp; &nbsp;</span><span>var</span><span> imagesLoaded </span><span>=</span><span> </span><span>{};</span></li>
 <li><span>&nbsp; &nbsp; &nbsp;</span><span>var</span><span> loadedImages </span><span>=</span><span> </span><span>0</span><span>;</span></li>
@@ -926,7 +926,7 @@ __Explanations:__
 
 #### Example of use of this loader
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span> loadImages</span><span>(</span><span>imagesToLoad</span><span>,</span><span> </span><span>function</span><span>(</span><span>imagesLoaded</span><span>)</span><span> </span><span>{</span></li>
 <li><span>&nbsp; &nbsp; patternFlowers </span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>flowers</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
 <li><span>&nbsp; &nbsp; patternLion &nbsp; &nbsp;</span><span>=</span><span> ctx</span><span>.</span><span>createPattern</span><span>(</span><span>imagesLoaded</span><span>.</span><span>lion</span><span>,</span><span> </span><span>'repeat'</span><span>);</span></li>
@@ -946,7 +946,7 @@ __Explanations:__
 
 Here is the function:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>function</span><span> drawRectanglesWithPatterns</span><span>()</span><span> </span><span>{</span><span> </span></li>
 <li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>patternFloor</span><span>;</span></li>
 <li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
@@ -1003,7 +1003,7 @@ __Example #1: simple shadow__
 
 HTML source code:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
 <li><span>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
 <li><span>&lt;body</span><span> </span><span>onload</span><span> </span><span>=</span><span> init</span><span>();</span><span>&gt;</span></li>
@@ -1016,7 +1016,7 @@ HTML source code:
 
 JavaScript source code:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
 <li><span> </span></li>
 <li><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
@@ -1072,7 +1072,7 @@ Now, let's add a shadow to it (see the [example online](https://jsbin.com/kimafo
 
 Here is an extract from the code:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>...</span></li>
 <li><span> ctx</span><span>.</span><span>beginPath</span><span>();</span></li>
 <li><span> </span></li>
@@ -1128,7 +1128,7 @@ The trick is to save the context before setting the shadow properties, then draw
 
 Correct version of the code (see [online](https://jsbin.com/patumofama/edit?html,output)): ([Local Example - Corrected Shadow](src/3.5.6-example4.html))
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>...</span><span> </span></li>
 <li><span> </span><strong><span>// save the context before setting shadows and drawing the filled circle</span></strong></li>
 <li><span>&nbsp;<strong>ctx</strong></span><strong><span>.</span><span>save</span><span>();</span></strong></li>
@@ -1180,7 +1180,7 @@ They apply to all shapes that are drawn in path mode (lines, curves, arcs) and s
 
 We have seen this before. This is done by changing the value (in pixels) of the lineWidth property of the context:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><strong><span>ctx</span><span>.</span><span>lineWidth </span><span>=</span><span> </span><span>10</span><span>;</span></strong><span> </span><span>// set the thickness of every shape drawn in stroke/wireframe mode to 10 pixels</span></li>
 </ol></div>
 
@@ -1198,7 +1198,7 @@ Here is a complete example where we draw with a lineWidth of 20 pixels. You can 
 
 Source code:
 
-<div class="source-code"><ol>
+<div><ol>
 <li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
 <li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
 <li><span>&nbsp; </span><span>&lt;head&gt;</span></li>
