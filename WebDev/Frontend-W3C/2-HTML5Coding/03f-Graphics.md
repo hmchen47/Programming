@@ -160,6 +160,64 @@ __Source code for the next question (6)__
   Explanation: `ctx.fillText(message, x, y)` and `ctx.font` are correct.
 
 
+### 3.6.3 2D transformations (8-10)
+
+8. Transform me!
+
+  Which of these methods are valid for applying 2D transformations to the coordinate system? (3 correct answers.)
+
+  a. `ctx.zoom(zoomFactor)`<br/>
+  b. `ctx.translate(x, y)`<br/>
+  c. `ctx.rotate(angle)`<br/>
+  d. `ctx.rotateX(angle)`<br/>
+  e. `ctx.rotateY(angle)`<br/>
+  f. `ctx.scale(sx, sy)`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+9. Translate then rotate, or rotate then translate?
+
+  <pre>// VERSION 1
+  ctx.translate(100, 100);
+  ctx.rotate(Math.PI/4);
+
+  // VERSION 2
+  ctx.rotate(Math.PI/4);
+  ctx.translate(100, 100);
+  </pre>
+
+  Will the two instructions of version 1 in the above code produce the same results as the two lines of version 2? (Yes/No)
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+10. Global or local transformations?
+
+  <pre>&lt;canvas id="myCanvas" width=400 height=600&gt;&lt;/canvas&gt;
+  </pre>
+  ...
+  <pre>ctx.translate(100, 60);
+  ctx.rotate(Math.PI/4);
+  // First drawing
+  ctx.fillRect(0, 0, 100, 100);
+  // second drawing
+  ctx.strokeRect(100, 100, 100, 100);
+  </pre>
+
+  How many rectangles will be drawn in the translated and rotated coordinate system?
+
+  a. Both rectangles.<br/>
+  a. Only the first rectangle.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
 
 
 
