@@ -120,6 +120,53 @@
 
 
 
+## Drawing Text
+
++ [Drawing text](../WebDev/Frontend-W3C/2-HTML5Coding/03c-Graphics.md#332-drawing-text)
+  + two main methods: `ctx.strokeText(message, x, y)` and `ctx.fillText(message, x, y)`
+  + `ctx.font` property
+    + specify the font style (plain, bold, italic), the size, and the font name
+    + accepted values: font-style, font-weight, font-size, font-face
+    + possible values
+      + font-style: normal, italic, oblique
+      + font-weight: normal, bold, bolder, lighter
+      + font-size: a size in pixels or in points, such as 60pt, 20px, 36px, etc.
+      + font-face: Arial, Calibri, Times, Courier, etc. Some font faces may not work in all browsers
+  + `fillText()` & `strokeText()` methods
+    + syntax: `fillText(message, x, y[, maxWidth])` & `strokeText(message, x, y[, maxWidth])`
+    + draw a text message at the origin of the baseline position
+    + `maxWidth`: force the text to fit into a given width, distorting it if necessary
+  + `ctx.measureText()` method
+    + get the current width in pixels of a given text
+    + taking into account the diverse properties involved such as font, size, shadow, lineWidth, etc.
+  + `ctx.textbaseline` property
+    + change the way the text horizontal drawn
+    + used to specify the different ways one can position the baseline of a given text
+    + default: `alphabetic`
+    + tell how the `y` parameter of the `fillText("msg", x, y)` and `strokeText("msg", x, y)` methods interpreted
+    + possible values: top, hanging, middle, alphabetic, ideographic, bottom-glyp (left diagram)
+  + `textAlign` property
+    + how the x parameter used when calling `strokeText("msg", x, y)` and `fillText("msg", x, y)`
+    + possible values: left, center, right, start, end (right diagram)
+  
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y5wfa4y5" ismap target="_blank">
+          <img style="margin: 0.1em;" width=400
+            src    ="https://tinyurl.com/yxa5jg2k"
+            alt    ="text baseline"
+            title  ="text baseline"
+          >
+          <img style="margin: 0.1em;" width=150
+            src    ="https://tinyurl.com/y2kwbxfo"
+            alt    ="horizontal text alignment"
+            title  ="horizontal text alignment"
+          >
+        </a>
+      </div>
+
+
+
+
 
 
 
