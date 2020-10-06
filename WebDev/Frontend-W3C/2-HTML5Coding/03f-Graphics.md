@@ -173,8 +173,8 @@ __Source code for the next question (6)__
   e. `ctx.rotateY(angle)`<br/>
   f. `ctx.scale(sx, sy)`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: bcf<br/>
+  Explanation: There are no rotateX or rotateY methods, nor a zoom method.
 
 
 
@@ -191,8 +191,8 @@ __Source code for the next question (6)__
 
   Will the two instructions of version 1 in the above code produce the same results as the two lines of version 2? (Yes/No)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: magenta;">No</span>, Yes<br/>
+  Explanation: The order of transformation is important. If we translate (100, 0), then rotate PI/4, we will have a coordinate system with its origin at (100, 0) rotated. If we first rotate, then the translation will move 100 pixels along the rotated X axis. The origin will no longer be at (100, 0). The two versions will produce different results.
 
 
 
@@ -212,10 +212,11 @@ __Source code for the next question (6)__
   How many rectangles will be drawn in the translated and rotated coordinate system?
 
   a. Both rectangles.<br/>
-  a. Only the first rectangle.<br/>
+  b. Only the first rectangle.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Any transformation applied to the coordinate system is "global" and will affect all future drawings. The correct answer is "both rectangles".
+
 
 
 
