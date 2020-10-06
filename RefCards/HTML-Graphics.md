@@ -17,11 +17,6 @@
     + fill a buffer then execute all buffered orders at once to enable optimization and parallelism
   + rectangles: the only shapes that have methods for drawing them immediately and also other methods for drawing them in "path/buffered mode"
 
-+ [Steps to draw graphics on an HTML5 canvas](http://tutorials.jenkov.com/html5-canvas/overview.html)
-  + Wait for the page fully loaded
-  + Obtain a reference to the canvas element
-  + Obtain a 2D context from the canvas element
-  + Draw graphics using the draw functions of 2D context
 
 
 
@@ -52,12 +47,345 @@
   + X axis: from the left to the right
   + Y axis: from the top to the bottom
 
++ [Steps to draw graphics on an HTML5 canvas](http://tutorials.jenkov.com/html5-canvas/overview.html)
+  + Wait for the page fully loaded
+  + Obtain a reference to the canvas element
+  + Obtain a 2D context from the canvas element
+  + Draw graphics using the draw functions of 2D context
+
 + [Saving and Restoring the context](../WebDev/Frontend-W3C/2-HTML5Coding/03b-Graphics.md#329-saving-and-restoring-the-context)
   + `ctx.save()` & `ctx.restore()` methods
     + saved properties: all properties effecting the drawing
     + probably save the context property values in a hardware register on the graphics card
     + multiple contexts able to be saved consecutively and restored
   + __best practice__: save the context before any activities modifying the context, and restore it at the end of the activities, in particular, a function
+
+  + results displayed only in the browser's console
+
+
+
+## HTML Canvas Reference
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 50vw;" cellspacing="0" cellpadding="5" border="1">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.w3schools.com/tags/ref_canvas.asp">HTML Canvas Reference</a></caption>
+    <thead>
+    </thead>
+    <tbody>
+    <!-- Colors, Styles, and Shadows -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Colors, Styles, and Shadows </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Property</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_fillstyle.asp">fillStyle</a></td>
+        <td>Sets or returns the color, gradient, or pattern used to fill the drawing</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_strokestyle.asp">strokeStyle</a></td>
+        <td>Sets or returns the color, gradient, or pattern used for strokes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_shadowcolor.asp">shadowColor</a></td>
+        <td>Sets or returns the color to use for shadows</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_shadowblur.asp">shadowBlur</a></td>
+        <td>Sets or returns the blur level for shadows</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_shadowoffsetx.asp">shadowOffsetX</a></td>
+        <td>Sets or returns the horizontal distance of the shadow from the shape</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_shadowoffsety.asp">shadowOffsetY</a></td>
+        <td>Sets or returns the vertical distance of the shadow from the shape</td>
+      </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Method</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_createlineargradient.asp"> createLinearGradient()</a></td>
+        <td>Creates a linear gradient (to use on canvas content)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_createpattern.asp">createPattern()</a></td>
+        <td>Repeats a specified element in the specified direction</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_createradialgradient.asp">createRadialGradient()</a></td>
+        <td>Creates a radial/circular gradient (to use on canvas content)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_addcolorstop.asp">addColorStop()</a></td>
+        <td>Specifies the colors and stop positions in a gradient object</td>
+      </tr>
+    <!-- Line Style -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Line Style </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Property</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_linecap.asp">lineCap</a></td>
+        <td>Sets or returns the style of the end caps for a line</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_linejoin.asp">lineJoin</a></td>
+        <td>Sets or returns the type of corner created, when two lines meet</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_linewidth.asp">lineWidth</a></td>
+        <td>Sets or returns the current line width</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_miterlimit.asp">miterLimit</a></td>
+        <td>Sets or returns the maximum miter length</td>
+      </tr>
+    <!-- Rectangles -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Rectangles </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Method</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_rect.asp">rect()</a></td>
+        <td>Creates a rectangle</td>
+      </tr>
+      <tr>
+       <td><a href="https://www.w3schools.com/tags/canvas_fillrect.asp">fillRect()</a></td>
+        <td>Draws a "filled" rectangle</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_strokerect.asp">strokeRect()</a></td>
+        <td>Draws a rectangle (no fill)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_clearrect.asp">clearRect()</a></td>
+        <td>Clears the specified pixels within a given rectangle</td>
+      </tr>
+    <!-- Paths -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Paths </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Method</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_fill.asp">fill()</a></td>
+        <td>Fills the current drawing (path)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_stroke.asp">stroke()</a></td>
+        <td>Actually draws the path you have defined</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_beginpath.asp">beginPath()</a></td>
+        <td>Begins a path, or resets the current path</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_moveto.asp">moveTo()</a></td>
+        <td>Moves the path to the specified point in the canvas, without creating a line</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_closepath.asp">closePath()</a></td>
+        <td>Creates a path from the current point back to the starting point</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_lineto.asp">lineTo()</a></td>
+        <td>Adds a new point and creates a line to that point from the last specified point in the canvas</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_clip.asp">clip()</a></td>
+        <td>Clips a region of any shape and size from the original canvas</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_quadraticcurveto.asp">quadraticCurveTo()</a></td>
+        <td>Creates a quadratic Bézier curve</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_beziercurveto.asp">bezierCurveTo()</a></td>
+        <td>Creates a cubic Bézier curve</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_arc.asp">arc()</a></td>
+        <td>Creates an arc/curve (used to create circles, or parts of circles)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_arcto.asp">arcTo()</a></td>
+        <td>Creates an arc/curve between two tangents</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_ispointinpath.asp">isPointInPath()</a></td>
+        <td>Returns true if the specified point is in the current path, otherwise false</td>
+      </tr>
+    <!-- Transformations -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Transformations </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Method</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_scale.asp">scale()</a></td>
+        <td>Scales the current drawing bigger or smaller</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_rotate.asp">rotate()</a></td>
+        <td>Rotates the current drawing</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_translate.asp">translate()</a></td>
+        <td>Remaps the (0,0) position on the canvas</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_transform.asp">transform()</a></td>
+        <td>Replaces the current transformation matrix for the drawing</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_settransform.asp">setTransform()</a></td>
+        <td>Resets the current transform to the identity matrix. Then runs <a href="https://www.w3schools.com/tags/canvas_transform.asp"> transform()</a></td>
+      </tr>
+    <!-- Text -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Text </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Property</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_font.asp">font</a></td>
+        <td>Sets or returns the current font properties for text content</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_textalign.asp">textAlign</a></td>
+        <td>Sets or returns the current alignment for text content</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_textbaseline.asp">textBaseline</a></td>
+        <td>Sets or returns the current text baseline used when drawing text</td>
+      </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Method</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_filltext.asp">fillText()</a></td>
+        <td>Draws "filled" text on the canvas</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_stroketext.asp">strokeText()</a></td>
+        <td>Draws text on the canvas (no fill)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_measuretext.asp">measureText()</a></td>
+        <td>Returns an object that contains the width of the specified text</td>
+      </tr>
+    <!-- Image Drawing -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Image Drawing </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Method</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_drawimage.asp">drawImage()</a></td>
+        <td>Draws an image, canvas, or video onto the canvas</td>
+      </tr>
+    <!-- Pixel Manipulation -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Pixel Manipulation </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Property</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_imagedata_width.asp">width</a></td>
+        <td>Returns the width of an ImageData object</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_imagedata_height.asp">height</a></td>
+        <td>Returns the height of an ImageData object</td>
+        </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_imagedata_data.asp">data</a></td>
+        <td>Returns an object that contains image data of a specified ImageData object</td>
+      </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Method</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_createimagedata.asp">createImageData()</a></td>
+        <td>Creates a new, blank ImageData object</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_getimagedata.asp">getImageData()</a></td>
+        <td>Returns an ImageData object that copies the pixel data for the specified rectangle on a canvas</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_putimagedata.asp">putImageData()</a></td>
+        <td>Puts the image data (from a specified ImageData object) back onto the canvas</td>
+      </tr>
+    <!-- Compositing -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Compositing </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Property</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_globalalpha.asp">globalAlpha</a></td>
+        <td>Sets or returns the current alpha or transparency value of the drawing</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.w3schools.com/tags/canvas_globalcompositeoperation.asp">globalCompositeOperation</a></td>
+        <td>Sets or returns how a new image is drawn onto an existing image</td>
+      </tr>
+    <!-- Other -->
+    <tr style="font-size: 1.2em; margin: 0.2em;">
+      <th colspan="2" style="background-color: beige; color: darkblue;"> Other </th>
+    </tr>
+    <tr>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:3%;">Method</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">Description</th>
+    </tr>
+      <tr>
+        <td>save()</td>
+        <td>Saves the state of the current context</td>
+      </tr>
+      <tr>
+        <td>restore()</td>
+        <td>Returns previously saved path state and attributes</td>
+      </tr>
+      <tr>
+        <td>createEvent()</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>getContext()</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>toDataURL()</td>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table><br/>
+  
 
 
 ## Draw Rectangle
@@ -203,6 +531,10 @@
   + rotating video effect: `function drawRotatingVideo(x, y) {...}`
     + use of context save/restore primordial as this function changes the coordinate system at each call
     + translating and rotating, requiring second translation to centralize the graph
+
+
+
+
 
 
 
