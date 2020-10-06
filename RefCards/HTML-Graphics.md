@@ -616,6 +616,25 @@
 
 
 
+## Drawing Arrows
+
++ [Drawing arrows](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#346-drawing-arrows)
+  + adapted from [Stackoverflow]( https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag)
+  + draw an arrow in a single function: `function drawArrow(ctx, fromx, fromy, tox, toy, arrowWidth, color){...}`
+  + fixing the head length: `var headlen = 10;`
+  + calculate the angle from given the beginning (fromx, fromy) to the end (arrow) (tox, toy): `var angle = Math.atan2(toy-fromy,tox-fromx);`
+  + store/restore the drawings in canvas: `ctx.save()` & `ctx.restor()`
+  + draw one line (the arrow body) w/ given width: `ctx.beginPath(); ctx.moveTo(fromx, fromy); ctx.lineTo(tox, toy); ctx.lineWidth = arrowWidth; ctx.stroke();`
+  + draw three connected lines (the arrow head)
+    + starting a new path from the head of the arrow to one of the sides of the point: `ctx.beginPath(); ctx.moveTo(tox, toy); ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7), toy-headlen*Math.sin(angle-Math.PI/7));`
+    + path from the side point of the arrow, to the other side point: `ctx.lineTo(tox-headlen*Math.cos(angle+Math.PI/7), toy-headlen*Math.sin(angle+Math.PI/7));`
+    + path from the side point back to the tip of the arrow, and then again to the opposite side point: `ctx.lineTo(tox, toy); ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7), toy-headlen*Math.sin(angle-Math.PI/7));`
+  + draws the paths created above: `ctx.stroke();`
+  + [drawing lines and arcs with arrow heads](http://www.dbp-consulting.com/tutorials/canvas/CanvasArrow.html)
+
+
+
+
 
 
 
