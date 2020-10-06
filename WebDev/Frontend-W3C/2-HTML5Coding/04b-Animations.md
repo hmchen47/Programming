@@ -87,6 +87,22 @@ We will compare the old methods with the new one, and implement the same  exampl
   Explanation: Indeed, before HTML5, and with the arrival of JavaScript, it became possible, using functions such as `setInterval` or `setTimeout`, to modify CSS properties of HTML objects in real time, and in a repeated manner. Animation loops could be implemented using this technique. Now, the HTML5 canvas and the new requestAnimationFrame API make drawing and animating easier, with better performance.
 
 
+### 4.2.2 Basic animation techniques
+
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V001700_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/>
+
+[Transcript](https://tinyurl.com/y2vunzbl)
+
+
+See the [online example](https://jsbin.com/nikimovuza/1/edit?html,output) shown in the video, with source code. ([Local Example - Basic Animations](src/4.2.2-example1.html))
+
+Errata: in the video, we use `speed +=1;` in order to increment the speed of the rectangle each time it bounces (in the `changeColor()` function). This is not correct as `speed` can be negative. The online example fixes this by using `speed += Math.sign(speed) * 1;` instead this will add +1 or -1 depending on the sign of `speed`.
+
+
+
 
 
 
