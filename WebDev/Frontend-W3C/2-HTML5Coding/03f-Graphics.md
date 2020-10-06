@@ -497,6 +497,133 @@ __Source code for the next question (17)__
   Explanation: The two consecutive calls to `fill()` and `stroke()` will draw the same shape, but using the relevant ctx properties: fill will draw a light blue filled circle, then stroke() will draw a black wireframe circle over it, with a line width of 10px. Final result will be a blue circle with a black wireframe.
 
 
+### 3.6.7 Drawing styles (26-33)
+
+26. Choose your style!
+
+  Which of the following are possible values for the strokeStyle or fillStyle context properties? (3 correct answers.)
+
+  An image
+
+  a. A gradient<br/>
+  b. A video<br/>
+  c. A pattern<br/>
+  d. A color<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+27. My favorite color is...
+
+  <pre>ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
+  </pre>
+
+  What color is set by the above code?
+
+  a. Semi transparent blue<br/>
+  b. Opaque blue<br/>
+  c. Opaque red<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+28. Color stop!
+
+  What is a "gradient color stop"?
+
+  a. One of the set of points defining the distribution of colors along the gradient.<br/>
+  a. The name of the last color of the gradient.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+29. Visible or not?
+
+  A gradient is invisible until we draw shapes on top of it in the canvas? (True/False)
+
+  Ans: <br/>
+  Explanation: 
+
+
+30. Psychedelia!
+
+  <pre><b>var grd = context.createRadialGradient(150, 100, 30, 150, 100, 100);</b>
+  grd.addColorStop(0, "red");
+  grd.addColorStop(0.17, "orange");
+  grd.addColorStop(0.33, "yellow");
+  grd.addColorStop(0.5, "green");
+  grd.addColorStop(0.666, "blue");
+  grd.addColorStop(1, "violet");
+  context.fillStyle = grd;
+  </pre>
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick="window.open('https://tinyurl.com/y2zkyegy')"
+      src    ="https://tinyurl.com/yxo2oayb"
+      alt    ="first image shows a symmetric radial gradient, second image shows an asymmetric radial gradient"
+      title  ="first image shows a symmetric radial gradient, second image shows an asymmetric radial gradient"
+    />
+  </figure>
+
+  Will this gradient produce a result like that in the first or in the second image?
+
+  a. First<br/>
+  a. Second<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+31. Pattern and images are the same?
+
+  Unlike images, when using patterns we do not need to check if they have been loaded completely by the browser? (False/True)
+
+  Ans: <br/>
+  Explanation: 
+
+
+32. Who is standing in the shadow?
+
+  <pre>ctx.shadowColor = "Grey";
+  ctx.shadowBlur = 20;
+  ctx.shadowOffsetX = 15;
+  ctx.shadowOffsetY = 15;  
+
+  ctx.fillStyle = 'red'; 
+  ctx.fillRect(20, 20, 200, 100);
+
+  ctx.strokeStyle = 'purple'; 
+  ctx.lineWidth=10;
+  ctx.strokeRect(20, 150, 200, 100);
+  </pre>
+
+  What will the above code produce (we suppose there is a canvas, and ctx has been correctly initialized)?
+
+  a. The shadow will not be visible at all as the blur property takes only values between 0 (opaque color) and 1 (full blurred).<br/>
+  b. Two rectangles: one filled red with shadows, another one wireframe purple with an outline of 10px, also with shadows.<br/>
+  c. Only the filled rectangle will have shadows, wireframe shapes are not affected.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+33. Please, set the line with style!
+
+  Which are valid context properties for setting line styles: (3 correct answers.)
+
+  a. `lineCap`<br/>
+  b. `lineStyle`<br/>
+  c. `lineJoin`<br/>
+  d. `lineJoints`<br/>
+  e. `lineWidth`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
 
 
 
