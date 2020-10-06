@@ -13,11 +13,11 @@
 	+ example code
 
 		<div><ol>
-		<li value="1"><span>&lt;video</span><span> </span><span>width</span><span>=</span><span>"320"</span><span> </span><span>height</span><span>=</span><span>"240"</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
-		<li><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.mp4"</span><span> </span><span>type</span><span>=</span><span>"video/mp4"</span><span> </span><span>/&gt;</span></li>
-		<li><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.ogg"</span><span> </span><span>type</span><span>=</span><span>"video/ogg"</span><span> </span><span>/&gt;</span></li>
-		<li><span>&nbsp; &nbsp;Your browser does not support the </span><span>&lt;video&gt;</span><span> element.</span></li>
-		<li><span>&lt;/video&gt;</span></li>
+		<li value="1">&lt;video width="320" height="240" controls="controls"&gt;</li>
+		<li>&nbsp; &nbsp;&lt;source src="movie.mp4" type="video/mp4" /&gt;</li>
+		<li>&nbsp; &nbsp;&lt;source src="movie.ogg" type="video/ogg" /&gt;</li>
+		<li>&nbsp; &nbsp;Your browser does not support the &lt;video&gt; element.</li>
+		<li>&lt;/video&gt;</li>
 		</ol></div><br/>
 
 		+ `controls` attribute: a control panel displayed w/ play/stop/volume/progress widgets
@@ -120,10 +120,10 @@
 	+ example:
 
 		<div><ul>
-		<li><span>var</span><span> video </span><span>=</span><span> document</span><span>.</span><span>createElement</span><span>(</span><span>'video'</span><span>);</span></li>
-		<li><span>video</span><span>.</span><span>src </span><span>=</span><span> </span><span>'video.mp4'</span><span>;</span></li>
-		<li><span>video</span><span>.</span><span>controls </span><span>=</span><span> </span><span>true</span><span>;</span></li>
-		<li><span>document</span><span>.</span><span>body</span><span>.</span><span>appendChild</span><span>(</span><span>video</span><span>);</span></li>
+		<li>var video = document.createElement('video');</li>
+		<li>video.src = 'video.mp4';</li>
+		<li>video.controls = true;</li>
+		<li>document.body.appendChild(video);</li>
 		</ul></div>
 
 + [Categories of HTML elements](https://html.spec.whatwg.org/multipage/dom.html#content-categories)
@@ -257,19 +257,19 @@ The `<video>` element of HTML5 is one of the two "Flash killers" (the other bein
 Like this!
 
 <div><ol>
-<li value="1"><span>&lt;object</span><span> </span><span>width</span><span>=</span><span>"425"</span><span> </span><span>height</span><span>=</span><span>"344"</span><span>&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;param</span><span> </span><span>name</span><span>=</span><span>"movie"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>value</span><span>=</span><span>"https://www.youtube.com/v/9sEI1AUFJKw&amp;hl=en_GB&amp;fs=1&amp;"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;/param&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;param</span><span> </span><span>name</span><span>=</span><span>"allowFullScreen"</span><span>&nbsp; &nbsp;</span><span>value</span><span>=</span><span>"true"</span><span>&gt;&lt;/param&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;param</span><span> </span><span>name</span><span>=</span><span>"allowscriptaccess"</span><span> </span><span>value</span><span>=</span><span>"always"</span><span>&gt;&lt;/param&gt;</span><span> </span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;embed</span><span> </span><span>src</span><span>=</span><span>"https://www.youtube.com/v/9sEI1AUFJKw&amp;hl=en_GB&amp;fs=1&amp;"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>type</span><span>=</span><span>"application/x-shockwave-flash"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>allowscriptaccess</span><span>=</span><span>"always"</span><span> </span><span>allowfullscreen</span><span>=</span><span>"true"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>width</span><span>=</span><span>"425"</span><span> </span><span>height</span><span>=</span><span>"344"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;/embed&gt;</span><span> </span></li>
-<li><span>&lt;/object&gt;</span></li>
+<li value="1">&lt;object width="425" height="344"&gt; </li>
+<li>&nbsp; &nbsp;&lt;param name="movie" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;value="https://www.youtube.com/v/9sEI1AUFJKw&amp;hl=en_GB&amp;fs=1&amp;"&gt;</li>
+<li>&nbsp; &nbsp;&lt;/param&gt;</li>
+<li>&nbsp; &nbsp;&lt;param name="allowFullScreen"&nbsp; &nbsp;value="true"&gt;&lt;/param&gt; </li>
+<li>&nbsp; &nbsp;&lt;param name="allowscriptaccess" value="always"&gt;&lt;/param&gt; </li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;embed src="https://www.youtube.com/v/9sEI1AUFJKw&amp;hl=en_GB&amp;fs=1&amp;" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;type="application/x-shockwave-flash" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;allowscriptaccess="always" allowfullscreen="true" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;width="425" height="344"&gt;</li>
+<li>&nbsp; &nbsp;&lt;/embed&gt; </li>
+<li>&lt;/object&gt;</li>
 </ol></div>
 
 Indeed, this was the only way to embed a YouTube video (fortunately, YouTube has changed that now). Furthermore, embedding a Flash player made it impossible to watch videos on some mobile platforms (especially Apple devices).
@@ -291,11 +291,11 @@ The new way of doing things is a lot better... (please open [this live example a
 The source code of this example shows the typical usage of the `<video>` element:
 
 <div><ol>
-<li value="1"><span>&lt;video</span><span> </span><span>width</span><span>=</span><span>"320"</span><span> </span><span>height</span><span>=</span><span>"240"</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.mp4"</span><span> </span><span>type</span><span>=</span><span>"video/mp4"</span><span> </span><span>/&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.ogg"</span><span> </span><span>type</span><span>=</span><span>"video/ogg"</span><span> </span><span>/&gt;</span></li>
-<li><span>&nbsp; &nbsp;Your browser does not support the </span><span>&lt;video&gt;</span><span> element.</span></li>
-<li><span>&lt;/video&gt;</span></li>
+<li value="1">&lt;video width="320" height="240" controls="controls"&gt;</li>
+<li>&nbsp; &nbsp;&lt;source src="movie.mp4" type="video/mp4" /&gt;</li>
+<li>&nbsp; &nbsp;&lt;source src="movie.ogg" type="video/ogg" /&gt;</li>
+<li>&nbsp; &nbsp;Your browser does not support the &lt;video&gt; element.</li>
+<li>&lt;/video&gt;</li>
 </ol></div>
 
 Please note that:
@@ -327,7 +327,7 @@ __An example using YouTube:__
 Here is the HTML code you need to copy and paste in order to embed a video (in this case, a tutorial that tells you how to embed a YouTube video):
 
 <div><ol>
-<li value="1"><span>&lt;iframe</span><span> </span><span>width</span><span>=</span><span>"560"</span><span> </span><span>height</span><span>=</span><span>"315"</span><span> </span><span>src</span><span>=</span><span>"https://www.youtube.com/watch?v=9NTrwrfI-X4"</span><span> </span><span>frameborder</span><span>=</span><span>"0"</span><span> </span><span>allowfullscreen</span><span>&gt;&lt;/iframe&gt;</span></li>
+<li value="1">&lt;iframe width="560" height="315" src="https://www.youtube.com/watch?v=9NTrwrfI-X4" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</li>
 </ol></div>
 
 The YouTube video embedded in this page by the above code: it's HTML5 but it's not a `<video>` element directly inserted in the HTML of this page, it's an `<iframe>`:
@@ -380,26 +380,26 @@ Press play to stream the neigh of a horse:
 As you can see, the code is very similar to the basic `<video>` element usage.
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&lt;head&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>/&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;title&gt;</span><span>horse song</span><span>&lt;/title&gt;</span></li>
-<li><span> </span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span>&lt;/head&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span>&lt;body&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;audio</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span><span> </span><span>type</span><span>=</span><span>"audio/ogg"</span><span> </span><span>/&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span> </span><span>type</span><span>=</span><span>"audio/mp3"</span><span> </span><span>/&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span></span><span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span></span>Your browser does not support the audio element.</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span></span><span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span></span>Download the audio/video in</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span><span>&gt;</span><span>OGG</span><span>&lt;/a&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>or </span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span>&gt;</span><span>MP3</span><span>&lt;/a&gt;</span><span> </span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>format.</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;/audio&gt;</span></li>
-<li><span> </span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp;&nbsp; &lt;head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;horse song&lt;/title&gt;</li>
+<li> </li>
+<li>&nbsp;&nbsp; &lt;/head&gt;</li>
+<li>&nbsp;&nbsp; &lt;body&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;audio controls="controls"&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/horse.ogg" type="audio/ogg" /&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/horse.mp3" type="audio/mp3" /&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Your browser does not support the audio element.</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Download the audio/video in</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;a href="https://mainline.i3s.unice.fr/mooc/horse.ogg"&gt;OGG&lt;/a&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; or &lt;a href="https://mainline.i3s.unice.fr/mooc/horse.mp3"&gt;MP3&lt;/a&gt; </li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; format.</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/audio&gt;</li>
+<li> </li>
+<li>&nbsp;&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -521,71 +521,71 @@ MOVE THE MOUSE POINTER OVER THIS PLAYER'S ELEMENTS! (Effect not shown due to CSS
 HTML source code:
 
 <div><ol>
-<li value="1"><span>&lt;figure</span><span> </span><span>id</span><span>=</span><span>"figaudio1"</span><span>&gt;</span></li>
-<li><span>&nbsp;&nbsp;</span><span>&lt;img</span><span> </span><span>id</span><span>=</span><span>"imghorse"</span><span> </span><span>width</span><span>=</span><span>"200"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>src</span><span>=</span><span>"https://upload.wikimedia.org/wikipedia/commons/d/d4/Nokota_Horses.jpg"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;alt</span><span> </span><span>=</span><span> </span><span>"a horse"</span><span>/&gt;</span><span> </span></li>
-<li><span>&nbsp;&nbsp;</span><span>&lt;figcaption</span><span> </span><span>id</span><span>=</span><span>"figcptionaudio1"</span><span>&gt;</span><span> Press Play to hear the horse! </span></li>
-<li><span>&nbsp; &nbsp; &lt;audio</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.ogg"</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>"audio/ogg"</span><span> </span><span>/&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/horse.mp3"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>"audio/mp3"</span><span> </span><span>/&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the audio element.</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;Download the audio/video in</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>”https://mainline.i3s.unice.fr/mooc/horse.ogg”</span><span>&gt;</span><span>OGG</span><span>&lt;/a&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;or </span><span>&lt;a</span><span> </span><span>href</span><span>=</span><span>”https://mainline.i3s.unice.fr/mooc/horse.mp3”</span><span>&gt;</span><span>MP3</span><span>&lt;/a&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; format.</span></li>
-<li><span>&nbsp;&nbsp;&nbsp; &nbsp;&lt;/audio&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&lt;/figcaption&gt;</span></li>
-<li><span>&lt;/figure&gt;</span></li>
+<li value="1">&lt;figure id="figaudio1"&gt;</li>
+<li>&nbsp;&nbsp;&lt;img id="imghorse" width="200" </li>
+<li>&nbsp; &nbsp; &nbsp;src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Nokota_Horses.jpg" </li>
+<li>&nbsp; &nbsp; &nbsp;alt = "a horse"/&gt; </li>
+<li>&nbsp;&nbsp;&lt;figcaption id="figcptionaudio1"&gt; Press Play to hear the horse! </li>
+<li>&nbsp; &nbsp; &lt;audio controls="controls"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;source src="https://mainline.i3s.unice.fr/mooc/horse.ogg"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="audio/ogg" /&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;source src="https://mainline.i3s.unice.fr/mooc/horse.mp3" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="audio/mp3" /&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;Your browser does not support the audio element.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;Download the audio/video in</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;a href=”https://mainline.i3s.unice.fr/mooc/horse.ogg”&gt;OGG&lt;/a&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;or &lt;a href=”https://mainline.i3s.unice.fr/mooc/horse.mp3”&gt;MP3&lt;/a&gt; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; format.</li>
+<li>&nbsp;&nbsp;&nbsp; &nbsp;&lt;/audio&gt;</li>
+<li>&nbsp;&nbsp; &lt;/figcaption&gt;</li>
+<li>&lt;/figure&gt;</li>
 </ol></div>
 
 
 CSS source code:
 
 <div><ol>
-<li value="1"><span>#figaudio1 {</span></li>
-<li><span>&nbsp; &nbsp; width </span><span>:</span><span> </span><span>420px</span><span>;;</span></li>
-<li><span>&nbsp; &nbsp; text</span><span>-</span><span>align</span><span>:</span><span>center</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; padding </span><span>:</span><span> </span><span>6px</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; background </span><span>:</span><span> white</span><span>;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; margin </span><span>:</span><span> </span><span>0</span><span> </span><span>11px</span><span> </span><span>0px</span><span> </span><span>0</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; border </span><span>:</span><span>solid </span><span>1px</span><span> </span><span>#888888;</span></li>
-<li><span>&nbsp; &nbsp; border</span><span>-</span><span>radius </span><span>:</span><span> </span><span>8px</span><span> </span><span>;</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>#figcptionaudio1 {</span></li>
-<li><span>&nbsp; &nbsp; font</span><span>-</span><span>size </span><span>:</span><span> </span><span>.</span><span>8em</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; padding </span><span>:</span><span> </span><span>6px</span><span> </span><span>8px</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; background </span><span>:</span><span> </span><span>#dddddd; </span></li>
-<li><span>&nbsp; &nbsp; display </span><span>:</span><span>block</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; text</span><span>-</span><span>align </span><span>:</span><span>center</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; font</span><span>-</span><span>family </span><span>:</span><span> georgia</span><span>,</span><span> serif</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; font</span><span>-</span><span>style </span><span>:</span><span> italic</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; border</span><span>-</span><span>radius </span><span>:</span><span> </span><span>7px</span><span> </span><span>;</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>#figaudio1 &gt; img {</span></li>
-<li><span>&nbsp; &nbsp; background </span><span>:</span><span> </span><span>#eeeeee;</span></li>
-<li><span>&nbsp; &nbsp; padding </span><span>:</span><span> </span><span>5px</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; border </span><span>:</span><span> solid </span><span>1px</span><span> </span><span>#444444;</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>/* For audio and img transitions/animation */</span></li>
-<li><span>audio</span><span>,</span><span> </span><span>#figaudio1 &gt; img {</span></li>
-<li><span>&nbsp; &nbsp; transition</span><span>:</span><span>all </span><span>0.5s</span><span>;</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>#figaudio1 &gt; img:hover {</span></li>
-<li><span>&nbsp; &nbsp; box</span><span>-</span><span>shadow</span><span>:</span><span> </span><span>15px</span><span> </span><span>15px</span><span> </span><span>20px</span><span> rgba</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>0.4</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; transform</span><span>:</span><span> scale</span><span>(</span><span>1.05</span><span>);</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>audio</span><span>:</span><span>hover</span><span>,</span><span> audio</span><span>:</span><span>focus</span><span>,</span><span> audio</span><span>:</span><span>active </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; box</span><span>-</span><span>shadow</span><span>:</span><span> </span><span>15px</span><span> </span><span>15px</span><span> </span><span>20px</span><span> rgba</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> </span><span>0.4</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; transform</span><span>:</span><span> scale</span><span>(</span><span>1.05</span><span>);</span></li>
-<li><span>}</span></li>
+<li value="1">#figaudio1 {</li>
+<li>&nbsp; &nbsp; width : 420px;;</li>
+<li>&nbsp; &nbsp; text-align:center;</li>
+<li>&nbsp; &nbsp; padding : 6px;</li>
+<li>&nbsp; &nbsp; background : white; </li>
+<li>&nbsp; &nbsp; margin : 0 11px 0px 0;</li>
+<li>&nbsp; &nbsp; border :solid 1px #888888;</li>
+<li>&nbsp; &nbsp; border-radius : 8px ;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>#figcptionaudio1 {</li>
+<li>&nbsp; &nbsp; font-size : .8em;</li>
+<li>&nbsp; &nbsp; padding : 6px 8px;</li>
+<li>&nbsp; &nbsp; background : #dddddd; </li>
+<li>&nbsp; &nbsp; display :block;</li>
+<li>&nbsp; &nbsp; text-align :center;</li>
+<li>&nbsp; &nbsp; font-family : georgia, serif;</li>
+<li>&nbsp; &nbsp; font-style : italic;</li>
+<li>&nbsp; &nbsp; border-radius : 7px ;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>#figaudio1 &gt; img {</li>
+<li>&nbsp; &nbsp; background : #eeeeee;</li>
+<li>&nbsp; &nbsp; padding : 5px;</li>
+<li>&nbsp; &nbsp; border : solid 1px #444444;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>/* For audio and img transitions/animation */</li>
+<li>audio, #figaudio1 &gt; img {</li>
+<li>&nbsp; &nbsp; transition:all 0.5s;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>#figaudio1 &gt; img:hover {</li>
+<li>&nbsp; &nbsp; box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);</li>
+<li>&nbsp; &nbsp; transform: scale(1.05);</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>audio:hover, audio:focus, audio:active {</li>
+<li>&nbsp; &nbsp; box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);</li>
+<li>&nbsp; &nbsp; transform: scale(1.05);</li>
+<li>}</li>
 </ol></div>
 
 
@@ -609,29 +609,29 @@ This example uses the pseudo CSS class :hover in order to track the `mouseover` 
 The corresponding HTML source code is:
 
 <div><ol>
-<li value="1"><span>&lt;video</span><span> </span><strong><span>id</span><span>=</span><span>"w3devCampusVideo"</span></strong><span> </span><span>autoplay</span><span> </span><span>controls</span><span>&gt;</span><span> </span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>video/webm</span><span>&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>video/ogg</span><span>&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span>=</span><span>video/mp4</span><span>&gt;</span><span> </span></li>
-<li><span>&lt;/video&gt;</span><span> </span></li>
+<li value="1">&lt;video <strong>id="w3devCampusVideo"</strong> autoplay controls&gt; </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source src=https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type=video/webm&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source src=https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type=video/ogg&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source src=https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type=video/mp4&gt; </li>
+<li>&lt;/video&gt; </li>
 </ol></div>
 
 ... and the CSS source code is as follows:
 
 <div><ol>
-<li value="1"><span>#w3devCampusVideo {</span></li>
-<li><span>&nbsp; &nbsp; width</span><span>:</span><span> </span><span>300px</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; <strong>transition</strong></span><strong><span>:</span><span> all </span><span>0.5s</span><span> ease</span><span>-</span><span>in</span><span>-</span><span>out</span><span>;</span></strong></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>#w3devCampusVideo<strong>:hover</strong>&nbsp;{ </span></li>
-<li><span>&nbsp; &nbsp; width</span><span>:</span><span>400px</span><span>;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; transform</span><span>:</span><span>rotate</span><span>(-</span><span>5deg</span><span>);</span></li>
-<li><span>}</span></li>
+<li value="1">#w3devCampusVideo {</li>
+<li>&nbsp; &nbsp; width: 300px;</li>
+<li>&nbsp; &nbsp; <strong>transition</strong><strong>: all 0.5s ease-in-out;</strong></li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>#w3devCampusVideo<strong>:hover</strong>&nbsp;{ </li>
+<li>&nbsp; &nbsp; width:400px; </li>
+<li>&nbsp; &nbsp; transform:rotate(-5deg);</li>
+<li>}</li>
 </ol></div>
 
 __Fullscreen video that resizes and maintains ratios. Uses simple JavaScript to modify CSS properties__
@@ -670,59 +670,59 @@ __Example #1: with a regular video__
 Here is the HTML code. It's really simple, just notice the <body onload="init();"> which calls the JavaScript init() function right after the page is loaded.
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html lang="en"&gt;</span></li>
-<li><span>&lt;head&gt;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;title&gt;</span><span>Full width video like PayPal site</span><span>&lt;/title&gt;</span></li>
-<li><span>&lt;/head&gt;</span></li>
-<li><span>&lt;body</span><span> </span><strong><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span></strong><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &lt;video</span><span> </span><span><strong>id</strong></span><strong><span>=</span><span>"myVideo"</span></strong><span> </span><span>autoplay</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &lt;source</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/webm</span><span>&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/ogg</span><span>&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>&lt;source</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span>=</span><span>https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>video/mp4</span><span>&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/video&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;title&gt;Full width video like PayPal site&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body <strong>onload="init();"</strong>&gt;</li>
+<li>&nbsp; &nbsp; &lt;video <strong>id</strong><strong>="myVideo"</strong> autoplay&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;source </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src=https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type=video/webm&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;source </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src=https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.ogg </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type=video/ogg&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;source </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src=https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4 </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type=video/mp4&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;/video&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
 Here is the CSS (remove margins, remove padding, hide parts that could overflow from the <body>):
 
 <div><ol>
-<li value="1"><span>body </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; margin</span><span>:</span><span>0</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; padding</span><span>:</span><span>0</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; overflow</span><span>:</span><span>hidden</span><span>;</span></li>
-<li><span>}</span></li>
+<li value="1">body {</li>
+<li>&nbsp; &nbsp; margin:0;</li>
+<li>&nbsp; &nbsp; padding:0;</li>
+<li>&nbsp; &nbsp; overflow:hidden;</li>
+<li>}</li>
 </ol></div>
 
 
 And now the JavaScript code:
 
 <div><ol>
-<li value="1"><span>var</span><span> video</span><span>;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// function called when the page is loaded</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;video </span><span>=</span><span> document</span><span>.</span><span>querySelector</span><span>(</span><span>"#myVideo"</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// For initial value</span></li>
-<li><span>&nbsp; &nbsp;video</span><span>.</span><span>width </span><span>=</span><span> window</span><span>.</span><span>innerWidth</span><span>;</span></li>
-<li><span>&nbsp; &nbsp;video</span><span>.</span><span>height </span><span>=</span><span> window</span><span>.</span><span>innerHeight</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// For dealing with window resize</span></li>
-<li><span>&nbsp; &nbsp;window</span><span>.</span><span>onresize </span><span>=</span><span> </span><span>function</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;video</span><span>.</span><span>width </span><span>=</span><span> window</span><span>.</span><span>innerWidth</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;video</span><span>.</span><span>height </span><span>=</span><span> window</span><span>.</span><span>innerHeight</span><span>;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>};</span></li>
-<li><span>}</span></li>
+<li value="1">var video;</li>
+<li>&nbsp;</li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp;// function called when the page is loaded</li>
+<li> </li>
+<li>&nbsp; &nbsp;video = document.querySelector("#myVideo");</li>
+<li> </li>
+<li>&nbsp; &nbsp;// For initial value</li>
+<li>&nbsp; &nbsp;video.width = window.innerWidth;</li>
+<li>&nbsp; &nbsp;video.height = window.innerHeight;</li>
+<li> </li>
+<li>&nbsp; &nbsp;// For dealing with window resize</li>
+<li>&nbsp; &nbsp;window.onresize = function() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;video.width = window.innerWidth;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;video.height = window.innerHeight;</li>
+<li>&nbsp; &nbsp;};</li>
+<li>}</li>
 </ol></div>
 
 
@@ -760,16 +760,16 @@ __Full screen video, pure CSS approaches__
 CSS code:
 
 <div><ol>
-<li value="1"><span> body </span><span>{</span></li>
-<li><span>&nbsp; margin</span><span>:</span><span>0</span><span>;</span></li>
-<li><span>&nbsp; padding</span><span>:</span><span>0</span><span>;</span></li>
-<li><span>&nbsp; overflow</span><span>:</span><span>hidden</span><span>;</span></li>
-<li><span>}</span><span> </span></li>
-<li><span>&nbsp;</span></li>
-<li><span>video </span><span>{</span></li>
-<li><span>&nbsp; width</span><span>:</span><span>100</span><span>%;</span><span> </span></li>
-<li><span>&nbsp; height</span><span>:</span><span>auto</span><span>;</span><span> </span></li>
-<li><span>}</span></li>
+<li value="1"> body {</li>
+<li>&nbsp; margin:0;</li>
+<li>&nbsp; padding:0;</li>
+<li>&nbsp; overflow:hidden;</li>
+<li>} </li>
+<li>&nbsp;</li>
+<li>video {</li>
+<li>&nbsp; width:100%; </li>
+<li>&nbsp; height:auto; </li>
+<li>}</li>
 </ol></div>
 
 2. Full screen video with CSS effects
@@ -791,61 +791,61 @@ CSS code:
 HTML code:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html lang="en"&gt;</span></li>
-<li><span>&lt;head&gt;</span></li>
-<li><span>&nbsp; &nbsp;&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;title&gt;</span><span>Full screen video, example from demosthene.info by </span><span>&lt;/title&gt;</span></li>
-<li><span>&lt;/head&gt;</span></li>
-<li><span>&lt;body&gt;</span></li>
-<li><span>&lt;header&gt;</span></li>
-<li><span>&nbsp;&lt;video</span><span> </span><span>autoplay</span><span></span><span></span><span> </span><span>loop</span><span>=</span><span>""</span><span> </span></li>
-<li><span>&nbsp; poster</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/polina.jpg"</span><span> </span></li>
-<li><span>&nbsp; id</span><span>=</span><span>"bgvid"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/polina.webm"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>"video/webm"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &lt;source</span><span> </span><span>src</span><span>=</span><span>"https://mainline.i3s.unice.fr/mooc/polina.mp4"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span>=</span><span>"video/mp4"</span><span>&gt;</span></li>
-<li><span>&nbsp;&lt;/video&gt;</span></li>
-<li><span>&lt;/header&gt;</span></li>
-<li><span>&lt;section&gt;</span></li>
-<li><span> </span><span>&lt;h1&gt;</span><span>https://demosthenes.info/blog/777/Create-Fullscreen-HTML5-Page-</span></li>
-<li><span>Background-Video</span><span>&lt;/h1&gt;</span></li>
-<li><span>&lt;/section&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp;&lt;title&gt;Full screen video, example from demosthene.info by &lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;header&gt;</li>
+<li>&nbsp;&lt;video autoplay loop="" </li>
+<li>&nbsp; poster="https://mainline.i3s.unice.fr/mooc/polina.jpg" </li>
+<li>&nbsp; id="bgvid"&gt;</li>
+<li>&nbsp; &nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/polina.webm" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="video/webm"&gt;</li>
+<li>&nbsp; &nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/polina.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="video/mp4"&gt;</li>
+<li>&nbsp;&lt;/video&gt;</li>
+<li>&lt;/header&gt;</li>
+<li>&lt;section&gt;</li>
+<li> &lt;h1&gt;https://demosthenes.info/blog/777/Create-Fullscreen-HTML5-Page-</li>
+<li>Background-Video&lt;/h1&gt;</li>
+<li>&lt;/section&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
 CSS code:
 
 <div><ol>
-<li value="1"><span>html</span><span>,</span><span> body</span><span>{</span></li>
-<li><span>&nbsp; &nbsp; color</span><span>:</span><span>white</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; height</span><span>:</span><span> </span><span>100</span><span>%;</span></li>
-<li><span>}</span></li>
-<li><span> </span></li>
-<li><span>header</span><span>{</span></li>
-<li><span>&nbsp; &nbsp; height</span><span>:</span><span> </span><span>100</span><span>%;</span></li>
-<li><span>&nbsp; &nbsp; background</span><span>-</span><span>image</span><span>:</span><span> url</span><span>(</span><span>'https://dupontcours.free.fr/IMG/dots.png'</span><span>),</span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>url</span><span>(</span><span>'#'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; background</span><span>-</span><span>repeat</span><span>:</span><span> repeat</span><span>,</span><span> </span><span>no</span><span>-</span><span>repeat</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; background</span><span>-</span><span>size</span><span>:</span><span> </span><span>auto</span><span>,</span><span> cover</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; background</span><span>-</span><span>position</span><span>:</span><span> center center</span><span>,</span><span> top left</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; font</span><span>-</span><span>family</span><span>:</span><span> sans</span><span>-</span><span>serif</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; color</span><span>:</span><span> </span><span>#051a00;</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>header video </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; position</span><span>:</span><span>fixed</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; top</span><span>:</span><span>50</span><span>%;</span></li>
-<li><span>&nbsp; &nbsp; left</span><span>:</span><span>50</span><span>%;</span></li>
-<li><span>&nbsp; &nbsp; min</span><span>-</span><span>width</span><span>:</span><span>100</span><span>%;</span></li>
-<li><span>&nbsp; &nbsp; min</span><span>-</span><span>height</span><span>:</span><span>100</span><span>%;</span></li>
-<li><span>&nbsp; &nbsp; width</span><span>:</span><span>auto</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; height</span><span>:</span><span>auto</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; z</span><span>-</span><span>index</span><span>:-</span><span>100</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; transform</span><span>:</span><span>translateX</span><span>(-</span><span>50</span><span>%)</span><span> translateY</span><span>(-</span><span>50</span><span>%);</span></li>
-<li><span>}</span></li>
+<li value="1">html, body{</li>
+<li>&nbsp; &nbsp; color:white;</li>
+<li>&nbsp; &nbsp; height: 100%;</li>
+<li>}</li>
+<li> </li>
+<li>header{</li>
+<li>&nbsp; &nbsp; height: 100%;</li>
+<li>&nbsp; &nbsp; background-image: url('https://dupontcours.free.fr/IMG/dots.png'),&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;url('#');</li>
+<li>&nbsp; &nbsp; background-repeat: repeat, no-repeat;</li>
+<li>&nbsp; &nbsp; background-size: auto, cover;</li>
+<li>&nbsp; &nbsp; background-position: center center, top left;</li>
+<li>&nbsp; &nbsp; font-family: sans-serif;</li>
+<li>&nbsp; &nbsp; color: #051a00;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>header video {</li>
+<li>&nbsp; &nbsp; position:fixed;</li>
+<li>&nbsp; &nbsp; top:50%;</li>
+<li>&nbsp; &nbsp; left:50%;</li>
+<li>&nbsp; &nbsp; min-width:100%;</li>
+<li>&nbsp; &nbsp; min-height:100%;</li>
+<li>&nbsp; &nbsp; width:auto;</li>
+<li>&nbsp; &nbsp; height:auto;</li>
+<li>&nbsp; &nbsp; z-index:-100;</li>
+<li>&nbsp; &nbsp; transform:translateX(-50%) translateY(-50%);</li>
+<li>}</li>
 </ol></div>
 
 
@@ -863,18 +863,18 @@ This time we obtain the same result as with the first example that used JavaScri
 CSS code:
 
 <div><ol>
-<li value="1"><span>body </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;margin</span><span>:</span><span> </span><span>0</span><span>;</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>video </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;position</span><span>:</span><span> absolute</span><span>;</span></li>
-<li><span>&nbsp; <strong>&nbsp;width</strong></span><strong><span>:</span><span> </span><span>100vw</span><span>;</span></strong></li>
-<li><span>&nbsp; &nbsp;<strong>height</strong></span><strong><span>:</span><span> </span><span>100vh</span><span>;</span></strong></li>
-<li><span>&nbsp; &nbsp;</span><strong><span>object</span><span>-</span><span>fit</span><span>:</span><span> cover</span><span>;</span></strong></li>
-<li><span>&nbsp; &nbsp;</span><strong><span>object</span><span>-</span><span>position</span><span>:</span><span> center center</span><span>;</span></strong></li>
-<li><span>}</span></li>
+<li value="1">body {</li>
+<li>&nbsp; &nbsp;margin: 0;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>video {</li>
+<li>&nbsp; &nbsp;position: absolute;</li>
+<li>&nbsp; <strong>&nbsp;width</strong><strong>: 100vw;</strong></li>
+<li>&nbsp; &nbsp;<strong>height</strong><strong>: 100vh;</strong></li>
+<li>&nbsp; &nbsp;<strong>object-fit: cover;</strong></li>
+<li>&nbsp; &nbsp;<strong>object-position: center center;</strong></li>
+<li>}</li>
 </ol></div>
 
 
@@ -917,10 +917,10 @@ The `<video>` element has methods, properties/attributes and events that can be 
 Like any HTML element, the `<video>` element can be manipulated/created using the DOM JavaScript API. Here is an example of programmatically creating a `<video>` element:
 
 <div><ol>
-<li value="1"><span>var</span><span> video </span><span>=</span><span> document</span><span>.</span><span>createElement</span><span>(</span><span>'video'</span><span>);</span></li>
-<li><span>video</span><span>.</span><span>src </span><span>=</span><span> </span><span>'video.mp4'</span><span>;</span></li>
-<li><span>video</span><span>.</span><span>controls </span><span>=</span><span> </span><span>true</span><span>;</span></li>
-<li><span>document</span><span>.</span><span>body</span><span>.</span><span>appendChild</span><span>(</span><span>video</span><span>);</span></li>
+<li value="1">var video = document.createElement('video');</li>
+<li>video.src = 'video.mp4';</li>
+<li>video.controls = true;</li>
+<li>document.body.appendChild(video);</li>
 </ol></div>
 
 This will create a complete video player for the file "video.mp4", with control buttons, and will add it to the `<body>` element of the page.
