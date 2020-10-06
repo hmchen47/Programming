@@ -828,4 +828,75 @@
 
 
 
+## Pattern Properties
+
++ [Patterns / Textures](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#354-canvas-context-patternstextures)
+  + principle of "pattern" drawing: based on repeating an image for filling the surface of objects to be drawn (either filled or stroked)
+  + SYNTAX: `context.createPattern(image,"repeat|repeat-x|repeat-y|no-repeat");`
+  + procedure of creating pattern
+    + creating a JavaScript image object; e.g., `var imageObj = new Image();`
+    + define a callback function called once the fully loaded image in memory; e.g., `imageObj.onload = function(){...}`
+    + set the source image to the URL of the pattern; e.g., `imageObj.src = "https://www.myserver.com/myRepeatablePattern.png";`
+    + an HTTP request sent in background by the browser and loading the image into memory, then call the callback function
+      + callback called asynchronously, after the `src` attribute of `imageObj` is set: `imageObj.onload = function(){...}`
+      + enter `imageObj.onload` after image loaded to create a pattern object: `pattern1 = ctx.createPattern(imageObj, "repeat");`
+      + good practice: set the pattern as a global variable, easier to share
+    + draw pattern within the callback function; e.g, a textured rectangle: `ctx.fillStyle = pattern1; ctx.fillRect(10, 10, 500, 800);`
+
++ [Multi-image Pattern](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#355-a-multiple-image-loader)
+  + load all image before drawing
+  + only when all images have been loaded, start drawing.
+  + solution: use a multiple image loader that counts the loaded images and calls a function you pass when done
+  + an array of URLs used by multiple image loader
+  + onload callback called once per image loaded to count the number of images effectively loaded
+  + list of images to load: `var imagesToLoad = { flowers: 'https://i.ibb.co/4NN9Sgn/flowers.jpg', lion: 'https://i.ibb.co/3NyqKnY/lion.jpg', ...}`
+  + image loader function: `function loadImages(imagesToBeLoaded, drawCallback) {...}`
+    + parameters: the list of images to be loaded & drawCallback function called only once all images loaded
+    + counting the number of images to load: ` for(var name in imagesToBeLoaded) { numberOfImagesToLoad++; }`
+    + iterate to load all images: `for(var name in imagesToBeLoaded) {...}`
+    + onload callback function within iteration and draw pattern only all images loaded
+
+      ```js
+      imagesLoaded[name].onload = function() {
+          if(++loadedImages >= numberOfImagesToLoad) {
+              drawCallback(imagesLoaded);
+          } // if
+      }; // function
+      ```
+
+  + use of image loader: `loadImages(imagesToLoad, function(imagesLoaded) {...});`
+    + create patterns from the loaded image
+    + call a function to draw the rectangle: `drawRectanglesWithPatterns();`
+  + function to draw rectangle w/ patterns: `function drawRectanglesWithPatterns() {...}`
+    + draw each pattern w/ given rectangle area
+    + floor pattern on top left corner: `ctx.fillStyle=patternFloor; ctx.fillRect(0,0,200,200);`
+    + Lion pattern on top right corner: `ctx.fillStyle=patternLion; ctx.fillRect(200,0,200,200);`
+    + flower pattern on bottom left corner: `ctx.fillStyle=patternFlowers; ctx.fillRect(0,200,200,200);`
+    + black-white pattern on the bottom right corner: `ctx.fillStyle=patternBW; ctx.fillRect(200,200,200,200);`
+  
+
+
+## Shadow Properties 
+
++ [Drawing shadows](../WebDev/Frontend-W3C/2-HTML5Coding/03e-Graphics.md#356-drawing-shadows)
+  + properties to draw shapes with shadows:
+    + `shadowColor`: color to use for shadows
+    + `shadowBlur`: blur level for shadows
+    + `shadowOffsetX`: horizontal distance of the shadow from the shape
+    + `shadowOffsetY`: vertical distance of the shadow from the shape
+  + example: simple shadow
+    + a function that will set the 4 context properties for shadows: `function setShadow() {...}`
+      + all drawings casting this shadows
+      + define the 4 properties for better clarity: `ctx.shadowColor = "Grey"; ctx.shadowBlur = 20; ctx.shadowOffsetX = 15; ctx.shadowOffsetY = 15;`
+    + green filled rectangle w/ shadow: `ctx.fillStyle = "#22FFDD"; ctx.fillRect(20, 20, 200, 100);`
+    + stroked rectangle w/ shadow: `ctx.strokeStyle = "purple";  ctx.lineWidth=10; ctx.strokeRect(20, 150, 200, 100);`
+  + solution to remove unwanted shadow
+    + save the context before setting the shadow properties
+    + draw the filled circle
+    + restore the context (to its previous state: without shadows)
+    + draw the outlined circle by calling `ctx.stroke()`
+
+
+
+
 
