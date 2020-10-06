@@ -109,11 +109,11 @@
     + `init()` only called after the page entirely loaded
     + unable to access the elements of the page before the page loaded entirely and before the DOM ready
     + ways to achieve the requirement
-      + add `onload` attribute w/ `<body>` element, e.g., `<body onload="init();">` (good practice)
+      + add `onload` attribute w/ `<body>` element, e.g., `<body onload="init();">` (__good practice__)
       + put the JavaScript code at the end of the document, just before `</body>` between `<script>`...`</script>`
   + access drawing context before manipulating it
     + the drawing context defines the drawing methods and properties
-    + good practice: get the canvas, the context, the width and height of the canvas and other global objects in this "init" function
+    + __good practice__: get the canvas, the context, the width and height of the canvas and other global objects in this "init" function
   + example: filled rectangle
     + `fillstyle` property: assign a color, a gradient, or a pattern; e.g., `ctx.fillStyle='#FF0000';`
     + `fillRect(top left X coordinate, top left Y coordinate, width, height)` method: draw a filled rectangle
@@ -180,9 +180,9 @@
     + saving the context properties
     + saved properties: all properties effecting the drawing
     + probably save the context property values in a hardware register on the graphics card
-    + multiple contexts able to be saved consectively and restored
+    + multiple contexts able to be saved consecutively and restored
     + multiple contexts saved in stacked manner
-  + best practice: save the context before any activities modifying the context, and restore it at the end of the activities, in particular, a function
+  + __best practice__: save the context before any activities modifying the context, and restore it at the end of the activities, in particular, a function
 
 
 
