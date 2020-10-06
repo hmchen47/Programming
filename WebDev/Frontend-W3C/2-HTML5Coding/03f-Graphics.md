@@ -228,8 +228,9 @@ __Source code for the next question (6)__
   b. Either changing any property of the context (lineWidth, font, etc.) or changing the coordinate system by applying 2D transformations to the coordinate system.<br/>
   c. Changing only the value of the fillStyle or strokeStyle property.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: magenta;">b</span>, c<br/>
+  Explanation: Any modification in the context properties or any 2D transformation changes the context.
+
 
 
 12. Best practice?
@@ -239,8 +240,10 @@ __Source code for the next question (6)__
   a. Call `ctx.save()` at the beginning of any function that changes the context, call `ctx.restore()` at the end of the function.<br/>
   a. No need to save / restore the context, it suffices to set fillStyle, strokeStyle, lineWidth, etc. and apply the correct 2D transforms before any drawing.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Of course, the best practice is to save the context at the beginning of any function that changes the context, and then restore it at the end of the function.
+
+  
 
 
 
