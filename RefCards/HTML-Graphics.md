@@ -676,6 +676,69 @@
 
 
 
+## Drawing Curves and Curve Arrows
+
++ [Drawing quadratic curve](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#3410-quadratic-curves)
+  + defined by a starting point (called a "context point"), a control point, and an ending point
+  + curve fitting the tangents between the context and control points and between the control and ending points
+  + define the context point: `moveTo(x, y)` or the ending point of a previous path
+  + the control point controls the curvature: moving the control point farther $\to$ a sharper curve
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://www.html5canvastutorials.com/tutorials/html5-canvas-quadratic-curves/')"
+        src    ="https://tinyurl.com/y93lpz8k"
+        alt    ="quadratic curve"
+        title  ="quadratic curve"
+      />
+    </figure>
+
+  + typical use
+
+    <div><ol style="list-style-type: decimal;">
+    <li value="1">context.moveTo(contextX, contextY);</li>
+    <li>context.quadraticCurveTo(controlX, controlY, endX, endY);</li>
+    <li>// Optional : set lineWidth and stroke color</li>
+    <li><span style="line-height: 23.2727279663086px;">context</span>.lineWidth = 5;</li>
+    <li><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.strokeStyle = "#0000ff";</li>
+    <li>// Draw!</li>
+    <li><span style="line-height: 23.2727279663086px; background-color: #eeeeee;">context</span>.stroke(); </li>
+    </ol></div>
+
++ [Curved arrow](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#3411-curved-arrows)
+  + function: `function drawCurvedArrow(startPointX, startPointY, endPointX, endPointY, quadPointX, quadPointY, lineWidth, arrowWidth, color) {...}`
+  + save/restore context at beginning/end of function: `ctx.save();` & `ctx.restore();`
+  + compute angle of the end tangent, useful for drawing the arrow head: `var arrowAngle = Math.atan2(quadPointX - endPointX, quadPointY - endPointY) + Math.PI;`
+  + start a new path: `ctx.beginPath();`
+  + draw body of the arrow: `ctx.moveTo(startPointX, startPointY); ctx.quadraticCurveTo(quadPointX, quadPointY, endPointX, endPointY);`
+  + compute the rotated endpoints of the two lines of the arrow head: `tx.moveTo(endPointX - (arrowWidth * Math.sin(arrowAngle - Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle - Math.PI / 6))); ctx.lineTo(endPointX, endPointY); ctx.lineTo(endPointX - (arrowWidth * Math.sin(arrowAngle + Math.PI / 6)), endPointY - (arrowWidth * Math.cos(arrowAngle + Math.PI / 6)));`
+  + complete drawing: `ctx.stroke(); ctx.closePath();`
+
++ [Drawing B&eacute;zier curves](../WebDev/Frontend-W3C/2-HTML5Coding/03d-Graphics.md#3412-bzier-curves)
+  + `ctx.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY)` method
+    + used mostly for drawing "S" shapes or asymmetric curves
+    + defined by a context point, like quadratic curves, two control points that define two tangents, and an ending point (see diagram)
+    + 1st part of the curve: tangential to the imaginary line defined by the context point and the first control point
+    + 2nd part of the curve: tangential to the imaginary line defined by the second control point and the ending point
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick="window.open('https://tinyurl.com/y27jjh7y')"
+        src    ="https://tinyurl.com/y6rotc24"
+        alt    ="A bezier curve is defined by the current context point, two control points, and an ending point. The first part of the curve is tangential to the imaginary line that is defined by the context point and the first control point. The second part of the curve is tangential to the imaginary line that is defined by the second control point and the ending point."
+        title  ="A bezier curve is defined by the current context point, two control points, and an ending point."
+      />
+    </figure>
+
+  + interactive applications & tool
+    + [Canvas Bézier Curve Example](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html)
+    + [IvanK Lib graphics demos](http://lib.ivank.net/?p=demos&d=bezier)
+    + Nice video tutorial: [Bézier curves under the hood](https://vimeo.com/106757336)
+    + [bezierCurveTo command generator](https://www.victoriakirst.com/beziertool/)
+  + typical use:
+    + move to context point (initial point): `ctx.moveTo(contextX, contextY);`
+    + draw B&eacute;zier curve: `ctx.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, endX, endY);`
+
 
 
 
