@@ -2,7 +2,8 @@
 
 ## 3.5 Colors, gradients, patterns, etc.
 
-### 2.5.0 Lecture Notes
+
+### 3.5.0 Lecture Notes
 
 + [Colors and transparency](#colors-and-transparency)
   + same syntax for [colors supported by CSS3](https://www.w3.org/TR/css-color-3/)
@@ -47,7 +48,7 @@
     + e.g., `grdFrenchFlag = ctx.createLinearGradient(100, 0, 200, 0);` as canvas w/ width=300, height=200
     + 1st color of the gradient: repeated w/o any interpolation (columns 0-100 are all blue)
     + "see through" and the gradient drawn (columns 100-200)
-    + the last color of the gradient repeated w/0 any interpolation (columns 200-300 are red)
+    + the last color of the gradient repeated w/o any interpolation (columns 200-300 are red)
   + [gradient bigger than the canvas](#what-happens-if-we-define-a-gradient-bigger-than-the-canvas)
     + e.g., `grdFrenchFlag = ctx.createLinearGradient(0, 0, 600, 400);`
     + red color beyond the bottom right corner
@@ -93,21 +94,20 @@
   + principle of "pattern" drawing: based on repeating an image for filling the surface of objects to be drawn (either filled or stroked)
   + SYNTAX: `context.createPattern(image,"repeat|repeat-x|repeat-y|no-repeat");`
   + procedure of creating pattern
-    + creating a Javascript image object; e.g., `var imageObj = new Image();`
+    + creating a JavaScript image object; e.g., `var imageObj = new Image();`
     + define a callback function called once the fully loaded image in memory; e.g., `imageObj.onload = function(){...}`
-    + set the source image tot he URL of the pattern; e.g., `imageObj.src = "https://www.myserver.com/myRepeatablePattern.png";`
+    + set the source image to the URL of the pattern; e.g., `imageObj.src = "https://www.myserver.com/myRepeatablePattern.png";`
     + an HTTP request sent in background by the browser and loading the image into memory, then call the callback function
       + callback called asynchronously, after the `src` attribute of `imageObj` is set: `imageObj.onload = function(){...}`
       + enter `imageObj.onload` after image loaded to create a pattern object: `pattern1 = ctx.createPattern(imageObj, "repeat");`
       + good practice: set the pattern as a global variable, easier to share
-    + draw pattern within the callback function
-      + draw a textured rectangle: `ctx.fillStyle = pattern1; ctx.fillRect(10, 10, 500, 800);`
+    + draw pattern within the callback function; e.g, a textured rectangle: `ctx.fillStyle = pattern1; ctx.fillRect(10, 10, 500, 800);`
 
 + [Multi-image Pattern](#355-a-multiple-image-loader)
   + load all image before drawing
   + only when all images have been loaded, start drawing.
   + solution: use a multiple image loader that counts the loaded images and calls a function you pass when done
-  + an array of URLs that used by multiple image loader
+  + an array of URLs used by multiple image loader
   + onload callback called once per image loaded to count the number of images effectively loaded
   + list of images to load: `var imagesToLoad = { flowers: 'https://i.ibb.co/4NN9Sgn/flowers.jpg', lion: 'https://i.ibb.co/3NyqKnY/lion.jpg', ...}`
   + image loader function: `function loadImages(imagesToBeLoaded, drawCallback) {...}`
@@ -124,8 +124,16 @@
       }; // function
       ```
 
-  + use of image loader: `loadImages(imagesToLoad, function(imagesLoaded) {...}`
-    + create patterns from the loaded image: `patternFlowers = ctx.createPattern(imagesLoaded.flowers, 'repeat'); patternLion    = ctx.createPattern(imagesLoaded.lion, 'repeat'); patternBW = ctx.createPattern(imagesLoaded.blackAndWhiteLys, 'repeat'); patternFloor   = ctx.createPattern(imagesLoaded.tiledFloor, 'repeat');`
+  + use of image loader: `loadImages(imagesToLoad, function(imagesLoaded) {...});`
+    + create patterns from the loaded image:
+
+      ```js
+      patternFlowers = ctx.createPattern(imagesLoaded.flowers, 'repeat');
+      patternLion    = ctx.createPattern(imagesLoaded.lion, 'repeat');
+      patternBW = ctx.createPattern(imagesLoaded.blackAndWhiteLys, 'repeat'); 
+      patternFloor   = ctx.createPattern(imagesLoaded.tiledFloor, 'repeat');
+      ```
+
     + call a function to draw the rectangle: `drawRectanglesWithPatterns();`
   + function to draw rectangle w/ patterns: `function drawRectanglesWithPatterns() {...}`
     + draw each pattern w/ given rectangle area
@@ -143,12 +151,12 @@
   + example: simple shadow
     + a function that will set the 4 context properties for shadows: `function setShadow() {...}`
       + all drawings casting this shadows
-      + define the 4 properties for better clarity: `ctx.shadowColor = "Grey"; ctx.shadowBlur = 20; x.shadowOffsetX = 15; ctx.shadowOffsetY = 15;`
+      + define the 4 properties for better clarity: `ctx.shadowColor = "Grey"; ctx.shadowBlur = 20; ctx.shadowOffsetX = 15; ctx.shadowOffsetY = 15;`
     + green filled rectangle w/ shadow: `ctx.fillStyle = "#22FFDD"; ctx.fillRect(20, 20, 200, 100);`
     + stroked rectangle w/ shadow: `ctx.strokeStyle = "purple";  ctx.lineWidth=10; ctx.strokeRect(20, 150, 200, 100);`
   + example: unwanted shadow
     + add the path a full circle: `ctx.arc(centerX, centerY, radius, 0, 2*Math.PI, false);`
-    + w/ path drawing to change the context properties until a call to `stroke()` or `fill()` performed: `ctx.fillStyle = "lightBlue";
+    + w/ path drawing to change the context properties until a call to `stroke()` or `fill()` performed: `ctx.fillStyle = "lightBlue";`
     + add shadows before drawing the filled circle: `addShadows() {...}`
       + set color: `ctx.shadowColor = "Grey"; // color`
       + set shadow blur level: `ctx.shadowBlur = 20;      // blur level`
@@ -157,7 +165,7 @@
     + draw the filled circle in light blue: `ctx.fill();`
     + set outline properties: `ctx.lineWidth = 5; ctx.strokeStyle = "black";`
     + draw wireframe along the path: `ctx.stroke()`
-    + `ctx.fill()` and `ctx.stroke()` casts a shadow along the whole path $\to$ unwanted shadow inside the circle
+    + `ctx.fill()` and `ctx.stroke()` casts a shadow along the whole path $\to$ unwanted shadow inside the circle produced by `ctx.stroke()`
     + solution to remove unwanted shadow
       + save the context before setting the shadow properties
       + draw the filled circle
