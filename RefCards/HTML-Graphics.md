@@ -166,6 +166,43 @@
 
 
 
+## Drawing Images
+
++ [Drawing images](../WebDev/Frontend-W3C/2-HTML5Coding/03c-Graphics.md#333-drawing-images)
+  + wait for the image loaded before drawing
+  + loading images: an asynchronous process
+  + possible to draw images from a video stream, images corresponding to another canvas content, or images defined by  HTML elements in the page
+  + procedure to draw image
+    + create a JavaScript Image object, e.g., `var imageObj = new Image();`
+    + send an asynchronous request in the background by the browser w/ the `src` attribute of this object with the URL of the image file; e.g., `imageObj.src = "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png";`
+    + call the `onload` callback associated with the image; e.g., `window.onload = function () {...}`
+    + draw the image only from inside this callback; e.g., `context.drawImage(imageObj, 0, 0);`
+  + `drawImage` method: numerous variants
+    + `drawImage(img, x, y)`: draw the image at position x, y, keeping the original image size
+    + `drawImage(img, x, y, sizeX, sizeY)`: same as before except that the image drawn is resized.
+    + `drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)`: for drawing sub-images, (sx, sy, sw, sh) define the source rectangle, while (dx, dy, dw, sh) define the target rectangle
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+          onclick="window.open('https://tinyurl.com/yyucaazn')"
+          src    ="https://tinyurl.com/yyuawz85"
+          alt    ="drawing images with subimages"
+          title  ="drawing images with subimages"
+        />
+      </figure>
+
+  + image defined in `<img src="...">`
+  + best practice: only draw an fully loaded image, use the `onload` callback!
+  + `window.onload = function() {...};`: execute after the page loaded, i.e., the large image file loaded first, then draw images in the canvas
+
++ [Drawing images from a video stream](../WebDev/Frontend-W3C/2-HTML5Coding/03c-Graphics.md#334-drawing-images-from-a-video-stream)
+  + `drawImage` method
+    + take a video element as its first parameter
+    + drawn the one currently played by the video stream
+  + `setInterval(function, delay)` method: make the browser execute the processFrame function each delayed `delay` ms
+  + rotating video effect: `function drawRotatingVideo(x, y) {...}`
+    + use of context save/restore primordial as this function changes the coordinate system at each call
+    + translating and rotating, requiring second translation to centralize the graph
 
 
 
