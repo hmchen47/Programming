@@ -414,7 +414,7 @@
   
 
 
-## Draw Rectangle
+## Drawing Rectangle
 
 + [Drawing rectangle](../WebDev/Frontend-W3C/2-HTML5Coding/03b-Graphics.md#326-drawing-rectangles-in-a-canvas)
   + simple drawing
