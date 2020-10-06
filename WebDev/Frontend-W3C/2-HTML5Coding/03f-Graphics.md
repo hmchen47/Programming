@@ -218,7 +218,29 @@ __Source code for the next question (6)__
   Explanation: Any transformation applied to the coordinate system is "global" and will affect all future drawings. The correct answer is "both rectangles".
 
 
+### 3.6.4 Saving and restoring the context (11-12)
 
+11. Changing the context?
+
+  What does "changing the context" mean?
+
+  a. Changing only the coordinate system by calling 2D transformation methods of the context.<br/>
+  b. Either changing any property of the context (lineWidth, font, etc.) or changing the coordinate system by applying 2D transformations to the coordinate system.<br/>
+  c. Changing only the value of the fillStyle or strokeStyle property.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+12. Best practice?
+
+  What best practice has been introduced in the course?
+
+  a. Call `ctx.save()` at the beginning of any function that changes the context, call `ctx.restore()` at the end of the function.<br/>
+  a. No need to save / restore the context, it suffices to set fillStyle, strokeStyle, lineWidth, etc. and apply the correct 2D transforms before any drawing.<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
