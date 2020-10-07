@@ -542,7 +542,7 @@ Source code:
 [Online example at JsBin](https://jsbin.com/jukoniz/1/edit?html,output) ([Local Example - requestAnimationFrame](src/4.2.5-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y2l9blgo')"
     src    ="https://tinyurl.com/y5pq67hz"
     alt    ="monster animated using requestAnimationFrame"
@@ -619,6 +619,64 @@ Current [support](https://caniuse.com/#feat=requestanimationframe) is really goo
 
 
 
+### 4.2.6 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects:
+
+
+#### Suggested topics
+
++ Why do we always mention "smooth animation" with 60 frames/s (note that in Europe, it was 50 frames/s for a long time)?
++ When should we use setTimeout or setInterval instead of the brand new super duper requestAnimationFrame? Please take a guess or if you know why, try to give examples and share your experiences in the forum. The optional projects below will help.
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
++ __Project 1 (easy):__ You created a monster, or a small drawing during Week 3: now please animate it! For example, make it move horizontally on the screen and bounce when it hits a vertical border.
++ __Project 2 (easy):__ Change the color of your drawing every 0.5s. Professionals would do this using the timeStamp parameter passed to the function called by requestAnimationFrame, and do some computations, etc. But this is for advanced users. Others will simply use requestAnimationFrame for the smooth shape movements at 60 frames/s (using translate, rotate and increments, as shown in the course), and will use setInterval, for example for calling another function every 0.5s, or every second, that could change a color, a speed, etc.
+
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+      onclick="window.open('https://tinyurl.com/y2xzkdb8')"
+      src    ="https://tinyurl.com/y3s7dpws"
+      alt    ="Transmogify monster"
+      title  ="Transmogify monster"
+    />
+  </figure>
+
+  [Try the "Transmogrify monster" on JsBin](https://jsbin.com/wucowah/1/edit?html,output), by Bill Graham. Uses color changes + bounces on vertical borders.
+
++ __Project 3 (easy):__ Run several animations at the same time (beware not to clear the canvas in all of them during each animation loop - one clear is enough). You can also have multiple calls to setInterval. Try and learn from experience. Then discuss your findings in the forum.
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick="window.open('https://tinyurl.com/y2xzkdb8')"
+      src    ="https://tinyurl.com/y25a3vyk"
+      alt    ="Bouncing monster with motion blur"
+      title  ="Bouncing monster with motion blur"
+    />
+  </figure>
+
+  [Try the above example on CodePen](https://codepen.io/dilipporwal/pen/yNKJOM) (by Dilip Dorwal). It uses animation and motion blur.
+
++ __Project 4 (easy):__ Implement motion blur for free! Instead of using clearRect(...) for clearing the canvas content, please comment this line and replace it by drawing a filled rectangle of the size of the canvas, that has some transparency. Use the following two lines, for example:
+
+  ```js
+  //ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Next line sets the color for filled shapes.
+  // We will use transparency here to create a blurred effect.
+  // Try different values for the last param (transparency): 0.05, 0.01, etc.
+
+  ctx.fillStyle = "rgba(0, 240, 240, 0.2)";
+
+  ctx.fillRect (0, 0, width, height);
+  //It will erase the canvas content using color defined above.
+  ```
 
 
 
