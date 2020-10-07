@@ -4,6 +4,41 @@
 ## 4.3 Canvas and user interaction
 
 
+### 4.3.0 Lecture Notes
+
++ [DOM events](#431-events-input-and-output)
+  + use the DOM JavaScript API to create event handlers
+  + js: events made by users as an input and manipulating the DOM structure as an output
+  + games/animations:
+    + input: change state variables of moving objects
+    + output: animation loop taking care of these variables to move the objects
+  + ways to manage events in the DOM structure
+    + declare event handlers in the HTML code
+      + e.g., <prep><div id="someDiv" <strong>onclick="alert('clicked!')</strong>;"></prep>
+      + not the recommended way to handle events
+      + mixing the 'visual layer' (HTML) and the 'logic layer' (JavaScript) in one place
+      + not the recommended way for full scale applications where a clean separation is the best
+    + add an event handler to an HTML element in JavaScript
+      + e.g., `document.getElementById('someDiv').onclick = function(evt) { alert('clicked!'); }`
+      + unable to attach several listener functions
+    + register a callback to the event listener with the `addEventListener` method
+      + e.g.,: `document.getElementById('someDiv').addEventListener('click', function(evt) { alert('clicked!'); }, false);`
+      + third parameter not important for now, just set it to false or ignore
+  + DOM event and event listener function
+    + create an EventListener and attach it to an element
+    + an event object passed as a parameter to the callback
+    + example:
+
+      ```js
+      element.addEventListener('click', function(event) {
+        // now you can use the event object inside the callback
+      }, false);
+      ```
+
+    + use different properties from the event object in order to get useful information
+
+
+
 ### 4.3.1 Events: input and output
 
 In JavaScript, we treat events made by users as an input, and we manipulate the DOM structure as an output. Most of the time in games/animations, we will change state variables of moving objects, such as position or speed of an alien ship, and the animation loop will take care of these variables to move the objects.
@@ -39,7 +74,7 @@ Here is an example:
 This method is fine, but  you will not be able to attach several listener functions. If you need to do this, the preferred version is the next one.
 
 
-__Third way: register a callback to the event listener with the addEventListener method__
+__Third way: register a callback to the event listener with the `addEventListener` method__
 
 This is how we do it:
 
@@ -104,4 +139,13 @@ Source code for the knowledge check 4.3.1
   a. It will hold relevant data about the interaction (element that fired the event, key code, mouse button and position of the mouse cursor, etc.)<br/>
   b. It's not useful, it's just here for debug purposes.<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: The event is useful for getting information about what fired the event, button, mouse, etc... The data it holds depends on the type of the event. This [example shows how we can get the id of the button that has been clicked and the value of the button label](https://jsbin.com/ruzofa/edit).
+
+
+
+
+
+
+
+
