@@ -79,7 +79,42 @@
   + __best practice__: avoid using setTimeout for animating in a canvas, except for trivial cases
   + __best practice__: using `requestAnimationFrame` for 60 frames/second animation
 
-
++ [`requestAnimationFrame` method](#425-the-requestanimationframe-api)
+  + syntax: `id = requestAnimationFrame(animationLoop)`
+  + `cancelAnimationFrame(id)` for stopping an animation
+  + similar to `setTimeout`
+    + call the function passed as a parameter ONCE
+    + fixed target delay, 16.6ms
+  + target 60 frames/s
+    + browser scheduling a call to the `animationLoop` function
+    + scheduling at 1/60th of a second = 16.6ms
+    + most monitors unable to display more than 60 frames/sec (FPS)
+    + most games acceptable above 30 PFS
+    + virtual reality probably reaching 75 PFS to achieve a natural feel
+    + some gaming monitors go up to 144 FPS
+  + call only once: call again to play a continuous animation
+  + advantages
+    + much more accurate scheduling: much smaller average error btw the schedule time and the real time if the execution time inside the function smaller than 16.6ms
+    + high resolution timer: smaller average time error $\to$ higher resolution $\to$ time-based animation
+    + merged multiple animations: bundle animations happening at the same time into a single paint redraw
+    + GPU/CPU optimization, battery saved on mobile:
+      + js executed but not drawn if not visible
+      + animationLoop still executed
+  + time-based animation:
+    + a technique that comprises measuring the amount of time elapsed between two frames
+    + computing the distance in pixels to move objects on screen
+    + the visible speed for a human eye remains constant, even if the frame rate is not
+  + typical use:
+    + `init()` function called after the page loaded
+      + get the canvas: `canvas = document.get ElementById('myCanvas')`
+      + get the context: `ctx = canvas.getContext('2d')`
+      + start the animation: `startAnimation()`
+    + `startAnimation()` fucntion: id = requestAnimationFrame(animationLoop);`
+    + `animationLoop` function: `function animationLoop(timeStamp)`
+      + clear: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+      + draw: `drawShapes(...);`
+      + move: `moveShapes(...);`
+      + call mainloop again after 16.6 ms: `id = requestAnimationFrame(animationLoop);`
 
 
 
@@ -427,6 +462,147 @@ Here comes [the requestAnimationFrame API](https://www.w3.org/TR/animation-timin
 
 
 
+### 4.2.5 The requestAnimationFrame API
+
+The `requestAnimationFrame(animationLoop)` is very similar to `setTimeout`:
+
++ __It targets 60 frames/s__: `requestAnimationFrame` asks the browser to schedule a call to the `animationLoop` function passed as parameter in 1/60th of a second (equivalent to 16.6ms). Keep in mind that most monitors cannot display more than 60 frames per second (FPS). Note that whether humans can tell the difference among high frame rates depends on the application, most games are acceptable above 30 FPS, and virtual reality might require 75 FPS to achieve a natural feel. Some gaming monitors go up to 144 FPS (pro players in e-sport train themselves at Counter Strike with a 150 frames/s rate).
++ __It calls the function only ONCE__, so if you want a continuous animation, like with `setTimeout`, you need to call again `requestAnimationFrame` at the end of the `animationLoop` function.
+
+It has, however, several advantages over `setInterval` and `setTimeout`:
+
++ __The scheduling is much more accurate:__ if the code inside the function can be executed in less than 16.6ms, then the average error between the scheduled time and the real time will be much smaller than with the old functions.
++ __High resolution timer:__ even if this difference is small, the function that is called after 16.6ms has an extra parameter that is a high resolution time, very useful for writing games that do [time-based animation](https://blog.sklambert.com/using-time-based-animation-implement/). Time-based animation will be studied in detail in the HTML5 Part 2 course at W3Cx. It is a technique that comprises measuring the amount of time elapsed between two frames, then computing the distance in pixels to move objects on screen so that the visible speed for a human eye remains constant, even if the frame rate is not.
++ __Multiple animations are merged:__ browsers can bundle animations happening at the same time into a single paint redraw (thus happening faster/with less CPU cycles), solving the problems that can occur with simultaneous `setInterval` calls.
++ __CPU/GPU optimization, battery saved on mobiles:__  if the JavaScript execution is occurring in a tab/window which is not visible, it doesn’t have to be drawn. However the animation loop is still executed (objects will be moved, not drawn). This is the same when a mobile phone or tablet screen is black or if the application is put in background.
+
+
+#### Typical use
+
+You will note that `requestAnimationFrame(function)` is used like `setTimeout(function, delay)`. A call to `requestAnimationFrame` just asks the browser to call the function passed as a parameter ONCE, __and the target delay is fixed__, and corresponds to a 60 frames/s frame rate (16.6ms). Notice that an id is used for stopping an animation with `cancelAnimationFrame(id)`.
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// This function is called after the page is loaded</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Get the canvas</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 - Get the context</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 - start the animation</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;startAnimation</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp;<strong>var</strong></span><strong><span class="pln"> id</span><span class="pun">;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp;function</span><span class="pln"> animationLoop</span><span class="pun">(<span style="line-height: 25.6000003814697px;">timeStamp</span>)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 Draw</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawShapes</span><span class="pun">(...);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 Move</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;moveShapes</span><span class="pun">(...);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call mainloop&nbsp; again after 16.6ms (corresponds to 60 frames/second)</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>id </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">&nbsp;function</span><span class="pln"> startAnimation</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>id </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="kwd">function</span><span class="pln"> stopAnimation</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong></span><strong><span class="pun">(</span><span class="pln">id</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+
+#### Example: animate the monster with requestAnimationFrame
+
+[Online example at JsBin](https://jsbin.com/jukoniz/1/edit?html,output) ([Local Example - requestAnimationFrame](src/4.2.5-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y2l9blgo')"
+    src    ="https://tinyurl.com/y5pq67hz"
+    alt    ="monster animated using requestAnimationFrame"
+    title  ="monster animated using requestAnimationFrame"
+  />
+</figure>
+
+
+Extract from source code, compare to the previous example that used setInterval()
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">(timeStamp)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 1 - Clear</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 2 - Draw</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawMonster</span><span class="pun">(</span><span class="pln">monsterX</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 3 - Move</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monsterX </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monsterX </span><span class="pun">%=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monsterAngle</span><span class="pun">+=</span><span class="pln"> </span><span class="lit">0.01</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// call mainloop again after 16.6 ms (60 frames/s)</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd"></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// Start the animation loop, targets 60 frames/s, this </span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; // calls animationLoop only ONCE!</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">requestId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong></span><strong><span class="pun">(</span><span class="pln">requestId</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+Notice that calling `requestAnimationFrame(animationLoop)` at line 19, and after that from within the loop at line 14, asks the browser to call the `animationLoop` function so that the delta between calls will be <strong>as close as possible to 16.6ms  (this corresponds to 1/60th of a second)</strong>.
+
+
+#### Is the 16.6ms delay really accurate? Can we trust it?
+
+This target may be hard to reach if:
+
++ The animation loop content is too complex,
++ The target device that runs the animation is a low end phone or an old computer,
++ The scheduler may be a bit late or a bit in advance (even if this kind of error is much smaller with `requestAnimationFrame` than with `setInterval` or `setTimeout`).
+
+Many HTML5 games perform what we call a "time-based animation". For this, we need an accurate timer that will tell us the elapsed time between each animation frame.
+
+Depending on this time, we can compute the distances that must be achieved by each object on the screen in order to move at a constant speed (for a human eye), independently of the CPU or GPU of the computer or mobile device that is running the game.
+
+The `timeStamp` parameter of the `animationLoop` function (line 1 in the above code) is useful for exactly that: it gives a high resolution time. By measuring deltas between two consecutive calls of the `animationLoop`, we will know exactly, with a sub-millisecond accuracy, the elapsed time between two frames.
+
+Using time-based animation, and more generally, using the canvas element for writing HTML5 games, is part of the W3Cx HTML5 Apps and Games course.
+
+Current [support](https://caniuse.com/#feat=requestanimationframe) is really good and all modern browsers support this API.
+
+
+#### Knowledge check 4.2.5
+
+1. `requestAnimationFrame(function);`
+
+  `requestAnimationFrame` asks the browser to call the function passed as a parameter only once, and tries to call it after 16.6ms:
+
+  a. Yes, this is true<br/>
+  b. No, it will call the function automatically every 16.6ms, resulting in a 60 frames/second smooth animation. It works like setInterval, but is more efficient.<br/>
+
+  Ans: 
+unanswered
 
 
 
