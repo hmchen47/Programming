@@ -315,6 +315,96 @@ __A single animation may be interrupted by itself to become two simultaneous ani
 
 
 
+### 4.2.4 Animating using `setTimeout()`
+
+One thing you should always remember about using `setInterval`: if we set number of milliseconds at - let’s say 20ms - it will call our game loop function EACH 20ms, <i>even if the previous one is not yet finished</i>. This may lead to many problems (incomplete rendering, etc.).
+
+That's where we can use another function: 
+
++ `setTimeout(function, ms);`
+
+This function works like `setInterval(...)` with one difference: it calls your function ONCE and _AFTER a given amount of time_.
+
+
+#### Example of the monster animated in a canvas with setTimeout
+
+Example of the animated monster is [online](https://jsbin.com/gogafu/1/edit?html,output) (open the JavaScript, console and output tabs): ([Local Example - Animation w/ setTimeout](src/4.2.4-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3kp455a')"
+    src    ="https://tinyurl.com/y2ja2xsb"
+    alt    ="monster animated with setTimeout"
+    title  ="monster animated with setTimeout"
+  />
+</figure>
+
+
+This is similar to the previous example except that we called `setTimeout(function, delay)` instead of setInterval(function, period). <strong>As setTimeout runs the function passed as the first parameter only once, <span style="color: magenta;">we also have to call it at the end of the loop</span>.</strong>
+
+Extract from source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 Draw</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawMonster</span><span class="pun">(</span><span class="pln">monsterX</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 Move</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;monsterX </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;monsterX </span><span class="pun">%=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;monsterAngle</span><span class="pun">+=</span><span class="pln"> </span><span class="lit">0.01</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// call mainloop again after 20ms</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> setTimeout</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Start the animation loop, change 20 for bigger</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// values</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> setTimeout</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">requestId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>clearTimeout</strong></span><strong><span class="pun">(</span><span class="pln">requestId</span><span class="pun">);</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+
+This function is certainly more suitable for doing graphic animation, such as for writing an HTML5 game. It will never interrupt an ongoing animation, even if the instructions inside the animation loop take too long.
+
+
+#### Problems with `setInterval()` and `setTimeout()`
+
+`setTimeout` does not "wait"  during the timeout period. It lets the rest of the JavaScript code run. It schedules a new call to the function passed as first parameter with a timer running in the background. This might cause it to take slightly longer than the expected timeout period to start executing. 
+
+This problem also occurs with `setInterval`, the timing is not "very" reliable. If you plan to run a function every 20ms, and if you measure precisely the real timing, sometimes you will discover big differences between what is scheduled and what is performed. This is because these methods were designed a long time ago, when high precision timers and 60 frames per second animation were not an option.
+
+Here comes [the requestAnimationFrame API](https://www.w3.org/TR/animation-timing/), a very good companion to the canvas API!
+
+<div style="border: 1px solid red; margin: 10px; padding: 10px;">
+<p style="text-align: center;"><em><strong>BEST&nbsp;PRACTICE</strong>: AVOID using <span style="font-family: 'courier new', courier;">setTimeout<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"> for animating in a canvas, except for trivial cases. </span></span></em></p>
+<p style="text-align: center;"><span style="color: #ff0000;"><strong><em><span style="font-family: 'courier new', courier;"><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">For 60 frames/second animation, use <span style="font-family: 'courier new', courier;">requestAnimationFrame</span>!</span></span></em></strong></span></p>
+</div>
+
+
+#### Knowledge check 4.2.4
+
+`setInterval(function, milliseconds);`
+
+`setTimeout(function, milliseconds);`
+
+1. Regarding the two lines of code above, which statement is true?
+
+  a. `setTimeout` will call the function only once, after a delay corresponding to the value passed as second parameter.<br/>
+  b. They will produce the same result: call the function passed as first parameter every interval of time passed as the second parameter (in milliseconds)<br/>
+
+  Ans: 
+
 
 
 
