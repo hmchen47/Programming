@@ -100,10 +100,6 @@
     + GPU/CPU optimization, battery saved on mobile:
       + js executed but not drawn if not visible
       + animationLoop still executed
-  + time-based animation:
-    + a technique that comprises measuring the amount of time elapsed between two frames
-    + computing the distance in pixels to move objects on screen
-    + the visible speed for a human eye remains constant, even if the frame rate is not
   + typical use:
     + `init()` function called after the page loaded
       + get the canvas: `canvas = document.get ElementById('myCanvas')`
@@ -114,7 +110,24 @@
       + clear: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
       + draw: `drawShapes(...);`
       + move: `moveShapes(...);`
-      + call mainloop again after 16.6 ms: `id = requestAnimationFrame(animationLoop);`
+      + call mainloop again after 16.6 ms (60 frames/s): `id = requestAnimationFrame(animationLoop);`
+    + stop animation: `cancelAnimationFrame(requestId);`
+  + the 16.6ms delay really accurate?
+    + hard to reach
+      + animation loop content too complex
+      + lower end phone or computer
+      + scheduler not at the point
+    + solution: time-based animation
+  + time-based animation:
+    + a technique that comprises measuring the amount of time elapsed between two frames
+    + computing the distance in pixels to move objects on screen
+    + the visible speed for a human eye remaining constant, even if the frame rate is not
+    + independent to the GPU/CPU of the computer or mobile device
+    + `timeStamp` parameter in `function animationLoop(timeStamp)`
+      + giving a high resolution time
+      + measuring deltas btw two consecutive calls of the `animationLoop`
+      + knowing exactly, with a sub-millisecond accuracy, the elapsed time btw two frames
+
 
 
 
@@ -601,8 +614,11 @@ Current [support](https://caniuse.com/#feat=requestanimationframe) is really goo
   a. Yes, this is true<br/>
   b. No, it will call the function automatically every 16.6ms, resulting in a 60 frames/second smooth animation. It works like setInterval, but is more efficient.<br/>
 
-  Ans: 
-unanswered
+  Ans: a<br/>
+  Explanation: A call to `requestAnimationFrame` just asks the browser to call the function passed as a parameter ONCE, and the target delay is fixed, and corresponds to a 60 frames/s frame rate (16.6ms). In an animation loop, it is necessary to call again `requestAnimationFrame` at the end of the loop to ask for another frame of animation. Similarly to `setTimeout`...
+
+
+
 
 
 
