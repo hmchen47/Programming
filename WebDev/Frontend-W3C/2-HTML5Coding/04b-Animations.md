@@ -31,6 +31,7 @@
     + take a callback as an argument to be invoked before the repaint
 
 + [`setInterval` method](#423-animating-using-setinterval)
+  + syntax: `setInterval(function, ms);`
   + not the recommended way to do 60 frames/second canvas animation
   + still popular on the Web
   + call another function or evaluates an expression at specified intervals of time (in milliseconds)
@@ -59,7 +60,25 @@
     + probably interrupted by itself to become two simultaneous animations
       + execute the function passed as first parameter every n milliseconds regardless of when the function was last called or how long the function takes to execute
       + the function taking longer than the interval $\to$ queue too many function executions back to back $\to$ unpredictable results
+      + e.g., call game loop function every $n$ ms, even if the previous one is not yet finished
   + __best practice__: avoid using `setInterval` for animation in a canvas, except for trivial cases
+
++ [`setTimeout` method](#424-animating-using-settimeout)
+  + syntax: `setTimeout(function, delay);`
+  + call function ONCE and AFTER a given amount of time
+  + run the function passed as the first parameter only once
+  + call at the end of the loop
+  + more suitable for doing graphic animation
+  + never interrupt an ongoing animation, even if the instructions inside the animation loop take too long
+  + not "wait" during the timeout period, the rest of the JavaScript code runs
+  + schedule a new call to the function passed as first parameter with a timer running in the background
+  + issues w/ `setInterval()` and `setTimeout()`
+    + `setTimeout()`: probably take slightly longer than the expected timeout period to start executing
+    + `setInterval`: the timing not "very" reliable
+    + designed long time ago while high precision timers and 60 frames per second animation were not an option
+  + __best practice__: avoid using setTimeout for animating in a canvas, except for trivial cases
+  + __best practice__: using `requestAnimationFrame` for 60 frames/second animation
+
 
 
 
@@ -331,7 +350,7 @@ This function works like `setInterval(...)` with one difference: it calls your f
 Example of the animated monster is [online](https://jsbin.com/gogafu/1/edit?html,output) (open the JavaScript, console and output tabs): ([Local Example - Animation w/ setTimeout](src/4.2.4-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y3kp455a')"
     src    ="https://tinyurl.com/y2ja2xsb"
     alt    ="monster animated with setTimeout"
@@ -403,7 +422,9 @@ Here comes [the requestAnimationFrame API](https://www.w3.org/TR/animation-timin
   a. `setTimeout` will call the function only once, after a delay corresponding to the value passed as second parameter.<br/>
   b. They will produce the same result: call the function passed as first parameter every interval of time passed as the second parameter (in milliseconds)<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: `setTimeout` will call the function only once, after a delay passed as second parameter. As `setTimeout` runs the function passed as the first parameter only once, in order to implement an animation loop, we have to call it again at the end of the loop.
+
 
 
 
