@@ -4,7 +4,7 @@
 ## 4.2 Basic animation techniques
 
 
-## 4.2.1 Lecture Notes
+### 4.2.0 Lecture Notes
 
 + [Animation techniques](421-animation-techniques)
   + basic steps to perform an animation
@@ -29,6 +29,37 @@
     + tell the browser to perform an animation
     + request the browser calls a specified function to update an animation before the next repaint
     + take a callback as an argument to be invoked before the repaint
+
++ [`setInterval` method](#423-animating-using-setinterval)
+  + not the recommended way to do 60 frames/second canvas animation
+  + still popular on the Web
+  + call another function or evaluates an expression at specified intervals of time (in milliseconds)
+  + return the unique `id` of the action
+  + always stop it by calling the `clearInterval(id)` function w/ the interval identifier as an argument
+  + example: animate a DIV using the DOM API
+    + before the `<canvas>` element introduced, made games using `<div>` elements
+    + animate characters in games by changing their background color, top and left CSS positions
+    + using the JavaScript setInterval or setTimeout functions to call repeatedly a function that did the drawing
+    + define a `<div>` element to call the custom-defined `render()` method to draw shape every 10ms
+    + `render()` method: increment the position of the element by changing its left CSS property
+    + call `setInterval` and return an id when click on start button
+    + call `clearInterval` to stop the animation as stop button clicked
+  + example: animate in a canvas using `setInterval`
+    + start the animation loop, change 20 for bigger values by clicking start button: `requestId = setInterval(animationLoop, 20);`
+    + draw the animated character: `function drawMonster(x, y, angle, headColor, eyeColor) {...}` w/ `ctx.save()` and `ctx.restore()` at the beginning and end of the function
+    + the basic animation steps: clear-draw-move - `function animationLoop() {...}`
+      + using state variables for the position and angle of the character
+      + clear the canvas: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+      + draw the character using variables for pos, angle, etc.:  `drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');`
+      + move the character by changing pos, angle, size, etc.: `monsterX += 10; monsterX %= canvas.width monsterAngle+= 0.01;`
+  + issues
+    + running several animations simultaneously
+      + hard to debug
+      + two intervals w/ very different time frame, the longer one difficult to debug
+    + probably interrupted by itself to become two simultaneous animations
+      + execute the function passed as first parameter every n milliseconds regardless of when the function was last called or how long the function takes to execute
+      + the function taking longer than the interval $\to$ queue too many function executions back to back $\to$ unpredictable results
+  + __best practice__: avoid using `setInterval` for animation in a canvas, except for trivial cases
 
 
 
@@ -275,10 +306,15 @@ __A single animation may be interrupted by itself to become two simultaneous ani
 #### Knowledge check 4.2.3
 
 1. What is the correct syntax for setInterval?
+
   a. setInterval(function, milliseconds)<br/>
   b. setInterval(milliseconds, function)<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: The first answer is correct. The second parameter is the length of the interval of time, in millisonds, between consecutive calls to the function passed as first parameter. setInterval can be useful for simple animations, where timing and performance are not critical. Example: display a clock that is updated every second, etc.
+
+
+
 
 
 
