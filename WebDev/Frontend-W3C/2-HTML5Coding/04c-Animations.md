@@ -1321,7 +1321,7 @@ Let us suggest some topics of discussion and optional projects, and a challenge!
 
 + Did you already know about event handling in JavaScript or was this new to you?
 + How can we more efficiently handle multiple key presses together with mouse button clicks, mouse moves, etc? The course gives all the basics but there may be other more elegant ways.
-+ Did you know about [Gamepad API](https://www.w3.org/TR/gamepad/? [Read this](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API) if you want to try it. 
++ Did you know about [Gamepad API](https://www.w3.org/TR/gamepad/)? [Read this](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API) if you want to try it. 
 + How do we make a responsive game that works in a canvas?
 
 
@@ -1333,7 +1333,7 @@ Here are a few project ideas. Your classmates and the team who prepared the cour
 + __Project 2 (a bit harder):__ Make an animated chart. When the page is loaded, the chart "grows" until the chart bars reach  their "normal" value. Another variant is to use animated colors or shadows in your chart.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y4exujpc')"
     src    ="https://tinyurl.com/y2shoemt"
     alt    ="animated by graph simple"
@@ -1345,7 +1345,7 @@ Here are a few project ideas. Your classmates and the team who prepared the cour
 Animated bar graph (very simple JS code) by Grant Winney, a student from a previous run of this course. [Try it on JsBin](https://jsbin.com/sabuwof/1/edit?html,js,output).
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y4exujpc')"
     src    ="https://tinyurl.com/y25qvbn6"
     alt    ="animlated bar graph"
@@ -1357,8 +1357,8 @@ Animated bar graph (very simple JS code) by Grant Winney, a student from a previ
 Animated bar graph by David Neil. [Try it on JsBin](https://jsbin.com/vuxotu/edit?js,output). A little more complex as it comes with more features (labels, etc).
 
 + <span style="color: magenta; font-weight: bold;">We have a "Snake" challenge for you, look at the bottom of this page!!</span>
-+ __Project 3 (a bit harder):__ Make your monster follow the mouse + open its mouth and change color when we click on a mouse button. If you manage to make it scream, it's even better (use a hidden audio element and call play(). Advanced users may want to take a look at the [howler.js JavaScript library](https://howlerjs.com/) that loads sound samples in memory and plays them on demand).
-+ __Project 4 (advanced):__ On the Web, look for JavaScript functions for detecting collisions (circle/circle or rectangle/rectangle), and try to make a small game in which your monster must "eat" some balls that bounce on the screen. Every 5s new balls appear on the canvas. Make your monster go towards the mouse pointer. You can use var angle = Math.atan2(dy, dx); in order to compute the monster angle, dx and dy = difference between the monster and mouse positions.
++ __Project 3 (a bit harder):__ Make your monster follow the mouse + open its mouth and change color when we click on a mouse button. If you manage to make it scream, it's even better (use a hidden audio element and call `play()`. Advanced users may want to take a look at the [howler.js JavaScript library](https://howlerjs.com/) that loads sound samples in memory and plays them on demand).
++ __Project 4 (advanced):__ On the Web, look for JavaScript functions for detecting collisions (circle/circle or rectangle/rectangle), and try to make a small game in which your monster must "eat" some balls that bounce on the screen. Every 5s new balls appear on the canvas. Make your monster go towards the mouse pointer. You can use `var angle = Math.atan2(dy, dx);` in order to compute the monster angle, dx and dy = difference between the monster and mouse positions.
 + __Project 5 (easy to intermediate):__ Put into practice what you've learned about the responsive canvas and develop an example of your own. The difficulty may vary depending on the things that are drawn or animated.
 
 
@@ -1389,17 +1389,17 @@ As shown in [this example](https://jsbin.com/sopiget/1/edit?html,js,console,outp
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y4exujpc" ismap target="_blank">
-    <img style="margin: 0.1em;" height=150
+    <img style="margin: 0.1em;" height=200
       src  ="https://tinyurl.com/y2t4s86r" 
       alt  ="Small snake example" 
       title="Small snake example"
     >
-    <img style="margin: 0.1em;" height=150
+    <img style="margin: 0.1em;" height=200
       src  ="https://tinyurl.com/yyltqkta" 
       alt  ="Brown snake challeneg" 
       title="Brown snake challeneg"
     >
-    <img style="margin: 0.1em;" height=150
+    <img style="margin: 0.1em;" height=200
       src  ="https://tinyurl.com/yx8uhtaa" 
       alt  ="green snake challenge" 
       title="green snake challenge"
