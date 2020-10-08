@@ -498,6 +498,377 @@ The third parameter (false) of _lines 12_ and _13_ means "we do not want to prop
 
 
 
+### 4.3.3 Mouse interaction, mouse events
+
+etecting mouse events in a canvas is quite straightforward: you add an event listener to the canvas, and the browser invokes that listener when the event occurs.
+
+The example below is about listening to `mouseup` and `mousedown` events (when a user presses or releases any mouse button):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// do something with&nbsp;to the mousedown event</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+</ol></div>
+
+The event received by the listener function will be used for getting the button number or the coordinates of the mouse cursor. Before looking at different examples, let's look at the different event types we can listen to.
+
+#### The different mouse events
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y5c8orsx')"
+    src    ="https://tinyurl.com/y5gvuk7r"
+    alt    ="Mouse events illustrated"
+    title  ="Mouse events illustrated"
+  />
+</figure>
+
+
+We saw in the last example how to detect the `mouseenter` and `mouseout` events.
+
+There are other events related to the mouse:
+
++ ``mouseleave`: similar to `mouseout`, fired when the mouse leaves the surface of the element. The difference between `mouseleave` and `mouseout` is that `mouseleave` does not fire when the cursor moves over descendant elements, and `mouseout` is fired when the element moved is outside of the bounds of the original element or is a child of the original element.
++ ``mouseover`: the mouse cursor is moving over the element that listens to that event. A `mouseover` event occurs on an element when you are over it - <u>coming from either its child OR parent element</u>, but a `mouseenter` event only occurs when the mouse <u>moves from the parent element to the child element</u>.
++ ``mousedown`: fired when a mouse button is pressed.
++ ``mouseup`: fired when a mouse button is released.
++ ``mouseclick`: fired after a `mousedown` and a `mouseup` have occurred.
++ `mousemove`: fired while the mouse moves over the element. Each time the mouse moves, a new event is fired, unlike with `mouseover` or `mouseenter`, where only one event is fired.
+
+
+__The tricky part: accurately getting the mouse position relative to the canvas__
+
+When you listen to any of the above events, the event object (we call it a "DOM event"), passed to the listener function, has properties that correspond to the mouse coordinates: `clientX` and `clientY`.
+
+However, these are what we call "window coordinates". Instead of being relative to the canvas itself, they are relative to the window (the page).
+
+Most of the time you need to work with the mouse position relative to the canvas, not to the window, so you must convert the coordinates between the window and the canvas. This will take into account the position of the canvas, and the CSS properties that may affect the canvas position (margin, etc.).
+
+Fortunately, there exists a method for getting the position and size of any element in the page: `getBoundingClientRect()`.
+
+Play with the [example online](https://jsbin.com/dugibiz/1/edit?html,output) that shows the problem. ([Local Example - Bad Mouse Position](src/4.3.3-example1.html))
+
+__WRONG code:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>mousePos </strong></span><strong><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Mouse position: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;</strong></span><strong><span class="com">//&nbsp;WRONG!!!</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>x</strong></span><strong><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX</span><span class="pun">,</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>y</strong></span><strong><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+Here is the result, when the mouse is approximately at the top left corner of the canvas:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y5c8orsx')"
+    src    ="https://tinyurl.com/y68d2qqn"
+    alt    ="bad mouse coords"
+    title  ="bad mouse coords"
+  />
+</figure>
+
+
+[GOOD version of the code](https://jsbin.com/woxogun/edit?html,output): ([Local Example - Good Mouse Position](src/4.3.3-example2.html))
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// necessary to take into account CSS boundaries</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><strong><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">,</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><strong><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+Result (the cursor is approximately at the top left corner):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y5c8orsx')"
+    src    ="https://tinyurl.com/y53uz4hr"
+    alt    ="mouse at zero zero"
+    title  ="mouse at zero zero"
+  />
+</figure>
+
+
+#### How to display the mouse position, and the mouse button that has been pressed or released
+
+This example uses the previous function for computing the mouse position correctly. It listens to `mousemove`, `mousedown` and `mouseup` events, and shows how to get the mouse button number using the `evt.button` property.
+
+[Online example](https://jsbin.com/qivexid/1/edit?html,output): ([Local Example - Mouse Press/Release](src/4.3.3-example3.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5c8orsx')"
+    src    ="https://tinyurl.com/y2fje7pm"
+    alt    ="mouse event example"
+    title  ="mouse event example"
+  />
+</figure>
+
+
+Extract from source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> mousePos</span><span class="pun">,</span><span class="pln"> mouseButton</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>mousePos </strong></span><strong><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Mouse position: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>mouseButton </strong></span><strong><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">button</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Mouse button "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">button </span><span class="pun">+</span><span class="pln"> </span><span class="str">" down at position: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Mouse up at position: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span>&nbsp;</li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">'18pt Calibri'</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="pln">message</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">25</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// necessary to take into account CSS boudaries</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;</strong></span><strong><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>x</strong></span><strong><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span></strong><span class="pun">,</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>y</strong></span><strong><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### More examples
+
+__Example #1: move the monster with the mouse, rotate it when a mouse button is pressed__
+
+This example shows an animation at 60 frames/s using `requestAnimationFrame`, were the monster is drawn at the mouse position, and if a mouse button is pressed, the monster starts rotating around its center. If we release the mouse button, the rotation stops.
+
+[Online example](https://jsbin.com/hovopim/edit?html,output): ([Local Example - Mouse to Rotate](src/4.3.3-example4.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5c8orsx')"
+    src    ="https://tinyurl.com/yxoc885f"
+    alt    ="monster follows the mouse + rotate"
+    title  ="monster follows the mouse + rotate"
+  />
+</figure>
+
+
+Extract from source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><strong><span class="pln"> monsterX</span><span class="pun">=</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">=</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">=</span><span class="lit">0</span></strong><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> incrementX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><strong><span class="pln"> incrementAngle </span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="kwd">var</span><span class="pln"> mousePos</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;...</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 3bis - Add mouse listeners</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> handleMousemove</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> handleMousedown</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> handleMouseup</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 4 - Start the animation</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><strong><span class="pln"> handleMousemove</span></strong><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com"><strong>// The mousePos will be taken into account in the animationLoop</strong></span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>mousePos </strong></span><strong><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> handleMousedown</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// the increment on the angle will be</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// taken into account in the animationLoop</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>incrementAngle </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="lit">0.1</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><strong><span class="pln"> handleMouseup</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>incrementAngle </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">; &nbsp;// stops the rotation</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;... // same as before</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 - Draw</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawMonster</span><span class="pun">(</span><span class="pln">monsterX</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 - Move</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">mousePos </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // test necessary, maybe the mouse is not yet on canvas</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>monsterX </strong></span><strong><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>monsterY </strong></span><strong><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>monsterAngle </strong></span><strong><span class="pun">+=</span><span class="pln"> incrementAngle</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call again mainloop after 16.6 ms (60 frames/s)</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+This example shows one very important good practice when doing animation and interaction: if you want to achieve a smooth animation, set the state variables 60 times/s inside the animation loop (lines 45-49), depending on increments you set in event listeners (lines 23-31).
+
+
+__Example #2: draw in a canvas as if you were using a pencil__
+
+[Online example](https://jsbin.com/tofiril/1/edit?html,output): ([Local Example - draw w/ pencil](src/4.3.3-example5.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5c8orsx')"
+    src    ="https://tinyurl.com/y2rur2jt"
+    alt    ="paint in a canvas"
+    title  ="paint in a canvas"
+  />
+</figure>
+
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> previousMousePos</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;">...</li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawLineImmediate</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// a line is a path with a single draw order</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// we need to do this in this example otherwise</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// at each mouse event we would draw the whole path</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// from the beginning. Remember that lines</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// normally are only usable in path mode</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> handleMouseMove</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Let's draw some lines that follow the mouse pos</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">started</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;previousMousePos </span><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">; // get the current mouse position</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;started </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// We need to have two consecutive mouse positions before drawing a line</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawLineImmediate</span><span class="pun">(</span><span class="pln">previousMousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> previousMousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pln" style="line-height: 1.6; background-color: #ffffff;">previousMousePos </span><span class="pun" style="line-height: 1.6; background-color: #ffffff;">=</span><span class="pln" style="line-height: 1.6; background-color: #ffffff;"> mousePos</span><span class="pun" style="line-height: 1.6; background-color: #ffffff;">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;started </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> handleMouseMove</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+We had to define a variable started=false; as we cannot draw any line before the mouse moved (we need at least two consecutive positions). This is done in the test at line 21.
+
+
+__Example #3: same as example #2 but we draw only when a mouse button is pressed__
+
+[Online example](https://jsbin.com/pizikal/1/edit?html,output):  ([Local Example - Draw w/ Mouse Pressed](src/4.3.3-example6.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5c8orsx')"
+    src    ="https://tinyurl.com/y44zl9gx"
+    alt    ="paint when mouse is pressed"
+    title  ="paint when mouse is pressed"
+  />
+</figure>
+
+
+We just added `mouseup` and `mousedown` listeners, extract from the source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> handleMouseMove</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Let's draw some lines that follow the mouse pos</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">painting</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawLineImmediate</span><span class="pun">(</span><span class="pln">previousMousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> previousMousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;previousMousePos </span><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> clicked</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; previousMousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>painting </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> released</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>painting </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>painting </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> handleMouseMove</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> clicked</span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> released</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+</ol></div>
+
+
+#### Knowledge check 4.3.3
+
+1. What is the __correct__ way to get the mouse coordinates in a mousemove listener attached to a canvas, in the canvas coordinate system?
+
+  a. There are multiple ways to get the mouse cursor coordinates: using the clientX and clientY properties of the event passed to the listener, using the event.pageX and event.pageY properties works too...<br/>
+  b. Getting the mouse coordinate in the canvas coordinate system is not straightforward: we must take into account the position of the canvas into the page, the different CSS margins, etc.<br/>
+  c. No problem: use the event.mouseX and event.mouseY properties.<br/>
+
+  Ans: 
+
+
+
 
 
 
