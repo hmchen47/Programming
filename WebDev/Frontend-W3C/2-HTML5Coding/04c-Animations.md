@@ -224,10 +224,6 @@
         ctx.scale(scaleX, scaleY);
         ```
 
-
-
-
-
 + [Keycode values](https://tinyurl.com/y333tfjx)
 
   <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 50vw;" cellspacing="0" cellpadding="5" border="1">
@@ -1314,7 +1310,101 @@ In that course, you will learn:
 </figure>
 
 
+### 4.3.6 Discussion, projects and a challenge!
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects, and a challenge!!
 
 
+#### Suggested topics
+
++ Did you already know about event handling in JavaScript or was this new to you?
++ How can we more efficiently handle multiple key presses together with mouse button clicks, mouse moves, etc? The course gives all the basics but there may be other more elegant ways.
++ Did you know about [Gamepad API](https://www.w3.org/TR/gamepad/? [Read this](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API) if you want to try it. 
++ How do we make a responsive game that works in a canvas?
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
++ __Project 1 (easy):__ Make one of your drawings move in all directions (left, right up, down, then diagonals) using the arrow keys.
++ __Project 2 (a bit harder):__ Make an animated chart. When the page is loaded, the chart "grows" until the chart bars reach  their "normal" value. Another variant is to use animated colors or shadows in your chart.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y4exujpc')"
+    src    ="https://tinyurl.com/y2shoemt"
+    alt    ="animated by graph simple"
+    title  ="animated by graph simple"
+  />
+</figure>
+
+
+Animated bar graph (very simple JS code) by Grant Winney, a student from a previous run of this course. [Try it on JsBin](https://jsbin.com/sabuwof/1/edit?html,js,output).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y4exujpc')"
+    src    ="https://tinyurl.com/y25qvbn6"
+    alt    ="animlated bar graph"
+    title  ="animlated bar graph"
+  />
+</figure>
+
+
+Animated bar graph by David Neil. [Try it on JsBin](https://jsbin.com/vuxotu/edit?js,output). A little more complex as it comes with more features (labels, etc).
+
++ <span style="color: magenta; font-weight: bold;">We have a "Snake" challenge for you, look at the bottom of this page!!</span>
++ __Project 3 (a bit harder):__ Make your monster follow the mouse + open its mouth and change color when we click on a mouse button. If you manage to make it scream, it's even better (use a hidden audio element and call play(). Advanced users may want to take a look at the [howler.js JavaScript library](https://howlerjs.com/) that loads sound samples in memory and plays them on demand).
++ __Project 4 (advanced):__ On the Web, look for JavaScript functions for detecting collisions (circle/circle or rectangle/rectangle), and try to make a small game in which your monster must "eat" some balls that bounce on the screen. Every 5s new balls appear on the canvas. Make your monster go towards the mouse pointer. You can use var angle = Math.atan2(dy, dx); in order to compute the monster angle, dx and dy = difference between the monster and mouse positions.
++ __Project 5 (easy to intermediate):__ Put into practice what you've learned about the responsive canvas and develop an example of your own. The difficulty may vary depending on the things that are drawn or animated.
+
+
+#### The "Snake" challenge
+
+Just for fun, and for those of you who like a challenge, I adapted a small snake animation from a version written in processing to HTML5 / canvas / requestAnimationFrame. 
+
+[Try it on JsBin!](https://jsbin.com/capace/edit?html,js,console,output)
+
+Please make some improvements to the snake by adding a nice head and tail, changing the colors, adding a background, etc. Be creative and tweak this according to your artistic taste :-) 
+
+Please post your creations and comments in the discussion forum below: there is a dedicated thread for that!
+
+It's also a very interesting example that shows the power of 2D transformations + interesting use of `ctx.save()` / `ctx.restore()`, as each segment of the snake is always drawn at a fixed position: only the coordinate system of the previous segment is translated/rotated -> no complicated computations!
+
+The challenge is on! I hope you'll enjoy it!A nicer snake with textures
+
+What you could try:
+
++ Be creative!
++ Add some interesting features (forked tongue, head, tail, snake tortoise shells...), longer, faster, slower, drunk, etc
++ Make the snake chase the mouse (the snakes moves slower, so it tries to follow the mouse)
++ Animate not one snake, but many
++ Make a game of it
++ You can just change the loop of drawSnake to reverse the stacking order of segments. Try with this:another small nice snake `for(var i=x.length-1; i >=0; i--)` in `drawSnake()`
+
+As shown in [this example](https://jsbin.com/sopiget/1/edit?html,js,console,output), if the snake's body crosses over itself, it will pass "on top", not "under", __producing a nice "elastic effect". Do you understand why this effect is produced?__
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y4exujpc" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y2t4s86r" 
+      alt  ="Small snake example" 
+      title="Small snake example"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/yyltqkta" 
+      alt  ="Brown snake challeneg" 
+      title="Brown snake challeneg"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/yx8uhtaa" 
+      alt  ="green snake challenge" 
+      title="green snake challenge"
+    >
+  </a>
+</div>
 
 
