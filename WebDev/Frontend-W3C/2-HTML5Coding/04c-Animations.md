@@ -1285,7 +1285,33 @@ The code is very similar to the previous example, we just replaced `drawDiagonal
   c. Recommended<br/>
   d. Not possible<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: Using % in CSS is not recommended, and is considered a bad practice as this will modify the size of the canvas pixels and produce a blurry effect. If the size is increased, the resolution is kept the same, only with bigger pixels.
+
+
+### 4.3.5 Advanced canvas
+
+The canvas API is a "big beast", and we have presented all the essential techniques for drawing and animating. However, we could not fit everything in this course. Exotic features that are rarely used by developers, or advanced techniques that require more than 20 lines of JavaScript, have been put aside for the [W3Cx HTML5 Apps and Games course](https://www.edx.org/course/html5-apps-and-games).
+
+In that course, you will learn:
+
++ __Techniques useful for writing HTML5 games:__ time-based animation, advanced user interactions (detecting multiple keys plus mouse plus gamepad plus touch events all at the same time in a single version of the code), sprite based animation, collision detection, particle animation;
++ __Pixel-level operations:__ special FX like blue-screen videos and augmented reality;
++ __And many other things, such as:__ masking/clipping, stacking canvases in layers, composition modes, saving and restoring canvas contents, saving canvas content to disk client-side, drawing a canvas into a canvas, etc.
+
+#### Examples studied in the HTML5 advanced course
+
++ __Small game framework / object oriented JavaScript / advanced event handling / collision detection / time based animation__ - see [example online](https://jsbin.com/jifutoj/1/edit?html,js,console,output).
++ __Sprite based animation:__ like this [one](https://jsbin.com/libakum/1/edit?html,js,console,output) (this is ugly code to demonstrate the principle - in the course we develop a clean, sprite animation framework). Use the arrow keys after clicking in the canvas. It's better to try in standalone mode (click on the small black arrow in the top right of the JSBin window).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y4s3gtss')"
+    src    ="https://tinyurl.com/y2xhunvy"
+    alt    ="sprite sheet"
+    title  ="sprite sheet"
+  />
+</figure>
 
 
 
