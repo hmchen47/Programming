@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+        <style>
+            #parentDiv {
+                width:100%;
+                height:50%;
+                margin-right: 10px;
+                border: 1px solid red;
+            }
+
+            canvas {
+                border: 2px solid black;
+            }
+        </style>
+        <script>
+            var canvas, divcanvas, context;
+
+            function init() {
+                canvas = document.querySelector("#mycanvas");
+                ctx = canvas.getContext('2d');
+                divcanvas = document.querySelector("#parentDiv");
+
+                // Let's adjust the canvas size to the parent size (the div)
+                //resizeCanvasAccordingToParentSize();
+
+                drawDiagonals();
+
+                // Add an event listener for the window resize event
+                window.addEventListener('resize', resizeCanvasAccordingToParentSize, false);
+
+            }
+
+            function resizeCanvasAccordingToParentSize() {
+                // adjust canvas size
+                canvas.width = divcanvas.clientWidth;
+                canvas.height = divcanvas.clientHeight;
+                drawDiagonals();
+            }
+
+            function drawDiagonals() {
+                // draw two diagonals
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(canvas.width, canvas.height);
+                ctx.moveTo(0, canvas.height, canvas.width, 0);
+                ctx.lineTo(canvas.width, 0);
+                ctx.stroke();
+            }
+        </script>
+    </head>
+    <body onload="init();">
+        Try resizing the window... You can also change the percentages in the CSS
+        <p><p><p>
+        <div id="parentDiv">
+            <canvas id="mycanvas" width="100" height="100"></canvas>
+        </div> 
+    </body>
+</html>
+
