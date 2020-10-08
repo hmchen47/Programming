@@ -195,7 +195,34 @@
     + release mouse button: `function released(evt) { painting = flase; }`
     + draw lines following the mouse position: `function handleMouseMove(evt) {...}`
 
++ [Responsive canvas](#434-responsive-canvas)
+  + rules of resizing a canvas
+    + changing `width` and `height` property $\to$ erase the content and reset the context
+    + using `%` in the CSS `width` and `height` properties of a canvas $\to$ scaling the existing pixels w/o erasing the content, given a blurry image
+  + __best practice__: never use CSS percentage on a canvas width or height
+  + responsive canvas
+    + embedded in a `<div>` or in any parent container
+    + using CSS w/ percentages on the width and the height CSS properties of the parent
+    + using a `resize` listerner on the parent of the canvas
+    + changing the `weight` and `height` properties of the canvas from the JS resize listener function
+    + redraw content, scaled accordingly tot he size of the parent
+  + example: resize canvas
+    + HTML code: `<div id="parentDiv"> <canvas id="myCanvas" width="100" height="100" ></canvas> </div>`
+    + CSS code for `<div>` resize: `#parentDiv { width:100%; height:50%; margin-right: 10px; border: 1px solid red; }`
+    + unable to listen to a DIV's resize byt listen to the window instead: `window.addEventListener('resize',     resizeCanvasAccordingToParentSize, false);`
+    + adjust canvas size, take parent's size, this erases content: `canvas.width = divcanvas.clientWidth; canvas.height = divcanvas.clientHeight;`
+    + resize character w/ `ctx.resize()` in draw fucntion: `function drawMonster(x, y, angle, headColor, eyeColor) {...}`
+      + save and restore at begining and end of function
+      + move the coordinate system to draw the character at position (x, y): `ctx.translate(x, y); ctx.rotate(angle);`
+      + adjust the scale of the character if canvas too small to fit the character: 
 
+        ```js
+        if(canvas.width < 200) {
+            var scaleX = canvas.width/200;
+            var scaleY = scaleX;
+        }
+        ctx.scale(scaleX, scaleY);
+        ```
 
 
 
@@ -1009,7 +1036,7 @@ Before looking at how best to handle canvas resizing, let's see some examples be
 
 __Example #1: changing the size of a canvas on the fly erases its content!__
 
-[Online example](https://jsbin.com/tukave/2/edit): ([Local Example - Resize Canvas](src/4.3.4-example1.html))
+[Online example](https://jsbin.com/tukave/2/edit): ([Local Example - Resize Canvas and Erase Contents](src/4.3.4-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -1051,7 +1078,7 @@ Here is the [online version](https://jsbin.com/wuxatud/1/edit?html,output):  ([L
 </figure>
 
 
-Then, we added this CSS rule. Try it [online](https://jsbin.com/johovo/1/edit?html,output) (resize the windows, you will see what happens): ([Local Example - Resize w/ CSS](src/4.3.4-example3.html))
+Then, we added this CSS rule. Try it [online](https://jsbin.com/johovo/1/edit?html,output) (resize the windows, you will see what happens): ([Local Example - Resize w/ CSS in percentage](src/4.3.4-example3.html))
 
 It's the same example as before, just adding the CSS:
 
@@ -1106,7 +1133,7 @@ This is the trick to create a really responsive canvas:
 Yep, this is not a straightforward process...
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/y6alvpte')"
     src    ="https://tinyurl.com/y6sswlc9"
     alt    ="div and canvas inside. Div has CSS width=100% and height = 50%"
