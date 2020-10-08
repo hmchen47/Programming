@@ -995,6 +995,272 @@ We just added `mouseup` and `mousedown` listeners, extract from the source code:
     + Fortunately, there exists a method for getting the position and size of any element in the page: `getBoundingClientRect()`.
 
 
+### 4.3.4 Responsive canvas
+
+Resizing a canvas can be tricky if we don't know a few rules that might not be easily guessed:
+
+1. Changing the `width` or `height` property of a canvas in JavaScript erases its content and resets its context,
+2. Using percentages (%) in the CSS `width` and `height` properties of a canvas does _not change its number of pixels/resolution_. Instead, it scales the existing pixels without erasing the content, giving a blurry effect when a canvas becomes larger, for example.
+
+Before looking at how best to handle canvas resizing, let's see some examples below:
+
+
+#### Examples
+
+__Example #1: changing the size of a canvas on the fly erases its content!__
+
+[Online example](https://jsbin.com/tukave/2/edit): ([Local Example - Resize Canvas](src/4.3.4-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/y5f75scx"
+    alt    ="canvas do not resize"
+    title  ="canvas do not resize"
+  />
+</figure>
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> resizeCanvas</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> </span><span class="lit">300</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">...</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">resizeCanvas</span><span class="pun">();</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Click this button to resize the canvas and erase it!</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
+</ol></div>
+
+
+__Example #2 : resize a canvas using CSS width and height properties with percentages__
+
+This time we are using a similar example as above, but we removed the button for resizing it, and we set the size of the canvas to 100x100 pixels. Instead of drawing inside, we draw two lines that join the diagonals.
+
+Here is the [online version](https://jsbin.com/wuxatud/1/edit?html,output):  ([Local Example - Origin](src/4.3.4-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 5vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/y3csv9ab"
+    alt    ="small canvas 100x100 pixels with diagonals"
+    title  ="small canvas 100x100 pixels with diagonals"
+  />
+</figure>
+
+
+Then, we added this CSS rule. Try it [online](https://jsbin.com/johovo/1/edit?html,output) (resize the windows, you will see what happens): ([Local Example - Resize w/ CSS](src/4.3.4-example3.html))
+
+It's the same example as before, just adding the CSS:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">#myCanvas {</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>width</strong></span><strong><span class="pun">:</span><span class="lit">100</span><span class="pun">%</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+</ol></div>
+
+And the result shows clearly that the resolution is still the same, only the pixels are bigger! 
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/yxogntvd"
+    alt    ="blurry canvas resized using CSS width=100%"
+    title  ="blurry canvas resized using CSS width=100%"
+  />
+</figure>
+
+
+Even bigger: 
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/y2mmbkrw"
+    alt    ="blurry effect"
+    title  ="blurry effect"
+  />
+</figure>
+
+
+<div style="border: 1px solid red; margin: 20px; padding: 10px;">
+<p style="text-align: center;"><em><strong>BEST PRACTICE: <span style="color: #ff0000;">never use CSS percentages on a canvas width or height!</span></strong></em></p>
+</div>
+
+
+__Example #3: a responsive canvas using a resize listener +  a parent element__
+
+This is the trick to create a really responsive canvas:
+
+1. Embed it in a `<div>` or in any parent container,
+2. Use CSS with percentages on the width and the height CSS properties __of the parent__,
+3. Use a `resize` listener on the  parent of the canvas,
+4. Change the `width` and `height` properties of the canvas <u>from the JavaScript resize listener function</u> (content will be erased),
+5. Redraw the content, scaled accordingly to the size of the parent.
+
+Yep, this is not a straightforward process...
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/y6sswlc9"
+    alt    ="div and canvas inside. Div has CSS width=100% and height = 50%"
+    title  ="div and canvas inside. Div has CSS width=100% and height = 50%"
+  />
+</figure>
+
+
+HTML code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><strong><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"parentDiv"</span><span class="tag">&gt;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="tag">&gt;</span>&lt;/canvas&gt;</li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;/div&gt;</span></strong></li>
+</ol></div>
+
+CSS code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">#parentDiv {</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>width</strong></span><strong><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>height</strong></span><strong><span class="pun">:</span><span class="lit">50</span><span class="pun">%;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid red</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+</ol></div>
+
+JavaScript code for the resize event listener:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// IMPORTANT: there is NO WAY to listen to a DIV's resize</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// listen to the window instead.</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'resize'</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp; </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; resizeCanvasAccordingToParentSize, false</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> resizeCanvasAccordingToParentSize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">// adjust canvas size, take parent's size, this erases content</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> divcanvas</span><span class="pun">.</span><span class="pln">clientWidth</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> divcanvas</span><span class="pun">.</span><span class="pln">clientHeight</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// draw something, taking into account the new canvas size</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+See the [complete example](https://jsbin.com/quvapib/1/edit?html,output) that corresponds to the above code. ([Local Example - Resize Canvas w/ Listerner](src/4.3.4-example4.html))
+
+Original window size:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/yyb9jb8d"
+    alt    ="original size of canvas"
+    title  ="original size of canvas"
+  />
+</figure>
+
+
+We resize the window horizontally:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/y4xnda9d"
+    alt    ="new size"
+    title  ="new size"
+  />
+</figure>
+
+
+__Example #4: the same example with the monster__
+
+[Online example](https://jsbin.com/fayire/1/edit?html,output): ([Local Example - Resize Monster](src/4.3.4-example5.html))
+
+Initial size:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/y5m8k2c3"
+    alt    ="monster normal size"
+    title  ="monster normal size"
+  />
+</figure>
+
+
+When the canvas is resized, its width became smaller than the monster's size. We __scaled__ down the monster (using `ctx.scale`!)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 5vw;"
+    onclick="window.open('https://tinyurl.com/y6alvpte')"
+    src    ="https://tinyurl.com/y3of86e2"
+    alt    ="monster scaled to fit"
+    title  ="monster scaled to fit"
+  />
+</figure>
+
+
+The code is very similar to the previous example, we just replaced `drawDiagonals()` by `drawMonster(...)`, and we added a test in the `drawMonster(...)` function for scaling the monster if it's bigger than the canvas width (look at lines 10-16), this is a common trick:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">,</span><span class="pln"> headColor</span><span class="pun">,</span><span class="pln"> eyeColor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// GOOD PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Moves the coordinate system so that the monster is drawn</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// at position (x, y)</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">// Adjust the scale of the monster (200x200) if the canvas </span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp;<strong>// is too small</strong></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">width </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">200</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> scaleX </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">/</span><span class="lit">200</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> scaleY </span><span class="pun">=</span><span class="pln"> scaleX</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="pun">}</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">scale</span><span class="pun">(</span><span class="pln">scaleX</span><span class="pun">,</span><span class="pln"> scaleY</span><span class="pun">);</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// head</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">headColor</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp;...</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Knowledge check 4.3.4
+
+<pre>#myCanvas {
+       border: 1px solid black;
+       width:100%
+}
+</pre>
+
+1. Using CSS % for resizing a canvas is?
+
+  a. Ok<br/>
+  b. Bad practice<br/>
+  c. Recommended<br/>
+  d. Not possible<br/>
+
+  Ans: 
+
+
 
 
 
