@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+    <style>
+
+        #myCanvas {
+            border: 1px solid black;
+        }
+    </style> 
+<body onload="init();">
+  <p>
+This example shows how to handle key events in a canvas by adding a key listener to the window object. Like that, all key press in the document will trigger the event listener function.</p>
+
+
+<canvas id="myCanvas"  width="350" height="200">
+</canvas>
+
+<script>
+  var canvas;
+  
+  function init() {
+    // This will work when you press a key, anywhere on the document
+    window.addEventListener('keydown', handleKeydown, false);
+  }
+
+
+  function handleKeydown(e){
+     alert('keycode: '+e.keyCode);
+     return false;
+  };
+</script>
+</body>
+  </html>
+  
