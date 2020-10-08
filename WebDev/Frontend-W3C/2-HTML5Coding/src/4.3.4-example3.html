@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+        <style>
+            #myCanvas {
+                border: 1px solid black;
+              width:100%
+            }
+        </style>
+        <script>
+            var canvas, ctx;
+
+            window.onload = function () {
+                canvas = document.getElementById('myCanvas');
+                ctx = canvas.getContext('2d');
+              
+                // draw two diagonals
+              ctx.beginPath();
+              ctx.moveTo(0, 0);
+              ctx.lineTo(canvas.width, canvas.height);
+              ctx.moveTo(0, canvas.height, canvas.width, 0);
+              ctx.lineTo(canvas.width, 0);
+              ctx.stroke();
+            };
+        </script>
+    </head>
+    <body>
+        <p> This example shows a small canvas of size 100x100 Try to resize the window</p>
+        <canvas id="myCanvas" width="100" height="100" >
+        </canvas>
+    </body>
+</html>
+
