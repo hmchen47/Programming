@@ -37,6 +37,95 @@
 
     + use different properties from the event object in order to get useful information
 
++ [Key events](#432-keyboard-interaction-key-events)
+  + syntax: `target.addEventListener(type, listener [, options]);`
+    + `type`: case-sensitive string representing the [event type](https://developer.mozilla.org/en-US/docs/Web/Events) to listen for
+    + `listener`: an object implementing the [EventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) interface, or a JavaScript [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+    + options:
+      + `capture`: a Boolean indicating that events of this type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree
+      + `once`: a Boolean indicating that the listener should be invoked at most once after being added
+      + `passive`:
+        + true: the function specified by listener will never call `preventDefault()`
+        + false: call `preventDefault()` and the user agent will do nothing other than generate a console warning
+  + keyboard related events: `keydown`, `keyup` or `keypressed`
+  + event parameter passed to the listener function containing the code of the key that fired the event
+  + test what key has been pressed or released
+
+    ```js
+    window.addEventListener('keydown', function(event) {
+      if (event.keyCode === 37) {
+        //left arrow was pressed
+      }
+    }, false);
+    ```
+
+  + tools:
+    + [KeyboardEvent Value](https://css-tricks.com/snippets/javascript/javascript-keycodes/#tester-tool)
+    + [key codes interactive test page](http://www.asquare.net/javascript/tests/KeyCode.html)
+  + keydown listener: `window.addEventListener('keydown', handleKeydown, false);`
+  + keyup listerner: `window.addEventListener('keyup', handleKeyup, false);`
+  + capture key evens only in canvas:
+    + `tabindex` attribute of the canvas element makes it focusable. e.g., <prep><canvas id="myCanvas" width="350" <strong>tabindex="1"</strong> height="200"></prep>
+    + specify the canvas focusable: `canvas.focus();`
+  + interact only mouse hoover on canvas
+    + set the focus when the mouse is over the canvas
+    + two mouse event listeners on the canvas: `mouseenter` event and `mouseout` event
+    + the mouse entering the canvas call `canvas.focus()` to set the focus to the canvas
+    + the mouse cursor out of the canvas, call `canvas.blur()` to unset the focus
+    + event handlers: 
+      + key events: `canvas.addEventListener('keydown', handleKeydown, false); canvas.addEventListener('keyup', handleKeyup, false);`
+      + mouse event: `canvas.addEventListener('mouseenter', setFocus, false); canvas.addEventListener('mouseout', unsetFocus, false);`
+
+
++ [Keycode values](https://tinyurl.com/y333tfjx)
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 50vw;" cellspacing="0" cellpadding="5" border="1">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y333tfjx">KeyCode Values from from event.which</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Key</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Code</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Key</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Code</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Key</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Code</th>
+    </tr>
+  <tbody>
+  <tr> <td>backspace</td><td>8</td> <td>tab</td><td>9</td> <td>enter</td><td>13</td> </tr>
+  <tr> <td>shift</td><td>16</td> <td>ctrl</td><td>17</td> <td>alt</td><td>18</td> </tr>
+  <tr> <td>pause/break</td><td>19</td> <td>caps lock</td><td>20</td> <td>escape</td><td>27</td> </tr>
+  <tr> <td>(space)</td><td>32</td> <td>page up</td><td>33</td> <td>page down</td><td>34</td> </tr>
+  <tr> <td>end</td><td>35</td> <td>home</td><td>36</td> <td>left arrow</td><td>37</td> </tr>
+  <tr> <td>up arrow</td><td>38</td> <td>right arrow</td><td>39</td> <td>down arrow</td><td>40</td> </tr>
+  <tr> <td>insert</td><td>45</td> <td>delete</td><td>46</td> <td>0</td><td>48</td> </tr>
+  <tr> <td>1</td><td>49</td> <td>2</td><td>50</td> <td>3</td><td>51</td> </tr>
+  <tr> <td>4</td><td>52</td> <td>5</td><td>53</td> <td>6</td><td>54</td> </tr>
+  <tr> <td>7</td><td>55</td> <td> 8</td><td>56</td> <td>9</td><td>57</td> </tr>
+  <tr> <td>a</td><td>65</td> <td>b</td><td>66</td> <td>c</td><td>67</td> </tr>
+  <tr> <td>d</td><td>68</td> <td>e</td><td>69</td> <td>f</td><td>70</td> </tr>
+  <tr> <td>g</td><td>71</td> <td>h</td><td>72</td> <td>i</td><td>73</td> </tr>
+  <tr> <td>j</td><td>74</td> <td>k</td><td>75</td> <td>l</td><td>76</td> </tr>
+  <tr> <td>m</td><td>77</td> <td>n</td><td>78</td> <td>o</td><td>79</td> </tr>
+  <tr> <td>p</td><td>80</td> <td>q</td><td>81</td> <td>r</td><td>82</td> </tr>
+  <tr> <td>s</td><td>83</td> <td>t</td><td>84</td> <td>t</td><td>84</td> </tr>
+  <tr> <td>v</td><td>86</td> <td>w</td><td>87</td> <td>x</td><td>88</td> </tr>
+  <tr> <td>y</td><td>89</td> <td>z</td><td>90</td> <td>left window key</td><td>91</td> </tr>
+  <tr> <td>right window key</td><td>92</td> <td>select key</td><td>93</td> <td>numpad 0</td><td>96</td> </tr>
+  <tr> <td>numpad 1</td><td>97</td> <td>numpad 2</td><td>98</td> <td>numpad 3</td><td>99</td> </tr>
+  <tr> <td>numpad 4</td><td>100</td> <td>numpad 5</td><td>101</td> <td>numpad 6</td><td>102</td> </tr>
+  <tr> <td>numpad 7</td><td>103</td> <td>numpad 8</td><td>104</td> <td>numpad 9</td><td>105</td> </tr>
+  <tr> <td>multiply</td><td>106</td> <td>add</td><td>107</td> <td>subtract</td><td>109</td> </tr>
+  <tr> <td>decimal point</td><td>110</td> <td>divide</td><td>111</td> <td>f1</td><td>112</td> </tr>
+  <tr> <td>f2</td><td>113</td> <td>f3</td><td>114</td> <td>f4</td><td>115</td> </tr>
+  <tr> <td>f5</td><td>116</td> <td>f6</td><td>117</td> <td>f7</td><td>118</td> </tr>
+  <tr> <td>f8</td><td>119</td> <td>f9</td><td>120</td> <td>f10</td><td>121</td> </tr>
+  <tr> <td>f11</td><td>122</td> <td>f12</td><td>123</td> <td>num lock</td><td>144</td> </tr>
+  <tr> <td>scroll lock</td><td>145</td> <td>semi-colon</td><td>186</td> <td>equal sign</td><td>187</td> </tr>
+  <tr> <td>comma</td><td>188</td> <td>dash</td><td>189</td> <td>period</td><td>190</td> </tr>
+  <tr> <td>forward slash</td><td>191</td> <td>grave accent</td><td>192</td> <td>open bracket</td><td>219</td> </tr>
+  <tr> <td>back slash</td><td>220</td> <td>close braket</td><td>221</td> <td>single quote</td><td>222</td> </tr>
+  </tbody>
+  </table>
 
 
 ### 4.3.1 Events: input and output
@@ -164,7 +253,7 @@ At line 2, the value "37" is the key code that corresponds to the left arrow. It
 + And find a list of keyCodes below (taken from this [CSS Tricks article](https://css-tricks.com/snippets/javascript/javascript-keycodes/)):
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick="window.open('https://tinyurl.com/y333tfjx')"
     src    ="https://tinyurl.com/y5y53a2e"
     alt    ="JavaScript keycode table. This is a screenshot of the HTML table presented in https://css-tricks.com/snippets/javascript/javascript-keycodes/#keycode-values"
@@ -173,16 +262,15 @@ At line 2, the value "37" is the key code that corresponds to the left arrow. It
 </figure>
 
 
-
 #### Examples
 
 Example #1: adding a key listener to the window object
 A lot of people think that the canvas element is not able to get key events. Many examples on the Web handle key events on canvas by adding a listener to the window object directly, like this:
 
-[Online example](https://jsbin.com/boqumo/1/edit?html,output):  ([Local Example - Key Listener](src/4.3.2-example1.html))
+[Online example](https://jsbin.com/boqumo/1/edit?html,output):  ([Local Example - Keydown Listener](src/4.3.2-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/yx9ukm7g')"
     src    ="https://tinyurl.com/y572v8ul"
     alt    ="key detected"
@@ -220,7 +308,7 @@ __Move the monster with the keyboard__
 [Online example at JS Bin](https://jsbin.com/galebil/1/edit?html,output): ([Local Example - Move w/ Keyboard](src/4.3.2-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/yx9ukm7g')"
     src    ="https://tinyurl.com/yx8zot2n"
     alt    ="monster moving with jeys"
@@ -305,12 +393,12 @@ And we force the canvas to get the focus with:
 <li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">canvas</span><span class="pun">.</span><span class="pln">focus</span><span class="pun">();</span></strong></li>
 </ol></div>
 
-Now, if we try an example with the above canvas declaration, we show when an HTML element has the focus: a border is added to it, as shown in this [JSBin code](https://jsbin.com/hobuni/1/edit?html,output). ([Local Example - Add Border](src/4.3.2-example3.html))
+Now, if we try an example with the above canvas declaration, we show when an HTML element has the focus: a border is added to it, as shown in this [JSBin code](https://jsbin.com/hobuni/1/edit?html,output). ([Local Example - within Canvas](src/4.3.2-example3.html))
 
 Note that the line that forces the focus to the canvas is commented by default. Try to click on the canvas, then press a key, then click out of the canvas, then press a key: this time nothing happens!
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/yx9ukm7g')"
     src    ="https://tinyurl.com/y52m7baf"
     alt    ="a border appears when the canvas has the focus"
@@ -357,7 +445,7 @@ When the mouse enters the canvas we call `canvas.focus()` to set the focus to th
 [Online example at JS Bin](https://jsbin.com/koboniz/1/edit?html,output) ([Local Example - Mouse Hoover](src/4.3.2-example4.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/yx9ukm7g')"
     src    ="https://tinyurl.com/y4ha3n96"
     alt    ="canvas gets focus only when mouse is over it..."
@@ -405,7 +493,8 @@ The third parameter (false) of _lines 12_ and _13_ means "we do not want to prop
 
 1. Suppose we have defined a key event listener to a canvas: should this canvas have the focus in order to fire key events? (Yes/No)
 
-  Ans: 
+  Ans: <span style="color: magenta;">Yes</span>, xNo<br/>
+  Explanation: The problem with adding a key listener to a canvas element is that it will get events only when the canvas has the focus. And by default, it will never have the focus! The course shows how to handle different cases.
 
 
 
