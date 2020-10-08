@@ -76,6 +76,130 @@
       + key events: `canvas.addEventListener('keydown', handleKeydown, false); canvas.addEventListener('keyup', handleKeyup, false);`
       + mouse event: `canvas.addEventListener('mouseenter', setFocus, false); canvas.addEventListener('mouseout', unsetFocus, false);`
 
++ [Mouse events](#433-mouse-interaction-mouse-events)
+  + event received by the listener function used for getting the button number or the coordinates of the mouse cursor
+  + list of mouse events
+    + `mouseup` and `mousedown` events: a user presses or releases any mouse button
+    + `mouseleave`: fired when the mouse leaves the surface of the element
+    + `mouseover`: mouse cursor moving over the element that listens to that event
+    + `mousedown`: fired when a mouse button pressed
+    + `mouseup`: fired when a mouse button is released
+    + `mouseclick`: fired after a `mousedown` and a `mouseup` occurred
+    + `mousemove`:
+      + fired while the mouse moves over the element
+      + each time the mouse moves, a new event is fired
+      + only one event is fired
+  + `mouseleave` vs. `mouseout`:
+    + `mouseleave` not fired when the cursor moves over descendant elements
+    + `mouseout` fired when the element moved outside of the bounds of the original element or a child of the original element
+  + `mouseenter` vs. `mouseover`:
+    + `mouseover` event occurs on an element when you are over it - coming from either its child OR parent element
+    + `mouseenter` event only occurs when the mouse moves from the parent element to the child element
+  + tricky part: accurately getting the mouse position relative to the canvas
+    + the event object ("DOM event") passed to the listener function
+    + properties corresponding to the mouse coordinates: `clientX` and `clientY`
+    + window coordinates: not relative to the canvas itself, but relative to the window (the page)
+    + requirement: convert the coordinates between the window and the canvas
+    + considering the position of the canvas, and the CSS properties that may affect the canvas position (margin, etc.)
+    + `getBoundingClientRect()` method: get the position and size of any element in the page
+    + example: wrong mouse position - window coordinates
+
+      ```js
+      function getMousePos(canvas, evt) {
+        return {
+            x: evt.clientX,
+            y: evt.clientY
+        };
+      }
+      ```
+
+    + example: good mouse position - canvas coordinates
+
+      ```js
+      function getMousePos(canvas, evt) {
+        // necessary to take into account CSS boundaries
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+      }
+      ```
+
+  + [mouse positions w/ button pressed and released](#how-to-display-the-mouse-position-and-the-mouse-button-that-has-been-pressed-or-released)
+
+    ```js
+    canvas.addEventListener('mousemove', function (evt) {
+        mousePos = getMousePos(canvas, evt);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+    }, false);
+
+    canvas.addEventListener('mousedown', function (evt) {
+        mouseButton = evt.button;
+        var message = "Mouse button " + evt.button + " down at position: " + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+    }, false);
+
+    canvas.addEventListener('mouseup', function (evt) {
+        var message = "Mouse up at position: " + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+    }, false);
+    ```
+
+  + example: move charater w/ mouse and rotate w/ buttom pressed
+    + mouse listeners: `canvas.addEventListener('mousemove', handleMousemove, false); canvas.addEventListener('mousedown', handleMousedown, false); canvas.addEventListener('mouseup', handleMouseup, false);`
+    + start the animation: `equestId = requestAnimationFrame(animationLoop);`
+    + the mousePos will be taken into account in the animationLoop: `mousePos = getMousePos(canvas, evt);`
+    + mousePos taken into account in the animationLoop: `function handleMousemove(evt) { mousePos = getMousePos(canvas, evt); }`
+    + increment on the angle taken into account in the animationLoop: `function handleMousedown(evt) { incrementAngle = 0.1; }`
+    + stop the rotation: `function handleMouseup(evt) { incrementAngle = 0; }`
+    + get mouse position in canvas: `function getMousePos(canvas, evt) {...}`
+    + `animationLoop` function: `function animationLoop() {...}`
+      + clear:; `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+      + draw: `drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');`
+      + move if in canvas: `if(mousePos !== undefined) { monsterX = mousePos.x; monsterY = mousePos.y; monsterAngle += incrementAngle; }`
+  + example: move mouse as pencil to draw in canvas
+    + a line is a path w/ a single draw order
+    + at each mouse event draw the whole path from the beginning 
+    + lines normally only usable in path mode
+
+      ```js
+      function drawLineImmediate(x1, y1, x2, y2) {
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.line(x2, y2);
+        ctx.stroke();
+      }
+      ```
+
+    + draw lines following the mouse position: `function handleMouseMove(evt) {...}`
+
+      ```js
+      if (!started) {
+        previousMousePos = mousePos;  // get the current mouse position
+        started = true;
+      } else {
+        // get two consecutive mouse positions before drawing a line
+        drawLineImmediate(preeviousMousePos.x, previousMousePos.y, mousePosx, mousePosy);
+        previousMousePos = mousePos;
+      }
+      ```
+
+    + onload fucntion after loading page: ` window.onload = function () {...}`
+      + unable to draw any line before mouse moved into canvas: `started = false;`
+      + listen to tne movment of mouse: ` canvas.addEventListener('mousemove', handleMouseMove, false);`
+  + example: draw only when mouse button pressed
+    + event listeners: `canvas.addEventListener('mousemove', handleMouseMove, false); canvas.addEventListener('mousedown', clicked); canvas.addEventListener('mouseup', released);`
+    + press mouse button: `function clicked(evt) {previousMousePos = getMousePos(canvas, evt); painting = true;}`
+    + release mouse button: `function released(evt) { painting = flase; }`
+    + draw lines following the mouse position: `function handleMouseMove(evt) {...}`
+
+
+
+
+
+
 
 + [Keycode values](https://tinyurl.com/y333tfjx)
 
@@ -500,7 +624,7 @@ The third parameter (false) of _lines 12_ and _13_ means "we do not want to prop
 
 ### 4.3.3 Mouse interaction, mouse events
 
-etecting mouse events in a canvas is quite straightforward: you add an event listener to the canvas, and the browser invokes that listener when the event occurs.
+Detecting mouse events in a canvas is quite straightforward: you add an event listener to the canvas, and the browser invokes that listener when the event occurs.
 
 The example below is about listening to `mouseup` and `mousedown` events (when a user presses or releases any mouse button):
 
@@ -515,7 +639,7 @@ The event received by the listener function will be used for getting the button 
 #### The different mouse events
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/y5c8orsx')"
     src    ="https://tinyurl.com/y5gvuk7r"
     alt    ="Mouse events illustrated"
@@ -528,11 +652,11 @@ We saw in the last example how to detect the `mouseenter` and `mouseout` events.
 
 There are other events related to the mouse:
 
-+ ``mouseleave`: similar to `mouseout`, fired when the mouse leaves the surface of the element. The difference between `mouseleave` and `mouseout` is that `mouseleave` does not fire when the cursor moves over descendant elements, and `mouseout` is fired when the element moved is outside of the bounds of the original element or is a child of the original element.
-+ ``mouseover`: the mouse cursor is moving over the element that listens to that event. A `mouseover` event occurs on an element when you are over it - <u>coming from either its child OR parent element</u>, but a `mouseenter` event only occurs when the mouse <u>moves from the parent element to the child element</u>.
-+ ``mousedown`: fired when a mouse button is pressed.
-+ ``mouseup`: fired when a mouse button is released.
-+ ``mouseclick`: fired after a `mousedown` and a `mouseup` have occurred.
++ `mouseleave`: similar to `mouseout`, fired when the mouse leaves the surface of the element. The difference between `mouseleave` and `mouseout` is that `mouseleave` does not fire when the cursor moves over descendant elements, and `mouseout` is fired when the element moved is outside of the bounds of the original element or is a child of the original element.
++ `mouseover`: the mouse cursor is moving over the element that listens to that event. A `mouseover` event occurs on an element when you are over it - <u>coming from either its child OR parent element</u>, but a `mouseenter` event only occurs when the mouse <u>moves from the parent element to the child element</u>.
++ `mousedown`: fired when a mouse button is pressed.
++ `mouseup`: fired when a mouse button is released.
++ `mouseclick`: fired after a `mousedown` and a `mouseup` have occurred.
 + `mousemove`: fired while the mouse moves over the element. Each time the mouse moves, a new event is fired, unlike with `mouseover` or `mouseenter`, where only one event is fired.
 
 
@@ -865,9 +989,10 @@ We just added `mouseup` and `mousedown` listeners, extract from the source code:
   b. Getting the mouse coordinate in the canvas coordinate system is not straightforward: we must take into account the position of the canvas into the page, the different CSS margins, etc.<br/>
   c. No problem: use the event.mouseX and event.mouseY properties.<br/>
 
-  Ans: 
-
-
+  Ans: b<br/>
+  Explanation: 
+    + Most of the time you need to work with the mouse position relative to the canvas, not to the window, so you must convert the coordinates between the window and the canvas. This will take into account the position of the canvas, and the CSS properties that may affect the canvas position (margin, etc.).
+    + Fortunately, there exists a method for getting the position and size of any element in the page: `getBoundingClientRect()`.
 
 
 
