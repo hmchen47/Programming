@@ -63,7 +63,7 @@
     + [KeyboardEvent Value](https://css-tricks.com/snippets/javascript/javascript-keycodes/#tester-tool)
     + [key codes interactive test page](http://www.asquare.net/javascript/tests/KeyCode.html)
   + keydown listener: `window.addEventListener('keydown', handleKeydown, false);`
-  + keyup listerner: `window.addEventListener('keyup', handleKeyup, false);`
+  + keyup listener: `window.addEventListener('keyup', handleKeyup, false);`
   + capture key evens only in canvas:
     + `tabindex` attribute of the canvas element makes it focusable. e.g., <prep><canvas id="myCanvas" width="350" <strong>tabindex="1"</strong> height="200"></prep>
     + specify the canvas focusable: `canvas.focus();`
@@ -79,7 +79,6 @@
 + [Mouse events](#433-mouse-interaction-mouse-events)
   + event received by the listener function used for getting the button number or the coordinates of the mouse cursor
   + list of mouse events
-    + `mouseup` and `mousedown` events: a user presses or releases any mouse button
     + `mouseleave`: fired when the mouse leaves the surface of the element
     + `mouseover`: mouse cursor moving over the element that listens to that event
     + `mousedown`: fired when a mouse button pressed
@@ -224,54 +223,6 @@
         ```
 
 + [Keycode values](https://tinyurl.com/y333tfjx)
-
-  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 50vw;" cellspacing="0" cellpadding="5" border="1">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y333tfjx">KeyCode Values from from event.which</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Key</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Code</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Key</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Code</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Key</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Code</th>
-    </tr>
-  <tbody>
-  <tr> <td>backspace</td><td>8</td> <td>tab</td><td>9</td> <td>enter</td><td>13</td> </tr>
-  <tr> <td>shift</td><td>16</td> <td>ctrl</td><td>17</td> <td>alt</td><td>18</td> </tr>
-  <tr> <td>pause/break</td><td>19</td> <td>caps lock</td><td>20</td> <td>escape</td><td>27</td> </tr>
-  <tr> <td>(space)</td><td>32</td> <td>page up</td><td>33</td> <td>page down</td><td>34</td> </tr>
-  <tr> <td>end</td><td>35</td> <td>home</td><td>36</td> <td>left arrow</td><td>37</td> </tr>
-  <tr> <td>up arrow</td><td>38</td> <td>right arrow</td><td>39</td> <td>down arrow</td><td>40</td> </tr>
-  <tr> <td>insert</td><td>45</td> <td>delete</td><td>46</td> <td>0</td><td>48</td> </tr>
-  <tr> <td>1</td><td>49</td> <td>2</td><td>50</td> <td>3</td><td>51</td> </tr>
-  <tr> <td>4</td><td>52</td> <td>5</td><td>53</td> <td>6</td><td>54</td> </tr>
-  <tr> <td>7</td><td>55</td> <td> 8</td><td>56</td> <td>9</td><td>57</td> </tr>
-  <tr> <td>a</td><td>65</td> <td>b</td><td>66</td> <td>c</td><td>67</td> </tr>
-  <tr> <td>d</td><td>68</td> <td>e</td><td>69</td> <td>f</td><td>70</td> </tr>
-  <tr> <td>g</td><td>71</td> <td>h</td><td>72</td> <td>i</td><td>73</td> </tr>
-  <tr> <td>j</td><td>74</td> <td>k</td><td>75</td> <td>l</td><td>76</td> </tr>
-  <tr> <td>m</td><td>77</td> <td>n</td><td>78</td> <td>o</td><td>79</td> </tr>
-  <tr> <td>p</td><td>80</td> <td>q</td><td>81</td> <td>r</td><td>82</td> </tr>
-  <tr> <td>s</td><td>83</td> <td>t</td><td>84</td> <td>t</td><td>84</td> </tr>
-  <tr> <td>v</td><td>86</td> <td>w</td><td>87</td> <td>x</td><td>88</td> </tr>
-  <tr> <td>y</td><td>89</td> <td>z</td><td>90</td> <td>left window key</td><td>91</td> </tr>
-  <tr> <td>right window key</td><td>92</td> <td>select key</td><td>93</td> <td>numpad 0</td><td>96</td> </tr>
-  <tr> <td>numpad 1</td><td>97</td> <td>numpad 2</td><td>98</td> <td>numpad 3</td><td>99</td> </tr>
-  <tr> <td>numpad 4</td><td>100</td> <td>numpad 5</td><td>101</td> <td>numpad 6</td><td>102</td> </tr>
-  <tr> <td>numpad 7</td><td>103</td> <td>numpad 8</td><td>104</td> <td>numpad 9</td><td>105</td> </tr>
-  <tr> <td>multiply</td><td>106</td> <td>add</td><td>107</td> <td>subtract</td><td>109</td> </tr>
-  <tr> <td>decimal point</td><td>110</td> <td>divide</td><td>111</td> <td>f1</td><td>112</td> </tr>
-  <tr> <td>f2</td><td>113</td> <td>f3</td><td>114</td> <td>f4</td><td>115</td> </tr>
-  <tr> <td>f5</td><td>116</td> <td>f6</td><td>117</td> <td>f7</td><td>118</td> </tr>
-  <tr> <td>f8</td><td>119</td> <td>f9</td><td>120</td> <td>f10</td><td>121</td> </tr>
-  <tr> <td>f11</td><td>122</td> <td>f12</td><td>123</td> <td>num lock</td><td>144</td> </tr>
-  <tr> <td>scroll lock</td><td>145</td> <td>semi-colon</td><td>186</td> <td>equal sign</td><td>187</td> </tr>
-  <tr> <td>comma</td><td>188</td> <td>dash</td><td>189</td> <td>period</td><td>190</td> </tr>
-  <tr> <td>forward slash</td><td>191</td> <td>grave accent</td><td>192</td> <td>open bracket</td><td>219</td> </tr>
-  <tr> <td>back slash</td><td>220</td> <td>close braket</td><td>221</td> <td>single quote</td><td>222</td> </tr>
-  </tbody>
-  </table>
 
 
 ### 4.3.1 Events: input and output
