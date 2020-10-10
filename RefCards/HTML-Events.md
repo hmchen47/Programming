@@ -127,6 +127,72 @@
 </table>
 
 
+## Mouse events
+
++ [Mouse events](../WebDev/Frontend-W3C/2-HTML5Coding/04c-Animations.md#433-mouse-interaction-mouse-events)
+  + event received by the listener function used for getting the button number or the coordinates of the mouse cursor
+  + list of mouse events
+    + `mouseleave`: fired when the mouse leaves the surface of the element
+    + `mouseover`: mouse cursor moving over the element that listens to that event
+    + `mousedown`: fired when a mouse button pressed
+    + `mouseup`: fired when a mouse button is released
+    + `mouseclick`: fired after a `mousedown` and a `mouseup` occurred
+    + `mousemove`:
+      + fired while the mouse moves over the element
+      + each time the mouse moves, a new event is fired
+      + only one event is fired
+  + `mouseleave` vs. `mouseout`:
+    + `mouseleave` not fired when the cursor moves over descendant elements
+    + `mouseout` fired when the element moved outside of the bounds of the original element or a child of the original element
+  + `mouseenter` vs. `mouseover`:
+    + `mouseover` event occurs on an element when you are over it - coming from either its child OR parent element
+    + `mouseenter` event only occurs when the mouse moves from the parent element to the child element
+  + tricky part: accurately getting the mouse position relative to the canvas
+    + the event object ("DOM event") passed to the listener function
+    + properties corresponding to the mouse coordinates: `clientX` and `clientY`
+    + window coordinates: not relative to the canvas itself, but relative to the window (the page)
+    + requirement: convert the coordinates between the window and the canvas
+    + considering the position of the canvas, and the CSS properties that may affect the canvas position (margin, etc.)
+    + `getBoundingClientRect()` method: get the position and size of any element in the page
+    + example: mouse position w/ canvas coordinates
+
+      ```js
+      function getMousePos(canvas, evt) {
+        // necessary to take into account CSS boundaries
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+      }
+      ```
+
+  + [mouse positions w/ button pressed and released](../WebDev/Frontend-W3C/2-HTML5Coding/04c-Animations.md#how-to-display-the-mouse-position-and-the-mouse-button-that-has-been-pressed-or-released)
+
+    ```js
+    canvas.addEventListener('mousemove', function (evt) {
+        mousePos = getMousePos(canvas, evt);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+    }, false);
+
+    canvas.addEventListener('mousedown', function (evt) {
+        mouseButton = evt.button;
+        var message = "Mouse button " + evt.button + " down at position: " + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+    }, false);
+
+    canvas.addEventListener('mouseup', function (evt) {
+        var message = "Mouse up at position: " + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+    }, false);
+    ```
+
+  + example: move character w/ mouse and rotate w/ button pressed
+  + example: move mouse as pencil to draw in canvas
+  + example: draw only when mouse button pressed
+
+
 
 
 
