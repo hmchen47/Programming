@@ -195,4 +195,36 @@
 
 
 
+## Responsive canvas
+
++ [Responsive canvas](../WebDev/Frontend-W3C/2-HTML5Coding/04c-Animations.md#434-responsive-canvas)
+  + rules of resizing a canvas
+    + changing `width` and `height` property $\to$ erase the content and reset the context
+    + using `%` in the CSS `width` and `height` properties of a canvas $\to$ scaling the existing pixels w/o erasing the content, given a blurry image
+  + __best practice__: never use CSS percentage on a canvas width or height
+  + responsive canvas
+    + embedded in a `<div>` or in any parent container
+    + using CSS w/ percentages on the width and the height CSS properties of the parent
+    + using a `resize` listener on the parent of the canvas
+    + changing the `weight` and `height` properties of the canvas from the JS resize listener function
+    + redraw content, scaled accordingly to the size of the parent
+  + example: resize canvas
+    + HTML code: `<div id="parentDiv"> <canvas id="myCanvas" width="100" height="100" ></canvas> </div>`
+    + CSS code for `<div>` resize: `#parentDiv { width:100%; height:50%; margin-right: 10px; border: 1px solid red; }`
+    + unable to listen to a DIV's resize by listening to the window instead: `window.addEventListener('resize',     resizeCanvasAccordingToParentSize, false);`
+    + adjust canvas size, take parent's size, this erases content: `canvas.width = divcanvas.clientWidth; canvas.height = divcanvas.clientHeight;`
+    + resize character w/ `ctx.resize()` in draw function: `function drawMonster(x, y, angle, headColor, eyeColor) {...}`
+      + save and restore at beginning and end of function
+      + move the coordinate system to draw the character at position (x, y): `ctx.translate(x, y); ctx.rotate(angle);`
+      + adjust the scale of the character if canvas too small to fit the character: 
+
+        ```js
+        if(canvas.width < 200) {
+            var scaleX = canvas.width/200;
+            var scaleY = scaleX;
+        }
+        ctx.scale(scaleX, scaleY);
+        ``
+
+
 
