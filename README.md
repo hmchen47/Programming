@@ -206,7 +206,7 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Graphics </th>
+    <th rowspan="5" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Graphics & Animation</th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-modes"> Drawing Modes </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#the-canvas-element"> &lt;canvas&gt; Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#html-canvas-reference"> Reference </a> </td>
@@ -230,6 +230,31 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#shadow-properties"> Shadow Properties </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#">  </a> </td>
   </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#animations"> Animations </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#setinterval-method"> setInterval </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#settimeout-method"> setTimeout </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#requestanimationframe-method"> requestAnimationFrame </a> </td>
+  </tr>
+
+  <!-- Events -->
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Events </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#events"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#keyboard-events"> Keyboard </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#keycode-values"> Keycode Values </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#mouse-events"> Mouse </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#responsive-canvas"> Responsive </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
+  </tr>
+
+  <!-- Template -->
+
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
