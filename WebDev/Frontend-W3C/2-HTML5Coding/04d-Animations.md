@@ -27,8 +27,8 @@ Please complete the following 12 exercises in a timely manner. As stated in the 
   b. Call the draw function repeatedly every 2 seconds<br/>
   c. Call it once after 2 seconds<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The second parameter is the interval of time between each call of the function draw. It's in milliseconds.
 
 
 2. Am I late?
@@ -47,8 +47,8 @@ Please complete the following 12 exercises in a timely manner. As stated in the 
   b. The animation will start after 2 seconds. Call the draw function every two seconds once the animation has started.<br/>
   c. The animation will start immediately. Call the draw function every two seconds once the animation has started.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: magenta;">b</span>, xa<br/>
+  Explanation: `setTimeout` calls the function passed as first parameter after a delay passed as second parameter, in milliseconds (ms). Draw is called the first time after 2seconds. Then, as setTimeout is called again at the end of draw, draw will be called every two seconds again and again.
 
 
 3. Choose carefully!
@@ -59,8 +59,8 @@ Please complete the following 12 exercises in a timely manner. As stated in the 
   b. Using setTimeout<br/>
   c. Using setInterval<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: HTML5 introduced the `requestAnimationFrame` API for 60 frames/s animation as a target. This method comes with many advantages presented in the course: optimization, merging of multiple animations, better scheduling accuracy, etc.
 
 
 
