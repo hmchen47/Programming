@@ -948,4 +948,24 @@
 
 
 
+## `setTimeout` method
+
++ [`setTimeout` method](#424-animating-using-settimeout)
+  + syntax: `setTimeout(function, delay);`
+  + call function ONCE and AFTER a given amount of time
+  + run the function passed as the first parameter only once
+  + call at the end of the loop
+  + more suitable for doing graphic animation
+  + never interrupt an ongoing animation, even if the instructions inside the animation loop take too long
+  + not "wait" during the timeout period, the rest of the JavaScript code runs
+  + schedule a new call to the function passed as the first parameter w/ a timer running in the background
+  + issues w/ `setInterval()` and `setTimeout()`
+    + `setTimeout()`: probably take slightly longer than the expected timeout period to start executing
+    + `setInterval`: the timing not "very" reliable
+    + designed long time ago while high precision timers and 60 frames per second animation were not an option
+  + __best practice__: avoid using setTimeout for animating in a canvas, except for trivial cases
+  + __best practice__: using `requestAnimationFrame` for 60 frames/second animation
+
+
+
 
