@@ -898,5 +898,33 @@
 
 
 
+## Animations
+
++ [Animation techniques](../WebDev/Frontend-W3C/2-HTML5Coding/04b-Animations.md#421-animation-techniques)
+  + basic steps to perform an animation
+    + clear the content of the canvas w/ `ctx.clearRect(0, 0, canvasWidth, canvasHeight)` method
+    + draw some shapes by using any drawing methods
+    + move the shapes by modifying the positions and/or orientation, size, and color
+    + repeat the first step
+  + perform in a canvas
+  + principle: __clear-draw-move-repeat__
+  + possible ignore the first step if redrawing the whole canvas content
+  
++ [Animations before HTML5](../WebDev/Frontend-W3C/2-HTML5Coding/04b-Animations.md#before-html5)
+  + using CSS backgrounds inside `<div>` elements
+  + change the CSS top, left, width, and height properties of the divs
+  + only solutions:
+    + `setInterval(function, ms)`: run every $n$ milliseconds
+    + `setTimeout(function, ms)`: run only once  after $n$ milliseconds (the last step above)
+
++ [Animation after HTML5](../WebDev/Frontend-W3C/2-HTML5Coding/04b-Animations.md#after-html5)
+  + the `<canvas>` element introduced
+  + `requestAnimationFrame` API
+    + tell the browser to perform an animation
+    + request the browser calling a specified function to update an animation before the next repaint
+    + take a callback as an argument to be invoked before the repaint
+
+
+
 
 
