@@ -925,6 +925,27 @@
     + take a callback as an argument to be invoked before the repaint
 
 
+## `setInterval` method
+
++ [`setInterval` method](#423-animating-using-setinterval)
+  + syntax: `setInterval(function, ms);`
+  + not the recommended way to do 60 frames/second canvas animation
+  + still popular on the Web
+  + call another function or evaluates an expression at specified intervals of time (in milliseconds)
+  + return the unique `id` of the action
+  + always stop it by calling the `clearInterval(id)` function w/ the interval identifier as an argument
+  + example: animate a DIV using the DOM API
+  + example: animate in a canvas using `setInterval`
+  + issues
+    + running several animations simultaneously
+      + hard to debug
+      + two intervals w/ very different time frame, the longer one difficult to debug
+    + probably interrupted by itself to become two simultaneous animations
+      + execute the function passed as first parameter every n milliseconds regardless of when the function was last called or how long the function takes to execute
+      + the function taking longer than the interval $\to$ queue too many function executions back to back $\to$ unpredictable results
+      + e.g., call game loop function every $n$ ms, even if the previous one is not yet finished
+  + __best practice__: avoid using `setInterval` for animation in a canvas, except for trivial cases
+
 
 
 
