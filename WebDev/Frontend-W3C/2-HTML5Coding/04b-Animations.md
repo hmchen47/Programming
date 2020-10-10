@@ -18,16 +18,16 @@
   
 + [Animations before HTML5](#before-html5)
   + using CSS backgrounds inside `<div>` elements
-  + change the CSS top, left, width, and height properties if the divs
-  + only solutions: `setInterval(function, ms)` & `setTimeout(function, ms)`: 
-  + `setInterval(function, ms)`: run every $n$ milliseconds
-  + `setTimeout(function, ms)`: run only once  after $n$ milliseconds (the last step above)
+  + change the CSS top, left, width, and height properties of the divs
+  + only solutions:
+    + `setInterval(function, ms)`: run every $n$ milliseconds
+    + `setTimeout(function, ms)`: run only once  after $n$ milliseconds (the last step above)
 
 + [Animation after HTML5](#after-html5)
   + the `<canvas>` element introduced
   + `requestAnimationFrame` API
     + tell the browser to perform an animation
-    + request the browser calls a specified function to update an animation before the next repaint
+    + request the browser calling a specified function to update an animation before the next repaint
     + take a callback as an argument to be invoked before the repaint
 
 + [`setInterval` method](#423-animating-using-setinterval)
@@ -48,11 +48,11 @@
   + example: animate in a canvas using `setInterval`
     + start the animation loop, change 20 for bigger values by clicking start button: `requestId = setInterval(animationLoop, 20);`
     + draw the animated character: `function drawMonster(x, y, angle, headColor, eyeColor) {...}` w/ `ctx.save()` and `ctx.restore()` at the beginning and end of the function
-    + the basic animation steps: clear-draw-move - `function animationLoop() {...}`
+    + the basic animation steps: clear-draw-move-repeat w/ `function animationLoop() {...}`
       + using state variables for the position and angle of the character
       + clear the canvas: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
       + draw the character using variables for pos, angle, etc.:  `drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');`
-      + move the character by changing pos, angle, size, etc.: `monsterX += 10; monsterX %= canvas.width monsterAngle+= 0.01;`
+      + move the character by changing pos, angle, size, etc.: `monsterX += 10; monsterX %= canvas.width; monsterAngle += 0.01;`
   + issues
     + running several animations simultaneously
       + hard to debug
@@ -71,7 +71,7 @@
   + more suitable for doing graphic animation
   + never interrupt an ongoing animation, even if the instructions inside the animation loop take too long
   + not "wait" during the timeout period, the rest of the JavaScript code runs
-  + schedule a new call to the function passed as first parameter with a timer running in the background
+  + schedule a new call to the function passed as the first parameter w/ a timer running in the background
   + issues w/ `setInterval()` and `setTimeout()`
     + `setTimeout()`: probably take slightly longer than the expected timeout period to start executing
     + `setInterval`: the timing not "very" reliable
@@ -102,10 +102,10 @@
       + animationLoop still executed
   + typical use:
     + `init()` function called after the page loaded
-      + get the canvas: `canvas = document.get ElementById('myCanvas')`
+      + get the canvas: `canvas = document.getElementById('myCanvas')`
       + get the context: `ctx = canvas.getContext('2d')`
       + start the animation: `startAnimation()`
-    + `startAnimation()` fucntion: id = requestAnimationFrame(animationLoop);`
+    + `startAnimation()` function: `id = requestAnimationFrame(animationLoop);`
     + `animationLoop` function: `function animationLoop(timeStamp)`
       + clear: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
       + draw: `drawShapes(...);`
