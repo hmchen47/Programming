@@ -50,14 +50,14 @@
 
 ## Week 5: HTML5 Forms
 
-+ 5.1 [Video introduction - Week 5](./05-HTMLForms.md#)
-+ 5.2 [Elements and attributes](./05-HTMLForms.md#)
-+ 5.3 [Accessible forms](./05-HTMLForms.md#)
-+ 5.4 [Input types](./05-HTMLForms.md#)
-+ 5.5 [Form attributes](./05-HTMLForms.md#)
-+ 5.6 [Elements related to forms](./05-HTMLForms.md#)
-+ 5.7 [Form validation API](./05-HTMLForms.md#)
-+ 5.8 [Exercises - Week 5](./05-HTMLForms.md#)
++ 5.1 [Video introduction - Week 5](./05a-HTMLForms.md)
++ 5.2 [Elements and attributes](./05b-HTMLForms.md)
++ 5.3 [Accessible forms](./05c-HTMLForms.md)
++ 5.4 [Input types](./05d-HTMLForms.md)
++ 5.5 [Form attributes](./05e-HTMLForms.md)
++ 5.6 [Elements related to forms](./05f-HTMLForms.md)
++ 5.7 [Form validation API](./05g-HTMLForms.md)
++ 5.8 [Exercises - Week 5](./05h-HTMLForms.md)
 
 
 
