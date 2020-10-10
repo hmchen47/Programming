@@ -8,7 +8,7 @@
 
 + [DOM events](#431-events-input-and-output)
   + use the DOM JavaScript API to create event handlers
-  + js: events made by users as an input and manipulating the DOM structure as an output
+  + JavaScript: events made by users as an input and manipulating the DOM structure as an output
   + games/animations:
     + input: change state variables of moving objects
     + output: animation loop taking care of these variables to move the objects
@@ -22,7 +22,7 @@
       + e.g., `document.getElementById('someDiv').onclick = function(evt) { alert('clicked!'); }`
       + unable to attach several listener functions
     + register a callback to the event listener with the `addEventListener` method
-      + e.g.,: `document.getElementById('someDiv').addEventListener('click', function(evt) { alert('clicked!'); }, false);`
+      + e.g., `document.getElementById('someDiv').addEventListener('click', function(evt) { alert('clicked!'); }, false);`
       + third parameter not important for now, just set it to false or ignore
   + DOM event and event listener function
     + create an EventListener and attach it to an element
@@ -147,18 +147,17 @@
     }, false);
     ```
 
-  + example: move charater w/ mouse and rotate w/ buttom pressed
+  + example: move character w/ mouse and rotate w/ button pressed
     + mouse listeners: `canvas.addEventListener('mousemove', handleMousemove, false); canvas.addEventListener('mousedown', handleMousedown, false); canvas.addEventListener('mouseup', handleMouseup, false);`
-    + start the animation: `equestId = requestAnimationFrame(animationLoop);`
-    + the mousePos will be taken into account in the animationLoop: `mousePos = getMousePos(canvas, evt);`
+    + start the animation: `requestId = requestAnimationFrame(animationLoop);`
     + mousePos taken into account in the animationLoop: `function handleMousemove(evt) { mousePos = getMousePos(canvas, evt); }`
     + increment on the angle taken into account in the animationLoop: `function handleMousedown(evt) { incrementAngle = 0.1; }`
     + stop the rotation: `function handleMouseup(evt) { incrementAngle = 0; }`
     + get mouse position in canvas: `function getMousePos(canvas, evt) {...}`
     + `animationLoop` function: `function animationLoop() {...}`
-      + clear:; `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+      + clear: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
       + draw: `drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');`
-      + move if in canvas: `if(mousePos !== undefined) { monsterX = mousePos.x; monsterY = mousePos.y; monsterAngle += incrementAngle; }`
+      + move in canvas: `if(mousePos !== undefined) { monsterX = mousePos.x; monsterY = mousePos.y; monsterAngle += incrementAngle; }`
   + example: move mouse as pencil to draw in canvas
     + a line is a path w/ a single draw order
     + at each mouse event draw the whole path from the beginning 
@@ -186,9 +185,9 @@
       }
       ```
 
-    + onload fucntion after loading page: ` window.onload = function () {...}`
+    + onload function after loading page: `window.onload = function () {...}`
       + unable to draw any line before mouse moved into canvas: `started = false;`
-      + listen to tne movment of mouse: ` canvas.addEventListener('mousemove', handleMouseMove, false);`
+      + listen to the movement of mouse: `canvas.addEventListener('mousemove', handleMouseMove, false);`
   + example: draw only when mouse button pressed
     + event listeners: `canvas.addEventListener('mousemove', handleMouseMove, false); canvas.addEventListener('mousedown', clicked); canvas.addEventListener('mouseup', released);`
     + press mouse button: `function clicked(evt) {previousMousePos = getMousePos(canvas, evt); painting = true;}`
@@ -203,16 +202,16 @@
   + responsive canvas
     + embedded in a `<div>` or in any parent container
     + using CSS w/ percentages on the width and the height CSS properties of the parent
-    + using a `resize` listerner on the parent of the canvas
+    + using a `resize` listener on the parent of the canvas
     + changing the `weight` and `height` properties of the canvas from the JS resize listener function
-    + redraw content, scaled accordingly tot he size of the parent
+    + redraw content, scaled accordingly to the size of the parent
   + example: resize canvas
     + HTML code: `<div id="parentDiv"> <canvas id="myCanvas" width="100" height="100" ></canvas> </div>`
     + CSS code for `<div>` resize: `#parentDiv { width:100%; height:50%; margin-right: 10px; border: 1px solid red; }`
-    + unable to listen to a DIV's resize byt listen to the window instead: `window.addEventListener('resize',     resizeCanvasAccordingToParentSize, false);`
+    + unable to listen to a DIV's resize by listening to the window instead: `window.addEventListener('resize',     resizeCanvasAccordingToParentSize, false);`
     + adjust canvas size, take parent's size, this erases content: `canvas.width = divcanvas.clientWidth; canvas.height = divcanvas.clientHeight;`
-    + resize character w/ `ctx.resize()` in draw fucntion: `function drawMonster(x, y, angle, headColor, eyeColor) {...}`
-      + save and restore at begining and end of function
+    + resize character w/ `ctx.resize()` in draw function: `function drawMonster(x, y, angle, headColor, eyeColor) {...}`
+      + save and restore at beginning and end of function
       + move the coordinate system to draw the character at position (x, y): `ctx.translate(x, y); ctx.rotate(angle);`
       + adjust the scale of the character if canvas too small to fit the character: 
 
