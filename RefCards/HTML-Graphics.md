@@ -968,4 +968,58 @@
 
 
 
+## `requestAnimationFrame` method
+
++ [`requestAnimationFrame` method](#425-the-requestanimationframe-api)
+  + syntax: `id = requestAnimationFrame(animationLoop)`
+  + `cancelAnimationFrame(id)` for stopping an animation
+  + similar to `setTimeout`
+    + call the function passed as a parameter ONCE
+    + fixed target delay, 16.6ms
+  + target 60 frames/s
+    + browser scheduling a call to the `animationLoop` function
+    + scheduling at 1/60th of a second = 16.6ms
+    + most monitors unable to display more than 60 frames/sec (FPS)
+    + most games acceptable above 30 PFS
+    + virtual reality probably reaching 75 PFS to achieve a natural feel
+    + some gaming monitors go up to 144 FPS
+  + call only once: call again to play a continuous animation
+  + advantages
+    + much more accurate scheduling: much smaller average error btw the schedule time and the real time if the execution time inside the function smaller than 16.6ms
+    + high resolution timer: smaller average time error $\to$ higher resolution $\to$ time-based animation
+    + merged multiple animations: bundle animations happening at the same time into a single paint redraw
+    + GPU/CPU optimization, battery saved on mobile:
+      + js executed but not drawn if not visible
+      + animationLoop still executed
+  + typical use:
+    + `init()` function called after the page loaded
+      + get the canvas: `canvas = document.getElementById('myCanvas')`
+      + get the context: `ctx = canvas.getContext('2d')`
+      + start the animation: `startAnimation()`
+    + `startAnimation()` function: `id = requestAnimationFrame(animationLoop);`
+    + `animationLoop` function: `function animationLoop(timeStamp)`
+      + clear: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+      + draw: `drawShapes(...);`
+      + move: `moveShapes(...);`
+      + call main loop again after 16.6 ms (60 frames/s): `id = requestAnimationFrame(animationLoop);`
+    + stop animation: `cancelAnimationFrame(requestId);`
+  + the 16.6ms delay really accurate?
+    + hard to reach
+      + animation loop content too complex
+      + lower end phone or computer
+      + scheduler not at the point
+    + solution: time-based animation
+  + time-based animation:
+    + a technique that comprises measuring the amount of time elapsed between two frames
+    + computing the distance in pixels to move objects on screen
+    + the visible speed for a human eye remaining constant, even if the frame rate is not
+    + independent to the GPU/CPU of the computer or mobile device
+    + `timeStamp` parameter in `function animationLoop(timeStamp)`
+      + giving a high resolution time
+      + measuring deltas btw two consecutive calls of the `animationLoop`
+      + knowing exactly, with a sub-millisecond accuracy, the elapsed time btw two frames
+
+
+
+
 
