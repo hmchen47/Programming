@@ -106,35 +106,38 @@ __Source code for the three questions (4, 5 and 6):__
 
 4. Just in time!
 
-  In the above code, how often will the browser try to call the animationLoop function?
+  In the above code, how often will the browser try to call the `animationLoop` function?
 
-  a. There is another optional parameter that we could have used to change the interval of time: requestAnimationFrame(animationLoop, milliseconds).<br/>
+  a. There is another optional parameter that we could have used to change the interval of time: `requestAnimationFrame(animationLoop, milliseconds)`.<br/>
   b. Every 1/60th of a second (16.6 ms).<br/>
   c. Every 1/30th of a second.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The browser will try to run the `animationLoop` every 16.6 ms, that is 1/60th of a second. However, this time interval may vary slightly depending on: cpu or gpu power, device load, drawing complexity, etc. `requestAnimationFrame` is nevertheless much more optimized than setTimeOut or setInterval and should produce more accurate scheduling.
 
 
 5. Can I see your ID?
 
-  What is the id returned by the call to requestAnimationFrame at line 29 useful for?
+  What is the id returned by the call to `requestAnimationFrame` at line 29 useful for?
 
-  a. It is useful to stop an animation by calling cancelAnimationFrame(id).<br/>
+  a. It is useful to stop an animation by calling `cancelAnimationFrame(id)`.<br/>
   a. It is used to get the delta of time elapsed (using the id.delta property).<br/>
-  a. It is used to set properties or to call methods of the requestAnimaTionFrame scheduler, like this: id.interval=25, or id.stop() in order to stop the animation.<br/>
+  a. It is used to set properties or to call methods of the `requestAnimaTionFrame` scheduler, like this: id.interval=25, or id.stop() in order to stop the animation.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The id is useful to cancel an animation. There could be several concurrent animations running at the same time, each having its own id. Notice that `requestAnimationFrame`, unlike `setInterval` or `setTimeout`, will make the browser merge the different animations into a single frame in the graphics card.
 
 
 6. How long did this animation take?
 
-  What is the timeStamp parameter passed to the animationLoop at line 17?
+  What is the `timeStamp` parameter passed to the `animationLoop` at line 17?
 
   a. It gives a high resolution time (with sub-millisecond accuracy). By comparing two consecutive values of this parameter with two consecutive executions of the animation loops, we can compute the amount of time elapsed between frames. This is useful when writing Web games.<br/>
-  b.No need to compute these deltas, this parameter IS the time elapsed between each frame of animation.<br/>
+  b. No need to compute these deltas, this parameter IS the time elapsed between each frame of animation.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The `timeStamp` parameter of the `animationLoop` function gives a high resolution time. By measuring deltas between two consecutive calls of the `animationLoop`, we will know exactly, with a sub-millisecond accuracy, what is the exact elapsed time between two frames.
+
+
+
 
