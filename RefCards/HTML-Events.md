@@ -34,3 +34,47 @@
     + use different properties from the event object in order to get useful information
 
 
+## Keyboard events
+
++ [Key events](#432-keyboard-interaction-key-events)
+  + syntax: `target.addEventListener(type, listener [, options]);`
+    + `type`: case-sensitive string representing the [event type](https://developer.mozilla.org/en-US/docs/Web/Events) to listen for
+    + `listener`: an object implementing the [EventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) interface, or a JavaScript [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+    + options:
+      + `capture`: a Boolean indicating that events of this type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree
+      + `once`: a Boolean indicating that the listener should be invoked at most once after being added
+      + `passive`:
+        + true: the function specified by listener will never call `preventDefault()`
+        + false: call `preventDefault()` and the user agent will do nothing other than generate a console warning
+  + keyboard related events: `keydown`, `keyup` or `keypressed`
+  + event parameter passed to the listener function containing the code of the key that fired the event
+  + test what key has been pressed or released
+
+    ```js
+    window.addEventListener('keydown', function(event) {
+      if (event.keyCode === 37) {
+        //left arrow was pressed
+      }
+    }, false);
+    ```
+
+  + tools:
+    + [KeyboardEvent Value](https://css-tricks.com/snippets/javascript/javascript-keycodes/#tester-tool)
+    + [key codes interactive test page](http://www.asquare.net/javascript/tests/KeyCode.html)
+  + keydown listener: `window.addEventListener('keydown', handleKeydown, false);`
+  + keyup listener: `window.addEventListener('keyup', handleKeyup, false);`
+  + capture key evens only in canvas:
+    + `tabindex` attribute of the canvas element makes it focusable. e.g., <prep><canvas id="myCanvas" width="350" <strong>tabindex="1"</strong> height="200"></prep>
+    + specify the canvas focusable: `canvas.focus();`
+  + interact only mouse hoover on canvas
+    + set the focus when the mouse is over the canvas
+    + two mouse event listeners on the canvas: `mouseenter` event and `mouseout` event
+    + the mouse entering the canvas call `canvas.focus()` to set the focus to the canvas
+    + the mouse cursor out of the canvas, call `canvas.blur()` to unset the focus
+    + event handlers: 
+      + key events: `canvas.addEventListener('keydown', handleKeydown, false); canvas.addEventListener('keyup', handleKeyup, false);`
+      + mouse event: `canvas.addEventListener('mouseenter', setFocus, false); canvas.addEventListener('mouseout', unsetFocus, false);`
+
+
+
+
