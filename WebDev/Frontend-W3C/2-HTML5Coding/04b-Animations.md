@@ -6,7 +6,7 @@
 
 ### 4.2.0 Lecture Notes
 
-+ [Animation techniques](421-animation-techniques)
++ [Animation techniques](#421-animation-techniques)
   + basic steps to perform an animation
     + clear the content of the canvas w/ `ctx.clearRect(0, 0, canvasWidth, canvasHeight)` method
     + draw some shapes by using any drawing methods
@@ -127,8 +127,6 @@
       + giving a high resolution time
       + measuring deltas btw two consecutive calls of the `animationLoop`
       + knowing exactly, with a sub-millisecond accuracy, the elapsed time btw two frames
-
-
 
 
 ### 4.2.1 Animation techniques
