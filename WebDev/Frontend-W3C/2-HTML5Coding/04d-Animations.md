@@ -162,15 +162,15 @@ __Source code for the next question (7):__
 <li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
 </ol></div>
 
-7. Too simple?
+7. Too simple? 
 
   The above code shows a way to detect a click on a button (line 8). It works fine for simple examples, but in the course we criticized this method. What are its faults?
 
   a. Mixing the 'visual layer' (HTML) and the 'logic layer' (JavaScript) is not the recommended way for full scale applications where a clean separation is best.<br/>
   b. It doesn't work with all events, only with 'click' events.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Indeed, this is not the recommended way to handle events, even if it is very easy to use. Mixing the 'visual layer' (HTML) and the 'logic layer' (JavaScript) in one place is ok for small examples (as seen in this course), but is not the recommended way for full scale applications where a clean separation is best. Notice that with this method we can pass an event to the callback function; see this example on JS Bin: http://jsbin.com/gixuku/edit.
 
 
 __Source code for the next question (8):__
@@ -206,8 +206,8 @@ __Source code for the next question (8):__
   a. We cannot declare multiple click event listeners.<br/>
   b. The event parameter at line 16 above is always undefined. We cannot get the event with this method.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: This method is ok, but you will not be able to attach several click listener functions. For example, you may have three buttons, and you would like a click on any of them to call the same function. In that function you could get the event and test event.target.id to find out which button has been clicked.
 
 
 __Source code for the next question (9):__
@@ -268,8 +268,8 @@ __Source code for the next question (9):__
   a. It draws a small stationary rectangle, and if we use the left and right arrow keys, it moves horizontally to the left or to the right, respectively.<br/>
   b. It draws a small stationary rectangle and if we press the arrow keys, nothing happens.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The above code will display a small rectangle at position x, y = (100, 100), but when an arrow key is pressed, the incrementX variable goes from 0 to -1 or +1 (lines 23 or 26), and then the x position is incremented/decremented in the loop that is executed 60 times/s. The instruction at line 37 will make it move to the left or to the right. Try it: http://jsbin.com/balenu/edit
 
 
 __Source code for the next question (10):__
@@ -339,8 +339,8 @@ This is the `drawMonster` function from the course.
   c. `x = x - 1; angle = angle + 0.1;`<br/>
   d. `x = 1; angle = ctx.rotate(angle);`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: magenta;">b</span>, xa<br/>
+  Explanation: The second answer is correct. By incrementing x and the angle 60 times per second in the animation loop, this will make the monster move and rotate continuously. In the first frame, the monster will be drawn at (100, 100), angle = 0. At the next frame, the monster will be drawn at (101, 100), angle = 0.1. At the next frame after that, at (102, 100), angle = 0.2, etc. The answer 3 is incorrect as x is decremented: this would make the monster go to the left. Answer 1 is incorrect as the angle is never incremented, and the last answer is false as ctx.rotate does not return anything.
 
 
 11. Resize me at your own risk!
@@ -355,8 +355,8 @@ This is the `drawMonster` function from the course.
   a. Erase the canvas' content.<br/>
   a. Change the size of the canvas, preserving its content.<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: If we set the width or height attribute of a canvas object in JavaScript, its content is erased.
 
 
 12. I do not like percentages, Mr. Banker!
@@ -377,6 +377,10 @@ This is the `drawMonster` function from the course.
   b. Resizing a canvas using CSS in percentage (%) values is a bad practice.<br/>
   c. Nothing.<br/>
 
-  Ans: <br/>
+  Ans: b<br/>
   Explanation: 
+    + Using percentages (%) in the CSS width and height properties of a canvas does not change its number of pixels/resolution. Instead it scales the existing pixels without erasing the content, giving a blurry effect when a canvas becomes larger. The course gives best practices to implement a responsive canvas.
+    + You can always give a default size even if you have CSS rules that change the actual size dynamically.
+
+
 
