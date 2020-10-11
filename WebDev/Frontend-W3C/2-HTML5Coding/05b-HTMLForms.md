@@ -138,7 +138,7 @@ In the examples, we can see: email, URL, and phone number. Look at the different
   d. Some HTML5 input types work only on mobile devices<br/>
 
   Ans: ac<br/>
-  Explanantion: The new input types (email, url, tel etc.) will indeed pop up a contextual keyboard on mobile devices. HTML5 introduced new input types but they do not replace the old ones, they complete them. There is a built-in validation system. And no, no specific input types work only on mobile devices. Correct answers are 1 and 3.
+  Explanation: The new input types (email, url, tel etc.) will indeed pop up a contextual keyboard on mobile devices. HTML5 introduced new input types but they do not replace the old ones, they complete them. There is a built-in validation system. And no, no specific input types work only on mobile devices. Correct answers are 1 and 3.
 
 
 ### 5.2.2 Example
@@ -158,6 +158,73 @@ Feel free to look at the source code in the [online example](https://jsbin.com/s
     title  ="Example of input forms"
   />
 </figure>
+
+
+### 5.2.3 Input elements and attributes
+
+#### Live coding video 1: using input elements as widgets to control a Web application
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V001800_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y3onhnvf)
+
+
+#### Live coding video 2: creating GUI elements dynamically
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V002000_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/yycy4xmw)
+
+
+Input elements, in particular the elements introduced by HTML5, can be used as widgets to control the behavior of a Web application. In this situation, they do not need to be inside a <form> element. We just bind event listeners to them and we use them as client-side widgets.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y5e6djuh')"
+    src    ="https://tinyurl.com/yyoq59w7"
+    alt    ="Small animation with GUI controls"
+    title  ="Small animation with GUI controls"
+  />
+</figure>
+
+
+
+#### Examples
+
+GUI: Graphical User Interface
+
+__Example #1: choose the color, line width and speed of an animation__
+
++ [Bouncing rectangle without GUI](https://jsbin.com/ciwefo/1/edit?html,css,output)
++ [Bouncing rectangle with GUI](https://jsbin.com/newojij/1/edit?html,css,output) (see screenshot at the top right of this page)
+
+__Example #2: data visualization control__
+
++ [Simple chart without a GUI](https://jsbin.com/UxuCOPa/3/edit?html,js,output)
++ [Simple chart with a GUI](https://jsbin.com/gesive/edit?html,js,console,output) (see screenshot on the right)
++ [Final version with different types of charts and a GUI](https://jsbin.com/ralonem/1/edit?html,js,output) (see screenshot below)
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5e6djuh" ismap target="_blank">
+    <img style="margin: 0.1em;" height=250
+      src  ="https://tinyurl.com/y38btue9"
+      alt  ="chart with GUI"
+      title="chart with GUI"
+    >
+    <img style="margin: 0.1em;" height=300
+      src  ="https://tinyurl.com/y44rgu3k"
+      alt  ="multiple charts with a GUI"
+      title="multiple charts with a GUI"
+    >
+  </a>
+</div>
+
+
 
 
 
