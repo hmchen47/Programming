@@ -40,4 +40,20 @@ Examples for each of these two basic guidelines are given in the following pages
 The WAI Web site hosts a [Forms tutorial](https://www.w3.org/WAI/tutorials/forms/) where to find all guidelines to follow in order to make your forms truly accessible: labeling controls, grouping controls, form instructions, validating input, user notifications, multi-page forms, and custom controls.
 
 
+### 5.3.2 Why is this important?
+
+Forms can be visually and cognitively complex and difficult to use. Accessible forms are easier to use for everyone, including people with disabilities.
+
++ __People with cognitive disabilities__ can better understand the form and how to complete it, as making forms accessible improves the layout structure, instructions, and feedback.
+
++ __People using speech input__ can use the labels via voice commands to activate controls and move the focus to the fields that they need to complete.
+
++ __People with limited dexterity__ benefit from large clickable areas that include the labels, especially for smaller controls, such as radio buttons and checkboxes.
+
++ __People using screen readers__ can identify and understand form controls more easily because they are associated with labels, field sets, and other structural elements.
+
+
+
+
+
 
