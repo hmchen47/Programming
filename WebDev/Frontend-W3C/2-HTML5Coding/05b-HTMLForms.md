@@ -162,6 +162,37 @@
     + get the max from the elements of the values array: `function getMax(values) {...}`
     + draw axes for bar chart and line chart: `function drawAxis(width, height,  values, maxValue) {...}`
 
++ [HTML5 forms](#524-best-practices)
+  + form: a way to get user input sent to a remote server
+  + several ways to collect server-side data from a form in a Web page: REST Web services, servlets, Microsoft ASP pages, etc.
+  + form of the client side: 
+    + indicating to which server and how the data should be sent, using the action and method attributes respectively
+    + use JavaScript for sending the form content with Ajax
+    + example: `<form action="myServerCode.php" method="POST">...</form>`
+      + set the URL of the server side code `(myServerCode.php)`
+      + the HTTP method used by the browser for sending the form content (POST)
+  + example:
+
+    ```html
+    <form id="myForm">
+      <fieldset>
+        <legend>Personal information</legend>
+        <label for="firstName">First name:</label>
+        <input type="text" id="firstName" required name="firstName"> <br>
+        <label for="lastName">Last name:</label>
+        <input type="text" id="lastName" required name="lastName"> <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required name="email"> <br>
+        <label for="age">Age:</label>
+        <input type="number" min=0 max=120  step=5 id="age" required name="age"> <br>
+        <label for="date">Birth date:</label>
+        <input type="date"  id="date" required name="date">
+      </fieldset>
+      <button>Submit form</button>
+    </form>
+    ```
+
+
 
 
 
@@ -293,6 +324,7 @@ __Example #2: data visualization control__
 
 ### 5.2.4 Best practices
 
+
 #### Live coding video 3: HTML5 forms - best practices
 
 <a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V001900_DTH.mp4" target="_BLANK">
@@ -302,7 +334,7 @@ __Example #2: data visualization control__
 [Transcript](https://tinyurl.com/y598luwv)
 
 
-The example used in the video is available online at JSBin. A screenshot of the resulted form is shown on the right.
+The example used in the video is available [online at JSBin](https://jsbin.com/jagodi/edit?html,css,output). A screenshot of the resulted form is shown on the right. ([Local Example - Best Practice](src/5.2.4-example1.html))
 
 Forms are a way to get user input which is sent to a remote server. This section of the course focuses on the HTML5 additions to forms, and as such will only cover the client-side part.
 
@@ -322,13 +354,13 @@ On the client side, the forms indicate to which server and how the data should b
 
 For example: `<form action="myServerCode.php" method="POST">...</form>`. Here, we set the URL of the server side code (myServerCode.php), and the HTTP method that will be used by the browser for sending the form content (POST).
 
-Another approach is to use JavaScript for sending the form content with Ajax. This is covered in W3Cx HTML5 Apps and Games course.
+Another approach is to use JavaScript for sending the form content with [Ajax](https://en.wikipedia.org/wiki/Ajax_(programming)). This is covered in W3Cx HTML5 Apps and Games course.
 
 This week, let's study the elements and attributes offered by HTML5, as well the HTML5 form validation API. 
 
 The example shown in the video shows some best practices for writing accessible forms and does some basic layout using CSS.
 
-The following additional example shows the same best practices but presents a more complete form with CSS rules to make a nice layout. See it online, and illustrated with the screenshot below. It is adapted from this very good MDN's article "How to structure a web form".
+The following additional example shows the same best practices but presents a more complete form with CSS rules to make a nice layout. See it [online](https://jsbin.com/zubitex/1/edit?html,output), and illustrated with the screenshot below. It is adapted from [this very good MDN's article "How to structure a web form"](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form). ([Local Example - Payment Form](src/5.2.4-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
