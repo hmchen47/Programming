@@ -363,13 +363,26 @@ The example shown in the video shows some best practices for writing accessible 
 The following additional example shows the same best practices but presents a more complete form with CSS rules to make a nice layout. See it [online](https://jsbin.com/zubitex/1/edit?html,output), and illustrated with the screenshot below. It is adapted from [this very good MDN's article "How to structure a web form"](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form). ([Local Example - Payment Form](src/5.2.4-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/y3faoc35')"
     src    ="https://tinyurl.com/y2atwyjb"
     alt    ="Form layout example"
     title  ="Form layout example"
   />
 </figure>
+
+
+### 5.2.5 Discussion
+
+Here is the discussion forum for this part of the course. You can post your comments and of course ask questions.
+
+Let us suggest some topics of discussion:
+
+
+#### Suggested topics
+
++ Did you run the given examples on different browsers? You might have encountered problems with Safari or Internet Explorer.
++ Did you know that HTML5 input elements and other new features related to forms could be used for building a GUI client-side, with no need to send data to a remote server?
 
 
 
