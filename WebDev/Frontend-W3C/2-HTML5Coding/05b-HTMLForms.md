@@ -18,6 +18,10 @@
     + `<output>` for feedback
     + etc.
 
+
+
+
+
 + [Reference of Form elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms)<br/><br/>
 
   <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 55vw;" cellspacing="0" cellpadding="5" border="1">
@@ -87,6 +91,77 @@
     </tr>
   </tbody>
   </table>
+
++ [Manipulating HTML elements w/ JavaScript](#523-input-elements-and-attributes)
+  + HTML initializing the process: `<body onload="init();">`
+  + example: shape and movement control
+    + called after the DOM ready (page loaded): `function init() {...}`
+      + init the different variables:
+        + get canvas & context: `canvas = document.querySelector("#mycanvas"); ctx = canvas.getContext('2d');`
+        + specify canvas weight & height: `width = canvas.width; height = canvas.height;`
+      + default values: `x=10; y = 10; ctx.canvas.fillStyle = 'red';`
+      + start animation: `animationLoop();`
+    + specify canvas in HTML: `<canvas id="mycanvas" width="200" height="50" style="border: 2px solid black"></canvas>`
+    + process animation: 1) clear canvas; 2) draw shapes; 3) move shapes; 4) recall the loop w/ requestAnimationFrame
+      + clear canvas: `ctx.clearRec(0, 0, width, height);`
+      + draw shapes: `ctx.fillRect(x, y, size, size); ctx.strokeRect(x, y, size, size);`
+      + move rectangle: `x += incX;`
+      + check collision on left or right
+
+        ```js
+        if (((x+size) > width || (x <= 0)) {
+            // cancel move + inverse speed
+            x -= incX; incX = -incX;
+        }
+        ```
+
+      + animate again at 60 frames/sec: `requestAnimationFrame(animationLoop);`
+  + example: data visualization control
+    + HTML code
+      + initialize shapes after page load: `<body onload="init()">`
+      + specify canvas: `<canvas id="canvas" width="400" height="400" style="border:solid 2px black"></canvas>`
+    + data to be visualized: `var values = [1, 10, 2, 7, 9, 2, 34, 100, 12, 14, 19];`
+    + init function after the page loaded: `function init() {...}`
+      + get canvas & context: `canvas = document.getElementById('canvas'); ctx = canvas.getContext('2d');`
+      + create sliders and set max values:
+
+        ```js
+        var list =  document.getElementById('sliders');
+        var max = getMax(values);
+        // create list of sliders
+        for (i=0; i < values.length; i++) {
+          var input = document.createElement('input');
+          var li = document.createElement('li');
+          var label = document.createElement('label');
+          label.setAttribute('for', 'id'+i);
+          label.textContent = 'value' + i + ' ';
+
+          li.appendChild(label);
+
+          input.setAttribute('type', 'range');
+          input.setAttribute('id', 'id' + i);
+          // Set their value and max attributes correctly
+          input.setAttribute('max', max);
+          input.value = values[i];
+          // Add an onchange event listener and pass the
+          // index of the slider to the callback
+          input.setAttribute('oninput', 'changeValue(' + i + ')');
+          li.appendChild(input);
+
+          list.appendChild(li);
+        ```
+
+    + plot histogram: `makeHistogram(x, y, width, height, values);`
+    + plot pie chart w/ center (x, y) and radius: `makePieChart(300, 100, 90, values);`
+    + plot line chart: `makeBrokenLines(40, 370, width, height, values);`
+    + callback for sliders' `onchange` events: `function changeValue(index) {...}`
+      + associate variable to a specified slider element: `var value = document.getElementById("id"+index).value;`
+      + put the slider value in the values array: `values[parseInt(index)] = parseInt(value);`
+      + clear the canvas: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+      + redraw the chart: `makeHistogram(x, y, width, height, values);  makePieChart(300, 100, 90, values); makeBrokenLines(40, 370, width, height, values);`
+    + get the max from the elements of the values array: `function getMax(values) {...}`
+    + draw axes for bar chart and line chart: `function drawAxis(width, height,  values, maxValue) {...}`
+
 
 
 
@@ -180,7 +255,7 @@ Feel free to look at the source code in the [online example](https://jsbin.com/s
 [Transcript](https://tinyurl.com/yycy4xmw)
 
 
-Input elements, in particular the elements introduced by HTML5, can be used as widgets to control the behavior of a Web application. In this situation, they do not need to be inside a <form> element. We just bind event listeners to them and we use them as client-side widgets.
+Input elements, in particular the elements introduced by HTML5, can be used as widgets to control the behavior of a Web application. In this situation, they do not need to be inside a `<form>` element. We just bind event listeners to them and we use them as client-side widgets.
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -192,21 +267,20 @@ Input elements, in particular the elements introduced by HTML5, can be used as w
 </figure>
 
 
-
 #### Examples
 
 GUI: Graphical User Interface
 
 __Example #1: choose the color, line width and speed of an animation__
 
-+ [Bouncing rectangle without GUI](https://jsbin.com/ciwefo/1/edit?html,css,output)
-+ [Bouncing rectangle with GUI](https://jsbin.com/newojij/1/edit?html,css,output) (see screenshot at the top right of this page)
++ [Bouncing rectangle without GUI](https://jsbin.com/ciwefo/1/edit?html,css,output) ([Local Example - Fix Rectangle](src/5.2.3-example1.html))
++ [Bouncing rectangle with GUI](https://jsbin.com/newojij/1/edit?html,css,output) (see screenshot at the top right of this page) ([Local Example - Variate Rectangle](src/5.2.3-example2.html))
 
 __Example #2: data visualization control__
 
-+ [Simple chart without a GUI](https://jsbin.com/UxuCOPa/3/edit?html,js,output)
-+ [Simple chart with a GUI](https://jsbin.com/gesive/edit?html,js,console,output) (see screenshot on the right)
-+ [Final version with different types of charts and a GUI](https://jsbin.com/ralonem/1/edit?html,js,output) (see screenshot below)
++ [Simple chart without a GUI](https://jsbin.com/UxuCOPa/3/edit?html,js,output) ([Local Example - Fix Chart](src/5.2.3-example3.html))
++ [Simple chart with a GUI](https://jsbin.com/gesive/edit?html,js,console,output) (see screenshot on the right) ([Local Example - Variate Chart](src/5.2.3-example4.html))
++ [Final version with different types of charts and a GUI](https://jsbin.com/ralonem/1/edit?html,js,output) (see screenshot below) ([Local Example - Multiple Charts](src/5.2.3-example5.html))
 
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
