@@ -257,14 +257,6 @@ Feel free to look at the source code in the [online example](https://jsbin.com/s
 
 Input elements, in particular the elements introduced by HTML5, can be used as widgets to control the behavior of a Web application. In this situation, they do not need to be inside a `<form>` element. We just bind event listeners to them and we use them as client-side widgets.
 
-<figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick="window.open('https://tinyurl.com/y5e6djuh')"
-    src    ="https://tinyurl.com/yyoq59w7"
-    alt    ="Small animation with GUI controls"
-    title  ="Small animation with GUI controls"
-  />
-</figure>
 
 
 #### Examples
@@ -285,18 +277,67 @@ __Example #2: data visualization control__
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y5e6djuh" ismap target="_blank">
-    <img style="margin: 0.1em;" height=250
-      src  ="https://tinyurl.com/y38btue9"
-      alt  ="chart with GUI"
-      title="chart with GUI"
+    <img style="margin: 0.1em;" height=150
+    src    ="https://tinyurl.com/yyoq59w7"
+    alt    ="Small animation with GUI controls"
+    title  ="Small animation with GUI controls"
     >
-    <img style="margin: 0.1em;" height=300
+    <img style="margin: 0.1em;" height=350
       src  ="https://tinyurl.com/y44rgu3k"
       alt  ="multiple charts with a GUI"
       title="multiple charts with a GUI"
     >
   </a>
 </div>
+
+
+### 5.2.4 Best practices
+
+#### Live coding video 3: HTML5 forms - best practices
+
+<a href="https://edx-video.net/W3CHTML5/W3CHTML5T315-V001900_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y598luwv)
+
+
+The example used in the video is available online at JSBin. A screenshot of the resulted form is shown on the right.
+
+Forms are a way to get user input which is sent to a remote server. This section of the course focuses on the HTML5 additions to forms, and as such will only cover the client-side part.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3faoc35')"
+    src    ="https://tinyurl.com/yxn3h94g"
+    alt    ="screenshot of the HTML5 forms example from the video"
+    title  ="screenshot of the HTML5 forms example from the video"
+  />
+</figure>
+
+
+On the server side, you may have PHP, Java, C#, Ruby, Python, etc. components. There are several ways to collect server-side data from a form in a Web page: REST Web services, servlets, Microsoft ASP pages, etc.
+
+On the client side, the forms indicate to which server and how the data should be sent,  using the action and method attributes respectively. A `<button type="submit">` or an `<input type=submit>` field is used to submit the form content.
+
+For example: `<form action="myServerCode.php" method="POST">...</form>`. Here, we set the URL of the server side code (myServerCode.php), and the HTTP method that will be used by the browser for sending the form content (POST).
+
+Another approach is to use JavaScript for sending the form content with Ajax. This is covered in W3Cx HTML5 Apps and Games course.
+
+This week, let's study the elements and attributes offered by HTML5, as well the HTML5 form validation API. 
+
+The example shown in the video shows some best practices for writing accessible forms and does some basic layout using CSS.
+
+The following additional example shows the same best practices but presents a more complete form with CSS rules to make a nice layout. See it online, and illustrated with the screenshot below. It is adapted from this very good MDN's article "How to structure a web form".
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y3faoc35')"
+    src    ="https://tinyurl.com/y2atwyjb"
+    alt    ="Form layout example"
+    title  ="Form layout example"
+  />
+</figure>
 
 
 
