@@ -141,7 +141,23 @@ In the examples, we can see: email, URL, and phone number. Look at the different
   Explanantion: The new input types (email, url, tel etc.) will indeed pop up a contextual keyboard on mobile devices. HTML5 introduced new input types but they do not replace the old ones, they complete them. There is a built-in validation system. And no, no specific input types work only on mobile devices. Correct answers are 1 and 3.
 
 
+### 5.2.2 Example
 
+There is a lot of course content covered this week, and before we get into all the details of the elements and attributes introduced by HTML5, we suggest playing with running examples of full featured forms.
+
+This example was created by a learner (by Mels Le N.) from a previous version of this course.
+It uses the geolocation API presented in Week 6 for auto-filling the address input fields.
+
+Feel free to look at the source code in the [online example](https://jsbin.com/sivula/edit): ([Local Example - Input Forms](src/5.2.2-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yxzho2te')"
+    src    ="https://tinyurl.com/y69x4nty"
+    alt    ="Example of input forms"
+    title  ="Example of input forms"
+  />
+</figure>
 
 
 
