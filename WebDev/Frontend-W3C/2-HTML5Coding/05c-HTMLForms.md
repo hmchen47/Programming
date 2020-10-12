@@ -290,6 +290,16 @@ WAI-ARIA roles are very important in the accessibility world, and we invite you 
 
 
 
+### 5.3.5 Discussion
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion:
+
++ Did you already know some of the best practices that we introduced in this section? They are not specific to HTML5, so they did exist before!
++ This part of the course covers essential parts of form accessibility and did not cover advanced techniques (ARIA roles, tabindex traversal, choosing colors, etc.). But please feel free to share your experience, external resources and tools (browser extensions, online checkers and validators, etc.).
+
+
 
 
 
