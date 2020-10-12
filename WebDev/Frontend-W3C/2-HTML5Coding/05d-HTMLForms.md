@@ -216,5 +216,136 @@ MDN's Web docs [article on `<input>` types](https://tinyurl.com/yxud45vl) lists 
 Now, let's play with some of these input types and attributes.
 
 
+### 5.4.2 "color"
+
+For years, we used hundreds of lines of JavaScript for selecting colors. Now, it's bundled in the browser!
+
+Here is how it looks on some mobile devices:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y452y3ur')"
+    src    ="https://tinyurl.com/yxnpbsf2"
+    alt    ="HTML5 input type=color on an android phone"
+    title  ="HTML5 input type=color on an android phone"
+  />
+</figure>
+
+
+#### Typical use
+
+Inserting a color chooser is as simple as:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Choose a color : </span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color" value="#FF00FF"</span><span class="tag">/&gt;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+Note: In this chapter we are simplifying the examples, as we usually embed input elements in a `<form>`...`</form>`.
+
+Try `<input type="color">` online with this [JSBin example](https://jsbin.com/cajuzob/1/edit?html,output). Or do it here in your browser: just click on the purple square below : <input value="#FF00FF" type="color"> ([Local Example - ])
+
+Here is the result on Google Chrome (works with other browsers too, though the look and feel may differ):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y452y3ur')"
+    src    ="https://tinyurl.com/y2spxe7s"
+    alt    ="input type=color in google chrome"
+    title  ="input type=color in google chrome"
+  />
+</figure>
+
+
+__Example: changing the background color of the page__
+
+The `<input type="color">` can fire `change` or `input` events. Here is an example that changes the background color of the page when a color is chosen. [Try it online at JSBin](https://jsbin.com/jozuter/1/edit?html,css,js,console,output).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y452y3ur')"
+    src    ="https://tinyurl.com/y4fhse8z"
+    alt    ="change background color of the body"
+    title  ="change background color of the body"
+  />
+</figure>
+
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;&lt;/head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; Select a color : </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"colorChooser"</span><span class="tag">/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;script&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> colorInputField </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#colorChooser"</span><span class="pun">);<br></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>colorInputField</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">backgroundColor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+#### Offer a limited choice of colors
+
+By default, the color selector offers many options that may either frighten some users or just not be appropriate for the purpose of the application. 
+
+Good news: it is possible to restrict the choices, and also simplify the user interface, by using a `<datalist>` with some `<option>` elements inside. 
+
+Example: click the black rectangle on the right: `<input list="colors" value="#333333" type="color">`. The following should be displayed:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
+    onclick="window.open('https://tinyurl.com/y452y3ur')"
+    src    ="https://tinyurl.com/y4wpv7ne"
+    alt    ="restricted choice of color"
+    title  ="restricted choice of color"
+  />
+</figure>
+
+
+[Online example at JSBin](https://jsbin.com/lahapu/edit?html,output)
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"#333333"</span><span class="pln"> </span><strong><span class="atn">list</span><span class="pun">=</span><span class="atv">"colors"</span></strong><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;datalist</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">="</span><span class="atv">colors"</span></strong><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option&gt;</span><span class="pln">#0000FF</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option&gt;</span><span class="pln">#00FF00</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option&gt;</span><span class="pln">#FF0000</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/datalist&gt;</span></li>
+</ol></div>
+
+Note that the id of the `<datalist>` element should be the same as the value of the list attribute of the input field.
+
+
+#### What are the main problems with this element?
+
+The main criticism that Web designers make about this element is related to its default appearance being strongly dependent on the browser and its underlying operating system. Changing the look and feel is not possible, except with the use of the options we saw in the previous sections of this page. This problem is also true for other input elements that renders as complex widgets, like <input type="date"> and its variants.
+
+Another problem is that there is no way to control where the dialog that contains the color chooser will appear - no positioning via CSS or JavaScript is possible. The specification does not say anything about how to position it over the page, thus the result is vendor specific.
+
+The solution proposed by the W3C and its contributors is called Web Components, a new approach for designing HTML5 widgets, that is covered in the W3Cx HTML5 Apps and Games course.
+
+
+#### Knowledge check 5.4.2 
+
+1. On mobile devices, `<input type=color>` pops up a dialog that is adapted to each operating system (IOS, Android, etc.). On desktops, the native implementations differ in their look'n' feel. Is it possible to thoroughly customize the look'n' feel of this input type using only CSS and HTML attributes? (Yes/No)
+
+  Ans: 
+
+
+
+
 
 
