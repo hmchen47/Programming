@@ -26,6 +26,28 @@
   + __Multi-Page Forms:__ dividing long forms into multiple smaller forms that constitute a series of logical steps or stages and inform users about their progress
   + __Custom Controls:__ using stylized form elements and other progressive enhancement techniques to provide custom controls
 
++ [Labeling controls](#533-labeling-controls)
+  + form fields and other form controls usually w/ visible labels
+  + interact with using only the keyboard, using voice input, and using screen readers
+  + clickable label: enabling a person who has difficulty clicking on small radio buttons or checkboxes to click anywhere on the label text
+  + using the `label` element to explicitly associate text with form elements
+  + `for` attribute: exactly match the `id` of the form control
+  + example: clickable label
+    + label element w/ `for` attribute: `<label for="first_name">Your First Name</label>`
+    + input element w/ id: `<input id="first_name" type="text" name="fname"/>`
+  + e.g., nesting labels and inputs elements: `<label for="first_name"><span lang=en">Your First Name</span> <input id="first_name" type="text" name="fname"/> </label>`
+  + checkbox: `<input type="checkbox" name="subscribe" id="subscribe">`
+
++ [Label button](#labeling-buttons)
+  + label of a `<button>` element: set inside the element and include markup
+  + button with a label in French: `<button>Mon <span lang="fr">button</span></button>`
+  + submit & cancel buttons w/ different elements:
+    + `<button type="submit">Submit</button> <button type="button">Cancel</button>`
+    + `<input type="submit">Submit</button> <input type="button">Cancel</button>`
+  
++ [Labeling text areas](#labeling-text-areas): `<label for="address">Enter your address:</label><br> <textarea id="address" name="addresstext"></textarea>`
+
+
 
 
 ### 5.3.1 Accessible forms
@@ -65,7 +87,7 @@ Forms can be visually and cognitively complex and difficult to use. Accessible f
 Form fields and other form controls usually have visible labels, such as "E-mail Address:" as the label for a text field (see figure below).
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y3g7fgkr')"
     src    ="https://tinyurl.com/y285thud"
     alt    ="form label text"
@@ -78,7 +100,7 @@ When these labels are marked up correctly, people can interact with them using o
 
 #### Associating labels explicitly
 
-Whenever possible, use the label element to explicitly associate text with form elements. The for attribute of the label must exactly match the id of the form control. 
+Whenever possible, use the `label` element to explicitly associate text with form elements. The `for` attribute of the label must exactly match the `id` of the form control.
 
 __Example #1__
 
@@ -132,18 +154,29 @@ When using the `<input>` element to create buttons, the label is set in the valu
 
 Source code for the "Submit" and "Cancel" buttons example:
 
-<p class="exampleHTML"><em>Lines 1 and 2</em> render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>... while li<em>nes 3 and 4</em> render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="tag">&gt;</span><span class="pln">Cancel</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Cancel"</span><span class="tag">&gt;</span></li>
+</ol></div>
 
 These give the same results:
 
 <p class="exampleHTML"><em>Lines 1 and 2</em> render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>... while li<em>nes 3 and 4</em> render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
  
-Labeling text areas
+
+#### Labeling text areas
+
 Enter your address:
+<textarea name="addresstext" id="address" rows="5" cols="25"></textarea>
 
 Source code:
 
-<label for="address">Enter your address:</label><br> <textarea id="address" name="addresstext"></textarea>
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;</span><span class="pln">Enter your address:</span><span class="tag">&lt;/label&gt;&lt;br&gt;</span><span class="pln"> </span><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"addresstext"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li>
+</ol></div>
 
 
 
