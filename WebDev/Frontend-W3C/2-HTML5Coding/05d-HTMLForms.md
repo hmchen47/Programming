@@ -6,7 +6,26 @@
 
 ### 5.4.0 Lecture Notes
 
-
++ [`color` type for `<input>` element](#542-color)
+  + typical use: `<input type="color" value="#FF00FF"/>`
+  + example: changing background color
+    + `<input type="color">`: fire `change` or `input` events
+    + HTML code to select color: `<input type="color" id="colorChooser"/>`
+    + add listener: `colorInputField.addEventListener('input', function(evt) { document.body.style.backgroundColor = this.value; }, false);`
+  + color selector
+    + default: all colors
+    + restricting the choices by using a `<datalist>` with some `<option>` elements inside
+    + the `id` of the `<datalist>` element: the same as the value of the `list` attribute of the input field
+    + e.g., `<datalist id="colors"> <option>#0000FF</option> <option>#00FF00</option> <option>#FF0000</option> </datalist>`
+  + main criticism
+    + default appearance
+      + related to its default appearance being strongly dependent on the browser and its underlying operating system
+      + not possible changing the look and feel, except with the use of the options
+    + no way to control where the color chooser appears
+      + not possible for positioning via CSS or JavaScript
+      + specification not saying anything about how to position it over the page
+      + vendor specific
+      + web components: a new approach for designing HTML5 widgets proposed by the W3C
 
 
 
@@ -76,7 +95,8 @@
   <td><a href="https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input/file" title="<input> elements with type=&quot;file&quot; let the user choose one or more files from their device storage. Once chosen, the files can be uploaded to a server using form submission, or manipulated using JavaScript code and the File API.">file</a></td>
   <td>A control that lets the user select a file. Use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/inpu#htmlattrdefaccept">accept</a> attribute to define the types of files that the control can select.</td>
   <td id="examplefile">
-    <pre class="brush: html hidden notranslate line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">accept</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image/*, text/*<span class="token punctuation">"</span></span> 
+    <pre class="brush: html hidden notranslate line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> 
+    <span class="token attr-name">accept</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image/*, text/*<span class="token punctuation">"</span></span> 
     <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
     <iframe class="live-sample-frame nobutton" frameborder="0" height="55" id="frame_examplefile" src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/input$samples/examplefile?revision=1645029" width="100%"></iframe></td>
   <td></td>
@@ -116,7 +136,8 @@
   <td><a href="https://developer.mozilla.org//en-US/docs/Web/HTML/Element/input/password" title="<input> elements of type password provide a way for the user to securely enter a password.">password</a></td>
   <td>A single-line text field whose value is obscured. Will alert user if site is not secure.</td>
   <td id="examplepassword">
-    <pre class="brush: html hidden notranslate line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <pre class="brush: html hidden notranslate line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> 
+    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
     <iframe class="live-sample-frame nobutton" frameborder="0" height="55" id="frame_examplepassword" src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/input$samples/examplepassword?revision=1645029" width="200"></iframe></td>
   <td></td>
   </tr>
@@ -247,7 +268,7 @@ Inserting a color chooser is as simple as:
 
 Note: In this chapter we are simplifying the examples, as we usually embed input elements in a `<form>`...`</form>`.
 
-Try `<input type="color">` online with this [JSBin example](https://jsbin.com/cajuzob/1/edit?html,output). Or do it here in your browser: just click on the purple square below : <input value="#FF00FF" type="color"> ([Local Example - ])
+Try `<input type="color">` online with this [JSBin example](https://jsbin.com/cajuzob/1/edit?html,output). Or do it here in your browser: just click on the purple square below : <input value="#FF00FF" type="color"> ([Local Example - Color Plate](src/5.4.2-example1.html))
 
 Here is the result on Google Chrome (works with other browsers too, though the look and feel may differ):
 
@@ -263,7 +284,7 @@ Here is the result on Google Chrome (works with other browsers too, though the l
 
 __Example: changing the background color of the page__
 
-The `<input type="color">` can fire `change` or `input` events. Here is an example that changes the background color of the page when a color is chosen. [Try it online at JSBin](https://jsbin.com/jozuter/1/edit?html,css,js,console,output).
+The `<input type="color">` can fire `change` or `input` events. Here is an example that changes the background color of the page when a color is chosen. [Try it online at JSBin](https://jsbin.com/jozuter/1/edit?html,css,js,console,output). ([Local Example - Background Color](src/5.4.2-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -296,11 +317,11 @@ Source code:
 
 #### Offer a limited choice of colors
 
-By default, the color selector offers many options that may either frighten some users or just not be appropriate for the purpose of the application. 
+By default, the color selector offers many options that may either frighten some users or just not be appropriate for the purpose of the application.
 
 Good news: it is possible to restrict the choices, and also simplify the user interface, by using a `<datalist>` with some `<option>` elements inside. 
 
-Example: click the black rectangle on the right: `<input list="colors" value="#333333" type="color">`. The following should be displayed:
+Example: click the black rectangle on the right: <input list="colors" value="#333333" type="color">. The following should be displayed:
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
@@ -312,7 +333,7 @@ Example: click the black rectangle on the right: `<input list="colors" value="#3
 </figure>
 
 
-[Online example at JSBin](https://jsbin.com/lahapu/edit?html,output)
+[Online example at JSBin](https://jsbin.com/lahapu/edit?html,output) ([Local Example - Limited Colors](src/5.4.2-example3.html))
 
 Source code extract:
 
@@ -326,23 +347,25 @@ Source code extract:
 <li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/datalist&gt;</span></li>
 </ol></div>
 
-Note that the id of the `<datalist>` element should be the same as the value of the list attribute of the input field.
+Note that the `id` of the `<datalist>` element should be the same as the value of the `list` attribute of the input field.
 
 
 #### What are the main problems with this element?
 
-The main criticism that Web designers make about this element is related to its default appearance being strongly dependent on the browser and its underlying operating system. Changing the look and feel is not possible, except with the use of the options we saw in the previous sections of this page. This problem is also true for other input elements that renders as complex widgets, like <input type="date"> and its variants.
+The main criticism that Web designers make about this element is related to its default appearance being strongly dependent on the browser and its underlying operating system. Changing the look and feel is not possible, except with the use of the options we saw in the previous sections of this page. This problem is also true for other input elements that renders as complex widgets, like `<input type="date">` and its variants.
 
 Another problem is that there is no way to control where the dialog that contains the color chooser will appear - no positioning via CSS or JavaScript is possible. The specification does not say anything about how to position it over the page, thus the result is vendor specific.
 
-The solution proposed by the W3C and its contributors is called Web Components, a new approach for designing HTML5 widgets, that is covered in the W3Cx HTML5 Apps and Games course.
+The solution proposed by the W3C and its contributors is called _Web Components_, a new approach for designing HTML5 widgets, that is covered in the W3Cx HTML5 Apps and Games course.
 
 
 #### Knowledge check 5.4.2 
 
-1. On mobile devices, `<input type=color>` pops up a dialog that is adapted to each operating system (IOS, Android, etc.). On desktops, the native implementations differ in their look'n' feel. Is it possible to thoroughly customize the look'n' feel of this input type using only CSS and HTML attributes? (Yes/No)
+1. On mobile devices, `<input type=color>` pops up a dialog that is adapted to each operating system (IOS, Android, etc.). On desktops, the native implementations differ in their look'n'feel. Is it possible to thoroughly customize the look'n'feel of this input type using only CSS and HTML attributes? (Yes/No)
 
-  Ans: 
+  Ans: No <br/>
+  Explanation: No, while having adapted look and feels on mobile is appreciated, this is not the case on desktops. Web developers would like greater control over where the dialog pops up, about the user interface, etc. The solution comes with Web Components that will be studied in another course. Correct answer is NO.
+
 
 
 
