@@ -58,6 +58,92 @@ Forms can be visually and cognitively complex and difficult to use. Accessible f
 + __People using screen readers__ can identify and understand form controls more easily because they are associated with labels, field sets, and other structural elements.
 
 
+### 5.3.3 Labeling controls
+
+#### Labels need to describe the purpose of the form control
+
+Form fields and other form controls usually have visible labels, such as "E-mail Address:" as the label for a text field (see figure below).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y3g7fgkr')"
+    src    ="https://tinyurl.com/y285thud"
+    alt    ="form label text"
+    title  ="form label text"
+  />
+</figure>
+
+When these labels are marked up correctly, people can interact with them using only the keyboard, using voice input, and using screen readers. Also, the label itself becomes clickable, which enables a person who has difficulty clicking on small radio buttons or checkboxes to click anywhere on the label text.
+
+
+#### Associating labels explicitly
+
+Whenever possible, use the label element to explicitly associate text with form elements. The for attribute of the label must exactly match the id of the form control. 
+
+__Example #1__
+
+Click on the label, not on the input field to see the effect.
+
+<p class="exampleHTML"><label class="label" for="first_name">First name: </label> <input name="firstname" id="first_name" type="text"></p>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="tag">&gt;</span><span class="pln">Your First Name</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">/&gt;</span></li>
+</ol></div>
+
+
+__Example #2__
+
+Note that you can also include the `<input>` element inside the `<label>`...`</label>` element, and also add a `<span lang="en">` for example, to indicate the language used in the label. Sometimes, [nesting labels and inputs can also make CSS styling easier and produce better results with screen readers](https://tinyurl.com/yywsbnpg).
+
+Source code (with `<input>` inside the `<label>`):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="tag">&gt;&lt;</span></strong><span class="pln"><strong>span lang=en"&gt;</strong>Your First Name</span><strong><span class="tag">&lt;/span&gt;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">/&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="tag">&lt;/label&gt;</span></strong></li>
+</ol></div>
+
+__Example #3__
+
+Click on the label "Subscribe to newsletter" to see what this does.
+
+<p class="exampleHTML"><label class="label" for="firstname">First name: </label> <input name="firstname" id="firstname" type="text"><br><label class="label" for="subscribe">Subscribe to newsletter</label> <input name="subscribe" id="subscribe" type="checkbox"></p>
+
+ 
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="tag">&gt;</span><span class="pln">First name:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="tag">&gt;&lt;br&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln">&nbsp;</span><span class="atn">for</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="tag">&gt;</span><span class="pln">Subscribe to newsletter</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+
+#### Labeling buttons
+
+The label of a `<button>` element is set inside the element and can include markup. This allows advanced accessibility hints to be included, such as marking up language change. Example: `<button>Mon <span lang="fr">button</span></button>`,for a button with a label in French.
+
+When using the `<input>` element to create buttons, the label is set in the value attribute of the element. Example: `<input type="submit" value="Please submit">`, renders a button.
+
+Source code for the "Submit" and "Cancel" buttons example:
+
+<p class="exampleHTML"><em>Lines 1 and 2</em> render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>... while li<em>nes 3 and 4</em> render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
+
+These give the same results:
+
+<p class="exampleHTML"><em>Lines 1 and 2</em> render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>... while li<em>nes 3 and 4</em> render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
+ 
+Labeling text areas
+Enter your address:
+
+Source code:
+
+<label for="address">Enter your address:</label><br> <textarea id="address" name="addresstext"></textarea>
 
 
 
