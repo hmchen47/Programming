@@ -11,6 +11,11 @@
   + guidelines for forms accessibility
     + a descriptive label provided and using the `<label>` element to identify each form control
     + using the `<fieldset>` and `<legend>` elements to respectively group and associate related form controls
+  + [importance of accessibility](#532-why-is-this-important)
+    + cognitive disability: better understand the form & how to complete it
+    + speech input: using labels via voice commands to activate controls and move the focus tot he field
+    + limit dexterity: large clickable areas
+    + screen reader: identify and understand form controls more easily
 
 + [Forms Concepts](https://www.w3.org/WAI/tutorials/forms/)
   + __Labeling Controls:__ using the `<label>` element, and, in specific cases, other mechanisms to identify each form control
