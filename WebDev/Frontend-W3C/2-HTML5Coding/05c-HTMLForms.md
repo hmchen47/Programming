@@ -47,6 +47,51 @@
   
 + [Labeling text areas](#labeling-text-areas): `<label for="address">Enter your address:</label><br> <textarea id="address" name="addresstext"></textarea>`
 
++ [Grouping controls](#534-grouping-controls)
+  + typically groups of related checkboxes and radio buttons
+  + sometimes requiring a higher level description
+  + making forms more understandable for all users
+  + carried out visually and in the code
+  + using the `<fieldset>` and `<legend>` elements to associate related form controls
+    + `<fieldset>` identifies the entire grouping
+    + `<legend>` identifies the grouping's descriptive text
+  + radio buttons: choosing an output format by grouped using `<fieldset>`
+
+    ```html
+    <fieldset>
+    <legend>Output format</legend>
+    <div>
+    <input type="radio" name="format" id="txt" value="txt" checked>
+    <label for="txt">Text file</label>
+    </div>
+    <div>
+    <input type="radio" name="format" id="csv" value="csv">
+    <label for="csv">CSV file</label>
+    </div>
+    […]
+    </fieldset>
+    ```
+  
+  + checkbox: all part of an opt-in function for receiving different types of information
+
+    ```html
+    <fieldset>
+    <legend>I want to receive</legend>
+    <div>
+    <input type="checkbox" name="newsletter" id="check_1">
+    <label for="check_1">The weekly newsletter</label>
+    </div>
+    […]
+    </fieldset>
+    ```
+
+  + [associating related controls w/ WAI-ARIA](#associating-related-controls-with-wai-aria)
+    + WAI-ARIA providing a grouping role that functions similarly to `fieldset` and `legend`
+    + the `div` element has `role=group` to indicate that the contained elements are members of a group and the `aria-labelledby` attribute references the `id` for text
+    + e.g., `<div role="group" aria-labelledby="shipping_head">...</div>` & `<div role="group" aria-labelledby="billing_head">..</div>`
+
+
+
 
 
 
