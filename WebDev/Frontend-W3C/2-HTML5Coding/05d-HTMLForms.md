@@ -1294,6 +1294,25 @@ Try the sliders below:
   Explanation: It is possible to display "ticks" above the range slider, at given positions, using the `<datalist>` element. The course shows several examples of how to do this.
 
 
+### 5.4.7 Discussion and projects
 
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects:
+
+
+#### Suggested topics
+
++ Did you work out how to make stylish forms with CSS3? Please share any good resources about form styling and layout?
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
++ __Project 1 (easy):__ add some sliders and a color chooser to control one of the projects you wrote for Week 3 and Week 4. Change the color, size, speed, rotation, etc. of your monster/chart/graphics. Make your demo a customizable Web app! Videos 1 and 2 are good starting points.
++ __Project 2 (easy):__ Provide an HTML5 form for registering in an imaginary forum. The form asks for a first name, a last name, an email, a phone number, a postal address, a password, etc. Please use as many features as possible, to put into action all the features described in this section of the course. If you form is long, regroup the different input elements into fieldsets. Look at the examples given in section 5.2.2, and in the live coding video #3. Have a look at external resources at the end of section 5.2.4 (put sections, headings, etc. in a long form).
++ __Project 3 (easy):__ make it stylish!
++ __Project 4 (a bit harder):__ Same as above, but please include a way to add a picture using an input=file element or the webcam + canvas. We will discuss in the forum how we can add the image to the data that the form will send once submitted.
 
 
