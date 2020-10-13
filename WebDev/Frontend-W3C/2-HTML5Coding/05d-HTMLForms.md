@@ -126,7 +126,6 @@
 
     + `pattern` attribute with a JavaScript regexp that accepts only URLs starting with http, https or ftp
 
-
 + [search type](#input-typesearch)
   + HTML syntax: `<input type="search">`
   + used for search fields (i.e., for a search engine)
@@ -165,7 +164,7 @@
     + `valid` pseudo CSS class: difference between the value you enter and min is a multiple of step
       + `min=1` and `step=5`: valid w/ value=1, 6, 11, 16 etc.
       + `min=0` and `step=5`: valid w/ value=0, 5, 10, 15 etc.
-    + example: 
+    + example:
       + between 0 and 500, a multiple of 5 otherwise it's invalid: `<input type="number" id="number" value="25" min="0" step="5" max="500"/>`
       + CSS style:
 
@@ -178,8 +177,59 @@
         }
         ```
 
++ [range type](#546-range)
+  + syntax: `<input type="number">`
+  + render as a slider
+  + attributes: `min`, `max`, `step` and `value`
+  + typical usage: `<input id="slider6" type="range" min="0" max="10" step="2" value="5">`
+  + example:
+    + HTML code
 
+      ```html
+      <form >
+        <label for="slider1">Select a value:</label>
+        <input id="slider1" type="range" min="100" max="500" step="10" value="150"
+          oninput="printValue('slider1','rangeValue1')"/>
+        <output id="rangeValue1"></output>
+      </form>
+      ```
 
+    + JS code
+
+      ```js
+      function printValue(sliderId, outputId) {
+          var x = document.getElementById(outputId);
+          var y = document.getElementById(sliderId);
+          x.value = y.value;
+      }
+      ```
+
++ [`step` attribute w/ `range` type](#snapping-behavior-and-the-step-attribute)
+  + click and drag the slider: "jump" to some snap points corresponding to the integer values of the range defined by the `min` and `max` attributes
+  + size of the jumps: depend on the value of the step attribute
+  + step attribute with an integer value: make the slider jump corresponding to the step value
+  + default: omitting the step attribute is equivalent to `step="1"`
+  + float values: use `step="any"`, or step equal to a floating point value, such as `step="0.5"`
+
++ [slider ticks w/ `details` attribute](#adding-ticks-to-the-range-slider-using-a-datalist-element)
+  + using the `<datalist>` element to display "ticks" above the range slider, at given positions
+  + example: value=5 min=0, max=10 step=1, ticks at 2, 4, 6, 8 and 10
+
+    ```html
+    <input id="slider2" type="range"
+          list="ticks2"
+          min="0" max="10" step="1" value="5"/>
+    <datalist id=ticks2>
+        <option>0</option>
+        <option>2</option>
+        ...
+    </datalist>
+    ```
+
+  + references
+    + use CSS for "standard" styling: [CSS tricks](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
+    + automatically generates ticks: [Auto-Generated HTML5 range input Ticks](https://codepen.io/dudleystorey/pen/Klnzy)
+    + MDN's Web Docs: [`<input type=range>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
 
 
 
@@ -1064,31 +1114,31 @@ __Source code for the knowledge check__
 
 ### 5.4.6 "range"
 
-This input type renders as a slider. It accepts the same attributes as the <input type="number"> : min, max, step and value.
+This input type renders as a slider. It accepts the same attributes as the `<input type="number">` : min, max, step and value.
 
 Example of rendering on a desktop:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y6pnnfeu')"
     src    ="https://tinyurl.com/yyahxxko"
-    alt    ="text"
-    title  ="text"
+    alt    ="input type=range"
+    title  ="input type=range"
   />
 </figure>
-input type=range
+
 
 And on mobile devices:
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y6pnnfeu" ismap target="_blank">
-    <img style="margin: 0.1em;" height=150
+    <img style="margin: 0.1em;" height=250
       src  ="https://tinyurl.com/y6moxfx5"
       alt  ="ios range input input type=range android"
       title="ios range input input type=range android"
     >
-    <img style="margin: 0.1em;" height=150
-      src  ="uhttps://tinyurl.com/y29gnowurl"
+    <img style="margin: 0.1em;" height=250
+      src  ="https://tinyurl.com/y29gnowu"
       alt  ="ios range input input type=range android"
       title="ios range input input type=range android"
     >
@@ -1166,12 +1216,13 @@ In the previous example, it's necessary to add quotes for setting <span style="f
 <p><label for="slider5"><span style="font-family: 'courier new', courier;">value=5 min=0, max=10 step="any"</span>: </label> <input id="slider5" oninput="printValue('slider5','rangeValue5')" min="0" max="10" step="any" value="5" type="range">&nbsp;<output id="rangeValue5"></output></p>
 </div>
 
+
 <p style="border: 1px solid red; margin: 20px; padding: 20px;"><span style="color: #ff0000;"><strong>WARNING</strong></span>: Using a <span style="font-family: 'courier new', courier;">step</span>&nbsp;attribute with an integer&nbsp;value will make the slider&nbsp;jump corresponding to&nbsp;the <span style="font-family: 'courier new', courier;">step</span> value. By default, omitting the <span style="font-family: 'courier new', courier;">step</span> attribute is equivalent to<span style="font-family: 'courier new', courier;"> step="1".</span> <br>So, for accepting float values, it is necessary to use <span style="font-family: 'courier new', courier;">step="any"<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">, or step equal to a floating point value, such as</span> step="0.5".</span></p>
 
 #### Adding "ticks" to the range slider using a `<datalist>` element
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick="window.open('https://tinyurl.com/y6pnnfeu')"
     src    ="https://tinyurl.com/y6qtglqc"
     alt    ="complicated ticks on a rule"
@@ -1182,7 +1233,7 @@ In the previous example, it's necessary to add quotes for setting <span style="f
 
 Using the `<datalist>` element, it's possible to display "ticks" above the range slider, at given positions.
 
-<div class="source-code"><ol class="linenums"><ol class="linenums">
+<div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"slider2"</span><span class="tag">&gt;</span><span class="pln">value=5 min=0, max=10 step=1, ticks at 2, 4, 6, 8 and 10:</span>&lt;/label&gt;</li>
 <li class="L1" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"slider2"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span></strong><span class="pln"> </span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;<strong>list</strong></span><strong><span class="pun">=</span><span class="atv">"ticks2"</span></strong><span class="pln"> </span></li>
@@ -1195,7 +1246,7 @@ Using the `<datalist>` element, it's possible to display "ticks" above the range
 <li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">8</span><span class="tag">&lt;/option&gt;</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">10</span><span class="tag">&lt;/option&gt;</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/datalist&gt;</span></li>
-</ol></ol></div>
+</ol></div>
 
 Try the sliders below:
 
@@ -1225,7 +1276,7 @@ Try the sliders below:
 
 #### External resources
 
-+ You can use CSS for "standard" styling (size, color, background color, etc.) . However, some custom attributes are available. Check t[his article from CSS tricks](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/).
++ You can use CSS for "standard" styling (size, color, background color, etc.) . However, some custom attributes are available. Check [this article from CSS tricks](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/).
 + A script that automatically generates ticks, depending on the min, max and step attributes (Codepen from Dudley Storey): [Auto-Generated HTML5 range input Ticks](https://codepen.io/dudleystorey/pen/Klnzy)
 + From CSS{Portal}, a CSS generator help you style the html input range tag, very easy to use: [Style Input Range](https://www.cssportal.com/style-input-range/)
 + MDN's Web Docs: [`<input type=range>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
@@ -1239,7 +1290,8 @@ Try the sliders below:
   b. Use the datalist element<br/>
   c. Use only CSS<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: It is possible to display "ticks" above the range slider, at given positions, using the `<datalist>` element. The course shows several examples of how to do this.
 
 
 
