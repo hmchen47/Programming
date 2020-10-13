@@ -143,7 +143,40 @@
     <label for="search2">Search with attribute <code>results=5</code> (try with Safari): </label>
     <input type=search id="search2" results=5>
     ```
+  
++ [number type](#545-number)
+  + syntax: ` <input type="number">`
+  + useful for entering numerical values (integer or float)
+  + providing a user interface with small vertical arrows for incrementing / decrementing the current value, while on mobiles it will display a numeric keyboard
+  + zip codes: `<input type="text" pattern="......">`
+  + typical usage: `<input type="number" value="25" min="0" step="5" max="500"/>`
+    + specific attributes: `max`, `min`, `step`, `value`
+    + default displayed value: `value`
+  + `step` attribute w/ an integer value:
+    + make the arrows increment/decrement the current value with the step value
+    + make the input field valid only when the difference between the value you enter and min is a multiple of step
+    + by default, omitting the step attribute is equivalent to step="1"
+  + float values
+    + use `step="any"` or step equal to a floating point value such as `step="0.1"`
+    + `step="any"`: vertical arrows w/ increment/decrement the value by one
+    + `step="0.1"`: arrows increment/decrement by 0.1, etc.
+  + default validation behaviors
+    + invalid field to get `:invalid` pseudo CSS class: not a valid number or not in the range
+    + `valid` pseudo CSS class: difference between the value you enter and min is a multiple of step
+      + `min=1` and `step=5`: valid w/ value=1, 6, 11, 16 etc.
+      + `min=0` and `step=5`: valid w/ value=0, 5, 10, 15 etc.
+    + example: 
+      + between 0 and 500, a multiple of 5 otherwise it's invalid: `<input type="number" id="number" value="25" min="0" step="5" max="500"/>`
+      + CSS style:
 
+        ```js
+        #number:invalid {
+          background-color:pink;
+        }
+        #number:valid {
+          background-color:lightGreen;
+        }
+        ```
 
 
 
@@ -959,7 +992,7 @@ This input type is very interesting as it provides default validation behaviors:
 
 With step="any", floating point values are valid, but vertical arrows will increment/decrement the value by one. If step="0.1", arrows will increment/decrement by 0.1, etc.
 
-[Online example in CodePen](https://codepen.io/w3devcampus/pen/GJrQzP):  (try changing the attribute values, use step="any" and try float values, etc). ([Local Example - ])
+[Online example in CodePen](https://codepen.io/w3devcampus/pen/GJrQzP):  (try changing the attribute values, use step="any" and try float values, etc). ([Local Example - Number](src/5.4.5-example1.html))
 
 
 Or, do it here in your browser (Manually enter a value that is not in the range, or not a multiple of 5, try the up and down arrows, etc.):
@@ -1025,7 +1058,8 @@ __Source code for the knowledge check__
   b. pink<br/>
   c. red<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: 17 is between `min=0` and `max=30` but is not a multiple of 5 (defined by `step=5`). The field is invalid, and will get the CSS pseudo class :invalid, so the background will turn pink! The online example is here: http://jsbin.com/mifuwu/edit
 
 
 
