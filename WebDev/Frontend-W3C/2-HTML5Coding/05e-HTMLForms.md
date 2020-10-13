@@ -53,6 +53,27 @@
   </tbody>
   </table>
 
++ [form attribute](#552-form)
+  + useful for putting input fields outside the form itself
+  + useful when using `<fieldset>` elements for making the page/form layout easier
+  + sharing the same value as the `id` of the form the field belongs to
+  + Typical use:
+
+    ```html
+    <label for="yourName">Enter your name:</label>
+    <input type="text" id="yourName" name="yourName" form="form1"/>
+    <p>
+    <form id="form1" action="sumit.php" method="post">
+      <fieldset>
+        <legend>Choose option</legend>
+        <label for="free">Free registering</label>
+        <input type="checkbox" id="free"/>
+        <label for="premium">Premium</label>
+        <input type="checkbox" id="premium"/>
+        <button type="submit">Send form</button>
+      </fieldset>
+    </form>
+    ```
 
 
 
