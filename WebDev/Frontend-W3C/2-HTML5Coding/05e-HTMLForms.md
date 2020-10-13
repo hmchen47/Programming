@@ -75,6 +75,21 @@
     </form>
     ```
 
++ [autocomplete attribute](#553-autocomplete)
+  + apply either to the `<form>` element or on individual `<input>` elements
+  + input fields autocompleting the user's input based on the user's typing history
+  + possible values: `on`/`off`
+  + applied to the `<form>` element
+    + all input fields attached to the form (inside or linked to it using the form attribute)
+    + auto-completion set by default to the value of the `autocomplete` attribute of the form
+  + default behavior able to be overridden by setting it individually to any input field inside
+  + autocomplete "on" for the form, and "off" for specific input fields, or vice-versa
+  + disabled by default in some Web browsers $\to$ adjusted in the preferences/settings
+  + target most input types
+  + example: `<form submit="test.php" method="post" autocomplete="on">`
+
+
+
 
 
 
@@ -236,7 +251,10 @@ Source code extract:
 
 1. The `<autocomplete>` attribute of the `<form>` or of the `<input>` elements proposes auto-completions from a dataset provided by the Web developer (locally or from a remote server)? (True/False)
 
-  Ans: ;
+  Ans: False<br/>
+  Explanation: This `<autocomplete>` attribute applies to the `<form>` element or on individual `<input>` elements. It specifies that input fields must try to autocomplete the user's input based on the user's typing history. The second answer, FALSE, is correct.
+
+
 
 
 
