@@ -1062,6 +1062,184 @@ __Source code for the knowledge check__
   Explanation: 17 is between `min=0` and `max=30` but is not a multiple of 5 (defined by `step=5`). The field is invalid, and will get the CSS pseudo class :invalid, so the background will turn pink! The online example is here: http://jsbin.com/mifuwu/edit
 
 
+### 5.4.6 "range"
+
+This input type renders as a slider. It accepts the same attributes as the <input type="number"> : min, max, step and value.
+
+Example of rendering on a desktop:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y6pnnfeu')"
+    src    ="https://tinyurl.com/yyahxxko"
+    alt    ="text"
+    title  ="text"
+  />
+</figure>
+input type=range
+
+And on mobile devices:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y6pnnfeu" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y6moxfx5"
+      alt  ="ios range input input type=range android"
+      title="ios range input input type=range android"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="uhttps://tinyurl.com/y29gnowurl"
+      alt  ="ios range input input type=range android"
+      title="ios range input input type=range android"
+    >
+  </a>
+</div>
+
+
+Typical use
+
+The basic use is to specify at least the `value`, `min` and `max` attributes, and eventually the `step` attribute, too:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"slider6"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"2"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"5"</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+But most of the time, you will need a visual feedback that shows the current value selected by the slider.
+
+[This online example on CodePen](https://codepen.io/w3devcampus/pen/BRMVGW) shows how to add a visual feedback using a very short JavaScript function and an <output> element. Just click and drag the small cursor of the slider (or use up and down arrow keys when the field has the focus): ([Local Example - Range](src/5.4.6-example1.html))
+
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span></span><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span>&lt;title&gt;</span><span class="pln">Example of input type=tel</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span></span><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span>&lt;style&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="com">#rangeValue1 {</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>padding</span><span class="pun">:</span><span class="lit">2px</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Called when the page is loaded, for displaying initial value in the output</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>printValue</span><span class="pun">(</span><span class="str">'slider1'</span><span class="pun">,</span><span class="str">'rangeValue1'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">function</span><span class="pln"> printValue</span><span class="pun">(</span><span class="pln">sliderId</span><span class="pun">,</span><span class="pln"> outputId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">outputId</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">sliderId</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>x</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;/head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;body&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"slider1"</span><span class="tag">&gt;</span><span class="pln">Select a value:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"slider1"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"500"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"150"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="atn">oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">printValue</span><span class="pun">(</span><span class="str">'slider1'</span><span class="pun">,</span><span class="str">'rangeValue1'</span><span class="pun">)</span><span class="atv">"</span><span class="tag">/&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"rangeValue1"</span><span class="tag">&gt;&lt;/output&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/form&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;br/&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>Play with attributes: value, min, max, step...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;/body&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+#### Snapping behavior and the step attribute
+
+
+When you click and drag the slider, it "jumps" to some snap points corresponding to the integer values of the range defined by the min and max attributes. The "size of the jumps" depends on the value of the step attribute.
+
+Try these examples in your browser and look at their behavior:
+
+<div style="border: 1px solid black; margin: 20px; padding: 20px;">
+<p><label for="slider2"><span style="font-family: 'courier new', courier;">value=5 min=0, max=10 step=1</span>: </label> <input id="slider2" oninput="printValue('slider2','rangeValue2')" min="0" max="10" step="1" value="5" type="range">&nbsp;<output id="rangeValue2"></output></p>
+<p><label for="slider3"><span style="font-family: 'courier new', courier;">value=12 min=10, max=50 step=4</span>: </label> <input id="slider3" oninput="printValue('slider3','rangeValue3')" min="10" max="50" step="4" value="12" type="range">&nbsp;<output id="rangeValue3"></output></p>
+Note that in the previous example, the default value displayed is 14, not 12 (the value just above <span style="font-family: 'courier new', courier;">min</span> plus an integer <span style="font-family: 'courier new', courier;">step</span> value). 12 is not possible so it's been "snapped" to 14.
+<p><label for="slider4"><span style="font-family: 'courier new', courier;">value=5 min=0, max=10 step="0.5"</span>: </label> <input id="slider4" oninput="printValue('slider4','rangeValue4')" min="0" max="10" step="0.5" value="5" type="range">&nbsp;<output id="rangeValue4"></output></p>
+In the previous example, it's necessary to add quotes for setting <span style="font-family: 'courier new', courier;">step="0.5"</span> (while HTML5 authorizes not using quotes for setting integer values to attributes).
+<p><label for="slider5"><span style="font-family: 'courier new', courier;">value=5 min=0, max=10 step="any"</span>: </label> <input id="slider5" oninput="printValue('slider5','rangeValue5')" min="0" max="10" step="any" value="5" type="range">&nbsp;<output id="rangeValue5"></output></p>
+</div>
+
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><span style="color: #ff0000;"><strong>WARNING</strong></span>: Using a <span style="font-family: 'courier new', courier;">step</span>&nbsp;attribute with an integer&nbsp;value will make the slider&nbsp;jump corresponding to&nbsp;the <span style="font-family: 'courier new', courier;">step</span> value. By default, omitting the <span style="font-family: 'courier new', courier;">step</span> attribute is equivalent to<span style="font-family: 'courier new', courier;"> step="1".</span> <br>So, for accepting float values, it is necessary to use <span style="font-family: 'courier new', courier;">step="any"<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">, or step equal to a floating point value, such as</span> step="0.5".</span></p>
+
+#### Adding "ticks" to the range slider using a `<datalist>` element
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y6pnnfeu')"
+    src    ="https://tinyurl.com/y6qtglqc"
+    alt    ="complicated ticks on a rule"
+    title  ="complicated ticks on a rule"
+  />
+</figure>
+
+
+Using the `<datalist>` element, it's possible to display "ticks" above the range slider, at given positions.
+
+<div class="source-code"><ol class="linenums"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"slider2"</span><span class="tag">&gt;</span><span class="pln">value=5 min=0, max=10 step=1, ticks at 2, 4, 6, 8 and 10:</span>&lt;/label&gt;</li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"slider2"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span></strong><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;<strong>list</strong></span><strong><span class="pun">=</span><span class="atv">"ticks2"</span></strong><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"5"</span>/&gt;</li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="tag">&lt;datalist</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">ticks2</span><span class="tag">&gt;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">0</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">2</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">4</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">6</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">8</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">10</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/datalist&gt;</span></li>
+</ol></ol></div>
+
+Try the sliders below:
+
+<div style="border: 1px solid black; margin: 20px; padding: 20px;">
+<p><label for="slider6"><span style="font-family: 'courier new', courier;">value=5 min=0, max=10 step=1</span>, ticks at 2, 4, 6, 8 and 10: </label> <input id="slider6" oninput="printValue('slider6','rangeValue6')" min="0" max="10" step="1" list="ticks6" value="5" type="range">&nbsp;
+<datalist id="ticks6">
+<option>0</option><option>2</option><option>4</option><option>6</option><option>8</option><option>10</option>
+</datalist>
+<output id="rangeValue6"></output></p>
+<p><label for="slider7"><span style="font-family: 'courier new', courier;">value=20 min=10, max=50 step=5</span>, ticks at 0, 10, 20, 30, 40 and 50: </label> <input id="slider7" oninput="printValue('slider7','rangeValue7')" min="10" max="50" step="5" list="ticks7" value="20" type="range">&nbsp;
+<datalist id="ticks7">
+<option>0</option> <option>10</option> <option>20</option> <option>30</option> <option>40</option> <option>50</option>
+</datalist>
+<output id="rangeValue7"></output></p>
+<p><label for="slider8"><span style="font-family: 'courier new', courier;">value=5 min=0, max=10 step="0.5"</span>, ticks at 0, 0.5, 1, 2, 4, 8: </label> <input id="slider8" oninput="printValue('slider8','rangeValue8')" min="0" max="10" step="0.5" list="ticks8" value="5" type="range">&nbsp;
+<datalist id="ticks8">
+<option>0</option> <option>0.5</option> <option>1</option> <option>2</option> <option>4</option> <option>8</option> <option>10</option>
+</datalist>
+<output id="rangeValue8"></output></p>
+<p><label for="slider9"><span style="font-family: 'courier new', courier;">value=5 min=0, max=10 step="any"</span>, ticks at 0, 5 and 10: </label> <input id="slider9" oninput="printValue('slider9','rangeValue9')" min="0" max="10" step="any" list="ticks9" value="0.5" type="range">&nbsp;
+<datalist id="ticks9">
+<option>0</option> <option>5</option> <option>10</option>
+</datalist>
+<output id="rangeValue9"></output></p>
+</div>
+ 
+
+#### External resources
+
++ You can use CSS for "standard" styling (size, color, background color, etc.) . However, some custom attributes are available. Check t[his article from CSS tricks](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/).
++ A script that automatically generates ticks, depending on the min, max and step attributes (Codepen from Dudley Storey): [Auto-Generated HTML5 range input Ticks](https://codepen.io/dudleystorey/pen/Klnzy)
++ From CSS{Portal}, a CSS generator help you style the html input range tag, very easy to use: [Style Input Range](https://www.cssportal.com/style-input-range/)
++ MDN's Web Docs: [`<input type=range>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
+
+
+#### Knowledge check 5.4.6
+
+1. How do you add "ticks" along a slider created with the `<input type=range>` element?
+
+  a. Use the step attribute<br/>
+  b. Use the datalist element<br/>
+  c. Use only CSS<br/>
+
+  Ans: 
 
 
 
