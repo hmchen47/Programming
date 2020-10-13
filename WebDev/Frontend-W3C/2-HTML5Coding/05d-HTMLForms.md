@@ -576,6 +576,261 @@ Some screenshots from Opera desktops and Safari IOS:
   Explanation: The value and step attributes, when used together, restrict the user to pick only one day of the week. For example `<input type="date" value="2015-06-21" step="7">` will pick only Sundays, such as the 21st of June 2015 which is a Sunday. Try it!
 
 
+### 5.4.4 "email", "tel", "URL" and "search"
+
+Let's study 4 input types: email", "tel", "URL" and "search".
+
+`<input type="email">`
+
+This input type is relatively straightforward to use. In mobile applications, this new input type pops up a keyboard layout adapted to email input. Note the "@" key, the "." key, etc.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y5ma3qeo')"
+    src    ="https://tinyurl.com/y3cv7hu4"
+    alt    ="contextual mobile keyboard for entering an email address"
+    title  ="contextual mobile keyboard for entering an email address"
+  />
+</figure>
+
+
+This input type is very interesting as it provides default validation behaviors:
+
++ If the value entered looks like an email address (contains a "@"...), the field is valid, and gets the pseudo CSS class `:valid`
++ If the value entered does not contain an "@", and does not look like an email address, the field is invalid and gets the pseudo CSS class `:invalid`
+
+See the next example to see this in action. More details will be presented in a later section dedicated to form validation.
+
+Typical use:
+
+[Online example at CodePen](https://codepen.io/w3devcampus/pen/aWXKWR) ([Local Example - Email](src/5.4.4-example1.html))
+
+<p class="exampleHTML">Try it on your browser: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<label for="email">Enter your email: </label> <input id="email2" type="email"></p>
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of input type=email</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>input</strong></span><strong><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="pun">}</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">Enter your email </span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+Note the CSS rule that turns the background color of the email input field to pink if a user enters an invalid address (lines 7-8). Also note that the validation is based only on matching a regular expression (the address should contain a "@",  a ".", etc.). It does not check if the address is an existing one.
+
+`<input type="tel">`
+
+This input field is really useful on smartphones and tablets, as it makes the browser pop up a keyboard layout suitable for entering phone numbers:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ma3qeo" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y6buy7rm"
+      alt  ="mobile keyboard 1 for input type=tel other mobile keyboard for input type=tel"
+      title="mobile keyboard 1 for input type=tel other mobile keyboard for input type=tel"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/yxzjyts9"
+      alt  ="mobile keyboard 1 for input type=tel other mobile keyboard for input type=tel"
+      title="mobile keyboard 1 for input type=tel other mobile keyboard for input type=tel"
+    >
+  </a>
+</div>
+
+
+This input type is often used with the new `placeholder` and `pattern` attributes that are detailed in another section of this course. It is supported by all recent major Web browsers, on mobile devices and desktops.
+
+[Online example on CodePen](https://codepen.io/w3devcampus/pen/Njozvd) ([Local Example - Telephone](src/5.4.4-example2.html))
+
+
+Try it in your browser (we used the same CSS for changing the background-color when the input value is invalid):
+
+<div class="exampleHTML"><label for="tel">Enter a telephone number:</label> <input id="tel" placeholder="(555) 555-5555" pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" type="tel"></div>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html </span><span class="tag"><strong><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span></strong>&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;meta </span><span class="tag"><strong><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span></strong>&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of input type=tel</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;style&gt;</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; input</span><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; }</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/style&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"tel"</span><span class="tag">&gt;</span><span class="pln">Enter a telephone number:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"tel"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"tel"</span></strong><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; placeholder</span><span class="pun">=</span><span class="atv">"(555) 555-5555"</span></strong><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; <strong>pattern</strong></span><strong><span class="pun">=</span><span class="atv">"<strong style="font-family: 'Courier New'; line-height: 23.2727279663086px;"><span class="atv">^(?<strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\</span></strong>d{3})?[-<strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\</span></strong>s]\d{3}[-<strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\</span></strong>s]<strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\</span></strong>d{4}.*?</span></strong><strong style="font-family: 'Courier New'; line-height: 23.2727279663086px;"><span class="atv"><strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\)</span></strong></span></strong>"</span><span class="tag">/&gt;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span><span class="pln"> </span></li>
+</ol></div>
+
+
+#### `<input type="URL">`
+
+This input field is really useful on smartphones and tablets, as it makes the browser pop up a keyboard layout suitable for entering URLs:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y5ma3qeo')"
+    src    ="https://tinyurl.com/y4xbpxhf"
+    alt    ="mobile keyboard for entering URLs"
+    title  ="mobile keyboard for entering URLs"
+  />
+</figure>
+
+
+This field is also compatible with _the validation API_ (more on this in another section).
+
+Here is an online example that shows the use of the `placeholder` and `pattern` attributes for entering only URLs that start with `ftp://` or `https://`
+
+Or try it here in your browser:
+
+Enter a URL (default validation):
+
+<div class="exampleHTML"><label for="url1">Enter a URL (default validation):</label> <input id="url" type="url">
+<p><label for="url2">Enter a URL (custom validation, must start with http, https or ftp):</label> <input id="url2" placeholder="https://www.domain.com" pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*" type="url"></p>
+</div>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html </span><span class="tag"><span class="tag">lang="en"</span>&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head &gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp;&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">Example of input type=url</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;style&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/style&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"url1"</span><span class="tag">&gt;</span><span class="pln">Enter a URL (default validation):</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"url"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"url1"</span><span class="tag">/&gt;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;p&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"url2"</span><span class="tag">&gt;</span><span class="pln">Enter a URL (custom validation, must start with http, https or ftp):</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; <strong>&lt;input<span style="color: #000000;" color="#000000">&nbsp;</span></strong></span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"url2"&nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"url"&nbsp;</span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"https://www.domain.com"</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>pattern</strong></span><strong><span class="pun">=</span><span class="atv">"(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"</span><span class="tag">/&gt;&lt;p&gt;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+_Lines 16-17_ show the use of a pattern attribute with a JavaScript regexp that accepts only URLs starting with http, https or ftp. More details on the pattern attribute are given in the section that presents the new HTML5 form attributes.
+
+
+#### `<input type="search">`
+
+The search type is used for search fields (i.e., for a search engine). A search field behaves like a regular text field, except that it may provide some feedback GUI for stopping the current request and emptying the search field, or it may provide a drop-down list of recent search results.
+
+The specification does not state what the GUI should look like, so current implementations show variations in the look and feel.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5ma3qeo')"
+    src    ="https://tinyurl.com/y2wgkp54"
+    alt    ="input type=search rendered on a smartphone"
+    title  ="input type=search rendered on a smartphone"
+  />
+</figure>
+
+
+Typical use:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"search1"</span><span class="tag">&gt;</span><span class="pln">Simple search: </span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">search</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"search1"</span><span class="tag">&gt;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"search2"</span><span class="tag">&gt;</span><span class="pln">Search with attribute </span><span class="tag">&lt;code&gt;</span><span class="pln">results=5</span><span class="tag">&lt;/code&gt;</span><span class="pln"> (try with Safari): </span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">search</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"search2"</span><span class="pln"> </span><span class="atn">results</span><span class="pun">=</span><span class="atv">5</span><span class="tag">&gt;</span></strong></li>
+</ol></div>
+
+Results on Chrome and Opera desktop - notice the small cross on the right when one enters a value:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5ma3qeo')"
+    src    ="https://tinyurl.com/y2nvzuhf"
+    alt    ="input type=search in google chrome and opera"
+    title  ="input type=search in google chrome and opera"
+  />
+</figure>
+
+
+Same example with Safari desktop, this time the second line with an attribute results=5 shows a small icon on the left:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5ma3qeo')"
+    src    ="https://tinyurl.com/yxan4tbr"
+    alt    ="input type=search on safari"
+    title  ="input type=search on safari"
+  />
+</figure>
+
+
+Example that shows a drop down list of recent searches (Safari screenshot borrowed from [this excellent site about HTML5 forms that is worth reading](https://www.wufoo.com/html5/types/5-search.html)):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y5ma3qeo')"
+    src    ="https://tinyurl.com/y2435jv8"
+    alt    ="example 2 of input type=search on safari, shows recent results"
+    title  ="example 2 of input type=search on safari, shows recent results"
+  />
+</figure>
+
+
+#### Knowledge check 5.4.4
+
+__Source code for the knowledge check below__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of input type=email</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; input</span><span class="pun">:<strong>?</strong></span><strong><span class="pln">&nbsp;</span></strong><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; input</span><span class="pun">:<strong>??</strong></span><strong><span class="pln">&nbsp;</span></strong><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">Enter your email:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+1. How could you fix the above code so that an invalid email address entered in the input field would turn its background color to pink?
+
+  a. Instead of "?", I would put the string "invalid" and instead of "??", I would put the string "valid"<br/>
+  b. Instead of "?", I would put the string "valid" and instead of "??", I would put the string "invalid"<br/>
+
+  Ans: 
+
 
 
 
