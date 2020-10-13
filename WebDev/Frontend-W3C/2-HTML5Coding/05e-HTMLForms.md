@@ -88,8 +88,34 @@
   + target most input types
   + example: `<form submit="test.php" method="post" autocomplete="on">`
 
++ [autofocus attribute](#554-autofocus)
+  + useful for transferring the focus to a field other than the first field in a page/form
+  + default: the first input field w/ the focus
+  + not more than one element in the document w/ the `autofocus` attribute specified
+  + use of the `autofocus` attribute: put the focus on the second input field of the page
+  + `required` attribute: make the input field invalid if kept empty
+  + example: 
 
+    ```html
+    <form>
+        ...
+        <input type="text" id="test"/><p>
+        ...
+        <input id="name" name="inputName"
+              placeholder="6 to 9 chars please..."
+              pattern="\w{6,9}"
+              required
+              autofocus
+              type="text"/>
+        ...
+    </form>
+    ```
 
++ [Boolean attributes syntax](#note-about-boolean-attributes-syntax)
+  + Boolean attributes: `autofocus`, `required`, `optional`, etc.
+  + true value: presence of a Boolean attribute
+  + false value: the absence of the attribute represent
+  + able to either write `autofocus="autofocus"`, or just use the attribute name `"autofocus"` without setting a value
 
 
 
@@ -268,8 +294,7 @@ The `required` attribute makes the input field invalid if kept empty.
 Here is the result in your browser:
 
 <div class="exampleHTML"><form><fieldset><legend>Example of use of the <span style="font-family: 'courier new', courier;">autofocus</span> attribute</legend> <label for="test">This is an input field:</label> <input id="test" type="text">
-<p><label for="name">Enter at least 6 chars, max 9 chars (this field has the <span style="font-family: 'courier new', courier;">autofocus</span> attribute): </label> <input name="inputName" id="name" autofocus="" required="" placeholder="6 to 9 chars please..." pattern="\w{6,9}" type="text"></p>
-</fieldset></form>
+<p><label for="name">Enter at least 6 chars, max 9 chars (this field has the <span style="font-family: 'courier new', courier;">autofocus</span> attribute): </label> <input name="inputName" id="name" autofocus="" required="" placeholder="6 to 9 chars please..." pattern="\w{6,9}" type="text"></p></fieldset></form>
 <p><strong>Notice that the focus in on the second input field, thanks to the <span style="font-family: 'courier new', courier;">autofocus</span>&nbsp;attribute.</strong></p>
 </div>
 
@@ -293,7 +318,7 @@ Extract from source code:
 
 #### Note about Boolean attributes syntax
 
-I<p class="exampleHTML"><strong>Important: </strong>: <span style="color: #ff0000;">For "Boolean" attributes, such as <span style="font-family: 'courier new',courier;">autofocus</span>, <span style="font-family: 'courier new',courier;">required</span>, <span style="font-family: 'courier new',courier;">optional</span>, etc., you are able to either write <span style="font-family: 'courier new',courier;">autofocus="autofocus"</span>, or just use the attribute name "<span style="font-family: 'courier new',courier;">autofocus</span>" without setting a value. </span></p>
+<p class="exampleHTML"><strong>Important: </strong>: <span style="color: #ff0000;">For "Boolean" attributes, such as <span style="font-family: 'courier new',courier;">autofocus</span>, <span style="font-family: 'courier new',courier;">required</span>, <span style="font-family: 'courier new',courier;">optional</span>, etc., you are able to either write <span style="font-family: 'courier new',courier;">autofocus="autofocus"</span>, or just use the attribute name "<span style="font-family: 'courier new',courier;">autofocus</span>" without setting a value. </span></p>
 
 Read [these explanations](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) for a complete description of the syntax of Boolean attributes.
 
@@ -338,7 +363,10 @@ __Source code for the knowledge check 5.5.4__
   d. There are two input fields with an `autofocus` attribute, and this is not correct.<br/>
   e. _At line 9_, the value of the student ID cannot contain letters, this will make this field invalid.<br/>
 
-  Ans: 
+  Ans: <span color="color: magenta;">bd</span>, xde<br/>
+  Explanation: The `for` and `id` attributes must match between a label and its associated input field. And you should never have more than one input field with the `autofocus` attribute.
+
+
 
 
 
