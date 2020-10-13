@@ -82,6 +82,72 @@
       }
       ```
 
++ [email type](#input-typeemail)
+  + HTML syntax: `<input type="email">`
+  + mobile applications: pop up a keyboard layout adapted to email input
+  + default validation behaviors
+    + `:valid` pseudo CSS class: the value entered looks like an email address (contains a "@"...)
+    + `:invalid` pseudo CSS class: value entered not containing an "@" or not looking like an email address
+  + CSS `:invalid` pseudo code: `input:invalid { background-color:pink; }`
+
++ [tel type](#input-typetel)
+  + HTML syntax: `<input type="tel">`
+  + useful on smartphones and tablets
+  + making the browser pop up a keyboard layout suitable for entering phone numbers
+  + used with the new `placeholder` and `pattern` attributes
+  + supported by all recent major Web browsers, on mobile devices and desktops
+  + CSS `:invalid` pseudo code: `input:invalid { background-color:pink; }`
+  + example
+
+    ```js
+    <input type="tel" id="tel"
+            placeholder="(555) 555-5555"
+            pattern="^(?\d{3})?[-\s]\d{3}[-\s]\d{4}.*?\)"/>
+    ```
+
++ [URL type](#input-typeurl)
+  + syntax: `<input type="URL">`
+  + useful on smartphones and tablets
+  + making the browser pop up a keyboard layout suitable for entering URLs
+  + compatible with the validation API
+  + using the `placeholder` and `pattern` attributes for entering only URLs that start with `ftp://` or `https://`
+  + example:
+
+    ```js
+    <body>
+    <label for="url1">Enter a URL (default validation):</label>
+    <input type="url" id="url1"/>
+    <p>
+    <label for="url2">Enter a URL (custom validation, must start with http, https or ftp):</label>
+        <input id="url2" type="url" placeholder="https://www.domain.com"
+              pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"/><p>
+    </body>
+    ```
+
+    + `pattern` attribute with a JavaScript regexp that accepts only URLs starting with http, https or ftp
+
+
++ [search type](#input-typesearch)
+  + HTML syntax: `<input type="search">`
+  + used for search fields (i.e., for a search engine)
+  + behaves like a regular text field
+  + probably providing some feedback GUI for stopping the current request and emptying the search field
+  + probably providing a drop-down list of recent search results
+  + specification not stated what the GUI should look like
+  + typical example:
+
+    ```html
+    <label for="search1">Simple search: </label>
+    <input type=search id="search1">
+    <p>
+    <label for="search2">Search with attribute <code>results=5</code> (try with Safari): </label>
+    <input type=search id="search2" results=5>
+    ```
+
+
+
+
+
 
 
 
@@ -580,9 +646,10 @@ Some screenshots from Opera desktops and Safari IOS:
 
 Let's study 4 input types: email", "tel", "URL" and "search".
 
-`<input type="email">`
 
-This input type is relatively straightforward to use. In mobile applications, this new input type pops up a keyboard layout adapted to email input. Note the "@" key, the "." key, etc.
+#### `<input type="email">`
+
+This input type is relatively straightforward to use. In mobile applicat ions, this new input type pops up a keyboard layout adapted to email input. Note the "@" key, the "." key, etc.
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
@@ -628,7 +695,8 @@ Typical use:
 
 Note the CSS rule that turns the background color of the email input field to pink if a user enters an invalid address (lines 7-8). Also note that the validation is based only on matching a regular expression (the address should contain a "@",  a ".", etc.). It does not check if the address is an existing one.
 
-`<input type="tel">`
+
+#### `<input type="tel">`
 
 This input field is really useful on smartphones and tablets, as it makes the browser pop up a keyboard layout suitable for entering phone numbers:
 
@@ -829,7 +897,19 @@ __Source code for the knowledge check below__
   a. Instead of "?", I would put the string "invalid" and instead of "??", I would put the string "valid"<br/>
   b. Instead of "?", I would put the string "valid" and instead of "??", I would put the string "invalid"<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: Indeed, the first answer is correct. The complete CSS code is:
+
+    ```css
+    input:invalid {
+      background-color:pink;
+    }
+    input:valid {
+      background-color:lightGreen;
+    }
+    ```
+
+
 
 
 
