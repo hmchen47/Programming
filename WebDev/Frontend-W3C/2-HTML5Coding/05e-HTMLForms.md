@@ -6,6 +6,27 @@
 
 ### 5.5.0 Lecture Notes
 
++ [HTML5 form attributes](#551-form-attributes)
+  + `readonly`
+  + `autocomplete`
+  + `autofocus`
+  + `list`
+  + `pattern`
+  + `required*`
+  + `placeholder`
+  + `multiple`
+  + `list`
+  + `min`
+  + `max`
+  + `step`
+  + `formaction`
+  + `formenctype`
+  + `formmethod`
+  + `formtarget`
+  + `formnovalidate`
+
+
+
 
 
 
@@ -45,20 +66,21 @@ In this chapter, we go over the form attributes that have been introduced by HTM
   </tbody>
 </table>
 
-We have already seen the use of pseudo CSS classes used together with the input field and form validation (`pattern` attribute, i`nput:invalid` CSS rule). We also briefly looked at the use of the `placeholder` attributes for displaying a helper message in the input field.
+We have already seen the use of pseudo CSS classes used together with the input field and form validation (`pattern` attribute, `input:invalid` CSS rule). We also briefly looked at the use of the `placeholder` attributes for displaying a helper message in the input field.
 
 In this section, we cover the rest of the form attributes and provide further examples of using the previously discussed attributes. 
 
 In another part of the course, about form validation and visual feedback using CSS, we examine some of the most useful attributes in even greater detail.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y5eese3q')"
     src    ="https://tinyurl.com/yy3twz2j"
     alt    ="html5 form attributes"
     title  ="html5 form attributes"
   />
 </figure>
+
 
 
 
