@@ -909,7 +909,123 @@ __Source code for the knowledge check below__
     }
     ```
 
+### 5.4.5 "number"
 
+This input field is useful for entering numerical values (integer or float), but not for entering zip codes. On desktop implementations and on some mobile implementations, it provides a user interface with small vertical arrows for incrementing/decrementing the current value, while on mobiles it will display a numeric keyboard.
+
+For zip codes, a `<input type="text" pattern="......">` is preferable. See examples given in the `pattern` attribute section of this course.
+
+<p class="exampleHTML">Example:&nbsp;<span style="font-family: 'courier new', courier;"><strong><span class="tag">&lt;input</span><span class="pln">&nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln">&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"25"</span><span class="pln">&nbsp;</span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln">&nbsp;</span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span><span class="pln">&nbsp;</span><span class="atn">max</span><span class="pun">=</span><span class="atv">"500"</span></strong><span class="tag"><strong>/&gt;</strong></span></span></p>
+
+Screenshot example taken with a mobile device :
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/yxdk64l8')"
+    src    ="https://tinyurl.com/y53qrnb9"
+    alt    ="numeric keyboard on safari IOS"
+    title  ="numeric keyboard on safari IOS"
+  />
+</figure>
+
+
+Examples on desktop (the width will be adjusted depending on the `min` and `max` attributes):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/yxdk64l8')"
+    src    ="https://tinyurl.com/yxb32cvd"
+    alt    ="input type=number example"
+    title  ="input type=number example"
+  />
+</figure>
+
+
+
+#### Typical usage
+
+<p><strong style="font-family: 'courier new', courier;"><span class="tag">&lt;input</span><span class="pln">&nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln">&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"25"</span><span class="pln">&nbsp;</span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln">&nbsp;</span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span><span class="pln">&nbsp;</span><span class="atn">max</span><span class="pun">=</span><span class="atv">"500"</span></strong><span class="tag" style="font-family: 'courier new', courier;"><strong>/&gt;</strong></span></p>
+
+This field accepts specific attributes `max`, `min`, `step`, `value` (default displayed value). 
+
+This input type is very interesting as it provides default validation behaviors:
+
++ If the value entered using a keyboard is not a valid number, or is not in the range defined by the `min` and `max` attributes, the field is _invalid_ and gets the pseudo CSS class `:invalid`.
++ If the difference between the `value` you enter and `min` is a multiple of `step`, then it gets the CSS pseudo class `:valid`, otherwise it will be _invalid_. Example: if `min=1` and `step=5`, the field will be valid with `value=1, 6, 11, 16` etc. if `min=0`, with `value=0, 5, 10, 15` etc.
+
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><span style="color: #ff0000;"><strong>WARNING 1</strong></span>: <strong>Using a <span style="font-family: 'courier new', courier;">step</span>&nbsp;attribute with an integer&nbsp;value will make the arrows increment/decrement the current value with the <span style="font-family: 'courier new', courier;">step</span> value, and <span style="text-decoration: underline;">make the input field valid only when&nbsp;</span>the difference between the&nbsp;<span style="font-family: 'courier new', courier;">value</span>&nbsp;you enter and&nbsp;<span style="font-family: 'courier new', courier;">min</span> is&nbsp;a multiple of&nbsp;<span style="font-family: 'courier new', courier;"><strong>step.</strong>&nbsp;</span></strong></p>
+
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong><span style="color: #ff0000;">WARNING&nbsp;2</span>: by default, omitting the <span style="font-family: 'courier new', courier;">step</span> attribute is equivalent to<span style="font-family: 'courier new', courier;"> step="1"</span>, <span style="text-decoration: underline;">so for entering float values, it is necessary to use <span style="font-family: 'courier new', courier;">step="any"<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"> or step equal to a floating point value such as</span> step="0.1"</span></span><span style="font-family: 'courier new', courier;"><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">. <br><br>With</span></span><span style="font-family: 'courier new', courier;"> step="any", <span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">floating point values are valid, but vertical arrows will increment/decrement the value by one. If </span>step="0.1"<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">, arrows will increment/decrement by</span> 0.1<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">, etc.</span></span></strong></p>
+
+With step="any", floating point values are valid, but vertical arrows will increment/decrement the value by one. If step="0.1", arrows will increment/decrement by 0.1, etc.
+
+[Online example in CodePen](https://codepen.io/w3devcampus/pen/GJrQzP):  (try changing the attribute values, use step="any" and try float values, etc). ([Local Example - ])
+
+
+Or, do it here in your browser (Manually enter a value that is not in the range, or not a multiple of 5, try the up and down arrows, etc.):
+
+<div style="border: 1px solid black; margin 20px; padding: 20px;"><label for="number">Quantity (between 0 and 500, should be a multiple of 5 otherwise it's invalid): </label> <input id="number" min="0" max="500" step="5" value="25" type="number"></div>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">....</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">#number:invalid {</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="pun">}</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">#number:valid {</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="pun">}</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> Example of </span><span class="tag">&lt;code&gt;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">number</span><span class="tag">&gt;&lt;/code&gt;</span><span class="pln">:</span><span class="tag">&lt;p&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"number"</span><span class="tag">&gt;</span><span class="pln">Quantity (between 0 and 500, should be a multiple of 5 otherwise it's invalid): </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"25"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"500"</span></strong><span class="tag"><strong>/&gt;</strong></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">Change the different values for attributes step, max, min, value. Don't forget to try step="any" for float values...</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+#### Knowledge check 5.4.5
+
+__Source code for the knowledge check__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example type=number</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">#myField:valid {</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">#myField:invalid {</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"myField"</span><span class="tag">&gt;</span><span class="pln">Please enter a number between 0 and 30: </span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myField"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"30"</span><span class="tag">/&gt;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+1. Suppose we enter the value 17 in the input field defined by the above code. What will the background color be?
+
+  a. lightGreen<br/>
+  b. pink<br/>
+  c. red<br/>
+
+  Ans: 
 
 
 
