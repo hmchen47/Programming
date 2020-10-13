@@ -1,0 +1,26 @@
+<body>
+  <label for="birthDate">Enter your birth date: </label><p>
+  <input type="date" id="birthDate" >
+  <p>
+  You picked: <span id="pickedDate"></span><p>
+  <span id="pastFuture"></span>
+  </p>
+  <script>
+  var field = document.querySelector("#birthDate");
+  var result = document.querySelector("#pickedDate");
+  var pastFuture = document.querySelector("#pastFuture");
+  field.oninput = function(evt) {
+     var date = this.value;
+     pickedDate.innerHTML = "<b>"+date+"</b>";
+     if(date.valueAsDate <= new Date()) {
+         pastFuture.style.color = 'green';
+         pastFuture.innerHTML = "<b>Date in the past, ok!</b>"
+     } else {
+         pastFuture.style.color = 'red';
+          pastFuture.innerHTML = "<b>Date in the future, you're not even born!</b>"
+     }
+  }
+  </script>
+</body>
+
+
