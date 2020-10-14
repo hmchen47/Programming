@@ -239,7 +239,19 @@
     </form>
     ```
 
++ [formnovalidate attribute](#5511-formnovalidate)
+  + targeted to the `<input type="submit">` input fields
+  + rarely used
+  + allowing the submission of a form even if it contains invalid fields
+  + example: not filled $\to$ a form w/ `<input type="email">` field or a field `required`
+  + forms w/ two submit buttons: one w/ the `formnovalidate` attribute set to a non null value and one w/o
+  + example:
 
+    ```html
+    <input type="submit"
+          formnovalidate 
+          value="Submit without validation" />
+    ```
 
 
 
