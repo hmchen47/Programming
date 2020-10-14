@@ -136,6 +136,50 @@
        <option value="Safari">
     </datalist>
     ```
++ Reference: [Methods of regular expressions in JavaScript](https://tinyurl.com/y22np4b5)
+
++ [pattern attribute](#556-pattern)
+  + enables the validation of the user's input on the fly (also at submission time)
+  + based on regular expressions
+  + apply to the `text`, `search`, `url`, `tel`, `email`, and `password` input types
+  + ref: [Categories of HTML5 Pattern](http://html5pattern.com/)
+  + a `pattern` attribute w/ a value: the JavaScript regular expression matching the entire string entered in the field
+  + the empty string valid by default, except if the required attribute used
+  + __best practice:__ systematically add a `title` attribute with a value that indicates what constitutes a valid entry
+  + example: 3-letter country code
+
+    ```html
+    <label for="code">Please enter a 3 letter country code:</label>
+    <input type="text" name="country_code"
+            pattern="[A-Za-z]{3}"
+            title="3 letter country code"
+            id="code"/>
+    ```
+
+  + example: mixing several other attributes with the pattern attribute
+
+    ```html
+    <label for="inputID">Enter a pseudo (6-12 characters): </label> 
+    <input id="inputID" name="Name" 
+      placeholder="Name" 
+      pattern="\w{6,12}"
+      required
+      title="6-12 characters allowed"
+      type="text" />
+    ```
+
+  + example: `<input type="url">` element with a pattern attribute
+
+    ```html
+    <input
+        id="website"
+        name="url"
+        type="url"
+        placeholder="http://www.domain.com"
+        title="http, https or ftp allowed"
+        pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"
+    />
+    ```
 
 
 
@@ -444,13 +488,14 @@ At _lines 3_ and _5_, the value of the `list` attribute of the input field must 
 
 ### 5.5.6 pattern
 
+Cartoon from [xkcd #1171: Perl Problems](http://xkcd.com/1171/)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/y2d7yy3d')"
     src    ="https://tinyurl.com/yxbq6fyd"
-    alt    ="Comics stripe representing 2 figures standing facing each other. One is wearing sunglasses. 
-First image: figure with sunglasses says 'If you're having Perl problems I feel bad for you, son'. Second image: figure with sunglasses says 'I got 99 problems'. Third image: figure with sunglasses says 'so I used regular expressions'. Final image: figure with sunglasses says 'Now I have 100 problems'."
-    title  ="Cartoon from xkcd #1171: Perl Problems"
+    alt    ="Comics stripe representing 2 figures standing facing each other. One is wearing sunglasses. First image: figure with sunglasses says 'If you're having Perl problems I feel bad for you, son'. Second image: figure with sunglasses says 'I got 99 problems'. Third image: figure with sunglasses says 'so I used regular expressions'. Final image: figure with sunglasses says 'Now I have 100 problems'."
+    title  ="Comics stripe representing 2 figures standing facing each other. One is wearing sunglasses. First image: figure with sunglasses says 'If you're having Perl problems I feel bad for you, son'. Second image: figure with sunglasses says 'I got 99 problems'. Third image: figure with sunglasses says 'so I used regular expressions'. Final image: figure with sunglasses says 'Now I have 100 problems'."
   />
 </figure>
 
@@ -493,7 +538,7 @@ __It's best practice to systematically add a `title` attribute with a value that
 
 __Example #1__
 
-Try this [online example at JSBin](https://jsbin.com/xeyuqux/1/edit?html,output) or directly in your browser below: ([Local Example - Code](srx/5.5.6-example1.html))
+Try this [online example at JSBin](https://jsbin.com/xeyuqux/1/edit?html,output) or directly in your browser below: ([Local Example - Country Code](src/5.5.6-example1.html))
 
 <div class="exampleHTML"><label for="code">Please enter a 3 letter country code (green = valid, pink = invalid):</label> <input name="country_code" title="3 letter country code" id="code" pattern="[A-Za-z]{3}" type="text"></div>
 
@@ -601,7 +646,8 @@ Source code extract:
   b. Alphanumeric, no constraint on the length.<br/>
   c. A string between 0 and 9 characters long (lowercase or uppercase).<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: The proposed regular expression means "any alphanumeric characters of length superior or equal to 1 char", in the JavaScript syntax for regular expressions. However, if the field did not have a required attribute, it would also be valid if left empty. That's why we added this attribute. The check against the regexp is done only when the field is not empty. This is one of the examples proposed for entering names, on the html5pattern.com Web site.  You can try it with this [JSBin](https://jsbin.com/lukele/edit?html,css,output).
 
 
 
