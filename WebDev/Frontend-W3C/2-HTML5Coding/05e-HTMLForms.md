@@ -181,6 +181,27 @@
     />
     ```
 
++ [min, max, and step attributes](#557-min-max-and-step)
+  + useful for several input types: `number`, `range`, `date` and `time`
+  + `min` and `max` attributes: used to set ranges to input fields that accept numerical values or a date/time
+  + example
+
+    ```html
+    <input id="mydate" name="mydate"
+          type="date"
+          min="2012-01-01"
+          max="2013-01-01"
+          value="2012-01-01"
+    />
+    
+    <input name="time" id="time" type="time"
+            min="09:00"
+            max="17:00"
+            value="12:00"
+    />
+    ```
+
+
 
 
 
