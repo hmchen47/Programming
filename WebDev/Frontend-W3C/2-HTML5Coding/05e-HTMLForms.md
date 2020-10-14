@@ -217,6 +217,31 @@
     + w/o the multiple attribute, select only one file
     + using the standard key modifiers (shift, control, command) for selecting multiple files
 
++ [formaction and formmethod attributes](#5510-formaction-and-formmethod)
+  + targeted to the `<input type="submit">` input fields
+  + rarely used
+  + typical usage: `<input type="submit" formaction="preview.php" formmethod="get" value="Preview">`
+  + `formaction` attribute:
+    + the action attribute value of the form overridden
+    + form submitted to the URL / value of the `<input type="submit">` field
+  + `formmethod` attribute
+    + the same with the `POST/GET method` attribute of the form
+    + override the value of the `method` attribute of the form
+    + e.g., `<input type="submit" formaction="preview.php" formmethod="get" value="Preview">`
+  + example: submit to the default URL:
+
+    ```html
+    <form action="defaultAction.php">
+      <label for="givenName">Given name:</label> <input type="text" name="givenName" id="givenName"><br>
+      <label for="familyName">Family name:</label> <input type="text" name="familyName" id="familyName"><br>
+      <input type="submit" value="Submit"><br>
+      <input type="submit" formaction="otherAction.php" value="Submit to another URL than default">
+    </form>
+    ```
+
+
+
+
 
 
 
@@ -865,8 +890,8 @@ Line 3 overrides the values set in line 1.
 
 Here are two online examples at JSBin:
 
-+ [Example 1](https://jsbin.com/tequkak/2/edit?html,output) ([Loca Example - ](src/5.5.10-example1.html))
-+ [Example 2](https://jsbin.com/tequkak/2/edit?html,output) ([Loca Example - ](src/5.5.10-example2.html))
++ [Example 1](https://jsbin.com/tequkak/2/edit?html,output) ([Local Example - URL submit](src/5.5.10-example1.html))
++ [Example 2](https://jsbin.com/tequkak/2/edit?html,output) ([Local Example - POST/GET submit](src/5.5.10-example2.html))
 
 The first shows a form with two submit buttons: 
 
@@ -897,6 +922,36 @@ The second example shows a form with two submit buttons:
   />
 </figure>
 
+
+### 5.5.11 formnovalidate
+
+The `formnovalidate` attribute is targeted to the `<input type="submit">` input fields. This attribute is rarely used, so there will be no questions about it in the end of the week's exercises.
+
+This atrribute allows the submission of a form even if it contains _invalid_ fields. For example: a form that has an `<input type="email">` field or a field `required` and which are not filled. 
+
+In general, such forms have two submit buttons, one with the `formnovalidate` attribute set to a non null value and one without.
+
+Typical use ([online example at JSBin](https://jsbin.com/doceje/1/edit?html,output)): ([Local Example - formnovalidate](src/5.5.11-example1.html))
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"form.php"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;fieldset&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;legend&gt;</span><span class="pln">Example of formnovalidate attribute</span><span class="tag">&lt;/legend&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">E-mail:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">/&gt;&lt;br&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit"</span><span class="pln"> </span><span class="tag">/&gt;&lt;br&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span></strong><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>formnovalidate</strong></span><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span class="pun">=</span><span class="atv">"Submit without validation"</span><span class="pln"> </span><span class="tag">/&gt;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/fieldset&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
+Try this code it in your browser:
+
+<div class="exampleHTML">
+<p>Enter a bad email address, then submit -&nbsp;you should see an error message. Using the other submit button will submit the form anyway.</p>
+<form action="form.php"><fieldset><legend>Example of <span style="font-family: 'courier new', courier;">formnovalidate</span> attribute</legend> <label for="email">E-mail:</label> <input name="email" id="email" type="email"><br> <input value="Submit" type="submit"><br> <input formnovalidate="formnovalidate" value="Submit without validation" type="submit"></fieldset></form></div>
 
 
 
