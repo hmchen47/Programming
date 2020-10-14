@@ -253,6 +253,22 @@
           value="Submit without validation" />
     ```
 
++ [formtarget attribute](#5512-formtarget)
+  + targeted to the `<input type="submit">` input fields
+  + possible values:
+    + `_blank`: the response is displayed in a new window or tab
+    + `_self`: the response is displayed in the same frame (this is default)
+    + `_parent`: the response is displayed in the parent frame
+    + `_top`: the response is displayed in the full body of the window
+    + `framename`: the response is displayed in a named iframe
+  + rarely used
+  + value indicating where the response from the form submission should be displayed
+  + typical usage:
+
+    ```html
+    <input type="submit" formtarget="_blank"
+        value="Submit but show results in a new window/tab">
+    ```
 
 
 
@@ -970,7 +986,7 @@ Try this code it in your browser:
 
 The formtarget attribute is targeted to the `<input type="submit">` input fields. This attribute is rarely used, so there will be no questions about it in the exercises - Week 5.
 
-This attribute's value indicates where the response from the form submission should be displayed. 
+This attribute's value indicates where the response from the form submission should be displayed.
 
 
 #### Typical use
