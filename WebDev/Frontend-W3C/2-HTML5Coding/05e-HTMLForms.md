@@ -442,8 +442,166 @@ At _lines 3_ and _5_, the value of the `list` attribute of the input field must 
   Explanation: The list attribute works together with the new `<datalist>` element. This attribute's value must match the id of a `<datalist>` element. It is useful for providing local auto-completion to some input fields, or for restricting the possible values on some others like `<input type=date>` or `<input type=color>`.
 
 
+### 5.5.6 pattern
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2d7yy3d')"
+    src    ="https://tinyurl.com/yxbq6fyd"
+    alt    ="Comics stripe representing 2 figures standing facing each other. One is wearing sunglasses. 
+First image: figure with sunglasses says 'If you're having Perl problems I feel bad for you, son'. Second image: figure with sunglasses says 'I got 99 problems'. Third image: figure with sunglasses says 'so I used regular expressions'. Final image: figure with sunglasses says 'Now I have 100 problems'."
+    title  ="Cartoon from xkcd #1171: Perl Problems"
+  />
+</figure>
 
 
+The `pattern` attribute enables the validation of the user's input on the fly (also at submission time), based on __regular expressions__. It applies to the `text`, `search`, `url`, `tel`, `email`, and `password` input types. 
+
+The `pattern` attribute follows the syntax of [JavaScript regular expressions](https://tinyurl.com/p6cw9hr).
+
+A __must read:__ a good catalog of ready-to-go patterns is available at html5pattern.com, an excellent Web site that proposes plenty of JavaScript patterns for the `pattern` attribute of HTML5 forms. The left hand menu proposes categorized patterns for [postal codes](http://html5pattern.com/Postal_Codes), [dates](http://html5pattern.com/Dates), [phones](http://html5pattern.com/Phones), etc.
+
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><span style="line-height: 1.6;">You can also try </span><a href="https://regex101.com/#javascript" target="_blank" style="line-height: 1.6;">this online JavaScript RegExps tester</a>, and follow <a href="https://regexone.com/" target="_blank">this tutorial about "using JavaScript RegExps"</a>&nbsp;that has step by step exercises and explanations.</p>
+
+
+#### Typical use
+
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2d7yy3d')"
+    src    ="https://tinyurl.com/y4x8nqud"
+    alt    ="html5patterns.com screenshot that shows a menu on the left with categories and patterns on the right"
+    title  ="html5patterns.com screenshot that shows a menu on the left with categories and patterns on the right"
+  />
+</figure>
+
+
+Just add a `pattern` attribute with a value that is the JavaScript regular expression that must match the entire string entered in the field. Note that the empty string is valid by default (except if the `required` attribute is used - this makes empty fields invalid).
+
+__It's best practice to systematically add a `title` attribute with a value that indicates what constitutes a valid entry.__ More on this in the section of this course dedicated to form validation.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"country_code"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"[A-Za-z]{3}"</span></strong><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">title</span><span class="pun">=</span><span class="atv">"3 letter country code"</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">/&gt;</span></li>
+</ol></div>
+
+
+#### Examples
+
+__Example #1__
+
+Try this [online example at JSBin](https://jsbin.com/xeyuqux/1/edit?html,output) or directly in your browser below: ([Local Example - Code](srx/5.5.6-example1.html))
+
+<div class="exampleHTML"><label for="code">Please enter a 3 letter country code (green = valid, pink = invalid):</label> <input name="country_code" title="3 letter country code" id="code" pattern="[A-Za-z]{3}" type="text"></div>
+
+With the previous example, until the value of the input field is equal to 3 alphabetic characters, the field is invalid.
+
+As seen in the previous examples, we used some CSS pseudo classes for automatically setting the background-color of the input field as we type.
+
+Complete source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of the pattern attribute</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>input</strong></span><strong><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="pun">}</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>input</strong></span><strong><span class="pun">:</span><span class="pln">valid </span><span class="pun">{</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightGreen</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="pun">}</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"code"</span><span class="tag">&gt;</span><span class="pln">Please enter a 3 letter country code:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"country_code"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"[A-Za-z]{3}"</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">title</span><span class="pun">=</span><span class="atv">"3 letter country code"</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"code"</span><span class="tag">/&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+__Example #2: mixing several other attributes with the pattern attribute__
+
+Try this [example online](https://jsbin.com/bozudeg/1/edit?html,output) or in your browser below: ([Local Example - Pattern Attr.](src/5.5.6-example2.html))
+
+Attributes used: placeholder (for displaying a ghost example value), pattern, required (empty field = invalid)...
+
+<div class="exampleHTML">
+<p>Attributes used: <span style="font-family: 'courier new', courier;">placeholder</span> (for displaying a ghost example value), <span style="font-family: 'courier new', courier;">pattern</span>, <span style="font-family: 'courier new', courier;">required</span> (empty field = invalid)...</p>
+<p><label for="inputID">Enter a pseudo (6-12 characters): </label> <input name="Name" id="inputID" required="" placeholder="Name" pattern="\w{6,12}" type="text"></p>
+</div>
+
+Complete source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt; &lt;meta charset="utf-8"&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;title&gt;</span><span class="pln">Example of use of new HTML5 input field attributes</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;style&gt;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">focus</span><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">valid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">required </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid red</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">optional </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid green</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/style&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">Attributes used: placeholder (for displaying a ghost example value), pattern, required (empty = invalid)...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"inputID"</span><span class="tag">&gt;</span><span class="pln">Enter a pseudo (6-12 characters): </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"inputID"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"Name"</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Name"</span></strong><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"\w{6,12}"</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">required</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;title="6-12 characters allowed please"</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+__Example #3: an `<input type="url">` element with a pattern attribute allowing only certain protocols__
+
+[Online example at JSBin](https://jsbin.com/nulahey/1/edit?html,output) or try it in your browser: ([Local Example - URL w/ Pattern](src/5.5.6-example3.html))
+
+<div class="exampleHTML"><label for="website">Enter the URL of your repository (http, https or ftp): </label> <input name="url" id="website" placeholder="http://www.domain.com" pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*" type="url"></div>
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; id</span><span class="pun">=</span><span class="atv">"website"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; name</span><span class="pun">=</span><span class="atv">"url"</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"url"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; placeholder</span><span class="pun">=</span><span class="atv">"http://www.domain.com"</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="atv">&nbsp; &nbsp; title="http, https or ftp allowed"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; <strong>pattern</strong></span><strong><span class="pun">=</span><span class="atv">"(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="atv"></span></strong><span class="tag">/&gt;</span></li>
+</ol></div>
+
+
+#### Knowledge check 5.5.6
+
+<pre>&lt;label for="name"&gt;Please enter value: &lt;/label&gt;
+&lt;input type="text" id="name" pattern="[a-zA-Z0-9]+" required&gt;
+</pre>
+
+1. What kind of values are allowed in this input field (if you wish, get help by visiting the html5pattern.com Web site)?
+
+  a. A lowercase char followed by an uppercase char followed by "0", followed by "-", followed by "9".<br/>
+  b. Alphanumeric, no constraint on the length.<br/>
+  c. A string between 0 and 9 characters long (lowercase or uppercase).<br/>
+
+  Ans: 
 
 
 
