@@ -964,6 +964,54 @@ Try this code it in your browser:
 <div class="exampleHTML">
 <p>Enter a bad email address, then submit -&nbsp;you should see an error message. Using the other submit button will submit the form anyway.</p>
 <form action="form.php"><fieldset><legend>Example of <span style="font-family: 'courier new', courier;">formnovalidate</span> attribute</legend> <label for="email">E-mail:</label> <input name="email" id="email" type="email"><br> <input value="Submit" type="submit"><br> <input formnovalidate="formnovalidate" value="Submit without validation" type="submit"></fieldset></form></div>
+ 
+ 
+### 5.5.12 formtarget
+
+The formtarget attribute is targeted to the `<input type="submit">` input fields. This attribute is rarely used, so there will be no questions about it in the exercises - Week 5.
+
+This attribute's value indicates where the response from the form submission should be displayed. 
+
+
+#### Typical use
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">formtarget</span><span class="pun">=</span><span class="atv">"_blank"</span></strong><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">"Submit but show results in a new window/tab"</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+Possible values for the `formtarget` attributes are:
+
++ `_blank`: the response is displayed in a new window or tab
++ `_self`: the response is displayed in the same frame (this is default)
++ `_parent`: the response is displayed in the parent frame
++ `_top`: the response is displayed in the full body of the window
++ `framename`: the response is displayed in a named iframe
+
+
+#### Complete example
+
+[Online example at JSBin](https://jsbin.com/godice/2/edit?html,output) or try it in your browser below: ([Local Example - formtarget](src/5.5.12-example1.html))
+
+
+<div class="exampleHTML"><form action="getAction.php" method="get">Given name: <input name="givenName" type="text"><br> Family name: <input name="familyName" type="text"><br> <input value="Submit as usual" type="submit"> <input formtarget="_blank" value="Submit but show results in a new window/tab" type="submit"></form></div>
+ 
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"defaultAction.php"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"givenName"</span><span class="tag">&gt;Given name</span><span class="pln">:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">givenName</span>"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">givenName</span>"</span><span class="tag">&gt;&lt;br&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"familyName"</span><span class="tag">&gt;Family</span><span class="pln"> name:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">familyName</span>"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">familyName</span>"</span><span class="tag">&gt;&lt;br&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit as usual"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>formtarget</strong></span><strong><span class="pun">=</span><span class="atv">"_blank"</span></strong><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">"Submit but show results in a new window/tab"</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
 
 
 
