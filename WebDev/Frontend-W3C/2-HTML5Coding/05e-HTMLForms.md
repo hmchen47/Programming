@@ -826,6 +826,11 @@ Use the standard key modifiers (shift, control, command) for selecting multiple 
   Explanation; The multiple attribute can be used with email and file input types.
 
 
+### 5.5.9 A warning
+
+In the following pages, we present a set of rarely used attributes introduced by HTML5. There will be no questions about them in the exercises at the end of the week.
+
+You might just glance at them and/or try the examples. The next pages cover their usage and you are welcome to use them for future reference (for those of you who like to cover the topics completely).
 
 
 
