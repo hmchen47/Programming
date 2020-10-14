@@ -198,6 +198,31 @@
 
 
 
+## Reference: Methods for regular expressions in JavaScript
+
+<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 55vw;" cellspacing="0" cellpadding="5" border="1">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y22np4b5">Methods using regular expressions</a></caption>
+  <thead>
+  <tr style="font-size: 1.2em;">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Method</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr><td><a href="https://developer.mozilla.org//en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec"><code>exec()</code></a></td><td>Executes a search for a match in a string. It returns an array of information or <code>null</code> on a mismatch.</td></tr>
+    <tr><td><a href="https://developer.mozilla.org//en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test"><code>test()</code></a></td><td>Tests for a match in a string. It returns <code>true</code> or <code>false</code>.</td></tr>
+    <tr><td><a href="https://developer.mozilla.org//en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match"><code>match()</code></a></td><td>Returns an array containing all of the matches, including capturing groups, or <code>null</code> if no match is found.</td></tr>
+    <tr><td><a href="https://developer.mozilla.org//en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll"><code>matchAll()</code></a></td><td>Returns an iterator containing all of the matches, including capturing groups.</td></tr>
+    <tr><td><a href="https://developer.mozilla.org//en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search"><code>search()</code></a></td><td>Tests for a match in a string. It returns the index of the match, or <code>-1</code> if the search fails.</td></tr>
+    <tr><td><a href="https://developer.mozilla.org//en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace"><code>replace()</code></a></td><td>Executes a search for a match in a string, and replaces the matched substring with a replacement substring.</td></tr>
+    <tr><td><a href="https://developer.mozilla.org//en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll"><code>replaceAll()</code></a></td><td>Executes a search for all matches in a string, and replaces the matched substrings with a replacement substring.</td></tr>
+    <tr><td><a href="https://developer.mozilla.org//en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split"><code>split()</code></a></td><td>Uses a regular expression or a fixed string to break a string into an array of substrings.</td></tr>
+  </tbody>
+</table>
+
+
+
+
 
 
 
