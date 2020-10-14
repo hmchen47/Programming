@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <html lang="en">
+<head>
+ <meta charset="utf-8">
+<title>Example of use of new HTML5 input field attributes</title>
+<style> 
+   input:focus:invalid { background-color: lightPink;}
+   input:valid { background-color:lightGreen; }
+   input:required {border: 2px solid red; }
+   input:optional {border: 2px solid green; }
+</style>
+</head>
+<body>
+<p>Attributes used: placeholder (for displaying a ghost example value), pattern, required (empty = invalid)...
+<p>
+<label for="inputID">Enter a pseudo (6-12 characters): </label> 
+<input id="inputID" name="Name" 
+  placeholder="Name" 
+  pattern="\w{6,12}"
+  required
+  title="6-12 characters allowed"
+  type="text" />
+  </body>
+</html>
+
