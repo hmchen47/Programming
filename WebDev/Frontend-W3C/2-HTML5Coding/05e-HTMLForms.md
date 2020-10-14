@@ -833,6 +833,73 @@ In the following pages, we present a set of rarely used attributes introduced by
 You might just glance at them and/or try the examples. The next pages cover their usage and you are welcome to use them for future reference (for those of you who like to cover the topics completely).
 
 
+### 5.5.10 formaction and formmethod
+
+These attributes are targeted to the `<input type="submit">` input fields. They are rarely used, so no questions about them will be asked in the quizzes of Week 5.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="atn">formaction</span><span class="pun">=</span><span class="atv">"preview.php"</span><span class="pln"> </span><span class="atn">formmethod</span><span class="pun">=</span><span class="atv">"get"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Preview"</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+When you use an `<input type="submit">` field with the formaction attribute, the action attribute value of the form is overridden. The form will be submitted to the URL / value of the formaction attribute of the  `<input type="submit">` field.
+
+The formmethod attribute does the same with the POST/GET method attribute of the form. If an `<input type="submit">` has a formmethod attribute, it overrides the value of the method attribute of the form.
+
+
+#### Typical use
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"post.php"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"post"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="atn">formaction</span><span class="pun">=</span><span class="atv">"preview.php"</span><span class="pln"> </span><span class="atn">formmethod</span><span class="pun">=</span><span class="atv">"get"</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Preview"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Send"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
+Line 3 overrides the values set in line 1. 
+
+
+#### Examples
+
+Here are two online examples at JSBin:
+
++ [Example 1](https://jsbin.com/tequkak/2/edit?html,output) ([Loca Example - ](src/5.5.10-example1.html))
++ [Example 2](https://jsbin.com/tequkak/2/edit?html,output) ([Loca Example - ](src/5.5.10-example2.html))
+
+The first shows a form with two submit buttons: 
+
++ the first button submits to the default URL specified by the `action` attribute of the form,
++ the second button submits to another action specified by its `formaction` attribute.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y348w7rn')"
+    src    ="https://tinyurl.com/y45jkfoh"
+    alt    ="example of use of formaction attribute"
+    title  ="example of use of formaction attribute"
+  />
+</figure>
+
+
+The second example shows a form with two submit buttons:
+
++ the first button submits using a GET,
++ the second button using a POST:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y348w7rn')"
+    src    ="https://tinyurl.com/yxca5b7r"
+    alt    ="example of use of the formmethod attribute"
+    title  ="example of use of the formmethod attribute"
+  />
+</figure>
+
+
+
+
 
 
 
