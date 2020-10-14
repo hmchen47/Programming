@@ -201,7 +201,21 @@
     />
     ```
 
-
++ [multiple attribute](#558-multiple)
+  + used with email and file input types
+  + a Boolean attribute
+  + different syntax possibilities
+    + `<input type="email|file" multiple>`
+    + `<input type="email|file" multiple="multiple">`
+    + `<input type="email|file" multiple="">`
+  + typical usage w/ email: `<input type="email" name="myemail" title="you can enter multiple emails addresses, separated by a comma" multiple>`
+    + enabling the user to enter a set of addresses
+    + separated by a comma instead of a single address to enter several addresses keep the input field valid
+  + __best practice__: add a `title` attribute indicating what you expect as a valid entry
+  + typical usage w/ file: `<input type=file multiple>`
+    + able to choose multiple files
+    + w/o the multiple attribute, select only one file
+    + using the standard key modifiers (shift, control, command) for selecting multiple files
 
 
 
@@ -709,7 +723,6 @@ The `multiple` attribute is used with `email` and `file` input types. It's a Boo
 + `<input type="email|file" multiple="">`
 
 
-
 #### With `<input type="email">`
 
 With the `<input type="email">`, this attribute enables the user to enter a set of addresses, separated by a comma instead of a single address. Entering several addresses will keep the input field valid.
@@ -809,7 +822,12 @@ Use the standard key modifiers (shift, control, command) for selecting multiple 
   d. number<br/>
   e. color<br/>
 
-  Ans: 
+  Ans: ac<br/>
+  Explanation; The multiple attribute can be used with email and file input types.
+
+
+
+
 
 
 
