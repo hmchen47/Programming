@@ -650,6 +650,35 @@ Source code extract:
   Explanation: The proposed regular expression means "any alphanumeric characters of length superior or equal to 1 char", in the JavaScript syntax for regular expressions. However, if the field did not have a required attribute, it would also be valid if left empty. That's why we added this attribute. The check against the regexp is done only when the field is not empty. This is one of the examples proposed for entering names, on the html5pattern.com Web site.  You can try it with this [JSBin](https://jsbin.com/lukele/edit?html,css,output).
 
 
+### 5.5.7 min, max and step
+
+These attributes are useful for several input types such as `number`, `range`, `date` and `time` (and other variants).
+
+The `min` and `max` attributes are used to set ranges to input fields that accept numerical values or a date/time.
+
+__Their detailed use with these input fields have already been explained in section 5.4 of this course dedicated to these particular input field types.__
+
+
+#### Typical use
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mydate"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"mydate"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>&nbsp;</strong></span><strong><span class="atn">min</span><span class="pun">=</span><span class="atv">"2012-01-01"</span></strong><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">max</span><span class="pun">=</span><span class="atv">"2013-01-01"</span></strong><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"2012-01-01"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"time"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"time"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"time"</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="atn">min</span><span class="pun">=</span><span class="atv">"09:00"</span></strong><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="atn">max</span><span class="pun">=</span><span class="atv">"17:00"</span></strong><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"12:00"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">/&gt;</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><strong><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span></strong><span class="tag">/&gt;</span><span class="pln"> </span></li>
+</ol></div>
+
+
 
 
 
