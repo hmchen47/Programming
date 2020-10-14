@@ -117,6 +117,27 @@
   + false value: the absence of the attribute represent
   + able to either write `autofocus="autofocus"`, or just use the attribute name `"autofocus"` without setting a value
 
++ [list attribute](#555-list)
+  + working together w/ the new `<datalist>` element
+  + value matching the `id` of a `<datalist>` element
+  + useful for providing local auto-completion to some input fields
+  + restricting the possible values on some others like `<input type=date>` or `<input type=color>`
+  + click inside the field or use the the drop down menu
+  + entering any value: not start w/ one of these letters accepted but not trigger auto-completion
+  + typical usage: the value of the `list` attribute of the `input` field must match the one of the `id` of the `<datalist>` element
+  
+    ```html
+    <input list="browsers" id="mybrowser" />
+    <datalist id="browsers">
+       <option value="Internet Explorer">
+       <option value="Firefox">
+       <option value="Chrome">
+       <option value="Opera">
+       <option value="Safari">
+    </datalist>
+    ```
+
+
 
 
 
@@ -417,7 +438,8 @@ At _lines 3_ and _5_, the value of the `list` attribute of the input field must 
   b. The `datalist` element<br/>
   c. The `autocomplete` attribute<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: The list attribute works together with the new `<datalist>` element. This attribute's value must match the id of a `<datalist>` element. It is useful for providing local auto-completion to some input fields, or for restricting the possible values on some others like `<input type=date>` or `<input type=color>`.
 
 
 
