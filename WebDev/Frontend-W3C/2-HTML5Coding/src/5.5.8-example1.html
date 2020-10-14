@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <title>Jsbin</title>
+<style> 
+  input:invalid {
+        background-color: lightPink;
+    }
+    input:valid {
+        background-color: lightGreen;
+    }
+  fieldset {
+ border:1px solid;
+ padding:20px;
+ }
+</style>
+  </head>
+  
+<body>
+  <p>This form uses: <code>&lt;input type="email" name="myemail" <b>multiple</b>&gt;</code></p>
+  
+<form>
+  <fieldset>
+    <legend>With the multiple attribute </legend>
+  <label>Enter several email addresses: </label>
+  <input type="email" name="myemail" title="you can enter multiple emails addresses, separated by a comma" multiple/>
+    <button>Submit</button>
+  </fieldset>
+</form>
+  <p>
+      <p>This form does not use the multiple attribute:</p>
+  
+<form>
+  <fieldset>
+    <legend>Without the multiple attribute </legend>
+  <label>Enter several email addresses: </label>
+  <input type="email" name="myemail" title="only one address please!"/>
+    <button>Submit</button>
+  </fieldset>
+</form>
+  <p>
+  Type in a list of email addresses separated by a comma. Look at the input field background color (pink = invalid, green = valid), try to submit. </p>
+</body>
+</html>
+
