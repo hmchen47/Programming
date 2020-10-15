@@ -94,7 +94,25 @@
   + an indication where along the range is considered preferable
   + depending on the value set to optimum attribute, one of the ranges above becomes the "good (optimum)" range
 
++ [progress attribute](#564-progress)
+  + used for progress bars (i.e., the percentage of a file being uploaded, etc.)
+  + similar to `<meter>`
+  + typical usage: `<progress id=pr value=50 min=0 max=100>`
+  + calculate the percentage corresponding to the `value`, `min` and `max` attributes
+  + adjusts the length of the progress bar accordingly
+  + no value attribute: the progress bar displaying an "indeterminate look"
+  + example
 
+    ```html
+    Download progress: <progress id=pr value=100 min=0 max=1000></progress>
+    <script>
+      var i=0;
+      setInterval(function () {
+          i = (i+1) %1000;
+          document.getElementById('pr').value = i;
+      },1);
+    </script>
+    ```
 
 
 
@@ -362,6 +380,8 @@ Source code:
 <li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;},</span><span class="lit">1</span><span class="pun">);</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span style="color: #008800; line-height: 25.6000003814697px;">&lt;/script&gt;</span></li>
 </ol></div>
+
+
 
 
 
