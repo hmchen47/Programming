@@ -1175,7 +1175,14 @@ And if you start again and click on the left submit button, the one without the 
 </figure>
 
 
+### 5.5.14 Discussion
 
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+#### Suggested topics:
+
++ Had you previously heard of the last attributes we presented or were they new to you?
++ Do you know some good tutorials about JavaScript regexps or online tools for creating regexps interactively?
 
 
 
