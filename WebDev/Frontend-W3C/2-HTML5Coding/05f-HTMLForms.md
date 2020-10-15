@@ -382,7 +382,77 @@ Source code:
 </ol></div>
 
 
+### 5.6.5 `<datalist>`
 
+The <datalist> form element is useful for linking a list of choices to an input element.
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y42x6msa" ismap target="_blank">
+    <img style="margin: 0.1em;" height=100
+      src  ="https://tinyurl.com/y23befde"
+      alt  ="example of datalist for autocompletion"
+      title="example of datalist for autocompletion"
+    >
+    <img style="margin: 0.1em;" height=50
+      src  ="https://tinyurl.com/y6l5qqnt"
+      alt  ="Another example of use of datalist"
+      title="Another example of use of datalist"
+    >
+  </a>
+</div>
+
+
+We have already seen this element in action with different `<input>` elements, such as `<input type="color">`, `<input type="date">`, or `<input type="range">`.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick="window.open('https://tinyurl.com/y42x6msa')"
+    src    ="https://tinyurl.com/y2yhjjc2"
+    alt    ="restricted choice of colorrestrict choices using a datalist elementexample of datalist for sliders ticks"
+    title  ="restricted choice of colorrestrict choices using a datalist elementexample of datalist for sliders ticks"
+  />
+</figure>
+
+
+It is often "linked" to input fields either for restricting the value set that can be proposed  (i.e., restricted set of colors or possible dates, or for displaying slider ticks, as shown above), __but it may also be used in a more general way, for providing client-side auto-completion without the need to use JavaScript.__
+
+It works with the new list attribute of input fields introduced by HTML5. __The id of the `<datalist>` must match the value of the `list` attribute in the input field. A datalist can be shared by several input fields.__ It suffices that their list attribute matches the id of the datalist element.
+
+The input field is related to the datalist that will propose auto-completion based on `<datalist>` values.
+
+
+#### Typical use for auto-completion
+
+Here is an [online example at JSBin](https://jsbin.com/tiqexel/1/edit?html,output), or try it here in your browser (type the name of your favorite browser): ([Local Example - Auto-completion](src/5.6.5-example1.html))
+
+<div class="exampleHTML"><form action="demo_form.asp" method="get">What is your favorite browser: <input name="browser" list="browsers" type="text">
+<datalist id="browsers">
+<option value="Internet Explorer"></option>
+<option value="Firefox"></option>
+<option value="Chrome"></option>
+<option value="Opera"></option>
+<option value="Safari"></option>
+</datalist>
+<input value="Submit Query" type="submit"></form></div>
+ 
+Source code of this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"demo_form.asp"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"get"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><strong><span class="atn">list</span><span class="pun">=</span><span class="atv">"browsers"</span></strong><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"browser"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;datalist</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"browsers"</span></strong><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Internet Explorer"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Firefox"</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Chrome"</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Opera"</span><span class="tag">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Safari"</span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;/datalist&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
+As you can see at lines 2 and 4, the id and list attributes match. The `<datalist>` element is wrapped around a set of `<option>` that are available for selection by another form control (in this example the input field from line 2).
 
 
 
