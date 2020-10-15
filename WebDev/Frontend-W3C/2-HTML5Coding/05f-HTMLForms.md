@@ -43,6 +43,58 @@
     + using `x.value = a.value + b.value` would result in a string concatenation instead of an addition
     + using the `valueAsNumber` property to convert as the number
 
++ [&lt;meter&gt; tag](#563-meter)
+  + display colored bars to represent numeric values
+    + to display a colored gauge to show disk usage
+    + to highlight the relevance of a query result
+    + the fraction of a voting population that favours a particular candidate, etc.
+  + used w/ the `<input type="range">` field as an instant feedback indicator
+  + not be used to indicate progress, using a `<progress>` element instead
+  + typical usage: `<meter value=75 min=0 low=20 high=80 max=100 optimum=50></meter>`
+    + using the easy-to-understand value, `min`, `max`, `low`, `high` and `optimum` attributes
+    + `optimum` attribute along w/ `min`, `low`, `high` and `max` attributes
+    + the constraint `min < low < high < max` respected
+    + affecting the color of the bar
+  + the `<meter>` ranges
+    + Range 1: between `min` and `low`
+    + Range 2: between `low` and `high`
+    + Range 3: between `high` and `max`
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+          onclick="window.open('https://tinyurl.com/y5wqfrhe')"
+          src    ="https://tinyurl.com/yxrdyljn"
+          alt    ="an image visualizing the regions"
+          title  ="an image visualizing the regions"
+        />
+      </figure>
+
+  + example:
+
+    ```html
+    <p>Grades: <meter id="meter2" value="75" min="0" low="20" high="80" max="100"></meter>
+    <input min="0" max="100" value="75" id="meter2range"
+          oninput="effect('meter2', 'meter2range')" type="range">
+    <output id="meter2val" for="meter2range"></output></p>
+    <script>
+    function effect(meter, meterrange) {
+         var currVal = document.getElementById(meterrange).value;
+         document.getElementById(meter).value = currVal;
+         document.getElementById(meter+ "val").innerHTML = currVal;
+    }
+    </script>
+    ```
+
+    + the link btw the slider (an `<input type=range>`) and the `meter` element: using an input event handler (`oninput="effect(...)"`)
+    + change the current value of the `<meter>` element (`document.getElementById(meter).value = currVal;`) and update the displayed html content of the `<output>` element (`document.getElementById(meter+"val").innerHTML = currVal;`)
+
++ [optimum attribute](#563-meter)
+  + color of the gauge changes depending on the attribute's values
+  + indicating the optimal numeric value
+  + an indication where along the range is considered preferable
+  + depending on the value set to optimum attribute, one of the ranges above becomes the "good (optimum)" range
+
+
 
 
 
@@ -159,11 +211,11 @@ As input field values are considered as strings by JavaScript, using `x.value = 
 This is why we used the `valueAsNumber` property also introduced by HTML5 for some input fields such as `<input type="range">` and `<input type="number">`, we also encountered the valueAsDate properties when we studied `<input type="date">`.
 
 
-### 5.6.3 &lt;meter&gt;
+### 5.6.3 `<meter>`
 
-The <meter> element displays colored bars to represent numeric values.
+The `<meter>` element displays colored bars to represent numeric values.
 
-It can be useful to display a colored gauge to show disk usage, to highlight the relevance of a query result, or the fraction of a voting population that favours a particular candidate, etc. This element is often used with the <input type="range"> field as an instant feedback indicator.
+It can be useful to display a colored gauge to show disk usage, to highlight the relevance of a query result, or the fraction of a voting population that favors a particular candidate, etc. This element is often used with the `<input type="range">` field as an instant feedback indicator.
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -184,14 +236,14 @@ The `<meter>` element should not be used to indicate progress. You should instea
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">Storage space used: <strong>&lt;meter</strong></span><strong><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">75</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">0</span><span class="pln">&nbsp;</span><span class="atn"><span class="atn">low</span><span class="pun">=</span><span class="atv">20&nbsp;</span><span class="atn">high</span><span class="pun">=80</span><span class="atv">&nbsp;</span>max</span><span class="pun">=</span><span class="atv">100</span><span class="pln"> </span><span class="pln">optimum</span><span class="tag"><strong style="color: #3c3c3c; line-height: 25.6px;"><span class="pun"><span color="#3c3c3c" style="color: #3c3c3c;">=</span><span color="#008800" style="color: #008800;">50</span></span></strong>&gt;&lt;/meter&gt;</span></strong></li>
 </ol></div>
 
-The `<meter>` element uses the easy-to-understand value, min, max, low, high and optimum attributes. The optimum attribute, along with min, low, high and max attributes will affect the color of the bar, and of course the constraint min < low < high < max should be respected.
+The `<meter>` element uses the easy-to-understand value, `min`, `max`, `low`, `high` and `optimum` attributes. The `optimum` attribute, along with `min`, `low`, `high` and `max` attributes will affect the color of the bar, and of course the constraint `min < low < high < max` should be respected.
 
-More explanations about the colors and the meaning of the optimum attribute will come further in this lesson.
+More explanations about the colors and the meaning of the `optimum` attribute will come further in this lesson.
 
 
 #### Interactive example
 
-[Try the next example online at JSBin](https://jsbin.com/jumahox/1/edit?html,output) or just play with it in your browser by dragging the slider below:
+[Try the next example online at JSBin](https://jsbin.com/jumahox/1/edit?html,output) or just play with it in your browser by dragging the slider below: ([Local Example - meter](src/5.6.3-example1.html))
 
 <div class="exampleHTML">
 <pre>&lt;meter value=75 min=0&nbsp;<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif; line-height: 1.6;">low=20&nbsp;</span><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif; line-height: 1.6;">high=80 </span><span style="font-size: 1em; line-height: 1.6;">max=100 optimum=19&gt;&lt;/meter&gt;</span></pre>
@@ -227,7 +279,7 @@ Source code of the example:
 __Explanations:__
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y3ougvam')"
     src    ="https://tinyurl.com/y2q72j6a"
     alt    ="illustration associates w/ HTML code"
@@ -254,13 +306,16 @@ The optimum attribute indicates the optimal numeric value and gives an indicatio
 
 So in the previous example, with the value of the optimum attribute set to 19, a number between min and low (not inclusive), the Range 1 (between min=0 and low=20) becomes the "good (optimum)" range (displayed in green), the Range 3 (between high=80 and max=100) becomes the "bad" (displayed in red color) range, and the Range 2, in the middle, will be displayed in yellow (not optimum, not bad).
 
-So, a `<meter>` element used for displaying blood pressure might be a good candidate for setting the optimum value to "Range 2", and a <meter> element used for displaying memory usage might be a good candidate for setting the optimum value to "Range 1", meaning that a low memory usage is "good".
+So, a `<meter>` element used for displaying blood pressure might be a good candidate for setting the optimum value to "Range 2", and a `<meter>` element used for displaying memory usage might be a good candidate for setting the optimum value to "Range 1", meaning that a low memory usage is "good".
 
 
 #### External resources
 
 + From MDN's Web  Docs: [The HTML Meter element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
 + Good blog post: [How to use and style the meter element](https://www.hongkiat.com/blog/style-html5-meter/)
+
+
+
 
 
 
