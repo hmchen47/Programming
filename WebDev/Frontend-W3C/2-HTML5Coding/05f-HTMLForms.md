@@ -94,7 +94,7 @@
   + an indication where along the range is considered preferable
   + depending on the value set to optimum attribute, one of the ranges above becomes the "good (optimum)" range
 
-+ [progress attribute](#564-progress)
++ [&lt;progress&gt; tag](#564-progress)
   + used for progress bars (i.e., the percentage of a file being uploaded, etc.)
   + similar to `<meter>`
   + typical usage: `<progress id=pr value=50 min=0 max=100>`
@@ -113,6 +113,21 @@
       },1);
     </script>
     ```
+
++ [`<datalist>` tag](#565-datalist)
+  + useful for linking a list of choices to an input element
+  + input fields for restricting the value set proposed
+    + restricted set of colors or possible dates
+    + displaying slider ticks
+  + used in a more general way, for providing client-side auto-completion w/o the need to use JavaScript
+  + the `id` of the `<datalist>` must match the value of the list attribute in the input field
+  + able to be shared by several input fields
+  + `list` attribute matching the `id` of the `datalist` element
+  + `input` field related to the `datalist` proposing auto-completion based on `<datalist>` values
+
+
+
+
 
 
 
@@ -384,7 +399,7 @@ Source code:
 
 ### 5.6.5 `<datalist>`
 
-The <datalist> form element is useful for linking a list of choices to an input element.
+The `<datalist>` form element is useful for linking a list of choices to an input element.
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y42x6msa" ismap target="_blank">
