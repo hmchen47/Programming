@@ -270,6 +270,20 @@
         value="Submit but show results in a new window/tab">
     ```
 
++ [formenctype attribute](#5513-formenctype)
+  + the `enctype` attribute of the `<form>` element
+  + used together with forms containing file input fields
+  + using `"multipart"` forms for sending files to a remote server
+  + example: `<form action="default.php" method="post" enctype="multipart/form-data">`
+  + an attribute of the `<input type="submit" enctype=...>` element
+  + when submitted using `method=POST`, the browser will send the form content encoded with the method specified by the `formenctype` attribute
+  + overriding the value of the `enctype` attribute specified in the `<form enctype=...>` element
+  + typical usage: `<input type="submit" formenctype="multipart/form-data" value="Submit as Multipart/form-data">`
+  + possible values
+    + `application/x-www-form-urlencoded`: all characters escaped/encoded before submission
+    + `multipart/form-data`: encoding not done, using this value for submitting binary data such as images, files, etc.
+    + `text/plain`: encoding done on standard characters like space
+
 
 
 
@@ -1036,7 +1050,7 @@ Source code:
 
 The enctype attribute existed before HTML5. It is often used together with forms that contain file input fields. For sending files to a remote server, we use <strong>"<i>multipart</i>"</strong> forms. This special encoding of forms needs to be specified using the `enctype` attribute, as shown in the example below:
 
-[Online example at JSBin](https://jsbin.com/magexat/3/edit?html,output):  ([Local Example - formenctype](src/5.5.12-example1.html))
+[Online example at JSBin](https://jsbin.com/magexat/3/edit?html,output):  ([Local Example - formenctype](src/5.5.13-example1.html))
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
@@ -1084,12 +1098,12 @@ The possible values for this field are:
 
 #### Example
 
-[Try this online example at JSBin](https://jsbin.com/lokukam/4/edit?html,output)  ([Local Example - multiple given names formenctype](src/5.5.12-example2.html))
+[Try this online example at JSBin](https://jsbin.com/lokukam/4/edit?html,output)  ([Local Example - multiple given names formenctype](src/5.5.13-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/y3z64jpt')"
-    src    ="image"
+    src    ="https://tinyurl.com/y4aegvbz"
     alt    ="example of use of the formenctype attribute"
     title  ="example of use of the formenctype attribute"
   />
@@ -1125,7 +1139,7 @@ Source code:
 
 __Explanations and how to see the difference between the two kinds of formenctype values__
 
-If you run [this example in the JSBin](https://jsbin.com/lokukam/4/edit?html,output) standalone mode (click the black arrow on the top right of the output tab, in JSBin), you should see this: ([Local Example - two kinds of formenctype](src/5.5.12-example3.html))
+If you run [this example in the JSBin](https://jsbin.com/lokukam/4/edit?html,output) standalone mode (click the black arrow on the top right of the output tab, in JSBin), you should see this: ([Local Example - two kinds of formenctype](src/5.5.13-example3.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
@@ -1140,7 +1154,7 @@ If you run [this example in the JSBin](https://jsbin.com/lokukam/4/edit?html,out
 Then, open the devtools and go to the "Network" tab, click on the POST request. Once done, click on the right on the "Header" tab to see the HTTP headers, and scroll down, you should see the form-data entries in the header, like in this screenshot:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y3z64jpt')"
     src    ="https://tinyurl.com/yyvkcxqe"
     alt    ="HTTP header showing form-data entries"
