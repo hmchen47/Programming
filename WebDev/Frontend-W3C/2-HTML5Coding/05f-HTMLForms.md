@@ -419,14 +419,25 @@ The `<datalist>` form element is useful for linking a list of choices to an inpu
 
 We have already seen this element in action with different `<input>` elements, such as `<input type="color">`, `<input type="date">`, or `<input type="range">`.
 
-<figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-    onclick="window.open('https://tinyurl.com/y42x6msa')"
-    src    ="https://tinyurl.com/y2yhjjc2"
-    alt    ="restricted choice of colorrestrict choices using a datalist elementexample of datalist for sliders ticks"
-    title  ="restricted choice of colorrestrict choices using a datalist elementexample of datalist for sliders ticks"
-  />
-</figure>
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y42x6msa" ismap target="_blank">
+    <img style="margin: 0.1em;" height=80
+      src  ="https://tinyurl.com/y4wpv7ne"
+      alt  ="restricted choice of colorrestrict"
+      title="restricted choice of colorrestrict"
+    >
+    <img style="margin: 0.1em;" height=200
+      src  ="https://tinyurl.com/y2yhjjc2"
+      alt  ="choices using a datalist element"
+      title="choices using a datalist element"
+    ><br/>
+    <img style="margin: 0.1em;" height=30
+      src  ="https://tinyurl.com/y5yg7dak"
+      alt  ="example of datalist for sliders ticks"
+      title="example of datalist for sliders ticks"
+    >
+  </a>
+</div>
 
 
 It is often "linked" to input fields either for restricting the value set that can be proposed  (i.e., restricted set of colors or possible dates, or for displaying slider ticks, as shown above), __but it may also be used in a more general way, for providing client-side auto-completion without the need to use JavaScript.__
