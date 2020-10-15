@@ -481,4 +481,14 @@ Source code of this example:
 As you can see at lines 2 and 4, the id and list attributes match. The `<datalist>` element is wrapped around a set of `<option>` that are available for selection by another form control (in this example the input field from line 2).
 
 
+### 5.6.6 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions
+
+
+#### Optional projects
+
+Why don't you add some of these elements to the projects suggested earlier (GUI for a Web app. or a form for registering in a forum)? The best way to learn how to use them is to try them in your own projects.
+
+
 
