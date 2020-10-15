@@ -6,6 +6,43 @@
 
 ### 5.6.0 Lecture Notes
 
++ [&lt;output&gt; tag](#562-output)
+  + syntax: `<output name="x" for="a b"></output>`
+  + represent the result of a computation or user action
+  + `oninput` event handler of `<form>` element directly uses the `<output>` element using the value of its `name` attribute
+  + element & attributes
+    + `for`: a space-separated list containing the elements' ids whose values went into the calculation.
+    + `name`: the name of the element.
+    + `form`: associate the `<output>` element w/ its form owner
+      + The value must be the `id` of a form in the same document
+      + place an `<output>` element outside of the `<form>` w/ which it is associated
+  + example: perform multiplication
+
+    ```html
+    <form oninput="o.value=a.value*b.value">
+        <input type="number" name="a" id="a" value="2"> x
+        <input type="number" name="b" id="b" value="3"> =
+        <output for="a b" name="o">6</output>
+    </form>
+    ```
+
+  + example: perform addition w/ slide bar
+
+    ```html
+    <form >
+      <input name="a" value="50" type="range"
+          oninput="x.value = a.valueAsNumber + b.valueAsNumber; y.value = this.value;"/>
+      <output id="y">50</output> +
+      <input name="b" value="50" type="number" /> =
+      <output name="x" id="x" for="a b"></output>
+    </form>
+    ```
+
+    + new input field properties: `valueAsNumber` and `valueAsDate`
+    + input field values considered as strings by JavaScript
+    + using `x.value = a.value + b.value` would result in a string concatenation instead of an addition
+    + using the `valueAsNumber` property to convert as the number
+
 
 
 
@@ -56,12 +93,12 @@ Let's look at the HTML5 elements related to forms (specifically: `<datalist>`, `
 </table>
 
 
-### 5.6.2 <output>
+### 5.6.2 `<output>`
 
 The output element represents the result of a computation or user action. You can see it as a "specialized `<div>` or `<span>`" for displaying interactive results.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y5ylssnu')"
     src    ="https://tinyurl.com/y3aose7z"
     alt    ="example of output element use"
@@ -120,6 +157,7 @@ HTML5 has introduced new input field properties: `valueAsNumber` and `valueAsDat
 As input field values are considered as strings by JavaScript, using `x.value = a.value + b.value` would result in a string concatenation instead of an addition. That's why we use the `valueAsNumber` property.
 
 This is why we used the `valueAsNumber` property also introduced by HTML5 for some input fields such as `<input type="range">` and `<input type="number">`, we also encountered the valueAsDate properties when we studied `<input type="date">`.
+
 
 
 
