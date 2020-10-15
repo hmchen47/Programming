@@ -315,7 +315,53 @@ So, a `<meter>` element used for displaying blood pressure might be a good candi
 + Good blog post: [How to use and style the meter element](https://www.hongkiat.com/blog/style-html5-meter/)
 
 
+### 5.6.4 `<progress>`
 
+The `<progress>` element is similar to `<meter>` but it is used for progress bars (i.e., the percentage of a file being uploaded, etc.):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;progress</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">pr</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">50</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">0</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">100</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+
+<p>Gives:&nbsp; <progress id="pr1" value="50" max="100" min="0"></progress></p>
+
+The browser calculates the percentage corresponding to the `value`, `min` and `max` attributes and adjusts the length of the progress bar accordingly.
+
+If no `value` attribute is set, the progress bar will display an "indeterminate look", that may slightly vary among different browser implementations.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/yxbg23pf')"
+    src    ="https://tinyurl.com/y6pqbvzj"
+    alt    ="indeterminate progress bar screenshot"
+    title  ="indeterminate progress bar screenshot"
+  />
+</figure>
+
+
+#### Typical use
+
+[Here is an online example at JSBin](https://jsbin.com/hebiju/edit?html,output), or try it below in your browser:  ([Local Example - progress](src/5.6.4-example1.html))
+
+<div class="exampleHTML">This example uses some JavaScript to simulate a download progress by changing in real time the <span style="font-family: 'courier new', courier;">value</span> attribute.
+<p>The progress below is defined like this:</p>
+<pre>&lt;progress id=pr value=100 max=1000&gt;</pre>
+<p>Download progress: <progress id="pr" value="331" max="1000" min="0"></progress></p>
+</div>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="typ">Download</span><span class="pln"> progress</span><span class="pun">:</span><span class="pln"> </span><strong><span class="pun">&lt;</span><span class="pln">progress id</span><span class="pun">=</span><span class="pln">pr value</span><span class="pun">=</span><span class="lit">100</span><span class="pln"> min</span><span class="pun">=</span><span class="lit">0</span><span class="pln"> max</span><span class="pun">=</span><span class="lit">1000</span><span class="pun">&gt;&lt;/</span><span class="pln">progress</span><span class="pun">&gt;</span></strong><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pln">setInterval</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;i </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">%</span><span class="lit">1000</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'pr'</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;},</span><span class="lit">1</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span style="color: #008800; line-height: 25.6000003814697px;">&lt;/script&gt;</span></li>
+</ol></div>
 
 
 
