@@ -159,7 +159,108 @@ As input field values are considered as strings by JavaScript, using `x.value = 
 This is why we used the `valueAsNumber` property also introduced by HTML5 for some input fields such as `<input type="range">` and `<input type="number">`, we also encountered the valueAsDate properties when we studied `<input type="date">`.
 
 
+### 5.6.3 &lt;meter&gt;
 
+The <meter> element displays colored bars to represent numeric values.
+
+It can be useful to display a colored gauge to show disk usage, to highlight the relevance of a query result, or the fraction of a voting population that favours a particular candidate, etc. This element is often used with the <input type="range"> field as an instant feedback indicator.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3ougvam')"
+    src    ="https://tinyurl.com/y2y9pt24"
+    alt    ="picture of a meter example"
+    title  ="picture of a meter example"
+  />
+</figure>
+
+
+The `<meter>` element should not be used to indicate progress. You should instead use a `<progress>` element.
+
+
+#### Typical use
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">Storage space used: <strong>&lt;meter</strong></span><strong><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">75</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">0</span><span class="pln">&nbsp;</span><span class="atn"><span class="atn">low</span><span class="pun">=</span><span class="atv">20&nbsp;</span><span class="atn">high</span><span class="pun">=80</span><span class="atv">&nbsp;</span>max</span><span class="pun">=</span><span class="atv">100</span><span class="pln"> </span><span class="pln">optimum</span><span class="tag"><strong style="color: #3c3c3c; line-height: 25.6px;"><span class="pun"><span color="#3c3c3c" style="color: #3c3c3c;">=</span><span color="#008800" style="color: #008800;">50</span></span></strong>&gt;&lt;/meter&gt;</span></strong></li>
+</ol></div>
+
+The `<meter>` element uses the easy-to-understand value, min, max, low, high and optimum attributes. The optimum attribute, along with min, low, high and max attributes will affect the color of the bar, and of course the constraint min < low < high < max should be respected.
+
+More explanations about the colors and the meaning of the optimum attribute will come further in this lesson.
+
+
+#### Interactive example
+
+[Try the next example online at JSBin](https://jsbin.com/jumahox/1/edit?html,output) or just play with it in your browser by dragging the slider below:
+
+<div class="exampleHTML">
+<pre>&lt;meter value=75 min=0&nbsp;<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif; line-height: 1.6;">low=20&nbsp;</span><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif; line-height: 1.6;">high=80 </span><span style="font-size: 1em; line-height: 1.6;">max=100 optimum=19&gt;&lt;/meter&gt;</span></pre>
+<p>Grades: <meter id="meter2" value="75" optimum="19" high="80" low="20" max="100" min="0">75%</meter> <input id="meter2range" oninput="effect('meter2', 'meter2range')" min="0" max="100" value="75" high="80" low="20" type="range"> <output id="meter2val"></output></p>
+<script>// <![CDATA[
+function effect(meter, meterrange) {
+	var currVal = document.getElementById(meterrange).value;
+	document.getElementById(meter).value =  currVal;
+	document.getElementById(meter+ "val").innerHTML = currVal;
+ }
+// ]]></script>
+</div>
+
+
+Source code of the example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;p&gt;</span><span class="pln">Grades: </span><strong><span class="tag">&lt;meter</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"meter2"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"75"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln">&nbsp;</span><span class="atn"><span class="atn">low</span><span class="pun">=</span><span class="atv">"20"&nbsp;</span><span class="atn">high</span><span class="pun">=</span><span class="atv">"80"&nbsp;</span>max</span><span class="pun">=</span><span class="atv">"100"</span><span class="tag">&gt;</span><span class="tag">&lt;/meter&gt;</span></strong><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln">&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"75"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"meter2range"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">effect</span><span class="pun">(</span><span class="str">'meter2'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'meter2range'</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"meter2val"&nbsp;<span style="color: #660066; line-height: 25.6000003814697px;">for</span>="meter2range"</span><span class="tag">&gt;&lt;/output&gt;&lt;/p&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> effect</span><span class="pun">(</span><span class="pln">meter</span><span class="pun">,</span><span class="pln"> meterrange</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> currVal </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">meterrange</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">meter</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> currVal</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">meter</span><span class="pun">+</span><span class="pln"> </span><span class="str">"val"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> currVal</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+
+__Explanations:__
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3ougvam')"
+    src    ="https://tinyurl.com/y2q72j6a"
+    alt    ="illustration associates w/ HTML code"
+    title  ="illustration associates w/ HTML code"
+  />
+</figure>
+
+The link between the slider (an `<input type=range>`) and the meter element is done using an input event handler (oninput="effect(...)" line 4. The effect JavaScript function will change the current value of the `<meter>` element (line 9) and update the displayed html content of the `<output>` element (line 10)
+
+The link between the slider (an `<input type=range>`) and the meter element is done using an input event handler (oninput="effect(...)") at line 4.
+
+The effect JavaScript function will change the current value of the `<meter>` element (line 9) and update the displayed html content of the `<output>` element (_line 10_).
+
+
+__The color of the gauge changes depending on the attribute's values__
+
+The optimum attribute indicates the optimal numeric value and gives an indication where along the range is considered preferable. Just think of the `<meter>` ranges as follows:
+
++ Range 1: between `min` and `low`
++ Range 2: between `low` and `high`
++ Range 3: between `high` and `max`
+
+... and depending on the value you set to optimum attribute, one of the ranges above becomes the "good (optimum)" range.
+
+So in the previous example, with the value of the optimum attribute set to 19, a number between min and low (not inclusive), the Range 1 (between min=0 and low=20) becomes the "good (optimum)" range (displayed in green), the Range 3 (between high=80 and max=100) becomes the "bad" (displayed in red color) range, and the Range 2, in the middle, will be displayed in yellow (not optimum, not bad).
+
+So, a `<meter>` element used for displaying blood pressure might be a good candidate for setting the optimum value to "Range 2", and a <meter> element used for displaying memory usage might be a good candidate for setting the optimum value to "Range 1", meaning that a low memory usage is "good".
+
+
+#### External resources
+
++ From MDN's Web  Docs: [The HTML Meter element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
++ Good blog post: [How to use and style the meter element](https://www.hongkiat.com/blog/style-html5-meter/)
 
 
 
