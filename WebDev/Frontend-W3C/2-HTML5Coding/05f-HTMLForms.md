@@ -56,4 +56,73 @@ Let's look at the HTML5 elements related to forms (specifically: `<datalist>`, `
 </table>
 
 
+### 5.6.2 <output>
+
+The output element represents the result of a computation or user action. You can see it as a "specialized `<div>` or `<span>`" for displaying interactive results.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5ylssnu')"
+    src    ="https://tinyurl.com/y3aose7z"
+    alt    ="example of output element use"
+    title  ="example of output element use"
+  />
+</figure>
+
+
+#### Typical use / interactive examples
+
+[Do not hesitate to play with the source code of these examples online at JSBin.](https://jsbin.com/yuvani/1/edit?html,output) ([Local Example - Output](src/5.6.2-example1.html))
+
+__Example #1__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">o</span><span class="pun">.</span><span class="pln">value</span><span class="pun">=</span><span class="pln">a</span><span class="pun">.</span><span class="pln">value</span><span class="pun">*</span><span class="pln">b</span><span class="pun">.</span><span class="pln">value</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"a"</span><span class="pln">&nbsp;<span class="atn" style="line-height: 25.6000003814697px;">id</span><span class="pun" style="line-height: 25.6000003814697px;">=</span><span class="atv" style="line-height: 25.6000003814697px;">"a"</span>&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"2"</span><span class="tag">&gt;</span><span class="pln"> x</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"b"</span><span class="pln">&nbsp;<span class="atn" style="line-height: 25.6000003814697px;">id</span><span class="pun" style="line-height: 25.6000003814697px;">=</span><span class="atv" style="line-height: 25.6000003814697px;">"b"</span>&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"3"</span><span class="tag">&gt;</span><span class="pln"> =</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"a b"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"o"</span><span class="tag">&gt;</span><span class="pln">6</span><span class="tag">&lt;/output&gt;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
+The `oninput` event handler directly uses the `<output>` element using the value of its name attribute.
+
+Result (do change the input field values):
+
+<div class="exampleHTML"><form oninput="o.value=a.value*b.value"><input name="a" value="2" type="number"> x <input name="b" value="3" type="number"> = <output for="a b" name="o">6</output></form></div>
+
+
+__Explanations about the attributes specific to the `<output>` element:__
+
++ `for`: a space-separated list containing the elements' ids whose values went into the calculation.
++ `name`: the name of the element.
++ `form`:  associates the `<output>` element with its form owner. The value must be the id of a form in the same document. This allows you to place an `<output>` element outside of the `<form>` with which it is associated.
+
+
+__Example #2__
+
+<div class="exampleHTML"><form><input name="a" oninput="x.value = a.valueAsNumber + b.valueAsNumber; y.value = this.value;" value="50" type="range"><output id="y">50</output> +<input name="b" value="50" type="number"> =<output id="x" for="a b" name="x"></output></form></div>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"a"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"50"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">x</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">valueAsNumber </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">valueAsNumber</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span><span class="atv">"</span><span class="tag">/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"y"</span><span class="tag">&gt;</span><span class="pln">50</span><span class="tag">&lt;/output&gt;</span><span class="pln"> + </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"b"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"50"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> = </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;output</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"x"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"x"</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"a b"</span><span class="tag">&gt;&lt;/output&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
+HTML5 has introduced new input field properties: `valueAsNumber` and `valueAsDate`.The last example is similar to the previous one except that we use an addition instead of a multiplication.
+
+As input field values are considered as strings by JavaScript, using `x.value = a.value + b.value` would result in a string concatenation instead of an addition. That's why we use the `valueAsNumber` property.
+
+This is why we used the `valueAsNumber` property also introduced by HTML5 for some input fields such as `<input type="range">` and `<input type="number">`, we also encountered the valueAsDate properties when we studied `<input type="date">`.
+
+
+
+
+
 
