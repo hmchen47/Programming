@@ -6,6 +6,84 @@
 
 ### 5.7.0 Lecture Notes
 
++ [Visual feedback](#572-automatic-visual-feedback-while-typing)
+  + most modern browsers proposing default behavior for validating input fields and forms
+  + built-in validation system: HTML5 automatically adds a CSS pseudo class to all input fields
+  + invalid fields: inherit the `:invalid` pseudo class
+  + valid fields: inherit the `:valid` pseudo class
+  + improving your HTML form
+    + add some CSS rules to input fields
+    + add visual feedback to the validity of input fields values, e.g.,
+      + changing the color of the border of input fields
+      + green/red icons on the right of the field
+    + submitting the form: extra messages displayed as pop up text bubbles
+      + default: providing default feedback on the input field's border
+      + overridden by CSS rules
+  + __best practice__: ALWAYS provide default CSS rules that give visual feedback to the user's input
+  + example: styling "required', "valid" and "invalid" fields
+
+    ```html
+    <style>
+      input:invalid { background-color: lightPink;}
+      input:valid { background-color:lightGreen; }
+      input:required {border: 2px solid red;}
+      input:optional {border: 2px solid green;}
+      fieldset {
+        border:1px solid;
+        padding:20px;
+        }
+      .formLabel { display: inline-block; width: 140px; text-align: right; }
+    </style>
+    ...
+    <form>
+      <fieldset>
+        <legend>Type invalid values and see the result</legend>
+        <label for="myEmail" class="formLabel">E-mail:</label>
+          <input type="email" id="myEmail" required/><br>
+        <label for="myURL" class="formLabel">Homepage (URL):</label> 
+          <input type="url" id="myURL" required/><br>
+        <label for="myPhone" class="formLabel">Phone number:</label> 
+          <input type="tel" id="myPhone" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+          placeholder="e.g. 416-555-1234" required/><br>
+          <button>Submit form</button><br />
+      </fieldset>
+    </form>
+    ```
+
+  + example: adding CSS transition & icon/marker to the right of the input field
+
+    ```css
+    .myForm input:focus {
+      padding-right:70px;
+    }
+    .myForm input {
+      transition: padding .25s;
+    }
+    .myForm input:required:valid {
+      background:url('https://i.imgur.com/BJolppS.png') no-repeat right top;
+    }
+    .myForm input:required {
+      background:url('https://i.imgur.com/7pIN7wz.png') no-repeat right top;
+    }
+    ```
+
+    + `.myForm input:focus` class:  enlarge itself to the right when clicking on an input field
+    + `.myForm input` class: making the file animated
+    + `.myForm input:required:valid` class: display a green icon if valid at a required input field
+    + `.myForm input:required` class: display a red icon if invalid at a required input field
+  + [the `title` attribute for customized message](#use-the-title-attribute-for-specifying-a-custom-message)
+    + simply using the input's title attribute to provide a message for pattern-mismatches
+    + more generally for all validation errors
+    + really neat and no JavaScript required
+    + e.g., `<input type="email" id="myEmail" title="You don't know what an email address looks like, do you?" required/><br>`
+    + browser dependent:
+      + Chrome & Opera: display the `title` attribute value in error message bubbles
+      + Safari and FireFox: ignore the `title` attribute
+  + references:
+    + [Cross Browser Styling of HTML5 Forms — Even In Older Browsers](https://tinyurl.com/ccyho8c)
+    + [Creating Cross Browser HTML5 Forms Now, Using modernizr, webforms2 and html5Forms](https://tinyurl.com/c9omt6n)
+
+
 
 
 
@@ -141,11 +219,11 @@ The rule at _line 1_ says that any time we click on an input field, it will enla
 The rules at _lines 8_ and _11_ target the input fields with a `required` attribute. They will change the background by displaying a small green or red icon, corresponding to the valid/invalid status of the input field.
 
 
-#### Use the title attribute for specifying a custom message
+#### Use the `title` attribute for specifying a custom message
 
-You can simply use the input's title attribute to provide a message for pattern-mismatches, and more generally for all validation errors. This solution is really neat and doesn't require JavaScript!
+You can simply use the input's `title` attribute to provide a message for pattern-mismatches, and more generally for all validation errors. This solution is really neat and doesn't require JavaScript!
 
-Try the [online example at JSBin](https://jsbin.com/locedoy/1/edit?html,output), or try it here in your browser (type invalid values and look at the custom messages): ([Local Example - title](src/5.7.2-example3.html))
+Try the [online example at JSBin](https://jsbin.com/locedoy/1/edit?html,output), or try it here in your browser (type invalid values and look at the custom messages): ([Local Example - Message](src/5.7.2-example3.html))
 
 <div class="exampleHTML"><form class="myForm"><fieldset><legend>Type invalid values and see the result, this time with custom messages!&nbsp;</legend> <label class="formLabel" for="myEmail">E-mail:</label> <input title="You don't know what an email address looks like do you?" id="myEmail" required="" type="email"><br> <label class="formLabel" for="myURL">Homepage (URL):</label> <input title="Please start with HTTP or HTTPS or you'll never get your degree!" id="myURL" required="" type="url"><br> <label class="formLabel" for="myPhone">Phone number:</label> <input title="can't you read the provided example?" id="myPhone" required="" placeholder="e.g. 416-555-1234" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" type="phone"><br> <button>Submit form</button></fieldset></form></div>
 
