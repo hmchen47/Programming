@@ -832,4 +832,24 @@ __Explanations:__
 + _Lines 90-93_: The focus is given to the first invalid field that shows an error message.
 
 
+### 5.7.6 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics for discussion and optional projects:
+
+
+#### Suggested topics
+
++ What do you think about the solution proposed at the end of the course? Why not use Bootstrap forms and have an easier life? Or maybe it's worth knowing the low level part and how Bootstrap implemented some of its features about form validation?
++ Have you heard of Web Components? Have you tried them? Also check this web site.
+
+
+#### Optional projects
+
++ __Project 1 (easy):__ This time, let's systematically add some CSS3 rules for visual feedback as you type in your HTML5 input fields. Also try to implement in JavaScript some custom validation (i.e., password validation) and add custom error messages in bubbles (using the title attribute). 
++ __Project 2 (a bit harder):__ Investigate CSS3 transitions to make animated input fields (when they get the focus, when they become invalid). A good starting point is the small example that adds icons at the right of valid/invalid input fields, in section 5.7.2.
++ __Project 2 (harder):__ Modify a form of your own, so that it uses the custom techniques presented at the end of the course.
+
+
  
