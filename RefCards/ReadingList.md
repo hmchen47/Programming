@@ -31,7 +31,7 @@
 + [JavaScript Promises: An introduction](https://web.dev/promises/#promise-api-reference)
 + [How to structure a web form](https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form)
 + [Forms tutorial - WAI](https://www.w3.org/WAI/tutorials/forms/)
-
++ [Building HTML5 Form Validation Bubble Replacements](https://tinyurl.com/yy85v45z)
 
 
 ## Python
