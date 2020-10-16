@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example of using the validation API</title>
+    <style>
+ .myForm input:invalid { background-color: lightPink;}
+.myForm input:valid { background-color:lightGreen; }
+ .myForm input:required {border: 2px solid red;}
+ .myForm input:optional {border: 2px solid green;}
+.myForm label { display: inline-block; width: 140px; text-align: right; } 
+</style>
+  </head>
+  <body>
+<form class="myForm">
+  <fieldset>
+    <legend>Example use of the validation API</legend>
+ <label for="password1" >Password:</label> <input type="password" id="password1" oninput="checkPasswords()" required>
+ <p>
+ <label for="password2">Repeat password:</label> <input type="password" id="password2" oninput="checkPasswords()" required>
+ <p>
+   <button>Submit</button>
+  </fieldset>
+</form>
+
+<script> 
+ function checkPasswords() {
+ var password1 = document.getElementById('password1');
+ var password2 = document.getElementById('password2');
+ if (password1.value != password2.value) {
+ password2.setCustomValidity('Passwords non identiques');
+ } else {
+ password2.setCustomValidity('');
+ }
+ }
+</script>
+  </body>
+</html>
+
