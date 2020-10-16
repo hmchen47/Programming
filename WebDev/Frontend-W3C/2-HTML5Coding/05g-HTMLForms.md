@@ -404,6 +404,116 @@ At lines 18 and 20 we added an input event listener: each time a key is typed, t
 Lines 28 and 29 get the input fields' values, and lines 30-35 check if the passwords are the same and set the validity of the field using the validation API's method `setCustomValidity(error_message)`.
 
 
+### 5.7.4 The validity property of input fields
+
+The `validity` property of input fields helps to get error details when the field is _invalid_. This property tests the different types of validation error.
+
+Here is how to get the `validity` property of an input field:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> input </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'IdOfField'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> validityState_object </span><span class="pun">=</span><strong><span class="pln"> input</span><span class="pun">.</span><span class="pln">validity</span><span class="pun">;</span></strong></li>
+</ol></div>
+
+The possible values for the `validity` property are:
+
++ `valueMissing`
++ `typeMismatc`
++ `patternMismatc`
++ `tooLon`
++ `rangeUnderflow`
++ `rangeOverflo`
++ `stepMismatc`
++ `valid`
++ `customError`
+
+Here is [an example at JSBin that shows how to test the different types of validation errors](https://jsbin.com/nalaxeg/1/edit?html,output), or you may try it here in your browser (enter bad values, too big, too small, enter invalid characters, etc.): ([Local Example - Types of Validation Errors](src/5.7.4-example1.html))
+
+<div class="exampleHTML">
+<script>// <![CDATA[
+function validate() {
+     var input = document.getElementById('b');
+     var validityState_object = input.validity;
+ 
+     if(validityState_object.valueMissing) {
+         input.setCustomValidity('Please set an age (required)');
+     } else if (validityState_object.rangeUnderflow) {
+         input.setCustomValidity('Your value is too low');
+     } else if (validityState_object.rangeOverflow) {
+         input.setCustomValidity('Your value is too high');
+     } else if (validityState_object.typeMismatch) {
+         input.setCustomValidity('Type mismatch');
+     } else if (validityState_object.tooLong) {
+         input.setCustomValidity('Too long');
+     } else if (validityState_object.stepMismatch) {
+         input.setCustomValidity('stepMismatch');
+     } else if (validityState_object.patternMismatch) {
+         input.setCustomValidity('patternMismatch');
+     } else {
+         input.setCustomValidity('');
+     }
+ }
+// ]]></script>
+<form class="myForm"><label for="b">Enter a value between 10 and 20 </label> <input name="text" id="b" required="" oninput="validate()" min="10" max="20" type="number"> <input value="Submit Query" type="submit"></form></div>
+ 
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;">...</li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> validate</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> input </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'b'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; <strong>&nbsp;var</strong></span><strong><span class="pln"> validityState_object </span><span class="pun">=</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">validity</span><span class="pun">;</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">validityState_object</span><span class="pun">.</span><span class="pln">valueMissing</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">.</span><span class="pln">setCustomValidity</span><span class="pun">(</span><span class="str">'Please set an age (required)'</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pun"><span style="color: #000000; line-height: 23.2727279663086px;">validityState_object</span>.</span><span class="pln">rangeUnderflow</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">.</span><span class="pln">setCustomValidity</span><span class="pun">(</span><span class="str">'Your value is too low'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pun"><span style="color: #000000; line-height: 23.2727279663086px;">validityState_object</span>.</span><span class="pln">rangeOverflow</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">.</span><span class="pln">setCustomValidity</span><span class="pun">(</span><span class="str">'Your value is too high'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pun"><span style="color: #000000; line-height: 23.2727279663086px;">validityState_object</span>.</span><span class="pln">typeMismatch</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">.</span><span class="pln">setCustomValidity</span><span class="pun">(</span><span class="str">'Type mismatch'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pun"><span style="color: #000000; line-height: 23.2727279663086px;">validityState_object</span>.</span><span class="pln">tooLong</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">.</span><span class="pln">setCustomValidity</span><span class="pun">(</span><span class="str">'Too long'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pun"><span style="color: #000000; line-height: 23.2727279663086px;">validityState_object</span>.</span><span class="pln">stepMismatch</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">.</span><span class="pln">setCustomValidity</span><span class="pun">(</span><span class="str">'stepMismatch'</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pun"><span style="color: #000000; line-height: 23.2727279663086px;">validityState_object</span>.</span><span class="pln">patternMismatch</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">.</span><span class="pln">setCustomValidity</span><span class="pun">(</span><span class="str">'patternMismatch'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">.</span><span class="pln">setCustomValidity</span><span class="pun">(</span><span class="str">''</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"myForm"</span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"b"</span><span class="tag">&gt;</span><span class="pln">Enter a value between 10 and 20: </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"b"&nbsp;</span><span class="atn">min</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"20"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">required</span><span class="pln"> </span><strong><span class="atn">oninput</span><span class="pun">=</span><span class="atv">'</span><span class="pln">validate</span><span class="pun">();</span><span class="atv">'</span></strong><span class="tag">/&gt;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+#### The `validationMessage` property
+
+It is also possible to get the validation error message, using the `validationMessage` property of input fields.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> input </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'b'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Validation message = "</span><span class="pln"> </span><span class="pun">+</span><strong><span class="pln"> input</span><span class="pun">.</span></strong><span class="pln"><strong>validationMessage</strong>)</span><span class="pun">;</span></li>
+</ol></div>
+
+This is useful for making custom error messages. More about this topic in the next section of the course.
+
 
 
  
