@@ -454,7 +454,7 @@ The possible values for the `validity` property are:
 + `patternMismatch`
 + `tooLong`
 + `rangeUnderflow`
-+ `rangeOverflow`
++ `rangeOverflow` 
 + `stepMismatch`
 + `valid`
 + `customError`
@@ -545,6 +545,225 @@ It is also possible to get the validation error message, using the `validationMe
 
 This is useful for making custom error messages. More about this topic in the next section of the course.
 
+
+### 5.7.5 Changing the default behavior
+
+#### Custom validation: changing the default behavior, aggregating error messages, removing bubbles, etc.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2mrwrec')"
+    src    ="https://tinyurl.com/y3woj2rt"
+    alt    ="Aggregating error message"
+    title  ="Aggregating error message"
+  />
+</figure>
+
+
+__Criticism of the default behavior of HTML5 built-in validation__
+
+The techniques we have seen so far for enhancing HTML forms are powerful and provide interesting features, but are also criticized by Web developers:
+
++ Browser support is still not 100% complete (Safari and Internet Explorer still lack several important features),
++ It is not possible to aggregate error messages.  On submission, browsers show an error bubble next to the first invalid field, and there is no built-in way to _display all error messages for all invalid fields at the same time,_
++ You cannot style the bubbles.
+
+__However, the validation API gives enough power to make your own validation behavior, overriding the default when necessary.__
+
+Here is [an adaptation of work presented at the developer.telerik.com Web site](https://www.telerik.com/blogs/building-html5-form-validation-bubble-replacements).  This link is really worth reading, as it presents different approaches and gives external references for those who would like to go further.
+
+
+#### Example that shows aggregation of error messages + overriding default behavior
+
+Try the [online example at JSBin](https://jsbin.com/povekur/1/edit?html,output), or try it here in your browser: enter invalid values and submit with one or two invalid fields. ([Local Example - Error Messages](src/5.7.5-example1.html))
+
+<div class="exampleHTML"><form class="myForm"><fieldset>
+<ul class="error-messages"></ul>
+<label for="name">Name:</label> <input name="name" id="name" required="" type="text">
+<p><label for="email">Email:</label> <input name="email" id="email" required="" type="email"></p>
+<p><button>Submit</button></p>
+</fieldset></form>
+<script>// <![CDATA[
+function replaceValidationUI(form) {
+                // Suppress the default bubbles
+                form.addEventListener("invalid", function (event) {
+                    event.preventDefault();
+                }, true);
+
+                // Support Safari, iOS Safari, and the Android browser—each of which do not prevent
+                // form submissions by default
+                form.addEventListener("submit", function (event) {
+                    if (!this.checkValidity()) {
+                        event.preventDefault();
+                    }
+                });
+
+                // Container that holds error messages. By default it has a CSS display:none property
+                var errorMessages = form.querySelector(".error-messages");
+
+                var submitButton = form.querySelector("button:not([type=button]), input[type=submit]");
+
+                submitButton.addEventListener("click", function (event) {
+                    var invalidFields = form.querySelectorAll("input:invalid"),
+                            listHtml = "",
+                            errorMessagesContainer = form.querySelector(".error-messages"),
+                            label;
+
+                    // Get the labels' values of their name attributes + the validation error
+                    // message of the corresponding input field using the validationMessage
+                    // property of input fields
+                    // We build a list of <li>...</li> that we add to the error message container
+                    for (var i = 0; i < invalidFields.length; i++) {
+                        label = form.querySelector("label[for=" + invalidFields[ i ].id + "]");
+                        listHtml += "<li>" +
+                                label.innerHTML +
+                                " " +
+                                invalidFields[ i ].validationMessage +
+                                "</li>";
+                    }
+
+                    // Update the list with the new error messages
+                    errorMessagesContainer.innerHTML = listHtml;
+
+                    // If there are errors, give focus to the first invalid field and show
+                    // the error messages container by setting its CSS property display=block
+                    if (invalidFields.length > 0) {
+                        invalidFields[ 0 ].focus();
+                        errorMessagesContainer.style.display = "block";
+                    }
+                });
+            }
+
+            // Replace the validation UI for all forms
+            var forms = document.querySelectorAll("form");
+          
+            for (var i = 0; i < forms.length; i++) {
+                replaceValidationUI(forms[ i ]);
+            }
+// ]]></script>
+</div>
+
+Complete source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">Aggregating error messages</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;style&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">:</span><span class="pln">valid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">:</span><span class="pln">required </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid red</span><span class="pun">;}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;input</span><span class="pun">:</span><span class="pln">optional </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid green</span><span class="pun">;}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">error</span><span class="pun">-</span><span class="pln">messages </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;display</span><span class="pun">:</span><span class="pln"> none</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">10px</span><span class="pln"> </span><span class="lit">15px</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">8px</span><span class="pln"> </span><span class="lit">35px</span><span class="pln"> </span><span class="lit">8px</span><span class="pln"> </span><span class="lit">30px</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#B94A48;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#F2DEDE;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid </span><span class="com">#EED3D7;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4px</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;fieldset </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding</span><span class="pun">:</span><span class="lit">20px</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;form&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;fieldset&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;legend&gt;Submit with one or two&nbsp;invalid&nbsp;fields&lt;/legend&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag"></span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"error-messages"</span><span class="tag">&gt;&lt;/ul&gt;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="tag"></span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;</span><span class="pln">Name:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;p&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">Email:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;p&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;button&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;/fieldset&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> replaceValidationUI</span><span class="pun">(</span><span class="pln">form</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Suppress the default bubbles</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; form</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"invalid"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Support Safari, iOS Safari, and the Android browser — each of which </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp;// do not prevent&nbsp;</span><span style="color: #880000; line-height: 28.4444465637207px; background-color: #eeeeee;">form submissions by default</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;form</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"submit"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">checkValidity</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">});</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Container that holds error messages. By default it has a CSS </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp;// display:none property</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> errorMessages </span><span class="pun">=</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">".error-messages"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> submitButton </span><span class="pun">=</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"button:not([type=button]), </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; input[type=submit]"</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;submitButton</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"click"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> invalidFields </span><span class="pun">=</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"input:invalid"</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var listHtml </span><span class="pun">=</span><span class="pln"> </span><span class="str">""<span style="color: #666600;" color="#666600">;</span></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var errorMessagesContainer </span><span class="pun">=</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">".error-messages"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var label</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Get the labels' values of their name attributes + the validation error</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// message of the corresponding input field using the validationMessage</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// property of input fields</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// We build a list of &lt;li&gt;...&lt;/li&gt; that we add to the error message container</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> invalidFields</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label </span><span class="pun">=</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"label[for="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> invalidFields</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">].</span><span class="pln">id </span><span class="pun">+</span><span class="pln"> </span><span class="str">"]"</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;listHtml </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;li&gt;"</span><span class="pln"> </span><span class="pun">+</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;invalidFields</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">].</span><span class="pln">validationMessage </span><span class="pun">+</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">"&lt;/li&gt;"</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Update the list with the new error messages</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;errorMessagesContainer</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> listHtml</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// If there are errors, give focus to the first invalid field and show</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// the error messages container by setting its CSS property display=block</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">invalidFields</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; invalidFields</span><span class="pun">[</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">].</span><span class="pln">focus</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; errorMessagesContainer</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">display </span><span class="pun">=</span><span class="pln"> </span><span class="str">"block"</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">});</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Replace the validation UI for all forms</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> forms </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"form"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> forms</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;replaceValidationUI</span><span class="pun">(</span><span class="pln">forms</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ _Line 32_: we added an empty unnumbered list (`<ul>`...`</ul>`) to the form, with the CSS class="error-messages". We will use this class attribute for styling, and hiding by default, the error messages using CSS (see _lines 12-20_, _line 13_ hides the messages by default).
++ _Lines 97-102_ look at all forms in the document and call a function that will replace the default validation behavior for all of them: the `replaceValidationUI(form)` function.
++ This function first disables all default behavior (no more display of bubbles during form submission), this is done at _lines 45-57_.
++ _Line 66_: we add a `click` listener to the submit button of the current form.
++ _Line 67_ gets all invalid input fields for that form,
++ _Lines 76-83_: For each invalid field, we get the value of the name attribute of the corresponding label, we also get the validation error message, and we build a list item(`<li>`...`</li>`).
++ _Line 86_: Then we add this list element (a formatted error message corresponding to an invalid input field) to the error message container.
++ _Lines 90-93_: The focus is given to the first invalid field that shows an error message.
 
 
  
