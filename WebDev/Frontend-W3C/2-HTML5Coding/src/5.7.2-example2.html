@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS3 pseudo-classes for form validation visual feedback</title>
+<style>
+.myForm input:focus {
+   padding-right:70px;
+}
+  .myForm input {
+    transition: padding .25s;
+}
+  
+.myForm input:required:valid { background:url('http://i.imgur.com/BJolppS.png') no-repeat right top;
+}
+.myForm input:required {
+  background:url('http://i.imgur.com/7pIN7wz.png') no-repeat right top;
+}
+  
+  fieldset {
+ border:1px solid;
+ padding:20px;
+ }
+ .formLabel { display: inline-block; width: 140px; text-align: right; } 
+</style>
+  </head>
+<body>
+
+<form class="myForm">
+  <fieldset>
+    <legend>Type invalid values and see the result</legend>
+  <label for="myEmail" class="formLabel">E-mail:</label> <input type="email" id="myEmail" required/><br>
+     <label for="myURL" class="formLabel">Homepage (URL):</label> <input type="url" id="myURL" required/><br>
+     <label for="myPhone" class="formLabel">Phone number:</label> <input type="phone" id="myPhone" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" placeholder="e.g. 416-555-1234" required/><br>
+    <button>Submit form</button><br />
+  </fieldset>
+</form>
+  <p>
+  Note1: you may play with the CSS styling for the required and invalid pseudo classes.<p>
+  Note2: old browsers and Safari (as in June 2015) will need a polyfill for proper results.<p> 
+  See: <ul>
+<li><a href="http://www.useragentman.com/blog/2012/05/17/cross-browser-styling-of-html5-forms-even-in-older-browsers/" target="_blank">Cross Browser Styling of HTML5 Forms &mdash; Even In Older Browsers</a></li>
+<li><a href="http://www.useragentman.com/blog/2010/07/27/creating-cross-browser-html5-forms-now-using-modernizr-webforms2-and-html5widgets-2/" target="_blank">Creating Cross Browser HTML5 Forms Now, Using modernizr, webforms2 and html5Forms</a></li>
+
+</ul>
+</body>
+</html>
+
