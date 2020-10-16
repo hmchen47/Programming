@@ -83,6 +83,48 @@
     + [Cross Browser Styling of HTML5 Forms — Even In Older Browsers](https://tinyurl.com/ccyho8c)
     + [Creating Cross Browser HTML5 Forms Now, Using modernizr, webforms2 and html5Forms](https://tinyurl.com/c9omt6n)
 
++ [Javascript form validation](#573-javascript-form-validation-api)
+  + allowing developers to use their own validation algorithm and customize error messages
+  + together w/ some HTML/CSS/JavaScript to make own message bubbles
+  + example: password checking
+
+    ```html
+    <form class="myForm">
+      <fieldset>
+        <legend>Example use of the validation API</legend>
+        <label for="password1" >Password:</label> <input type="password" id="password1" oninput="checkPasswords()" required>
+        <p>
+        <label for="password2">Repeat password:</label> <input type="password" id="password2" oninput="checkPasswords()" required>
+        <p>
+        <button>Submit</button>
+      </fieldset>
+    </form>
+
+    <script>
+    function checkPasswords() {
+      var password1 = document.getElementById('password1');
+      var password2 = document.getElementById('password2');
+      if (password1.value != password2.value) {
+        password2.setCustomValidity('Passwords non identiques');
+      } else {
+          password2.setCustomValidity('');
+        }
+      }
+    </script>
+    ```
+
+    + `setCustomValidity()` method:
+      + syntax: `selectElt.setCustomValidity(string);`
+      + allow developers to customize error messages
+      + empty string: valid element
+      + non-empty string: invalid field and valuation error message displayed in the bubble
+    + input event listeners: call `checkPasswords()` function when typing
+      + `<label for="password1" >Password:</label> <input type="password" id="password1" oninput="checkPasswords()" required>`
+      + `<label for="password2">Repeat password:</label> <input type="password" id="password2" oninput="checkPasswords()" required>`
+    + get the input fields' values: `var password1 = document.getElementById('password1'); var password2 = document.getElementById('password2');`
+    + set the validity of the field using the validation API's method `setCustomValidity(error_message)`
+
+
 
 
 
