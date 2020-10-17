@@ -13,7 +13,7 @@
     + using the `<fieldset>` and `<legend>` elements to respectively group and associate related form controls
   + [importance of accessibility](#532-why-is-this-important)
     + cognitive disability: better understand the form & how to complete it
-    + speech input: using labels via voice commands to activate controls and move the focus tot he field
+    + speech input: using labels via voice commands to activate controls and move the focus to the field
     + limit dexterity: large clickable areas
     + screen reader: identify and understand form controls more easily
 
@@ -36,7 +36,7 @@
     + label element w/ `for` attribute: `<label for="first_name">Your First Name</label>`
     + input element w/ id: `<input id="first_name" type="text" name="fname"/>`
   + e.g., nesting labels and inputs elements: `<label for="first_name"><span lang=en">Your First Name</span> <input id="first_name" type="text" name="fname"/> </label>`
-  + checkbox: `<input type="checkbox" name="subscribe" id="subscribe">`
+  + checkbox: `<input type="checkbox" name="subscribe" id="subscribe">` 
 
 + [Label button](#labeling-buttons)
   + label of a `<button>` element: set inside the element and include markup
@@ -59,16 +59,16 @@
 
     ```html
     <fieldset>
-    <legend>Output format</legend>
-    <div>
-    <input type="radio" name="format" id="txt" value="txt" checked>
-    <label for="txt">Text file</label>
-    </div>
-    <div>
-    <input type="radio" name="format" id="csv" value="csv">
-    <label for="csv">CSV file</label>
-    </div>
-    […]
+      <legend>Output format</legend>
+      <div>
+        <input type="radio" name="format" id="txt" value="txt" checked>
+        <label for="txt">Text file</label>
+      </div>
+      <div>
+        <input type="radio" name="format" id="csv" value="csv">
+        <label for="csv">CSV file</label>
+      </div>
+      […]
     </fieldset>
     ```
   
@@ -76,12 +76,12 @@
 
     ```html
     <fieldset>
-    <legend>I want to receive</legend>
-    <div>
-    <input type="checkbox" name="newsletter" id="check_1">
-    <label for="check_1">The weekly newsletter</label>
-    </div>
-    […]
+      <legend>I want to receive</legend>
+      <div>
+         <input type="checkbox" name="newsletter" id="check_1">
+        <label for="check_1">The weekly newsletter</label>
+      </div>
+      […]
     </fieldset>
     ```
 
@@ -89,9 +89,6 @@
     + WAI-ARIA providing a grouping role that functions similarly to `fieldset` and `legend`
     + the `div` element has `role=group` to indicate that the contained elements are members of a group and the `aria-labelledby` attribute references the `id` for text
     + e.g., `<div role="group" aria-labelledby="shipping_head">...</div>` & `<div role="group" aria-labelledby="billing_head">..</div>`
-
-
-
 
 
 
