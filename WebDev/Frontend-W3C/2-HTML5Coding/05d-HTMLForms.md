@@ -6,6 +6,9 @@
 
 ### 5.4.0 Lecture Notes
 
++ Ref: [`<input>` types](https://tinyurl.com/yxud45vl)
+
+ 
 + [`color` type for `<input>` element](#542-color)
   + typical use: `<input type="color" value="#FF00FF"/>`
   + example: changing background color
@@ -26,9 +29,7 @@
       + specification not saying anything about how to position it over the page
       + vendor specific
       + web components: a new approach for designing HTML5 widgets proposed by the W3C
-
-+ [`<input>` types](https://tinyurl.com/yxud45vl)
-
+ 
 + [`date` type of `<input>` element](#543-date)
   + HTML5 providing a special control to handle date and time pickers in HTML forms
   + desktop applications: Web developers would sometimes prefer 100% control over the look and feel of the date picker widget
@@ -47,17 +48,17 @@
     + `list` attribute of the `input` element must match the `id` attribute of the datalist element
     + example
 
-    ```js
-    <input type="date"
-        id="birthdayParty"
-        list="birthdayPartyPossibleDates"
-        value="2015-06-20">
-    <datalist id="birthdayPartyPossibleDates">
-        <option label="Best for me">2015-06-20</option>
-        <option label="Ok for me too ">2015-06-27</option>
-        <option label="This one is a sunday, hmmm">2015-06-28</option>
-    </datalist>
-    ```
+      ```js
+      <input type="date"
+          id="birthdayParty"
+          list="birthdayPartyPossibleDates"
+          value="2015-06-20">
+      <datalist id="birthdayPartyPossibleDates">
+          <option label="Best for me">2015-06-20</option>
+          <option label="Ok for me too ">2015-06-27</option>
+          <option label="This one is a sunday, hmmm">2015-06-28</option>
+      </datalist>
+      ```
 
   + [changing date/time and others](#responding-to-date-changes-trying-datetime-and-other-variants)
     + `date` type: <input type="date" id="date" />
@@ -78,20 +79,20 @@
           pastFuture.innerHTML = "<b>Date in the past, ok!</b>"
       } else {
           pastFuture.style.color = 'red';
-            pastFuture.innerHTML = "<b>Date in the future, you're not even born!</b>"
+          pastFuture.innerHTML = "<b>Date in the future, you're not even born!</b>"
       }
       ```
 
 + [email type](#input-typeemail)
-  + HTML syntax: `<input type="email">`
+  + syntax: `<input type="email">`
   + mobile applications: pop up a keyboard layout adapted to email input
   + default validation behaviors
     + `:valid` pseudo CSS class: the value entered looks like an email address (contains a "@"...)
     + `:invalid` pseudo CSS class: value entered not containing an "@" or not looking like an email address
-  + CSS `:invalid` pseudo code: `input:invalid { background-color:pink; }`
+  + e.g.,  `input:invalid { background-color:pink; }`
 
 + [tel type](#input-typetel)
-  + HTML syntax: `<input type="tel">`
+  + syntax: `<input type="tel">`
   + useful on smartphones and tablets
   + making the browser pop up a keyboard layout suitable for entering phone numbers
   + used with the new `placeholder` and `pattern` attributes
@@ -115,21 +116,22 @@
 
     ```js
     <body>
-    <label for="url1">Enter a URL (default validation):</label>
-    <input type="url" id="url1"/>
-    <p>
-    <label for="url2">Enter a URL (custom validation, must start with http, https or ftp):</label>
-        <input id="url2" type="url" placeholder="https://www.domain.com"
-              pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"/><p>
+      <label for="url1">Enter a URL (default validation):</label>
+      <input type="url" id="url1"/>
+      <p>
+        <label for="url2">Enter a URL (custom validation, must start with http, https or ftp):</label>
+          <input id="url2" type="url" placeholder="https://www.domain.com"
+          pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"/>
+      <p>
     </body>
     ```
 
     + `pattern` attribute with a JavaScript regexp that accepts only URLs starting with http, https or ftp
 
 + [search type](#input-typesearch)
-  + HTML syntax: `<input type="search">`
+  + syntax: `<input type="search">`
   + used for search fields (i.e., for a search engine)
-  + behaves like a regular text field
+  + behave like a regular text field
   + probably providing some feedback GUI for stopping the current request and emptying the search field
   + probably providing a drop-down list of recent search results
   + specification not stated what the GUI should look like
@@ -138,7 +140,7 @@
     ```html
     <label for="search1">Simple search: </label>
     <input type=search id="search1">
-    <p>
+ 
     <label for="search2">Search with attribute <code>results=5</code> (try with Safari): </label>
     <input type=search id="search2" results=5>
     ```
@@ -178,7 +180,7 @@
         ```
 
 + [range type](#546-range)
-  + syntax: `<input type="number">`
+  + syntax: `<input type="range">`
   + render as a slider
   + attributes: `min`, `max`, `step` and `value`
   + typical usage: `<input id="slider6" type="range" min="0" max="10" step="2" value="5">`
@@ -207,8 +209,8 @@
 + [`step` attribute w/ `range` type](#snapping-behavior-and-the-step-attribute)
   + click and drag the slider: "jump" to some snap points corresponding to the integer values of the range defined by the `min` and `max` attributes
   + size of the jumps: depend on the value of the step attribute
-  + step attribute with an integer value: make the slider jump corresponding to the step value
-  + default: omitting the step attribute is equivalent to `step="1"`
+  + `step` attribute with an integer value: make the slider jump corresponding to the step value 
+  + default: omitting the `step` attribute is equivalent to `step="1"`
   + float values: use `step="any"`, or step equal to a floating point value, such as `step="0.5"`
 
 + [slider ticks w/ `details` attribute](#adding-ticks-to-the-range-slider-using-a-datalist-element)
