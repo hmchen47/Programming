@@ -14,10 +14,10 @@
     + `for`: a space-separated list containing the elements' ids whose values went into the calculation.
     + `name`: the name of the element.
     + `form`: associate the `<output>` element w/ its form owner
-      + The value must be the `id` of a form in the same document
+      + the value must be the `id` of a form in the same document
       + place an `<output>` element outside of the `<form>` w/ which it is associated
   + example: perform multiplication
-
+ 
     ```html
     <form oninput="o.value=a.value*b.value">
         <input type="number" name="a" id="a" value="2"> x
@@ -49,7 +49,7 @@
     + to highlight the relevance of a query result
     + the fraction of a voting population that favours a particular candidate, etc.
   + used w/ the `<input type="range">` field as an instant feedback indicator
-  + not be used to indicate progress, using a `<progress>` element instead
+  + not used to indicate progress, using a `<progress>` element instead
   + typical usage: `<meter value=75 min=0 low=20 high=80 max=100 optimum=50></meter>`
     + using the easy-to-understand value, `min`, `max`, `low`, `high` and `optimum` attributes
     + `optimum` attribute along w/ `min`, `low`, `high` and `max` attributes
@@ -61,7 +61,7 @@
     + Range 3: between `high` and `max`
 
       <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        <img style="margin:  0.1em; padding-top: 0.5em; width: 30vw;"
           onclick="window.open('https://tinyurl.com/y5wqfrhe')"
           src    ="https://tinyurl.com/yxrdyljn"
           alt    ="an image visualizing the regions"
@@ -99,12 +99,12 @@
   + similar to `<meter>`
   + typical usage: `<progress id=pr value=50 min=0 max=100>`
   + calculate the percentage corresponding to the `value`, `min` and `max` attributes
-  + adjusts the length of the progress bar accordingly
+  + adjust the length of the progress bar accordingly
   + no value attribute: the progress bar displaying an "indeterminate look"
   + example
 
     ```html
-    Download progress: <progress id=pr value=100 min=0 max=1000></progress>
+    Download pro gress: <progress id=pr value=100 min=0 max=1000></progress>
     <script>
       var i=0;
       setInterval(function () {
