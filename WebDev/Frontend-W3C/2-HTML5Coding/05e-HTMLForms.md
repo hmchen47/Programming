@@ -8,16 +8,16 @@
 
 + [HTML5 form attributes](https://tinyurl.com/j7gv3y6)
 
-+ [form attribute](#552-form)
++ [form element](#552-form)
   + useful for putting input fields outside the form itself
-  + useful when using `<fieldset>` elements for making the page/form layout easier
+  + useful when using `<fieldset>` elements for making the page/form layout easier 
   + sharing the same value as the `id` of the form the field belongs to
-  + Typical use:
+  + typical use:
 
     ```html
     <label for="yourName">Enter your name:</label>
     <input type="text" id="yourName" name="yourName" form="form1"/>
-    <p>
+
     <form id="form1" action="sumit.php" method="post">
       <fieldset>
         <legend>Choose option</legend>
@@ -32,13 +32,13 @@
 
 + [autocomplete attribute](#553-autocomplete)
   + apply either to the `<form>` element or on individual `<input>` elements
-  + input fields autocompleting the user's input based on the user's typing history
+  + input fields auto-completing the user's input based on the user's typing history
   + possible values: `on`/`off`
   + applied to the `<form>` element
     + all input fields attached to the form (inside or linked to it using the form attribute)
     + auto-completion set by default to the value of the `autocomplete` attribute of the form
   + default behavior able to be overridden by setting it individually to any input field inside
-  + autocomplete "on" for the form, and "off" for specific input fields, or vice-versa
+  + auto-complete "on" for the form, and "off" for specific input fields, or vice-versa
   + disabled by default in some Web browsers $\to$ adjusted in the preferences/settings
   + target most input types
   + example: `<form submit="test.php" method="post" autocomplete="on">`
@@ -46,23 +46,23 @@
 + [autofocus attribute](#554-autofocus)
   + useful for transferring the focus to a field other than the first field in a page/form
   + default: the first input field w/ the focus
-  + not more than one element in the document w/ the `autofocus` attribute specified
-  + use of the `autofocus` attribute: put the focus on the second input field of the page
+  + no more than one element in the document w/ the `autofocus` attribute specified
+  + use of the `autofocus` attribute: put the focus on the specific input field of the page
   + `required` attribute: make the input field invalid if kept empty
-  + example: 
+  + example:
 
     ```html
     <form>
-        ...
-        <input type="text" id="test"/><p>
-        ...
-        <input id="name" name="inputName"
-              placeholder="6 to 9 chars please..."
-              pattern="\w{6,9}"
-              required
-              autofocus
-              type="text"/>
-        ...
+      ...
+      <input type="text" id="test"/><p>
+      ...
+      <input id="name" name="inputName"
+        placeholder="6 to 9 chars please..."
+        pattern="\w{6,9}"
+        required
+        autofocus
+        type="text"/>
+      ...
     </form>
     ```
 
@@ -91,12 +91,11 @@
        <option value="Safari">
     </datalist>
     ```
-+ Reference: [Methods of regular expressions in JavaScript](https://tinyurl.com/y22np4b5)
 
 + [pattern attribute](#556-pattern)
   + enables the validation of the user's input on the fly (also at submission time)
   + based on regular expressions
-  + apply to the `text`, `search`, `url`, `tel`, `email`, and `password` input types
+  + apply to the `text`, `search`, `url`, `tel`, `email`  and `password` input types
   + ref: [Categories of HTML5 Pattern](http://html5pattern.com/)
   + a `pattern` attribute w/ a value: the JavaScript regular expression matching the entire string entered in the field
   + the empty string valid by default, except if the required attribute used
@@ -148,7 +147,7 @@
           max="2013-01-01"
           value="2012-01-01"
     />
-    
+
     <input name="time" id="time" type="time"
             min="09:00"
             max="17:00"
@@ -187,8 +186,10 @@
 
     ```html
     <form action="defaultAction.php">
-      <label for="givenName">Given name:</label> <input type="text" name="givenName" id="givenName"><br>
-      <label for="familyName">Family name:</label> <input type="text" name="familyName" id="familyName"><br>
+      <label for="givenName">Given name:</label> 
+      <input type="text" name="givenName" id="givenName"><br>
+      <label for="familyName">Family name:</label> 
+      <input type="text" name="familyName" id="familyName"><br>
       <input type="submit" value="Submit"><br>
       <input type="submit" formaction="otherAction.php" value="Submit to another URL than default">
     </form>
@@ -211,11 +212,11 @@
 + [formtarget attribute](#5512-formtarget)
   + targeted to the `<input type="submit">` input fields
   + possible values:
-    + `_blank`: the response is displayed in a new window or tab
-    + `_self`: the response is displayed in the same frame (this is default)
-    + `_parent`: the response is displayed in the parent frame
-    + `_top`: the response is displayed in the full body of the window
-    + `framename`: the response is displayed in a named iframe
+    + `_blank`: the response displayed in a new window or tab
+    + `_self`: the response displayed in the same frame (this is default)
+    + `_parent`: the response displayed in the parent frame
+    + `_top`: the response displayed in the full body of the window
+    + `framename`: the response displayed in a named iframe 
   + rarely used
   + value indicating where the response from the form submission should be displayed
   + typical usage:
@@ -227,6 +228,7 @@
 
 + [formenctype attribute](#5513-formenctype)
   + the `enctype` attribute of the `<form>` element
+  + form data set encoding type to use for form submission
   + used together with forms containing file input fields
   + using `"multipart"` forms for sending files to a remote server
   + example: `<form action="default.php" method="post" enctype="multipart/form-data">`
@@ -239,6 +241,8 @@
     + `multipart/form-data`: encoding not done, using this value for submitting binary data such as images, files, etc.
     + `text/plain`: encoding done on standard characters like space
 
+
++ Reference: [Methods of regular expressions in JavaScript](https://tinyurl.com/y22np4b5)
 
 
 
