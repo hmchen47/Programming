@@ -47,22 +47,22 @@
       var location = localStorage.location;
       ```
 
-  + [Cookies & Web Storage](#differences-with-cookies)
-    + main difference: limits
-    + cookie:
-      + a popular way to store key-value pairs
-      + cookies limited to a few KBytes
-      + generate additional HTTP request traffic: request a Web page, an image, a stylesheet, a JavaScript file, etc.
-      + not used for storage
-      + sent with every HTTP request
-      + storing anything more than a small amount of data
-      + significantly increasing the size of every web request
-      + limited to only strings
-    + Web Storage: a more powerful technique than cookies
-      + Web Storage extended to several MBytes
-      + objects managed no longer carried on the network and HTTP
-      + easily accessible (read, change and delete) from JavaScript
-      + using the Web Storage API
++ [Cookies & Web Storage](#differences-with-cookies)
+  + main difference: limits
+  + cookie:
+    + a popular way to store key-value pairs
+    + cookies limited to a few KBytes
+    + generate additional HTTP request traffic: request a Web page, an image, a stylesheet, a JavaScript file, etc.
+    + not used for storage
+    + sent with every HTTP request
+    + storing anything more than a small amount of data
+    + significantly increasing the size of every web request
+    + limited to only strings
+  + Web Storage: a more powerful technique than cookies
+    + Web Storage extended to several MBytes
+    + objects managed no longer carried on the network and HTTP
+    + easily accessible (read, change and delete) from JavaScript
+    + using the Web Storage API
 
 
 
@@ -149,7 +149,83 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
 + From MDN's Web Docs: [Web Storage API](https://tinyurl.com/m7apsg2)
 
 
+### 6.2.2 Example 1
 
+You can start filling this form and come back another day and complete it. It doesn't matter if you closed your browser before coming back. The form never loses what you entered, even if you reload the page, or press "backspace" by mistake. __This form auto saves/restores its content.__
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y56ul3qd')"
+    src    ="https://tinyurl.com/y2gfb6f7"
+    alt    ="form screenshot, a form that saves/restores its content as we type"
+    title  ="form screenshot, a form that saves/restores its content as we type"
+  />
+</figure>
+
+In this example, we use the most simple way to use `localStorage`:
+
++ __Save with the localStorage.key = value syntax.__ For example, `localStorage.firstName = 'Michel'` will save the value "Michel" with the access key being 'firstName'
++ __Restore with the var value = localStorage.key syntax.__ For example, `var fn = localStorage.firstName;` will set fn with the value 'Michel' if this value has been previously saved as in the example from the line above.
+
+
+#### Saving the form content on the fly
+
+Open this [online example at JSBin](https://jsbin.com/zezudo/edit?html,output), and use F12 or cmd-alt-i (Mac OS) to look at the dev. tools. As you type in the different input fields, their content is updated in the `localStorage`. ([Local Example - Saving Contents](src/6.2.2-example1.html))
+
+We just added input event listeners to each input field. For example, in order to save the first name input field's content, we just added:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">oninput</span><span class="pun">=</span><span class="str">"localStorage.<span style="color: #ff0000;">firstName</span>=this.value;"</span></li>
+</ol></div>
+
+Where `firstName` in red is the key and `this.value` the current value of the input field.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y56ul3qd')"
+    src    ="https://tinyurl.com/yxrw28md"
+    alt    ="As we are filing a form text input type, its content is saved in local storage. The image shows the httml coe of the input type, that as a oninput='localStorage.firstName = this.value". Devtools are open on the "Applications" tab and show the LocalStorage content. It has the same value as what has been typed in the form firstName field."
+    title  ="As we are filing a form text input type, its content is saved in local storage. The image shows the httml coe of the input type, that as a oninput='localStorage.firstName = this.value". Devtools are open on the "Applications" tab and show the LocalStorage content. It has the same value as what has been typed in the form firstName field."
+  />
+</figure>
+
+
+In the same way, we added an input listener to all the input fields in this example's form.
+
+
+#### Restoring the form content on page load/reload
+
+This time, we want the form content to be restored on page load/reload. We will add a `restoreFormContent()` function in the JavaScript code that will be called each time the page is loaded. In this function, we will read the saved data and set the input fields' values.
+
+[Complete example on JSBin](https://jsbin.com/zezudo/edit?js,output): enter data and press reload at any time. The form content is restored! ([Local Example - Restore Content](src/6.2.2-example2.html))
+
+Source code extract (only addition to the previous example):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Called when the page is loaded</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> restoreFormContent</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> restoreFormContent</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"restoring form content from localStorage"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">firstName </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"firstName"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">firstName</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">lastName </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"lastName"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">lastName</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">email </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"email"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">email</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">age </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"age"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">age</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.date</span><span class="pln">&nbsp;</span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"date"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">date</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+The tests at _lines 7, 10, 13, etc._, verify that data has been saved, before trying to restore it. Without these tests, it would put the "undefined" string as the value of input fields with no corresponding data to restore.
 
 
 
