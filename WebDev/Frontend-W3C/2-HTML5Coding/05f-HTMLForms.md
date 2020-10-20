@@ -127,10 +127,6 @@
 
 
 
-
-
-
-
 ### 5.6.1 HTML5 forms elements
 
 Let's look at the HTML5 elements related to forms (specifically: `<datalist>`, `<output>`, `<meter>`  and `<progress>` elements).
