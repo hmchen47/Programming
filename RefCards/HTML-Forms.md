@@ -742,12 +742,12 @@
 
 
 
-## Form element and attributes
+## Attributes of `<form>` element
 
 
-### form element
+### form attribute of `<input>` element
 
-+ [form element](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#552-form)
++ [form attribute of input element](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#552-form)
   + useful for putting input fields outside the form itself
   + useful when using `<fieldset>` elements for making the page/form layout easier 
   + sharing the same value as the `id` of the form the field belongs to
@@ -757,7 +757,7 @@
     <label for="yourName">Enter your name:</label>
     <input type="text" id="yourName" name="yourName" form="form1"/>
 
-    <form id="form1" action="sumit.php" method="post">
+    <form id="form1" action="submit.php" method="post">
       <fieldset>
         <legend>Choose option</legend>
         <label for="free">Free registering</label>
