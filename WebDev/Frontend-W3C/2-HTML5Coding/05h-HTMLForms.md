@@ -207,15 +207,15 @@ __Source code for the next question (4):__
 
 9. Please put me outside
 
-  The form attribute of input fields is useful for putting input fields outside the form itself. This form attribute should match the value of another attribute in the `<form>` element the input field belongs to. Which one?
+  The form attribute of input fields is useful for putting input fields _outside the form itself._ This `form` attribute should match the value of another attribute in the `<form>` element the input field belongs to. Which one?
 
   a. form<br/>
   b. for<br/>
   c. id<br/>
   d. name<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: c<br/>
+  Explanation: The `form` attribute of input fields is useful for putting input fields outside the form itself. The `form` attribute of an external input field must share the same value as the `id` of the form the field belongs to. The correct answer is `id`.
 
 
 __Source code for the next question (10):__
@@ -238,14 +238,16 @@ __Source code for the next question (10):__
 
   Suppose that the autocomplete feature has not been disabled in the browser preferences.
 
-  In the above code, what would you put instead of the red "?" at line 4, if we do not want the browser to complete the user's input based on the history of the user's previous input?
+  In the above code, what would you put instead of the red "?" _at line 4_, if we do not want the browser to complete the user's input based on the history of the user's previous input?
 
   a. We should add focus="off".<br/>
   b. We should add autocomplete="off",<br/>
   c. Nothing, the autocompletion is not automatically turned on,<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation:
+    + If applied to the `<form>` element, all input fields attached to the form (inside or linked to it using the form attribute), will have auto-completion set by default to the value of the autocomplete attribute of the form.
+    + This default behavior can be overriden by setting it individually to any input field inside. In other words: it is possible to have autocomplete "on" for the form, and "off" for specific input fields, or vice-versa
 
 
 11. Multiple focus...
@@ -254,8 +256,8 @@ __Source code for the next question (10):__
 
   Can we have more than one input field in a form with the `autofocus` attribute? (Yes/No)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: No<br/>
+  Explanation: Note: there cannot be more than one element in the document with the autofocus attribute specified! The second answer is "No".
 
 
 12. Match my datalist!
@@ -281,13 +283,13 @@ __Source code for the next question (10):__
   a. name<br/>
   a. list<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The value of the `list` attribute of the input field must match the value of the `id` of the `<datalist>` element.
 
 
 13. Give me the list!
 
-  Which of these HTML elements can have the list attribute? (3 correct answers)
+  Which of these HTML elements can have the `list` attribute? (3 correct answers)
 
   a. ul<br/>
   b. input type=date<br/>
@@ -296,8 +298,8 @@ __Source code for the next question (10):__
   e. input type=color<br/>
   f. input type=text<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: magenta;">bef</span>, xbde<br/>
+  Explanation: The `list` attribute is used with some input elements. In the above list, all proposed input types can have this attribute. Together with a `<datalist>` element, it can be used for autocompletion, or for restricting the proposed list of dates or colors.
 
 
 14. Why :// ???? Why not :!! or ::@ or :-)
@@ -318,8 +320,9 @@ __Source code for the next question (10):__
   c. Values that do not start with http, https or ftp, followed by any alphanumeric characters<br/>
   d. Values that start with http, https or ftp, followed by any alphanumeric characters<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: This example from the course accepts only values that start with http://, https:// or ftp://, followed by any alphanumeric characters.
+
 
 
 15. Do not spam me please!
@@ -332,8 +335,11 @@ __Source code for the next question (10):__
   b. A user can enter multiple email addresses separated by commas, and the field will be valid<br/>
   c. A user can enter multiple email addresses separated by one or more spaces - no commas - and the field will be valid<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: magenta;">b</span>, xa<br/>
+  Explanation: With the `<input type="email">`, the multiple attribute allows us to enter a set of addresses separated by commas, instead of just a single address. Entering several addresses will keep the input field valid.
+
+
+
 
 
 
