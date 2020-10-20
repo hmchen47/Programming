@@ -77,7 +77,8 @@ As stated in the grading policy page, the following 23 questions count towards 1
 
 
 
-Source code for the next question (4):
+__Source code for the next question (4):__
+
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
@@ -201,6 +202,138 @@ Source code for the next question (4):
     + Answer 1 is also correct, the min attribute plays a role in the type of the input element's value: if min is a floating point value, and even if step is an integer, then the value of the input field will be a float. Example: min=0.4 step=1 will give 0.4, 1.4, 2.4 etc. Try with [this JS Bin example](http://jsbin.com/vowudo/edit?html,output).
 
 
+
+### 5.8.4 Form attributes (9-15)
+
+9. Please put me outside
+
+  The form attribute of input fields is useful for putting input fields outside the form itself. This form attribute should match the value of another attribute in the `<form>` element the input field belongs to. Which one?
+
+  a. form<br/>
+  b. for<br/>
+  c. id<br/>
+  d. name<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+__Source code for the next question (10):__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">submit</span><span class="pun">=</span><span class="atv">"test.php"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"post"</span><span class="pln"> </span><strong><span class="atn">autocomplete</span><span class="pun">=</span><span class="atv">"on"</span></strong><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;</span><span class="pln">Enter your address</span><span class="pln">:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"<span color="#000000" style="color: #000000;">&nbsp;<span style="color: #ff0000;"><strong>?</strong></span></span></span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address1"</span><span class="tag">&gt;</span><span class="pln">Enter your address</span><span class="pln">:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address1"</span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;<span color="#000088" style="color: #000088;">&nbsp; &nbsp;...</span></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
+10. Complete auto repair
+
+  Suppose that the autocomplete feature has not been disabled in the browser preferences.
+
+  In the above code, what would you put instead of the red "?" at line 4, if we do not want the browser to complete the user's input based on the history of the user's previous input?
+
+  a. We should add focus="off".<br/>
+  b. We should add autocomplete="off",<br/>
+  c. Nothing, the autocompletion is not automatically turned on,<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+11. Multiple focus...
+
+  The `autofocus` attribute is useful for putting the focus to another field other than the first in a page/form (default behavior = the first input field has the focus).
+
+  Can we have more than one input field in a form with the `autofocus` attribute? (Yes/No)
+
+  Ans: <br/>
+  Explanation: 
+
+
+12. Match my datalist!
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick="window.open('https://tinyurl.com/y5usqoxn')"
+      src    ="https://tinyurl.com/y5w4c3c4"
+      alt    ="combo bow with autocompletion"
+      title  ="combo bow with autocompletion"
+    />
+  </figure>
+
+  <pre>&lt;input list="browsers" id="mybrowser"/&gt;
+  &lt;datalist ...&gt;
+  ...
+  &lt;/datalist&gt;
+  </pre>
+
+  The `list` attribute of the input field must match an attribute of the corresponding `datalist` element in order to make the local autocompletion work. Which one?
+
+  a. id<br/>
+  a. name<br/>
+  a. list<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+13. Give me the list!
+
+  Which of these HTML elements can have the list attribute? (3 correct answers)
+
+  a. ul<br/>
+  b. input type=date<br/>
+  c. li<br/>
+  d. form<br/>
+  e. input type=color<br/>
+  f. input type=text<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+14. Why :// ???? Why not :!! or ::@ or :-)
+
+  <pre>&lt;input
+      id="website"
+      name="url"
+      type="url"
+      placeholder="http://www.domain.com"
+      title="http, https or ftp allowed"
+      pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"
+  /&gt;</pre>
+
+  Which sort of input will make the above input field valid?
+
+  a. Values that do not start with http://, https:// or ftp://, followed by any alphanumeric characters<br/>
+  b. Values that start with http://, https:// or ftp://, followed by any alphanumeric characters<br/>
+  c. Values that do not start with http, https or ftp, followed by any alphanumeric characters<br/>
+  d. Values that start with http, https or ftp, followed by any alphanumeric characters<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+15. Do not spam me please!
+
+  <pre>&lt;input type="email" name="myemail" <b>multiple</b>&gt;</pre>
+
+  What does the multiple attribute mean here?
+
+  a. A user can enter multiple email addresses separated by commas, with the same suffix. For example, values such as "michel@buffa.com, john@buffa.com" will make the field valid but "michel@buffa.com and john@smith.com" will not be valid<br/>
+  b. A user can enter multiple email addresses separated by commas, and the field will be valid<br/>
+  c. A user can enter multiple email addresses separated by one or more spaces - no commas - and the field will be valid<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
