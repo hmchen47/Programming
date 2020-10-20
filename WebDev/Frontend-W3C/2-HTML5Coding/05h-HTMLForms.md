@@ -340,6 +340,51 @@ __Source code for the next question (10):__
 
 
 
+### 5.8.5 Elements related to forms (16-18)
+
+16. A * B = C
+
+  <pre>&lt;form oninput="o.value=a.value*b.value"&gt;
+      &lt;input type="number" name="a" id="a" value="2"&gt; x
+      &lt;input type="number" name="b" id="b" value="3"&gt; =
+      &lt;output <b style="color:red;">for="a b"</b> name="o"&gt;6&lt;/output&gt;
+  &lt;/form&gt;
+  </pre>
+
+  Is the above code correct? (Yes/No)
+
+  Ans: 
+
+
+17. Find the element
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick="window.open('https://tinyurl.com/y6akl5km')"
+      src    ="https://tinyurl.com/y49nr9xx"
+      alt    ="small progress blue bar"
+      title  ="small progress blue bar"
+    />
+  </figure>
+
+  Which HTML5 element has been designed to show progress: download progress etc?
+
+  a. input type="range"<br/>
+  b. progress<br/>
+  c. meter<br/>
+
+  Ans: 
+
+
+
+18. Give me ticks
+
+  The `<datalist>` element, when used with `<input type=range>`, is useful for?
+
+  a. Adding ticks to the slider bar<br/>
+  a. autocompletion<br/>
+
+  Ans: 
 
 
 
