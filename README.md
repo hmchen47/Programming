@@ -58,7 +58,7 @@ Contents
 
 ### Web Design
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
   <tr style="border-bottom: double black;">
     <th style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
@@ -73,7 +73,7 @@ Contents
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Info </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#tags-elelemnts-and-attributes-of-html"> Tags, Elements & <br/>Attributes </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#tags-elements-and-attributes-of-html"> Tags, Elements & <br/>Attributes </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#template"> Template </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#useful-references-tool-links"> References & Tools </a></td>
   </tr>
