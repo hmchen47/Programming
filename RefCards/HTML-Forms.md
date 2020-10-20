@@ -740,6 +740,8 @@
     + MDN's Web Docs: [`<input type=range>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
 
 
+
+
 ## Form element and attributes
 
 
@@ -832,6 +834,13 @@
   + useful for several input types: `number`, `range`, `date` and `time`
   + `min` and `max` attributes: used to set ranges to input fields that accept numerical values or a date/time
 
++ [optimum attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05f-HTMLForms.md#563-meter)
+  + color of the gauge changes depending on the attribute's values
+  + indicating the optimal numeric value
+  + an indication where along the range is considered preferable
+  + depending on the value set to optimum attribute, one of the ranges above becomes the "good (optimum)" range
+
+
 
 ### multiple attribute
 
@@ -906,6 +915,161 @@
     + `multipart/form-data`: encoding not done, using this value for submitting binary data such as images, files, etc.
     + `text/plain`: encoding done on standard characters like space
 
+
+## form related elements and attributes
+
+
+### output tag
+
++ [&lt;output&gt; tag](../WebDev/Frontend-W3C/2-HTML5Coding/05f-HTMLForms.md#562-output)
+  + syntax: `<output name="x" for="a b"></output>`
+  + represent the result of a computation or user action
+  + `oninput` event handler of `<form>` element directly uses the `<output>` element using the value of its `name` attribute
+  + element & attributes
+    + `for`: a space-separated list containing the elements' ids whose values went into the calculation.
+    + `name`: the name of the element.
+    + `form`: associate the `<output>` element w/ its form owner
+      + the value must be the `id` of a form in the same document
+      + place an `<output>` element outside of the `<form>` w/ which it is associated
+  + example: perform multiplication
+  + example: perform addition w/ slide bar
+
+
+### meter tag
+
++ [&lt;meter&gt; tag](../WebDev/Frontend-W3C/2-HTML5Coding/05f-HTMLForms.md#563-meter)
+  + display colored bars to represent numeric values
+    + to display a colored gauge to show disk usage
+    + to highlight the relevance of a query result
+    + the fraction of a voting population that favours a particular candidate, etc.
+  + used w/ the `<input type="range">` field as an instant feedback indicator
+  + not used to indicate progress, using a `<progress>` element instead
+  + typical usage: `<meter value=75 min=0 low=20 high=80 max=100 optimum=50></meter>`
+    + using the easy-to-understand value, `min`, `max`, `low`, `high` and `optimum` attributes
+    + `optimum` attribute along w/ `min`, `low`, `high` and `max` attributes
+    + the constraint `min < low < high < max` respected
+    + affecting the color of the bar
+  + the `<meter>` ranges
+    + Range 1: between `min` and `low`
+    + Range 2: between `low` and `high`
+    + Range 3: between `high` and `max`
+
+
+
+### progress tag
+
+
++ [&lt;progress&gt; tag](../WebDev/Frontend-W3C/2-HTML5Coding/05f-HTMLForms.md#564-progress)
+  + used for progress bars (i.e., the percentage of a file being uploaded, etc.)
+  + similar to `<meter>`
+  + typical usage: `<progress id=pr value=50 min=0 max=100>`
+  + calculate the percentage corresponding to the `value`, `min` and `max` attributes
+  + adjust the length of the progress bar accordingly
+  + no value attribute: the progress bar displaying an "indeterminate look"
+
+
+### datalist tag
+
++ [`<datalist>` tag](../WebDev/Frontend-W3C/2-HTML5Coding/05f-HTMLForms.md#565-datalist)
+  + useful for linking a list of choices to an input element
+  + input fields for restricting the value set proposed
+    + restricted set of colors or possible dates
+    + displaying slider ticks
+  + used in a more general way, for providing client-side auto-completion w/o the need to use JavaScript
+  + the `id` of the `<datalist>` must match the value of the list attribute in the input field
+  + able to be shared by several input fields
+  + `list` attribute matching the `id` of the `datalist` element
+  + `input` field related to the `datalist` proposing auto-completion based on `<datalist>` values
+
+
+
+
+## Visual Feedback
+
++ [Visual feedback](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#572-automatic-visual-feedback-while-typing)
+  + most modern browsers proposing default behavior for validating input fields and forms
+  + built-in validation system: HTML5 automatically add a CSS pseudo class to all input fields
+  + invalid fields: inherit the `:invalid` pseudo class
+  + valid fields: inherit the `:valid` pseudo class
+  + improving your HTML form
+    + adding some CSS rules to input fields
+    + adding visual feedback to the validity of input field values, e.g.,
+      + changing the color of the border of input fields
+      + green/red icons on the right of the field
+    + submitting the form: extra messages displayed as pop up text bubbles
+      + default: providing default feedback on the input field's border
+      + overridden by CSS rules
+  + __best practice__: ALWAYS provide default CSS rules that give visual feedback to the user's input
+  + example: styling "required", "valid" and "invalid" fields 
+  + example: adding CSS transition & icon/marker to the right of the input field
+
+
+## title attribute
+
++ [`title` attribute for customized message](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#use-the-title-attribute-for-specifying-a-custom-message)
+  + simply using the input's title attribute to provide a message for pattern-mismatches
+  + more generally for all validation errors
+  + really neat and no JavaScript required
+  + e.g., `<input type="email" id="myEmail" title="You don't know what an email address looks like, do you?" required/><br>`
+  + browser dependent:
+    + Chrome & Opera: display the `title` attribute value in error message bubbles
+    + Safari and FireFox: ignore the `title` attribute
+  + references:
+    + [Cross Browser Styling of HTML5 Forms — Even In Older Browsers](https://tinyurl.com/ccyho8c)
+    + [Creating Cross Browser HTML5 Forms Now, Using modernize, webforms2 and html5Forms](https://tinyurl.com/c9omt6n)
+ 
+
+
+ ## JavaScript form validation API
+
++ [Javascript form validation](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#573-javascript-form-validation-api)
+  + allowing developers to use their own validation algorithm and customize error messages
+  + together w/ some HTML/CSS/JavaScript to make own message bubbles
+  + example: password checking
+
++ [validity property](#574-the-validity-property-of-input-fields)
+  + error details when the field is invalid
+  + test the different types of validation error
+  + typical usage: `var validityState_object = input.validity;`
+  + possible values
+    + `valueMissing`
+    + `typeMismatch`
+    + `patternMismatch`
+    + `tooLong`
+    + `rangeUnderflow`
+    + `rangeOverflow`
+    + `stepMismatch`
+    + `valid`
+    + `customError`
+
++ [validationMessage property](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#the-validationmessage-property)
+  + the validation error messag
+  + useful for making custom error messages
+  + typical usage: `console.log("Validation message = " + input.validationMessage);`
+
++ [Customized validation](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#575-changing-the-default-behavior)
+  + changing the default behavior, aggregating error messages, removing bubbles, etc.
+  + browser built-in validation
+    + powerful technique to enhance HTML forms
+    + provide interesting features
+    + criticized by Web developers
+      + not 100% complete, in particular, IE & Safari
+      + not possible to aggregate error message, showing error bubble next to the first invalid
+      + unable to style bubbles
+  + validate API
+    + providing enough power to make own validation behavior
+    + overridden the default when necessary
+    + ref: [Building HTML5 Form Validation Bubble Replacements](https://tinyurl.com/yy85v45z)
+  + example: aggregation of error messages + overriding default behavior
+    + add an empty unnumbered list (`<ul>`...`</ul>`) to the form in style: `<ul class="error-messages"></ul>`
+    + use this class attribute for styling, and hiding by default, the error messages using CSS,: `.error-messages { display: none; ...}`
+    + replace the validation UI for all forms via calling `replaceValidationUI(form)` function in JavaScript
+    + disable all default behavior
+    + add a click listener to the submit button: `submitButton.addEventListener("click", function (event) {...}`
+    + get all invalid input fields for that form: `var invalidFields = form.querySelectorAll("input:invalid");`
+    + get the value of the name attribute of the corresponding label from each invalid field & build a list of `<li>`...`</li>` to the error message container
+    + update the list with the new error messages: `errorMessagesContainer.innerHTML = listHtml;`
+    + give focus to the first invalid field and show the error messages container by setting its CSS property `display=block`
 
 
 
