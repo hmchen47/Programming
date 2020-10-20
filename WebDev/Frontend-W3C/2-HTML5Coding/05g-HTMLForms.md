@@ -154,7 +154,7 @@
     }
     ```
 
-+ [validationMessage property](the-validationmessage-property)
++ [validationMessage property](#the-validationmessage-property)
   + the validation error messag
   + useful for making custom error messages
   + typical usage: `console.log("Validation message = " + input.validationMessage);`
@@ -176,7 +176,7 @@
     + add an empty unnumbered list (`<ul>`...`</ul>`) to the form in style: `<ul class="error-messages"></ul>`
     + use this class attribute for styling, and hiding by default, the error messages using CSS,: `.error-messages { display: none; ...}`
     + replace the validation UI for all forms via calling `replaceValidationUI(form)` function in JavaScript: 
-
+ 
       ```js
       var forms = document.querySelectorAll("form"); 
       for (var i = 0; i < forms.length; i++) {
@@ -211,7 +211,7 @@
           listHtml += "<li>" + label.innerHTML + " " + invalidFields[i].validationMessage + "</li>";
       }
       ```
-     
+
     + update the list with the new error messages: `errorMessagesContainer.innerHTML = listHtml;`
     + give focus to the first invalid field and show the error messages container by setting its CSS property `display=block`
 
