@@ -62,8 +62,138 @@ As stated in the grading policy page, the following 23 questions count towards 1
 
 
 
+### 5.8.3 Input types (3-8)
+
+3. Only 3 colors in the French flag!
+
+  With `<input type="color">`, it is possible (on browsers that support it) to offer a restricted set of color choices. How do we achieve this?
+
+  a. It is not possible, as this input field pops up the color chooser widget of the native operating system.<br/>
+  b. By using a datalist element associated to the input field.<br/>
+  c. By using the color attribute.<br/>
+  
+  Ans: <br/>
+  Explanation: 
 
 
+
+Source code for the next question (4):
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of date picker</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"birthDate"</span><span class="tag">&gt;</span><span class="pln">Enter your birth date: </span><span class="tag">&lt;/label&gt;&lt;p&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"birthDate"</span><span class="pln"> </span><span class="tag">&gt;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> You picked: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"pickedDate"</span><span class="tag">&gt;&lt;/span&gt;&lt;p&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"pastFuture"</span><span class="tag">&gt;&lt;/span&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> field </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#birthDate"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#pickedDate"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> pastFuture </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#pastFuture"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> field</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> date </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;pickedDate</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;"</span><span class="pun">+</span><span class="pln">date</span><span class="pun">+</span><span class="str">"&lt;/b&gt;"</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.<strong>AAAAAAAAAAA</strong></span><span class="pln">&nbsp;</span><span class="pun">&lt;=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;pastFuture</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;pastFuture</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;Date in the past, ok!&lt;/b&gt;"</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; pastFuture</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; pastFuture</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;Date in the future, you're not even born!&lt;/b&gt;"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+4. Back to the future
+
+  To check whether a selected date is in the past or in the future, what property should we test? Please enter below the exact name of the property you should put at line 23 instead of __AAAAAAAAAAA__ (11 characters. Be careful: type the exact name with lower and upper case at the right places).
+
+  Ans: <br/>
+  Explanation: 
+
+
+5. HTML5 or not?
+
+  Which of these input field types have been introduced with HTML5? (5 correct answers)
+
+  a. text<br/>
+  b. search<br/>
+  c. url<br/>
+  d. file<br/>
+  e. email<br/>
+  f. tel<br/>
+  g. password<br/>
+  h. range<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+6. 35 = 7 x 5
+
+  <pre>&lt;input type="number" value="25" min="0" step="5" max="500"/&gt;</pre>
+
+  In the above code if we enter the value 7, will this make the field invalid? (Yes/No)
+
+  Ans: <br/>
+  Explanation: 
+
+
+7. Show me your value
+
+  <pre>&lt;input id="slider1" type="range"
+        min="100" max="500" step="10" value="150"
+        oninput="printValue('slider1','rangeValue1')"/&gt;
+     &lt;<b style="color:red">?</b> for="slider1" id="rangeValue1"&gt;&lt;/<b style="color:red">?</b>&gt;
+  </pre>
+
+  Which new element introduced by HTML5 is often used to display the value of an `<input type="range">` element? Which element name would you put instead of the red "?" in the above code?
+
+
+  a. p<br/>
+  b. div<br/>
+  c. output<br/>
+  d. span<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+8. Floating point range
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick="window.open('https://tinyurl.com/y6p74dyg')"
+      src    ="https://tinyurl.com/y6nsftkf"
+      alt    ="example of input type equal range with float value displayed"
+      title  ="example of input type equal range with float value displayed"
+    />
+  </figure>
+
+  <pre>&lt; input type="range" min=? max=? value=? step=? /&gt;</pre>
+
+  <legend id="9f9ab7ecbfe140c2b93ec5ba7f30c844_2_1-legend" class="response-fieldset-legend field-group-hd"><input type="range"> can have a floating point value when we move the slider if...</legend>
+
+  can have a floating point value when we move the slider if... (3 correct answers)
+
+  a. The min attribute has a floating point value, even if the step attribute value is an integer,<br/>
+  b. The step attribute is defined with step="any" or step=any,<br/>
+  c. The step attribute has a floating point value, for example step="0.1",<br/>
+  d. The value attribute is a floating point value, even if the value of the step attribute, and of the min attribute are integer values.<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
