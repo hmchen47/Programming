@@ -598,7 +598,7 @@
       + vendor specific
       + web components: a new approach for designing HTML5 widgets proposed by the W3C
  
- 
+
 ### date / time related types
 
 + [`date` type of `<input>` element](../WebDev/Frontend-W3C/2-HTML5Coding/05d-HTMLForms.md#543-date)
@@ -738,6 +738,173 @@
     + use CSS for "standard" styling: [CSS tricks](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
     + automatically generates ticks: [Auto-Generated HTML5 range input Ticks](https://codepen.io/dudleystorey/pen/Klnzy)
     + MDN's Web Docs: [`<input type=range>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
+
+
+## Form element and attributes
+
+
+### form element
+
++ [form element](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#552-form)
+  + useful for putting input fields outside the form itself
+  + useful when using `<fieldset>` elements for making the page/form layout easier 
+  + sharing the same value as the `id` of the form the field belongs to
+  + typical use:
+
+    ```html
+    <label for="yourName">Enter your name:</label>
+    <input type="text" id="yourName" name="yourName" form="form1"/>
+
+    <form id="form1" action="sumit.php" method="post">
+      <fieldset>
+        <legend>Choose option</legend>
+        <label for="free">Free registering</label>
+        <input type="checkbox" id="free"/>
+        <label for="premium">Premium</label>
+        <input type="checkbox" id="premium"/>
+        <button type="submit">Send form</button>
+      </fieldset>
+    </form>
+    ```
+
+### autocomplete attribute
+
++ [autocomplete attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#553-autocomplete)
+  + apply either to the `<form>` element or on individual `<input>` elements
+  + input fields auto-completing the user's input based on the user's typing history
+  + possible values: `on`/`off`
+  + applied to the `<form>` element
+    + all input fields attached to the form (inside or linked to it using the form attribute)
+    + auto-completion set by default to the value of the `autocomplete` attribute of the form
+  + default behavior able to be overridden by setting it individually to any input field inside
+  + auto-complete "on" for the form, and "off" for specific input fields, or vice-versa
+  + disabled by default in some Web browsers $\to$ adjusted in the preferences/settings
+  + target most input types
+  + example: `<form submit="test.php" method="post" autocomplete="on">`
+
+
+### autofocus attribute
+
++ [autofocus attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#554-autofocus)
+  + useful for transferring the focus to a field other than the first field in a page/form
+  + default: the first input field w/ the focus
+  + no more than one element in the document w/ the `autofocus` attribute specified
+  + use of the `autofocus` attribute: put the focus on the specific input field of the page
+  + `required` attribute: make the input field invalid if kept empty
+
++ [Boolean attributes syntax](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#note-about-boolean-attributes-syntax)
+  + Boolean attributes: `autofocus`, `required`, `optional`, etc.
+  + true value: presence of a Boolean attribute
+  + false value: the absence of the attribute represent
+  + able to either write `autofocus="autofocus"`, or just use the attribute name `"autofocus"` without setting a value
+
+
+### list attribute
+
++ [list attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#555-list)
+  + working together w/ the new `<datalist>` element
+  + value matching the `id` of a `<datalist>` element
+  + useful for providing local auto-completion to some input fields
+  + restricting the possible values on some others like `<input type=date>` or `<input type=color>`
+  + click inside the field or use the the drop down menu
+  + entering any value: not start w/ one of these letters accepted but not trigger auto-completion
+  + typical usage: the value of the `list` attribute of the `input` field must match the one of the `id` of the `<datalist>` element
+
+
+### pattern attribute
+
++ [pattern attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#556-pattern)
+  + enables the validation of the user's input on the fly (also at submission time)
+  + based on regular expressions
+  + apply to the `text`, `search`, `url`, `tel`, `email`  and `password` input types
+  + ref: [Categories of HTML5 Pattern](http://html5pattern.com/)
+  + a `pattern` attribute w/ a value: the JavaScript regular expression matching the entire string entered in the field
+  + the empty string valid by default, except if the required attribute used
+  + __best practice:__ systematically add a `title` attribute with a value that indicates what constitutes a valid entry
+  + example: 3-letter country code
+  + example: mixing several other attributes with the pattern attribute
+  + example: `<input type="url">` element with a pattern attribute
+
+
+### min, max, step and optimum attributes
+
++ [min, max, and step attributes](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#557-min-max-and-step)
+  + useful for several input types: `number`, `range`, `date` and `time`
+  + `min` and `max` attributes: used to set ranges to input fields that accept numerical values or a date/time
+
+
+### multiple attribute
+
++ [multiple attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#558-multiple)
+  + used with email and file input types
+  + a Boolean attribute
+  + different syntax possibilities
+    + `<input type="email|file" multiple>`
+    + `<input type="email|file" multiple="multiple">`
+    + `<input type="email|file" multiple="">`
+  + typical usage w/ email: `<input type="email" name="myemail" title="you can enter multiple emails addresses, separated by a comma" multiple>`
+    + enabling the user to enter a set of addresses
+    + separated by a comma instead of a single address to enter several addresses keep the input field valid
+  + __best practice__: add a `title` attribute indicating what you expect as a valid entry
+  + typical usage w/ file: `<input type=file multiple>`
+    + able to choose multiple files
+    + w/o the multiple attribute, select only one file
+    + using the standard key modifiers (shift, control, command) for selecting multiple files
+
+
+### formaction, formmethod, formvaliate, formtarget, formenctype attributes
+
++ [formaction and formmethod attributes](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#5510-formaction-and-formmethod)
+  + targeted to the `<input type="submit">` input fields
+  + rarely used
+  + typical usage: `<input type="submit" formaction="preview.php" formmethod="get" value="Preview">`
+  + `formaction` attribute:
+    + the action attribute value of the form overridden
+    + form submitted to the URL / value of the `<input type="submit">` field
+  + `formmethod` attribute
+    + the same with the `POST/GET method` attribute of the form
+    + override the value of the `method` attribute of the form
+    + e.g., `<input type="submit" formaction="preview.php" formmethod="get" value="Preview">`
+  + example: submit to the default URL
+
++ [formnovalidate attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#5511-formnovalidate)
+  + targeted to the `<input type="submit">` input fields
+  + rarely used
+  + allowing the submission of a form even if it contains invalid fields
+  + example: not filled $\to$ a form w/ `<input type="email">` field or a field `required`
+  + forms w/ two submit buttons: one w/ the `formnovalidate` attribute set to a non null value and one w/o
+
++ [formtarget attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#5512-formtarget)
+  + targeted to the `<input type="submit">` input fields
+  + possible values:
+    + `_blank`: the response displayed in a new window or tab
+    + `_self`: the response displayed in the same frame (this is default)
+    + `_parent`: the response displayed in the parent frame
+    + `_top`: the response displayed in the full body of the window
+    + `framename`: the response displayed in a named iframe 
+  + rarely used
+  + value indicating where the response from the form submission should be displayed
+  + typical usage:
+
+    ```html
+    <input type="submit" formtarget="_blank"
+        value="Submit but show results in a new window/tab">
+    ```
+
++ [formenctype attribute](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#5513-formenctype)
+  + the `enctype` attribute of the `<form>` element
+  + form data set encoding type to use for form submission
+  + used together with forms containing file input fields
+  + using `"multipart"` forms for sending files to a remote server
+  + example: `<form action="default.php" method="post" enctype="multipart/form-data">`
+  + an attribute of the `<input type="submit" enctype=...>` element
+  + when submitted using `method=POST`, the browser will send the form content encoded with the method specified by the `formenctype` attribute
+  + overriding the value of the `enctype` attribute specified in the `<form enctype=...>` element
+  + typical usage: `<input type="submit" formenctype="multipart/form-data" value="Submit as Multipart/form-data">`
+  + possible values
+    + `application/x-www-form-urlencoded`: all characters escaped/encoded before submission
+    + `multipart/form-data`: encoding not done, using this value for submitting binary data such as images, files, etc.
+    + `text/plain`: encoding done on standard characters like space
 
 
 
