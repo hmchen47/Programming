@@ -390,6 +390,117 @@ __Source code for the next question (10):__
   Explanation: The `<datalist>` element can be used to display ticks when used together with an `<input type=range>`. See [this example at JS Bin](http://jsbin.com/xeravi/1/edit).
 
 
+### 5.8.6 Form validation API (19-23)
 
+__Source code for the next 2 questions (19 and 20):__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">CSS3 pseudo-classes for form validation visual feedback</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;style&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong></span><strong><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;}</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong></span><strong><span class="pun">:</span><span class="pln">valid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong></span><strong><span class="pun">:</span><span class="pln">required </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid red</span><span class="pun">;}</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong></span><strong><span class="pun">:</span><span class="pln">optional </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid green</span><span class="pun">;}</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;fieldset </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding</span><span class="pun">:</span><span class="lit">20px</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">formLabel </span><span class="pun">{</span><span class="pln"> display</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">inline</span><span class="pun">-</span><span class="pln">block</span><span class="pun">;</span><span class="pln"> width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">140px</span><span class="pun">;</span><span class="pln"> text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> right</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/style&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;form&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;fieldset&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;legend&gt;</span><span class="pln">Type invalid values and see the result</span><span class="tag">&lt;/legend&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"myEmail"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"formLabel"</span><span class="tag">&gt;</span><span class="pln">E-mail:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><strong><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myEmail"</span><span class="pln"> </span><strong><span class="atn">required</span></strong><span class="tag">/&gt;&lt;br&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"myURL"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"formLabel"</span><span class="tag">&gt;</span><span class="pln">Homepage (URL):</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><strong><span class="atn">type</span><span class="pun">=</span><span class="atv">"url"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myURL"</span><span class="pln"> </span><strong><span class="atn">required</span></strong><span class="tag">/&gt;&lt;br&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"myPhone"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"formLabel"</span><span class="tag">&gt;</span><span class="pln">Phone number:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><strong><span class="atn">type</span><span class="pun">=</span><span class="atv">"phone"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myPhone"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>pattern</strong></span><strong><span class="pun">=</span><span class="atv">"[0-9]{3}-?[0-9]{3}-?[0-9]{4}"</span></strong><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder</span><span class="pun">=</span><span class="atv">"e.g. 416-555-1234"</span><span class="pln"> </span><strong><span class="atn">required</span></strong><span class="tag">/&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;br&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;button&gt;</span><span class="pln">Submit form</span><span class="tag">&lt;/button&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/fieldset&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
+19. To submit or not to submit, that is the question...
+
+  If we enter incorrect values in multiple input fields and submit this form, what will happen?
+
+  a. the form will not be submitted without any error message<br/>
+  b. The form will not be submitted, a text bubble will appear next to the first invalid field of the form, showing an error message that explains why the field is invalid<br/>
+  c. The form will be submitted, and all invalid form fields will show error bubbles<br/>
+
+  Ans: 
+
+
+
+20. Change this color
+
+  If we enter invalid entries in several input fields of this form, what will happen?
+
+  a. Input fields will change their background color only when the form is submitted. The invalid fields will have a light pink background color while the valid ones will have a light green background color<br/>
+  b. The invalid fields will have a light pink background color while the valid ones will have a light green background color. Colors will change on the fly, as the user is typing<br/>
+  c. Only the first invalid field will have a light pink background color<br/>
+
+  Ans:
+
+
+21. Additional error messages
+
+  Errors in form input fields may be displayed in small bubbles. Which input field attribute can be used to add additional text to the default error messages?
+
+  a. no attribute can do that<br/>
+  b. title<br/>
+  c. error<br/>
+
+  Ans:
+
+
+22. Bubble style
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick="window.open('https://tinyurl.com/y5mqxm3q')"
+      src    ="https://tinyurl.com/y4lzxvs2"
+      alt    ="3 different error message in bubbles"
+      title  ="3 different error message in bubbles"
+    />
+  </figure>
+
+  Is there a standard way to style - using CSS - the look'n'feel of the error message bubbles? (Yes/No)
+
+  Ans;
+
+
+23. Custom validation
+
+  <pre>&lt;script&gt;
+    function checkPasswords() {
+        var password1 = document.getElementById('password1');
+        var password2 = document.getElementById('password2');
+        if (password1.value != password2.value) {
+            <b style="color:red">password2.?('Passwords do not match!');</b>
+        } else {
+          <b style="color:red">password2.?('');</b>
+        }
+    }
+  &lt;/script&gt;
+  </pre>  
+
+  The HTML5 validation API proposes a method available on input DOM objects. This method allows you to customize error messages displayed in the bubbles that pop up when a field is invalid.
+
+  What is the name of this method? look at the bold red lines in the source code above...
+
+  a. setCustomValidity<br/>
+  b. setError<br/>
+  c. error<br/>
+
+  Ans: 
 
 
