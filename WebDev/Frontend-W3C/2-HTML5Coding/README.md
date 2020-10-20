@@ -63,9 +63,9 @@
 
 ## Week 6: HTML5 Basic APIs
 
-+ 6.1 [Video introduction - Week 6](./05-BasicAPIs.md#)
-+ 6.2 [The Web Storage API](./05-BasicAPIs.md#)
-+ 6.3 [The File API](./05-BasicAPIs.md#)
-+ 6.4 [The Geolocation API](./05-BasicAPIs.md#)
-+ 6.5 [Final exam](./05-BasicAPIs.md#)
++ 6.1 [Video introduction - Week 6](./06a-BasicAPIs.md)
++ 6.2 [The Web Storage API](./06b-BasicAPIs.md)
++ 6.3 [The File API](./06c-BasicAPIs.md)
++ 6.4 [The Geolocation API](./06d-BasicAPIs.md)
++ 6.5 [Final exam](./06e-BasicAPIs.md)
  
