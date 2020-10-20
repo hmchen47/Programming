@@ -1,7 +1,7 @@
 # HTML Forms
 
 
-## Reference of Form elements
+## MDN: Form elements
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 55vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms">Elements of Forms</a></caption>
@@ -73,7 +73,7 @@
 
 
 
-## Reference: HTML Form Tags
+## JavaTPoint: HTML Form Tags
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 50vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.javatpoint.com/html-form#h5o-3">HTML Form Tags</a></caption>
@@ -575,6 +575,20 @@
 
 ## Input types
 
+### Input Element
+
++ [`<input>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+  + used to create interactive controls for web-based forms in order to accept data from the user
+  + facilitate user to input data and communicate with a website or application
+  + w/ a wide variety of types of input data and control widgets
+  + one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes
+  + considerably depending on the value of its type attribute
+  + default type: text
+  + [points to remember](https://www.javatpoint.com/html-input-tag)
+    + using the input element within the form element to declare input control that allow user to enter data
+    + empty, containing attributes only and no need of an end tag in HTML
+    + using the label element with each input tag o define labels for input element
+
 
 ### color type
 
@@ -861,7 +875,7 @@
     + using the standard key modifiers (shift, control, command) for selecting multiple files
 
 
-### formaction, formmethod, formvaliate, formtarget, formenctype attributes
+### formaction, formmethod, formnovaliate, formtarget, formenctype attributes
 
 + [formaction and formmethod attributes](../WebDev/Frontend-W3C/2-HTML5Coding/05e-HTMLForms.md#5510-formaction-and-formmethod)
   + targeted to the `<input type="submit">` input fields
