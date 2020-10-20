@@ -27,7 +27,7 @@ This week, we will look at some of the most useful APIs. Others will be covered 
 
 + __The "Web Storage" API, sort of "super cookies", for storing pairs of key/values client side.__ This API is useful for enabling Web sites to save/restore their state, or for writing serverless applications. You will see a small contact manager that stores its data locally, without the need for a remote Web server.
 + __The File API, that enables Web applications to work with local files.__ For example, a picture editor, or media player that can work with your music and video files - the ones on your phone or your hard disk! With this API you will also be able to preview image files directly in your page - there is no need to send them to a remote server.
-+ __you are here signThe Geolocation API for obtaining data such as longitude, latitude, altitude (when available), and speed.__ You will learn how to write applications in combination with interactive maps. You will also learn how to guess the address of a user, for example for pre-filling a registration form with the city, country, and zip code that corresponds with the current location.
++ __The Geolocation API for obtaining data such as longitude, latitude, altitude (when available), and speed.__ You will learn how to write applications in combination with interactive maps. You will also learn how to guess the address of a user, for example for pre-filling a registration form with the city, country, and zip code that corresponds with the current location.
 
 Happy learning!
 
