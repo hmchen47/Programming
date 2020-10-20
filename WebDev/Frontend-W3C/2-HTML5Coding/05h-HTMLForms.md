@@ -43,7 +43,9 @@ As stated in the grading policy page, the following 23 questions count towards 1
   c. Version 3<br/>
   d. Version 4<br/>
 
-  Ans:
+  Ans: b<br/>
+  Explanation: Version 2 does not follow good practices as the for attribute of the label is not present. It should always match the id attribute of the corresponding input field. All other versions are correct. The second answer is correct.
+
 
 
 2. Group me!
@@ -55,7 +57,12 @@ As stated in the grading policy page, the following 23 questions count towards 1
   c. legend<br/>
   d. table<br/>
   
-  Ans: 
+  Ans: a<br/>
+  Explanation: Out of these elements, only `fieldset` is useful for grouping form controls.
+
+
+
+
 
 
 
