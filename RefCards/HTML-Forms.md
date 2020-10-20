@@ -598,6 +598,7 @@
       + vendor specific
       + web components: a new approach for designing HTML5 widgets proposed by the W3C
  
+ 
 ### date / time related types
 
 + [`date` type of `<input>` element](../WebDev/Frontend-W3C/2-HTML5Coding/05d-HTMLForms.md#543-date)
