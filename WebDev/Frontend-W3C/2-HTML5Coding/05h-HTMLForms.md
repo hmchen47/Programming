@@ -353,7 +353,8 @@ __Source code for the next question (10):__
 
   Is the above code correct? (Yes/No)
 
-  Ans: 
+  Ans: yes<br/>
+  Explanation: Indeed, the value of the `for` attribute in red might look strange, but it is correct. The specification says that the `for` attribute of an input field can get as value "a space-separated list containing the elements' ids whose values went into the calculation". The correct answer is "Yes".
 
 
 17. Find the element
@@ -373,7 +374,8 @@ __Source code for the next question (10):__
   b. progress<br/>
   c. meter<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: The `<progress>` element is similar to `<meter>` but it is used for progress bars (i.e., a percentage of a file being uploaded, etc.). Example: `<progress id=pr value=50 min=0 max=100>`
 
 
 
@@ -384,7 +386,8 @@ __Source code for the next question (10):__
   a. Adding ticks to the slider bar<br/>
   a. autocompletion<br/>
 
-  Ans: 
+  Ans: <span style="color: magenta;">a</span>, xb<br/>
+  Explanation: The `<datalist>` element can be used to display ticks when used together with an `<input type=range>`. See [this example at JS Bin](http://jsbin.com/xeravi/1/edit).
 
 
 
