@@ -69,11 +69,11 @@ As stated in the grading policy page, the following 23 questions count towards 1
   With `<input type="color">`, it is possible (on browsers that support it) to offer a restricted set of color choices. How do we achieve this?
 
   a. It is not possible, as this input field pops up the color chooser widget of the native operating system.<br/>
-  b. By using a datalist element associated to the input field.<br/>
+  b. By using a `datalist` element associated to the input field.<br/>
   c. By using the color attribute.<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: On browsers that support it, using a `<datalist>` with some `<option>` elements inside, it is possible to restrict the choice of colors and also to simplify the user interface, as explained in section 5.4.2 of the course.
 
 
 
@@ -118,8 +118,8 @@ Source code for the next question (4):
 
   To check whether a selected date is in the past or in the future, what property should we test? Please enter below the exact name of the property you should put at line 23 instead of __AAAAAAAAAAA__ (11 characters. Be careful: type the exact name with lower and upper case at the right places).
 
-  Ans: <br/>
-  Explanation: 
+  Ans: valueAsDate<br/>
+  Explanation: The correct property for getting the date value as a JavaScript object comparable with the current date - as returned by new Date() - is: `valueAsDate`
 
 
 5. HTML5 or not?
@@ -135,8 +135,9 @@ Source code for the next question (4):
   g. password<br/>
   h. range<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: bcefh<br/>
+  Explanation: `search`, `url`, `email`, `tel`, `range` are correct answers. Input fields of type text, file, password existed before html5. [Ref](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types)
+
 
 
 6. 35 = 7 x 5
@@ -145,8 +146,9 @@ Source code for the next question (4):
 
   In the above code if we enter the value 7, will this make the field invalid? (Yes/No)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: Yes<br/>
+  Explanation: The input field is valid only when multiples of the step value are entered. 7 is not a multiple of 5, so the field is invalid. The correct answer is "Yes" (the field is invalid).
+
 
 
 7. Show me your value
@@ -157,23 +159,23 @@ Source code for the next question (4):
      &lt;<b style="color:red">?</b> for="slider1" id="rangeValue1"&gt;&lt;/<b style="color:red">?</b>&gt;
   </pre>
 
-  Which new element introduced by HTML5 is often used to display the value of an `<input type="range">` element? Which element name would you put instead of the red "?" in the above code?
-
+  Which <strong<<u>new</u></strong> element introduced by HTML5 is often used to display the value of an `<input type="range">` element? Which element name would you put instead of the red "?" in the above code?
 
   a. p<br/>
   b. div<br/>
   c. output<br/>
   d. span<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: c<br/>
+  Explanation: The element introduced by HTML5, often used to display the value of a range attribute is... `<output>`! The other elements existed previously, before HTML5, and were not especially designed for displaying an input field's outputs.
+
 
 
 
 8. Floating point range
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    <img style=" margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick="window.open('https://tinyurl.com/y6p74dyg')"
       src    ="https://tinyurl.com/y6nsftkf"
       alt    ="example of input type equal range with float value displayed"
@@ -192,8 +194,14 @@ Source code for the next question (4):
   c. The step attribute has a floating point value, for example step="0.1",<br/>
   d. The value attribute is a floating point value, even if the value of the step attribute, and of the min attribute are integer values.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: magenta;">abc</span>, xbcd<br/>
+  Explanation: Answers 1, 2 and 3 are correct. 
+    + Answer 3 is correct: if the step attribute value is a float, then we can have a floating point value for the input field when the slider is moved. 
+    + Answer 2 is correct: with a value of "any", even if the min attribute is an integer, the value of the input field can be a float.
+    + Answer 1 is also correct, the min attribute plays a role in the type of the input element's value: if min is a floating point value, and even if step is an integer, then the value of the input field will be a float. Example: min=0.4 step=1 will give 0.4, 1.4, 2.4 etc. Try with [this JS Bin example](http://jsbin.com/vowudo/edit?html,output).
+
+
+
 
 
 
