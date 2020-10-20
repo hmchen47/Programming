@@ -436,7 +436,8 @@ __Source code for the next 2 questions (19 and 20):__
   b. The form will not be submitted, a text bubble will appear next to the first invalid field of the form, showing an error message that explains why the field is invalid<br/>
   c. The form will be submitted, and all invalid form fields will show error bubbles<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: The form will not be submitted, and only the first invalid field will show an error message in a small bubble. Safari is the only exception, as of June 2015. We must use a polyfill with this browser if we want it to behave correctly.
 
 
 
@@ -448,7 +449,8 @@ __Source code for the next 2 questions (19 and 20):__
   b. The invalid fields will have a light pink background color while the valid ones will have a light green background color. Colors will change on the fly, as the user is typing<br/>
   c. Only the first invalid field will have a light pink background color<br/>
 
-  Ans:
+  Ans: <span style="color: magenta;">b</span>, xa<br/>
+  Explanation: As a user types, the input field will inherit the CSS pseudo classes `:invalid` or `:valid`. There is no need to submit the form, these CSS pseudo classes are added on the fly. As the source code of the example contains CSS rules for `input:valid` and `input:invalid`, the background color of the fields will change on the fly, as the user enters values.
 
 
 21. Additional error messages
@@ -459,7 +461,8 @@ __Source code for the next 2 questions (19 and 20):__
   b. title<br/>
   c. error<br/>
 
-  Ans:
+  Ans: b<br/>
+  Explanation: Adding a `title` attribute to input fields is good practice: it will display additional text in the message located in the small bubbles that will pop up when the field is invalid (after at least one submission of the form).
 
 
 22. Bubble style
@@ -475,7 +478,8 @@ __Source code for the next 2 questions (19 and 20):__
 
   Is there a standard way to style - using CSS - the look'n'feel of the error message bubbles? (Yes/No)
 
-  Ans;
+  Ans: No<br/>
+  Explanation: How can we change the style of the bubbles in a standard way, without using JavaScript? Unfortunately we can’t.
 
 
 23. Custom validation
@@ -501,6 +505,7 @@ __Source code for the next 2 questions (19 and 20):__
   b. setError<br/>
   c. error<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: The validity API proposes a `setCustomValidity()` method available on input DOM objects. This method allows you to customize error messages. It takes a string parameter. When this string is empty, the element is considered valid, when the string is not empty, the field is invalid and the validation error message displayed in the bubble will be equal to that string.
 
 
