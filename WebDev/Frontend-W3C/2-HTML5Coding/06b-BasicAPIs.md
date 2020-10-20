@@ -6,7 +6,63 @@
 
 ### 6.2.0 Lecture Notes
 
++ [Web Storage API](#621-the-web-storage-api)
+  + similar to HTTP session cookies
+  + two related mechanisms for storing structured data on the client side
+    + `sessionStorage`:
+      + erased when the tab/browser closed
+      + tab specific, and scoped to the lifetime of the tab
+      + useful for storing small amounts of session specific information
+      + used with caution: synchronous and blocking the main thread
+      + limited to about 5MB and containing only strings
+      + not accessible from web workers or service workers
+      + data never transferred to the server
+      + storage limit larger than a cookie
+    + `localStorage`:
+      + data remained until deleted
+      + avoided due to synchronous to block the main thread
+      + limited to about 5MB and containing only strings
+      + not accessible from web workers or service workers
+      + stored data w/o expiration date
+      + get cleared only through JavaScript, or clearing the Browser cache / Locally Stored Data
+      + storage limit: the maximum amongst the three
+  + main difference: data longevity
+  + key-value store for `localStorage`
+    + a simple key-value store
+    + the keys and values: strings
+    + only one store per domain
+    + same applies to `sessionStorage`
+    + functionality exposed through the globally available `localStorage` object
+    + example
 
+      ```js
+      // store data
+      localStorage.lastName = "Bunny";
+      localStorage.firstName = "Bugs";
+      localStorage.location = "Earth";
+
+      // retrieve data
+      var lastName = localStorage.lastName;
+      var firstName = localStorage.firstName;
+      var location = localStorage.location;
+      ```
+
+  + [Cookies & Web Storage](#differences-with-cookies)
+    + main difference: limits
+    + cookie:
+      + a popular way to store key-value pairs
+      + cookies limited to a few KBytes
+      + generate additional HTTP request traffic: request a Web page, an image, a stylesheet, a JavaScript file, etc.
+      + not used for storage
+      + sent with every HTTP request
+      + storing anything more than a small amount of data
+      + significantly increasing the size of every web request
+      + limited to only strings
+    + Web Storage: a more powerful technique than cookies
+      + Web Storage extended to several MBytes
+      + objects managed no longer carried on the network and HTTP
+      + easily accessible (read, change and delete) from JavaScript
+      + using the Web Storage API
 
 
 
@@ -28,7 +84,7 @@ For convenience, we will mainly illustrate the `localStorage` object. Just chang
 `localStorage` is a simple key-value store, in which the keys and values are strings. There is only one store per domain. This functionality is exposed through the globally available `localStorage` object. The same applies to `sessionStorage`.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick="window.open('https://tinyurl.com/y6nsroaz')"
     src    ="https://tinyurl.com/y5en4w7j"
     alt    ="key value pairs"
@@ -53,12 +109,12 @@ Example:
 <li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> location </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">location</span><span class="pun">;</span></li>
 </ol></div>
 
-This data is located in a store attached to the origin of the page. We created a [JSBin example in which we included the above code](https://jsbin.com/povuqa/1/edit). ([Local Example - key-value pair](src/6.2.1-example.html))
+This data is located in a store attached to the origin of the page. We created a [JSBin example in which we included the above code](https://jsbin.com/povuqa/1/edit). ([Local Example - key-value pair](src/6.2.1-example1.html))
 
 Once opened in your browser, the JavaScript code is executed. With the browser dev. tools, we can check what has been stored in the `localStorage` for this domain:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
     onclick="window.open('https://tinyurl.com/y6nsroaz')"
     src    ="https://tinyurl.com/y6gy7qzu"
     alt    ="example of localStorage"
@@ -70,7 +126,7 @@ Once opened in your browser, the JavaScript code is executed. With the browser d
 Here is a view of the devtools. In more recent versions of Google Chrome, the "Resources" tab is named "Applications":
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
     onclick="window.open('https://tinyurl.com/y6nsroaz')"
     src    ="https://tinyurl.com/y3hwnf95"
     alt    ="dev tools can be used to show what is in the local storage"
