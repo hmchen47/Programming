@@ -8,19 +8,19 @@
 
 + [Visual feedback](#572-automatic-visual-feedback-while-typing)
   + most modern browsers proposing default behavior for validating input fields and forms
-  + built-in validation system: HTML5 automatically adds a CSS pseudo class to all input fields
+  + built-in validation system: HTML5 automatically add a CSS pseudo class to all input fields
   + invalid fields: inherit the `:invalid` pseudo class
   + valid fields: inherit the `:valid` pseudo class
   + improving your HTML form
-    + add some CSS rules to input fields
-    + add visual feedback to the validity of input fields values, e.g.,
+    + adding some CSS rules to input fields
+    + adding visual feedback to the validity of input field values, e.g.,
       + changing the color of the border of input fields
       + green/red icons on the right of the field
     + submitting the form: extra messages displayed as pop up text bubbles
       + default: providing default feedback on the input field's border
       + overridden by CSS rules
   + __best practice__: ALWAYS provide default CSS rules that give visual feedback to the user's input
-  + example: styling "required', "valid" and "invalid" fields
+  + example: styling "required", "valid" and "invalid" fields 
 
     ```html
     <style>
@@ -45,7 +45,7 @@
         <label for="myPhone" class="formLabel">Phone number:</label> 
           <input type="tel" id="myPhone" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
           placeholder="e.g. 416-555-1234" required/><br>
-          <button>Submit form</button><br />
+          <button>Submit form</button><br/>
       </fieldset>
     </form>
     ```
@@ -71,23 +71,24 @@
     + `.myForm input` class: making the file animated
     + `.myForm input:required:valid` class: display a green icon if valid at a required input field
     + `.myForm input:required` class: display a red icon if invalid at a required input field
-  + [the `title` attribute for customized message](#use-the-title-attribute-for-specifying-a-custom-message)
-    + simply using the input's title attribute to provide a message for pattern-mismatches
-    + more generally for all validation errors
-    + really neat and no JavaScript required
-    + e.g., `<input type="email" id="myEmail" title="You don't know what an email address looks like, do you?" required/><br>`
-    + browser dependent:
-      + Chrome & Opera: display the `title` attribute value in error message bubbles
-      + Safari and FireFox: ignore the `title` attribute
+
++ [`title` attribute for customized message](#use-the-title-attribute-for-specifying-a-custom-message)
+  + simply using the input's title attribute to provide a message for pattern-mismatches
+  + more generally for all validation errors
+  + really neat and no JavaScript required
+  + e.g., `<input type="email" id="myEmail" title="You don't know what an email address looks like, do you?" required/><br>`
+  + browser dependent:
+    + Chrome & Opera: display the `title` attribute value in error message bubbles
+    + Safari and FireFox: ignore the `title` attribute
   + references:
     + [Cross Browser Styling of HTML5 Forms — Even In Older Browsers](https://tinyurl.com/ccyho8c)
-    + [Creating Cross Browser HTML5 Forms Now, Using modernizr, webforms2 and html5Forms](https://tinyurl.com/c9omt6n)
-
+    + [Creating Cross Browser HTML5 Forms Now, Using modernize, webforms2 and html5Forms](https://tinyurl.com/c9omt6n)
+ 
 + [Javascript form validation](#573-javascript-form-validation-api)
   + allowing developers to use their own validation algorithm and customize error messages
   + together w/ some HTML/CSS/JavaScript to make own message bubbles
   + example: password checking
-
+   
     ```html
     <form class="myForm">
       <fieldset>
@@ -95,8 +96,8 @@
         <label for="password1" >Password:</label> <input type="password" 
           id="password1" oninput="checkPasswords()" required>
         <p>
-        <label for="password2">Repeat password:</label> <input type="password" 
-          id="password2" oninput="checkPasswords()" required>
+          <label for="password2">Repeat password:</label>
+          <input type="password" id="password2" oninput="checkPasswords()" required>
         <p>
         <button>Submit</button>
       </fieldset>
@@ -175,7 +176,7 @@
     + add an empty unnumbered list (`<ul>`...`</ul>`) to the form in style: `<ul class="error-messages"></ul>`
     + use this class attribute for styling, and hiding by default, the error messages using CSS,: `.error-messages { display: none; ...}`
     + replace the validation UI for all forms via calling `replaceValidationUI(form)` function in JavaScript: 
-   
+
       ```js
       var forms = document.querySelectorAll("form"); 
       for (var i = 0; i < forms.length; i++) {
@@ -206,16 +207,12 @@
 
       ```js
       for (var i = 0; i < invalidFields.length; i++) {
-          label = form.querySelector("label[for=" + invalidFields[ i ].id + "]");
-          listHtml += "<li>" +
-                      label.innerHTML +
-                      " " +
-                      invalidFields[ i ].validationMessage +
-                      "</li>";
+          label = form.querySelector("label[for=" + invalidFields[i].id + "]");
+          listHtml += "<li>" + label.innerHTML + " " + invalidFields[i].validationMessage + "</li>";
       }
       ```
-    
-    + pdate the list with the new error messages: `errorMessagesContainer.innerHTML = listHtml;`
+     
+    + update the list with the new error messages: `errorMessagesContainer.innerHTML = listHtml;`
     + give focus to the first invalid field and show the error messages container by setting its CSS property `display=block`
 
       ```js
