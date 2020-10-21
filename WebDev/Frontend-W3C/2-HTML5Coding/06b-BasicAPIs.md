@@ -455,5 +455,106 @@ Source code:
 You can check in the Chrome dev. tools user interface that the content of the localStorage changes as you click on the buttons.
 
 
+### 6.2.4 Example 2
+
+Local stores are also useful for saving/restoring user preferences of Web Applications. For example, the JS Bin tool you have been using since the beginning of this course uses localStorage to store the list of tabs you open, and their width:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick="window.open('https://tinyurl.com/y6gqevet')"
+    src    ="https://tinyurl.com/y2lpkt43"
+    alt    ="example of preferences"
+    title  ="example of preferences"
+  />
+</figure>
+
+
+This way, the next time you come back to JSBin, "it will remember your last settings".
+
+Another example is a guitar FX processor / amp simulator your instructor is writing with some of his students. It uses localStorage to save/restore presets values:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y6gqevet')"
+    src    ="https://tinyurl.com/y5sgaxcy"
+    alt    ="guitar fx processor uses localStorage"
+    title  ="guitar fx processor uses localStorage"
+  />
+</figure>
+
+
+#### Save/restore preferences
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick="window.open('https://tinyurl.com/y6gqevet')"
+    src    ="https://tinyurl.com/yyoq59w7"
+    alt    ="animated rectangle with GUI"
+    title  ="animated rectangle with GUI"
+  />
+</figure>
+
+
+[Original example on JSBin](https://jsbin.com/dewagit/1/edit?html,css,output): we can change the color, size and speed of the animated rectangle. However, each time we come back to the page, default values are restored. ([Local Example - Animated Rectangle](src/6.2.4-example1.html))
+
+We would like to save the current values and find them back as they were when we come back to the page.
+
+[Here is a modified example that saves/restores its state, you can try it at JSBin](https://jsbin.com/cebavo/edit?html,js,console,output). In this modified version of the animated rectangle example, you can set the color, size, speed, etc. And if you reload the page, the state of the different input field is restored, but also the internal variables. Check the source code in the JS Bin example and read the following explanations. ([Local Example - Animated Rectangle w/ States](src/6.2.4-example2.html))
+
+We used the same generic code for saving/restoring input fields' values we saw in the first example that used `localStorage`. The only difference is that we renamed the two generic functions so that they correspond better to their role here (instead of `saveFormContent` we called the function `restorePreferences`).
+
+The function `initPreferences` is executed when the page is loaded.
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> initPreferences</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Adding input listener to all input fields"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add an input listener to all input fields</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> listOfInputsInForm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"input"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> listOfInputsInForm</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; addInputListener</span><span class="pun">(</span><span class="pln">listOfInputsInForm</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// restore preferences</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;restorePreferences</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;applyGUIvalues</span><span class="pun">(); // Use the input fields' values we just restored to set internal&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// size, incX, color, lineWidth variables</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> addInputListener</span><span class="pun">(</span><span class="pln">inputField</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// same as before</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> restorePreferences</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// same as old restoreFormContent</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> applyGUIvalues</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Check restored input field content to set the size of the rectangle</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> sizeWidget </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"size"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;size </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sign</span><span class="pun">(</span><span class="pln">incX</span><span class="pun">)*</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">sizeWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun"><span style="line-height: 25.6000003814697px; background-color: #eeeeee;">&nbsp; &nbsp;// also update the outline element's value</span></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"sizeValue"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> size</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span style="color: #666600; line-height: 25.6000003814697px; background-color: #ffffff;">&nbsp; &nbsp;// Check restored input field content to set the color&nbsp;of the rectangle</span></span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> colorWidget </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"color"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> colorWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span style="color: #666600; line-height: 25.6000003814697px;">&nbsp; &nbsp;// Check restored input field content to set the speed&nbsp;of the rectangle</span></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> speedWidget </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"speed"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;incX </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sign</span><span class="pun">(</span><span class="pln">incX</span><span class="pun">)*</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">speedWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// also update the outline element's value</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"speedValue"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">abs</span><span class="pun">(</span><span class="pln">incX</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span style="color: #666600; line-height: 25.6000003814697px;">// Check restored input field content to set the&nbsp;lineWidth</span><span style="color: #666600; line-height: 25.6000003814697px;">&nbsp;of the rectangle</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> lineWidthWidget </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"lineWidth"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">lineWidthWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+
 
 
