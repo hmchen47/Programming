@@ -169,10 +169,10 @@
     ```js
     function restorePreferences() {
       console.log("restoring form content from localStorage");
-      
+
       // get the list of all input elements in the form
       var listOfInputsInForm = document.querySelectorAll("input");
-      
+
       // For each input element, 
       //  - get its id (that is also the key for it's saved content in the localStorage)
       //  - get the value associated with the id/key in the local storage
@@ -599,6 +599,104 @@ Source code extract:
 <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">lineWidthWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
+
+
+### 6.2.5 Example 3
+
+[Online example at JSBin](https://jsbin.com/volicig/edit?html,js,console,output)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3jk6lmd')"
+    src    ="https://courses.edx.org/assets/courseware/v1/8240f6a10d1b1526c377ec699bb0ccb0/asset-v1:W3Cx+HTML5.1x+2T2020+type@asset+block/exampleonsteroids.png"
+    alt    ="form that saves/restore its content using generic functions"
+    title  ="form that saves/restore its content using generic functions"
+  />
+</figure>
+
+
+This time, using the `setItem` and `getItem` method we saw earlier in the course, we could write some generic functions for saving/restoring input fields' content, without having advance knowledge about the number of fields in the form, their types, their ids, etc.
+
+Furthermore, we removed all input listeners in the HTML, making it cleaner (no more `oninput="localStorage.firstName = this.value;"`...)
+
+
+#### Define listeners + restore old values after the page is loaded, use generic functions
+
+We start writing an `init()` function that is called when the page is loaded. This function will:
+
+1. Define `input` listeners for all input fields
+2. Restore the last saved value for each input field, if present.
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Called when the page is loaded</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> init</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Adding input listener to all input fields"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add an input listener to all input fields</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> listOfInputsInForm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><strong><span class="pln">querySelectorAll</span></strong><span class="pun">(</span><span class="str">"input"</span><span class="pun">);<br><br></span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> listOfInputsInForm</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; addInputListener</span><span class="pun">(</span><span class="pln">listOfInputsInForm</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// restore form content with previously saved values</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;restoreFormContent</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div> 
+
+And here is the `addInputListener(inputField)` function. It takes an input field as parameter and attaches an `oninput` listener to it, that will save the field's content each time a value is entered. The key will be the id of the input field (_line 3_):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> addInputListener</span><span class="pun">(</span><span class="pln">inputField</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; inputField</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>localStorage</strong></span><strong><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="pln">inputField</span><span class="pun">.</span><span class="pln">id</span><span class="pun">,</span><span class="pln"> inputField</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+Note that at _line 2_, we use `addEventListener` (that is not using the `oninput` property here). `adddEventListener` doesnot replace existing `oninput` definitions and keep all existing listeners unchanged.
+
+
+#### Restore all input fields' content using a generic function
+
+We have seen how to save all input fields' content on the fly. Now, let's see how we can restore saved values and update the form. This is done using the function `restoreFormContent()`:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> restoreFormContent</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"restoring form content from localStorage"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// get the list of all input elements in the form</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> listOfInputsInForm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"input"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// For each input element, </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// - get its id (that is also the key for it's saved content </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// in the localStorage)</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// - get the value associated with the id/key in the local</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// storage</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// - If the value is not undefined, restore the value</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// of the input field</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> listOfInputsInForm</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> fieldToRestore </span><span class="pun">=</span><span class="pln"> listOfInputsInForm</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> fieldToRestore</span><span class="pun">.</span><span class="pln">id</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> savedValue </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">getItem</span><span class="pun">(</span><span class="pln">id</span><span class="pun">);</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">savedValue </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>fieldToRestore</strong></span><strong><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> savedValue</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+In this function, we first get the list of input fields (_line 5_), then iterate on it (_line 14_). For each input field, we get its `id`, which value is the key in `localStorage` for the previous data saved for this field (_lines 15-16_). Then if the value is not undefined, we restore it by setting the value of the input field (_lines 19-20_).
+
+
+#### These generic functions can be used in many different projects
+
+Indeed, if you look carefully, you will see that these functions are really useful. You may easily embed them in your own projects, or perhaps adapt them for a particular need (i.e. for saving input type="checkboxes" that work a bit differently), etc.
+
+
 
 
 
