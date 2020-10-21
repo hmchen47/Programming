@@ -25,7 +25,7 @@
       + not accessible from web workers or service workers
       + stored data w/o expiration date
       + get cleared only through JavaScript, or clearing the Browser cache / Locally Stored Data
-      + storage limit: the maximum amongst the three
+      + storage limit: the maximum among the three
   + main difference: data longevity
   + key-value store for `localStorage`
     + a simple key-value store
@@ -143,7 +143,53 @@
       // refresh display
       seeAllKeyValuePairsStored();
     ```
-  
+
++ [Example to save/restore states](#624-example-2)
+  + save initial preferences
+
+    ```js
+    function initPreferences() {
+      console.log("Adding input listener to all input fields");
+
+      // add an input listener to all input fields
+      var listOfInputsInForm = document.querySelectorAll("input");
+      for(var i= 0; i < listOfInputsInForm.length; i++) {
+          addInputListener(listOfInputsInForm[i]);
+      }
+
+      // restore preferences
+      restorePreferences();
+      applyGUIvalues(); // Use the input fields' values we just restored to set
+                        // internal size, incX, color, lineWidth variables
+    }
+    ```
+
+  + load preferences:
+
+    ```js
+    function restorePreferences() {
+      console.log("restoring form content from localStorage");
+      
+      // get the list of all input elements in the form
+      var listOfInputsInForm = document.querySelectorAll("input");
+      
+      // For each input element, 
+      //  - get its id (that is also the key for it's saved content in the localStorage)
+      //  - get the value associated with the id/key in the local storage
+      //  - If the value is not undefined, restore the value of the input field
+      for(var i= 0; i < listOfInputsInForm.length; i++) {
+        var fieldToRestore = listOfInputsInForm[i];
+        var id = fieldToRestore.id;
+        var savedValue = localStorage.getItem(id);
+
+        if(savedValue !== undefined) {
+          fieldToRestore.value = savedValue;
+        }
+      }
+    }
+    ```
+
+
 
 
 
