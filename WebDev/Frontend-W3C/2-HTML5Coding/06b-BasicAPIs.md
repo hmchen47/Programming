@@ -68,7 +68,82 @@
     + easily accessible (read, change and delete) from JavaScript
     + using the Web Storage API
 
++ [getItem and setItem methods](#gettingsetting-values-using-the-getitemkey-and-setitemkey-value-methods)
+  + using `var value = getItem(key)` to retrieve a key's value and `setItem(key, value)` to set it
+  + a counter counting the number of times a given user loaded the application:
 
+    ```js
+    var counter = localStorage.getItem("count") || 0;
+    counter++;
+    localStorage.setItem("count", counter);
+    ```
+
+  + spaces acceptable: `localStorage.setItem("Instructor's name", "Michel");` and `var name = localStorage.getItem("Instructor's name");`
+  + not acceptable: `var name = localStorage.Instructor's name; will not work!`
+  + syntax to set/get `localStorage` values within loop or iterator
+
+    ```js
+    var inputField = document.getElementById("firstName");
+    saveInputFieldValue(inputField);
+    ... 
+    function saveInputFieldValue(field) {
+        localStorage.setItem(field.id, field.value);
+    }
+    ```
+
++ [removeItem and clear methods](#deleting-a-key-with-removeitemkey-or-all-keys-with-clear)
+  + `removeItem(key)`: delete a key
+  + `localStorage.clear()`:
+    + reset the entire store
+    + rare occasion to clear the entire store by the user in production software
+    + a common operation needed during development
+      + bugs may store faulty data the persistence of which can break your application
+      + the way to store data may evolve over time
+      + test the experience of the user when first using the application
+  + one way of reseting the entire store
+    + add a user interface button that calls `clear()` when clicked
+    + remember to remove it when you ship
+  + recommended approach: simply open the dev. tool's console and type `localStorage.clear()`
+
++ [Example for local storage API](#example-that-shows-all-the-methods-of-the-local-storage-api-in-action)
+  + HTML button to activate the JS function: `<button onclick="resetStore()">reset store (erase all key/value pairs)</button>`
+  + retrieve all data: `function getCountValue() { document.querySelector("#counter").innerHTML = localStorage.count; }`
+  + view all stored data
+
+    ```js
+    function seeAllKeyValuePairsStored() {
+      // clear list first
+      document.querySelector('#list').innerHTML="";
+      for (var i = 0, n = localStorage.length; i < n; i++) {
+         var key = localStorage.key(i);
+         var value = localStorage[key];
+         console.log(key + ": " + value);
+         var li = document.createElement('li');
+         li.innerHTML = key + ": " + value;
+         document.querySelector('#list').insertBefore(li, null);
+      }
+    }
+    ```
+
+  + reset all stored data: `function resetStore() { localStorage.clear(); document.querySelector('#list').innerHTML=""; }`
+  + add/remove some data to local storage
+
+    ```js
+    function addSomeData() {
+      // store data
+      localStorage.lastName = "Buffa";
+      localStorage.firstName = "Michel";
+      // refresh display
+      seeAllKeyValuePairsStored();
+    }
+    function removeSomeData() {
+      // store data
+      localStorage.removeItem("lastName");
+      localStorage.removeItem("firstName");
+      // refresh display
+      seeAllKeyValuePairsStored();
+    ```
+  
 
 
 
@@ -302,7 +377,7 @@ Students may note that something seems a bit off in the example above: instead o
 </figure>
 
 
-[Online example at JSBin](https://jsbin.com/nedigi/edit?html,css,output), run it, then click on the first button to show all key/values in the `localStorage`. Open the URL in another tab, and see that the data is shared between tabs, as local stores are attached to an origin. ([Local Example - localStorage])
+[Online example at JSBin](https://jsbin.com/nedigi/edit?html,css,output), run it, then click on the first button to show all key/values in the `localStorage`. Open the URL in another tab, and see that the data is shared between tabs, as local stores are attached to an origin. ([Local Example - localStorage](src/6.2.3-example1.html))
 
 Then click on the second button to add data to the store, click on the third to remove data. Finally, the last one clears the whole data store.
 
