@@ -47,6 +47,10 @@
       var location = localStorage.location;
       ```
 
+  + [example: save & restore form contents on the fly](#622-example-1)
+    + save the first name input field's content: `oninput="localStorage.firstName=this.value;"`
+    + restoring the form content on page load/reload: `if (localStorage.firstName !== undefined) document.getElementById("firstName").value = localStorage.firstName;`
+
 + [Cookies & Web Storage](#differences-with-cookies)
   + main difference: limits
   + cookie:
@@ -154,7 +158,7 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
 You can start filling this form and come back another day and complete it. It doesn't matter if you closed your browser before coming back. The form never loses what you entered, even if you reload the page, or press "backspace" by mistake. __This form auto saves/restores its content.__
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y56ul3qd')"
     src    ="https://tinyurl.com/y2gfb6f7"
     alt    ="form screenshot, a form that saves/restores its content as we type"
@@ -181,7 +185,7 @@ We just added input event listeners to each input field. For example, in order t
 Where `firstName` in red is the key and `this.value` the current value of the input field.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y56ul3qd')"
     src    ="https://tinyurl.com/yxrw28md"
     alt    ="As we are filing a form text input type, its content is saved in local storage. The image shows the httml coe of the input type, that as a oninput='localStorage.firstName = this.value". Devtools are open on the "Applications" tab and show the LocalStorage content. It has the same value as what has been typed in the form firstName field."
