@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Form example</title>
+  <link rel="stylesheet" href="css/6.2.5-example1.css">
+  <script rel="javascript" src="js/6.2.5-example1.js"></script>
+</head>
+<body>
+  <h2>Enter values, then reload the page at any time: the form content is restored automatically.</h2> Reusable functions for saving/restoring input field content are used.<p>
+  Check also "localStorage" in the devtools.
+  <p>
+<form action="myServerComponent.php" method="POST" autocomplete="off">
+  <fieldset>
+    <legend>Personal informations</legend>
+    
+    <label for="givenName">Given name:</label>
+    <input type="text" id="givenName" required name="givenName">
+    
+    <br>
+    
+    <label for="familyName">Last name:</label>
+    <input type="text" id="familyName" required name="familyName">
+    
+    <br>
+     <label for="email">Email:</label>
+    <input type="email" id="email" required name="email">
+    
+     <br>
+     <label for="age">Age:</label>
+    <input type="number" min=0 max=120  step=5 id="age" 
+           required name="age">
+ 
+         <br>
+     <label for="date">Birth date:</label>
+    <input type="date"  id="date" required name="date">
+  </fieldset>
+  
+  <button>Submit form</button>
+  </form>
+</body>
+</html>
+
