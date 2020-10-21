@@ -189,6 +189,65 @@
     }
     ```
 
++ [Example for generic functions](#625-example-3)
+  + calling `init()` function when the page loaded
+
+    ```js
+    function init() {
+      console.log("Adding input listener to all input fields");
+      // add an input listener to all input fields
+      var listOfInputsInForm = document.querySelectorAll("input");
+
+      for(var i= 0; i < listOfInputsInForm.length; i++) {
+          addInputListener(listOfInputsInForm[i]);
+      }
+      // restore form content with previously saved values
+      restoreFormContent();
+    }
+    ```
+
+  + `addInputListener(inputField)` function:
+    + taking an input field as parameter and attaches an `oninput` listener to it
+    + saving the field's content each time a value entered
+
+      ```js
+      function addInputListener(inputField) {
+          inputField.addEventListener('input', function(event) {
+              localStorage.setItem(inputField.id, inputField.value);
+          }, false);
+      }
+      ```
+
+  + restore the last saved value for each input field, if present.
+    + get the list of input fields: `document.querySelectorAll("input");`
+    + iterate through the list: `for(var i= 0; i < listOfInputsInForm.length; i++) {...}`
+    + get `id` of inout fields as the key in `localStorage` for the previous data saved for this field: `var fieldToRestore = listOfInputsInForm[i]; var id = fieldToRestore.id;`
+    + restore by setting the value of the input field if not undefined: `if(savedValue !== undefined) { fieldToRestore.value = savedValue; }`
+
+    ```js
+    function restoreFormContent() {
+      console.log("restoring form content from localStorage");
+
+      // get the list of all input elements in the form
+      var listOfInputsInForm = document.querySelectorAll("input");
+
+      // For each input element,
+      // - get its id (that is also the key for it's saved content in the localStorage)
+      // - get the value associated with the id/key in the local storage
+      // - If the value is not undefined, restore the value of the input field
+      for(var i= 0; i < listOfInputsInForm.length; i++) {
+        var fieldToRestore = listOfInputsInForm[i];
+        var id = fieldToRestore.id;
+        var savedValue = localStorage.getItem(id);
+        if(savedValue !== undefined) {
+            fieldToRestore.value = savedValue;
+        }
+      }
+    }
+    ```
+
+
+
 
 
 
@@ -603,8 +662,8 @@ Source code extract:
 
 ### 6.2.5 Example 3
 
-[Online example at JSBin](https://jsbin.com/volicig/edit?html,js,console,output)
-
+[Online example at JSBin](https://jsbin.com/volicig/edit?html,js,console,output) ([Local Example - Save/restore Form contents](src/6.2.5-example1.html))
+ 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick="window.open('https://tinyurl.com/y3jk6lmd')"
