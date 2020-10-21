@@ -246,7 +246,33 @@
     }
     ```
 
++ [Size of Web storage](#626-size-limitations-etc)
+  + related mechanism w/ user agents (browsers) according to Web storage specification
+    + limiting the total amount of space allowed for storage areas
+    + allowing the user to grant more space to a site, when reaching quotas
+    + allowing users to see how much space each domain is using
+    + giving at least 5Mb per origin
+  + local storage required for saving/loading data on demand in many cases
+  + more complex solutions:
+    + processing transaction: require more available space than local storage
+    + e.g., IndexedDB, a No SQL database
+  + limit amount of data to prevent from storing anything anything huge
+  + storage not necessarily permanent
+  + serious applications
+    + synchronizing existing data with the server on a regular basis
+    + avoid data loss when using the same service from multiple devices at once
 
++ [sessionStorage key/values vs cookies](#sessionstorage-keyvalues-instead-of-cookies)
+  + store session-based data in a manner more powerful than cookies
+  + `sessionStorage` object working in exactly the same way as `localStorage`
+  + lifetime limited to a single browser session (lifetime of your tab/window)
+  + `sessionStorage` advantage: being scoped to a given browser tab (or similar execution context)
+  + Cookies' security drawback
+    + two tabs open to the same site $\to$ share the same cookies
+    + storing information about a given operation using cookies in one tab
+    + probably leaking the information to the other side
+    + confusing if performing different tasks in each
+  + `sessionStorage` data scoped and not leak across tabs
 
 
 
@@ -779,7 +805,7 @@ For serious applications, you might want to synchronize existing data with the s
 
 Note that if all you need is to store session-based data in a manner that is more powerful than cookies, you can use the `sessionStorage` object which works in exactly the same way as localStorage, but the lifetime is limited to a single browser session (lifetime of your tab/window).
 
-<strong>Also note that in addition to being more convenient and capable of storing more data than cookies, it has the advantage of <s[an style="color: red;">being scoped to a given browser tab (or similar execution context).</s[pan><strong>
+<strong>Also note that in addition to being more convenient and capable of storing more data than cookies, it has the advantage of <span style="color: red;">being scoped to a given browser tab (or similar execution context).</span><strong>
 
 <span style="color: red; font-weight: bold;">Cookies' security drawback</span>: if a user has two tabs open to the same site, they will share the same cookies. Which is to say that if you are storing information about a given operation using cookies in one tab, that information will leak to the other side — this can be confusing if the user is performing different tasks in each.
 
