@@ -757,6 +757,34 @@ Indeed, if you look carefully, you will see that these functions are really usef
 
 
 
+### 6.2.6 Size limitations, etc.
+
+Few things to remember, from the Web storage specification:
+
++ User agents (browsers) should limit the total amount of space allowed for storage areas.
++ User agents may prompt the user when quotas are reached, allowing the user to grant more space to a site. This enables sites to store many user-created documents on the user's computer, for instance.
++ User agents should allow users to see how much space each domain is using.
++ A mostly arbitrary limit of five megabytes per origin is recommended (translation: give at least 5Mb per origin).
+
+__In many cases, local storage is all that your application will need for saving/loading data on demand.__ More complex ways to do it exist, such as IndexedDB, a No SQL database, that proposes transactions and usually comes with far more available space than local storage. IndexedDB usage is for advanced users and will be covered in the W3Cx HTML5 Apps and Games.
+
+Additionally, there will be a limit on the amount of data that you can store there. Browsers enforce quotas that will prevent you from cluttering your users' drives excessively. These quotas can vary from platform to platform, but are usually reasonably generous for simple cases (around 5MB), so __if you are careful not to store anything huge there, you should be fine__.
+
+__Finally, keep in mind that this storage is not necessarily permanent.__ Browsers are inconsistent in how they allow for it to be wiped, but in several cases it gets deleted with cookies — which is logical when you think of how it can be used for tracking in a similar fashion.
+
+For serious applications, you might want to synchronize existing data with the server on a regular basis, in order to avoid data loss (and in general, because users enjoy using the same service from multiple devices at once). This is a rather complex feat, and frameworks such as Firebase can help. Such techniques are beyond the scope of this course and will not be covered.
+
+
+#### `sessionStorage` key/values instead of cookies?
+
+Note that if all you need is to store session-based data in a manner that is more powerful than cookies, you can use the `sessionStorage` object which works in exactly the same way as localStorage, but the lifetime is limited to a single browser session (lifetime of your tab/window).
+
+<strong>Also note that in addition to being more convenient and capable of storing more data than cookies, it has the advantage of <s[an style="color: red;">being scoped to a given browser tab (or similar execution context).</s[pan><strong>
+
+<span style="color: red; font-weight: bold;">Cookies' security drawback</span>: if a user has two tabs open to the same site, they will share the same cookies. Which is to say that if you are storing information about a given operation using cookies in one tab, that information will leak to the other side — this can be confusing if the user is performing different tasks in each.
+
+<p style="border: 1px solid; magin: 20px; padding: 20px;"><span style="color: #ff0000;"><strong>By using <span style="font-family: courier new,courier;">sessionStorage</span>, the data you store will be scoped and therefore not leak across tabs!</strong></span></p>
+
 
 
 
