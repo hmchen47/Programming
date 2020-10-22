@@ -812,6 +812,123 @@ Note that if all you need is to store session-based data in a manner that is mor
 <p style="border: 1px solid; magin: 20px; padding: 20px;"><span style="color: #ff0000;"><strong>By using <span style="font-family: courier new,courier;">sessionStorage</span>, the data you store will be scoped and therefore not leak across tabs!</strong></span></p>
 
 
+### 6.2.7 Storing more than strings? Use JSON!
+
+Storing strings is all well and good, but it quickly becomes limiting: you may want to store more complex data with at least a modicum of structure.
+
+There are some simple approaches, such as creating your own minimal record format (e.g. a string with fields separated with a given character, using join() on store and split() upon retrieval) or using multiple keys (e.g. post_17_title, post_17_content, post_17_author, etc.). But these are really hacks. Thankfully, there's a better way,  `JSON.stringify()` and `JSON.parse()` methods.
+
+[JSON](https://www.json.org/) provides a great way of encoding and decoding data that is a really good match for JavaScript. You have to be careful not to use circular data structures or non-serializable objects, but in the vast majority of cases, plugging JSON support into your local store is straightforward.
+
+
+#### Typical usage
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">locaStorage</span><span class="pun">.</span><span class="pln">key </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="kwd">object</span><span class="pun">); // or...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="pln">key</span><span class="pun">,</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="kwd">object</span><span class="pun">));</span></li>
+</ol></div>
+
+Let's try a simple toy example ([online at JSBin](https://jsbin.com/ciricis/2/edit?html,console,output)).  The example below saves a JavaScript object in JSON, then restores it and checks that the object properties are still there! ([Local Example - Origin](src/6.2.7-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3mlad7s')"
+    src    ="https://tinyurl.com/y4z3hu6q"
+    alt    ="JSON save / load in localStorage"
+    title  ="JSON save / load in localStorage"
+  />
+</figure>
+
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">utf-8</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;</span><span class="pln">Storing JSON Objects with Local Storage</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> personObject</span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">'givenName'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'familyName'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Buffa'</span><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // Store the object as a JSON String</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>localStorage</strong></span><strong><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="str">'testObject'</span><span class="pun">,</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">personObject</span><span class="pun">));</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // Retrieve the object from storage</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; <strong>var</strong></span><strong><span class="pln"> retrievedObject </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">getItem</span><span class="pun">(</span><span class="str">'testObject'</span><span class="pun">));</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">retrievedObject</span><span class="pun">.</span><span class="pln">firstName </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> retrievedObject</span><span class="pun">.</span><span class="pln">lastName</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// then you can use retrievedObject.givenName, retrievedObject.familyName...</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ _Line 7_: we built a JavaScript object that contains a person.
++ _Line 10_: we store it in `localStorage` as a JSON string object, with a key equal to `testObject`.
++ _Line 13_: we restore it from `localStorage` as a string, and the `JSON.parse` methods turns it back into a JavaScript object.
++ _Line 15_: we print the values of the object properties.
+
+
+#### Examples
+
+
+__Example #1: showing how we can save a form's content in JSON__
+
+[Online example on JSBin that saves in localStorage an array of contacts in JSON](https://jsbin.com/nejewiw/2/edit?html,js,console,output) ([Local Example - JSON](src/6.2.7-example2.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3mlad7s')"
+    src    ="https://tinyurl.com/yylczjo9"
+    alt    ="localStorage JSON"
+    title  ="localStorage JSON"
+  />
+</figure>
+
+
+__Example #2: a form and a table that displays the contacts stored in localStorage__
+
+[Example on JSBin](https://jsbin.com/karoboj/3/edit?html,css,console,output) ([Local Example - localStorage](src/6.2.7-example3.html))
+
+Add contacts using the form, see how the HTML table is updated. Try to reload the page: data are persisted in `localStorage`. 
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3mlad7s')"
+    src    ="https://tinyurl.com/y6ouwfvu"
+    alt    ="serverless contact manager"
+    title  ="serverless contact manager"
+  />
+</figure>
+
+Examine the localStorage:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3mlad7s')"
+    src    ="https://tinyurl.com/y3ub2hnz"
+    alt    ="localStorage view in devtools shows the data"
+    title  ="localStorage view in devtools shows the data"
+  />
+</figure>
+
+
+The source code for this example is a bit long, and we suggest that you examine it in the JS Bin tool. We extensively commented it. It uses:
+
++ Well structured page with the new elements seen during Week 1 (section, article, nav, aside, etc.)
++ HTML5 form elements with builtin and custom validation (the date cannot be in the past, the firstName and lastName fields do not accept &, #, ! or $ characters),
++ `localStorage` for saving / restoring an array of contacts in JSON
++ It shows how to use the DOM API for dynamically updating the page content (build the HTML table from the array of contacts, add a new line when a new contact is submitted, etc.)
+
+
+
 
 
 
