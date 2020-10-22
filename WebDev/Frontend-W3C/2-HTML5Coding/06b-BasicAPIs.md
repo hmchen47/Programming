@@ -972,6 +972,25 @@ The source code for this example is a bit long, and we suggest that you examine 
 + It shows how to use the DOM API for dynamically updating the page content (build the HTML table from the array of contacts, add a new line when a new contact is submitted, etc.)
 
 
+### 6.2.8 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects:
+
+
+#### Suggested topics
+
++ The last example showed a contact manager that can work without a server. There are frameworks such as  Firebase that help synchronize local data and remote data. A bit like Google photos... Have you heard of them? Have you already tried to address such problems?
++ Did you try browser extensions for managing `localStorage` and `sessionStorage`?
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
++ __Project 1 (easy):__ Try to save / load the current state of a form you used. Or if you added a GUI to a canvas animation, you could try to reproduce what has been done in an example of the course: save/restore the GUI state and preferences (color, speed, etc., of the animation).
++ __Project 2 (harder):__  Try to complete the last example presented in the course - the contact manager - with features such as: ability to delete entries in the table (and also on the `localStorage`), add a picture (and save it as `dataURL` in `localStorage`. Data URLs are strings, so it's possible to save/restore them in `localStorage`), etc.
 
 
 
