@@ -4,6 +4,16 @@
 ## 6.3 The File API
 
 
+### 6.3.0 Lecture Notes
+
++ [File API](#631-introduction)
+  + features for accessing file metadata (name, size, type) from client-side JavaScript
+  + methods for reading file contents directly in the browser
+  + particularly interesting for displaying preview of images before uploading them
+  + much more interesting: developing Web applications work with local files w/o the need for a server
+  + [File API Specification](https://www.w3.org/TR/FileAPI/)
+
+
 
 
 
@@ -34,7 +44,7 @@ Imagine a multimedia player that accesses (in read-only) your file system, reads
       alt  ="audio player that plays local files"
       title="audio player that plays local files"
     >
-    <img style="margin: 0.1em;" height=200
+    <img style="margin: 0.1em;" height=300
       src  ="https://tinyurl.com/y3n3q6et"
       alt  ="polarr photo editor uses the File API"
       title="polarr photo editor uses the File API"
@@ -50,6 +60,7 @@ Imagine a multimedia player that accesses (in read-only) your file system, reads
 + MDN's Web Docs: [Using files from web applications](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications)
 
 
+### 
 
 
 
