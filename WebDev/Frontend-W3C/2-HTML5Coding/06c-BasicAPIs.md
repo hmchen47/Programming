@@ -382,7 +382,79 @@ __Advanced:__ If you are interested in seeing how `Blob` objects can be used, [h
 
 
 
+### 6.3.5 Reading file content
 
+In order to read the content of a file, different steps required. Let's see how to do it.
+
+#### Typical use is made of three steps
+
+
+__Step #1: create a FileReader object__
+
+The file API proposes several methods for reading file content, each taken from the `FileReader` interface. Here is how you create a `FileReader` object:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
+</ol></div>
+
+
+__Steps #2 and #3: first call a method of the FileReader object for reading the file content, then get the file content in an onload callback__
+
+There are three different methods available for reading a file's content: readAsText, `readAsArrayBuffer` for binary data and also as `readAsDataURL` (the content will be a URL you will use to set the src field of an `<img src=...>`, `<audio>`, `<video>`, and also with all existing methods/properties that accept a URL).
+
+All these methods take as a unique parameter a File object (for example, a file chosen by a user after clicking on a `<input type=file>` input field). Below, we use, as an example, the `readAsText` method:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> readFileContent</span><span class="pun">(</span><span class="pln">f</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// <strong>Executed last:</strong> called only when the file content is loaded, e.target.result is</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// The content</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">onload </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> content </span><span class="pun">=</span><strong><span class="pln"> e</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// do something with the file content</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"File "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> f</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" content is: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> content</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// <strong>Executed first:</strong> start reading the file asynchronously, will call the </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// reader.onload callback&nbsp;only when the file is read entirely</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;reader</strong></span><strong><span class="pun">.</span><span class="pln">readAsText</span><span class="pun">(</span><span class="pln">f</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+The above code shows how a file can be read as text. The function is called, for example by clicking on the button corresponding to a `<input type="file" id="file"  onchange="readFileContent(this.files)"/>`, and by choosing a file.
+
++ _Line 12_ is executed first, and asks the `Reader` object to read the file f as text. As this takes some time, it's an asynchronous operation that will be executed by the browser in the background. When the file is read, the `reader.onload` callback function is called.
++ _Line 4_ is executed after line 12, and is called only when the file content is available. This callback takes an event `e` as a unique parameter, and `e.target.result` is the file content.
+
+Try a variation of the above code in your browser, that displays the file content in a text area. This example is detailed further in the course. Click and select a text file below:
+
+<div class="exampleHTML"><label for="file">Choose a text file:</label><input id="file" onchange="readFileContent(this.files)" type="file"><br><br><textarea id="fileContent" rows="15" cols="50"></textarea>
+<p></p>
+<p>
+<script>// <![CDATA[
+function readFileContent(files) {
+    console.log("In readFileContent");
+    // Loop through the FileList and render image files as thumbnails.
+
+      var reader = new FileReader();
+ 
+      // Called when the file content is loaded, e.target.result is
+      // The content
+      reader.onload = function(e) {   
+        // display content in the textarea with id="fileContent"
+        document.getElementById("fileContent").value= e.target.result;
+      };   
+ 
+      // Read in the tfile as text
+      console.log("Reading file:" + files[0].name);
+      
+      // Start reading asynchronously the file
+      reader.readAsText(files[0]);
+    }
+// ]]></script>
+</p>
+</div>
+
+In the following next pages, we look at different examples that read file contents as text, dataURL and binary.
 
 
 
