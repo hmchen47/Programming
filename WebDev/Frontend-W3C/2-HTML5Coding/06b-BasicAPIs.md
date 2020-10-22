@@ -274,6 +274,50 @@
     + confusing if performing different tasks in each
   + `sessionStorage` data scoped and not leak across tabs
 
++ [JSON to structure key-value pairs](#626-size-limitations-etc)
+  + `JSON.stringify()` and `JSON.parse() methods`: manipulate minimal record format to store complex data
+  + JSON (JavaScript Object Notation)
+    + a lightweight data-interchange format
+    + easy for machines to parse and generate.
+    + a text format completely programming language independent
+    + providing a great way of encoding and decoding data
+    + a really good match for JavaScript
+    + careful not to use circular data structures or non-serializable objects
+    + straightforward plugging yo support local store in vast majority of cases
+    + two structures:
+      + a collection of name/value pairs
+      + an ordered list of values
+  + typical usage:
+    + `locaStorage.key = JSON.stringify(object);`
+    + `localStorage.setItem(key, JSON.stringify(object));`
+  + example:
+    + store the object as a JSON String: `localStorage.setItem('testObject', JSON.stringify(personObject));`
+    + retrieve the object from storage: `retrievedObject = JSON.parse(localStorage.getItem('testObject'));`
+
+      ```js
+      var contact = {};
+      contact.familyName = fieldFamilyName.value;
+      contact.givenName = fieldGivenName.value;
+      // Add the curent contact to the array
+      contacts.push(contact);
+      // Save in JSON
+      localStorage.contacts = JSON.stringify(contacts);
+
+
+      // Read contacts from localStorage
+      function getContacts() {
+        var contacts = localStorage.contacts;
+        if (contacts) {
+          return JSON.parse(contacts);
+        } else {
+          return [];
+        }
+      } 
+      ```
+
+
+
+
 
 
 
@@ -805,7 +849,7 @@ For serious applications, you might want to synchronize existing data with the s
 
 Note that if all you need is to store session-based data in a manner that is more powerful than cookies, you can use the `sessionStorage` object which works in exactly the same way as localStorage, but the lifetime is limited to a single browser session (lifetime of your tab/window).
 
-<strong>Also note that in addition to being more convenient and capable of storing more data than cookies, it has the advantage of <span style="color: red;">being scoped to a given browser tab (or similar execution context).</span><strong>
+<strong>Also note that in addition to being more convenient and capable of storing more data than cookies, it has the advantage of <span style="color: red;">being scoped to a given browser tab (or similar execution context).</span></strong>
 
 <span style="color: red; font-weight: bold;">Cookies' security drawback</span>: if a user has two tabs open to the same site, they will share the same cookies. Which is to say that if you are storing information about a given operation using cookies in one tab, that information will leak to the other side — this can be confusing if the user is performing different tasks in each.
 
@@ -816,7 +860,7 @@ Note that if all you need is to store session-based data in a manner that is mor
 
 Storing strings is all well and good, but it quickly becomes limiting: you may want to store more complex data with at least a modicum of structure.
 
-There are some simple approaches, such as creating your own minimal record format (e.g. a string with fields separated with a given character, using join() on store and split() upon retrieval) or using multiple keys (e.g. post_17_title, post_17_content, post_17_author, etc.). But these are really hacks. Thankfully, there's a better way,  `JSON.stringify()` and `JSON.parse()` methods.
+There are some simple approaches, such as creating your own minimal record format (e.g. a string with fields separated with a given character, using `join()` on store and `split()` upon retrieval) or using multiple keys (e.g. post_17_title, post_17_content, post_17_author, etc.). But these are really hacks. Thankfully, there's a better way,  `JSON.stringify()` and `JSON.parse()` methods.
 
 [JSON](https://www.json.org/) provides a great way of encoding and decoding data that is a really good match for JavaScript. You have to be careful not to use circular data structures or non-serializable objects, but in the vast majority of cases, plugging JSON support into your local store is straightforward.
 
@@ -831,7 +875,7 @@ There are some simple approaches, such as creating your own minimal record forma
 Let's try a simple toy example ([online at JSBin](https://jsbin.com/ciricis/2/edit?html,console,output)).  The example below saves a JavaScript object in JSON, then restores it and checks that the object properties are still there! ([Local Example - Origin](src/6.2.7-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y3mlad7s')"
     src    ="https://tinyurl.com/y4z3hu6q"
     alt    ="JSON save / load in localStorage"
@@ -884,7 +928,7 @@ __Example #1: showing how we can save a form's content in JSON__
 [Online example on JSBin that saves in localStorage an array of contacts in JSON](https://jsbin.com/nejewiw/2/edit?html,js,console,output) ([Local Example - JSON](src/6.2.7-example2.html))
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y3mlad7s')"
     src    ="https://tinyurl.com/yylczjo9"
     alt    ="localStorage JSON"
@@ -900,7 +944,7 @@ __Example #2: a form and a table that displays the contacts stored in localStora
 Add contacts using the form, see how the HTML table is updated. Try to reload the page: data are persisted in `localStorage`. 
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y3mlad7s')"
     src    ="https://tinyurl.com/y6ouwfvu"
     alt    ="serverless contact manager"
@@ -911,7 +955,7 @@ Add contacts using the form, see how the HTML table is updated. Try to reload th
 Examine the localStorage:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y3mlad7s')"
     src    ="https://tinyurl.com/y3ub2hnz"
     alt    ="localStorage view in devtools shows the data"
