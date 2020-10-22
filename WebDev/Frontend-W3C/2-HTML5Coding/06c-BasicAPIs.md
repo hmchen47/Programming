@@ -335,4 +335,33 @@ __Explanations:__
 + _Line 18_: the table is added to the page. We use the `innerHTML` attribute of the DOM element corresponding to the `<div id="result">` in order to insert the table as its child in the DOM tree. As such, the table appears on the page dynamically.
 
 
+### 6.3.4 Blob and File
+
+The [HTML5 File API specification](https://www.w3.org/TR/FileAPI/) introduces several interfaces:
+
++ the [__FileList__](https://www.w3.org/TR/FileAPI/#filelist-section) interface (we already met it: the `files` property is a `FileList`,
++ the [__File__](https://www.w3.org/TR/FileAPI/#file-section) interface that is useful for getting details about a file (the `file` variable in the `for` loop of the last example illustrates this),
++ the [__Blob__](https://www.w3.org/TR/FileAPI/#blob-section) interface helps read binary data (only) that is accessed slice by slice (as chunks of data, each one being a "Blob"),
++ and the [__FileReader__](https://www.w3.org/TR/FileAPI/#APIASynch) interface for reading file content (we will see how to use it in the next section of the course).
+
+We will not use all of these interfaces, but let's explain the difference between `Blob` and `File`, as most of the methods exposed by the `FileReader` interface take indiscriminately a Blob or a File as parameter.
+
+
+#### The Blob object
+
+__An object of type Blob is a structure that represents binary data available as read-only.__ Most of the time, you will only encounter these objects when you handle files.
+
+Blob objects have two properties, namely: `size` and `type`, which respectively retrieve the size in bytes of the data handled by the Blob and their MIME type.
+
+
+#### The File object
+
+__File objects are useful for manipulating... files!__ They inherit the properties and methods of Blob objects, and have two additional properties that are `name`, for the file name, and `lastModifiedDate` to get the date of the last modification of the file (in the form of a JavaScript Date object, obviously) .
+
+Most of the time, we will work with `File` objects. `Blob` objects will have real interest when you download binary files using Ajax (see example below).
+
+__Advanced:__ If you are interested in seeing how `Blob` objects can be used, [here is an example "as is" that shows how to download an image using Xhr2](https://jsbin.com/jefitop/1/edit?html,output) (Xml Http Request version 2). The examples uses a <progress> element to show the download progress, and uses xhr.responseType = 'blob'; to indicate that the file we are going to download is a binary file (a blob). Try the example, then comment the line with responseType='blob'. In this case, you will notice that the image file is not properly decoded by the browser and is not displayed in the page. We explain Xhr2 in the [W3C HTML5 Apps and Games course](https://www.edx.org/course/html5-apps-and-games).
+
+
+
 
