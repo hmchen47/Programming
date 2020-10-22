@@ -44,8 +44,6 @@
 
 
 
-
-
 ### 6.3.1 Introduction
 
 The objective of this chapter is to provide an overview of the File API.
@@ -152,6 +150,145 @@ Source code:
 </ol></div>
 
 
+### 6.3.3 Reading file metadata
+
+Imagine you have an input field like this:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="typ">Select</span><span class="pln"> one </span><span class="kwd">or</span><span class="pln"> more files</span><span class="pun">:</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">input type</span><span class="pun">=</span><span class="str">"file"</span><span class="pln"> id</span><span class="pun">=</span><span class="str">"input"</span><span class="pun">/&gt;</span></li>
+</ol></div>
+
+This renders as a "select files" or "browse files" button. If you select one file in the file chooser dialog that has popped up, before HTML5 you couldn't do anything with it in the client-side: no access from JavaScript. With the File API, you can read what we call "file metadata": name, size, type and last modification date.
+
+Look at the the code below: the file API defines a files property on the DOM node corresponding to the `<input type="file".../>` input field. This property is an array.
+
+In the example below, we get in the `selectedFile` variable, the metadata related to the first selected file:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">var selectedFile </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">).</span><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// do something with selectedFile.name, selectedFile.size, selectedFile.type</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">//&nbsp;</span><span style="color: #880000; line-height: 25.6000003814697px;">selectedFile.lastModifiedDate</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+</ol></div>
+
+
+#### Examples
+
+__Example #1: read metadata of the first selected file__
+
+[Here is a complete example on JSBin](https://jsbin.com/terocu/edit?html,output) that uses the code above to get details about the first selected file. Please try it below on your browser (click on the button and choose one file): ([Local Example - Metadata](src/6.3.3-example1.html))
+
+<div class="exampleHTML">
+<script>// <![CDATA[
+function displayFirstSelectedFileMetadata() {
+      var selectedFile = document.getElementById('input1').files[0];
+      document.querySelector("#singleName").innerHTML = selectedFile.name;
+      document.querySelector("#singleSize").innerHTML = selectedFile.size + "  bytes";
+      document.querySelector("#singleType").innerHTML = selectedFile.type;
+      document.querySelector("#singleDate").innerHTML = selectedFile.lastModifiedDate;
+    }
+// ]]></script>
+Select one or more files: <input id="input1" onchange="displayFirstSelectedFileMetadata();" type="file">
+<ul>
+<li>File name: <span id="singleName"></span></li>
+<li>File size: <span id="singleSize"></span></li>
+<li>File type: <span id="singleType"></span></li>
+<li>File last modification date: <span id="singleDate"></span></li>
+</ul>
+</div>
+
+Complete source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">utf-8</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;</span><span class="pln">Reading file metadata</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><strong><span class="pln"> displayFirstSelectedFileMetadata</span><span class="pun">()</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> selectedFile </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">).</span><strong><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span></strong><span class="pun"><strong>]</strong>;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#singleName"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><strong><span class="pln"> selectedFile</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#singleSize"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><strong><span class="pln"> selectedFile</span><span class="pun">.</span><span class="pln">size </span></strong><span class="pun">+</span><span class="pln"> </span><span class="str">" bytes"</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#singleType"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><strong><span class="pln"> selectedFile</span><span class="pun">.</span><span class="pln">type</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#singleDate"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=&nbsp;</span><strong><span class="pln">selectedFile</span><span class="pun">.</span><span class="pln">lastModifiedDate</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Select one or more files: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"input"</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>onchange</strong></span><strong><span class="pun">=</span><span class="atv">"</span><span class="pln">displayFirstSelectedFileMetadata</span><span class="pun">();</span></strong><span class="atv">"</span><span class="tag">/&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;ul&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li&gt;</span><span class="pln">File name: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"singleName"</span><span class="tag">&gt;&lt;/span&gt;&lt;/li&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li&gt;</span><span class="pln">File size: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"singleSize"</span><span class="tag">&gt;&lt;/span&gt;&lt;/li&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li&gt;</span><span class="pln">File type: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"singleType"</span><span class="tag">&gt;&lt;/span&gt;&lt;/li&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li&gt;</span><span class="pln">File last modification date: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"singleDate"</span><span class="tag">&gt;&lt;/span&gt;&lt;/li&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/ul&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+__Example #2: display metadata of multiple files, use a filter on the file type__
+
+This example is a bit more complicated, as it will display details about all files selected (not only the first) and allows only images to be selected, using the accept attribute of the input field: `<input type="file" accept="image/*".../>`.
+
+[Example on JSBin](https://jsbin.com/deboja/edit?html,output), or try it in your browser: click on the button, and select multiple image files. Notice that in the file selector, files that are not images will be greyed and non selectable. ([Local Example - Filter](src/6.3.3-example2.html))
+
+<div class="exampleHTML">Select several images: <input name="selection" onchange="filesProcess2(this.files)" accept="image/*" multiple="multiple" type="file">
+<div id="result2">...</div>
+<p>
+<script>// <![CDATA[
+function filesProcess2(files) {    
+    selection = "<table><tr><th>Name</th><th>Bytes</th><th>MIME Type</th><th>Last modified date</th></tr>";
+
+    for (i=0; i<files.length ;i++){
+      file = files[i];      
+        selection += "<tr><td>"+file.name+"</td><td style=\"text-align:right\">"
+			+ file.size + "</td><td>"
+			+ file.type + "</td><td> "+file.lastModifiedDate+"</td></tr>";
+     }
+      selection += "</table>";
+
+     document.getElementById("result2").innerHTML = selection;
+   }
+// ]]></script>
+</p>
+</div>
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="typ">Select</span><span class="pln"> several images</span><span class="pun">:</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">input type</span><span class="pun">=</span><span class="str">"file"</span><strong><span class="pln"> accept</span><span class="pun">=</span><span class="str">"image/*"</span></strong><span class="pln"><strong> multiple</strong> <strong>onchange</strong></span><strong><span class="pun">=</span><span class="str">"filesProcess(this.files)"</span></strong><span class="pln"> name</span><span class="pun">=</span><span class="str">"selection"</span><span class="pun">/&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">&lt;p&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">"result"</span><span class="pun">&gt;...&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">&lt;script&gt;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> filesProcess</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; var selection </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;table&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Bytes&lt;/th&gt;&lt;th&gt;MIME Type&lt;/th&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;th&gt;Last modified date&lt;/th&gt;&lt;/tr&gt;"</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">files</span><span class="pun">.</span><span class="pln">length </span><span class="pun">;</span><span class="pln">i</span><span class="pun">++){</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; file </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; selection </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;tr&gt;&lt;td&gt;"</span><span class="pun">+</span><span class="pln">file</span><span class="pun">.</span><span class="pln">name</span><span class="pun">+</span><span class="str">"&lt;/td&gt;&lt;td style=\"text-align:right\"&gt;"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">+</span><span class="pln">file</span><span class="pun">.</span><span class="pln">size</span><span class="pun">+</span><span class="str">"&lt;/td&gt;&lt;td&gt;"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">+</span><span class="pln">file</span><span class="pun">.</span><span class="pln">type</span><span class="pun">+</span><span class="str">"&lt;/td&gt;&lt;td&gt; "</span><span class="pun">+</span><span class="pln">file</span><span class="pun">.</span><span class="pln">lastModifiedDate</span><span class="pun">+</span><span class="str">"&lt;/td&gt;&lt;/tr&gt;"</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; selection </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;/table&gt;"</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"result"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> selection</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&lt;/</span><span class="pln">script</span><span class="pun">&gt;</span></li>
+</ol></div>
+
+__Explanations:__
+
++ _Line 1_: we used the multiple attribute to allow the selection of multiple files in the file chooser (using shift or control keys). The `accept="image/*"`  attribute is a filter that restricts selection to images only. Finally, the `onchange` listener will call the `filesProcess(...)` function, passing as parameter the list of selected files for the current element (`this.files`).
++ _Lines 7 and 12_: we prepare the HTML code for building a `<table>` with the results.
++ _Line 10_: this `for` loop builds all the rows that compose the table, adding HTML code to the `selection` string variable. At the end of the loop, this variable contains all the HTML code that corresponds to the table of results.
++ _Line 18_: the table is added to the page. We use the `innerHTML` attribute of the DOM element corresponding to the `<div id="result">` in order to insert the table as its child in the DOM tree. As such, the table appears on the page dynamically.
 
 
 
