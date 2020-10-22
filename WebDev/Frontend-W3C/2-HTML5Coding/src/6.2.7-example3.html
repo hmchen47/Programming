@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Servlerless contact manager</title>
+<link rel="stylesheet" href="css/6.2.7-example3.css">
+<script rel="javascript" src="js/6.2.7-example3.js"></script>
+</head>
+<body>
+  
+	<header>
+		<h1>Servlerless contact manager that uses localStorage and JSON</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li>/</li>
+			<li>Contacts</li>
+		</ul>
+	</nav>
+  <section>
+    <article id="formContacts">
+      <header>
+        <h2>Add new contact</h2>
+      </header>
+      <details>
+        <summary>
+          Click to open the form
+        </summary>
+			<form onsubmit="return submitForm();">
+				<fieldset>
+					<legend>New contact</legend>
+					<label for="familyname">
+						<span>family name:</span>
+						<input type="text" name="familyName" id="familyName" maxlength="32" required>
+					</label>
+					<label for="givenName">
+						<span>Given name:</span>
+						<input type="text" name="givenName" id="givenName" maxlength="32" required >
+					</label>
+                  	<label for="tel">
+						<span>Phone:</span>
+
+                                      <input type="tel" name="tel" id="tel" required placeholder="123-456-7890" pattern="\d{3}[\-]\d{3}[\-]\d{4}">
+					</label>
+
+					<label for="email">
+						<span>Email:</span>
+						<input type="email" name = "email" id="email" maxlength="128">
+					</label>
+					<label for="birthDate">
+						<span>Birth date:</span>
+						<input name="birthDate" id="birthDate" type="date">
+					</label>
+					<label for="children">
+						<span>Number of children:</span>
+						0 <input type="range" name = "children" id="children" min="0" max="5" required> 5
+					</label>					
+				</fieldset>
+				<button id="addClient" type="submit">OK</button>
+			</form>	
+      </details>
+    </article>
+	<article id="contacts">
+		<header>
+			<h2>Contact list</h2>
+		</header>
+			<table>
+				<thead>
+					<tr>
+						<th>Given name</th>
+						<th>Family name</th>
+                        <th>Phone</th>
+						<th>Email</th>
+                      	<th>Birth date</th>
+						<th>Nb children</th>
+					</tr>
+				</thead>
+				<tbody id="tableContactBody">
+				</tbody>
+			</table>
+			<button id="createContact">New contact</button>
+	</article>
+    </section>
+
+	<aside id="journalActions">
+		<div>Recent actions</div>
+      <ul>
+        <li>Added Eddy Mitchell</li>
+      </ul>
+	</aside>
+	<footer>W3Cx HTML5 part 1 MOOC</footer>
+</body>
+</html>
+
