@@ -476,4 +476,190 @@ function readFileContent(files) {
 In the following next pages, we look at different examples that read file contents as text, dataURL and binary.
 
 
+### 6.3.6 Read file content as text
+
+Let's start by reading a pure text file
+
+
+#### Examples
+
+
+__Example #1: read a single file's content__
+
+[Example at JSBin](https://jsbin.com/xewemi/edit?html,output), or try it below in your browser: ([Local Example - ReadText](src/6.3.6-example1.html))
+
+<div style="border: 1px solid; margin: 20px; padding: 20px;">Choose a text file :<input id="file" onchange="readFileContent(this.files)" type="file"><br>
+<p></p>
+<p><textarea id="fileContent" rows="5" cols="50"></textarea>
+<script>// <![CDATA[
+function readFileContent(files) {
+    console.log("In readFileContent");
+    // Loop through the FileList and render image files as thumbnails.
+
+      var reader = new FileReader();
+ 
+      // Called when the file content is loaded, e.target.result is
+      // The content
+      reader.onload = function(e) {   
+        // display content in the textarea with id="fileContent"
+        document.getElementById("fileContent").value= e.target.result;
+      };   
+ 
+      // Read in the tfile as text
+      console.log("Reading file:" + files[0].name);
+      
+      // Start reading asynchronously the file
+      reader.readAsText(files[0]);
+    }
+// ]]></script>
+</p>
+</div>
+
+Complete source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of use of FileReader with a text file</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&lt;label for="files"&gt;Choose a text file:&lt;/label&gt;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"file"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">readFileContent</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">files</span><span class="pun">)</span><span class="atv">"</span></strong><span class="tag">/&gt;&lt;br/&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">rows</span><span class="pun">=</span><span class="atv">15</span><span class="pln"> </span><span class="atn">cols</span><span class="pun">=</span><span class="atv">50</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"fileContent"</span><span class="tag">&gt;&lt;/textarea&gt;</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> readFileContent</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"In readFileContent"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// <strong>Executed last</strong>: called when the file content is loaded, <strong>e.target.result</strong> is</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// The content</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; reader</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// display content in the textarea with id="fileContent"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"fileContent"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">=</span><strong><span class="pln"> e</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">};</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Reading file:"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">name</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// <strong>Executed first:</strong> start reading the file asynchronously , will call the onload</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // callback when the file is read</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">readAsText</span><span class="pun">(</span><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+This example is the one at the end of the previous page. This time, we show the complete source code above. Remember that the instruction at line 29 is executed first, then when the file is read, the browser will call asynchronously the onload callback at line 20.
+
+
+__Example #2: a variation of the previous one, using multiple files__
+
+[Example on JSBin](https://jsbin.com/zaheyu/edit?html,output), or try it below in your browser. ([Local Example - Multiple Files](src/6.3.6-example2.html))
+
+This time, please select multiple text files (using shift for multiple selection):
+
+<div style="border: 1px solid; margin: 20px; padding: 20px;"><label for="files1">Choose multiple text files:</label><input id="files1" onchange="readFilesAndDisplayAsText1(this.files);" multiple="multiple" type="file"><br>
+<p></p>
+<p><textarea id="filesContent1" rows="5" cols="50"></textarea>
+<script>// <![CDATA[
+var filesContent = document.getElementById("filesContent1");
+  
+  function readFilesAndDisplayAsText1(files) {
+    console.log("dans read files");
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+ 
+      var reader = new FileReader();      
+ 
+      // Add an onload listener to the reader
+      addOnLoadListener(reader, f.name);
+      // start reading, will call the listener later, when the file f is read
+      reader.readAsText(f);
+      
+    }
+  }
+ 
+  function addOnLoadListener(reader, name) {
+    // Add an onload listener that will be able to print the name of the
+    // file...
+    reader.onload = function(e) {  
+        filesContent.value += "###### READING FILE " + name + " ######";
+        filesContent.value += e.target.result;
+      };
+  }
+// ]]></script>
+</p>
+</div>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of use of FileReader with a text file</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&lt;label for="files"&gt;Choose multiple text files:&lt;/label&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"files"</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;multiple</span><span class="pln"> </span><span class="atn">onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">readFilesAndDisplayAsText</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">files</span><span class="pun">);</span><span class="atv">"</span><span class="tag">/&gt;&lt;br/&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">rows</span><span class="pun">=</span><span class="atv">30</span><span class="pln"> </span><span class="atn">cols</span><span class="pun">=</span><span class="atv">50</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"filesContent"</span><span class="tag">&gt;&lt;/textarea&gt;</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> filesContent </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"filesContent"</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> readFilesAndDisplayAsText</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"dans read files"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Loop through the FileList</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">;</span><span class="pln"> f </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Add an onload listener to the reader</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;addOnLoadListener</span><span class="pun">(</span><span class="pln">reader</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">.</span><span class="pln">name</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// start reading, will call the listener later, when the file f is read</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;reader</span><span class="pun">.</span><span class="pln">readAsText</span><span class="pun">(</span><span class="pln">f</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> addOnLoadListener</span><span class="pun">(</span><span class="pln">reader</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Add an onload listener that will be able to print the name of the</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// file...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;reader</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;filesContent</span><span class="pun">.</span><span class="pln">value </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"###### READING FILE "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" ######"</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;filesContent</span><span class="pun">.</span><span class="pln">value </span><span class="pun">+=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+__Explanations:__
+
+This example is similar to the previous one, except that this time we read multiple files.
+
++ _Line 20_: this is the `for` loop that will iterate on the `files` object passed as parameter by the `onchange` listener declaration at _line 10_.
++ _Line 25_: instead of declaring the `onload` listener with a `reader.onload =...` directly in the loop, this time we preferred to write a separate function that will do this. This technique is useful when you want the listener to work with extra variables computed in the loop (in our case, the `name` of the file).
+
+
+#### About character encoding
+
+Note that you can optionally indicate the encoding of the file you are going to read (default is UTF-8):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">reader</span><span class="pun">.</span><span class="pln">readAsText</span><span class="pun">(</span><span class="pln">file</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UTF-8'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">reader</span><span class="pun">.</span><span class="pln">readAsText</span><span class="pun">(</span><span class="pln">file</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ISO-8859-1'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+</ol></div>
+
+
 
