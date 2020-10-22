@@ -82,6 +82,24 @@
       + table appears on the page dynamically
       + use the innerHTML attribute of the DOM element corresponding to the `<div id="result">` in order to insert the table as its child in the DOM tree
 
++ [Interface of HTML5 File API specification](#634-blob-and-file)
+  + FileList interface: the files property
+  + File interface: useful for getting details about a file
+  + Blob interface: read binary data (only) accessed slice by slice (as chunks of data, each one being a "Blob")
+  + FileReader interface: reading file content
+
++ [Blob object](#the-blob-object)
+  + a structure representing binary data available as read-only
+  + two properties, namely: size and type
+  + retrieving the size in bytes of the data handled by the Blob and their MIME type
+
++ [File object](#the-file-object)
+  + useful for manipulating files
+  + inherit the properties and methods of `Blob` objects
+  + two additional properties
+    + name: the file name
+    + lastModifiedDate: the date of the last modification of the file
+
 
 
 
@@ -360,7 +378,10 @@ __File objects are useful for manipulating... files!__ They inherit the properti
 
 Most of the time, we will work with `File` objects. `Blob` objects will have real interest when you download binary files using Ajax (see example below).
 
-__Advanced:__ If you are interested in seeing how `Blob` objects can be used, [here is an example "as is" that shows how to download an image using Xhr2](https://jsbin.com/jefitop/1/edit?html,output) (Xml Http Request version 2). The examples uses a <progress> element to show the download progress, and uses xhr.responseType = 'blob'; to indicate that the file we are going to download is a binary file (a blob). Try the example, then comment the line with responseType='blob'. In this case, you will notice that the image file is not properly decoded by the browser and is not displayed in the page. We explain Xhr2 in the [W3C HTML5 Apps and Games course](https://www.edx.org/course/html5-apps-and-games).
+__Advanced:__ If you are interested in seeing how `Blob` objects can be used, [here is an example "as is" that shows how to download an image using Xhr2](https://jsbin.com/jefitop/1/edit?html,output) (Xml Http Request version 2). The examples uses a `<progress>` element to show the download progress, and uses `xhr.responseType = 'blob';` to indicate that the file we are going to download is a binary file (a blob). Try the example, then comment the line with responseType='blob'. In this case, you will notice that the image file is not properly decoded by the browser and is not displayed in the page. We explain Xhr2 in the [W3C HTML5 Apps and Games course](https://www.edx.org/course/html5-apps-and-games). ([Local Example - Bolb](src/6.3.4-example1.html))
+
+
+
 
 
 
