@@ -100,7 +100,25 @@
     + name: the file name
     + lastModifiedDate: the date of the last modification of the file
 
-
++ [Procedure to read file contents](#635-reading-file-content)
+  + create a FileReader object
+    + several methods for reading file content, each taken from the `FileReader` interface
+    + create a FileReader object: `var reader = new FileReader();`
+  + call a method of the FileReader object for reading the file content
+    + three different methods available for reading a file's content: `readAsText`, `readAsArrayBuffer` and `readAsDataURL`
+    + `readAsArrayBuffer` for binary data
+    + `readAsDataURL`
+      + content as a URL used to set the `src` field of an `<img src=...>`, `<audio>`, `<video>`
+      + all existing methods/properties that accept a URL
+    + start reading the file asynchronously: `reader.readAsText(f);`
+    + executed by the browser in the background
+    + `reader.onload `callback only when the file is read entirely
+  + get the file content in an `onload` callback
+    + called only when the file content is loaded
+    + the content: `e.target.result`
+    + called only when the file content is available: `reader.onload = function(e) {...}`
+    + event `e` as a unique parameter
+    + `e.target.result` = the file content
 
 
 
@@ -386,6 +404,7 @@ __Advanced:__ If you are interested in seeing how `Blob` objects can be used, [h
 
 In order to read the content of a file, different steps required. Let's see how to do it.
 
+
 #### Typical use is made of three steps
 
 
@@ -400,7 +419,7 @@ The file API proposes several methods for reading file content, each taken from 
 
 __Steps #2 and #3: first call a method of the FileReader object for reading the file content, then get the file content in an onload callback__
 
-There are three different methods available for reading a file's content: readAsText, `readAsArrayBuffer` for binary data and also as `readAsDataURL` (the content will be a URL you will use to set the src field of an `<img src=...>`, `<audio>`, `<video>`, and also with all existing methods/properties that accept a URL).
+There are three different methods available for reading a file's content: `readAsText`, `readAsArrayBuffer` for binary data and also as `readAsDataURL` (the content will be a URL you will use to set the `src` field of an `<img src=...>`, `<audio>`, `<video>`, and also with all existing methods/properties that accept a URL).
 
 All these methods take as a unique parameter a File object (for example, a file chosen by a user after clicking on a `<input type=file>` input field). Below, we use, as an example, the `readAsText` method:
 
@@ -427,9 +446,9 @@ The above code shows how a file can be read as text. The function is called, for
 
 Try a variation of the above code in your browser, that displays the file content in a text area. This example is detailed further in the course. Click and select a text file below:
 
-<div class="exampleHTML"><label for="file">Choose a text file:</label><input id="file" onchange="readFileContent(this.files)" type="file"><br><br><textarea id="fileContent" rows="15" cols="50"></textarea>
+<div style="border: 1px solid; margin: 20px; padding: 20px;"><label for="file">Choose a text file:</label><input id="file" onchange="readFileContent(this.files)" type="file"><br><br><textarea id="fileContent" rows="5" cols="50"></textarea>
 <p></p>
-<p>
+<p> 
 <script>// <![CDATA[
 function readFileContent(files) {
     console.log("In readFileContent");
