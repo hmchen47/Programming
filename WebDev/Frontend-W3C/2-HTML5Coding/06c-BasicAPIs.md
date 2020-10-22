@@ -40,6 +40,50 @@
     </script>
     ```
 
++ [File metadata](#633-reading-file-metadata)
+  + metadata: name, size, type and last modification date
+  + select one or more files: `<input type="file" id="input" ... />`
+    + rendered as a "select files" or "browse files" button
+    + file chooser dialog popped-up to select one file
+    + do nothing in the client-side before HTML5 die to no access from JavaScript
+  + File API
+    + define a files property on the DOM node corresponding to the `<input type="file".../>` input field
+    + property as an array
+    + the metadata related to `selectedFile` variable: `selectedFile.name, selectedFile.size, selectedFile.type, selectedFile.lastModifiedDate`
+  + example: read file metadata from `<input type="file" id="input" onchange="displayFirstSelectedFileMetadata();"/>`
+
+    ```js
+    function displayFirstSelectedFileMetadata() {
+        var selectedFile = document.getElementById('input').files[0];
+        document.querySelector("#singleName").innerHTML = selectedFile.name;
+        document.querySelector("#singleSize").innerHTML = selectedFile.size + " bytes";
+        document.querySelector("#singleType").innerHTML = selectedFile.type;
+        document.querySelector("#singleDate").innerHTML = selectedFile.lastModifiedDate;
+    }
+    ```
+
+  + example: display metadata of multiple files w/ a filter on the file type
+    + select several images: `<input type="file" accept="image/*" multiple onchange="filesProcess(this.files)" name="selection"/>`
+    + `accept="image/*"` attribute: a filter restricting selection to images only
+    + `filesProcess(...)` function: passing as parameter the list of selected files for the current element (`this.files`)
+    + `for` loop builds all the rows that compose the table, adding HTML code to the selection string variable
+      + prepare the HTML code for building a `<table>` with the results
+      + build table and headings: `var selection = "<table><tr><th>Name</th><th>Bytes</th><th>MIME Type</th> <th>Last modified date</th></tr>";`
+      + build rows in iteration:
+
+        ```js
+        selection += "<tr><td>"+file.name+"</td><td style=\"text-align:right\">"
+                    +file.size+"</td><td>"
+                    +file.type+"</td><td> "+file.lastModifiedDate+"</td></tr>";
+        ```
+
+      + closing table: `selection += "</table>";`
+    + table added to the page: `document.getElementById("result").innerHTML = selection;`
+      + table appears on the page dynamically
+      + use the innerHTML attribute of the DOM element corresponding to the `<div id="result">` in order to insert the table as its child in the DOM tree
+
+
+
 
 
 
