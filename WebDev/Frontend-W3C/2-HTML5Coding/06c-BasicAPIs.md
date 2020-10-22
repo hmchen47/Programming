@@ -12,6 +12,35 @@
   + particularly interesting for displaying preview of images before uploading them
   + much more interesting: developing Web applications work with local files w/o the need for a server
   + [File API Specification](https://www.w3.org/TR/FileAPI/)
+  + example: loading image files for preview
+
+    ```html
+    <input type="file" multiple onchange="readImagesAndPreview(this.files);">
+    <p>
+    <div id="thumbnails"></div>
+    <script>
+      var container = document.getElementById("thumbnails");
+      function readImagesAndPreview(files) {
+        for(var i=0; i < files.length; i++) {
+            var f = files[i];
+
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+              var img = document.createElement("img");
+              img.src = e.target.result;
+              img.width = 100;
+
+              container.appendChild(img);
+          }
+
+          reader.readAsDataURL(f);
+        }
+      }
+    </script>
+    ```
+
+
 
 
 
@@ -73,12 +102,12 @@ Imagine a multimedia player that accesses (in read-only) your file system, reads
 
 #### Source code of the example shown in the video
 
-[Example on JSBin](https://jsbin.com/nituko/1/edit?html,output)
+[Example on JSBin](https://jsbin.com/nituko/1/edit?html,output) ([Local Example - Image Files](src/6.3.2-example1.html))
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick="window.open('https://tinyurl.com/y4r7br7l')"
-    src    ="https://tinyurl.com/y4ttpl6m"
+    src    ="https://tinyurl.com/y4ttpl6m" 
     alt    ="image previews"
     title  ="image previews"
   />
