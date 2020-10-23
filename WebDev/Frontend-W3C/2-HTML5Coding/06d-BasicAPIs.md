@@ -67,7 +67,32 @@
   + __heading:__ gives the orientation relative to north, in degrees
   + __speed:__ current speed in meters/second
 
++ [Geolocation error codes](#643-geolocation-error-codes)
+  + `navigator.geolocation.getCurrentPosition` method possible to pass a second parameter in case of errro
+  + example:
+    + get location: `navigator.geolocation.getCurrentPosition(showPosition, errorPosition);`
+    + error handling
 
+      ```js
+      function errorPosition(error) {
+        var info = "Error during geolocation: ";
+        switch(error.code) {
+          case error.TIMEOUT:
+              info += "Timeout !";
+              break;
+          case error.PERMISSION_DENIED:
+              info += "Permission denied, geolocation could not be obtained...";
+              break;
+          case error.POSITION_UNAVAILABLE:
+              info += "Location could not be obtained though the available means...";
+              break;
+          case error.UNKNOWN_ERROR:
+              info += "Unknown error";
+              break;
+        }
+        displayCoords.innerHTML = info;
+      }
+      ```
 
 
 
@@ -222,7 +247,7 @@ In the last example, we used the `navigator.geolocation.getCurrentPosition(showP
 A slightly different version of the previous example [shows how to properly check against the different possible errors](https://jsbin.com/bafusik/edit?html,output). Try it, then turn your WiFi off or unplug your Ethernet cable (or turn off GPS and 3G/4G on a mobile phone). You should see an error message "_Error during geolocation: Location could not be obtained though the available means_":
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick="window.open('https://tinyurl.com/y64sfgkf')"
     src    ="https://tinyurl.com/y2mlkhsq"
     alt    ="geolocation error"
