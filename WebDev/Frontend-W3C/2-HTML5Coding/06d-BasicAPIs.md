@@ -58,6 +58,15 @@
   + [Geolocation API Specification](https://www.w3.org/TR/geolocation-API/)
   + [Geolocation API - WDN](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 
++ [coords object properties](#642-the-coords-object-properties)
+  + __latitude:__ The latitude of the position
+  + __longitude:__ The longitude of the position
+  + __altitude:__ The altitude of the position
+  + __accuracy:__ The accuracy of the measure of the longitude and latitude (in meters)
+  + __altitudeAccuracy:__ The accuracy of the measure of the altitude (in meters)
+  + __heading:__ gives the orientation relative to north, in degrees
+  + __speed:__ current speed in meters/second
+
 
 
 
