@@ -187,6 +187,41 @@
     + executed the `onload` callback when the file content is loaded in memory
     + pass the file content to the `initSound(e.target.result);` function to play
 
++ [Read file as dataURL](#638-read-file-content-as-dataurl)
+  + data URL: a URL including type and content at the same time
+  + useful for in-lining images or videos in the HTML of a Web page
+  + mobile devices: speed up the loading of the page by reducing the number of HTTP requests
+  + the red circle
+    + dataURL: `data:image/png;base64,iVBOR...`
+    + `src` attribute of an image element `<img src="data:image/png....">` with the data URL: `<img src="data:image/png;base64,iVBORw..." alt="Red square" width=50 height=50/>`
+  + dataURL format
+    + enabling file content to be stored in a base64 format (as a string)
+    + adding the MIME type specification of the content
+    + able to store a file as a URL readable with modern browsers
+    + commonly used on the Web
+    + especially for mobile applications, inlining images reducing the number of HTTP requests and making the Web page load faster
+    + [Image to Data URI converter](https://ezgif.com/image-to-datauri)
+    + able to encode any type of file as dataURL
+    + most frequently used with media files (images, audio, video)
+  + example: read images as data URL & display
+    + starts the reading of the file `f`: `reader.readAsDataURL(f);`
+    + when `f` read, the `onload` callback called: `reader.onload = function(e) {...}`
+      + render thumbnail
+      + `e.target.result` = the image content as a data URL
+      + create a span with CSS `class="thumb"`, for nicer layout": `var span = document.createElement('span');`
+      + Add an img src=... in the span, with src= the dataURL of the image: `span.innerHTML = "<img class='thumb' src='" + e.target.result + "' alt='a picture'/>";`
+      + Insert the span in the `<output id="list"></output>`:  `document.getElementById('list').insertBefore(span, null);`
+  + example: read local image file and use it with drawImage in a canvas
+    + create an image object to draw an image on a canvas: `var img = new Image();`
+    + `e.target.result` as the dataURL
+    + set the `src` attribute of the image object: `img.src= e.target.result`
+    + asynchronously call the `onload` callback: `img.onload = function(e) { ctx.drawImage(img, 0, 0, 400, 400); }`
+    + 
+
+
+
+
+
 
 ### 6.3.1 Introduction
 
@@ -1013,7 +1048,11 @@ __Example #3 (advanced): an instagram-like photo filter application__
 
 Another very impressive example, has been developed by @GeorgianaB, a student of the first iteration of this course (see her [other creations/examples](https://codepen.io/giana/)). This Web application reads local image files, draws them into a canvas element and proposes different filters. This example is given "as is" for those of you who would like to go further. Just click on the link (or on the image below) and look at the source code.
 
-[Try this example online on gitHub](https://gianablantin.github.io/CanvasFilters/).  ([Local Example - Photo](src/6.3.8-example4.html))
+[Try this example online on gitHub](https://gianablantin.github.io/CanvasFilters/).
+
+
+
+
 
 
 
