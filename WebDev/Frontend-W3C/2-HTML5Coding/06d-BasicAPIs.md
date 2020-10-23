@@ -68,7 +68,7 @@
   + __speed:__ current speed in meters/second
 
 + [Geolocation error codes](#643-geolocation-error-codes)
-  + `navigator.geolocation.getCurrentPosition` method possible to pass a second parameter in case of errro
+  + `navigator.geolocation.getCurrentPosition` method possible to pass a second parameter in case of errror
   + example:
     + get location: `navigator.geolocation.getCurrentPosition(showPosition, errorPosition);`
     + error handling
@@ -208,31 +208,31 @@ In the previous example, we used the `coords` property of the position passed as
 </tr>
 <tr>
 <td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">latitude</span></strong></td>
-<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The latitude of the position</td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">The latitude of the position</td>
 </tr>
 <tr>
 <td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">longitude</span></strong></td>
-<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The longitude of the position</td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">The longitude of the position</td>
 </tr>
 <tr>
 <td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">altitude</span></strong></td>
-<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The altitude of the position</td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">The altitude of the position</td>
 </tr>
 <tr>
 <td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">accuracy</span></strong></td>
-<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The accuracy of the measure of the longitude and latitude (in meters)</td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">The accuracy of the measure of the longitude and latitude (in meters)</td>
 </tr>
 <tr>
 <td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">altitudeAccuracy</span></strong></td>
-<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The accuracy of the measure of the altitude (in meters)</td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">The accuracy of the measure of the altitude (in meters)</td>
 </tr>
 <tr>
 <td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">heading</span></strong></td>
-<td style="background-color: white; border: 2px solid lightGrey;" valign="top">gives the orientation relative to north, in degrees</td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">gives the orientation relative to north, in degrees</td>
 </tr>
 <tr>
 <td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">speed</span></strong></td>
-<td style="background-color: white; border: 2px solid lightGrey;" valign="top">current speed in meters/second</td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">current speed in meters/second</td>
 </tr>
 </tbody>
 </table>
@@ -309,6 +309,83 @@ Source code of the example:
 <li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
 </ol></div>
+
+
+### 6.4.4 Tracking a position
+
+In order to track the current position, the geolocation API provides a method similar to the `getCurrentPosition(onSuccess, onError)` named `watchPosition(onSuccess, onError)`. 
+
+When `getCurrentPosition` gives a position when called, `watchPosition` does the following:
+
++ __It gets the callback function only when the current position changes.__ If you stay in the same location, the callback function won't be called regularly.
++ It returns an `id` so that you can use the `clearWatch(id)` method to stop the current tracking.
+
+
+#### Typical use
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// get an id of the current tracking, the showPosition callback is like the one we saw in earlier examples.</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> watchPosId </span><span class="pun">=</span><span class="pln"> navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">watchPosition</span><span class="pun">(</span><span class="pln">showPosition</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// stop the tracking</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">clearWatch</span><span class="pun">(</span><span class="pln">watchPosId</span><span class="pun">);</span></li>
+</ol></div>
+
+As a test, you may just try to change `getCurrentPosition` to `watchPosition` in the previous examples, and try this code using a mobile phone or tablet, walk for 20 meters and see the position changing.
+
+
+#### Options available when using the geolocation API, in particular real time tracking
+
+Several options are available when using HTML5 geolocation. We can pass a third parameter to the `getCurrentPosition` and `watchPosition` methods, that will hold one or several of the following options:
+
+<table style="table-layout: auto; border: 5px solid lightGrey; color: black; font-size: 1.0em; font-family: arial,helvetica,sans-serif; width: 55vw;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="padding: 5px; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey; text-align: center;" colspan="2">Properties of the coords object</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">enableHighAccuracy</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">A boolean (true/false) which indicates to the device that you wish to obtain its most accurate readings. in other words: use the GPS please! (However, this parameter may or may not make a difference, depending on your hardware, GPS availability, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">maximumAge</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">The maximum amount of time (in milliseconds) the position may remain in the cache (this is appropriate as the device may cache readings to save power and/or bandwidth).</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">timeout</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey; color: black;" valign="top">The maximum time (in milliseconds) for which you are prepared to allow the device to try to obtain a Geo location. After this timeout value has elapsed, the onError callback is called.</td>
+</tr>
+</tbody>
+</table>
+
+
+#### Example of use
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Just ask to turn GPS on, if available</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">,</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span class="pln">enableHighAccuracy</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">});</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com"></span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// maximumAge = 10 mins, the position can be cached for 10 mins, </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// useful when in&nbsp;</span><span class="com">tunnels...When the device tries to get </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// a position, if it does not&nbsp;succeed, then go on error</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// immediately</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span><span class="pln">maximumAge</span><span class="pun">:</span><span class="lit">600000</span><span class="pun">,&nbsp;</span><span class="pln">timeout</span><span class="pun">:</span><span class="lit">0</span><span class="pun">});</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// Position will never come from the cache (maximumAge: 0), and </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// if after 0.1s the&nbsp;</span><span class="com">position could not be computed, then go on </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// error</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">,</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span class="pln">maximumAge</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,&nbsp;</span><span class="pln">timeout</span><span class="pun">:</span><span class="lit">100</span><span class="pun">});</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// Ask for GPS, cache for 30s, 27s before going on error...</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">watchId</span><span class="pun">=</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">watchPosition</span><span class="pun">(</span><span class="pln">onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; {</span><span class="pln">enableHighAccuracy</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> maximumAge</span><span class="pun">:</span><span class="lit">30000</span><span class="pun">,</span><span class="pln"> timeout</span><span class="pun">:</span><span class="lit">27000</span><span class="pun">});</span></li>
+</ol></div>
+
+Look for the explanations in the lines of comment.
+
 
 
 
