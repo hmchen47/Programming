@@ -4,6 +4,61 @@
 ## 6.4 The Geolocation API
 
 
+## 6.4.0 Lecture Notes
+
++ [Geolocation API](#641-introduction)
+  + implemented by most modern Web browsers
+  + using different means to get the current location: GPS, GSM/3G triangulation, Wifi, IP address, etc.
+  + mobile phones:
+    + prompt the user to activate the GPS and ask for a particular mean among those available
+    + track the current position when it changes
+    + useful for writing a navigation application
+    + useful for tracking in real time the position of different participants
+    + application involving several persons at the same time (using WebSockets, for example)
+  + typical usage
+
+    ```js
+    navigator.geolocation.getCurrentPosition(showPosition, onError);
+
+    function showPosition(position) {
+        console.log("latitude is: " + position.coords.latitude);
+        console.log("longitude is: " + position.coords.longitude);
+    }
+
+    function onError(err) {
+        console.log("Could not get the position");
+    }
+    ```
+
+  + example: get location
+    + checks if the Web browser supports the `geolocation` API by testing the variable `navigator.geolocation`:
+      + `navigator.geolocation.getCurrentPosition(showPosition)` passing a callback function as a parameter
+      + when a current position available, the callback function called asynchronously
+      + the input parameter of this callback function = the current position
+
+      ```js
+      function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            displayCoords.innerHTML="Geolocation API not supported by your browser.";
+        }
+      }
+      ```
+
+    + position objects w/ a `coords` property: the longitude and  the latitude
+
+      ```js
+      function showPosition(position) {
+        displayCoords.innerHTML="Latitude: " + position.coords.latitude +
+                               "<br />Longitude: " + position.coords.longitude;
+      }
+      ```
+
+  + [Geolocation API Specification](https://www.w3.org/TR/geolocation-API/)
+  + [Geolocation API - WDN](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+
+
 
 
 
@@ -13,7 +68,7 @@
 
 #### Introduction
 
-This chapter presents the new Geolocation API and illustrates its use with several examples.W3C Geolocation icon
+This chapter presents the new Geolocation API and illustrates its use with several examples.
 
 The Geolocation HTML5 JavaScript API is implemented by most modern Web browsers, and uses different means to get the current location: GPS, GSM/3G triangulation, Wifi, IP address, etc.
 
@@ -37,7 +92,7 @@ It is possible to prompt the user to activate the GPS (this is what most GPS nav
 <li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
 
-[This online example at JSBin](https://jsbin.com/toyeley/1/edit?html,output) shows how to get the current longitude and latitude and display them in an HTML page. Try it below in your browser:
+[This online example at JSBin](https://jsbin.com/toyeley/1/edit?html,output) shows how to get the current longitude and latitude and display them in an HTML page. Try it below in your browser: ([Local Example - Location](src/6.4.1-example1.html))
 
 <div class="exampleHTML">
 <p id="msg">Click the button to get your coordinates:</p>
