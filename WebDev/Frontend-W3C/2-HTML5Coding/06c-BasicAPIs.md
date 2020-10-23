@@ -163,7 +163,29 @@
   + default: UTF-8
   + e.g., `reader.readAsText(file, 'UTF-8'); reader.readAsText(file, 'ISO-8859-1');`
 
-
++ [Read binary file](#637-read-file-content-as-binary)
+  + rarely used, except for loading "raw" binary data
+  + HTML page for specific binary files
+    + image files or drawing in a canvas: using the `<img src= tag>`
+    + audio files: using the `<audio>` elements
+    + video files: using the `<video>` elements
+  + image, drawing, audio, and video files: referable to use the `readAsDataURL` method
+  + `readAsArrayBuffer` method used for purposes
+    + reading audio samples that should be loaded in memory 
+    + played using the WebAudio API
+    + loading textures that you will use with WebGL for 3D animations
+  + WebAudio API
+    + useful for reading audio sound samples from memory (no streaming)
+    + designed for music application and games
+  + example: read audio file and play w/ WebAudio API
+    + read a local audio file and play directly in the Browser
+    + user selects file and read it as an `ArrayBuffer` and pass to the API: `var fileInput = document.querySelector('input[type="file"]');`
+    + define a change listener: `fileInput.addEventListener('change', function(e) {...}`
+      + after choosing a file, the listener executed
+      + start the reading of the file content, as a binary file: `reader.readAsArrayBuffer(this.files[0]);`
+      + once the file will be entirely read, the `onload` callback asynchronously called by the browser
+    + executed the `onload` callback when the file content is loaded in memory
+    + pass the file content to the `initSound(e.target.result);` function to play
 
 
 ### 6.3.1 Introduction
@@ -752,6 +774,246 @@ __Explanations:__
 + _Line 11_: when a user chooses a file, the listener will be executed. Line 11 will start the reading of the file content, as a binary file (this is what `readAsArrayBuffer` means: read as binary!). Once the file will be entirely read, the onload callback will be asynchronously called by the browser.
 + _Line 7_ is the `onload` callback, executed when the file content is loaded in memory. We pass the file content to the `initSound` function (see JSBin example for complete source code) that uses WebAudio to decode it (it may be a compressed file - an mp3 for example - and WebAudio works only with uncompressed audio formats in memory), and to play it.
 
+
+### 6.3.8 Read file content as dataURL
+
+What is a data URL?
+
+A data URL is a URL that includes type and content at the same time. It is useful, for example,  for in-lining images or videos in the HTML of a Web page (on mobile devices, this may speed up the loading of the page by reducing the number of HTTP requests).
+
+Here is an example of a red square, as a data URL. Copy and paste it in the address bar of your browser, and you should see the red square:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">data</span><span class="pun">:</span><span class="pln">image</span><span class="pun">/</span><span class="pln">png</span><span class="pun">;</span><span class="pln">base64</span><span class="pun">,</span><span class="pln">iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4</span><span class="com">//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==</span></li>
+</ol></div>
+
+This data URL in a browser address bar should look like this:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick="window.open('https://tinyurl.com/y3vycf73')"
+    src    ="https://tinyurl.com/y5mea3zx"
+    alt    ="data url in address bar shows a red circle"
+    title  ="data url in address bar shows a red circle"
+  />
+</figure>
+
+
+If we set the src attribute of an image element `<img src="data:image/png....">` with the data URL of the above screenshot, it will work exactly as if you used a URL that started with https://
+
+In your browser, you will see a small red circle rendered by this source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atv">AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atv">9TXL0Y4OHwAAAABJRU5ErkJggg=="</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Red square"</span><span class="pln">&nbsp;width=50 height=50</span><span class="tag">/&gt;</span></li>
+</ol></div>
+
+And here is the result:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 2vw;"
+    onclick="window.open('https://tinyurl.com/y3vycf73')"
+    src    ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+    alt    ="Red square"
+    title  ="Red square"
+  />
+</figure>
+
+
+This `dataURL` format enables file content to be stored in a base64 format (as a string), and adds the MIME type specification of the content. The dataURL can therefore store a file as a URL readable with modern browsers. It is becoming more commonly used on the Web, especially for mobile applications, as inlining images reduces the number of HTTP requests and makes the Web page load faster.
+
+You will find lots of Web sites and tools for generating dataURL from files, such as [Image to Data URI converter](https://ezgif.com/image-to-datauri) (screenshot below):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick="window.open('https://tinyurl.com/y3vycf73')"
+    src    ="https://tinyurl.com/y4kdb9mp"
+    alt    ="Online service that converts uploaded images to data uris... we see an image and its ascii encoded data uri version."
+    title  ="Online service that converts uploaded images to data uris... we see an image and its ascii encoded data uri version."
+  />
+</figure>
+
+
+With the above example, you can copy and paste the characters on the left and use them with an `<img src="...">`. Just set the src attribute with it!
+
+Notice that you can encode any type of file as dataURL, but this format is most frequently used with media files (images, audio, video).
+
+Example of HTML5 logo embedded in a document without any real image, just a dataURL and CSS:
+
+[Try it at JSBin](https://jsbin.com/zaheyu/edit?html,output) ([Local Example - Text File](src/6.3.8-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3vycf73')"
+    src    ="https://tinyurl.com/yyqatka8"
+    alt    ="Screenshot of JsBin example that shows the HTML5 logo inserted before a div using CSS"
+    title  ="Screenshot of JsBin example that shows the HTML5 logo inserted before a div using CSS"
+  />
+</figure>
+
+
+
+#### Examples
+
+
+__Example #1: read images as data URL and display previews in the page__
+
+This first example is useful for forms that allow the user to select one or more pictures. Before sending the form, you might want to get a preview of the pictures in the HTML page. The `reader.readAsDataUrl` method is used for that.
+
+[Example on JSBin](https://jsbin.com/laseye/edit?html,output) or try it below in your browser: ([Local Example - data URL for Image](src/6.3.8-example2.html))
+
+<div class="exampleHTML"><label for="files1">Choose multiple images files:</label> <input id="files1" onchange="readFilesAndDisplayPreview1(this.files);" multiple="multiple" type="file"><br>
+<p></p>
+<p>Preview of selected images:</p>
+<output id="list1"></output>
+<script>// <![CDATA[
+function readFilesAndDisplayPreview1(files) {
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      //capture the file information.
+      reader.onload = function(e) {
+          // Render thumbnail. e.target.result = the image content 
+          // as a data URL
+        
+          // create the span with CSS class="thumb", for nicer layout
+          var span = document.createElement('span');
+          // Add an <img src=...> in the span, with src= the dataURL of
+          // the image
+          span.innerHTML = "<img class='thumb' src='" + e.target.result + "' alt='a picture'/>";
+          // Insert the span in the output id=list
+          document.getElementById('list1').insertBefore(span, null);
+        };
+      
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+// ]]></script>
+</div>
+
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"files"</span><span class="tag">&gt;</span><span class="pln">Choose multiple files:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"files"</span><span class="pln"> </span><span class="atn">multiple</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="atn">onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">readFilesAndDisplayPreview</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">files</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">/&gt;&lt;br/&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Preview of selected images:</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"list"</span><span class="tag">&gt;&lt;/output&gt;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; function readFilesAndDisplayPreview(files) {</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // Loop through the FileList and render image files as thumbnails.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; for (var i = 0, f; f = files[i]; i++) {</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // Only process image files.</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; if (!f.type.match('image.*')) {</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; continue;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; }</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; var reader = new FileReader();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; //capture the file information.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; reader.onload = function(e) {</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; // Render thumbnail. e.target.result = the image content </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; // as a data URL</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;// create a&nbsp;span with CSS class="thumb", for nicer layout</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;var span = document.createElement('span');</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;// Add an </span><span class="tag">img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">...</span><span class="pln">&nbsp;in the span, with src= the dataURL of</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;// the image</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;span.innerHTML = "</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">'thumb'</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">'" + </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="atv">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;e.target.result + "'</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">'a picture'</span><span class="tag">/&gt;</span><span class="pln">";</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;// Insert the span in the output id=list</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;document.getElementById('list').insertBefore(span, null);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;};</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>// Read in the image file as a data URL.</strong></span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>reader.readAsDataURL(f);</strong></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> }</span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ _Line 35_: starts the reading of the file `f`. When `f` is read, the `onload` callback will be called.
++ _Lines 25-31_: we build, using the DOM API, a `<span class="thumb">`...`</span>` and inside we add an `<img src=the data url>` element with its `src` attribute equal to the `url` of the image that has been read (the image content as dataURL is in `e.target.result`). Finally, at _line 31_, we insert the span in the document before the current children of the `<output id="list">` element (declared at _line 5_).
+
+
+__Example #2: read a single local image file and use it with drawImage in a canvas__
+
+[Try it on JSBin](https://jsbin.com/miciqu/edit?html,output) ([Local Example - drawImage](src/6.3.8-example3.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y3vycf73')"
+    src    ="https://tinyurl.com/yy8tqvav"
+    alt    ="read image as dataURL and draw inside a canvas. Jsbin screenshot"
+    title  ="read image as dataURL and draw inside a canvas. Jsbin screenshot"
+  />
+</figure>
+
+
+Errata: the above screenshot says "choose multiple files", but the example only works with a single file.
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawImage</span><span class="pun">(</span><span class="pln">imageFile</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//capture the file information.</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">onload </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// For drawing an image on a canvas we</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// need an image object</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> img </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Even if the file has been read, decoding</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// the dataURL format may take some time</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// so we need to use the regular way of</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// working with images: onload callback &nbsp; &nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// that will be called after setting the src attribute</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>img</strong></span><strong><span class="pun">.</span><span class="pln">onload </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// draw the image!</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">img</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">400</span><span class="pun">,</span><span class="pln"> </span><span class="lit">400</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// e.target.result is the dataURL, so we set the</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// src if the image with it. This will call </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; // asynchonously&nbsp;</span>the onload callback</li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; img</span><span class="pun">.</span><span class="pln">src</span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// Read in the image file as a data URL.</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">readAsDataURL</span><span class="pun">(</span><span class="pln">imageFile</span><span class="pun">);</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> readFileAndDraw</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawImage</span><span class="pun">(</span><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+
+__Explanations:__
+
+Remember how we worked with images on a canvas. We had to create an empty image object (_line 8_), set the src attribute of the image object (line 23), then use an image.onload callback (line 15), and we could only draw from inside the callback (_line 17_). This time, it's exactly the same, except that the URL comes from `e.target.result` in the `reader.onload` callback (_line 23_).
+
+
+__Example #3 (advanced): an instagram-like photo filter application__
+
+Another very impressive example, has been developed by @GeorgianaB, a student of the first iteration of this course (see her [other creations/examples](https://codepen.io/giana/)). This Web application reads local image files, draws them into a canvas element and proposes different filters. This example is given "as is" for those of you who would like to go further. Just click on the link (or on the image below) and look at the source code.
+
+[Try this example online on gitHub](https://gianablantin.github.io/CanvasFilters/).  ([Local Example - Photo](src/6.3.8-example4.html))
 
 
 
