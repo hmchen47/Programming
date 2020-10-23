@@ -1052,7 +1052,24 @@ Another very impressive example, has been developed by @GeorgianaB, a student of
 
 
 
+### 6.3.9 Discussion and projects
+
+Here is the discussion forum for this part of the course. You can post your comments and share your creations here, and of course ask questions.
+
+Let us suggest some topics of discussion and optional projects:
 
 
+#### Suggested topics
+
++ The course demonstrated how to play an audio file from memory using the Web Audio API (not covered in this course). It was a good way to show how local binary files could be read using `readAsArrayBuffer`. But do you know that we could have used `readAsDataURL` and set the file content to an `<audio>`  element's source? In this case we could have streamed it from the client hard disk!
++ Have you tried "chrome applications" or HTML5 applications from the Windows store? Try some! A lot of them work with local files and rely on the File API. Share the best applications you find in the forum!
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
++ __Project 1 (easy):__ Add a way to select an image file in your form and display a preview as a thumbnail. Additional task: write a local audio/video player that streams audio/video files from the local hard disk.
++ __Project 2 (a bit harder):__ Add a way to select a pattern (an image) and use it with one of your canvas animations - i.e., apply a pattern on a monster, or a background image you read from disk.
 
 
