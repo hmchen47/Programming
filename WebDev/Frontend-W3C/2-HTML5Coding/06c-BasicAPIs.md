@@ -120,6 +120,50 @@
     + event `e` as a unique parameter
     + `e.target.result` = the file content
 
++ [Read text file](#636-read-file-content-as-text)
+  + read a single file's content
+    + start reading the file asynchronously: `reader.readAsText(files[0]);`
+    + call the `onload` callback when the file is read
+    + called when the file content is loaded: `reader.onload = function(e) {...}`
+      + the file content: `e.target.result`
+      + display content in the `textarea` with `id="fileContent"`: `document.getElementById("fileContent").value= e.target.result;`
+  + read multiple files
+    + select multiple files: `<input type="file" id="files" multiple onchange="readFilesAndDisplayAsText(this.files);"/><br/>`
+    + `onload` listener to print the name of thev file...
+
+      ```js
+      function addOnLoadListener(reader, name) {
+          // Add an onload listener that will be able to print the name of the
+          // file...
+          reader.onload = function(e) {
+              filesContent.value += "###### READING FILE " + name + " ######";
+              filesContent.value += e.target.result;
+          };
+      }
+      ```
+
+    + iterate to read files
+
+      ```js
+      function readFilesAndDisplayAsText(files) {
+          console.log("dans read files");
+          // Loop through the FileList
+          for (var i = 0, f; f = files[i]; i++) {
+              var reader = new FileReader();
+              // Add an onload listener to the reader
+              addOnLoadListener(reader, f.name);
+              // start reading, will call the listener later, when the file f is read
+              reader.readAsText(f);
+          }
+      }
+      ```
+
++ [Character encoding](#about-character-encoding)
+  + optionally indicate the encoding of the file going to read
+  + default: UTF-8
+  + e.g., `reader.readAsText(file, 'UTF-8'); reader.readAsText(file, 'ISO-8859-1');`
+
+
 
 
 
@@ -486,7 +530,7 @@ Let's start by reading a pure text file
 
 __Example #1: read a single file's content__
 
-[Example at JSBin](https://jsbin.com/xewemi/edit?html,output), or try it below in your browser: ([Local Example - ReadText](src/6.3.6-example1.html))
+[Example at JSBin](https://jsbin.com/xewemi/edit?html,output), or try it below in your browser: ([Local Example - Read Text F](src/6.3.6-example1.html))
 
 <div style="border: 1px solid; margin: 20px; padding: 20px;">Choose a text file :<input id="file" onchange="readFileContent(this.files)" type="file"><br>
 <p></p>
