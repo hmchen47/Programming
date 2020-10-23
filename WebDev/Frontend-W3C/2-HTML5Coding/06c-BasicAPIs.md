@@ -530,7 +530,7 @@ Let's start by reading a pure text file
 
 __Example #1: read a single file's content__
 
-[Example at JSBin](https://jsbin.com/xewemi/edit?html,output), or try it below in your browser: ([Local Example - Read Text F](src/6.3.6-example1.html))
+[Example at JSBin](https://jsbin.com/xewemi/edit?html,output), or try it below in your browser: ([Local Example - Read Text File](src/6.3.6-example1.html))
 
 <div style="border: 1px solid; margin: 20px; padding: 20px;">Choose a text file :<input id="file" onchange="readFileContent(this.files)" type="file"><br>
 <p></p>
@@ -704,6 +704,56 @@ Note that you can optionally indicate the encoding of the file you are going to 
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">reader</span><span class="pun">.</span><span class="pln">readAsText</span><span class="pun">(</span><span class="pln">file</span><span class="pun">,</span><span class="pln"> </span><span class="str">'ISO-8859-1'</span><span class="pun">);</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pun">...</span></li>
 </ol></div>
+
+
+### 6.3.7 Read file content as binary
+
+This method is rarely used, except for loading "raw" binary data. For images you would like to see in your HTML page using the `<img src= tag>` or for drawing in a canvas, or for audio and video files that you would like to play using the `<audio>` or `<video>` elements, it would be preferable to use the readAsDataURL method presented on the next page of the course.
+
+`readAsArrayBuffer` is often used for purposes such as reading audio samples that should be loaded in memory and played using the WebAudio API, or for loading textures that you will use with WebGL for 3D animations.
+
+
+#### Example: read a local audio file and play it with the WebAudio API
+
+The WebAudio API is useful for reading audio sound samples from memory (no streaming), and has been designed for music application and games. This example shows how a local audio file can be read and played directly in the browser, without the need for a server!
+
+[Example on JSBin](https://jsbin.com/xepexuy/1/edit?html,output) (does not work on IE, as it does not support the WebAudio API). We could not embed it here on the edX platform as it prevents code that uses Ajax to run in its pages. ([Local Example - Audio File](src/6.3.7-example1.html))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y4yldqdq')"
+    src    ="https://tinyurl.com/y2arv2ez"
+    alt    ="local audio player"
+    title  ="local audio player"
+  />
+</figure>
+
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// User selects file. Read it as an ArrayBuffer and pass&nbsp;to the API.</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> fileInput </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'input[type="file"]'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">fileInput</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'change'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;reader</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; initSound</span><span class="pun">(</span><span class="pln">e</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// THIS IS THE INTERESTING PART!</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">readAsArrayBuffer</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ _Line 2_: we get a pointer to the file selector, the variable `fileInput`.
++ _Line 4_: we define a `change` listener. In this example, we use an anonymous function directly included in the listener definition (the listener is the `function(e) {...}`).
++ _Line 11_: when a user chooses a file, the listener will be executed. Line 11 will start the reading of the file content, as a binary file (this is what `readAsArrayBuffer` means: read as binary!). Once the file will be entirely read, the onload callback will be asynchronously called by the browser.
++ _Line 7_ is the `onload` callback, executed when the file content is loaded in memory. We pass the file content to the `initSound` function (see JSBin example for complete source code) that uses WebAudio to decode it (it may be a compressed file - an mp3 for example - and WebAudio works only with uncompressed audio formats in memory), and to play it.
+
 
 
 
