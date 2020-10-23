@@ -4,7 +4,7 @@
 ## 6.4 The Geolocation API
 
 
-## 6.4.0 Lecture Notes
+### 6.4.0 Lecture Notes
 
 + [Geolocation API](#641-introduction)
   + implemented by most modern Web browsers
@@ -57,6 +57,7 @@
 
   + [Geolocation API Specification](https://www.w3.org/TR/geolocation-API/)
   + [Geolocation API - WDN](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+
 
 
 
@@ -161,5 +162,46 @@ __Explanations:__
   + on MDN: [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API#Browser_compatibility)
 
 
+### 6.4.2 The coords object properties
+
+In the previous example, we used the `coords` property of the position passed as an input parameter to the callback function. This `coords` object has many properties:
+
+<table style="table-layout: auto; border: 5px solid lightGrey; color: black; font-size: 1.0em; font-family: arial,helvetica,sans-serif; width: 45vw;" cellspacing="0" cellpadding="5" border="0" align="center">  
+<tbody>
+<tr>
+<td colspan="2" style="padding: 5px; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey; text-align: center;">Properties of the coords object</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">latitude</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The latitude of the position</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">longitude</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The longitude of the position</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">altitude</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The altitude of the position</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">accuracy</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The accuracy of the measure of the longitude and latitude (in meters)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">altitudeAccuracy</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey;" valign="top">The accuracy of the measure of the altitude (in meters)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">heading</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey;" valign="top">gives the orientation relative to north, in degrees</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: #007ff6; color: white; font-size: 1.2em; border: 2px solid lightGrey;" valign="top"><strong><span style="font-family: 'courier new', courier;">speed</span></strong></td>
+<td style="background-color: white; border: 2px solid lightGrey;" valign="top">current speed in meters/second</td>
+</tr>
+</tbody>
+</table>
+
+Not all these values may be available in all Web browsers. When one of these properties is null, it means that it is not available (often the case of the altitudeAccuracy)
 
 
