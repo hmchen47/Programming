@@ -158,11 +158,34 @@
       }
       ```
 
-+ [Character encoding](#about-character-encoding)
++ [Character encoding for text file](#about-character-encoding)
   + optionally indicate the encoding of the file going to read
   + default: UTF-8
   + e.g., `reader.readAsText(file, 'UTF-8'); reader.readAsText(file, 'ISO-8859-1');`
 
++ [Read binary file](#637-read-file-content-as-binary)
+  + rarely used, except for loading "raw" binary data
+  + HTML page for specific binary files
+    + image files or drawing in a canvas: using the `<img src= tag>`
+    + audio files: using the `<audio>` elements
+    + video files: using the `<video>` elements
+  + image, drawing, audio, and video files: referable to use the `readAsDataURL` method
+  + `readAsArrayBuffer` method used for purposes
+    + reading audio samples that should be loaded in memory 
+    + played using the WebAudio API
+    + loading textures that you will use with WebGL for 3D animations
+  + WebAudio API
+    + useful for reading audio sound samples from memory (no streaming)
+    + designed for music application and games
+  + example: read audio file and play w/ WebAudio API
+    + read a local audio file and play directly in the Browser
+    + user selects file and read it as an `ArrayBuffer` and pass to the API: `var fileInput = document.querySelector('input[type="file"]');`
+    + define a change listener: `fileInput.addEventListener('change', function(e) {...}`
+      + after choosing a file, the listener executed
+      + start the reading of the file content, as a binary file: `reader.readAsArrayBuffer(this.files[0]);`
+      + once the file will be entirely read, the `onload` callback asynchronously called by the browser
+    + executed the `onload` callback when the file content is loaded in memory
+    + pass the file content to the `initSound(e.target.result);` function to play
 
 
 
@@ -753,6 +776,7 @@ __Explanations:__
 + _Line 4_: we define a `change` listener. In this example, we use an anonymous function directly included in the listener definition (the listener is the `function(e) {...}`).
 + _Line 11_: when a user chooses a file, the listener will be executed. Line 11 will start the reading of the file content, as a binary file (this is what `readAsArrayBuffer` means: read as binary!). Once the file will be entirely read, the onload callback will be asynchronously called by the browser.
 + _Line 7_ is the `onload` callback, executed when the file content is loaded in memory. We pass the file content to the `initSound` function (see JSBin example for complete source code) that uses WebAudio to decode it (it may be a compressed file - an mp3 for example - and WebAudio works only with uncompressed audio formats in memory), and to play it.
+
 
 
 
