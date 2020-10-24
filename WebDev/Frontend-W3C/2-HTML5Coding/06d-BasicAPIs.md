@@ -94,6 +94,28 @@
       }
       ```
 
++ [Tracking position](#644-tracking-a-position) 
+  + syntax: `watchPosition(onSuccess, onError)`
+    + get the callback function only when the current position changes
+    + return an `id` to use the `clearWatch(id)` method to stop the current tracking
+  + track the current position
+  + typical usage:
+    + get an id of the current tracking: `var watchPosId = navigator.geolocation.watchPosition(showPosition);`
+    + stop the tracking: `navigator.geolocation.clearWatch(watchPosId);`
+
++ [Properties of the coords object for real time tracking](#options-available-when-using-the-geolocation-api-in-particular-real-time-tracking)
+  + __enableHighAccuracy:__ A boolean (true/false) which indicates to the device that you wish to obtain its most accurate readings. in other words: use the GPS please! (However, this parameter may or may not make a difference, depending on your hardware, GPS availability, etc.)
+  + __maximumAge:__ The maximum amount of time (in milliseconds) the position may remain in the cache (this is appropriate as the device may cache readings to save power and/or bandwidth).
+  + __timeout:__ The maximum time (in milliseconds) for which you are prepared to allow the device to try to obtain a Geo location. After this timeout value has elapsed, the onError callback is called.
+
++ [Example: tracking position](#example-of-use)
+  + ask to turn GPS on, if available: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {enableHighAccuracy:true});`
+  + the position can be cached for 10 mins useful when in tunnels: `maximumAge = 10 mins`
+  + when the device tries to get a position, if it does not succeed, then go on error immediately: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:600000, timeout:0});`
+  + position will never come from the cache (maximumAge: 0), and if after 0.1s the position could not be computed, then go on error: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:0, timeout:100});`
+  + ask for GPS, cache for 30s, 27s before going on error: `watchId=navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy:true, maximumAge:30000, timeout:27000});`
+
+
 
 
 
