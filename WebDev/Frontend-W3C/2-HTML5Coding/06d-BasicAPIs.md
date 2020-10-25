@@ -139,7 +139,49 @@
     + popup in leaflet: `marker.bindPopup('<p>Your location</p>').openPopup();`
   + get current position fail: ` alert('Get current position fail. Please access codepen to get geolocation.');`
 
++ [Reverse Geocoding](#646-reverse-geocoding)
+  + Web services:
+    + used to get an address from longitude and latitude
+    + most are free of charge, but ask to register an API key and enter your credit card number
+    + if too many requests, you will be charged
+    + examples:
+      + the [Google Reverse Geocoding JavaScript API](https://tinyurl.com/pdlpfjc)
+      + Leaflet plugin (an extension to Leaflet) based on the Gisgraphy (free open source framework)
+  + example: get address from longitude & latitude
+    + access Google API: `<script src="https://maps.googleapis.com/maps/api/js?key=PUT_HERE_YOUR_API_KEY&v=3.exp&sensor=false">`
+    + using the google apis: `var infowindow = new google.maps.InfoWindow();`
+    + initializing JS after page loaded: `function init() {...}`
+      + linking w/ html elements: `displayCoords=document.getElementById("msg"); myAddress = document.getElementById("address");`
+      + access Google map: `geocoder = new google.maps.Geocoder();`
+      + displaying something before click button: `geocoder = new google.maps.Geocoder();`
+      + parameters for Google map: `var mapOptions = { zoom: 8, center: latlng, mapTypeId: 'roadmap' }`
+      + get initial map: `map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);`
+    + button clicked: `navigator.geolocation.getCurrentPosition(showPosition);`
+    + show position as available: `function showPosition(position) {...}`
+      + insert HTML code: `displayCoords.innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;`
+      + display map: `showOnGoogleMap(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));`
+    + ask google geocoder for an address: `function showOnGoogleMap(latlng) {...}`
+      + the reverse geocoder sends back an array of "guesses", i.e. not just one address object, but several
+      + each entry in this array has several properties such as street, city, etc.
+      + using the "formatted_address" one here
+      + probably interesting to get the detailed properties in other applications like a form with street, city, zip code etc.
+      + the reverse geocoder: `geocoder.geocode({'latLng': latlng},reverseGeocoderSuccess);`
+    + process the map: `function reverseGeocoderSuccess(results, status) {...}`
+      + display marker if success: `status == google.maps.GeocoderStatus.OK`
 
+        ```js
+        if (results[1]) {
+            map.setZoom(11);
+            marker = new google.maps.Marker({ position: latlng, map: map });
+            infowindow.setContent(results[1].formatted_address);
+            infowindow.open(map, marker);
+            // Display address as text in the page
+            myAddress.innerHTML="Adress: " + results[0].formatted_address; 
+        } else {
+            alert('No surface address found');
+        }
+        ```
+      + showing waring message: `alert('Geocoder failed due to: ' + status);`
 
 
 
@@ -523,7 +565,7 @@ JavaScript part :
 
 ### 6.4.6 Reverse geocoding
 
-Different Web services can be used to get an address from longitude and latitude. Most are free of charge, but they will ask you to register an API key and enter your credit card number. If you send too many requests, you will be charged.Such a service is the [Google Reverse Geocoding JavaScript API](https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse). For those of you who are really interested to know how this API works, please read the Google documentation and tutorials.
+Different Web services can be used to get an address from longitude and latitude. Most are free of charge, but they will ask you to register an API key and enter your credit card number. If you send too many requests, you will be charged. Such a service is the [Google Reverse Geocoding JavaScript API](https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse). For those of you who are really interested to know how this API works, please read the Google documentation and tutorials.
 
 There is also an interesting Leaflet plugin (an extension to Leaflet) based on the Gisgraphy (free open source framework) service, that comes with [a nice demo of reverse geocoding](https://services.gisgraphy.com/static/leaflet/index.html).
 
