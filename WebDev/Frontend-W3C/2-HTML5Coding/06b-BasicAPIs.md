@@ -317,18 +317,13 @@
 
 
 
-
-
-
-
-
 ### 6.2.1 The Web storage API
 
 The Web storage API introduces "two related mechanisms, similar to HTTP session cookies, for storing structured data on the client side".
 
 Indeed, Web Storage provides two interfaces - `sessionStorage` and `localStorage` - whose main difference is data longevity. This specification defines an API for persistent data storage of key-value pair data in Web clients.
 
-<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>With <span style="font-family: 'courier new', courier;">localStorage</span> the data will remain until it is deleted, whereas with <span style="font-family: 'courier new', courier;">sessionStorage</span> the data is erased when the tab/browser is closed.</strong></p>
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>With <span style="font-family: 'courier new', courier;">localStorage the data will remain until it is deleted, whereas with <span style="font-family: 'courier new', courier;">sessionStorage the data is erased when the tab/browser is closed.</strong></p>
 
 For convenience, we will mainly illustrate the `localStorage` object. Just change "local" to "session" and it should work (this time with a session lifetime).key value pairs
 
@@ -349,18 +344,18 @@ For convenience, we will mainly illustrate the `localStorage` object. Just chang
 
 Example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Using localStorage</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// store data</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">lastName </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Bunny"</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">firstName </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Bugs"</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">location </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Earth"</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">// retrieve data</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> lastName </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">lastName</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> firstName </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">firstName</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> location </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">location</span><span class="pun">;</span></li>
+<div><ol>
+<li value="1">// Using localStorage</li>
+<li> </li>
+<li>// store data</li>
+<li>localStorage.lastName = "Bunny";</li>
+<li>localStorage.firstName = "Bugs";</li>
+<li>localStorage.location = "Earth";</li>
+<li> </li>
+<li>// retrieve data</li>
+<li>var lastName = localStorage.lastName;</li>
+<li>var firstName = localStorage.firstName;</li>
+<li>var location = localStorage.location;</li>
 </ol></div>
 
 This data is located in a store attached to the origin of the page. We created a [JSBin example in which we included the above code](https://jsbin.com/povuqa/1/edit). ([Local Example - key-value pair](src/6.2.1-example1.html))
@@ -428,8 +423,8 @@ Open this [online example at JSBin](https://jsbin.com/zezudo/edit?html,output), 
 
 We just added input event listeners to each input field. For example, in order to save the first name input field's content, we just added:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">oninput</span><span class="pun">=</span><span class="str">"localStorage.<span style="color: #ff0000;">firstName</span>=this.value;"</span></li>
+<div><ol>
+<li value="1">oninput="localStorage.<span style="color: #ff0000;">firstName=this.value;"</li>
 </ol></div>
 
 Where `firstName` in red is the key and `this.value` the current value of the input field.
@@ -455,28 +450,28 @@ This time, we want the form content to be restored on page load/reload. We will 
 
 Source code extract (only addition to the previous example):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Called when the page is loaded</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> restoreFormContent</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> restoreFormContent</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"restoring form content from localStorage"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">firstName </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"firstName"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">firstName</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">lastName </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"lastName"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">lastName</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">email </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"email"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">email</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">age </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"age"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">age</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.date</span><span class="pln">&nbsp;</span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"date"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">date</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Called when the page is loaded</li>
+<li>window.onload = restoreFormContent;</li>
+<li>&nbsp;</li>
+<li>function restoreFormContent() {</li>
+<li>&nbsp; &nbsp;console.log("restoring form content from localStorage");</li>
+<li> </li>
+<li>&nbsp; &nbsp;if(localStorage.firstName !== undefined) </li>
+<li>&nbsp; &nbsp; &nbsp;document.getElementById("firstName").value = localStorage.firstName;</li>
+<li> </li>
+<li>&nbsp; &nbsp;if(localStorage.lastName !== undefined) </li>
+<li>&nbsp; &nbsp; &nbsp;document.getElementById("lastName").value = localStorage.lastName;</li>
+<li> </li>
+<li>&nbsp; &nbsp;if(localStorage.email !== undefined) </li>
+<li>&nbsp; &nbsp; &nbsp;document.getElementById("email").value = localStorage.email;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;if(localStorage.age !== undefined) </li>
+<li>&nbsp; &nbsp; &nbsp;document.getElementById("age").value = localStorage.age;</li>
+<li> </li>
+<li>&nbsp; &nbsp;if(localStorage.date&nbsp;!== undefined) </li>
+<li>&nbsp; &nbsp; &nbsp;document.getElementById("date").value = localStorage.date;</li>
+<li>}</li>
 </ol></div>
 
 The tests at _lines 7, 10, 13, etc._, verify that data has been saved, before trying to restore it. Without these tests, it would put the "undefined" string as the value of input fields with no corresponding data to restore.
@@ -496,10 +491,10 @@ This time we will look at another example that uses new methods from the API:
 
 If you want to keep a simple counter of the number of times a given user has loaded your application, you can use the following code (just to show how to use setItem/removeItem methods):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> counter </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">getItem</span><span class="pun">(</span><span class="str">"count"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">counter</span><span class="pun">++;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="str">"count"</span><span class="pun">,</span><span class="pln"> counter</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">var counter = localStorage.getItem("count") || 0;</li>
+<li>counter++;</li>
+<li>localStorage.setItem("count", counter);</li>
 </ol></div>
 
 As you can easily guess from the above, we use `var value = getItem(key)` to retrieve a key's value and `setItem(key, value)` to set it. This is similar to what we saw in the examples of the page above, except that this time:
@@ -507,13 +502,13 @@ As you can easily guess from the above, we use `var value = getItem(key)` to ret
 + The key can contain spaces, for example we can write: `localStorage.setItem("Instructor's name", "Michel");` and `var name =  localStorage.getItem("Instructor's name");`, while `var name = localStorage.Instructor's name;` will not work!
 + In a loop or in an iterator, sometimes we need to set/get `localStorage` values using this syntax, for example: 
 
-  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> inputField </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"firstName"</span><span class="pun">);</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">saveInputFieldValue</span><span class="pun">(</span><span class="pln">inputField</span><span class="pun">);</span></li>
-  <li class="L2" style="margin-bottom: 0px;">...&nbsp;</li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> saveInputFieldValue</span><span class="pun">(</span><span class="pln">field</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; localStorage</span><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="pln">field</span><span class="pun">.</span><span class="pln">id</span><span class="pun">,</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+  <div><ol style="list-style-type: decimal;">
+  <li value="1">var inputField = document.getElementById("firstName");</li>
+  <li>saveInputFieldValue(inputField);</li>
+  <li>...&nbsp;</li>
+  <li>function saveInputFieldValue(field) {</li>
+  <li>&nbsp; &nbsp; localStorage.setItem(field.id, field.value);</li>
+  <li>}</li>
   </ol></div>
 
 
@@ -530,11 +525,11 @@ One way of handling this is to add a user interface button that calls `clear()` 
 
 Local stores (`localStorage` or `sessionStorage`) can also be iterated through in order to list all the content that they contain. The order is not guaranteed, but this may be useful at times (if only for debugging purposes!). The following code lists everything in the current store:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> k </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><strong><span class="pln">key</span><span class="pun">(</span><span class="pln">i</span></strong><span class="pun"><strong>)</strong>;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">k </span><span class="pun">+</span><span class="pln"> </span><span class="str">": "</span><span class="pln"> </span><span class="pun">+</span><strong><span class="pln"> localStorage</span><span class="pun">[</span><span class="pln">k</span></strong><span class="pun"><strong>]</strong>); // get the ith value, the one with a key that is in the variable k.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">for (var i = 0, n = localStorage.length; i &lt; n; i++) {</li>
+<li>&nbsp; &nbsp;&nbsp;var k = localStorage.<strong>key(i</strong><strong>)</strong>;</li>
+<li>&nbsp; &nbsp; console.log(k + ": " +<strong> localStorage[k</strong><strong>]</strong>); // get the ith value, the one with a key that is in the variable k.</li>
+<li>}</li>
 </ol></div>
 
 Students may note that something seems a bit off in the example above: instead of calling `localStorage.getItem(k)`, we simply access `localStorage[k]`. Why? Because keys in the local store can also be accessed as if the store were a simple JavaScript object. So instead of `localStorage.getItem("foo")` and `localStorage.setItem("foo", "bar")`, one can write `localStorage.foo` and `localStorage.foo = "bar"`. Of course there are limitations to this mapping: any string can serve as a key, so that localStorage.getItem("one two three") works, whereas that string would not be a valid identifier after the dot (but it could still work as `localStorage["one two three"])`.
@@ -558,73 +553,73 @@ Then click on the second button to add data to the store, click on the third to 
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">utf-8</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;</span><span class="pln">Example of localStorare API use</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Using localStorage</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> counter </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">getItem</span><span class="pun">(</span><span class="str">"count"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;counter</span><span class="pun">++;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;localStorage</span><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="str">"count"</span><span class="pun">,</span><span class="pln"> counter</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> getCountValue</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// retrieve data</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#counter"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">count</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> seeAllKeyValuePairsStored</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// clear list first</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#list'</span><span class="pun">).</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> key </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">key</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> value </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">[</span><span class="pln">key</span><span class="pun">];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">key </span><span class="pun">+</span><span class="pln"> </span><span class="str">": "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> value</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;li</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> key </span><span class="pun">+</span><span class="pln"> </span><span class="str">": "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> value</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#list'</span><span class="pun">).</span><span class="pln">insertBefore</span><span class="pun">(</span><span class="pln">li</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> resetStore</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// erase all key values from store </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; localStorage</span><span class="pun">.</span><span class="pln">clear</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// reset displayed list too</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#list'</span><span class="pun">).</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> addSomeData</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// store data</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; localStorage</span><span class="pun">.</span><span class="pln">lastName </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Buffa"</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; localStorage</span><span class="pun">.</span><span class="pln">firstName </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Michel"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// refresh display</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; seeAllKeyValuePairsStored</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> removeSomeData</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// store data</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; localStorage</span><span class="pun">.</span><span class="pln">removeItem</span><span class="pun">(</span><span class="str">"lastName"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; localStorage</span><span class="pun">.</span><span class="pln">removeItem</span><span class="pun">(</span><span class="str">"firstName"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="com">// refresh display</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; seeAllKeyValuePairsStored</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">getCountValue</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;h1&gt;</span><span class="pln">Number of times this page has been seen on this browser: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"counter"</span><span class="tag">&gt;&lt;/span&gt;&lt;/h1&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">seeAllKeyValuePairsStored</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Show all key value pairs stored in localStorage</span><span class="tag">&lt;/button&gt;&lt;br/&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"list"</span><span class="tag">&gt;&lt;/output&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">addSomeData</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Add some data to the store</span><span class="tag">&lt;/button&gt;&lt;br/&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">removeSomeData</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Remove some data</span><span class="tag">&lt;/button&gt;&lt;br/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">resetStore</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">reset store (erase all key/value pairs)</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;meta charset=utf-8 /&gt;</li>
+<li>&lt;title&gt;Example of localStorare API use&lt;/title&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp;// Using localStorage</li>
+<li>&nbsp; &nbsp;var counter = localStorage.getItem("count") || 0;</li>
+<li>&nbsp; &nbsp;counter++;</li>
+<li>&nbsp; &nbsp;localStorage.setItem("count", counter);</li>
+<li> </li>
+<li>&nbsp; &nbsp;function getCountValue() {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// retrieve data</li>
+<li>&nbsp; &nbsp; &nbsp; document.querySelector("#counter").innerHTML = localStorage.count;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;function seeAllKeyValuePairsStored() {</li>
+<li>&nbsp; &nbsp; &nbsp; // clear list first</li>
+<li>&nbsp; &nbsp; &nbsp; document.querySelector('#list').innerHTML="";</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;for (var i = 0, n = localStorage.length; i &lt; n; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var key = localStorage.key(i);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var value = localStorage[key];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log(key + ": " + value);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var li = document.createElement('li');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;li.innerHTML = key + ": " + value;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.querySelector('#list').insertBefore(li, null);</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp;} </li>
+<li> </li>
+<li>&nbsp; &nbsp;function resetStore() { </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// erase all key values from store </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; localStorage.clear();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // reset displayed list too</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;document.querySelector('#list').innerHTML="";</li>
+<li>&nbsp; &nbsp;}</li>
+<li></li>
+<li>&nbsp; &nbsp;function addSomeData() {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// store data</li>
+<li>&nbsp; &nbsp; &nbsp; localStorage.lastName = "Buffa";</li>
+<li>&nbsp; &nbsp; &nbsp; localStorage.firstName = "Michel";</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// refresh display</li>
+<li>&nbsp; &nbsp; &nbsp; seeAllKeyValuePairsStored();</li>
+<li>&nbsp; &nbsp;}</li>
+<li></li>
+<li>&nbsp; &nbsp;function removeSomeData() {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// store data</li>
+<li>&nbsp; &nbsp; &nbsp; localStorage.removeItem("lastName");</li>
+<li>&nbsp; &nbsp; &nbsp; localStorage.removeItem("firstName");</li>
+<li>&nbsp; &nbsp; &nbsp; // refresh display</li>
+<li>&nbsp; &nbsp; &nbsp; seeAllKeyValuePairsStored();</li>
+<li>&nbsp; &nbsp;}</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body onload="getCountValue()"&gt;</li>
+<li>&nbsp; &nbsp;&lt;h1&gt;Number of times this page has been seen on this browser: &lt;span id="counter"&gt;&lt;/span&gt;&lt;/h1&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;button onclick="seeAllKeyValuePairsStored()"&gt;Show all key value pairs stored in localStorage&lt;/button&gt;&lt;br/&gt;</li>
+<li>&nbsp; &nbsp;&lt;output id="list"&gt;&lt;/output&gt;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&lt;button onclick="addSomeData()"&gt;Add some data to the store&lt;/button&gt;&lt;br/&gt;</li>
+<li>&nbsp; &nbsp;&lt;button onclick="removeSomeData()"&gt;Remove some data&lt;/button&gt;&lt;br/&gt;</li>
+<li>&nbsp; &nbsp;&lt;button onclick="resetStore()"&gt;reset store (erase all key/value pairs)&lt;/button&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 You can check in the Chrome dev. tools user interface that the content of the localStorage changes as you click on the buttons.
@@ -682,51 +677,51 @@ The function `initPreferences` is executed when the page is loaded.
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> initPreferences</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Adding input listener to all input fields"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add an input listener to all input fields</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> listOfInputsInForm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"input"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> listOfInputsInForm</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; addInputListener</span><span class="pun">(</span><span class="pln">listOfInputsInForm</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// restore preferences</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;restorePreferences</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;applyGUIvalues</span><span class="pun">(); // Use the input fields' values we just restored to set internal&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// size, incX, color, lineWidth variables</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> addInputListener</span><span class="pun">(</span><span class="pln">inputField</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// same as before</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> restorePreferences</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// same as old restoreFormContent</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> applyGUIvalues</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Check restored input field content to set the size of the rectangle</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> sizeWidget </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"size"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;size </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sign</span><span class="pun">(</span><span class="pln">incX</span><span class="pun">)*</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">sizeWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun"><span style="line-height: 25.6000003814697px; background-color: #eeeeee;">&nbsp; &nbsp;// also update the outline element's value</span></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"sizeValue"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> size</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span style="color: #666600; line-height: 25.6000003814697px; background-color: #ffffff;">&nbsp; &nbsp;// Check restored input field content to set the color&nbsp;of the rectangle</span></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> colorWidget </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"color"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> colorWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span style="color: #666600; line-height: 25.6000003814697px;">&nbsp; &nbsp;// Check restored input field content to set the speed&nbsp;of the rectangle</span></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> speedWidget </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"speed"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;incX </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sign</span><span class="pun">(</span><span class="pln">incX</span><span class="pun">)*</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">speedWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// also update the outline element's value</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"speedValue"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">abs</span><span class="pun">(</span><span class="pln">incX</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span style="color: #666600; line-height: 25.6000003814697px;">// Check restored input field content to set the&nbsp;lineWidth</span><span style="color: #666600; line-height: 25.6000003814697px;">&nbsp;of the rectangle</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> lineWidthWidget </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"lineWidth"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">lineWidthWidget</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function initPreferences() {</li>
+<li>&nbsp; &nbsp;console.log("Adding input listener to all input fields");</li>
+<li>&nbsp; &nbsp;// add an input listener to all input fields</li>
+<li>&nbsp; &nbsp;var listOfInputsInForm = document.querySelectorAll("input");</li>
+<li>&nbsp; &nbsp;for(var i= 0; i &lt; listOfInputsInForm.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; addInputListener(listOfInputsInForm[i]);</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;// restore preferences</li>
+<li>&nbsp; &nbsp;restorePreferences();</li>
+<li> </li>
+<li>&nbsp; &nbsp;applyGUIvalues(); // Use the input fields' values we just restored to set internal&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// size, incX, color, lineWidth variables</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function addInputListener(inputField) {</li>
+<li> // same as before</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function restorePreferences() {</li>
+<li> // same as old restoreFormContent</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function applyGUIvalues() {</li>
+<li>&nbsp; &nbsp;// Check restored input field content to set the size of the rectangle</li>
+<li>&nbsp; &nbsp;var sizeWidget = document.getElementById("size");</li>
+<li>&nbsp; &nbsp;size = Math.sign(incX)*parseInt(sizeWidget.value);</li>
+<li><span style="line-height: 25.6000003814697px; background-color: #eeeeee;">&nbsp; &nbsp;// also update the outline element's value</li>
+<li>&nbsp; &nbsp;document.getElementById("sizeValue").innerHTML = size;</li>
+<li> </li>
+<li><span style="color: #666600; line-height: 25.6000003814697px; background-color: #ffffff;">&nbsp; &nbsp;// Check restored input field content to set the color&nbsp;of the rectangle</li>
+<li>&nbsp; &nbsp;var colorWidget = document.getElementById("color");</li>
+<li>&nbsp; &nbsp;ctx.fillStyle = colorWidget.value;</li>
+<li> </li>
+<li><span style="color: #666600; line-height: 25.6000003814697px;">&nbsp; &nbsp;// Check restored input field content to set the speed&nbsp;of the rectangle</li>
+<li>&nbsp; &nbsp;var speedWidget = document.getElementById("speed");</li>
+<li>&nbsp; &nbsp;incX = Math.sign(incX)*parseInt(speedWidget.value);</li>
+<li>&nbsp; &nbsp;// also update the outline element's value</li>
+<li>&nbsp; &nbsp;document.getElementById("speedValue").innerHTML = Math.abs(incX);</li>
+<li> </li>
+<li>&nbsp; &nbsp;<span style="color: #666600; line-height: 25.6000003814697px;">// Check restored input field content to set the&nbsp;lineWidth<span style="color: #666600; line-height: 25.6000003814697px;">&nbsp;of the rectangle</li>
+<li>&nbsp; &nbsp;var lineWidthWidget = document.getElementById("lineWidth");</li>
+<li>&nbsp; &nbsp;ctx.lineWidth = parseInt(lineWidthWidget.value);</li>
+<li>}</li>
 </ol></div>
 
 
@@ -758,31 +753,31 @@ We start writing an `init()` function that is called when the page is loaded. Th
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Called when the page is loaded</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> init</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Adding input listener to all input fields"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add an input listener to all input fields</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> listOfInputsInForm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><strong><span class="pln">querySelectorAll</span></strong><span class="pun">(</span><span class="str">"input"</span><span class="pun">);<br><br></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> listOfInputsInForm</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; addInputListener</span><span class="pun">(</span><span class="pln">listOfInputsInForm</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// restore form content with previously saved values</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;restoreFormContent</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Called when the page is loaded</li>
+<li>window.onload = init;</li>
+<li>&nbsp;</li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp;console.log("Adding input listener to all input fields");</li>
+<li>&nbsp; &nbsp;// add an input listener to all input fields</li>
+<li>&nbsp; &nbsp;var listOfInputsInForm = document.<strong>querySelectorAll</strong>("input");<br><br></li>
+<li>&nbsp; &nbsp;for(var i= 0; i &lt; listOfInputsInForm.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; addInputListener(listOfInputsInForm[i]);</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;// restore form content with previously saved values</li>
+<li>&nbsp; &nbsp;restoreFormContent();</li>
+<li>}</li>
 </ol></div> 
 
 And here is the `addInputListener(inputField)` function. It takes an input field as parameter and attaches an `oninput` listener to it, that will save the field's content each time a value is entered. The key will be the id of the input field (_line 3_):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> addInputListener</span><span class="pun">(</span><span class="pln">inputField</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; inputField</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>localStorage</strong></span><strong><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="pln">inputField</span><span class="pun">.</span><span class="pln">id</span><span class="pun">,</span><span class="pln"> inputField</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function addInputListener(inputField) {</li>
+<li>&nbsp; &nbsp; inputField.addEventListener('input', function(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>localStorage</strong><strong>.setItem(inputField.id, inputField.value);</strong></li>
+<li>&nbsp; &nbsp; &nbsp;}, false);</li>
+<li>}</li>
 </ol></div>
 
 Note that at _line 2_, we use `addEventListener` (that is not using the `oninput` property here). `adddEventListener` doesnot replace existing `oninput` definitions and keep all existing listeners unchanged.
@@ -792,30 +787,30 @@ Note that at _line 2_, we use `addEventListener` (that is not using the `oninput
 
 We have seen how to save all input fields' content on the fly. Now, let's see how we can restore saved values and update the form. This is done using the function `restoreFormContent()`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> restoreFormContent</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"restoring form content from localStorage"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// get the list of all input elements in the form</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> listOfInputsInForm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"input"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// For each input element, </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// - get its id (that is also the key for it's saved content </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// in the localStorage)</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// - get the value associated with the id/key in the local</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// storage</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// - If the value is not undefined, restore the value</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// of the input field</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> listOfInputsInForm</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> fieldToRestore </span><span class="pun">=</span><span class="pln"> listOfInputsInForm</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> fieldToRestore</span><span class="pun">.</span><span class="pln">id</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> savedValue </span><span class="pun">=</span><span class="pln"> localStorage</span><span class="pun">.</span><span class="pln">getItem</span><span class="pun">(</span><span class="pln">id</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">savedValue </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>fieldToRestore</strong></span><strong><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> savedValue</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function restoreFormContent() {</li>
+<li>&nbsp; &nbsp;console.log("restoring form content from localStorage");</li>
+<li> </li>
+<li>&nbsp; &nbsp;// get the list of all input elements in the form</li>
+<li>&nbsp; &nbsp;var listOfInputsInForm = document.querySelectorAll("input");</li>
+<li> </li>
+<li>&nbsp; &nbsp;// For each input element, </li>
+<li>&nbsp; &nbsp;// - get its id (that is also the key for it's saved content </li>
+<li>&nbsp; &nbsp;// in the localStorage)</li>
+<li>&nbsp; &nbsp;// - get the value associated with the id/key in the local</li>
+<li>&nbsp; &nbsp;// storage</li>
+<li>&nbsp; &nbsp;// - If the value is not undefined, restore the value</li>
+<li>&nbsp; &nbsp;// of the input field</li>
+<li>&nbsp; &nbsp;for(var i= 0; i &lt; listOfInputsInForm.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;var fieldToRestore = listOfInputsInForm[i];</li>
+<li>&nbsp; &nbsp; &nbsp;var id = fieldToRestore.id;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>var savedValue = localStorage.getItem(id);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;if(savedValue !== undefined) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>fieldToRestore</strong><strong>.value = savedValue;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}</li>
 </ol></div>
 
 In this function, we first get the list of input fields (_line 5_), then iterate on it (_line 14_). For each input field, we get its `id`, which value is the key in `localStorage` for the previous data saved for this field (_lines 15-16_). Then if the value is not undefined, we restore it by setting the value of the input field (_lines 19-20_).
@@ -867,9 +862,9 @@ There are some simple approaches, such as creating your own minimal record forma
 
 #### Typical usage
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">locaStorage</span><span class="pun">.</span><span class="pln">key </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="kwd">object</span><span class="pun">); // or...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="pln">key</span><span class="pun">,</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="kwd">object</span><span class="pun">));</span></li>
+<div><ol>
+<li value="1">locaStorage.key = JSON.stringify(object); // or...</li>
+<li>localStorage.setItem(key, JSON.stringify(object));</li>
 </ol></div>
 
 Let's try a simple toy example ([online at JSBin](https://jsbin.com/ciricis/2/edit?html,console,output)).  The example below saves a JavaScript object in JSON, then restores it and checks that the object properties are still there! ([Local Example - Origin](src/6.2.7-example1.html))
@@ -886,29 +881,29 @@ Let's try a simple toy example ([online at JSBin](https://jsbin.com/ciricis/2/ed
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">utf-8</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;</span><span class="pln">Storing JSON Objects with Local Storage</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> personObject</span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">'givenName'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'familyName'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Buffa'</span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // Store the object as a JSON String</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>localStorage</strong></span><strong><span class="pun">.</span><span class="pln">setItem</span><span class="pun">(</span><span class="str">'testObject'</span><span class="pun">,</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">personObject</span><span class="pun">));</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // Retrieve the object from storage</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; <strong>var</strong></span><strong><span class="pln"> retrievedObject </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">getItem</span><span class="pun">(</span><span class="str">'testObject'</span><span class="pun">));</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">retrievedObject</span><span class="pun">.</span><span class="pln">firstName </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> retrievedObject</span><span class="pun">.</span><span class="pln">lastName</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// then you can use retrievedObject.givenName, retrievedObject.familyName...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;meta charset=utf-8 /&gt;</li>
+<li>&lt;title&gt;Storing JSON Objects with Local Storage&lt;/title&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;var personObject= {'givenName': 'Michel', 'familyName': 'Buffa'};</li>
+<li> </li>
+<li>&nbsp; &nbsp; // Store the object as a JSON String</li>
+<li>&nbsp; &nbsp; <strong>localStorage</strong><strong>.setItem('testObject', JSON.stringify(personObject));</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; // Retrieve the object from storage</li>
+<li>&nbsp; &nbsp; <strong>var</strong><strong> retrievedObject = JSON.parse(localStorage.getItem('testObject'));</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; console.log(retrievedObject.firstName + " " + retrievedObject.lastName);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// then you can use retrievedObject.givenName, retrievedObject.familyName...</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
