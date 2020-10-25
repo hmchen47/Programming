@@ -409,6 +409,94 @@ Source code:
 Look for the explanations in the lines of comment.
 
 
+### 6.4.5 Geolocation and maps
+
+This section presents an example of how to get an interactive map, using [the Leaflet API for OpenStreetMap](https://leafletjs.com/reference-1.6.0.html), and gives links to more resources. Did you know that you can even get an estimation of a physical address from the longitude and latitude, using online Web services?
+
+
+#### How to get a map centered on your longitude and latitude
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/yyptjsw2')"
+    src    ="https://tinyurl.com/y4revzgq"
+    alt    ="Leaflet API example 1"
+    title  ="Leaflet API example 1"
+  />
+</figure>
+
+
+This example is just given "as is", as there are so many possibilities for rendering a map with [the Leaflet API for OpenStreetMaps](https://leafletjs.com/reference-1.6.0.html). However, we think having such a basic example might be useful.
+
+[Codepen](https://tinyurl.com/y2dt8xh3) ([Local Example - Street Map](src/6.4.5-example1.html))
+
+Source code extract:
+
+HTML part :
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;title&gt;</span><span class="pln">OpenStreetMap Example</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">getLocation</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click to show your location with OpenStreetMap</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"map"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"map"</span><span class="tag">&gt;&lt;/div&gt;</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
++ _Lines 5_ and _6_ are the required files to use the Leaflet API (this is the official name of the OpenStreetMaps API),
++ _Line 10_ is the `<div>` container that will be used to display the interactive map
+
+JavaScript part :
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getLocation</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; e</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Browser doesn't support geolocation"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">success</span><span class="pun">,</span><span class="pln"> error</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">// Get current position successfully</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> success</span><span class="pun">(</span><span class="pln">position</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> map</span><span class="pun">,</span><span class="pln"> marker</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; latitude </span><span class="pun">=</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">latitude</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; longitude </span><span class="pun">=</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">longitude</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Instance map using leaflet</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; map </span><span class="pun">=</span><span class="pln"> L</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="str">'map'</span><span class="pun">).</span><span class="pln">setView</span><span class="pun">([</span><span class="pln">latitude</span><span class="pun">,</span><span class="pln"> longitude</span><span class="pun">],</span><span class="pln"> </span><span class="lit">13</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Tile layer using key api at cloudmade.com</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; L</span><span class="pun">.</span><span class="pln">tileLayer</span><span class="pun">(</span><span class="str">'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; key</span><span class="pun">:</span><span class="pln"> </span><span class="str">'760506895e284217a7442ce2efe97797'</span><span class="pun">,</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; styleId</span><span class="pun">:</span><span class="pln"> </span><span class="lit">103288</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; maxZoom</span><span class="pun">:</span><span class="pln"> </span><span class="lit">16</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }).</span><span class="pln">addTo</span><span class="pun">(</span><span class="pln">map</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Marker using leaflet</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; marker </span><span class="pun">=</span><span class="pln"> L</span><span class="pun">.</span><span class="pln">marker</span><span class="pun">([</span><span class="pln">latitude</span><span class="pun">,</span><span class="pln"> longitude</span><span class="pun">]).</span><span class="pln">addTo</span><span class="pun">(</span><span class="pln">map</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Popup in leaflet</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; marker</span><span class="pun">.</span><span class="pln">bindPopup</span><span class="pun">(</span><span class="str">'&lt;p&gt;Your location&lt;/p&gt;'</span><span class="pun">).</span><span class="pln">openPopup</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// Get current position fail</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> error</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; alert</span><span class="pun">(</span><span class="str">'Get current position fail. Please access codepen to get geolocation.'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
++ _Line 6_ uses the [Geolocation API](https://www.w3.org/TR/geolocation-API/) to get the current position, in case of success it calls the success function, passing the location as parameter,
++ _Lines 13_ and _14_ show how to get the longitude and latitude properties from the location,
++ The rest is a basic use of the Leaflet API. Notice at line 17 that 'map' is the id of the `<div>` from the HTML part of the code.
+
 
 
 
