@@ -115,6 +115,29 @@
   + position will never come from the cache (maximumAge: 0), and if after 0.1s the position could not be computed, then go on error: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:0, timeout:100});`
   + ask for GPS, cache for 30s, 27s before going on error: `watchId=navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy:true, maximumAge:30000, timeout:27000});`
 
++ [Get a map centered on given longitude and latitude](#645-geolocation-and-maps)
+  + rendering a map with the [Leaflet API for OpenStreetMaps](https://leafletjs.com/reference-1.6.0.html)
+  + required files to use the Leaflet API :
+    + `<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">`
+    + `<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>`
+  + container to display the interactive map: `<div id="map" class="map"></div>`
+  + using the [Geolocation API](https://www.w3.org/TR/geolocation-API/) to get the current position: `navigator.geolocation.getCurrentPosition(success, error);`
+  + successfully get the location: `function success(position) {...}`
+    + get the longitude and latitude properties from the location: `latitude = position.coords.latitude, longitude = position.coords.longitude;`
+    + instance map using leaflet w/ `id='map'`: `map = L.map('map').setView([latitude, longitude], 13);`
+    + tile layer using key API at cloudmade.com
+
+      ```js
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        key: '760506895e284217a7442ce2efe97797',
+        styleId: 103288,
+        maxZoom: 16
+      }).addTo(map);
+      ```
+
+    +  marker using leaflet: `marker = L.marker([latitude, longitude]).addTo(map);`
+    + popup in leaflet: `marker.bindPopup('<p>Your location</p>').openPopup();`
+  + get current position fail: ` alert('Get current position fail. Please access codepen to get geolocation.');`
 
 
 
