@@ -11,7 +11,7 @@
   + two related mechanisms for storing structured data on the client side
     + `sessionStorage`:
       + erased when the tab/browser closed
-      + tab specific, and scoped to the lifetime of the tab
+      + tab specific and scoped to the lifetime of the tab
       + useful for storing small amounts of session specific information
       + used with caution: synchronous and blocking the main thread
       + limited to about 5MB and containing only strings
@@ -31,7 +31,7 @@
     + a simple key-value store
     + the keys and values: strings
     + only one store per domain
-    + same applies to `sessionStorage`
+    + same applied to `sessionStorage` 
     + functionality exposed through the globally available `localStorage` object
     + example
 
@@ -52,7 +52,7 @@
     + restoring the form content on page load/reload: `if (localStorage.firstName !== undefined) document.getElementById("firstName").value = localStorage.firstName;`
 
 + [Cookies & Web Storage](#differences-with-cookies)
-  + main difference: limits
+  + main difference: size limit  
   + cookie:
     + a popular way to store key-value pairs
     + cookies limited to a few KBytes
@@ -110,7 +110,7 @@
   + retrieve all data: `function getCountValue() { document.querySelector("#counter").innerHTML = localStorage.count; }`
   + view all stored data
 
-    ```js
+    ```js 
     function seeAllKeyValuePairsStored() {
       // clear list first
       document.querySelector('#list').innerHTML="";
@@ -142,6 +142,7 @@
       localStorage.removeItem("firstName");
       // refresh display
       seeAllKeyValuePairsStored();
+    } 
     ```
 
 + [Example to save/restore states](#624-example-2)
@@ -206,8 +207,8 @@
     }
     ```
 
-  + `addInputListener(inputField)` function:
-    + taking an input field as parameter and attaches an `oninput` listener to it
+  + `addInputListener` function:
+    + taking an input field as parameter and attaching an `oninput` listener to it
     + saving the field's content each time a value entered
 
       ```js
@@ -256,7 +257,7 @@
   + more complex solutions:
     + processing transaction: require more available space than local storage
     + e.g., IndexedDB, a No SQL database
-  + limit amount of data to prevent from storing anything anything huge
+  + limit amount of data to prevent from storing anything huge 
   + storage not necessarily permanent
   + serious applications
     + synchronizing existing data with the server on a regular basis
@@ -282,8 +283,8 @@
     + a text format completely programming language independent
     + providing a great way of encoding and decoding data
     + a really good match for JavaScript
-    + careful not to use circular data structures or non-serializable objects
-    + straightforward plugging yo support local store in vast majority of cases
+    + carefully not using circular data structures or non-serializable objects
+    + straightforward plugging to support local store in vast majority of cases
     + two structures:
       + a collection of name/value pairs
       + an ordered list of values
@@ -301,8 +302,7 @@
       // Add the curent contact to the array
       contacts.push(contact);
       // Save in JSON
-      localStorage.contacts = JSON.stringify(contacts);
-
+      localStorage.contacts = JSON.stringify(contacts);  
 
       // Read contacts from localStorage
       function getContacts() {
