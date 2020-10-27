@@ -67,40 +67,40 @@ Please complete the following 12 exercises in a timely manner. As stated in the 
 
 __Source code for the three questions (4, 5 and 6):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// This function is called after the page is loaded</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Get the canvas</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 - Get the context</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 - start the animation</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;startAnimation</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp;<strong>var</strong></span><strong><span class="pln"> id</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp;function</span><span class="pln"> animationLoop</span><span class="pun">(<span style="line-height: 25.6000003814697px;">timeStamp</span>)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 Draw</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawShapes</span><span class="pun">(...);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 Move</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;moveShapes</span><span class="pun">(...)</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call again mainloop after XXX milliseconds</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="pln">requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">&nbsp;function</span><span class="pln"> startAnimation</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>id </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span><span> </span></li>
+<li><span>&lt;script&gt;</span></li>
+<li><span> </span><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
+<li><span> </span></li>
+<li><span> </span><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// This function is called after the page is loaded</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 1 - Get the canvas</span></li>
+<li><span>&nbsp; &nbsp;canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 2 - Get the context</span></li>
+<li><span>&nbsp; &nbsp;ctx</span><span>=</span><span>canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 3 - start the animation</span></li>
+<li><span>&nbsp; &nbsp;startAnimation</span><span>();</span></li>
+<li><span> </span><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp;<strong>var</strong></span><strong><span> id</span><span>;</span></strong></li>
+<li><span>&nbsp;function</span><span> animationLoop</span><span>(<span style="line-height: 25.6000003814697px;">timeStamp</span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 1 - Clear</span></li>
+<li><span>&nbsp; &nbsp;ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 2 Draw</span></li>
+<li><span>&nbsp; &nbsp;drawShapes</span><span>(...);</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 3 Move</span></li>
+<li><span>&nbsp; &nbsp;moveShapes</span><span>(...)</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// call again mainloop after XXX milliseconds</span></li>
+<li><span>&nbsp; &nbsp;</span><strong><span>requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
+<li><span> </span><span>}</span><span> </span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp;function</span><span> startAnimation</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;<strong>id </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
+<li><span> </span><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&lt;/script&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
 </ol></div>
 
 
@@ -143,23 +143,23 @@ __Source code for the three questions (4, 5 and 6):__
 
 __Source code for the next question (7):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Click listener version 1</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">saySomething</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click me!</span><span class="tag">&lt;/button&gt;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">function</span><span class="pln"> saySomething</span><span class="pun">()</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Hello!"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&lt;head&gt;</span></li>
+<li><span> </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;title&gt;</span><span>Click listener version 1</span><span>&lt;/title&gt;</span></li>
+<li><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>saySomething</span><span>();</span><span>"</span><span>&gt;</span><span>Click me!</span><span>&lt;/button&gt;</span></strong></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span></span></li>
+<li><span> </span><span>&lt;script&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><strong><span>function</span><span> saySomething</span><span>()</span></strong><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"Hello!"</span><span>);</span></li>
+<li><span>&nbsp; &nbsp;</span><span>}</span></li>
+<li><span> </span><span>&lt;/script&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 7. Too simple? 
@@ -175,28 +175,28 @@ __Source code for the next question (7):__
 
 __Source code for the next question (8):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Click listener version 2</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myButton"</span><span class="tag">&gt;</span><span class="pln">Click me!</span><span class="tag">&lt;/button&gt;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> button </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myButton"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>// Add an onclick listener to the button &nbsp;&nbsp;</strong></span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; button</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> saySomething</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> saySomething</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Hello! Button with id: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">id </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " has been clicked"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&lt;head&gt;</span></li>
+<li><span> </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;title&gt;</span><span>Click listener version 2</span><span>&lt;/title&gt;</span></li>
+<li><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>&lt;button</span><span> </span><span>id</span><span>=</span><span>"myButton"</span><span>&gt;</span><span>Click me!</span><span>&lt;/button&gt;</span></strong></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span> </span><span>&lt;script&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> button </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>"myButton"</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; <strong>// Add an onclick listener to the button &nbsp;&nbsp;</strong></span></li>
+<li><strong><span>&nbsp; &nbsp; button</span><span>.</span><span>onclick </span><span>=</span><span> saySomething</span><span>;</span></strong></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>function</span><span> saySomething</span><span>(</span><span>event</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"Hello! Button with id: "</span><span> </span><span>+</span><span> event</span><span>.</span><span>target</span><span>.</span><span>id </span><span>+</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " has been clicked"</span><span>);</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span> </span><span>&lt;/script&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 8. Click on me please!
@@ -212,53 +212,53 @@ __Source code for the next question (8):__
 
 __Source code for the next question (9):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"400"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/canvas&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span style="color: #000088;" color="#000088">&nbsp;&nbsp;</span>&lt;script&gt;</li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> x</span><span class="pun">=</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">=</span><span class="lit">100</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> incrementX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> handleKeydown</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keyup'</span><span class="pun">,</span><span class="pln"> handleKeyup</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> handleKeydown</span><span class="pun">(event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">//left key </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incrementX </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">39</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// right key</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incrementX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> handleKeyup</span><span class="pun">(event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incrementX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x </span><span class="pun">+=</span><span class="pln"> incrementX</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></strong><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp;function</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Start the animation loop, targets 60 frames/s</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span></li>
+<li><span>&nbsp; &lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"400"</span><span> </span><span>height</span><span>=</span><span>"400"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
+<li><span>&nbsp; &lt;/canvas&gt;</span></li>
+<li><span style="color: #000088;" color="#000088">&nbsp;&nbsp;</span>&lt;script&gt;</li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> x</span><span>=</span><span>100</span><span>,</span><span> y</span><span>=</span><span>100</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> incrementX </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span>=</span><span>canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
+<li><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span>.</span><span>addEventListener</span><span>(</span><span>'keydown'</span><span>,</span><span> handleKeydown</span><span>,</span><span> </span><span>false</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span>.</span><span>addEventListener</span><span>(</span><span>'keyup'</span><span>,</span><span> handleKeyup</span><span>,</span><span> </span><span>false</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;requestId </span><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>function</span><span> handleKeydown</span><span>(event</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span> </span><span>(event</span><span>.</span><span>keyCode </span><span>===</span><span> </span><span>37</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>//left key </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incrementX </span><span>=</span><span> </span><span>-</span><span>1</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span><span>else</span><span> </span><span>if</span><span> </span><span>(event</span><span>.</span><span>keyCode </span><span>===</span><span> </span><span>39</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>// right key</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incrementX </span><span>=</span><span> </span><span>1</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>function</span><span> handleKeyup</span><span>(event</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incrementX </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>function</span><span> animationLoop</span><span>()</span><span> </span><span>{</span></strong></li>
+<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></strong></li>
+<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> </span><span>10</span><span>,</span><span> </span><span>10</span><span>);</span></strong></li>
+<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x </span><span>+=</span><span> incrementX</span><span>;</span></strong></li>
+<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; requestId </span><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
+<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></strong><span> </span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>// Start the animation loop, targets 60 frames/s</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;requestId </span><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span>&lt;/script&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
 </ol></div>
 
 9. Left or right?
@@ -276,42 +276,42 @@ __Source code for the next question (10):__
 
 This is the `drawMonster` function from the course.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">,</span><span class="pln"> headColor</span><span class="pun">,</span><span class="pln"> eyeColor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Moves the coordinate system so that the monster is drawn</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// at position (x, y)</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">)</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// head</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">headColor</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// eyes</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">35</span><span class="pun">,</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">140</span><span class="pun">,</span><span class="lit">30</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// interior of eye</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">eyeColor</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">43</span><span class="pun">,</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">143</span><span class="pun">,</span><span class="lit">37</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Nose</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'black'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">90</span><span class="pun">,</span><span class="lit">70</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">80</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Mouth</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="str">'purple'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">60</span><span class="pun">,</span><span class="lit">165</span><span class="pun">,</span><span class="lit">80</span><span class="pun">,</span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// BEST PRACTICE!</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<div><ol>
+<li value="1"><span> </span><span>function</span><span> drawMonster</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> angle</span><span>,</span><span> headColor</span><span>,</span><span> eyeColor</span><span>)</span><span> </span><span>{</span><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>save</span><span>();</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// Moves the coordinate system so that the monster is drawn</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// at position (x, y)</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>translate</span><span>(</span><span>x</span><span>,</span><span> y</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>rotate</span><span>(</span><span>angle</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// head</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>headColor</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// eyes</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>'red'</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>35</span><span>,</span><span>30</span><span>,</span><span>20</span><span>,</span><span>20</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>140</span><span>,</span><span>30</span><span>,</span><span>20</span><span>,</span><span>20</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// interior of eye</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>eyeColor</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>43</span><span>,</span><span>37</span><span>,</span><span>10</span><span>,</span><span>10</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>143</span><span>,</span><span>37</span><span>,</span><span>10</span><span>,</span><span>10</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// Nose</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>'black'</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>90</span><span>,</span><span>70</span><span>,</span><span>20</span><span>,</span><span>80</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// Mouth</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>'purple'</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>60</span><span>,</span><span>165</span><span>,</span><span>80</span><span>,</span><span>20</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// BEST PRACTICE!</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>restore</span><span>();</span></li>
+<li><span> </span><span>}</span></li>
+<li><span> </span></li>
 </ol></div>
 
 10. Move and rotate that monster!
