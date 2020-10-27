@@ -120,7 +120,7 @@
   + required files to use the Leaflet API :
     + `<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">`
     + `<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>`
-  + container to display the interactive map: `<div id="map" class="map"></div>`
+  + container to display the interactive map: `<div id="map"></div>`
   + using the [Geolocation API](https://www.w3.org/TR/geolocation-API/) to get the current position: `navigator.geolocation.getCurrentPosition(success, error);`
   + successfully get the location: `function success(position) {...}`
     + get the longitude and latitude properties from the location: `latitude = position.coords.latitude, longitude = position.coords.longitude;`
@@ -181,7 +181,8 @@
             alert('No surface address found');
         }
         ```
-      + showing waring message: `alert('Geocoder failed due to: ' + status);`
+
+      + showing warning message: `alert('Geocoder failed due to: ' + status);`
 
 
 
@@ -201,22 +202,22 @@ It is possible to prompt the user to activate the GPS (this is what most GPS nav
 
 #### Typical use
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">showPosition</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> showPosition</span><span class="pun">(</span><span class="pln">position</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"latitude is: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">latitude</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"longitude is: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">longitude</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> onError</span><span class="pun">(</span><span class="pln">err</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Could not get the position"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1"><strong><span>navigator</span><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>showPosition</span><span>,</span><span> onError</span><span>);</span></strong></li>
+<li><span>&nbsp;</span></li>
+<li><span>function</span><span> showPosition</span><span>(</span><span>position</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"latitude is: "</span><span> </span><span>+</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>latitude</span><span>);</span><span> </span></li>
+<li><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"longitude is: "</span><span> </span><span>+</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>longitude</span><span>);</span></li>
+<li><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>function</span><span> onError</span><span>(</span><span>err</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"Could not get the position"</span><span>);</span></li>
+<li><span>}</span></li>
 </ol></div>
 
 [This online example at JSBin](https://jsbin.com/toyeley/1/edit?html,output) shows how to get the current longitude and latitude and display them in an HTML page. Try it below in your browser: ([Local Example - Location](src/6.4.1-example1.html))
 
-<div class="exampleHTML">
+<div>
 <p id="msg">Click the button to get your coordinates:</p>
 <p><button onclick="getLocation2()">Where am I ?</button></p>
 </div>
@@ -225,35 +226,35 @@ Note that the first time you execute this example, for privacy reasons, the brow
 
 Source code of this typical example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;</span><span class="pln">Basic example of use of the geolocation API</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"msg"</span><span class="tag">&gt;</span><span class="pln">Click the button to get your coordinates:</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">getLocation</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Where am I ?</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> displayCoords</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"msg"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; function</span><span class="pln"> getLocation</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>navigator</strong></span><strong><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">showPosition</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayCoords</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Geolocation API not supported by your browser."</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">&nbsp; <strong>&nbsp;function</strong></span><strong><span class="pln"> showPosition</span><span class="pun">(</span><span class="pln">position</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;displayCoords</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Latitude: "</span><span class="pln"> </span><span class="pun">+</span><strong><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">latitude </span></strong><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">"&lt;br /&gt;Longitude: "</span><span class="pln"> </span><span class="pun">+</span><strong><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">longitude</span></strong><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;head&gt;</span></li>
+<li><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span>&lt;title&gt;</span><span>Basic example of use of the geolocation API</span><span>&lt;/title&gt;</span></li>
+<li><span> </span><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span>&lt;p</span><span> </span><span>id</span><span>=</span><span>"msg"</span><span>&gt;</span><span>Click the button to get your coordinates:</span><span>&lt;/p&gt;</span></li>
+<li><span>&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>getLocation</span><span>()</span><span>"</span><span>&gt;</span><span>Where am I ?</span><span>&lt;/button&gt;</span></li>
+<li><span> </span></li>
+<li><span>&lt;script&gt;</span></li>
+<li><span>&nbsp; &nbsp; var</span><span> displayCoords</span><span>=</span><span>document</span><span>.</span><span>getElementById</span><span>(</span><span>"msg"</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; function</span><span> getLocation</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>navigator</span><span>.</span><span>geolocation</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>navigator</strong></span><strong><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>showPosition</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span><span>else</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayCoords</span><span>.</span><span>innerHTML</span><span>=</span><span>"Geolocation API not supported by your browser."</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span>&nbsp; &nbsp;}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; <strong>&nbsp;function</strong></span><strong><span> showPosition</span><span>(</span><span>position</span><span>)</span></strong><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;displayCoords</span><span>.</span><span>innerHTML</span><span>=</span><span>"Latitude: "</span><span> </span><span>+</span><strong><span> position</span><span>.</span><span>coords</span><span>.</span><span>latitude </span></strong><span>+</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>"&lt;br /&gt;Longitude: "</span><span> </span><span>+</span><strong><span> position</span><span>.</span><span>coords</span><span>.</span><span>longitude</span></strong><span>;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;}</span></li>
+<li><span>&lt;/script&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
@@ -345,56 +346,56 @@ A slightly different version of the previous example [shows how to properly chec
 
 Source code of the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;</span><span class="pln">Basic example of use of the geolocation API</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"msg"</span><span class="tag">&gt;</span><span class="pln">Click the button to get your coordinates:</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">getLocation</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Where am I ?</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> displayCoords</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"msg"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;function</span><span class="pln"> getLocation</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>navigator</strong></span><strong><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">showPosition</span><span class="pun">,</span><span class="pln" style="color: #ff0000;"> errorPosition</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; displayCoords</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Geolocation API not supported by your browser."</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;function</span><span class="pln"> showPosition</span><span class="pun">(</span><span class="pln">position</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; displayCoords</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Latitude: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">latitude </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">"&lt;br /&gt;Longitude: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">longitude</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; <span style="color: #ff0000;">&nbsp;</span></span><span style="color: #ff0000;"><strong><span class="kwd">function</span></strong></span><strong><span class="pln" style="color: red;"> errorPosition</span></strong><span style="color: #ff0000;"><strong><span class="pun">(</span><span class="pln">error</span><span class="pun">)</span></strong></span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> info </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Error during geolocation: "</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">switch</span><span class="pun">(</span><span class="pln">error</span><span class="pun">.</span><span class="pln">code</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">TIMEOUT</span><span class="pun">:</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; info </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Timeout !"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">PERMISSION_DENIED</span><span class="pun">:</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; info </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Permission denied, geolocation could not be obtained..."</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">POSITION_UNAVAILABLE</span><span class="pun">:</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; info </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Location could not be obtained though the available means..."</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">UNKNOWN_ERROR</span><span class="pun">:</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; info </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Unknown error"</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; displayCoords</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> info</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;head&gt;</span></li>
+<li><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span>&lt;title&gt;</span><span>Basic example of use of the geolocation API</span><span>&lt;/title&gt;</span></li>
+<li><span> </span><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span>&lt;p</span><span> </span><span>id</span><span>=</span><span>"msg"</span><span>&gt;</span><span>Click the button to get your coordinates:</span><span>&lt;/p&gt;</span></li>
+<li><span>&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>getLocation</span><span>()</span><span>"</span><span>&gt;</span><span>Where am I ?</span><span>&lt;/button&gt;</span></li>
+<li><span> </span></li>
+<li><span>&lt;script&gt;</span></li>
+<li><span>&nbsp; &nbsp;var</span><span> displayCoords</span><span>=</span><span>document</span><span>.</span><span>getElementById</span><span>(</span><span>"msg"</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;function</span><span> getLocation</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>if</span><span> </span><span>(</span><span>navigator</span><span>.</span><span>geolocation</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>navigator</strong></span><strong><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>showPosition</span><span>,</span><span style="color: #ff0000;"> errorPosition</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; </span><span>}</span><span> </span><span>else</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; displayCoords</span><span>.</span><span>innerHTML</span><span>=</span><span>"Geolocation API not supported by your browser."</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span>&nbsp; &nbsp;}</span></li>
+<li><span> </span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;function</span><span> showPosition</span><span>(</span><span>position</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; displayCoords</span><span>.</span><span>innerHTML</span><span>=</span><span>"Latitude: "</span><span> </span><span>+</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>latitude </span><span>+</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>"&lt;br /&gt;Longitude: "</span><span> </span><span>+</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>longitude</span><span>;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; <span style="color: #ff0000;">&nbsp;</span></span><span style="color: #ff0000;"><strong><span>function</span></strong></span><strong><span style="color: red;"> errorPosition</span></strong><span style="color: #ff0000;"><strong><span>(</span><span>error</span><span>)</span></strong></span><span> </span><span>{</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> info </span><span>=</span><span> </span><span>"Error during geolocation: "</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>switch</span><span>(</span><span>error</span><span>.</span><span>code</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> error</span><span>.</span><span>TIMEOUT</span><span>:</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; info </span><span>+=</span><span> </span><span>"Timeout !"</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> error</span><span>.</span><span>PERMISSION_DENIED</span><span>:</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; info </span><span>+=</span><span> </span><span>"Permission denied, geolocation could not be obtained..."</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> error</span><span>.</span><span>POSITION_UNAVAILABLE</span><span>:</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; info </span><span>+=</span><span> </span><span>"Location could not be obtained though the available means..."</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>case</span><span> error</span><span>.</span><span>UNKNOWN_ERROR</span><span>:</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; info </span><span>+=</span><span> </span><span>"Unknown error"</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; displayCoords</span><span>.</span><span>innerHTML </span><span>=</span><span> info</span><span>;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span>&lt;/script&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
@@ -410,12 +411,12 @@ When `getCurrentPosition` gives a position when called, `watchPosition` does the
 
 #### Typical use
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// get an id of the current tracking, the showPosition callback is like the one we saw in earlier examples.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> watchPosId </span><span class="pun">=</span><span class="pln"> navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">watchPosition</span><span class="pun">(</span><span class="pln">showPosition</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">// stop the tracking</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">clearWatch</span><span class="pun">(</span><span class="pln">watchPosId</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"><span>// get an id of the current tracking, the showPosition callback is like the one we saw in earlier examples.</span></li>
+<li><span>var</span><span> watchPosId </span><span>=</span><span> navigator</span><span>.</span><span>geolocation</span><span>.</span><span>watchPosition</span><span>(</span><span>showPosition</span><span>);</span></li>
+<li><span>...</span></li>
+<li><span>// stop the tracking</span></li>
+<li><span>navigator</span><span>.</span><span>geolocation</span><span>.</span><span>clearWatch</span><span>(</span><span>watchPosId</span><span>);</span></li>
 </ol></div>
 
 As a test, you may just try to change `getCurrentPosition` to `watchPosition` in the previous examples, and try this code using a mobile phone or tablet, walk for 20 meters and see the position changing.
@@ -450,25 +451,25 @@ Several options are available when using HTML5 geolocation. We can pass a third 
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Just ask to turn GPS on, if available</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">,</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span class="pln">enableHighAccuracy</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">});</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// maximumAge = 10 mins, the position can be cached for 10 mins, </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// useful when in&nbsp;</span><span class="com">tunnels...When the device tries to get </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// a position, if it does not&nbsp;succeed, then go on error</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">// immediately</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span><span class="pln">maximumAge</span><span class="pun">:</span><span class="lit">600000</span><span class="pun">,&nbsp;</span><span class="pln">timeout</span><span class="pun">:</span><span class="lit">0</span><span class="pun">});</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">// Position will never come from the cache (maximumAge: 0), and </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">// if after 0.1s the&nbsp;</span><span class="com">position could not be computed, then go on </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">// error</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">,</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span class="pln">maximumAge</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,&nbsp;</span><span class="pln">timeout</span><span class="pun">:</span><span class="lit">100</span><span class="pun">});</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">// Ask for GPS, cache for 30s, 27s before going on error...</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">watchId</span><span class="pun">=</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">watchPosition</span><span class="pun">(</span><span class="pln">onSuccess</span><span class="pun">,</span><span class="pln"> onError</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; {</span><span class="pln">enableHighAccuracy</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> maximumAge</span><span class="pun">:</span><span class="lit">30000</span><span class="pun">,</span><span class="pln"> timeout</span><span class="pun">:</span><span class="lit">27000</span><span class="pun">});</span></li>
+<div><ol>
+<li value="1"><span>// Just ask to turn GPS on, if available</span></li>
+<li><span>navigator</span><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>onSuccess</span><span>,</span><span> onError</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span>enableHighAccuracy</span><span>:</span><span>true</span><span>});</span></li>
+<li><span></span></li>
+<li><span>// maximumAge = 10 mins, the position can be cached for 10 mins, </span></li>
+<li><span>// useful when in&nbsp;</span><span>tunnels...When the device tries to get </span></li>
+<li><span>// a position, if it does not&nbsp;succeed, then go on error</span></li>
+<li><span>// immediately</span></li>
+<li><span>navigator</span><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>onSuccess</span><span>,</span><span> onError</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span><span>maximumAge</span><span>:</span><span>600000</span><span>,&nbsp;</span><span>timeout</span><span>:</span><span>0</span><span>});</span></li>
+<li><span>// Position will never come from the cache (maximumAge: 0), and </span></li>
+<li><span>// if after 0.1s the&nbsp;</span><span>position could not be computed, then go on </span></li>
+<li><span>// error</span></li>
+<li><span>navigator</span><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>onSuccess</span><span>,</span><span> onError</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span>maximumAge</span><span>:</span><span>0</span><span>,&nbsp;</span><span>timeout</span><span>:</span><span>100</span><span>});</span></li>
+<li><span>// Ask for GPS, cache for 30s, 27s before going on error...</span></li>
+<li><span>watchId</span><span>=</span><span>navigator</span><span>.</span><span>geolocation</span><span>.</span><span>watchPosition</span><span>(</span><span>onSuccess</span><span>,</span><span> onError</span><span>,</span><span> </span></li>
+<li><span>&nbsp; &nbsp; {</span><span>enableHighAccuracy</span><span>:</span><span>true</span><span>,</span><span> maximumAge</span><span>:</span><span>30000</span><span>,</span><span> timeout</span><span>:</span><span>27000</span><span>});</span></li>
 </ol></div>
 
 Look for the explanations in the lines of comment.
@@ -499,19 +500,19 @@ Source code extract:
 
 HTML part :
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;title&gt;</span><span class="pln">OpenStreetMap Example</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">getLocation</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click to show your location with OpenStreetMap</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"map"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"map"</span><span class="tag">&gt;&lt;/div&gt;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;html&gt;</span></li>
+<li><span>&lt;head&gt;</span></li>
+<li><span>&nbsp; &lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span>&nbsp; &lt;title&gt;</span><span>OpenStreetMap Example</span><span>&lt;/title&gt;</span></li>
+<li><span>&nbsp; &lt;link</span><span> </span><span>rel</span><span>=</span><span>"stylesheet"</span><span> </span><span>href</span><span>=</span><span>"https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"</span><span>&gt;</span></li>
+<li><span>&nbsp; &lt;script</span><span> </span><span>src</span><span>=</span><span>"https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"</span><span>&gt;&lt;/script&gt;</span><span> </span></li>
+<li><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span></span><span>&nbsp; &lt;button</span><span> </span><span>class</span><span>=</span><span>"btn"</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>getLocation</span><span>(</span><span>event</span><span>)</span><span>"</span><span>&gt;</span><span>Click to show your location with OpenStreetMap</span><span>&lt;/button&gt;</span></li>
+<li><span></span><span>&nbsp; &lt;div</span><span> </span><span>id</span><span>=</span><span>"map"</span><span> </span><span>class</span><span>=</span><span>"map"</span><span>&gt;&lt;/div&gt;</span><span> </span></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 + _Lines 5_ and _6_ are the required files to use the Leaflet API (this is the official name of the OpenStreetMaps API),
@@ -519,43 +520,43 @@ HTML part :
 
 JavaScript part :
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getLocation</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; e</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Browser doesn't support geolocation"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">success</span><span class="pun">,</span><span class="pln"> error</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">// Get current position successfully</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> success</span><span class="pun">(</span><span class="pln">position</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> map</span><span class="pun">,</span><span class="pln"> marker</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; latitude </span><span class="pun">=</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">latitude</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; longitude </span><span class="pun">=</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">longitude</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Instance map using leaflet</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; map </span><span class="pun">=</span><span class="pln"> L</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="str">'map'</span><span class="pun">).</span><span class="pln">setView</span><span class="pun">([</span><span class="pln">latitude</span><span class="pun">,</span><span class="pln"> longitude</span><span class="pun">],</span><span class="pln"> </span><span class="lit">13</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Tile layer using key api at cloudmade.com</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; L</span><span class="pun">.</span><span class="pln">tileLayer</span><span class="pun">(</span><span class="str">'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; key</span><span class="pun">:</span><span class="pln"> </span><span class="str">'760506895e284217a7442ce2efe97797'</span><span class="pun">,</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; styleId</span><span class="pun">:</span><span class="pln"> </span><span class="lit">103288</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; maxZoom</span><span class="pun">:</span><span class="pln"> </span><span class="lit">16</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }).</span><span class="pln">addTo</span><span class="pun">(</span><span class="pln">map</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Marker using leaflet</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; marker </span><span class="pun">=</span><span class="pln"> L</span><span class="pun">.</span><span class="pln">marker</span><span class="pun">([</span><span class="pln">latitude</span><span class="pun">,</span><span class="pln"> longitude</span><span class="pun">]).</span><span class="pln">addTo</span><span class="pun">(</span><span class="pln">map</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Popup in leaflet</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; marker</span><span class="pun">.</span><span class="pln">bindPopup</span><span class="pun">(</span><span class="str">'&lt;p&gt;Your location&lt;/p&gt;'</span><span class="pun">).</span><span class="pln">openPopup</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// Get current position fail</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> error</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; alert</span><span class="pun">(</span><span class="str">'Get current position fail. Please access codepen to get geolocation.'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1"><span>function</span><span> getLocation</span><span>(</span><span>e</span><span>)</span><span> </span><span>{</span><span> </span></li>
+<li><span>&nbsp; e</span><span>.</span><span>preventDefault</span><span>();</span></li>
+<li><span></span><span>&nbsp; if</span><span> </span><span>(!</span><span>navigator</span><span>.</span><span>geolocation</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; alert</span><span>(</span><span>"Browser doesn't support geolocation"</span><span>);</span></li>
+<li><span></span><span>&nbsp; }</span><span> </span><span>else</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; navigator</span><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>success</span><span>,</span><span> error</span><span>);</span></li>
+<li><span></span><span>&nbsp; }</span></li>
+<li><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>// Get current position successfully</span></li>
+<li><span>function</span><span> success</span><span>(</span><span>position</span><span>)</span><span> </span><span>{</span></li>
+<li><span></span><span>&nbsp; var</span><span> map</span><span>,</span><span> marker</span><span>,</span></li>
+<li><span>&nbsp; latitude </span><span>=</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>latitude</span><span>,</span></li>
+<li><span>&nbsp; longitude </span><span>=</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>longitude</span><span>;</span></li>
+<li><span> </span></li>
+<li><span></span><span>&nbsp; // Instance map using leaflet</span></li>
+<li><span>&nbsp; map </span><span>=</span><span> L</span><span>.</span><span>map</span><span>(</span><span>'map'</span><span>).</span><span>setView</span><span>([</span><span>latitude</span><span>,</span><span> longitude</span><span>],</span><span> </span><span>13</span><span>);</span></li>
+<li><span> </span></li>
+<li><span></span><span>&nbsp; // Tile layer using key api at cloudmade.com</span></li>
+<li><span>&nbsp; L</span><span>.</span><span>tileLayer</span><span>(</span><span>'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'</span><span>,</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; key</span><span>:</span><span> </span><span>'760506895e284217a7442ce2efe97797'</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; styleId</span><span>:</span><span> </span><span>103288</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; maxZoom</span><span>:</span><span> </span><span>16</span></li>
+<li><span></span><span>&nbsp; }).</span><span>addTo</span><span>(</span><span>map</span><span>);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span></span><span>&nbsp; // Marker using leaflet</span></li>
+<li><span>&nbsp; marker </span><span>=</span><span> L</span><span>.</span><span>marker</span><span>([</span><span>latitude</span><span>,</span><span> longitude</span><span>]).</span><span>addTo</span><span>(</span><span>map</span><span>);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span></span><span>&nbsp; // Popup in leaflet</span></li>
+<li><span>&nbsp; marker</span><span>.</span><span>bindPopup</span><span>(</span><span>'&lt;p&gt;Your location&lt;/p&gt;'</span><span>).</span><span>openPopup</span><span>();</span></li>
+<li><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>// Get current position fail</span></li>
+<li><span>function</span><span> error</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; alert</span><span>(</span><span>'Get current position fail. Please access codepen to get geolocation.'</span><span>);</span></li>
+<li><span>}</span></li>
 </ol></div>
 
 + _Line 6_ uses the [Geolocation API](https://www.w3.org/TR/geolocation-API/) to get the current position, in case of success it calls the success function, passing the location as parameter,
@@ -588,101 +589,101 @@ Google reverse geocoding example (screenshot only) :
 
 Source code of this example (in order to run it,  you need a Google API key, used at line 6).
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;Js bin </span><span class="tag">&lt;/title&gt;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://maps.googleapis.com/maps/api/js?key=PUT_HERE_YOUR_API_KEY&amp;v=3.exp&amp;sensor=false"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// p elements for displaying lat / long and address</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> displayCoords</span><span class="pun">,</span><span class="pln"> myAddress</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// used with the google apis</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> geocoder</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> map</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> infowindow </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">InfoWindow</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> marker</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Called when the page is loaded</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; displayCoords</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"msg"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; myAddress </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"address"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; geocoder </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">Geocoder</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// In order to show something even before a user clicks on the button</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> latlng </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">LatLng</span><span class="pun">(</span><span class="lit">34.0144</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">6.83</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> mapOptions </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;zoom</span><span class="pun">:</span><span class="pln"> </span><span class="lit">8</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;center</span><span class="pun">:</span><span class="pln"> latlng</span><span class="pun">,</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;mapTypeId</span><span class="pun">:</span><span class="pln"> </span><span class="str">'roadmap'</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; map </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">Map</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'map_canvas'</span><span class="pun">),</span><span class="pln"> mapOptions</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">} // end of init()</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Called when the button is clicked</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> getLocation</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;navigator</span><span class="pun">.</span><span class="pln">geolocation</span><span class="pun">.</span><span class="pln">getCurrentPosition</span><span class="pun">(</span><span class="pln">showPosition</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;displayCoords</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Geolocation API not supported by your browser."</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Called when a position is available</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> showPosition</span><span class="pun">(</span><span class="pln">position</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; displayCoords</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Latitude: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">latitude </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="str">"&lt;br /&gt;Longitude: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">longitude</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Display the map</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; showOnGoogleMap</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">LatLng</span><span class="pun">(</span><span class="pln">position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">latitude</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position</span><span class="pun">.</span><span class="pln">coords</span><span class="pun">.</span><span class="pln">longitude</span><span class="pun">));</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="kwd">function</span><span class="pln"> showOnGoogleMap</span><span class="pun">(</span><span class="pln">latlng</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Ask google geocoder for an address once we get a longitude and </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// a latitude. In fact, the reverse geocoder sends back an array of "guesses"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// i.e. not just one address object, but several. Each entry in this array</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// has several properties such as street, city, etc. We use the "formatted_address"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// one here, but it might be interesting to get the detailed properties in other</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// applications like a form with street, city, zip code etc.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;geocoder</span><span class="pun">.</span><span class="pln">geocode</span><span class="pun">({</span><span class="str">'latLng'</span><span class="pun">:</span><span class="pln"> latlng</span><span class="pun">},</span><span class="pln">reverseGeocoderSuccess</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> reverseGeocoderSuccess</span><span class="pun">(</span><span class="pln">results</span><span class="pun">,</span><span class="pln"> status</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">status </span><span class="pun">==</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">GeocoderStatus</span><span class="pun">.</span><span class="pln">OK</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">results</span><span class="pun">[</span><span class="lit">1</span><span class="pun">])</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;map</span><span class="pun">.</span><span class="pln">setZoom</span><span class="pun">(</span><span class="lit">11</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;marker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">Marker</span><span class="pun">({</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position</span><span class="pun">:</span><span class="pln"> latlng</span><span class="pun">,</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; map</span><span class="pun">:</span><span class="pln"> map</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">});</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;infowindow</span><span class="pun">.</span><span class="pln">setContent</span><span class="pun">(</span><span class="pln">results</span><span class="pun">[</span><span class="lit">1</span><span class="pun">].</span><span class="pln">formatted_address</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;infowindow</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="pln">map</span><span class="pun">,</span><span class="pln"> marker</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Display address as text in the page</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;myAddress</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Adress: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> results</span><span class="pun">[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">formatted_address</span><span class="pun">;</span>&nbsp;</li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'No surface address&nbsp;found'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'Geocoder failed due to: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> status</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="com">// end of reverseGeocoderSuccess</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">// end of showOnGoogleMap</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">HTML5 + Geolocalisation + Google Maps API Reverse Geocoding</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"msg"</span><span class="tag">&gt;</span><span class="pln">Click the button to get your coordinates:</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;&lt;/p&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">getLocation</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Where am I ?</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"map_canvas"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">500px</span><span class="pun">;</span><span class="pln"> height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">300px</span><span class="atv">"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;head&gt;</span></li>
+<li><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span>&lt;title&gt;Js bin </span><span>&lt;/title&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;script</span><span> </span><span>src</span><span>=</span><span>"https://maps.googleapis.com/maps/api/js?key=PUT_HERE_YOUR_API_KEY&amp;v=3.exp&amp;sensor=false"</span><span>&gt;&lt;/script&gt;</span><span> </span></li>
+<li><span> </span><span>&lt;script&gt;</span></li>
+<li><span> </span><span>// p elements for displaying lat / long and address</span></li>
+<li><span> </span><span>var</span><span> displayCoords</span><span>,</span><span> myAddress</span><span>;</span><span> </span></li>
+<li><span> </span></li>
+<li><span> </span><span>// used with the google apis</span></li>
+<li><span> </span><span>var</span><span> geocoder</span><span>;</span></li>
+<li><span> </span><span>var</span><span> map</span><span>;</span></li>
+<li><span> </span><span>var</span><span> infowindow </span><span>=</span><span> </span><span>new</span><span> google</span><span>.</span><span>maps</span><span>.</span><span>InfoWindow</span><span>();</span></li>
+<li><span> </span><span>var</span><span> marker</span><span>;</span></li>
+<li><span> </span></li>
+<li><span> </span><span>// Called when the page is loaded</span></li>
+<li><span> </span><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; displayCoords</span><span>=</span><span>document</span><span>.</span><span>getElementById</span><span>(</span><span>"msg"</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; myAddress </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>"address"</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; geocoder </span><span>=</span><span> </span><span>new</span><span> google</span><span>.</span><span>maps</span><span>.</span><span>Geocoder</span><span>();</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// In order to show something even before a user clicks on the button</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> latlng </span><span>=</span><span> </span><span>new</span><span> google</span><span>.</span><span>maps</span><span>.</span><span>LatLng</span><span>(</span><span>34.0144</span><span>,</span><span> </span><span>-</span><span>6.83</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>var</span><span> mapOptions </span><span>=</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;zoom</span><span>:</span><span> </span><span>8</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;center</span><span>:</span><span> latlng</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;mapTypeId</span><span>:</span><span> </span><span>'roadmap'</span></li>
+<li><span>&nbsp; &nbsp; </span><span>}</span></li>
+<li><span>&nbsp; &nbsp; map </span><span>=</span><span> </span><span>new</span><span> google</span><span>.</span><span>maps</span><span>.</span><span>Map</span><span>(</span><span>document</span><span>.</span><span>getElementById</span><span>(</span><span>'map_canvas'</span><span>),</span><span> mapOptions</span><span>);</span><span> </span></li>
+<li><span> </span><span>} // end of init()</span></li>
+<li><span> </span></li>
+<li><span> </span><span>// Called when the button is clicked</span></li>
+<li><span> </span><span>function</span><span> getLocation</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>if</span><span> </span><span>(</span><span>navigator</span><span>.</span><span>geolocation</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;navigator</span><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>showPosition</span><span>);</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>}</span><span> </span><span>else</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;displayCoords</span><span>.</span><span>innerHTML</span><span>=</span><span>"Geolocation API not supported by your browser."</span><span>;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span> </span><span>}</span></li>
+<li><span> </span></li>
+<li><span> </span><span>// Called when a position is available</span></li>
+<li><span> </span><span>function</span><span> showPosition</span><span>(</span><span>position</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; displayCoords</span><span>.</span><span>innerHTML</span><span>=</span><span>"Latitude: "</span><span> </span><span>+</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>latitude </span><span>+</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span>"&lt;br /&gt;Longitude: "</span><span> </span><span>+</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>longitude</span><span>;</span><span> </span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// Display the map</span></li>
+<li><span>&nbsp; &nbsp; showOnGoogleMap</span><span>(</span><span>new</span><span> google</span><span>.</span><span>maps</span><span>.</span><span>LatLng</span><span>(</span><span>position</span><span>.</span><span>coords</span><span>.</span><span>latitude</span><span>,</span><span>&nbsp; &nbsp; &nbsp; &nbsp;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position</span><span>.</span><span>coords</span><span>.</span><span>longitude</span><span>));</span></li>
+<li><span>&nbsp;</span><span>}</span></li>
+<li><span>&nbsp;</span><span>function</span><span> showOnGoogleMap</span><span>(</span><span>latlng</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// Ask google geocoder for an address once we get a longitude and </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// a latitude. In fact, the reverse geocoder sends back an array of "guesses"</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// i.e. not just one address object, but several. Each entry in this array</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// has several properties such as street, city, etc. We use the "formatted_address"</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// one here, but it might be interesting to get the detailed properties in other</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// applications like a form with street, city, zip code etc.</span></li>
+<li><span>&nbsp; &nbsp;geocoder</span><span>.</span><span>geocode</span><span>({</span><span>'latLng'</span><span>:</span><span> latlng</span><span>},</span><span>reverseGeocoderSuccess</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>function</span><span> reverseGeocoderSuccess</span><span>(</span><span>results</span><span>,</span><span> status</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>status </span><span>==</span><span> google</span><span>.</span><span>maps</span><span>.</span><span>GeocoderStatus</span><span>.</span><span>OK</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>if</span><span> </span><span>(</span><span>results</span><span>[</span><span>1</span><span>])</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;map</span><span>.</span><span>setZoom</span><span>(</span><span>11</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;marker </span><span>=</span><span> </span><span>new</span><span> google</span><span>.</span><span>maps</span><span>.</span><span>Marker</span><span>({</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position</span><span>:</span><span> latlng</span><span>,</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; map</span><span>:</span><span> map</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>});</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;infowindow</span><span>.</span><span>setContent</span><span>(</span><span>results</span><span>[</span><span>1</span><span>].</span><span>formatted_address</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;infowindow</span><span>.</span><span>open</span><span>(</span><span>map</span><span>,</span><span> marker</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>// Display address as text in the page</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;myAddress</span><span>.</span><span>innerHTML</span><span>=</span><span>"Adress: "</span><span> </span><span>+</span><span> results</span><span>[</span><span>0</span><span>].</span><span>formatted_address</span><span>;</span>&nbsp;</li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span><span> </span><span>else</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert</span><span>(</span><span>'No surface address&nbsp;found'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span><span> </span><span>else</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert</span><span>(</span><span>'Geocoder failed due to: '</span><span> </span><span>+</span><span> status</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>}</span><span> </span><span>// end of reverseGeocoderSuccess</span></li>
+<li><span> </span><span>}</span><span> </span><span>// end of showOnGoogleMap</span></li>
+<li><span> </span><span>&lt;/script&gt;</span></li>
+<li><span> </span><span>&lt;/head&gt;</span></li>
+<li><span> </span><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>()</span><span>"</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;title&gt;</span><span>HTML5 + Geolocalisation + Google Maps API Reverse Geocoding</span><span>&lt;/title&gt;</span></li>
+<li><span> </span></li>
+<li><span> </span><span>&lt;p</span><span> </span><span>id</span><span>=</span><span>"msg"</span><span>&gt;</span><span>Click the button to get your coordinates:</span><span>&lt;/p&gt;</span></li>
+<li><span> </span><span>&lt;p</span><span> </span><span>id</span><span>=</span><span>"address"</span><span>&gt;&lt;/p&gt;</span></li>
+<li><span> </span></li>
+<li><span> </span><span>&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>getLocation</span><span>()</span><span>"</span><span>&gt;</span><span>Where am I ?</span><span>&lt;/button&gt;</span></li>
+<li><span> </span><span>&lt;div</span><span> </span><span>id</span><span>=</span><span>"map_canvas"</span><span> </span><span>style</span><span>=</span><span>"</span><span>width</span><span>:</span><span> </span><span>500px</span><span>;</span><span> height</span><span>:</span><span> </span><span>300px</span><span>"</span><span>&gt;&lt;/div&gt;</span></li>
+<li><span> </span><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 Gisgraphy (free service) reverse geocoding example (screenshot only, click on it to see [the demo on the Gisgraphy website](https://services.gisgraphy.com/static/leaflet/index.html)):
