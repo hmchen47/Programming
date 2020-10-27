@@ -27,7 +27,7 @@ Contents
   + [iPython Notebook Tutorial]
   + [Data Processing Using Python]
   + [Python 3 OO Notebook]
-  + [Webscrapr]
+  + [Webscraper]
   + [Exercises and Notes]
 + [Scraping]
 + [UnitTesting]
@@ -58,11 +58,11 @@ Contents
 
 ### Web Design
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 58vw;" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
-    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
+    <th style="width: 10%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
+    <th colspan="4" style="width: 30%; text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
   </tr>
   </thead>
   <tbody>
@@ -72,10 +72,10 @@ Contents
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Hypertext Markup Language (HTML) </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Info </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#tags-elements-and-attributes-of-html"> Tags, Elements & <br/>Attributes </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#template"> Template </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#useful-references-tool-links"> References & Tools </a></td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#tags-elements-and-attributes-of-html"> Tags, Elements & Attributes </a></td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#template"> Template </a></td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#useful-references-tool-links"> References & Tools </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#html-layout-elements"> Layout </a></td>
@@ -173,7 +173,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Embedded <br/>Elements </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Embedded Elements </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#characteristics-of-embedded-elements"> Characteristics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#the-iframe-tag"> iframe Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#">  </a> </td>
@@ -197,16 +197,16 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#characteristics-of-the-video-elements"> Video Elements </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-video-tag"> Video Attributes </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-source-element"> Source Attributes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-track-element-and-webvtt-format"> Track Attributes & <br/>WebVTT </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-track-element-and-webvtt-format"> Track Attributes & WebVTT </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#styling-video-player"> Styling Video <br/>Players </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#styling-video-player"> Styling Video Players </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="5" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Graphics & <br/>Animation</th>
+    <th rowspan="5" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Graphics & Animation</th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-modes"> Drawing Modes </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#the-canvas-element"> &lt;canvas&gt; Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#html-canvas-reference"> Reference </a> </td>
@@ -220,7 +220,7 @@ Contents
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-circles--arcs"> Arcs & Circles </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-curves-and-curve-arrows"> Curves & <br/>Curve Arrows </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#drawing-curves-and-curve-arrows"> Curves & Curve Arrows </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#2d-transformations"> 2D Transformations </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#color-properties"> Color Properties </a> </td>
   </tr>
@@ -254,9 +254,9 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Forms and <br/>related <br/>Elements</th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Forms and related Elements</th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#mdn-form-elements"> Form Elements - MDN </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#javatpoint-html-form-tags"> Form Tags - <br/>JavaTPoint </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#javatpoint-html-form-tags"> Form Tags - JavaTPoint </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#basics"> Basics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#accessible-forms"> Accessibility </a> </td>
   </tr>
@@ -268,7 +268,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Forms - <br/>Input Types </th>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Forms - Input Types </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#reference-input-types"> List of Input Types </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#input-element"> &lt;input&gt; element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#color-type"> color </a> </td>
@@ -287,7 +287,7 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Form and <br/>Associated <br/>Attributes </th>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Form and Associated Attributes </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#reference-html5-form-attributes"> List of Form Attributes </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#form-attribute-of-input-element"> form attribute </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#autocomplete-attribute"> autocomplete </a> </td>
@@ -300,13 +300,13 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#min-max-step-and-optimum-attributes"> min, max, step, <br/>optimum, value, <br/>etc. </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#formaction-formmethod-formnovaliate-formtarget-formenctype-attributes"> formaction, <br/>formmethod, <br/>formnovalidate, <br/>formtarget, etc. </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#min-max-step-and-optimum-attributes"> min, max, step, optimum, value, etc. </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#formaction-formmethod-formnovaliate-formtarget-formenctype-attributes"> formaction, formmethod, formnovalidate, formtarget, etc. </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Form <br/>Validation API </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Form Validation API </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#visual-feedback"> Visual Feedback </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#title-attribute"> title Attr. </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#javascript-form-validation-api"> JS API </a> </td>
@@ -354,7 +354,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> CSS Values & <br/>Units </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> CSS Values & Units </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#css-value-types-functions"> Types </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#relative-length"> Relative Length </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#absolute-length"> Absolute Length </a></td>
@@ -376,7 +376,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Common <br/>Properties </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Common Properties </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#font-property"> Font </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#item-list-properties"> Item List </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#image-related-properties"> Image </a></td>
@@ -406,7 +406,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Positioning <br/>Properties </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Positioning Properties </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#list-of-positioned-properties"> Positioned Properties </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#characteristics-of-position-property"> Position Property </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
@@ -422,7 +422,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Sizing and <br/> Dimensioning </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Sizing and  Dimensioning </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#characteristics-of-size-dimensions"> Concepts </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#global-sizing"> Global </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
@@ -487,8 +487,15 @@ Contents
 </table>
 
 <br/>
-<hr/>
-<br/>
+
+
+## Python Programming Language
+
+
+
+## C/C++ Programming Language
+
+
 
 
 ### Reading Notes
