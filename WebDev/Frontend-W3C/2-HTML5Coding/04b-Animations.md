@@ -225,33 +225,33 @@ Please try this [online example](https://jsbin.com/zeqare/1/edit?html,output) (o
 
 Extract from the source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"animatedDIV"</span><span class="tag">&gt;</span><span class="pln">Animated DIV :-)</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">start</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Start animation</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">stop</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Stop animation</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> elm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"animatedDIV"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> requestId</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> render</span><span class="pun">(</span><span class="pln">time</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;elm</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">++</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"px"</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> setInterval</span><span class="pun">(</span><span class="pln">render</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">requestId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>clearInterval</strong></span><strong><span class="pun">(</span><span class="pln">requestId</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;body&gt;</span></li>
+<li><span>&nbsp; &nbsp;&lt;div</span><span> </span><span>id</span><span>=</span><span>"animatedDIV"</span><span>&gt;</span><span>Animated DIV :-)</span><span>&lt;/div&gt;</span></li>
+<li><span></span></li>
+<li><span>&nbsp; &nbsp;&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>start</span><span>()</span><span>"</span><span>&gt;</span><span>Start animation</span><span>&lt;/button&gt;</span></li>
+<li><span>&nbsp; &nbsp;&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>stop</span><span>()</span><span>"</span><span>&gt;</span><span>Stop animation</span><span>&lt;/button&gt;</span></li>
+<li><span></span></li>
+<li><span>&nbsp; &nbsp;&lt;script&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>var</span><span> elm </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>"animatedDIV"</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>var</span><span> requestId</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>var</span><span> x </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>function</span><span> render</span><span>(</span><span>time</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;elm</span><span>.</span><span>style</span><span>.</span><span>left </span><span>=</span><span> x</span><span>++</span><span> </span><span>+</span><span> </span><span>"px"</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>requestId </strong></span><strong><span>=</span><span> setInterval</span><span>(</span><span>render</span><span>,</span><span> </span><span>10</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>function</span><span> stop</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>requestId</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>clearInterval</strong></span><strong><span>(</span><span>requestId</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &lt;/script&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
 </ol></div>
 
 Here, we define a `<div>` element, (see the online source code for the CSS properties involved), and we use the `setInterval` method (line 17) to call every 10ms the `render()` method that will just increment the position of this element. Notice that since we're using the DOM, the horizontal position of the div is modified by changing its left CSS property.
@@ -275,70 +275,70 @@ This example is available [online](https://jsbin.com/mimenol/1/edit?html,output)
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"400"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;/canvas&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;p&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">start</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Start animation</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">stop</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Stop animation</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;script&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> monsterX</span><span class="pun">=</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">=</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// This function is called after the page is loaded</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// 1 - Get the canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// 2 - Get the context</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// 1 - Clear the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// 2 Draw the monster using variables for pos, angle, etc.</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawMonster</span><span class="pun">(</span><span class="pln">monsterX</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// 3 Move the monster (change pos, angle, size, etc.)</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterX </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterX </span><span class="pun">%=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterAngle</span><span class="pun">+=</span><span class="pln"> </span><span class="lit">0.01</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">,</span><span class="pln"> headColor</span><span class="pun">,</span><span class="pln"> eyeColor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Moves the coordinate system so that the monster is drawn</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// at position (x, y)</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">)</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// head</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">headColor</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; ...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// BEST PRACTICE!</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Start the animation loop, change 20 for bigger values</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;<span style="color: #880000;" color="#880000">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span><strong><span class="pln">requestId </span><span class="pun">=</span><span class="pln"> setInterval</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun"><span style="color: #000000;" color="#000000">&nbsp; &nbsp; &nbsp;</span>}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">requestId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>clearInterval</strong></span><strong><span class="pun">(</span><span class="pln">requestId</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"400"</span><span> </span><span>height</span><span>=</span><span>"400"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
+<li><span>&nbsp; &nbsp; &lt;/canvas&gt;</span></li>
+<li><span>&nbsp; &nbsp; &lt;p&gt;</span></li>
+<li><span>&nbsp; &nbsp; &lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>start</span><span>()</span><span>"</span><span>&gt;</span><span>Start animation</span><span>&lt;/button&gt;</span></li>
+<li><span>&nbsp; &nbsp; &lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>stop</span><span>()</span><span>"</span><span>&gt;</span><span>Stop animation</span><span>&lt;/button&gt;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &lt;script&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> monsterX</span><span>=</span><span>100</span><span>,</span><span> monsterY</span><span>=</span><span>100</span><span>,</span><span> monsterAngle</span><span>=</span><span>0</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// This function is called after the page is loaded</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// 1 - Get the canvas</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// 2 - Get the context</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>=</span><span>canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>function</span><span> animationLoop</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// 1 - Clear the canvas</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// 2 Draw the monster using variables for pos, angle, etc.</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawMonster</span><span>(</span><span>monsterX</span><span>,</span><span> monsterY</span><span>,</span><span> monsterAngle</span><span>,</span><span> </span><span>'green'</span><span>,</span><span> </span><span>'yellow'</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>// 3 Move the monster (change pos, angle, size, etc.)</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterX </span><span>+=</span><span> </span><span>10</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterX </span><span>%=</span><span> canvas</span><span>.</span><span>width</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterAngle</span><span>+=</span><span> </span><span>0.01</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>function</span><span> drawMonster</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> angle</span><span>,</span><span> headColor</span><span>,</span><span> eyeColor</span><span>)</span><span> </span><span>{</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>save</span><span>();</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// Moves the coordinate system so that the monster is drawn</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>// at position (x, y)</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>translate</span><span>(</span><span>x</span><span>,</span><span> y</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>rotate</span><span>(</span><span>angle</span><span>)</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// head</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>headColor</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ...</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// BEST PRACTICE!</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>restore</span><span>();</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Start the animation loop, change 20 for bigger values</span></li>
+<li><span>&nbsp;<span style="color: #880000;" color="#880000">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span><strong><span>requestId </span><span>=</span><span> setInterval</span><span>(</span><span>animationLoop</span><span>,</span><span> </span><span>20</span><span>);</span></strong></li>
+<li><span><span style="color: #000000;" color="#000000">&nbsp; &nbsp; &nbsp;</span>}</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>function</span><span> stop</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>requestId</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>clearInterval</strong></span><strong><span>(</span><span>requestId</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>}</span></li>
+<li><span>&lt;/script&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
 </ol></div>
 
 
@@ -409,34 +409,34 @@ This is similar to the previous example except that we called `setTimeout(functi
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 Draw</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawMonster</span><span class="pun">(</span><span class="pln">monsterX</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 Move</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;monsterX </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;monsterX </span><span class="pun">%=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;monsterAngle</span><span class="pun">+=</span><span class="pln"> </span><span class="lit">0.01</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// call mainloop again after 20ms</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> setTimeout</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Start the animation loop, change 20 for bigger</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// values</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> setTimeout</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">requestId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>clearTimeout</strong></span><strong><span class="pun">(</span><span class="pln">requestId</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1"><span> </span><span>function</span><span> animationLoop</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 1 - Clear</span></li>
+<li><span>&nbsp; &nbsp;ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 2 Draw</span></li>
+<li><span>&nbsp; &nbsp;drawMonster</span><span>(</span><span>monsterX</span><span>,</span><span> monsterY</span><span>,</span><span> monsterAngle</span><span>,</span><span> </span><span>'green'</span><span>,</span><span> </span><span>'yellow'</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 3 Move</span></li>
+<li><span>&nbsp; &nbsp;monsterX </span><span>+=</span><span> </span><span>10</span><span>;</span></li>
+<li><span>&nbsp; &nbsp;monsterX </span><span>%=</span><span> canvas</span><span>.</span><span>width</span></li>
+<li><span>&nbsp; &nbsp;monsterAngle</span><span>+=</span><span> </span><span>0.01</span><span>;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><strong><span>// call mainloop again after 20ms</span></strong></li>
+<li><span>&nbsp; &nbsp;<strong>requestId </strong></span><strong><span>=</span><span> setTimeout</span><span>(</span><span>animationLoop</span><span>,</span><span> </span><span>20</span><span>);</span></strong></li>
+<li><span> </span><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span> </span><span>function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// Start the animation loop, change 20 for bigger</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// values</span></li>
+<li><span>&nbsp; &nbsp;<strong>requestId </strong></span><strong><span>=</span><span> setTimeout</span><span>(</span><span>animationLoop</span><span>,</span><span> </span><span>20</span><span>);</span></strong></li>
+<li><span> </span><span>}</span></li>
+<li><span> </span></li>
+<li><span> </span><span>function</span><span> stop</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>requestId</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; <strong>clearTimeout</strong></span><strong><span>(</span><span>requestId</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp;</span><span>}</span></li>
+<li><span> </span><span>}</span></li>
 </ol></div>
 
 
@@ -494,44 +494,44 @@ You will note that `requestAnimationFrame(function)` is used like `setTimeout(fu
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// This function is called after the page is loaded</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Get the canvas</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 - Get the context</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 - start the animation</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;startAnimation</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp;<strong>var</strong></span><strong><span class="pln"> id</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp;function</span><span class="pln"> animationLoop</span><span class="pun">(<span style="line-height: 25.6000003814697px;">timeStamp</span>)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 Draw</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawShapes</span><span class="pun">(...);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 Move</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;moveShapes</span><span class="pun">(...);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call mainloop&nbsp; again after 16.6ms (corresponds to 60 frames/second)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>id </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">&nbsp;function</span><span class="pln"> startAnimation</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>id </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="kwd">function</span><span class="pln"> stopAnimation</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong></span><strong><span class="pun">(</span><span class="pln">id</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span><span> </span></li>
+<li><span>&lt;script&gt;</span></li>
+<li><span> </span><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
+<li><span> </span></li>
+<li><span> </span><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// This function is called after the page is loaded</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 1 - Get the canvas</span></li>
+<li><span>&nbsp; &nbsp;canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 2 - Get the context</span></li>
+<li><span>&nbsp; &nbsp;ctx</span><span>=</span><span>canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 3 - start the animation</span></li>
+<li><span>&nbsp; &nbsp;startAnimation</span><span>();</span></li>
+<li><span> </span><span>}</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp;<strong>var</strong></span><strong><span> id</span><span>;</span></strong></li>
+<li><span>&nbsp;function</span><span> animationLoop</span><span>(<span style="line-height: 25.6000003814697px;">timeStamp</span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 1 - Clear</span></li>
+<li><span>&nbsp; &nbsp;ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 2 Draw</span></li>
+<li><span>&nbsp; &nbsp;drawShapes</span><span>(...);</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// 3 Move</span></li>
+<li><span>&nbsp; &nbsp;moveShapes</span><span>(...);</span></li>
+<li><span>&nbsp; &nbsp;</span><span>// call mainloop&nbsp; again after 16.6ms (corresponds to 60 frames/second)</span></li>
+<li><span>&nbsp; &nbsp;<strong>id </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
+<li><span> </span><span>}</span><span> </span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp;function</span><span> startAnimation</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;<strong>id </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
+<li><span> </span><span>}</span></li>
+<li><span>&nbsp;</span><span>function</span><span> stopAnimation</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>id</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong></span><strong><span>(</span><span>id</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp;</span><span>}</span></li>
+<li><span> </span><span>}</span></li>
+<li><span>&lt;/script&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
 </ol></div>
 
 
@@ -551,34 +551,34 @@ Source code:
 
 Extract from source code, compare to the previous example that used setInterval()
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">(timeStamp)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 1 - Clear</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 2 - Draw</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawMonster</span><span class="pun">(</span><span class="pln">monsterX</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 3 - Move</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monsterX </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monsterX </span><span class="pun">%=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monsterAngle</span><span class="pun">+=</span><span class="pln"> </span><span class="lit">0.01</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// call mainloop again after 16.6 ms (60 frames/s)</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> start</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// Start the animation loop, targets 60 frames/s, this </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; // calls animationLoop only ONCE!</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>requestId </strong></span><strong><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> stop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">requestId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong></span><strong><span class="pun">(</span><span class="pln">requestId</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1"><span> </span><span>function</span><span> animationLoop</span><span>(timeStamp)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// 1 - Clear</span></li>
+<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// 2 - Draw</span></li>
+<li><span>&nbsp; &nbsp; drawMonster</span><span>(</span><span>monsterX</span><span>,</span><span> monsterY</span><span>,</span><span> monsterAngle</span><span>,</span><span> </span><span>'green'</span><span>,</span><span> </span><span>'yellow'</span><span>);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>// 3 - Move</span></li>
+<li><span>&nbsp; &nbsp; monsterX </span><span>+=</span><span> </span><span>10</span><span>;</span></li>
+<li><span>&nbsp; &nbsp; monsterX </span><span>%=</span><span> canvas</span><span>.</span><span>width</span></li>
+<li><span>&nbsp; &nbsp; monsterAngle</span><span>+=</span><span> </span><span>0.01</span><span>;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>// call mainloop again after 16.6 ms (60 frames/s)</span></strong></li>
+<li><span>&nbsp; &nbsp; <strong>requestId </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
+<li><span>}</span><span> </span></li>
+<li><span></span></li>
+<li><span>function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>// Start the animation loop, targets 60 frames/s, this </span></strong></li>
+<li><strong><span>&nbsp; &nbsp; // calls animationLoop only ONCE!</span></strong></li>
+<li><span>&nbsp; &nbsp; <strong>requestId </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
+<li><span>}</span></li>
+<li><span> </span></li>
+<li><span>function</span><span> stop</span><span>()</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>if</span><span> </span><span>(</span><span>requestId</span><span>)</span><span> </span><span>{</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong></span><strong><span>(</span><span>requestId</span><span>);</span></strong></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>}</span></li>
+<li><span>}</span></li>
 </ol></div>
 
 Notice that calling `requestAnimationFrame(animationLoop)` at line 19, and after that from within the loop at line 14, asks the browser to call the `animationLoop` function so that the delta between calls will be <strong>as close as possible to 16.6ms  (this corresponds to 1/60th of a second)</strong>.
