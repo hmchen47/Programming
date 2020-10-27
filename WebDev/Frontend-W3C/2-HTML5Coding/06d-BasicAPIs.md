@@ -31,7 +31,7 @@
     ```
 
   + example: get location
-    + checks if the Web browser supports the `geolocation` API by testing the variable `navigator.geolocation`:
+    + check if the Web browser supports the `geolocation` API by testing the variable `navigator.geolocation`:
       + `navigator.geolocation.getCurrentPosition(showPosition)` passing a callback function as a parameter
       + when a current position available, the callback function called asynchronously
       + the input parameter of this callback function = the current position
@@ -46,7 +46,7 @@
       }
       ```
 
-    + position objects w/ a `coords` property: the longitude and  the latitude
+    + position objects w/ a `coords` property: the longitude and the latitude
 
       ```js
       function showPosition(position) {
@@ -59,21 +59,21 @@
   + [Geolocation API - WDN](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 
 + [coords object properties](#642-the-coords-object-properties)
-  + __latitude:__ The latitude of the position
-  + __longitude:__ The longitude of the position
-  + __altitude:__ The altitude of the position
-  + __accuracy:__ The accuracy of the measure of the longitude and latitude (in meters)
-  + __altitudeAccuracy:__ The accuracy of the measure of the altitude (in meters)
-  + __heading:__ gives the orientation relative to north, in degrees
+  + __latitude:__ the latitude of the position
+  + __longitude:__ the longitude of the position
+  + __altitude:__ the altitude of the position
+  + __accuracy:__ the accuracy of the measure of the longitude and latitude (in meters)
+  + __altitudeAccuracy:__ the accuracy of the measure of the altitude (in meters)
+  + __heading:__ giving the orientation relative to north, in degrees
   + __speed:__ current speed in meters/second
 
 + [Geolocation error codes](#643-geolocation-error-codes)
   + `navigator.geolocation.getCurrentPosition` method possible to pass a second parameter in case of errror
-  + example:
+  + example: error handler
     + get location: `navigator.geolocation.getCurrentPosition(showPosition, errorPosition);`
     + error handling
 
-      ```js
+      ```js 
       function errorPosition(error) {
         var info = "Error during geolocation: ";
         switch(error.code) {
@@ -104,13 +104,21 @@
     + stop the tracking: `navigator.geolocation.clearWatch(watchPosId);`
 
 + [Properties of the coords object for real time tracking](#options-available-when-using-the-geolocation-api-in-particular-real-time-tracking)
-  + __enableHighAccuracy:__ A boolean (true/false) which indicates to the device that you wish to obtain its most accurate readings. in other words: use the GPS please! (However, this parameter may or may not make a difference, depending on your hardware, GPS availability, etc.)
-  + __maximumAge:__ The maximum amount of time (in milliseconds) the position may remain in the cache (this is appropriate as the device may cache readings to save power and/or bandwidth).
-  + __timeout:__ The maximum time (in milliseconds) for which you are prepared to allow the device to try to obtain a Geo location. After this timeout value has elapsed, the onError callback is called.
+  + __enableHighAccuracy:__ 
+    + a boolean (true/false) indicating to the device wish to obtain its most accurate readings
+    + using the GPS
+    + probably making a difference, depending on your hardware, GPS availability, etc.
+  + __maximumAge:__
+    + the maximum amount of time (in milliseconds) the position  in the cache
+    + appropriate as the device may cache readings to save power and/or bandwidth
+  + __timeout:__
+    + the maximum time (in milliseconds)
+    + prepared to allow the device to try to obtain a Geo location
+    + after this timeout, call the `onError` callback
 
 + [Example: tracking position](#example-of-use)
   + ask to turn GPS on, if available: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {enableHighAccuracy:true});`
-  + the position can be cached for 10 mins useful when in tunnels: `maximumAge = 10 mins`
+  + the position cached for 10 mins useful when in tunnels: `maximumAge = 10 mins` 
   + when the device tries to get a position, if it does not succeed, then go on error immediately: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:600000, timeout:0});`
   + position will never come from the cache (maximumAge: 0), and if after 0.1s the position could not be computed, then go on error: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:0, timeout:100});`
   + ask for GPS, cache for 30s, 27s before going on error: `watchId=navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy:true, maximumAge:30000, timeout:27000});`
@@ -142,7 +150,7 @@
 + [Reverse Geocoding](#646-reverse-geocoding)
   + Web services:
     + used to get an address from longitude and latitude
-    + most are free of charge, but ask to register an API key and enter your credit card number
+    + mostly free of charge, but ask to register an API key and enter your credit card number
     + if too many requests, you will be charged
     + examples:
       + the [Google Reverse Geocoding JavaScript API](https://tinyurl.com/pdlpfjc)
@@ -185,7 +193,6 @@
       + showing warning message: `alert('Geocoder failed due to: ' + status);`
 
 
-
 ### 6.4.1 Introduction
 
 
@@ -203,16 +210,16 @@ It is possible to prompt the user to activate the GPS (this is what most GPS nav
 #### Typical use
 
 <div><ol>
-<li value="1"><strong><span>navigator</span><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>showPosition</span><span>,</span><span> onError</span><span>);</span></strong></li>
-<li><span>&nbsp;</span></li>
-<li><span>function</span><span> showPosition</span><span>(</span><span>position</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"latitude is: "</span><span> </span><span>+</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>latitude</span><span>);</span><span> </span></li>
-<li><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"longitude is: "</span><span> </span><span>+</span><span> position</span><span>.</span><span>coords</span><span>.</span><span>longitude</span><span>);</span></li>
-<li><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>function</span><span> onError</span><span>(</span><span>err</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"Could not get the position"</span><span>);</span></li>
-<li><span>}</span></li>
+<li value="1"><strong>navigator.geolocation.getCurrentPosition(showPosition, onError);</strong></li>
+<li>&nbsp;</li>
+<li>function showPosition(position) {</li>
+<li>&nbsp; &nbsp; console.log("latitude is: " + position.coords.latitude); </li>
+<li>&nbsp; &nbsp; console.log("longitude is: " + position.coords.longitude);</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function onError(err) {</li>
+<li>&nbsp; &nbsp; console.log("Could not get the position");</li>
+<li>}</li>
 </ol></div>
 
 [This online example at JSBin](https://jsbin.com/toyeley/1/edit?html,output) shows how to get the current longitude and latitude and display them in an HTML page. Try it below in your browser: ([Local Example - Location](src/6.4.1-example1.html))
@@ -227,34 +234,34 @@ Note that the first time you execute this example, for privacy reasons, the brow
 Source code of this typical example:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span> </span><span>&lt;head&gt;</span></li>
-<li><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span>&lt;title&gt;</span><span>Basic example of use of the geolocation API</span><span>&lt;/title&gt;</span></li>
-<li><span> </span><span>&lt;/head&gt;</span></li>
-<li><span>&lt;body&gt;</span></li>
-<li><span>&lt;p</span><span> </span><span>id</span><span>=</span><span>"msg"</span><span>&gt;</span><span>Click the button to get your coordinates:</span><span>&lt;/p&gt;</span></li>
-<li><span>&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>getLocation</span><span>()</span><span>"</span><span>&gt;</span><span>Where am I ?</span><span>&lt;/button&gt;</span></li>
-<li><span> </span></li>
-<li><span>&lt;script&gt;</span></li>
-<li><span>&nbsp; &nbsp; var</span><span> displayCoords</span><span>=</span><span>document</span><span>.</span><span>getElementById</span><span>(</span><span>"msg"</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; function</span><span> getLocation</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>navigator</span><span>.</span><span>geolocation</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>navigator</strong></span><strong><span>.</span><span>geolocation</span><span>.</span><span>getCurrentPosition</span><span>(</span><span>showPosition</span><span>);</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span><span> </span><span>else</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayCoords</span><span>.</span><span>innerHTML</span><span>=</span><span>"Geolocation API not supported by your browser."</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span>&nbsp; &nbsp;}</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; <strong>&nbsp;function</strong></span><strong><span> showPosition</span><span>(</span><span>position</span><span>)</span></strong><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;displayCoords</span><span>.</span><span>innerHTML</span><span>=</span><span>"Latitude: "</span><span> </span><span>+</span><strong><span> position</span><span>.</span><span>coords</span><span>.</span><span>latitude </span></strong><span>+</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>"&lt;br /&gt;Longitude: "</span><span> </span><span>+</span><strong><span> position</span><span>.</span><span>coords</span><span>.</span><span>longitude</span></strong><span>;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;}</span></li>
-<li><span>&lt;/script&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&lt;meta charset="utf-8"&gt;</li>
+<li>&lt;title&gt;Basic example of use of the geolocation API&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;p id="msg"&gt;Click the button to get your coordinates:&lt;/p&gt;</li>
+<li>&lt;button onclick="getLocation()"&gt;Where am I ?&lt;/button&gt;</li>
+<li> </li>
+<li>&lt;script&gt;</li>
+<li>&nbsp; &nbsp; var displayCoords=document.getElementById("msg");</li>
+<li> </li>
+<li>&nbsp; &nbsp; function getLocation() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if (navigator.geolocation) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>navigator</strong><strong>.geolocation.getCurrentPosition(showPosition);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayCoords.innerHTML="Geolocation API not supported by your browser.";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; <strong>&nbsp;function</strong><strong> showPosition(position)</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;displayCoords.innerHTML="Latitude: " +<strong> position.coords.latitude </strong>+ </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"&lt;br /&gt;Longitude: " +<strong> position.coords.longitude</strong>; </li>
+<li>&nbsp; &nbsp;}</li>
+<li>&lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
