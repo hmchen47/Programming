@@ -52,7 +52,7 @@
     + restoring the form content on page load/reload: `if (localStorage.firstName !== undefined) document.getElementById("firstName").value = localStorage.firstName;`
 
 + [Cookies & Web Storage](#differences-with-cookies)
-  + main difference: size limit  
+  + main difference: size limit
   + cookie:
     + a popular way to store key-value pairs
     + cookies limited to a few KBytes
@@ -207,7 +207,7 @@
     }
     ```
 
-  + `addInputListener` function:
+  + adding input listeners:
     + taking an input field as parameter and attaching an `oninput` listener to it
     + saving the field's content each time a value entered
 
@@ -222,7 +222,7 @@
   + restore the last saved value for each input field, if present.
     + get the list of input fields: `document.querySelectorAll("input");`
     + iterate through the list: `for(var i= 0; i < listOfInputsInForm.length; i++) {...}`
-    + get `id` of inout fields as the key in `localStorage` for the previous data saved for this field: `var fieldToRestore = listOfInputsInForm[i]; var id = fieldToRestore.id;`
+    + get `id` of input fields as the key in `localStorage` for the previous data saved for this field: `var fieldToRestore = listOfInputsInForm[i]; var id = fieldToRestore.id;`
     + restore by setting the value of the input field if not undefined: `if(savedValue !== undefined) { fieldToRestore.value = savedValue; }`
 
     ```js
@@ -257,7 +257,7 @@
   + more complex solutions:
     + processing transaction: require more available space than local storage
     + e.g., IndexedDB, a No SQL database
-  + limit amount of data to prevent from storing anything huge 
+  + limit amount of data to prevent from storing anything anything huge
   + storage not necessarily permanent
   + serious applications
     + synchronizing existing data with the server on a regular basis
@@ -283,8 +283,8 @@
     + a text format completely programming language independent
     + providing a great way of encoding and decoding data
     + a really good match for JavaScript
-    + carefully not using circular data structures or non-serializable objects
-    + straightforward plugging to support local store in vast majority of cases
+    + careful not to use circular data structures or non-serializable objects
+    + straightforward plugging yo support local store in vast majority of cases
     + two structures:
       + a collection of name/value pairs
       + an ordered list of values
@@ -302,7 +302,8 @@
       // Add the curent contact to the array
       contacts.push(contact);
       // Save in JSON
-      localStorage.contacts = JSON.stringify(contacts);  
+      localStorage.contacts = JSON.stringify(contacts);
+
 
       // Read contacts from localStorage
       function getContacts() {
