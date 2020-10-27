@@ -226,32 +226,32 @@ Please try this [online example](https://jsbin.com/zeqare/1/edit?html,output) (o
 Extract from the source code:
 
 <div><ol>
-<li value="1"><span>&lt;body&gt;</span></li>
-<li><span>&nbsp; &nbsp;&lt;div</span><span> </span><span>id</span><span>=</span><span>"animatedDIV"</span><span>&gt;</span><span>Animated DIV :-)</span><span>&lt;/div&gt;</span></li>
-<li><span></span></li>
-<li><span>&nbsp; &nbsp;&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>start</span><span>()</span><span>"</span><span>&gt;</span><span>Start animation</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp; &nbsp;&lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>stop</span><span>()</span><span>"</span><span>&gt;</span><span>Stop animation</span><span>&lt;/button&gt;</span></li>
-<li><span></span></li>
-<li><span>&nbsp; &nbsp;&lt;script&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>var</span><span> elm </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>"animatedDIV"</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>var</span><span> requestId</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>var</span><span> x </span><span>=</span><span> </span><span>0</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>function</span><span> render</span><span>(</span><span>time</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;elm</span><span>.</span><span>style</span><span>.</span><span>left </span><span>=</span><span> x</span><span>++</span><span> </span><span>+</span><span> </span><span>"px"</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>requestId </strong></span><strong><span>=</span><span> setInterval</span><span>(</span><span>render</span><span>,</span><span> </span><span>10</span><span>);</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span></span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>function</span><span> stop</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>requestId</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>clearInterval</strong></span><strong><span>(</span><span>requestId</span><span>);</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span>&nbsp; &nbsp; &lt;/script&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
+<li value="1">&lt;body&gt;</li>
+<li>&nbsp; &nbsp;&lt;div id="animatedDIV"&gt;Animated DIV :-)&lt;/div&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp;&lt;button onclick="start()"&gt;Start animation&lt;/button&gt;</li>
+<li>&nbsp; &nbsp;&lt;button onclick="stop()"&gt;Stop animation&lt;/button&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var elm = document.getElementById("animatedDIV");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var requestId;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var x = 0;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;function render(time) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;elm.style.left = x++ + "px";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;function start() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>requestId </strong><strong>= setInterval(render, 10);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;function stop() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (requestId) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>clearInterval</strong><strong>(requestId);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 Here, we define a `<div>` element, (see the online source code for the CSS properties involved), and we use the `setInterval` method (line 17) to call every 10ms the `render()` method that will just increment the position of this element. Notice that since we're using the DOM, the horizontal position of the div is modified by changing its left CSS property.
@@ -276,69 +276,69 @@ This example is available [online](https://jsbin.com/mimenol/1/edit?html,output)
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &lt;canvas</span><span> </span><span>id</span><span>=</span><span>"myCanvas"</span><span> </span><span>width</span><span>=</span><span>"400"</span><span> </span><span>height</span><span>=</span><span>"400"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</span></li>
-<li><span>&nbsp; &nbsp; &lt;/canvas&gt;</span></li>
-<li><span>&nbsp; &nbsp; &lt;p&gt;</span></li>
-<li><span>&nbsp; &nbsp; &lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>start</span><span>()</span><span>"</span><span>&gt;</span><span>Start animation</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp; &nbsp; &lt;button</span><span> </span><span>onclick</span><span>=</span><span>"</span><span>stop</span><span>()</span><span>"</span><span>&gt;</span><span>Stop animation</span><span>&lt;/button&gt;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &lt;script&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>var</span><span> monsterX</span><span>=</span><span>100</span><span>,</span><span> monsterY</span><span>=</span><span>100</span><span>,</span><span> monsterAngle</span><span>=</span><span>0</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// This function is called after the page is loaded</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// 1 - Get the canvas</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// 2 - Get the context</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>=</span><span>canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>}</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>function</span><span> animationLoop</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// 1 - Clear the canvas</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// 2 Draw the monster using variables for pos, angle, etc.</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawMonster</span><span>(</span><span>monsterX</span><span>,</span><span> monsterY</span><span>,</span><span> monsterAngle</span><span>,</span><span> </span><span>'green'</span><span>,</span><span> </span><span>'yellow'</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>// 3 Move the monster (change pos, angle, size, etc.)</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterX </span><span>+=</span><span> </span><span>10</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterX </span><span>%=</span><span> canvas</span><span>.</span><span>width</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterAngle</span><span>+=</span><span> </span><span>0.01</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>}</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>function</span><span> drawMonster</span><span>(</span><span>x</span><span>,</span><span> y</span><span>,</span><span> angle</span><span>,</span><span> headColor</span><span>,</span><span> eyeColor</span><span>)</span><span> </span><span>{</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>save</span><span>();</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// Moves the coordinate system so that the monster is drawn</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>// at position (x, y)</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>translate</span><span>(</span><span>x</span><span>,</span><span> y</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>rotate</span><span>(</span><span>angle</span><span>)</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// head</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillStyle</span><span>=</span><span>headColor</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>fillRect</span><span>(</span><span>0</span><span>,</span><span>0</span><span>,</span><span>200</span><span>,</span><span>200</span><span>);</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ...</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>// BEST PRACTICE!</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span>.</span><span>restore</span><span>();</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Start the animation loop, change 20 for bigger values</span></li>
-<li><span>&nbsp;<span style="color: #880000;" color="#880000">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span><strong><span>requestId </span><span>=</span><span> setInterval</span><span>(</span><span>animationLoop</span><span>,</span><span> </span><span>20</span><span>);</span></strong></li>
-<li><span><span style="color: #000000;" color="#000000">&nbsp; &nbsp; &nbsp;</span>}</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>function</span><span> stop</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>requestId</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>clearInterval</strong></span><strong><span>(</span><span>requestId</span><span>);</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>}</span></li>
-<li><span>&lt;/script&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
+<li value="1">&lt;body onload="init();"&gt;</li>
+<li>&nbsp; &nbsp; &lt;canvas id="myCanvas" width="400" height="400"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; Your browser does not support the canvas tag.</li>
+<li>&nbsp; &nbsp; &lt;/canvas&gt;</li>
+<li>&nbsp; &nbsp; &lt;p&gt;</li>
+<li>&nbsp; &nbsp; &lt;button onclick="start()"&gt;Start animation&lt;/button&gt;</li>
+<li>&nbsp; &nbsp; &lt;button onclick="stop()"&gt;Stop animation&lt;/button&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var canvas, ctx;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var monsterX=100, monsterY=100, monsterAngle=0;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;function init() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// This function is called after the page is loaded</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// 1 - Get the canvas</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// 2 - Get the context</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx=canvas.getContext('2d');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;function animationLoop() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// 1 - Clear the canvas</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// 2 Draw the monster using variables for pos, angle, etc.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 3 Move the monster (change pos, angle, size, etc.)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterX += 10;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterX %= canvas.width</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterAngle+= 0.01;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;function drawMonster(x, y, angle, headColor, eyeColor) { </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// BEST PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.save();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Moves the coordinate system so that the monster is drawn</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // at position (x, y)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.translate(x, y);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.rotate(angle)</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// head</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillStyle=headColor;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillRect(0,0,200,200);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ...</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// BEST PRACTICE!</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.restore();</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function start() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Start the animation loop, change 20 for bigger values</li>
+<li>&nbsp;<span style="color: #880000;" color="#880000">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong>requestId = setInterval(animationLoop, 20);</strong></li>
+<li><span style="color: #000000;" color="#000000">&nbsp; &nbsp; &nbsp;</span>}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function stop() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (requestId) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>clearInterval</strong><strong>(requestId);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
@@ -364,7 +364,7 @@ __A single animation may be interrupted by itself to become two simultaneous ani
 `setInterval` will execute the function passed as first parameter every n milliseconds regardless of when the function was last called or how long the function takes to execute. If the function takes longer than the interval, then `setInterval` might queue too many function executions back to back when the interval is too short, leading to unpredictable results. 
 
 <div style="border: 1px solid red; margin: 10px; padding: 10px;">
-<p style="text-align: center;"><em><strong>BEST&nbsp;PRACTICE</strong>: AVOID using <span style="font-family: 'courier new', courier;">setInterval</span></em><em><span style="font-family: 'courier new', courier;"><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">&nbsp;for animating in a canvas, <br>except for trivial cases&nbsp; (change a color every second).</span></span></em></p>
+<p style="text-align: center;"><em><strong>BEST&nbsp;PRACTICE</strong>: AVOID using <span style="font-family: 'courier new', courier;">setInterval</em><em><span style="font-family: 'courier new', courier;"><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">&nbsp;for animating in a canvas, <br>except for trivial cases&nbsp; (change a color every second).</em></p>
 </div>
 
 
@@ -410,33 +410,33 @@ This is similar to the previous example except that we called `setTimeout(functi
 Extract from source code:
 
 <div><ol>
-<li value="1"><span> </span><span>function</span><span> animationLoop</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 1 - Clear</span></li>
-<li><span>&nbsp; &nbsp;ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 2 Draw</span></li>
-<li><span>&nbsp; &nbsp;drawMonster</span><span>(</span><span>monsterX</span><span>,</span><span> monsterY</span><span>,</span><span> monsterAngle</span><span>,</span><span> </span><span>'green'</span><span>,</span><span> </span><span>'yellow'</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 3 Move</span></li>
-<li><span>&nbsp; &nbsp;monsterX </span><span>+=</span><span> </span><span>10</span><span>;</span></li>
-<li><span>&nbsp; &nbsp;monsterX </span><span>%=</span><span> canvas</span><span>.</span><span>width</span></li>
-<li><span>&nbsp; &nbsp;monsterAngle</span><span>+=</span><span> </span><span>0.01</span><span>;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><strong><span>// call mainloop again after 20ms</span></strong></li>
-<li><span>&nbsp; &nbsp;<strong>requestId </strong></span><strong><span>=</span><span> setTimeout</span><span>(</span><span>animationLoop</span><span>,</span><span> </span><span>20</span><span>);</span></strong></li>
-<li><span> </span><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span> </span><span>function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// Start the animation loop, change 20 for bigger</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// values</span></li>
-<li><span>&nbsp; &nbsp;<strong>requestId </strong></span><strong><span>=</span><span> setTimeout</span><span>(</span><span>animationLoop</span><span>,</span><span> </span><span>20</span><span>);</span></strong></li>
-<li><span> </span><span>}</span></li>
-<li><span> </span></li>
-<li><span> </span><span>function</span><span> stop</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>requestId</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; <strong>clearTimeout</strong></span><strong><span>(</span><span>requestId</span><span>);</span></strong></li>
-<li><span>&nbsp; &nbsp;</span><span>}</span></li>
-<li><span> </span><span>}</span></li>
+<li value="1"> function animationLoop() {</li>
+<li>&nbsp; &nbsp;// 1 - Clear</li>
+<li>&nbsp; &nbsp;ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// 2 Draw</li>
+<li>&nbsp; &nbsp;drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');</li>
+<li> </li>
+<li>&nbsp; &nbsp;// 3 Move</li>
+<li>&nbsp; &nbsp;monsterX += 10;</li>
+<li>&nbsp; &nbsp;monsterX %= canvas.width</li>
+<li>&nbsp; &nbsp;monsterAngle+= 0.01;</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong>// call mainloop again after 20ms</strong></li>
+<li>&nbsp; &nbsp;<strong>requestId </strong><strong>= setTimeout(animationLoop, 20);</strong></li>
+<li> }</li>
+<li>&nbsp;</li>
+<li> function start() {</li>
+<li>&nbsp; &nbsp;// Start the animation loop, change 20 for bigger</li>
+<li>&nbsp; &nbsp;// values</li>
+<li>&nbsp; &nbsp;<strong>requestId </strong><strong>= setTimeout(animationLoop, 20);</strong></li>
+<li> }</li>
+<li> </li>
+<li> function stop() {</li>
+<li>&nbsp; &nbsp;if (requestId) {</li>
+<li>&nbsp; &nbsp; &nbsp; <strong>clearTimeout</strong><strong>(requestId);</strong></li>
+<li>&nbsp; &nbsp;}</li>
+<li> }</li>
 </ol></div>
 
 
@@ -495,43 +495,43 @@ You will note that `requestAnimationFrame(function)` is used like `setTimeout(fu
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;body</span><span> </span><span>onload</span><span>=</span><span>"</span><span>init</span><span>();</span><span>"</span><span>&gt;</span><span> </span></li>
-<li><span>&lt;script&gt;</span></li>
-<li><span> </span><span>var</span><span> canvas</span><span>,</span><span> ctx</span><span>;</span></li>
-<li><span> </span></li>
-<li><span> </span><span>function</span><span> init</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// This function is called after the page is loaded</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 1 - Get the canvas</span></li>
-<li><span>&nbsp; &nbsp;canvas </span><span>=</span><span> document</span><span>.</span><span>getElementById</span><span>(</span><span>'myCanvas'</span><span>);</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 2 - Get the context</span></li>
-<li><span>&nbsp; &nbsp;ctx</span><span>=</span><span>canvas</span><span>.</span><span>getContext</span><span>(</span><span>'2d'</span><span>);</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 3 - start the animation</span></li>
-<li><span>&nbsp; &nbsp;startAnimation</span><span>();</span></li>
-<li><span> </span><span>}</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp;<strong>var</strong></span><strong><span> id</span><span>;</span></strong></li>
-<li><span>&nbsp;function</span><span> animationLoop</span><span>(<span style="line-height: 25.6000003814697px;">timeStamp</span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 1 - Clear</span></li>
-<li><span>&nbsp; &nbsp;ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 2 Draw</span></li>
-<li><span>&nbsp; &nbsp;drawShapes</span><span>(...);</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// 3 Move</span></li>
-<li><span>&nbsp; &nbsp;moveShapes</span><span>(...);</span></li>
-<li><span>&nbsp; &nbsp;</span><span>// call mainloop&nbsp; again after 16.6ms (corresponds to 60 frames/second)</span></li>
-<li><span>&nbsp; &nbsp;<strong>id </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
-<li><span> </span><span>}</span><span> </span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp;function</span><span> startAnimation</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;<strong>id </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
-<li><span> </span><span>}</span></li>
-<li><span>&nbsp;</span><span>function</span><span> stopAnimation</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;</span><span>if</span><span> </span><span>(</span><span>id</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong></span><strong><span>(</span><span>id</span><span>);</span></strong></li>
-<li><span>&nbsp; &nbsp;</span><span>}</span></li>
-<li><span> </span><span>}</span></li>
-<li><span>&lt;/script&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
+<li value="1">&lt;body onload="init();"&gt; </li>
+<li>&lt;script&gt;</li>
+<li> var canvas, ctx;</li>
+<li> </li>
+<li> function init() {</li>
+<li>&nbsp; &nbsp;// This function is called after the page is loaded</li>
+<li>&nbsp; &nbsp;// 1 - Get the canvas</li>
+<li>&nbsp; &nbsp;canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp;// 2 - Get the context</li>
+<li>&nbsp; &nbsp;ctx=canvas.getContext('2d');</li>
+<li> </li>
+<li>&nbsp; &nbsp;// 3 - start the animation</li>
+<li>&nbsp; &nbsp;startAnimation();</li>
+<li> }</li>
+<li>&nbsp;</li>
+<li>&nbsp;<strong>var</strong><strong> id;</strong></li>
+<li>&nbsp;function animationLoop(<span style="line-height: 25.6000003814697px;">timeStamp</span>) {</li>
+<li>&nbsp; &nbsp;// 1 - Clear</li>
+<li>&nbsp; &nbsp;ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li>&nbsp; &nbsp;// 2 Draw</li>
+<li>&nbsp; &nbsp;drawShapes(...);</li>
+<li>&nbsp; &nbsp;// 3 Move</li>
+<li>&nbsp; &nbsp;moveShapes(...);</li>
+<li>&nbsp; &nbsp;// call mainloop&nbsp; again after 16.6ms (corresponds to 60 frames/second)</li>
+<li>&nbsp; &nbsp;<strong>id </strong><strong>= requestAnimationFrame(animationLoop);</strong></li>
+<li> } </li>
+<li>&nbsp;</li>
+<li>&nbsp;function startAnimation() {</li>
+<li>&nbsp; &nbsp;<strong>id </strong><strong>= requestAnimationFrame(animationLoop);</strong></li>
+<li> }</li>
+<li>&nbsp;function stopAnimation() {</li>
+<li>&nbsp; &nbsp;if (id) {</li>
+<li>&nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong><strong>(id);</strong></li>
+<li>&nbsp; &nbsp;}</li>
+<li> }</li>
+<li>&lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 
@@ -552,33 +552,33 @@ Source code:
 Extract from source code, compare to the previous example that used setInterval()
 
 <div><ol>
-<li value="1"><span> </span><span>function</span><span> animationLoop</span><span>(timeStamp)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>// 1 - Clear</span></li>
-<li><span>&nbsp; &nbsp; ctx</span><span>.</span><span>clearRect</span><span>(</span><span>0</span><span>,</span><span> </span><span>0</span><span>,</span><span> canvas</span><span>.</span><span>width</span><span>,</span><span> canvas</span><span>.</span><span>height</span><span>);</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>// 2 - Draw</span></li>
-<li><span>&nbsp; &nbsp; drawMonster</span><span>(</span><span>monsterX</span><span>,</span><span> monsterY</span><span>,</span><span> monsterAngle</span><span>,</span><span> </span><span>'green'</span><span>,</span><span> </span><span>'yellow'</span><span>);</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>// 3 - Move</span></li>
-<li><span>&nbsp; &nbsp; monsterX </span><span>+=</span><span> </span><span>10</span><span>;</span></li>
-<li><span>&nbsp; &nbsp; monsterX </span><span>%=</span><span> canvas</span><span>.</span><span>width</span></li>
-<li><span>&nbsp; &nbsp; monsterAngle</span><span>+=</span><span> </span><span>0.01</span><span>;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>// call mainloop again after 16.6 ms (60 frames/s)</span></strong></li>
-<li><span>&nbsp; &nbsp; <strong>requestId </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
-<li><span>}</span><span> </span></li>
-<li><span></span></li>
-<li><span>function</span><span> start</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>// Start the animation loop, targets 60 frames/s, this </span></strong></li>
-<li><strong><span>&nbsp; &nbsp; // calls animationLoop only ONCE!</span></strong></li>
-<li><span>&nbsp; &nbsp; <strong>requestId </strong></span><strong><span>=</span><span> requestAnimationFrame</span><span>(</span><span>animationLoop</span><span>);</span></strong></li>
-<li><span>}</span></li>
-<li><span> </span></li>
-<li><span>function</span><span> stop</span><span>()</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>if</span><span> </span><span>(</span><span>requestId</span><span>)</span><span> </span><span>{</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong></span><strong><span>(</span><span>requestId</span><span>);</span></strong></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>}</span></li>
-<li><span>}</span></li>
+<li value="1"> function animationLoop(timeStamp) {</li>
+<li>&nbsp; &nbsp;&nbsp;// 1 - Clear</li>
+<li>&nbsp; &nbsp; ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// 2 - Draw</li>
+<li>&nbsp; &nbsp; drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// 3 - Move</li>
+<li>&nbsp; &nbsp; monsterX += 10;</li>
+<li>&nbsp; &nbsp; monsterX %= canvas.width</li>
+<li>&nbsp; &nbsp; monsterAngle+= 0.01;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong>// call mainloop again after 16.6 ms (60 frames/s)</strong></li>
+<li>&nbsp; &nbsp; <strong>requestId </strong><strong>= requestAnimationFrame(animationLoop);</strong></li>
+<li>} </li>
+<li></li>
+<li>function start() {</li>
+<li>&nbsp; &nbsp;&nbsp;<strong>// Start the animation loop, targets 60 frames/s, this </strong></li>
+<li><strong>&nbsp; &nbsp; // calls animationLoop only ONCE!</strong></li>
+<li>&nbsp; &nbsp; <strong>requestId </strong><strong>= requestAnimationFrame(animationLoop);</strong></li>
+<li>}</li>
+<li> </li>
+<li>function stop() {</li>
+<li>&nbsp; &nbsp;&nbsp;if (requestId) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>cancelAnimationFrame</strong><strong>(requestId);</strong></li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>}</li>
 </ol></div>
 
 Notice that calling `requestAnimationFrame(animationLoop)` at line 19, and after that from within the loop at line 14, asks the browser to call the `animationLoop` function so that the delta between calls will be <strong>as close as possible to 16.6ms  (this corresponds to 1/60th of a second)</strong>.
