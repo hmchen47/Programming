@@ -2,7 +2,7 @@
 
 
 ## 6.3 The File API
-
+ 
 
 ### 6.3.0 Lecture Notes
 
@@ -46,8 +46,8 @@
     + rendered as a "select files" or "browse files" button
     + file chooser dialog popped-up to select one file
     + do nothing in the client-side before HTML5 die to no access from JavaScript
-  + File API
-    + define a files property on the DOM node corresponding to the `<input type="file".../>` input field
+  + File API 
+    + define a file property on the DOM node corresponding to the `<input type="file".../>` input field
     + property as an array
     + the metadata related to `selectedFile` variable: `selectedFile.name, selectedFile.size, selectedFile.type, selectedFile.lastModifiedDate`
   + example: read file metadata from `<input type="file" id="input" onchange="displayFirstSelectedFileMetadata();"/>`
@@ -69,7 +69,7 @@
     + `for` loop builds all the rows that compose the table, adding HTML code to the selection string variable
       + prepare the HTML code for building a `<table>` with the results
       + build table and headings: `var selection = "<table><tr><th>Name</th><th>Bytes</th><th>MIME Type</th> <th>Last modified date</th></tr>";`
-      + build rows in iteration:
+      + build rows iteratively:
 
         ```js
         selection += "<tr><td>"+file.name+"</td><td style=\"text-align:right\">"
@@ -82,11 +82,11 @@
       + table appears on the page dynamically
       + use the innerHTML attribute of the DOM element corresponding to the `<div id="result">` in order to insert the table as its child in the DOM tree
 
-+ [Interface of HTML5 File API specification](#634-blob-and-file)
-  + FileList interface: the files property
-  + File interface: useful for getting details about a file
-  + Blob interface: read binary data (only) accessed slice by slice (as chunks of data, each one being a "Blob")
-  + FileReader interface: reading file content
++ [Interface of HTML5 File API specification](#634-blob-and-file) 
+  + __FileList__ interface: the files property
+  + __File__ interface: useful for getting details about a file
+  + __Blob__ interface: read binary data (only) accessed slice by slice (as chunks of data, each one being a "Blob")
+  + __FileReader__ interface: reading file content
 
 + [Blob object](#the-blob-object)
   + a structure representing binary data available as read-only
@@ -114,9 +114,9 @@
     + executed by the browser in the background
     + `reader.onload `callback only when the file is read entirely
   + get the file content in an `onload` callback
-    + called only when the file content is loaded
+    + called only when the file content loaded
     + the content: `e.target.result`
-    + called only when the file content is available: `reader.onload = function(e) {...}`
+    + called only when the file content available: `reader.onload = function(e) {...}`
     + event `e` as a unique parameter
     + `e.target.result` = the file content
 
@@ -129,12 +129,11 @@
       + display content in the `textarea` with `id="fileContent"`: `document.getElementById("fileContent").value= e.target.result;`
   + read multiple files
     + select multiple files: `<input type="file" id="files" multiple onchange="readFilesAndDisplayAsText(this.files);"/><br/>`
-    + `onload` listener to print the name of thev file...
+    + `onload` listener to print the name of the file...
 
       ```js
       function addOnLoadListener(reader, name) {
-          // Add an onload listener that will be able to print the name of the
-          // file...
+          // Add an onload listener that will be able to print the name of the file...
           reader.onload = function(e) {
               filesContent.value += "###### READING FILE " + name + " ######";
               filesContent.value += e.target.result;
@@ -157,7 +156,7 @@
           }
       }
       ```
-
+  
 + [Character encoding for text file](#about-character-encoding)
   + optionally indicate the encoding of the file going to read
   + default: UTF-8
@@ -171,7 +170,7 @@
     + video files: using the `<video>` elements
   + image, drawing, audio, and video files: referable to use the `readAsDataURL` method
   + `readAsArrayBuffer` method used for purposes
-    + reading audio samples that should be loaded in memory 
+    + reading audio samples that should be loaded in memory  
     + played using the WebAudio API
     + loading textures that you will use with WebGL for 3D animations
   + WebAudio API
@@ -183,7 +182,7 @@
     + define a change listener: `fileInput.addEventListener('change', function(e) {...}`
       + after choosing a file, the listener executed
       + start the reading of the file content, as a binary file: `reader.readAsArrayBuffer(this.files[0]);`
-      + once the file will be entirely read, the `onload` callback asynchronously called by the browser
+      + once the file entirely read, the `onload` callback asynchronously called by the browser
     + executed the `onload` callback when the file content is loaded in memory
     + pass the file content to the `initSound(e.target.result);` function to play
 
@@ -191,7 +190,7 @@
   + data URL: a URL including type and content at the same time
   + useful for in-lining images or videos in the HTML of a Web page
   + mobile devices: speed up the loading of the page by reducing the number of HTTP requests
-  + the red circle
+  + example: the red square w/ dataURL
     + dataURL: `data:image/png;base64,iVBOR...`
     + `src` attribute of an image element `<img src="data:image/png....">` with the data URL: `<img src="data:image/png;base64,iVBORw..." alt="Red square" width=50 height=50/>`
   + dataURL format
@@ -199,7 +198,7 @@
     + adding the MIME type specification of the content
     + able to store a file as a URL readable with modern browsers
     + commonly used on the Web
-    + especially for mobile applications, inlining images reducing the number of HTTP requests and making the Web page load faster
+    + especially for mobile applications, in-lining images reducing the number of HTTP requests and making the Web page load faster
     + [Image to Data URI converter](https://ezgif.com/image-to-datauri)
     + able to encode any type of file as dataURL
     + most frequently used with media files (images, audio, video)
@@ -208,19 +207,14 @@
     + when `f` read, the `onload` callback called: `reader.onload = function(e) {...}`
       + render thumbnail
       + `e.target.result` = the image content as a data URL
-      + create a span with CSS `class="thumb"`, for nicer layout": `var span = document.createElement('span');`
-      + Add an img src=... in the span, with src= the dataURL of the image: `span.innerHTML = "<img class='thumb' src='" + e.target.result + "' alt='a picture'/>";`
-      + Insert the span in the `<output id="list"></output>`:  `document.getElementById('list').insertBefore(span, null);`
+      + create a span with CSS `class="thumb"` for nicer layout: `var span = document.createElement('span');`
+      + add an `<img src=...>` in the span, with src= the dataURL of the image: `span.innerHTML = "<img class='thumb' src='" + e.target.result + "' alt='a picture'/>";`
+      + insert the span in the `<output id="list"></output>`:  `document.getElementById('list').insertBefore(span, null);`
   + example: read local image file and use it with drawImage in a canvas
     + create an image object to draw an image on a canvas: `var img = new Image();`
     + `e.target.result` as the dataURL
     + set the `src` attribute of the image object: `img.src= e.target.result`
     + asynchronously call the `onload` callback: `img.onload = function(e) { ctx.drawImage(img, 0, 0, 400, 400); }`
-    + 
-
-
-
-
 
 
 ### 6.3.1 Introduction
