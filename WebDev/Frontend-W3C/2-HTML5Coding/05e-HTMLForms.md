@@ -305,30 +305,30 @@ This attribute is useful for putting input fields outside the form itself. The `
 <div><label for="yourName">Enter your name (field outside the form):</label> <input id="yourName" name="yourName" form="form1" type="text"><form id="form1" action="sumit.php" method="post"><fieldset><legend>Choose option</legend> <label for="free">Free registering</label> <input id="free" type="checkbox"> <label for="premium">Premium</label> <input id="premium" type="checkbox"> <button type="submit">Send form</button></fieldset></form></div>
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span>&nbsp; &lt;head&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>&lt;title&gt;</span><span>Example of input type=tel</span><span>&lt;/title&gt;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span><span>&nbsp; </span>&lt;/head&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;body&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"yourName"</span><span>&gt;</span><span>Enter your name:</span><span>&lt;/label&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"yourName"</span><span> </span><span>name</span><span>=</span><span>"yourName"</span><span> </span><span>form</span><span>=</span><span>"form1"</span><span>/&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;p&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;form</span><span> </span><span>id</span><span>=</span><span>"form1"</span><span> </span><span>action</span><span>=</span><span>"sumit.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;fieldset&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;legend&gt;</span><span>Choose option</span><span>&lt;/legend&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"free"</span><span>&gt;</span><span>Free registering</span><span>&lt;/label&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"checkbox"</span><span> </span><span>id</span><span>=</span><span>"free"</span><span>/&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"premium"</span><span>&gt;</span><span>Premium</span><span>&lt;/label&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"checkbox"</span><span> </span><span>id</span><span>=</span><span>"premium"</span><span>/&gt;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;button</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span>&gt;</span><span>Send form</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;/fieldset&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;/form&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;/body&gt;</span></li>
-<li><span> </span><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp; &lt;head&gt;</li>
+<li>&nbsp; &nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp; &lt;title&gt;Example of input type=tel&lt;/title&gt;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &lt;/head&gt;</li>
+<li>&nbsp; &lt;body&gt;</li>
+<li>&nbsp; &nbsp; &lt;label for="yourName"&gt;Enter your name:&lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &lt;input type="text" id="yourName" name="yourName" form="form1"/&gt;</li>
+<li>&nbsp; &nbsp; &lt;p&gt;</li>
+<li>&nbsp; &nbsp; &lt;form id="form1" action="sumit.php" method="post"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;fieldset&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;legend&gt;Choose option&lt;/legend&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="free"&gt;Free registering&lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="checkbox" id="free"/&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label for="premium"&gt;Premium&lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="checkbox" id="premium"/&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;button type="submit"&gt;Send form&lt;/button&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;/fieldset&gt;</li>
+<li>&nbsp; &nbsp; &lt;/form&gt;</li>
+<li>&nbsp; &lt;/body&gt;</li>
+<li> &lt;/html&gt;</li>
 </ol></div>
 
 Lines 12 and 22 shows the form attribute. Make sure that its value matches the `id` of the form!
@@ -383,19 +383,19 @@ Try it in your browser here:
 Source code extract:
 
 <div><ol>
-<li value="1"><span> </span><span>&lt;form</span><span> </span><span>submit</span><span>=</span><span>"test.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span><span> </span><strong><span>autocomplete</span><span>=</span><span>"on"</span></strong><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;...</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"address"</span><span>&gt;</span><span>Enter your address (autocomplete off, <strong>overrides the </strong></span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>form's autocomplete=on attribute</strong>):</span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"address"</span><span> </span><strong><span>autocomplete</span><span>=</span><span>"off"</span></strong><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;p&gt;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"address1"</span><span>&gt;</span><span>Enter your address (<strong>autocomplete on by inheritance</strong> of</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;the form's autocomplete=on attribute):</span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"address1"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;p&gt;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;button</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span>&gt;</span><span>Submit</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp;<span style="color: #000088;" color="#000088">&nbsp; &nbsp;...</span></span></li>
-<li><span> </span><span>&lt;/form&gt;</span></li>
+<li value="1"> &lt;form submit="test.php" method="post" <strong>autocomplete="on"</strong>&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;label for="address"&gt;Enter your address (autocomplete off, <strong>overrides the </strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>form's autocomplete=on attribute</strong>):&lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;input type="text" id="address" <strong>autocomplete="off"</strong>&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;p&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;label for="address1"&gt;Enter your address (<strong>autocomplete on by inheritance</strong> of</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;the form's autocomplete=on attribute):&lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;input type="text" id="address1"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;p&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;button type="submit"&gt;Submit&lt;/button&gt;</li>
+<li>&nbsp;<span style="color: #000088;" color="#000088">&nbsp; &nbsp;...</span></li>
+<li> &lt;/form&gt;</li>
 </ol></div>
 
 
@@ -427,18 +427,18 @@ Here is the result in your browser:
 Extract from source code:
 
 <div><ol>
-<li value="1"><span> </span><span>&lt;form&gt;</span></li>
-<li><span>&nbsp; &nbsp; ...</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"test"</span><span>/&gt;&lt;p&gt;</span></li>
-<li><span>&nbsp; &nbsp; ... </span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"name"</span><span> </span><span>name</span><span>=</span><span>"inputName"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>placeholder</span><span>=</span><span>"6 to 9 chars please..."</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>pattern</span><span>=</span><span>"\w{6,9}"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>required</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>autofocus</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"text"</span><span>/&gt;</span></li>
-<li><span>&nbsp; &nbsp; ...</span></li>
-<li><span> </span><span>&lt;/form&gt;</span></li>
+<li value="1"> &lt;form&gt;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;input type="text" id="test"/&gt;&lt;p&gt;</li>
+<li>&nbsp; &nbsp; ... </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;input id="name" name="inputName" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;placeholder="6 to 9 chars please..." </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pattern="\w{6,9}" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>autofocus</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="text"/&gt;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li> &lt;/form&gt;</li>
 </ol></div>
 
 
@@ -454,30 +454,30 @@ Read [these explanations](https://html.spec.whatwg.org/multipage/common-microsyn
 __Source code for the knowledge check 5.5.4__
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span><span> </span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span><span> </span></li>
-<li><span>&lt;head&gt;&lt;meta charset="utf-8"&gt;</span></li>
-<li><span> </span><span>&lt;title&gt;</span><span>Example for a knowledge check</span><span>&lt;/title&gt;</span></li>
-<li><span>&lt;/head&gt;</span></li>
-<li><span>&lt;body&gt;</span></li>
-<li><span> </span><span>&lt;form&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"</span><span><span>studentID</span>"</span><span>&gt;</span><span>Student ID (disabled field, cannot type in it): </span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>value</span><span>=</span><span>"S134356"</span><span> </span><span>id</span><span>=</span><span>"studentID"</span><span> </span><span>disabled</span><span>/&gt;&lt;p&gt;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"name"</span><span>&gt;</span><span>First name: </span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"firstName"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span>placeholder</span><span>=</span><span>"John"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>autofocus</span></li>
-<li><span>&nbsp; &nbsp;</span><span>/&gt;</span></li>
-<li><span></span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"lastName"</span><span>&gt;</span><span>Last name: </span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"lastName"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>placeholder</span><span>=</span><span>"Smith"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>autofocus</span></li>
-<li><span>&nbsp; &nbsp;</span><span>/&gt;</span></li>
-<li><span> </span><span>&lt;/form&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt; </li>
+<li>&lt;html lang="en"&gt; </li>
+<li>&lt;head&gt;&lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Example for a knowledge check&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;form&gt;</li>
+<li>&nbsp; &nbsp;&lt;label for="studentID"&gt;Student ID (disabled field, cannot type in it): &lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&lt;input type="text" value="S134356" id="studentID" disabled/&gt;&lt;p&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;label for="name"&gt;First name: &lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&lt;input type="text" id="firstName" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder="John" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;autofocus</li>
+<li>&nbsp; &nbsp;/&gt;</li>
+<li></li>
+<li>&nbsp; &nbsp;&lt;label for="lastName"&gt;Last name: &lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&lt;input type="text" id="lastName" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;placeholder="Smith" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;autofocus</li>
+<li>&nbsp; &nbsp;/&gt;</li>
+<li> &lt;/form&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -517,19 +517,19 @@ Please try it in your  browser (Type "F", "E", "O", C" etc., or just click insid
 Source code extract:
 
 <div><ol>
-<li value="1"><span> </span><span>&lt;form&gt;</span></li>
-<li><span>&nbsp; &nbsp; ...</span></li>
-<li><span>&nbsp; &nbsp; </span><span>&lt;input</span><span> </span><strong><span>list</span><span>=</span><span>"browsers"</span></strong><span> </span><span>id</span><span>=</span><span>"mybrowser"</span><span> </span><span>/&gt;</span></li>
-<li><span> </span></li>
-<li><span>&nbsp; &nbsp; &lt;datalist</span><span> </span><strong><span>id</span><span>=</span><span>"browsers"</span></strong><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Internet Explorer"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Firefox"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Chrome"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Opera"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Safari"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/datalist&gt;</span></li>
-<li><span>...</span></li>
-<li><span>&lt;/form&gt;</span></li>
+<li value="1"> &lt;form&gt;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp; &lt;input <strong>list="browsers"</strong> id="mybrowser" /&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &lt;datalist <strong>id="browsers"</strong>&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Internet Explorer"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Firefox"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Chrome"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Opera"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Safari"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;/datalist&gt;</li>
+<li>...</li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 At _lines 3_ and _5_, the value of the `list` attribute of the input field must match the one of the id of the `<datalist>` element.
@@ -588,10 +588,10 @@ Just add a `pattern` attribute with a value that is the JavaScript regular expre
 __It's best practice to systematically add a `title` attribute with a value that indicates what constitutes a valid entry.__ More on this in the section of this course dedicated to form validation.
 
 <div><ol>
-<li value="1"><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"country_code"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>pattern</span><span>=</span><span>"[A-Za-z]{3}"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>title</span><span>=</span><span>"3 letter country code"</span><span> </span></li>
-<li><span>/&gt;</span></li>
+<li value="1">&lt;input type="text" name="country_code" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>pattern="[A-Za-z]{3}"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;title="3 letter country code" </li>
+<li>/&gt;</li>
 </ol></div>
 
 
@@ -610,28 +610,28 @@ As seen in the previous examples, we used some CSS pseudo classes for automatica
 Complete source code:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html lang="en"&gt;</span></li>
-<li><span>&lt;head&gt;</span></li>
-<li><span> </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span> </span><span>&lt;title&gt;</span><span>Example of the pattern attribute</span><span>&lt;/title&gt;</span></li>
-<li><span> </span><span>&lt;style&gt;</span></li>
-<li><span>&nbsp; &nbsp; <strong>input</strong></span><strong><span>:</span><span>invalid </span><span>{</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span>-</span><span>color</span><span>:</span><span> lightPink</span><span>;</span></strong></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>}</span></strong></li>
-<li><span>&nbsp; &nbsp; <strong>input</strong></span><strong><span>:</span><span>valid </span><span>{</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span>-</span><span>color</span><span>:</span><span> lightGreen</span><span>;</span></strong></li>
-<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>}</span></strong></li>
-<li><span> </span><span>&lt;/style&gt;</span></li>
-<li><span>&lt;/head&gt;</span></li>
-<li><span>&lt;body&gt;</span></li>
-<li><span>&nbsp;&nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"code"</span><span>&gt;</span><span>Please enter a 3 letter country code:</span><span>&lt;/label&gt;</span></li>
-<li><span>&nbsp; &lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"country_code"</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>pattern</span><span>=</span><span>"[A-Za-z]{3}"</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>title</span><span>=</span><span>"3 letter country code"</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>id</span><span>=</span><span>"code"</span><span>/&gt;</span></li>
-<li><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Example of the pattern attribute&lt;/title&gt;</li>
+<li> &lt;style&gt;</li>
+<li>&nbsp; &nbsp; <strong>input</strong><strong>:invalid {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong><strong>-color: lightPink;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;<strong>}</strong></li>
+<li>&nbsp; &nbsp; <strong>input</strong><strong>:valid {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong><strong>-color: lightGreen;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;<strong>}</strong></li>
+<li> &lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp;&nbsp;&lt;label for="code"&gt;Please enter a 3 letter country code:&lt;/label&gt;</li>
+<li>&nbsp; &lt;input type="text" name="country_code"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>pattern="[A-Za-z]{3}"</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;title="3 letter country code"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;id="code"/&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -649,29 +649,29 @@ Attributes used: placeholder (for displaying a ghost example value), pattern, re
 Complete source code:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html lang="en"&gt;</span></li>
-<li><span>&lt;head&gt; &lt;meta charset="utf-8"&gt;</span></li>
-<li><span>&nbsp; &lt;title&gt;</span><span>Example of use of new HTML5 input field attributes</span><span>&lt;/title&gt;</span></li>
-<li><span>&nbsp; &lt;style&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; input</span><span>:</span><span>focus</span><span>:</span><span>invalid </span><span>{</span><span> background</span><span>-</span><span>color</span><span>:</span><span> lightPink</span><span>;}</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; input</span><span>:</span><span>valid </span><span>{</span><span> background</span><span>-</span><span>color</span><span>:</span><span>lightGreen</span><span>;</span><span> </span><span>}</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; input</span><span>:</span><span>required </span><span>{</span><span>border</span><span>:</span><span> </span><span>2px</span><span> solid red</span><span>;</span><span> </span><span>}</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; input</span><span>:</span><span>optional </span><span>{</span><span>border</span><span>:</span><span> </span><span>2px</span><span> solid green</span><span>;</span><span> </span><span>}</span></li>
-<li><span>&nbsp; &lt;/style&gt;</span></li>
-<li><span>&lt;/head&gt;</span></li>
-<li><span>&lt;body&gt;</span></li>
-<li><span>&lt;p&gt;</span><span>Attributes used: placeholder (for displaying a ghost example value), pattern, required (empty = invalid)...</span></li>
-<li><span>&lt;p&gt;</span></li>
-<li><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"inputID"</span><span>&gt;</span><span>Enter a pseudo (6-12 characters): </span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"inputID"</span><span> </span><span>name</span><span>=</span><span>"Name"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>placeholder</span><span>=</span><span>"Name"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>pattern</span><span>=</span><span>"\w{6,12}"</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>required</span></strong></li>
-<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp;title="6-12 characters allowed please"</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"text"</span><span> </span><span>/&gt;</span></li>
-<li><span> </span><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt; &lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &lt;title&gt;Example of use of new HTML5 input field attributes&lt;/title&gt;</li>
+<li>&nbsp; &lt;style&gt; </li>
+<li>&nbsp; &nbsp; &nbsp; input:focus:invalid { background-color: lightPink;}</li>
+<li>&nbsp; &nbsp; &nbsp; input:valid { background-color:lightGreen; }</li>
+<li>&nbsp; &nbsp; &nbsp; input:required {border: 2px solid red; }</li>
+<li>&nbsp; &nbsp; &nbsp; input:optional {border: 2px solid green; }</li>
+<li>&nbsp; &lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;p&gt;Attributes used: placeholder (for displaying a ghost example value), pattern, required (empty = invalid)...</li>
+<li>&lt;p&gt;</li>
+<li>&lt;label for="inputID"&gt;Enter a pseudo (6-12 characters): &lt;/label&gt; </li>
+<li>&lt;input id="inputID" name="Name" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>placeholder="Name"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>pattern="\w{6,12}"</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>required</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp;title="6-12 characters allowed please"</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;type="text" /&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -684,14 +684,14 @@ __Example #3: an `<input type="url">` element with a pattern attribute allowing 
 Source code extract:
 
 <div><ol>
-<li value="1"><span>&lt;input</span><span> </span></li>
-<li><span>&nbsp; &nbsp; id</span><span>=</span><span>"website"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; name</span><span>=</span><span>"url"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; type</span><span>=</span><span>"url"</span></li>
-<li><span>&nbsp; &nbsp; placeholder</span><span>=</span><span>"http://www.domain.com"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; title="http, https or ftp allowed"</span></li>
-<li><span>&nbsp; &nbsp; <strong>pattern</strong></span><strong><span>=</span><span>"(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"</span></strong></li>
-<li><strong><span></span></strong><span>/&gt;</span></li>
+<li value="1">&lt;input </li>
+<li>&nbsp; &nbsp; id="website" </li>
+<li>&nbsp; &nbsp; name="url" </li>
+<li>&nbsp; &nbsp; type="url"</li>
+<li>&nbsp; &nbsp; placeholder="http://www.domain.com" </li>
+<li>&nbsp; &nbsp; title="http, https or ftp allowed"</li>
+<li>&nbsp; &nbsp; <strong>pattern</strong><strong>="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"</strong></li>
+<li><strong></strong>/&gt;</li>
 </ol></div>
 
 
@@ -723,20 +723,20 @@ __Their detailed use with these input fields have already been explained in sect
 #### Typical use
 
 <div><ol>
-<li value="1"><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"mydate"</span><span> </span><span>name</span><span>=</span><span>"mydate"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"date"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; <strong>&nbsp;</strong></span><strong><span>min</span><span>=</span><span>"2012-01-01"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>max</span><span>=</span><span>"2013-01-01"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>value</span><span>=</span><span>"2012-01-01"</span></li>
-<li><span> </span><span>/&gt;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span> </span><span>&lt;input</span><span> </span><span>name</span><span>=</span><span>"time"</span><span> </span><span>id</span><span>=</span><span>"time"</span><span> </span><span>type</span><span>=</span><span>"time"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span>min</span><span>=</span><span>"09:00"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span>max</span><span>=</span><span>"17:00"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>value</span><span>=</span><span>"12:00"</span><span> </span></li>
-<li><span>/&gt;</span><span> </span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"range"</span><span> </span><span>name</span><span>=</span><span>"range"</span><span> </span><span>type</span><span>=</span><span>"range"</span><span> </span><strong><span>min</span><span>=</span><span>"0"</span><span> </span><span>max</span><span>=</span><span>"100"</span><span> </span><span>step</span><span>=</span><span>"5"</span></strong><span>/&gt;</span><span> </span></li>
+<li value="1">&lt;input id="mydate" name="mydate" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;type="date" </li>
+<li>&nbsp; &nbsp; &nbsp; <strong>&nbsp;</strong><strong>min="2012-01-01"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>max="2013-01-01"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;value="2012-01-01"</li>
+<li> /&gt;</li>
+<li>&nbsp;</li>
+<li> &lt;input name="time" id="time" type="time" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>min="09:00"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>max="17:00"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;value="12:00" </li>
+<li>/&gt; </li>
+<li>&nbsp;</li>
+<li>&lt;input id="range" name="range" type="range" <strong>min="0" max="100" step="5"</strong>/&gt; </li>
 </ol></div>
 
 
@@ -768,52 +768,52 @@ Or try it below in your browser: type in a list of email addresses separated by 
 Complete source code:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&lt;head&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;title&gt;</span><span>Jsbin</span><span>&lt;/title&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;style&gt;</span><span> </span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>input</span><span>:</span><span>invalid </span><span>{</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>background</span><span>-</span><span>color</span><span>:</span><span> lightPink</span><span>;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>}</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>input</span><span>:</span><span>valid </span><span>{</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>background</span><span>-</span><span>color</span><span>:</span><span> lightGreen</span><span>;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>}</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>fieldset </span><span>{</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>border</span><span>:</span><span>1px</span><span> solid</span><span>;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>padding</span><span>:</span><span>20px</span><span>;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>}</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;/style&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span>&lt;/head&gt;</span></li>
-<li><span> </span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span>&lt;body&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;p&gt;</span><span>This form uses: </span><span>&lt;code&gt;</span><span>&lt;input type="email" name="myemail" </span><span>&lt;b&gt;</span><span>multiple</span><span>&lt;/b&gt;</span><span>&amp;gt;</span><span>&lt;/code&gt;&lt;/p&gt;</span></li>
-<li><span> </span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;form&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;fieldset&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;legend&gt;</span><span>With the multiple attribute </span><span>&lt;/legend&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;label&gt;</span><span>Enter several email addresses: </span><span>&lt;/label&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"email"</span><span> </span><span>name</span><span>=</span><span>"myemail"</span><span> </span><span>title</span><span>=</span><span>"you can enter multiple emails addresses, separated by a comma"</span><span> </span><span>multiple</span><span>/&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;button&gt;</span><span>Submit</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;/fieldset&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;/form&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span>&lt;p&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;p&gt;</span><span>This form does not use the multiple attribute:</span><span>&lt;/p&gt;</span></li>
-<li><span> </span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span><span></span></span>&lt;form&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span></span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;fieldset&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;legend&gt;</span><span>Without the multiple attribute </span><span>&lt;/legend&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;label&gt;</span><span>Enter several email addresses: </span><span>&lt;/label&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"email"</span><span> </span><span>name</span><span>=</span><span>"myemail"</span><span> </span><span>title</span><span>=</span><span>"only one address please!"</span><span>/&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;button&gt;</span><span>Submit</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;/fieldset&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span><span></span></span>&lt;/form&gt;</span></li>
-<li><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;p&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>Type in a list of email addresses separated by a comma. Look at the input field background color (pink = invalid, green = valid), try to submit. </span><span>&lt;/p&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; </span><span></span><span></span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
-<li><span>&nbsp;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp;&nbsp; &lt;head&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Jsbin&lt;/title&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;style&gt; </li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; input:invalid {</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; background-color: lightPink;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; }</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; input:valid {</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; background-color: lightGreen;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; }</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; fieldset {</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; border:1px solid;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; padding:20px;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; }</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/style&gt;</li>
+<li>&nbsp;&nbsp; &lt;/head&gt;</li>
+<li> </li>
+<li>&nbsp;&nbsp; &lt;body&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;This form uses: &lt;code&gt;&lt;input type="email" name="myemail" &lt;b&gt;multiple&lt;/b&gt;&amp;gt;&lt;/code&gt;&lt;/p&gt;</li>
+<li> </li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;form&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;fieldset&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;legend&gt;With the multiple attribute &lt;/legend&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;label&gt;Enter several email addresses: &lt;/label&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;input type="email" name="myemail" title="you can enter multiple emails addresses, separated by a comma" multiple/&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;button&gt;Submit&lt;/button&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/fieldset&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/form&gt;</li>
+<li>&nbsp;&nbsp; &lt;p&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;p&gt;This form does not use the multiple attribute:&lt;/p&gt;</li>
+<li> </li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;form&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;fieldset&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;legend&gt;Without the multiple attribute &lt;/legend&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;label&gt;Enter several email addresses: &lt;/label&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;input type="email" name="myemail" title="only one address please!"/&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;button&gt;Submit&lt;/button&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;/fieldset&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; &lt;/form&gt;</li>
+<li>&nbsp;&nbsp; &lt;p&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&nbsp; Type in a list of email addresses separated by a comma. Look at the input field background color (pink = invalid, green = valid), try to submit. &lt;/p&gt;</li>
+<li>&nbsp;&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
+<li>&nbsp;</li>
 </ol></div>
  
 <p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>Best&nbsp;practice: &nbsp;add a <span style="font-family: 'courier new', courier;">title</span> attribute indicating what you expect as a valid entry</strong> (<em>lines 25</em> and <em>38</em>). If you enter bad values and submit, you will see in the error message the string value of the <span style="font-family: 'courier new', courier;">title</span> attribute.</p>
@@ -864,8 +864,8 @@ You might just glance at them and/or try the examples. The next pages cover thei
 These attributes are targeted to the `<input type="submit">` input fields. They are rarely used, so no questions about them will be asked in the quizzes of Week 5.
 
 <div><ol>
-<li value="1"><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span></li>
-<li><span> </span><span>formaction</span><span>=</span><span>"preview.php"</span><span> </span><span>formmethod</span><span>=</span><span>"get"</span><span> </span><span>value</span><span>=</span><span>"Preview"</span><span>&gt;</span></li>
+<li value="1">&lt;input type="submit"</li>
+<li> formaction="preview.php" formmethod="get" value="Preview"&gt;</li>
 </ol></div>
 
 When you use an `<input type="submit">` field with the formaction attribute, the action attribute value of the form is overridden. The form will be submitted to the URL / value of the formaction attribute of the  `<input type="submit">` field.
@@ -876,12 +876,12 @@ The formmethod attribute does the same with the POST/GET method attribute of the
 #### Typical use
 
 <div><ol>
-<li value="1"><span> </span><span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"post.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span>formaction</span><span>=</span><span>"preview.php"</span><span> </span><span>formmethod</span><span>=</span><span>"get"</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>value</span><span>=</span><span>"Preview"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Send"</span><span>&gt;</span><span> </span></li>
-<li><span>&lt;/form&gt;</span></li>
+<li value="1"> &lt;form action="post.php" method="post"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="submit" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>formaction="preview.php" formmethod="get"</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;value="Preview"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="submit" value="Send"&gt; </li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 Line 3 overrides the values set in line 1. 
@@ -935,17 +935,17 @@ In general, such forms have two submit buttons, one with the `formnovalidate` at
 Typical use ([online example at JSBin](https://jsbin.com/doceje/1/edit?html,output)): ([Local Example - formnovalidate](src/5.5.11-example1.html))
 
 <div><ol>
-<li value="1"><span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"form.php"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;</span><span>&lt;fieldset&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;legend&gt;</span><span>Example of formnovalidate attribute</span><span>&lt;/legend&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"email"</span><span>&gt;</span><span>E-mail:</span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;&lt;input</span><span> </span><span>type</span><span>=</span><span>"email"</span><span> </span><span>name</span><span>=</span><span>"email"</span><span> </span><span>id</span><span>=</span><span>"email"</span><span>/&gt;&lt;br&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit"</span><span> </span><span>/&gt;&lt;br&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><strong><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>formnovalidate</strong></span><span>&nbsp;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span>=</span><span>"Submit without validation"</span><span> </span><span>/&gt;</span></strong></li>
-<li><span> </span><span>&lt;/fieldset&gt;</span></li>
-<li><span>&lt;/form&gt;</span></li>
+<li value="1">&lt;form action="form.php"&gt;</li>
+<li>&nbsp; &nbsp;&lt;fieldset&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;legend&gt;Example of formnovalidate attribute&lt;/legend&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;label for="email"&gt;E-mail:&lt;/label&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="email" name="email" id="email"/&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="submit" value="Submit" /&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>&lt;input type="submit"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>formnovalidate</strong>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong><strong>="Submit without validation" /&gt;</strong></li>
+<li> &lt;/fieldset&gt;</li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 Try this code it in your browser:
@@ -965,9 +965,9 @@ This attribute's value indicates where the response from the form submission sho
 #### Typical use
 
 <div><ol>
-<li value="1"><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>formtarget</span><span>=</span><span>"_blank"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp;value</span><span>=</span><span>"Submit but show results in a new window/tab"</span><span>&gt;</span></li>
+<li value="1">&lt;input type="submit"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>formtarget="_blank"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;value="Submit but show results in a new window/tab"&gt;</li>
 </ol></div>
 
 Possible values for the `formtarget` attributes are:
@@ -989,16 +989,16 @@ Possible values for the `formtarget` attributes are:
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"defaultAction.php"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"givenName"</span><span>&gt;Given name</span><span>:</span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"</span><span><span>givenName</span>"</span><span> </span><span>id</span><span>=</span><span>"</span><span><span>givenName</span>"</span><span>&gt;&lt;br&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"familyName"</span><span>&gt;Family</span><span> name:</span><span>&lt;/label&gt;</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp;&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"</span><span><span>familyName</span>"</span><span> </span><span>id</span><span>=</span><span>"</span><span><span>familyName</span>"</span><span>&gt;&lt;br&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit as usual"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>formtarget</strong></span><strong><span>=</span><span>"_blank"</span></strong><span> </span></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span>=</span><span>"Submit but show results in a new window/tab"</span><span>&gt;</span></li>
-<li><span>&lt;/form&gt;</span></li>
+<li value="1">&lt;form action="defaultAction.php"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;label for="givenName"&gt;Given name:&lt;/label&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="text" name="givenName" id="givenName"&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;label for="familyName"&gt;Family name:&lt;/label&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="text" name="familyName" id="familyName"&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="submit" value="Submit as usual"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="submit" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>formtarget</strong><strong>="_blank"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value="Submit but show results in a new window/tab"&gt;</li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 
@@ -1012,20 +1012,20 @@ The enctype attribute existed before HTML5. It is often used together with forms
 [Online example at JSBin](https://jsbin.com/magexat/3/edit?html,output):  ([Local Example - formenctype](src/5.5.13-example1.html))
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;head&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span></span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span></span><span>&lt;title&gt;</span><span>Jsbin</span><span>&lt;/title&gt;</span></li>
-<li><span>&nbsp; </span><span></span><span>&lt;/head&gt;</span></li>
-<li><span><span>&nbsp; </span><span></span>&lt;body&gt;</span></li>
-<li><span><span>&nbsp; </span><span></span></span><span><span><span>&nbsp; </span><span></span></span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"default.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span><span> </span><span>enctype</span><span>=</span><span>"multipart/form-data"</span><span>&gt;</span></li>
-<li><span><span>&nbsp; </span><span></span></span><span><span><span>&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp; </span><span></span></span></span>Given name: </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"gname"</span><span>&gt;&lt;br&gt;</span></li>
-<li><span><span>&nbsp; </span><span></span></span><span><span><span>&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp; </span><span></span></span></span>Family name: </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"fname"</span><span>&gt;&lt;br&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span></span><span></span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit"</span><span>&gt;</span></li>
-<li><span><span>&nbsp; </span><span></span></span><span><span><span>&nbsp; </span><span></span></span>&lt;/form&gt;</span></li>
-<li><span><span>&nbsp; </span><span></span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp; &lt;head&gt;</li>
+<li>&nbsp; &nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp; &lt;title&gt;Jsbin&lt;/title&gt;</li>
+<li>&nbsp; &lt;/head&gt;</li>
+<li>&nbsp; &lt;body&gt;</li>
+<li>&nbsp; &nbsp; &lt;form action="default.php" method="post" enctype="multipart/form-data"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; Given name: &lt;input type="text" name="gname"&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; Family name: &lt;input type="text" name="fname"&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;input type="submit" value="Submit"&gt;</li>
+<li>&nbsp; &nbsp; &lt;/form&gt;</li>
+<li>&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 Note that when you send form content using Ajax, this attribute is not needed, as you will specify the type of data sent to the remote server in JavaScript, using the [FormData object](https://tinyurl.com/pbtpfea).
@@ -1041,11 +1041,11 @@ If an `<input type="submit">` field has this attribute, then, __when submitted u
 #### Typical use
 
 <div><ol>
-<li value="1"><span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"defaultAction.php"</span><span>&gt;</span></li>
-<li><span>&nbsp; &nbsp;...</span></li>
-<li><span>&nbsp; &nbsp;</span><strong><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>formenctype</span><span>=</span><span>"multipart/form-data"</span></strong></li>
-<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span>=</span><span>"Submit as Multipart/form-data"</span><span>&gt;</span></strong></li>
-<li><span>&lt;/form&gt;</span></li>
+<li value="1">&lt;form action="defaultAction.php"&gt;</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;<strong>&lt;input type="submit" formenctype="multipart/form-data"</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong><strong>="Submit as Multipart/form-data"&gt;</strong></li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 The possible values for this field are:
@@ -1072,27 +1072,27 @@ The possible values for this field are:
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;head&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;title&gt;</span><span>Jsbin</span><span>&lt;/title&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;/head&gt;</span></li>
-<li><span><span>&nbsp; </span>&lt;body&gt;</span></li>
-<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"defaultAction.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>enctype</span><span>=</span><span>"application/x-www-form-urlencoded"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"givenName"</span><span>&gt;</span><span>Given name:</span><span>&lt;/label&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"givenName"</span><span> </span><span>id</span><span>=</span><span>"givenName"</span><span>&gt;&lt;br&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"familyName"</span><span>&gt;</span><span>Family name:</span><span>&lt;/label&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"familyName"</span><span> </span><span>id</span><span>=</span><span>"familyName"</span><span>&gt;&lt;br&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit"</span><span>&gt;</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>formenctype</span><span>=</span><span>"multipart/form-data"</span></li>
-<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>value</span><span>=</span><span>"Submit as Multipart/form-data"</span><span>&gt;</span></li>
-<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>&lt;/form&gt;</span></li>
-<li><span><span>&nbsp;&nbsp; &nbsp;</span></span><span><span><span></span></span>&lt;p&gt;&lt;b&gt;</span><span>Note:</span><span>&lt;/b&gt;</span><span> The formenctype attribute is not supported by all browsers.</span><span>&lt;/p&gt;</span></li>
-<li><span>&nbsp; </span><span>&lt;/body&gt;</span></li>
-<li><span>&lt;/html&gt;</span></li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp; &lt;head&gt;</li>
+<li>&nbsp; &nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp; &lt;title&gt;Jsbin&lt;/title&gt;</li>
+<li>&nbsp; &lt;/head&gt;</li>
+<li>&nbsp; &lt;body&gt;</li>
+<li>&nbsp; &nbsp; &lt;form action="defaultAction.php" method="post"</li>
+<li>&nbsp; &nbsp; &nbsp; enctype="application/x-www-form-urlencoded"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;label for="givenName"&gt;Given name:&lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;input type="text" name="givenName" id="givenName"&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;label for="familyName"&gt;Family name:&lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;input type="text" name="familyName" id="familyName"&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;input type="submit" value="Submit"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;input type="submit"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; formenctype="multipart/form-data"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; value="Submit as Multipart/form-data"&gt;</li>
+<li>&nbsp; &nbsp; &lt;/form&gt;</li>
+<li>&nbsp;&nbsp; &nbsp;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; The formenctype attribute is not supported by all browsers.&lt;/p&gt;</li>
+<li>&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
