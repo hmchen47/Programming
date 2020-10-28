@@ -1477,52 +1477,20 @@ We recommend this article written by Steve Faulkner: "[Easy content organisation
 #### Knowledge check 1.3.8
 
 <div>
-      <ol>
-        <li style="margin-bottom:0px;" value="1">
-          &lt;!-- other content --&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-             
-          &lt;article&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-                 
-          &lt;main
-           
-          role
-          =
-          "main"
-          &gt;
-        </li>
-        <li style="margin-bottom:0px;">
-                    
-          &lt;h2&gt;
-          Longboards
-          &lt;/h2&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-                    
-          &lt;p&gt;
-          Longboards are a type of skateboard with a longer
-        </li>
-        <li style="margin-bottom:0px;">
-                    wheelbase and larger, softer wheels.
-          &lt;/p&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-                 
-          &lt;/main&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-             
-          &lt;/article&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-           
-          &lt;!-- other content --&gt;
-        </li>
-      </ol>
-  </div>
+  <ol>
+    <li style="margin-bottom:0px;" value="1">
+      &lt;!-- other content --&gt;
+    </li>
+    <li style="margin-bottom:0px;">&lt;article&gt;</li>
+    <li style="margin-bottom:0px;">&lt;main role = "main" &gt;</li>
+    <li style="margin-bottom:0px;">&lt;h2&gt; Longboards &lt;/h2&gt;</li>
+    <li style="margin-bottom:0px;">&lt;p&gt;Longboards are a type of skateboard with a longer</li>
+    <li style="margin-bottom:0px;">wheelbase and larger, softer wheels.&lt;/p&gt;</li>
+    <li style="margin-bottom:0px;">&lt;/main&gt;</li>
+    <li style="margin-bottom:0px;"> &lt;/article&gt;</li>
+    <li style="margin-bottom:0px;">&lt;!-- other content --&gt;</li>
+  </ol>
+</div>
 
 1. Is this code correct? (No/Yes)
 
@@ -1617,7 +1585,7 @@ nav header {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;  height: 1px !important; <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;  width: 1px !important; <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;  overflow: hidden;<br/>
-}       
+}
 </code></p>
 
 <p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong style="color: olive;">BEST PRACTICE #2:&nbsp;</strong>it is not advised to include interactive content (links, controls etc) that is hidden offscreen (it is in fact a violation of the <a href="https://www.w3.org/TR/WCAG20/" target="_blank">W3C WCAG 2.0 Guidelines</a>). All interactive content must have a visible focus indicator (and be on screen when focused).<strong style="color: olive;"><br></strong></p>
