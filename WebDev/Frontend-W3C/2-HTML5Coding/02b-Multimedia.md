@@ -75,7 +75,7 @@
 	+ `autoplay`: start playing the audio stream automatically as soon as the page is ready
 	+ `preload`: tell the browser what to do before a user plays a sound
 	+ `loop`: play the audio stream in loop mode
-	+ best practice in regard to `preload` and `autoplay` attributes should be followed as `<video>` element
+	+ <mark style="color: black; background-color: lightpink;">best practice</mark> in regard to `preload` and `autoplay` attributes should be followed as `<video>` element
 
 + [Styling media palyers](#224-styling-media-players-with-css)
 	+ CSS w/ transitions, animations and transforms but not Flash technology
@@ -458,7 +458,7 @@ __Be careful if you target mobile applications or if you have multiple videos on
 
 The `autoplay` attribute is not recommended if your Web site targets mobile applications, as it may consume bandwidth even if the user is not interested in watching the proposed video. If you target mobile devices, we recommend using `preload=none` as well, as the default value for this attribute is `auto`.
 
-__Best practice__: do not use autoplay and add preload="none" if you target mobile devices or if you have multiple audio/video on the same page.  For example, this page contains many audio elements and it does not make sense to have them preload or autoplay.
+__<mark style="color: black; background-color: lightpink;">Best practice</mark>__: do not use autoplay and add preload="none" if you target mobile devices or if you have multiple audio/video on the same page.  For example, this page contains many audio elements and it does not make sense to have them preload or autoplay.
 
 
 __About the poster attribute__
@@ -469,7 +469,7 @@ About the `autoplay` attribute for general use
 
 Do not abuse of the `autoplay` attribute. We talked earlier about mobile applications, but even on desktop applications it's usually a bad idea to use it (except for WebCams and for some animations with small video loops, without sound, or for sites like YouTube, with just videos). This is the testimony of a user in this course forum: "_When I'm following the news, I open several headlines in separate tabs. And then all of them start screaming at me with some autoplays. I know this is supposed to make me watch the video, but for me - it makes me close the loud tab and try another source._"
 
-__Best practice__: think twice before using the autoplay attribute, even for desktop applications.
+__<mark style="color: black; background-color: lightpink;">Best practice</mark>__: think twice before using the autoplay attribute, even for desktop applications.
 
 
 #### Attributes of the `<audio>` element

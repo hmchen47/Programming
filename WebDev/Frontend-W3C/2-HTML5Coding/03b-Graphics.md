@@ -182,7 +182,7 @@
     + probably save the context property values in a hardware register on the graphics card
     + multiple contexts able to be saved consecutively and restored
     + multiple contexts saved in stacked manner
-  + __best practice__: save the context before any activities modifying the context, and restore it at the end of the activities, in particular, a function
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>__: save the context before any activities modifying the context, and restore it at the end of the activities, in particular, a function
 
 
 
@@ -1223,7 +1223,7 @@ A call to `ctx.save()` will probably save the context property values in a hardw
 Contexts saved will be stacked, the last one that has been saved will be restored by the next call to `restore()`, so it is very important to have one restore for each save.
 
 <div style="border: 1px solid red; margin: 20px; padding: 10px;">
-  <p style="text-align: center;"><em><strong>Best practice</strong>: save the context at the beginning of any function <br>that changes the context, restore it at the end of the function!</em></p>
+  <p style="text-align: center;"><em><strong><mark style="color: black; background-color: lightpink;">Best practice</mark></strong>: save the context at the beginning of any function <br>that changes the context, restore it at the end of the function!</em></p>
 </div>
 
 
@@ -1245,8 +1245,8 @@ We took the last example (the one with the monster, from the previous page of th
 
 + We added parameters for setting the position and orientation of the monster, and added calls to `ctx.translate(x, y)` and `ctx.rotate(angle)` in the function.
 + We added parameters for the head color and eye color.
-+ We saved the context at the beginning of the function (BEST PRACTICE),
-+ We restored it at the end (BEST PRACTICE).
++ <mark style="color: black; background-color: lightpink;">best practice</mark>: We saved the context at the beginning of the function,
++ <mark style="color: black; background-color: lightpink;">best practice</mark>: We restored it at the end
 
 Source code extract of this function: notice at lines 3 and 26 how we save/restore the context at the beginning/end. Right after saving the context, we modify the coordinate system (lines 7-8). The rest of the code is nearly the same as in the last version of the monster example.
 

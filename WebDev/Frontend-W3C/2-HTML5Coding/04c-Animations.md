@@ -197,7 +197,7 @@
   + rules of resizing a canvas
     + changing `width` and `height` property $\to$ erase the content and reset the context
     + using `%` in the CSS `width` and `height` properties of a canvas $\to$ scaling the existing pixels w/o erasing the content, given a blurry image
-  + __best practice__: never use CSS percentage on a canvas width or height
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>__: never use CSS percentage on a canvas width or height
   + responsive canvas
     + embedded in a `<div>` or in any parent container
     + using CSS w/ percentages on the width and the height CSS properties of the parent
@@ -1062,7 +1062,7 @@ Even bigger:
 
 
 <div style="border: 1px solid red; margin: 20px; padding: 10px;">
-<p style="text-align: center;"><em><strong>BEST PRACTICE: <span style="color: #ff0000;">never use CSS percentages on a canvas width or height!</span></strong></em></p>
+<p style="text-align: center;"><em><strong><mark style="color: black; background-color: lightpink;">Best practice</mark>: <span style="color: #ff0000;">never use CSS percentages on a canvas width or height!</span></strong></em></p>
 </div>
 
 

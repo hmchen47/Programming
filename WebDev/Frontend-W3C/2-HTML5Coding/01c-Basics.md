@@ -23,7 +23,7 @@
     <li>&lt;/html&gt;</li>
     </ol></div>
 
-  + `<meta charset="utf-8">`: best practice to declare the character set
+  + `<meta charset="utf-8">`: <mark style="color: black; background-color: lightpink;">best practice</mark> to declare the character set
   + `<!DOCTYPE html>`: used by tools and specifying the rules used by an HTML or an XHTML page
     + rules in "Document Type Definitions" (DTDs)
     + not used by Web browsers to validate the structure of an HTML page
@@ -148,7 +148,7 @@
   + constraints
     + no more than one `<main>` element in a document
     + not a descendant of an `<article>`, `<aside>`, `<footer>`, `<header>`, or `<nav>` element
-  + best practice:
+  + <mark style="color: black; background-color: lightpink;">best practice</mark>:
     + split page content into "regions" defined by the 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
     + add a `<main>` to document if other sectioning elemets used
 
@@ -1073,7 +1073,7 @@ In the above example, please note two things:
 
 ### 1.3.6 Best practices when using sectioning elements
 
-__Best practice #1: always add a heading to explicit sectioning content__
+__<mark style="color: black; background-color: lightpink;">Best practice #1</mark>: always add a heading to explicit sectioning content__
 
 It's always better - mainly for accessibility reasons - to include a heading (a `<h1>, <h2>...<h6>`) in each sectioning element (`<section>`, `<article>`, `<nav>`, `<aside>`), but also after the `<body>` element (called a "sectioning root").
 
@@ -1198,7 +1198,7 @@ If you do not want the subtitles to be included in the table of contents, just u
 </ol></div>
 
 
-__Best practice #2: try not to rely on implicit sectioning, use `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`__
+__<mark style="color: black; background-color: lightpink;">Best practice #2</mark>: try not to rely on implicit sectioning, use `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`__
 
 The example below defines several implicit "sections" by using `<Hx>` directly (at lines 7 and 9):
 
