@@ -260,14 +260,14 @@ In this chapter, we go over the form attributes that have been introduced by HTM
   <tbody style="font-family: 'courier new', courier;">
   <tr>
   <td>
-  <ul class="column" style="padding-left: 0px; margin-top: 0px; margin-bottom: 10px; margin-left: 25px;">
+  <ul style="padding-left: 0px; margin-top: 0px; margin-bottom: 10px; margin-left: 25px;">
   <li><strong>name</strong></li><li><strong><span style="color: #ff0000; font-family: 'courier new', courier;">disabled*</span></strong></li>
   <li><strong>type</strong></li><li><strong>maxlength</strong></li><li><strong>readonly</strong></li><li><strong>size</strong></li><li><strong>value</strong></li><li><strong>alt</strong></li><li><strong>src</strong></li><li><strong>height</strong></li><li><strong>width</strong></li>
   <li><strong><span style="color: #ff0000; font-family: 'courier new', courier;">checked*</span></strong></li>
   <li><strong><span style="color: #ff0000; font-family: 'courier new', courier;">align&nbsp;**</span></strong></li>
   </ul></td>
   <td>
-  <ul class="column" style="padding-left: 0px; margin-top: 0px; margin-bottom: 10px; margin-left: 25px;">
+  <ul style="padding-left: 0px; margin-top: 0px; margin-bottom: 10px; margin-left: 25px;">
   <li><strong>form</strong></li><li><strong>readonly</strong></li><li><strong>autocomplete</strong></li><li><strong>autofocus</strong></li><li><strong>list</strong></li><li><strong>pattern</strong></li><li><strong>required*</strong></li><li><strong>placeholder</strong></li><li><strong>multiple</strong></li><li><strong>list</strong></li><li><strong>min</strong></li><li><strong>max</strong></li><li><strong>step</strong></li><li><strong>formaction</strong></li><li><strong>formenctype</strong></li><li><strong>formmethod</strong></li><li><strong>formtarget</strong></li><li><strong>formnovalidate</strong></li>
   </ul></td>
   </tr>
@@ -302,33 +302,33 @@ This attribute is useful for putting input fields outside the form itself. The `
 
 [Try this interactive example in CodePen](http://codepen.io/w3devcampus/pen/jmdpyv),  or try it directly in your browser: ([Local Example - form Attr.](src/5.2.2-example1.html))
 
-<div class="exampleHTML"><label for="yourName">Enter your name (field outside the form):</label> <input id="yourName" name="yourName" form="form1" type="text"><form id="form1" action="sumit.php" method="post"><fieldset><legend>Choose option</legend> <label class="label" for="free">Free registering</label> <input id="free" type="checkbox"> <label class="label" for="premium">Premium</label> <input id="premium" type="checkbox"> <button type="submit">Send form</button></fieldset></form></div>
+<div><label for="yourName">Enter your name (field outside the form):</label> <input id="yourName" name="yourName" form="form1" type="text"><form id="form1" action="sumit.php" method="post"><fieldset><legend>Choose option</legend> <label for="free">Free registering</label> <input id="free" type="checkbox"> <label for="premium">Premium</label> <input id="premium" type="checkbox"> <button type="submit">Send form</button></fieldset></form></div>
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span></span><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span>&lt;title&gt;</span><span class="pln">Example of input type=tel</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;/head&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"yourName"</span><span class="tag">&gt;</span><span class="pln">Enter your name:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"yourName"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"yourName"</span><span class="pln"> </span><span class="atn">form</span><span class="pun">=</span><span class="atv">"form1"</span><span class="tag">/&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"form1"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"sumit.php"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"post"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;legend&gt;</span><span class="pln">Choose option</span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"free"</span><span class="tag">&gt;</span><span class="pln">Free registering</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"free"</span><span class="tag">/&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"premium"</span><span class="tag">&gt;</span><span class="pln">Premium</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"premium"</span><span class="tag">/&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="tag">&gt;</span><span class="pln">Send form</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/fieldset&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/form&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&nbsp; &lt;head&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>&lt;title&gt;</span><span>Example of input type=tel</span><span>&lt;/title&gt;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span><span>&nbsp; </span>&lt;/head&gt;</span></li>
+<li><span>&nbsp; </span><span>&lt;body&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"yourName"</span><span>&gt;</span><span>Enter your name:</span><span>&lt;/label&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"yourName"</span><span> </span><span>name</span><span>=</span><span>"yourName"</span><span> </span><span>form</span><span>=</span><span>"form1"</span><span>/&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;p&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;form</span><span> </span><span>id</span><span>=</span><span>"form1"</span><span> </span><span>action</span><span>=</span><span>"sumit.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;fieldset&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;legend&gt;</span><span>Choose option</span><span>&lt;/legend&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"free"</span><span>&gt;</span><span>Free registering</span><span>&lt;/label&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"checkbox"</span><span> </span><span>id</span><span>=</span><span>"free"</span><span>/&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"premium"</span><span>&gt;</span><span>Premium</span><span>&lt;/label&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"checkbox"</span><span> </span><span>id</span><span>=</span><span>"premium"</span><span>/&gt;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;button</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span>&gt;</span><span>Send form</span><span>&lt;/button&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;/fieldset&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;/form&gt;</span></li>
+<li><span>&nbsp; </span><span>&lt;/body&gt;</span></li>
+<li><span> </span><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 Lines 12 and 22 shows the form attribute. Make sure that its value matches the `id` of the form!
@@ -373,7 +373,7 @@ This attribute targets most input types (those that allow typing in them).
 
 Try it in your browser here:
 
-<div class="exampleHTML"><form method="post" submit="test.php" autocomplete="on"><fieldset><legend>Examples of use of the <span style="font-family: 'courier new', courier;">autocomplete</span> attribute</legend> <label for="address">Enter your email (<span style="font-family: 'courier new', courier;">autocomplete=off</span>, this overrides the form's <span style="font-family: 'courier new', courier;">autocomplete=on</span> attribute):</label> <input id="address" autocomplete="off" type="email">
+<div><form method="post" submit="test.php" autocomplete="on"><fieldset><legend>Examples of use of the <span style="font-family: 'courier new', courier;">autocomplete</span> attribute</legend> <label for="address">Enter your email (<span style="font-family: 'courier new', courier;">autocomplete=off</span>, this overrides the form's <span style="font-family: 'courier new', courier;">autocomplete=on</span> attribute):</label> <input id="address" autocomplete="off" type="email">
 <p><label for="address1">Enter your address (<span style="font-family: 'courier new', courier;">autocomplete=on</span> by inheritance of the form's <span style="font-family: 'courier new', courier;">autocomplete=on</span> attribute):</label> <input id="address1" type="email"></p>
 <p><button type="button">Submit</button></p>
 </fieldset></form>
@@ -382,20 +382,20 @@ Try it in your browser here:
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">submit</span><span class="pun">=</span><span class="atv">"test.php"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"post"</span><span class="pln"> </span><strong><span class="atn">autocomplete</span><span class="pun">=</span><span class="atv">"on"</span></strong><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;</span><span class="pln">Enter your address (autocomplete off, <strong>overrides the </strong></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>form's autocomplete=on attribute</strong>):</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><strong><span class="atn">autocomplete</span><span class="pun">=</span><span class="atv">"off"</span></strong><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address1"</span><span class="tag">&gt;</span><span class="pln">Enter your address (<strong>autocomplete on by inheritance</strong> of</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;the form's autocomplete=on attribute):</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address1"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;<span style="color: #000088;" color="#000088">&nbsp; &nbsp;...</span></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1"><span> </span><span>&lt;form</span><span> </span><span>submit</span><span>=</span><span>"test.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span><span> </span><strong><span>autocomplete</span><span>=</span><span>"on"</span></strong><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;...</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"address"</span><span>&gt;</span><span>Enter your address (autocomplete off, <strong>overrides the </strong></span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>form's autocomplete=on attribute</strong>):</span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"address"</span><span> </span><strong><span>autocomplete</span><span>=</span><span>"off"</span></strong><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;p&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"address1"</span><span>&gt;</span><span>Enter your address (<strong>autocomplete on by inheritance</strong> of</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;the form's autocomplete=on attribute):</span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"address1"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;p&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;button</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span>&gt;</span><span>Submit</span><span>&lt;/button&gt;</span></li>
+<li><span>&nbsp;<span style="color: #000088;" color="#000088">&nbsp; &nbsp;...</span></span></li>
+<li><span> </span><span>&lt;/form&gt;</span></li>
 </ol></div>
 
 
@@ -419,32 +419,32 @@ The `required` attribute makes the input field invalid if kept empty.
 
 Here is the result in your browser:
 
-<div class="exampleHTML"><form><fieldset><legend>Example of use of the <span style="font-family: 'courier new', courier;">autofocus</span> attribute</legend> <label for="test">This is an input field:</label> <input id="test" type="text">
+<div><form><fieldset><legend>Example of use of the <span style="font-family: 'courier new', courier;">autofocus</span> attribute</legend> <label for="test">This is an input field:</label> <input id="test" type="text">
 <p><label for="name">Enter at least 6 chars, max 9 chars (this field has the <span style="font-family: 'courier new', courier;">autofocus</span> attribute): </label> <input name="inputName" id="name" autofocus="" required="" placeholder="6 to 9 chars please..." pattern="\w{6,9}" type="text"></p></fieldset></form>
 <p><strong>Notice that the focus in on the second input field, thanks to the <span style="font-family: 'courier new', courier;">autofocus</span>&nbsp;attribute.</strong></p>
 </div>
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;form&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"test"</span><span class="tag">/&gt;&lt;p&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ... </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"inputName"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"6 to 9 chars please..."</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"\w{6,9}"</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">required</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">autofocus</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">/&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1"><span> </span><span>&lt;form&gt;</span></li>
+<li><span>&nbsp; &nbsp; ...</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"test"</span><span>/&gt;&lt;p&gt;</span></li>
+<li><span>&nbsp; &nbsp; ... </span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"name"</span><span> </span><span>name</span><span>=</span><span>"inputName"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>placeholder</span><span>=</span><span>"6 to 9 chars please..."</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>pattern</span><span>=</span><span>"\w{6,9}"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>required</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>autofocus</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"text"</span><span>/&gt;</span></li>
+<li><span>&nbsp; &nbsp; ...</span></li>
+<li><span> </span><span>&lt;/form&gt;</span></li>
 </ol></div>
 
 
 #### Note about Boolean attributes syntax
 
-<p class="exampleHTML"><strong>Important: </strong>: <span style="color: #ff0000;">For "Boolean" attributes, such as <span style="font-family: 'courier new',courier;">autofocus</span>, <span style="font-family: 'courier new',courier;">required</span>, <span style="font-family: 'courier new',courier;">optional</span>, etc., you are able to either write <span style="font-family: 'courier new',courier;">autofocus="autofocus"</span>, or just use the attribute name "<span style="font-family: 'courier new',courier;">autofocus</span>" without setting a value. </span></p>
+<p><strong>Important: </strong>: <span style="color: #ff0000;">For "Boolean" attributes, such as <span style="font-family: 'courier new',courier;">autofocus</span>, <span style="font-family: 'courier new',courier;">required</span>, <span style="font-family: 'courier new',courier;">optional</span>, etc., you are able to either write <span style="font-family: 'courier new',courier;">autofocus="autofocus"</span>, or just use the attribute name "<span style="font-family: 'courier new',courier;">autofocus</span>" without setting a value. </span></p>
 
 Read [these explanations](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) for a complete description of the syntax of Boolean attributes.
 
@@ -453,31 +453,31 @@ Read [these explanations](https://html.spec.whatwg.org/multipage/common-microsyn
 
 __Source code for the knowledge check 5.5.4__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;&lt;meta charset="utf-8"&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example for a knowledge check</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;form&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">studentID</span>"</span><span class="tag">&gt;</span><span class="pln">Student ID (disabled field, cannot type in it): </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"S134356"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"studentID"</span><span class="pln"> </span><span class="atn">disabled</span><span class="tag">/&gt;&lt;p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;</span><span class="pln">First name: </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"firstName"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"John"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">autofocus</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"lastName"</span><span class="tag">&gt;</span><span class="pln">Last name: </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"lastName"</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Smith"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">autofocus</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">/&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span><span> </span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span><span> </span></li>
+<li><span>&lt;head&gt;&lt;meta charset="utf-8"&gt;</span></li>
+<li><span> </span><span>&lt;title&gt;</span><span>Example for a knowledge check</span><span>&lt;/title&gt;</span></li>
+<li><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span> </span><span>&lt;form&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"</span><span><span>studentID</span>"</span><span>&gt;</span><span>Student ID (disabled field, cannot type in it): </span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>value</span><span>=</span><span>"S134356"</span><span> </span><span>id</span><span>=</span><span>"studentID"</span><span> </span><span>disabled</span><span>/&gt;&lt;p&gt;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"name"</span><span>&gt;</span><span>First name: </span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"firstName"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span>placeholder</span><span>=</span><span>"John"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>autofocus</span></li>
+<li><span>&nbsp; &nbsp;</span><span>/&gt;</span></li>
+<li><span></span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"lastName"</span><span>&gt;</span><span>Last name: </span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>id</span><span>=</span><span>"lastName"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>placeholder</span><span>=</span><span>"Smith"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>autofocus</span></li>
+<li><span>&nbsp; &nbsp;</span><span>/&gt;</span></li>
+<li><span> </span><span>&lt;/form&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
@@ -504,7 +504,7 @@ Here is a small code extract from a more complete example shown in the section a
 
 Please try it in your  browser (Type "F", "E", "O", C" etc., or just click inside the field and use the drop down menu). Note that you can also enter any value; if it does not start with one of these letters it will be accepted but will not trigger auto-completion.
 
-<div class="exampleHTML"><form><fieldset><legend>List attribute</legend> <label for="mybrowser">Preferred browser</label> <input id="mybrowser" list="browsers" type="text">
+<div><form><fieldset><legend>List attribute</legend> <label for="mybrowser">Preferred browser</label> <input id="mybrowser" list="browsers" type="text">
 <datalist id="browsers">
 <option value="Internet Explorer"></option>
 <option value="Firefox"></option>
@@ -516,20 +516,20 @@ Please try it in your  browser (Type "F", "E", "O", C" etc., or just click insid
  
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;form&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><strong><span class="atn">list</span><span class="pun">=</span><span class="atv">"browsers"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mybrowser"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;datalist</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"browsers"</span></strong><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Internet Explorer"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Firefox"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Chrome"</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Opera"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Safari"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/datalist&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1"><span> </span><span>&lt;form&gt;</span></li>
+<li><span>&nbsp; &nbsp; ...</span></li>
+<li><span>&nbsp; &nbsp; </span><span>&lt;input</span><span> </span><strong><span>list</span><span>=</span><span>"browsers"</span></strong><span> </span><span>id</span><span>=</span><span>"mybrowser"</span><span> </span><span>/&gt;</span></li>
+<li><span> </span></li>
+<li><span>&nbsp; &nbsp; &lt;datalist</span><span> </span><strong><span>id</span><span>=</span><span>"browsers"</span></strong><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Internet Explorer"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Firefox"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Chrome"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Opera"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>&lt;option</span><span> </span><span>value</span><span>=</span><span>"Safari"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><span>&lt;/datalist&gt;</span></li>
+<li><span>...</span></li>
+<li><span>&lt;/form&gt;</span></li>
 </ol></div>
 
 At _lines 3_ and _5_, the value of the `list` attribute of the input field must match the one of the id of the `<datalist>` element.
@@ -587,11 +587,11 @@ Just add a `pattern` attribute with a value that is the JavaScript regular expre
 
 __It's best practice to systematically add a `title` attribute with a value that indicates what constitutes a valid entry.__ More on this in the section of this course dedicated to form validation.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"country_code"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"[A-Za-z]{3}"</span></strong><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">title</span><span class="pun">=</span><span class="atv">"3 letter country code"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">/&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"country_code"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>pattern</span><span>=</span><span>"[A-Za-z]{3}"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>title</span><span>=</span><span>"3 letter country code"</span><span> </span></li>
+<li><span>/&gt;</span></li>
 </ol></div>
 
 
@@ -601,7 +601,7 @@ __Example #1__
 
 Try this [online example at JSBin](https://jsbin.com/xeyuqux/1/edit?html,output) or directly in your browser below: ([Local Example - Country Code](src/5.5.6-example1.html))
 
-<div class="exampleHTML"><label for="code">Please enter a 3 letter country code (green = valid, pink = invalid):</label> <input name="country_code" title="3 letter country code" id="code" pattern="[A-Za-z]{3}" type="text"></div>
+<div><label for="code">Please enter a 3 letter country code (green = valid, pink = invalid):</label> <input name="country_code" title="3 letter country code" id="code" pattern="[A-Za-z]{3}" type="text"></div>
 
 With the previous example, until the value of the input field is equal to 3 alphabetic characters, the field is invalid.
 
@@ -609,29 +609,29 @@ As seen in the previous examples, we used some CSS pseudo classes for automatica
 
 Complete source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of the pattern attribute</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>input</strong></span><strong><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="pun">}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>input</strong></span><strong><span class="pun">:</span><span class="pln">valid </span><span class="pun">{</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightGreen</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="pun">}</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"code"</span><span class="tag">&gt;</span><span class="pln">Please enter a 3 letter country code:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"country_code"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"[A-Za-z]{3}"</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">title</span><span class="pun">=</span><span class="atv">"3 letter country code"</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"code"</span><span class="tag">/&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html lang="en"&gt;</span></li>
+<li><span>&lt;head&gt;</span></li>
+<li><span> </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span> </span><span>&lt;title&gt;</span><span>Example of the pattern attribute</span><span>&lt;/title&gt;</span></li>
+<li><span> </span><span>&lt;style&gt;</span></li>
+<li><span>&nbsp; &nbsp; <strong>input</strong></span><strong><span>:</span><span>invalid </span><span>{</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span>-</span><span>color</span><span>:</span><span> lightPink</span><span>;</span></strong></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>}</span></strong></li>
+<li><span>&nbsp; &nbsp; <strong>input</strong></span><strong><span>:</span><span>valid </span><span>{</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span>-</span><span>color</span><span>:</span><span> lightGreen</span><span>;</span></strong></li>
+<li><span>&nbsp; &nbsp;&nbsp;</span><strong><span>}</span></strong></li>
+<li><span> </span><span>&lt;/style&gt;</span></li>
+<li><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span>&nbsp;&nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"code"</span><span>&gt;</span><span>Please enter a 3 letter country code:</span><span>&lt;/label&gt;</span></li>
+<li><span>&nbsp; &lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"country_code"</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>pattern</span><span>=</span><span>"[A-Za-z]{3}"</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>title</span><span>=</span><span>"3 letter country code"</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span>id</span><span>=</span><span>"code"</span><span>/&gt;</span></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
@@ -641,37 +641,37 @@ Try this [example online](https://jsbin.com/bozudeg/1/edit?html,output) or in yo
 
 Attributes used: placeholder (for displaying a ghost example value), pattern, required (empty field = invalid)...
 
-<div class="exampleHTML">
+<div>
 <p>Attributes used: <span style="font-family: 'courier new', courier;">placeholder</span> (for displaying a ghost example value), <span style="font-family: 'courier new', courier;">pattern</span>, <span style="font-family: 'courier new', courier;">required</span> (empty field = invalid)...</p>
 <p><label for="inputID">Enter a pseudo (6-12 characters): </label> <input name="Name" id="inputID" required="" placeholder="Name" pattern="\w{6,12}" type="text"></p>
 </div>
 
 Complete source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt; &lt;meta charset="utf-8"&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;title&gt;</span><span class="pln">Example of use of new HTML5 input field attributes</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;style&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">focus</span><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">valid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">required </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid red</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">optional </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid green</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/style&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">Attributes used: placeholder (for displaying a ghost example value), pattern, required (empty = invalid)...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"inputID"</span><span class="tag">&gt;</span><span class="pln">Enter a pseudo (6-12 characters): </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"inputID"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"Name"</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Name"</span></strong><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"\w{6,12}"</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">required</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;title="6-12 characters allowed please"</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html lang="en"&gt;</span></li>
+<li><span>&lt;head&gt; &lt;meta charset="utf-8"&gt;</span></li>
+<li><span>&nbsp; &lt;title&gt;</span><span>Example of use of new HTML5 input field attributes</span><span>&lt;/title&gt;</span></li>
+<li><span>&nbsp; &lt;style&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; input</span><span>:</span><span>focus</span><span>:</span><span>invalid </span><span>{</span><span> background</span><span>-</span><span>color</span><span>:</span><span> lightPink</span><span>;}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; input</span><span>:</span><span>valid </span><span>{</span><span> background</span><span>-</span><span>color</span><span>:</span><span>lightGreen</span><span>;</span><span> </span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; input</span><span>:</span><span>required </span><span>{</span><span>border</span><span>:</span><span> </span><span>2px</span><span> solid red</span><span>;</span><span> </span><span>}</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; input</span><span>:</span><span>optional </span><span>{</span><span>border</span><span>:</span><span> </span><span>2px</span><span> solid green</span><span>;</span><span> </span><span>}</span></li>
+<li><span>&nbsp; &lt;/style&gt;</span></li>
+<li><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span>&lt;p&gt;</span><span>Attributes used: placeholder (for displaying a ghost example value), pattern, required (empty = invalid)...</span></li>
+<li><span>&lt;p&gt;</span></li>
+<li><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"inputID"</span><span>&gt;</span><span>Enter a pseudo (6-12 characters): </span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"inputID"</span><span> </span><span>name</span><span>=</span><span>"Name"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>placeholder</span><span>=</span><span>"Name"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>pattern</span><span>=</span><span>"\w{6,12}"</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>required</span></strong></li>
+<li><strong><span>&nbsp; &nbsp; &nbsp; &nbsp;title="6-12 characters allowed please"</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"text"</span><span> </span><span>/&gt;</span></li>
+<li><span> </span><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
@@ -679,19 +679,19 @@ __Example #3: an `<input type="url">` element with a pattern attribute allowing 
 
 [Online example at JSBin](https://jsbin.com/nulahey/1/edit?html,output) or try it in your browser: ([Local Example - URL w/ Pattern](src/5.5.6-example3.html))
 
-<div class="exampleHTML"><label for="website">Enter the URL of your repository (http, https or ftp): </label> <input name="url" id="website" placeholder="http://www.domain.com" pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*" type="url"></div>
+<div><label for="website">Enter the URL of your repository (http, https or ftp): </label> <input name="url" id="website" placeholder="http://www.domain.com" pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*" type="url"></div>
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; id</span><span class="pun">=</span><span class="atv">"website"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; name</span><span class="pun">=</span><span class="atv">"url"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"url"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; placeholder</span><span class="pun">=</span><span class="atv">"http://www.domain.com"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atv">&nbsp; &nbsp; title="http, https or ftp allowed"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; <strong>pattern</strong></span><strong><span class="pun">=</span><span class="atv">"(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="atv"></span></strong><span class="tag">/&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;input</span><span> </span></li>
+<li><span>&nbsp; &nbsp; id</span><span>=</span><span>"website"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; name</span><span>=</span><span>"url"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; type</span><span>=</span><span>"url"</span></li>
+<li><span>&nbsp; &nbsp; placeholder</span><span>=</span><span>"http://www.domain.com"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; title="http, https or ftp allowed"</span></li>
+<li><span>&nbsp; &nbsp; <strong>pattern</strong></span><strong><span>=</span><span>"(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"</span></strong></li>
+<li><strong><span></span></strong><span>/&gt;</span></li>
 </ol></div>
 
 
@@ -722,21 +722,21 @@ __Their detailed use with these input fields have already been explained in sect
 
 #### Typical use
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mydate"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"mydate"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>&nbsp;</strong></span><strong><span class="atn">min</span><span class="pun">=</span><span class="atv">"2012-01-01"</span></strong><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">max</span><span class="pun">=</span><span class="atv">"2013-01-01"</span></strong><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"2012-01-01"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"time"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"time"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"time"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="atn">min</span><span class="pun">=</span><span class="atv">"09:00"</span></strong><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="atn">max</span><span class="pun">=</span><span class="atv">"17:00"</span></strong><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"12:00"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">/&gt;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><strong><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span></strong><span class="tag">/&gt;</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1"><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"mydate"</span><span> </span><span>name</span><span>=</span><span>"mydate"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>type</span><span>=</span><span>"date"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; <strong>&nbsp;</strong></span><strong><span>min</span><span>=</span><span>"2012-01-01"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>max</span><span>=</span><span>"2013-01-01"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><span>value</span><span>=</span><span>"2012-01-01"</span></li>
+<li><span> </span><span>/&gt;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span> </span><span>&lt;input</span><span> </span><span>name</span><span>=</span><span>"time"</span><span> </span><span>id</span><span>=</span><span>"time"</span><span> </span><span>type</span><span>=</span><span>"time"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span>min</span><span>=</span><span>"09:00"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span>max</span><span>=</span><span>"17:00"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>value</span><span>=</span><span>"12:00"</span><span> </span></li>
+<li><span>/&gt;</span><span> </span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"range"</span><span> </span><span>name</span><span>=</span><span>"range"</span><span> </span><span>type</span><span>=</span><span>"range"</span><span> </span><strong><span>min</span><span>=</span><span>"0"</span><span> </span><span>max</span><span>=</span><span>"100"</span><span> </span><span>step</span><span>=</span><span>"5"</span></strong><span>/&gt;</span><span> </span></li>
 </ol></div>
 
 
@@ -757,7 +757,7 @@ With the `<input type="email">`, this attribute enables the user to enter a set 
 
 Or try it below in your browser: type in a list of email addresses separated by a comma, then look at the input field background color (pink = invalid, green = valid), and then submit:
 
-<div class="exampleHTML">
+<div>
 <p>This form uses: <code>&lt;input type="email" name="myemail" <b>multiple</b>&gt;</code></p>
 <form><fieldset><legend>With the mult<span style="font-family: 'courier new', courier;">i</span>ple attribute </legend> <label for="emailmultiple">Enter several email addresses: </label> <input id="myemail" name="myemail" title="you can enter multiple emails addresses, separated by a comma" multiple="multiple" type="email"> <button>Submit</button></fieldset></form>
 <p></p>
@@ -767,53 +767,53 @@ Or try it below in your browser: type in a list of email addresses separated by 
 
 Complete source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;title&gt;</span><span class="pln">Jsbin</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>&lt;style&gt;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>input</span><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>input</span><span class="pun">:</span><span class="pln">valid </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightGreen</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>fieldset </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span></span>padding</span><span class="pun">:</span><span class="lit">20px</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>&lt;/style&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span>&lt;body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;p&gt;</span><span class="pln">This form uses: </span><span class="tag">&lt;code&gt;</span><span class="pln">&lt;input type="email" name="myemail" </span><span class="tag">&lt;b&gt;</span><span class="pln">multiple</span><span class="tag">&lt;/b&gt;</span><span class="pln">&amp;gt;</span><span class="tag">&lt;/code&gt;&lt;/p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>&lt;form&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;legend&gt;</span><span class="pln">With the multiple attribute </span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;label&gt;</span><span class="pln">Enter several email addresses: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"myemail"</span><span class="pln"> </span><span class="atn">title</span><span class="pun">=</span><span class="atv">"you can enter multiple emails addresses, separated by a comma"</span><span class="pln"> </span><span class="atn">multiple</span><span class="tag">/&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;button&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;/fieldset&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>&lt;/form&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag">&lt;p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;p&gt;</span><span class="pln">This form does not use the multiple attribute:</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span></span>&lt;form&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;legend&gt;</span><span class="pln">Without the multiple attribute </span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;label&gt;</span><span class="pln">Enter several email addresses: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"myemail"</span><span class="pln"> </span><span class="atn">title</span><span class="pun">=</span><span class="atv">"only one address please!"</span><span class="tag">/&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;button&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;/fieldset&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span></span>&lt;/form&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;p&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span></span>Type in a list of email addresses separated by a comma. Look at the input field background color (pink = invalid, green = valid), try to submit. </span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; </span><span class="tag"></span><span class="tag"></span>&lt;/body&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&lt;head&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;title&gt;</span><span>Jsbin</span><span>&lt;/title&gt;</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;style&gt;</span><span> </span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>input</span><span>:</span><span>invalid </span><span>{</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>background</span><span>-</span><span>color</span><span>:</span><span> lightPink</span><span>;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>}</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>input</span><span>:</span><span>valid </span><span>{</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>background</span><span>-</span><span>color</span><span>:</span><span> lightGreen</span><span>;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>}</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>fieldset </span><span>{</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>border</span><span>:</span><span>1px</span><span> solid</span><span>;</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp;&nbsp; </span><span></span></span></span>padding</span><span>:</span><span>20px</span><span>;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>}</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;/style&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span>&lt;/head&gt;</span></li>
+<li><span> </span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span>&lt;body&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;p&gt;</span><span>This form uses: </span><span>&lt;code&gt;</span><span>&lt;input type="email" name="myemail" </span><span>&lt;b&gt;</span><span>multiple</span><span>&lt;/b&gt;</span><span>&amp;gt;</span><span>&lt;/code&gt;&lt;/p&gt;</span></li>
+<li><span> </span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;form&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;fieldset&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;legend&gt;</span><span>With the multiple attribute </span><span>&lt;/legend&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;label&gt;</span><span>Enter several email addresses: </span><span>&lt;/label&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"email"</span><span> </span><span>name</span><span>=</span><span>"myemail"</span><span> </span><span>title</span><span>=</span><span>"you can enter multiple emails addresses, separated by a comma"</span><span> </span><span>multiple</span><span>/&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;button&gt;</span><span>Submit</span><span>&lt;/button&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span>&lt;/fieldset&gt;</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>&lt;/form&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span>&lt;p&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;p&gt;</span><span>This form does not use the multiple attribute:</span><span>&lt;/p&gt;</span></li>
+<li><span> </span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span><span></span></span>&lt;form&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span>&nbsp;&nbsp; </span><span></span><span></span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;fieldset&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;legend&gt;</span><span>Without the multiple attribute </span><span>&lt;/legend&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;label&gt;</span><span>Enter several email addresses: </span><span>&lt;/label&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"email"</span><span> </span><span>name</span><span>=</span><span>"myemail"</span><span> </span><span>title</span><span>=</span><span>"only one address please!"</span><span>/&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;button&gt;</span><span>Submit</span><span>&lt;/button&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;/fieldset&gt;</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span><span></span></span>&lt;/form&gt;</span></li>
+<li><span>&nbsp;&nbsp; </span><span></span><span></span><span>&lt;p&gt;</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span><span></span></span><span><span><span>&nbsp;&nbsp; </span><span></span></span>Type in a list of email addresses separated by a comma. Look at the input field background color (pink = invalid, green = valid), try to submit. </span><span>&lt;/p&gt;</span></li>
+<li><span><span>&nbsp;&nbsp; </span><span></span><span></span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
+<li><span>&nbsp;</span></li>
 </ol></div>
  
 <p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>Best&nbsp;practice: &nbsp;add a <span style="font-family: 'courier new', courier;">title</span> attribute indicating what you expect as a valid entry</strong> (<em>lines 25</em> and <em>38</em>). If you enter bad values and submit, you will see in the error message the string value of the <span style="font-family: 'courier new', courier;">title</span> attribute.</p>
@@ -827,7 +827,7 @@ Typical use: `<input type=file multiple>`
 
 Try these in your browser, look at the small variations (text in the buttons, messages):
 
-<div class="exampleHTML">
+<div>
 <p>Example with <span style="font-family: courier new,courier;"><code>&lt;input type=file multiple&gt;</code></span></p>
 <p><label for="multipleFiles">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Select one or more files: </label><input id="multipleFiles" multiple="multiple" type="file"></p>
 <p></p>
@@ -863,9 +863,9 @@ You might just glance at them and/or try the examples. The next pages cover thei
 
 These attributes are targeted to the `<input type="submit">` input fields. They are rarely used, so no questions about them will be asked in the quizzes of Week 5.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="atn">formaction</span><span class="pun">=</span><span class="atv">"preview.php"</span><span class="pln"> </span><span class="atn">formmethod</span><span class="pun">=</span><span class="atv">"get"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Preview"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span></li>
+<li><span> </span><span>formaction</span><span>=</span><span>"preview.php"</span><span> </span><span>formmethod</span><span>=</span><span>"get"</span><span> </span><span>value</span><span>=</span><span>"Preview"</span><span>&gt;</span></li>
 </ol></div>
 
 When you use an `<input type="submit">` field with the formaction attribute, the action attribute value of the form is overridden. The form will be submitted to the URL / value of the formaction attribute of the  `<input type="submit">` field.
@@ -875,13 +875,13 @@ The formmethod attribute does the same with the POST/GET method attribute of the
 
 #### Typical use
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"post.php"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"post"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="atn">formaction</span><span class="pun">=</span><span class="atv">"preview.php"</span><span class="pln"> </span><span class="atn">formmethod</span><span class="pun">=</span><span class="atv">"get"</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Preview"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Send"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1"><span> </span><span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"post.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span>formaction</span><span>=</span><span>"preview.php"</span><span> </span><span>formmethod</span><span>=</span><span>"get"</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>value</span><span>=</span><span>"Preview"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Send"</span><span>&gt;</span><span> </span></li>
+<li><span>&lt;/form&gt;</span></li>
 </ol></div>
 
 Line 3 overrides the values set in line 1. 
@@ -934,23 +934,23 @@ In general, such forms have two submit buttons, one with the `formnovalidate` at
 
 Typical use ([online example at JSBin](https://jsbin.com/doceje/1/edit?html,output)): ([Local Example - formnovalidate](src/5.5.11-example1.html))
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"form.php"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;legend&gt;</span><span class="pln">Example of formnovalidate attribute</span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">E-mail:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">/&gt;&lt;br&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit"</span><span class="pln"> </span><span class="tag">/&gt;&lt;br&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span></strong><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>formnovalidate</strong></span><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span class="pun">=</span><span class="atv">"Submit without validation"</span><span class="pln"> </span><span class="tag">/&gt;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/fieldset&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"form.php"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;</span><span>&lt;fieldset&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;legend&gt;</span><span>Example of formnovalidate attribute</span><span>&lt;/legend&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"email"</span><span>&gt;</span><span>E-mail:</span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&lt;input</span><span> </span><span>type</span><span>=</span><span>"email"</span><span> </span><span>name</span><span>=</span><span>"email"</span><span> </span><span>id</span><span>=</span><span>"email"</span><span>/&gt;&lt;br&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit"</span><span> </span><span>/&gt;&lt;br&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><strong><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>formnovalidate</strong></span><span>&nbsp;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span>=</span><span>"Submit without validation"</span><span> </span><span>/&gt;</span></strong></li>
+<li><span> </span><span>&lt;/fieldset&gt;</span></li>
+<li><span>&lt;/form&gt;</span></li>
 </ol></div>
 
 Try this code it in your browser:
 
-<div class="exampleHTML">
+<div>
 <p>Enter a bad email address, then submit -&nbsp;you should see an error message. Using the other submit button will submit the form anyway.</p>
 <form action="form.php"><fieldset><legend>Example of <span style="font-family: 'courier new', courier;">formnovalidate</span> attribute</legend> <label for="email">E-mail:</label> <input name="email" id="email" type="email"><br> <input value="Submit" type="submit"><br> <input formnovalidate="formnovalidate" value="Submit without validation" type="submit"></fieldset></form></div>
  
@@ -964,10 +964,10 @@ This attribute's value indicates where the response from the form submission sho
 
 #### Typical use
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="atn">formtarget</span><span class="pun">=</span><span class="atv">"_blank"</span></strong><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">"Submit but show results in a new window/tab"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span>formtarget</span><span>=</span><span>"_blank"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp;value</span><span>=</span><span>"Submit but show results in a new window/tab"</span><span>&gt;</span></li>
 </ol></div>
 
 Possible values for the `formtarget` attributes are:
@@ -984,21 +984,21 @@ Possible values for the `formtarget` attributes are:
 [Online example at JSBin](https://jsbin.com/godice/2/edit?html,output) or try it in your browser below: ([Local Example - formtarget](src/5.5.12-example1.html))
 
 
-<div class="exampleHTML"><form action="getAction.php" method="get">Given name: <input name="givenName" type="text"><br> Family name: <input name="familyName" type="text"><br> <input value="Submit as usual" type="submit"> <input formtarget="_blank" value="Submit but show results in a new window/tab" type="submit"></form></div>
+<div><form action="getAction.php" method="get">Given name: <input name="givenName" type="text"><br> Family name: <input name="familyName" type="text"><br> <input value="Submit as usual" type="submit"> <input formtarget="_blank" value="Submit but show results in a new window/tab" type="submit"></form></div>
  
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"defaultAction.php"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"givenName"</span><span class="tag">&gt;Given name</span><span class="pln">:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">givenName</span>"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">givenName</span>"</span><span class="tag">&gt;&lt;br&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"familyName"</span><span class="tag">&gt;Family</span><span class="pln"> name:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">familyName</span>"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span class="atv">familyName</span>"</span><span class="tag">&gt;&lt;br&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit as usual"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>formtarget</strong></span><strong><span class="pun">=</span><span class="atv">"_blank"</span></strong><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">"Submit but show results in a new window/tab"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"defaultAction.php"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"givenName"</span><span>&gt;Given name</span><span>:</span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"</span><span><span>givenName</span>"</span><span> </span><span>id</span><span>=</span><span>"</span><span><span>givenName</span>"</span><span>&gt;&lt;br&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"familyName"</span><span>&gt;Family</span><span> name:</span><span>&lt;/label&gt;</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"</span><span><span>familyName</span>"</span><span> </span><span>id</span><span>=</span><span>"</span><span><span>familyName</span>"</span><span>&gt;&lt;br&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit as usual"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp; &nbsp;</span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>formtarget</strong></span><strong><span>=</span><span>"_blank"</span></strong><span> </span></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span>=</span><span>"Submit but show results in a new window/tab"</span><span>&gt;</span></li>
+<li><span>&lt;/form&gt;</span></li>
 </ol></div>
 
 
@@ -1011,21 +1011,21 @@ The enctype attribute existed before HTML5. It is often used together with forms
 
 [Online example at JSBin](https://jsbin.com/magexat/3/edit?html,output):  ([Local Example - formenctype](src/5.5.13-example1.html))
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;title&gt;</span><span class="pln">Jsbin</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span>&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span>&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"default.php"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"post"</span><span class="pln"> </span><span class="atn">enctype</span><span class="pun">=</span><span class="atv">"multipart/form-data"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span>Given name: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"gname"</span><span class="tag">&gt;&lt;br&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="pln"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span></span>Family name: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">&gt;&lt;br&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag"></span><span class="tag"></span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span><span class="tag"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span></span>&lt;/form&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp; </span><span class="tag"></span>&lt;/body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&lt;head&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span></span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span></span><span>&lt;title&gt;</span><span>Jsbin</span><span>&lt;/title&gt;</span></li>
+<li><span>&nbsp; </span><span></span><span>&lt;/head&gt;</span></li>
+<li><span><span>&nbsp; </span><span></span>&lt;body&gt;</span></li>
+<li><span><span>&nbsp; </span><span></span></span><span><span><span>&nbsp; </span><span></span></span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"default.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span><span> </span><span>enctype</span><span>=</span><span>"multipart/form-data"</span><span>&gt;</span></li>
+<li><span><span>&nbsp; </span><span></span></span><span><span><span>&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp; </span><span></span></span></span>Given name: </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"gname"</span><span>&gt;&lt;br&gt;</span></li>
+<li><span><span>&nbsp; </span><span></span></span><span><span><span>&nbsp; </span><span></span></span></span><span><span><span><span>&nbsp; </span><span></span></span></span>Family name: </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"fname"</span><span>&gt;&lt;br&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span></span><span></span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit"</span><span>&gt;</span></li>
+<li><span><span>&nbsp; </span><span></span></span><span><span><span>&nbsp; </span><span></span></span>&lt;/form&gt;</span></li>
+<li><span><span>&nbsp; </span><span></span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 Note that when you send form content using Ajax, this attribute is not needed, as you will specify the type of data sent to the remote server in JavaScript, using the [FormData object](https://tinyurl.com/pbtpfea).
@@ -1040,12 +1040,12 @@ If an `<input type="submit">` field has this attribute, then, __when submitted u
 
 #### Typical use
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"defaultAction.php"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">formenctype</span><span class="pun">=</span><span class="atv">"multipart/form-data"</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span class="pun">=</span><span class="atv">"Submit as Multipart/form-data"</span><span class="tag">&gt;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"defaultAction.php"</span><span>&gt;</span></li>
+<li><span>&nbsp; &nbsp;...</span></li>
+<li><span>&nbsp; &nbsp;</span><strong><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>formenctype</span><span>=</span><span>"multipart/form-data"</span></strong></li>
+<li><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span>=</span><span>"Submit as Multipart/form-data"</span><span>&gt;</span></strong></li>
+<li><span>&lt;/form&gt;</span></li>
 </ol></div>
 
 The possible values for this field are:
@@ -1071,28 +1071,28 @@ The possible values for this field are:
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag">&lt;title&gt;</span><span class="pln">Jsbin</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp; </span>&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp; </span></span><span class="tag"><span class="pln"><span class="pln">&nbsp; </span></span>&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"defaultAction.php"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"post"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="atn">enctype</span><span class="pun">=</span><span class="atv">"application/x-www-form-urlencoded"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"givenName"</span><span class="tag">&gt;</span><span class="pln">Given name:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"givenName"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"givenName"</span><span class="tag">&gt;&lt;br&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"familyName"</span><span class="tag">&gt;</span><span class="pln">Family name:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"familyName"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"familyName"</span><span class="tag">&gt;&lt;br&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="atn">formenctype</span><span class="pun">=</span><span class="atv">"multipart/form-data"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="pln">&nbsp; </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit as Multipart/form-data"</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp; </span></span><span class="tag"><span class="pln"><span class="pln">&nbsp; </span></span>&lt;/form&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag"><span class="pln">&nbsp;&nbsp; &nbsp;</span></span><span class="tag"><span class="pln"><span class="pln"></span></span>&lt;p&gt;&lt;b&gt;</span><span class="pln">Note:</span><span class="tag">&lt;/b&gt;</span><span class="pln"> The formenctype attribute is not supported by all browsers.</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&lt;head&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;meta</span><span> </span><span>charset</span><span>=</span><span>"utf-8"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&lt;title&gt;</span><span>Jsbin</span><span>&lt;/title&gt;</span></li>
+<li><span>&nbsp; </span><span>&lt;/head&gt;</span></li>
+<li><span><span>&nbsp; </span>&lt;body&gt;</span></li>
+<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>&lt;form</span><span> </span><span>action</span><span>=</span><span>"defaultAction.php"</span><span> </span><span>method</span><span>=</span><span>"post"</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>enctype</span><span>=</span><span>"application/x-www-form-urlencoded"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"givenName"</span><span>&gt;</span><span>Given name:</span><span>&lt;/label&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"givenName"</span><span> </span><span>id</span><span>=</span><span>"givenName"</span><span>&gt;&lt;br&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"familyName"</span><span>&gt;</span><span>Family name:</span><span>&lt;/label&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"familyName"</span><span> </span><span>id</span><span>=</span><span>"familyName"</span><span>&gt;&lt;br&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit"</span><span>&gt;</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>formenctype</span><span>=</span><span>"multipart/form-data"</span></li>
+<li><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>&nbsp; </span><span>value</span><span>=</span><span>"Submit as Multipart/form-data"</span><span>&gt;</span></li>
+<li><span><span>&nbsp; </span></span><span><span><span>&nbsp; </span></span>&lt;/form&gt;</span></li>
+<li><span><span>&nbsp;&nbsp; &nbsp;</span></span><span><span><span></span></span>&lt;p&gt;&lt;b&gt;</span><span>Note:</span><span>&lt;/b&gt;</span><span> The formenctype attribute is not supported by all browsers.</span><span>&lt;/p&gt;</span></li>
+<li><span>&nbsp; </span><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 
