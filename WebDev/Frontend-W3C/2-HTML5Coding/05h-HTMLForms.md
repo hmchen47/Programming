@@ -79,40 +79,40 @@ As stated in the grading policy page, the following 23 questions count towards 1
 
 __Source code for the next question (4):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of date picker</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"birthDate"</span><span class="tag">&gt;</span><span class="pln">Enter your birth date: </span><span class="tag">&lt;/label&gt;&lt;p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"birthDate"</span><span class="pln"> </span><span class="tag">&gt;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> You picked: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"pickedDate"</span><span class="tag">&gt;&lt;/span&gt;&lt;p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"pastFuture"</span><span class="tag">&gt;&lt;/span&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> field </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#birthDate"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#pickedDate"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> pastFuture </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#pastFuture"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> field</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> date </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;pickedDate</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;"</span><span class="pun">+</span><span class="pln">date</span><span class="pun">+</span><span class="str">"&lt;/b&gt;"</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.<strong>AAAAAAAAAAA</strong></span><span class="pln">&nbsp;</span><span class="pun">&lt;=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;pastFuture</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;pastFuture</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;Date in the past, ok!&lt;/b&gt;"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; pastFuture</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; pastFuture</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;Date in the future, you're not even born!&lt;/b&gt;"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Example of date picker&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp;&lt;label for="birthDate"&gt;Enter your birth date: &lt;/label&gt;&lt;p&gt;</li>
+<li><strong> &lt;input type="date" id="birthDate" &gt;</strong></li>
+<li> &lt;p&gt;</li>
+<li> You picked: &lt;span id="pickedDate"&gt;&lt;/span&gt;&lt;p&gt;</li>
+<li> &lt;span id="pastFuture"&gt;&lt;/span&gt;</li>
+<li> &lt;/p&gt; </li>
+<li> &lt;script&gt;</li>
+<li> var field = document.querySelector("#birthDate");</li>
+<li> var result = document.querySelector("#pickedDate");</li>
+<li> var pastFuture = document.querySelector("#pastFuture");</li>
+<li> </li>
+<li> field.oninput = function(evt) {</li>
+<li> var date = this.value;</li>
+<li>&nbsp;pickedDate.innerHTML = "&lt;b&gt;"+date+"&lt;/b&gt;";</li>
+<li> </li>
+<li> if(this.<strong>AAAAAAAAAAA</strong>&nbsp;&lt;= new Date()) {</li>
+<li>&nbsp; &nbsp; &nbsp;pastFuture.style.color = 'green';</li>
+<li>&nbsp; &nbsp; &nbsp;pastFuture.innerHTML = "&lt;b&gt;Date in the past, ok!&lt;/b&gt;" </li>
+<li> } else {</li>
+<li>&nbsp; &nbsp; pastFuture.style.color = 'red';</li>
+<li>&nbsp; &nbsp; pastFuture.innerHTML = "&lt;b&gt;Date in the future, you're not even born!&lt;/b&gt;"</li>
+<li> }</li>
+<li> }</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 4. Back to the future
@@ -186,7 +186,7 @@ __Source code for the next question (4):__
 
   <pre>&lt; input type="range" min=? max=? value=? step=? /&gt;</pre>
 
-  <legend id="9f9ab7ecbfe140c2b93ec5ba7f30c844_2_1-legend" class="response-fieldset-legend field-group-hd"><input type="range"> can have a floating point value when we move the slider if...</legend>
+  <legend id="9f9ab7ecbfe140c2b93ec5ba7f30c844_2_1-legend"><input type="range"> can have a floating point value when we move the slider if...</legend>
 
   can have a floating point value when we move the slider if... (3 correct answers)
 
@@ -195,7 +195,7 @@ __Source code for the next question (4):__
   c. The step attribute has a floating point value, for example step="0.1",<br/>
   d. The value attribute is a floating point value, even if the value of the step attribute, and of the min attribute are integer values.<br/>
 
-  Ans: <span style="color: magenta;">abc</span>, xbcd<br/>
+  Ans: <span style="color: magenta;">abc, xbcd<br/>
   Explanation: Answers 1, 2 and 3 are correct. 
     + Answer 3 is correct: if the step attribute value is a float, then we can have a floating point value for the input field when the slider is moved. 
     + Answer 2 is correct: with a value of "any", even if the min attribute is an integer, the value of the input field can be a float.
@@ -220,18 +220,18 @@ __Source code for the next question (4):__
 
 __Source code for the next question (10):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">submit</span><span class="pun">=</span><span class="atv">"test.php"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"post"</span><span class="pln"> </span><strong><span class="atn">autocomplete</span><span class="pun">=</span><span class="atv">"on"</span></strong><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;</span><span class="pln">Enter your address</span><span class="pln">:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"<span color="#000000" style="color: #000000;">&nbsp;<span style="color: #ff0000;"><strong>?</strong></span></span></span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address1"</span><span class="tag">&gt;</span><span class="pln">Enter your address</span><span class="pln">:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address1"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;<span color="#000088" style="color: #000088;">&nbsp; &nbsp;...</span></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;form submit="test.php" method="post" <strong>autocomplete="on"</strong>&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;label for="address"&gt;Enter your address:&lt;/label&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;input type="text" id="address"<span color="#000000" style="color: #000000;">&nbsp;<span style="color: #ff0000;"><strong>?</strong>&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;p&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;label for="address1"&gt;Enter your address:&lt;/label&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;input type="text" id="address1"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;p&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;button type="submit"&gt;Submit&lt;/button&gt;</li>
+<li>&nbsp;<span color="#000088" style="color: #000088;">&nbsp; &nbsp;...</span></li>
+<li> &lt;/form&gt;</li>
 </ol></div>
 
 10. Complete auto repair
@@ -394,38 +394,38 @@ __Source code for the next question (10):__
 
 __Source code for the next 2 questions (19 and 20):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">CSS3 pseudo-classes for form validation visual feedback</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong></span><strong><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;}</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong></span><strong><span class="pun">:</span><span class="pln">valid </span><span class="pun">{</span><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong></span><strong><span class="pun">:</span><span class="pln">required </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid red</span><span class="pun">;}</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong></span><strong><span class="pun">:</span><span class="pln">optional </span><span class="pun">{</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid green</span><span class="pun">;}</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;fieldset </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding</span><span class="pun">:</span><span class="lit">20px</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">formLabel </span><span class="pun">{</span><span class="pln"> display</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">inline</span><span class="pun">-</span><span class="pln">block</span><span class="pun">;</span><span class="pln"> width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">140px</span><span class="pun">;</span><span class="pln"> text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> right</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;form&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;legend&gt;</span><span class="pln">Type invalid values and see the result</span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"myEmail"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"formLabel"</span><span class="tag">&gt;</span><span class="pln">E-mail:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><strong><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myEmail"</span><span class="pln"> </span><strong><span class="atn">required</span></strong><span class="tag">/&gt;&lt;br&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"myURL"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"formLabel"</span><span class="tag">&gt;</span><span class="pln">Homepage (URL):</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><strong><span class="atn">type</span><span class="pun">=</span><span class="atv">"url"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myURL"</span><span class="pln"> </span><strong><span class="atn">required</span></strong><span class="tag">/&gt;&lt;br&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"myPhone"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"formLabel"</span><span class="tag">&gt;</span><span class="pln">Phone number:</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><strong><span class="atn">type</span><span class="pun">=</span><span class="atv">"phone"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myPhone"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>pattern</strong></span><strong><span class="pun">=</span><span class="atv">"[0-9]{3}-?[0-9]{3}-?[0-9]{4}"</span></strong><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder</span><span class="pun">=</span><span class="atv">"e.g. 416-555-1234"</span><span class="pln"> </span><strong><span class="atn">required</span></strong><span class="tag">/&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;br&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;button&gt;</span><span class="pln">Submit form</span><span class="tag">&lt;/button&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/fieldset&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1">&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;title&gt;CSS3 pseudo-classes for form validation visual feedback&lt;/title&gt;</li>
+<li>&nbsp; &nbsp;&lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong><strong>:invalid { background-color: lightPink;}</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong><strong>:valid { background-color:lightGreen; }</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong><strong>:required {border: 2px solid red;}</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>input</strong><strong>:optional {border: 2px solid green;}</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;fieldset {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border:1px solid;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding:20px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;.formLabel { display: inline-block; width: 140px; text-align: right; } </li>
+<li>&nbsp; &nbsp;&lt;/style&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;form&gt;</li>
+<li> &lt;fieldset&gt;</li>
+<li>&nbsp; &nbsp;&lt;legend&gt;Type invalid values and see the result&lt;/legend&gt;</li>
+<li>&nbsp; &nbsp;&lt;label for="myEmail" class="formLabel"&gt;E-mail:&lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&lt;input <strong>type="email"</strong> id="myEmail" <strong>required</strong>/&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp;&lt;label for="myURL" class="formLabel"&gt;Homepage (URL):&lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&lt;input <strong>type="url"</strong> id="myURL" <strong>required</strong>/&gt;&lt;br&gt;</li>
+<li>&nbsp; &nbsp;&lt;label for="myPhone" class="formLabel"&gt;Phone number:&lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&lt;input <strong>type="phone"</strong> id="myPhone" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>pattern</strong><strong>="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; placeholder="e.g. 416-555-1234" <strong>required</strong>/&gt;</li>
+<li>&nbsp; &nbsp;&lt;br&gt;</li>
+<li>&nbsp; &nbsp;&lt;button&gt;Submit form&lt;/button&gt;&lt;br /&gt;</li>
+<li> &lt;/fieldset&gt;</li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 19. To submit or not to submit, that is the question...
@@ -449,7 +449,7 @@ __Source code for the next 2 questions (19 and 20):__
   b. The invalid fields will have a light pink background color while the valid ones will have a light green background color. Colors will change on the fly, as the user is typing<br/>
   c. Only the first invalid field will have a light pink background color<br/>
 
-  Ans: <span style="color: magenta;">b</span>, xa<br/>
+  Ans: <span style="color: magenta;">b, xa<br/>
   Explanation: As a user types, the input field will inherit the CSS pseudo classes `:invalid` or `:valid`. There is no need to submit the form, these CSS pseudo classes are added on the fly. As the source code of the example contains CSS rules for `input:valid` and `input:invalid`, the background color of the fields will change on the fly, as the user enters values.
 
 
