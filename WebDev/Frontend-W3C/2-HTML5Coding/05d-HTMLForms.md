@@ -267,13 +267,13 @@ Here is how it looks on some mobile devices:
 
 Inserting a color chooser is as simple as:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Choose a color : </span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color" value="#FF00FF"</span><span class="tag">/&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &nbsp; Choose a color : <strong>&lt;input type="color" value="#FF00FF"/&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 Note: In this chapter we are simplifying the examples, as we usually embed input elements in a `<form>`...`</form>`.
@@ -308,20 +308,20 @@ The `<input type="color">` can fire `change` or `input` events. Here is an examp
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; Select a color : </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"colorChooser"</span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> colorInputField </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#colorChooser"</span><span class="pun">);<br></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>colorInputField</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">backgroundColor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;&lt;head&gt;&lt;/head&gt;</li>
+<li>&lt;body&gt; </li>
+<li>&nbsp; Select a color : &lt;input type="color" id="colorChooser"/&gt;</li>
+<li>&nbsp;&nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;var colorInputField = document.querySelector("#colorChooser");<br></li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>colorInputField</strong><strong>.addEventListener('input', function(evt) {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.body.style.backgroundColor = this.value;</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;&nbsp;}, false);</strong></li>
+<li><strong> &lt;/script&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -347,14 +347,14 @@ Example: click the black rectangle on the right: <input list="colors" value="#33
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"#333333"</span><span class="pln"> </span><strong><span class="atn">list</span><span class="pun">=</span><span class="atv">"colors"</span></strong><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;datalist</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">="</span><span class="atv">colors"</span></strong><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option&gt;</span><span class="pln">#0000FF</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option&gt;</span><span class="pln">#00FF00</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option&gt;</span><span class="pln">#FF0000</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/datalist&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;input type="color" value="#333333" <strong>list="colors"</strong>&gt;</li>
+<li> </li>
+<li> &lt;datalist <strong>id="colors"</strong>&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;option&gt;#0000FF&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;option&gt;#00FF00&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;option&gt;#FF0000&lt;/option&gt;</li>
+<li> &lt;/datalist&gt;</li>
 </ol></div>
 
 Note that the `id` of the `<datalist>` element should be the same as the value of the `list` attribute of the input field.
@@ -406,7 +406,7 @@ Below are a few screenshots of the HTML5 date picker on several mobile devices. 
 
 The problem is different on a desktop. While it's great to have native support for a date picker, Web developers would sometimes prefer 100% control over the look and feel of the date picker widget. For this purpose, the solution undoubtedly lies with the new [Web Components](https://webcomponents.org/) (a way to make custom reusable widgets in HTML/CSS/JS), to be detailed in the W3Cx HTML5 Apps and Games course
 
-<p class="exampleHTML">Why don't you try it yourself? Just click on this input field: &nbsp; &nbsp;<input type="date"></p>
+<p>Why don't you try it yourself? Just click on this input field: &nbsp; &nbsp;<input type="date"></p>
 
 With Firefox, it shows this date picker widget:
 
@@ -428,13 +428,13 @@ __Default use__
 
 The default usage is something like:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"birthday"</span><span class="tag">&gt;</span><span class="pln">Choose birthday party date: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"birthday"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1">&lt;label for="birthday"&gt;Choose birthday party date: &lt;/label&gt;</li>
+<li>&lt;input type="date" id="birthday"&gt;</li>
 </ol></div>
 
 
-<p class="exampleHTML">Result: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<label for="birthday">Choose birthday party date: &nbsp; &nbsp;&nbsp;</label> <input id="birthday" type="date"></p>
+<p>Result: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<label for="birthday">Choose birthday party date: &nbsp; &nbsp;&nbsp;</label> <input id="birthday" type="date"></p>
 
 Most of the time you will add other attributes to give some restrictions (choose a date in the past, in the future, only on a Saturday, etc.).
 
@@ -456,14 +456,14 @@ Try this example: just click the next input field: <input id="birthday party" mi
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"birthdayParty"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="atn">value</span><span class="pun">=</span><span class="atv">"2015-06-20"</span></strong><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="atn">min</span><span class="pun">=</span><span class="atv">"2015-06-20"</span></strong><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="atn">max</span><span class="pun">=</span><span class="atv">"</span></strong><strong><span class="atv">2015-06-30"</span></strong><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;">...</li>
+<div><ol>
+<li value="1">...</li>
+<li> &lt;input type="date" </li>
+<li>&nbsp; &nbsp; &nbsp;id="birthdayParty" </li>
+<li>&nbsp; &nbsp; &nbsp;<strong>value="2015-06-20"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp;<strong>min="2015-06-20"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp;<strong>max="</strong><strong>2015-06-30"</strong>&gt;</li>
+<li>...</li>
 </ol></div>
 
 
@@ -485,13 +485,13 @@ Example: we want to celebrate birthday parties only on Saturdays, [check this on
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"birthdayParty"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"2015-06-20"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="atn">min</span><span class="pun">=</span><span class="atv">"2015-06-20"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="atn">max</span><span class="pun">=</span><span class="atv">"</span><span class="atv">2015-06-30"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="atn">step</span><span class="pun">=</span><span class="atv">"7"</span></strong><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1">&lt;input type="date" </li>
+<li>&nbsp; &nbsp;&nbsp;id="birthdayParty" </li>
+<li>&nbsp; &nbsp;&nbsp;value="2015-06-20" </li>
+<li>&nbsp; &nbsp;&nbsp;min="2015-06-20" </li>
+<li>&nbsp; &nbsp;&nbsp;max="2015-06-30"</li>
+<li>&nbsp; &nbsp;&nbsp;<strong>step="7"</strong>&gt;</li>
 </ol></div>
 
 Combining with the `<datalist>` element to restrict the choice of possible values
@@ -510,17 +510,17 @@ Combining with the `<datalist>` element to restrict the choice of possible value
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"birthdayParty"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="atn">list</span><span class="pun">=</span><span class="atv">"birthdayPartyPossibleDates"</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"2015-06-20"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;datalist</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"birthdayPartyPossibleDates"</span></strong><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Best for me"</span><span class="tag">&gt;</span><span class="pln">2015-06-20</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;option</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Ok for me too "</span><span class="tag">&gt;</span><span class="pln">2015-06-27</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;option</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"This one is a sunday, hmmm"</span><span class="tag">&gt;</span><span class="pln">2015-06-28</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/datalist&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;input type="date" </li>
+<li>&nbsp; &nbsp;&nbsp;id="birthdayParty" </li>
+<li>&nbsp; &nbsp;&nbsp;<strong>list="birthdayPartyPossibleDates"</strong></li>
+<li>&nbsp; &nbsp;&nbsp;value="2015-06-20"&gt;</li>
+<li> </li>
+<li> &lt;datalist <strong>id="birthdayPartyPossibleDates"</strong>&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;option label="Best for me"&gt;2015-06-20&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;option label="Ok for me too "&gt;2015-06-27&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;option label="This one is a sunday, hmmm"&gt;2015-06-28&lt;/option&gt;</li>
+<li> &lt;/datalist&gt;</li>
 </ol></div>
 
 __The list attribute of the input element must match the id attribute of the datalist element.__
@@ -536,36 +536,36 @@ Here is [an interactive example at JSBin](https://jsbin.com/ganipuv/edit?html,ou
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">Testing the new date input field.</span><span class="tag">&lt;p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> Choose a date/time : </span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span></strong><span class="tag"><strong>/&gt;</strong>&lt;/p&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> You picked: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"pickedDate"</span><span class="tag">&gt;&lt;/span&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">After you have tried the first example, change the value of the "type" attribute to:</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;ul&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;li&gt;</span><span class="pln">datetime</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;li&gt;</span><span class="pln">datetime-local</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;li&gt;</span><span class="pln">time</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;li&gt;</span><span class="pln">week</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;li&gt;</span><span class="pln">month</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/ul&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">And see the result.</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="kwd">var</span><span class="pln"> field </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#date"</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#pickedDate"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"> field</span><span class="pun">.</span><span class="pln">oninput </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> date </span><span class="pun">=</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;pickedDate</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;"</span><span class="pun">+</span><span class="pln">date</span><span class="pun">+</span><span class="str">"&lt;/b&gt;"</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;&lt;head&gt;...&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>Testing the new date input field.&lt;p&gt;</li>
+<li> Choose a date/time : <strong>&lt;input type="date" id="date" </strong><strong>/&gt;</strong>&lt;/p&gt;</li>
+<li>&lt;p&gt; </li>
+<li> You picked: &lt;span id="pickedDate"&gt;&lt;/span&gt;</li>
+<li> &lt;/p&gt;</li>
+<li>After you have tried the first example, change the value of the "type" attribute to:</li>
+<li>&lt;ul&gt;</li>
+<li>&lt;li&gt;datetime&lt;/li&gt;</li>
+<li>&lt;li&gt;datetime-local&lt;/li&gt;</li>
+<li>&lt;li&gt;time&lt;/li&gt;</li>
+<li>&lt;li&gt;week&lt;/li&gt;</li>
+<li>&lt;li&gt;month&lt;/li&gt;</li>
+<li>&lt;/ul&gt;</li>
+<li>And see the result.</li>
+<li> </li>
+<li>&lt;script&gt;</li>
+<li> <strong>var field = document.querySelector("#date");</strong></li>
+<li> var result = document.querySelector("#pickedDate");</li>
+<li> </li>
+<li><strong> field.oninput </strong>= function(evt) {</li>
+<li>&nbsp; &nbsp;var date = <strong>this.value;</strong></li>
+<li>&nbsp; &nbsp;pickedDate.innerHTML = "&lt;b&gt;"+date+"&lt;/b&gt;";</li>
+<li>}</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 _Lines 20-26_ show how we can detect a date change using JavaScript.
@@ -595,41 +595,41 @@ The object returned to the input event handler has a useful property named value
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"birthDate"</span><span class="tag">&gt;</span><span class="pln">Enter your birth date: </span><span class="tag">&lt;/label&gt;&lt;p&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"date"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"birthDate"</span><span class="pln"> </span><span class="tag">&gt;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> You picked: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"pickedDate"</span><span class="tag">&gt;&lt;/span&gt;&lt;p&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"pastFuture"</span><span class="tag">&gt;&lt;/span&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> field </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#birthDate"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#pickedDate"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> pastFuture </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#pastFuture"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"> field</span><span class="pun">.</span><span class="pln">oninput </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> date </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;pickedDate</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;"</span><span class="pun">+</span><span class="pln">date</span><span class="pun">+</span><span class="str">"&lt;/b&gt;"</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pun">(date</span><span class="pun">.</span><span class="pln">valueAsDate </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">())</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;pastFuture</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;pastFuture</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;Date in the past, ok!&lt;/b&gt;"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;pastFuture</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; pastFuture</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;b&gt;Date in the future, you're not even born!&lt;/b&gt;"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1">&lt;body&gt;</li>
+<li>&lt;label for="birthDate"&gt;Enter your birth date: &lt;/label&gt;&lt;p&gt;</li>
+<li> <strong>&lt;input type="date" id="birthDate" &gt;</strong></li>
+<li> &lt;p&gt;</li>
+<li> You picked: &lt;span id="pickedDate"&gt;&lt;/span&gt;&lt;p&gt;</li>
+<li> &lt;span id="pastFuture"&gt;&lt;/span&gt;</li>
+<li> &lt;/p&gt; </li>
+<li> &lt;script&gt;</li>
+<li> var field = document.querySelector("#birthDate");</li>
+<li> var result = document.querySelector("#pickedDate");</li>
+<li> var pastFuture = document.querySelector("#pastFuture");</li>
+<li> </li>
+<li><strong> field.oninput </strong>= function(evt) {</li>
+<li>&nbsp; &nbsp;<strong>var date = this.value;</strong></li>
+<li>&nbsp; &nbsp;pickedDate.innerHTML = "&lt;b&gt;"+date+"&lt;/b&gt;";</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong>if(date.valueAsDate &lt;= new Date())</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;pastFuture.style.color = 'green';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;pastFuture.innerHTML = "&lt;b&gt;Date in the past, ok!&lt;/b&gt;" </li>
+<li>&nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;pastFuture.style.color = 'red';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; pastFuture.innerHTML = "&lt;b&gt;Date in the future, you're not even born!&lt;/b&gt;"</li>
+<li>&nbsp; &nbsp;}</li>
+<li> }</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 _Lines 17-23_ show how we can compare the date picked in the calendar widget with the current date. Note that we can compare any given dates using JavaScript. To check that the chosen date is before 2000 we would do this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">if</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">valueAsDate </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2000</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">1</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">if(this.valueAsDate &lt;= new Date(2000,1,1)) {</li>
+<li>...</li>
+<li>}</li>
 </ol></div>
 
 
@@ -757,25 +757,25 @@ Typical use:
 
 [Online example at CodePen](https://codepen.io/w3devcampus/pen/aWXKWR) ([Local Example - Email](src/5.4.4-example1.html))
 
-<p class="exampleHTML">Try it on your browser: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<label for="email">Enter your email: </label> <input id="email2" type="email"></p>
+<p>Try it on your browser: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<label for="email">Enter your email: </label> <input id="email2" type="email"></p>
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of input type=email</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>input</strong></span><strong><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="pun">}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">Enter your email </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Example of input type=email&lt;/title&gt;</li>
+<li> &lt;style&gt;</li>
+<li>&nbsp; &nbsp; <strong>input</strong><strong>:invalid {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>background</strong><strong>-color:pink;</strong></li>
+<li>&nbsp; &nbsp; <strong>}</strong></li>
+<li> &lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;label for="email"&gt;Enter your email &lt;/label&gt;</li>
+<li><strong>&lt;input type="email" id="email"&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 Note the CSS rule that turns the background color of the email input field to pink if a user enters an invalid address (lines 7-8). Also note that the validation is based only on matching a regular expression (the address should contain a "@",  a ".", etc.). It does not check if the address is an existing one.
@@ -808,29 +808,29 @@ This input type is often used with the new `placeholder` and `pattern` attribute
 
 Try it in your browser (we used the same CSS for changing the background-color when the input value is invalid):
 
-<div class="exampleHTML"><label for="tel">Enter a telephone number:</label> <input id="tel" placeholder="(555) 555-5555" pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" type="tel"></div>
+<div><label for="tel">Enter a telephone number:</label> <input id="tel" placeholder="(555) 555-5555" pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" type="tel"></div>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html </span><span class="tag"><strong><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span></strong>&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;meta </span><span class="tag"><strong><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span></strong>&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of input type=tel</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;style&gt;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; input</span><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/style&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"tel"</span><span class="tag">&gt;</span><span class="pln">Enter a telephone number:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"tel"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"tel"</span></strong><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; placeholder</span><span class="pun">=</span><span class="atv">"(555) 555-5555"</span></strong><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; <strong>pattern</strong></span><strong><span class="pun">=</span><span class="atv">"<strong style="font-family: 'Courier New'; line-height: 23.2727279663086px;"><span class="atv">^(?<strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\</span></strong>d{3})?[-<strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\</span></strong>s]\d{3}[-<strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\</span></strong>s]<strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\</span></strong>d{4}.*?</span></strong><strong style="font-family: 'Courier New'; line-height: 23.2727279663086px;"><span class="atv"><strong style="color: #3c3c3c; line-height: 23.2727279663086px;"><span class="atv">\)</span></strong></span></strong>"</span><span class="tag">/&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html <strong>lang="en"</strong>&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;meta <strong>charset="utf-8"</strong>&gt;</li>
+<li> &lt;title&gt;Example of input type=tel&lt;/title&gt;</li>
+<li>&lt;style&gt; </li>
+<li>&nbsp; input:invalid { </li>
+<li>&nbsp; &nbsp; &nbsp; background-color:pink;</li>
+<li>&nbsp; }</li>
+<li>&lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt; </li>
+<li> &lt;label for="tel"&gt;Enter a telephone number:&lt;/label&gt;</li>
+<li> <strong>&lt;input type="tel" id="tel"</strong> </li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; placeholder="(555) 555-5555"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>pattern</strong><strong>="<strong style="font-family: 'Courier New'; line-height: 23.2727279663086px;">^(?<strong style="color: #3c3c3c; line-height: 23.2727279663086px;">\</strong>d{3})?[-<strong style="color: #3c3c3c; line-height: 23.2727279663086px;">\</strong>s]\d{3}[-<strong style="color: #3c3c3c; line-height: 23.2727279663086px;">\</strong>s]<strong style="color: #3c3c3c; line-height: 23.2727279663086px;">\</strong>d{4}.*?</strong><strong style="font-family: 'Courier New'; line-height: 23.2727279663086px;"><strong style="color: #3c3c3c; line-height: 23.2727279663086px;">\)</strong></strong>"/&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt; </li>
 </ol></div>
 
 
@@ -856,33 +856,33 @@ Or try it here in your browser:
 
 Enter a URL (default validation):
 
-<div class="exampleHTML"><label for="url1">Enter a URL (default validation):</label> <input id="url" type="url">
+<div><label for="url1">Enter a URL (default validation):</label> <input id="url" type="url">
 <p><label for="url2">Enter a URL (custom validation, must start with http, https or ftp):</label> <input id="url2" placeholder="https://www.domain.com" pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*" type="url"></p>
 </div>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html </span><span class="tag"><span class="tag">lang="en"</span>&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head &gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp;&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">Example of input type=url</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;style&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; input</span><span class="pun">:</span><span class="pln">invalid </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightPink</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/style&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"url1"</span><span class="tag">&gt;</span><span class="pln">Enter a URL (default validation):</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"url"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"url1"</span><span class="tag">/&gt;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"url2"</span><span class="tag">&gt;</span><span class="pln">Enter a URL (custom validation, must start with http, https or ftp):</span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; <strong>&lt;input<span style="color: #000000;" color="#000000">&nbsp;</span></strong></span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"url2"&nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"url"&nbsp;</span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"https://www.domain.com"</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>pattern</strong></span><strong><span class="pun">=</span><span class="atv">"(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"</span><span class="tag">/&gt;&lt;p&gt;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head &gt;</li>
+<li>&nbsp;&nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp;&lt;title&gt;Example of input type=url&lt;/title&gt;</li>
+<li>&lt;style&gt;</li>
+<li>&nbsp; &nbsp; input:invalid { </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; background-color: lightPink;</li>
+<li>&nbsp; &nbsp; }</li>
+<li>&lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;label for="url1"&gt;Enter a URL (default validation):&lt;/label&gt;</li>
+<li> <strong>&lt;input type="url" id="url1"/&gt;</strong></li>
+<li>&nbsp;&lt;p&gt;</li>
+<li> &lt;label for="url2"&gt;Enter a URL (custom validation, must start with http, https or ftp):&lt;/label&gt; </li>
+<li>&nbsp; &nbsp; <strong>&lt;input<span style="color: #000000;" color="#000000">&nbsp;</strong><strong>id="url2"&nbsp;type="url"&nbsp;placeholder="https://www.domain.com"</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>pattern</strong><strong>="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"/&gt;&lt;p&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 _Lines 16-17_ show the use of a pattern attribute with a JavaScript regexp that accepts only URLs starting with http, https or ftp. More details on the pattern attribute are given in the section that presents the new HTML5 form attributes.
@@ -906,12 +906,12 @@ The specification does not state what the GUI should look like, so current imple
 
 Typical use:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"search1"</span><span class="tag">&gt;</span><span class="pln">Simple search: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">search</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"search1"</span><span class="tag">&gt;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"search2"</span><span class="tag">&gt;</span><span class="pln">Search with attribute </span><span class="tag">&lt;code&gt;</span><span class="pln">results=5</span><span class="tag">&lt;/code&gt;</span><span class="pln"> (try with Safari): </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">search</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"search2"</span><span class="pln"> </span><span class="atn">results</span><span class="pun">=</span><span class="atv">5</span><span class="tag">&gt;</span></strong></li>
+<div><ol>
+<li value="1">&lt;label for="search1"&gt;Simple search: &lt;/label&gt;</li>
+<li><strong>&lt;input type=search id="search1"&gt;</strong></li>
+<li>&lt;p&gt;</li>
+<li>&lt;label for="search2"&gt;Search with attribute &lt;code&gt;results=5&lt;/code&gt; (try with Safari): &lt;/label&gt;</li>
+<li><strong>&lt;input type=search id="search2" results=5&gt;</strong></li>
 </ol></div>
 
 Results on Chrome and Opera desktop - notice the small cross on the right when one enters a value:
@@ -954,26 +954,26 @@ Example that shows a drop down list of recent searches (Safari screenshot borrow
 
 __Source code for the knowledge check below__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example of input type=email</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; input</span><span class="pun">:<strong>?</strong></span><strong><span class="pln">&nbsp;</span></strong><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; input</span><span class="pun">:<strong>??</strong></span><strong><span class="pln">&nbsp;</span></strong><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">Enter your email:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Example of input type=email&lt;/title&gt;</li>
+<li> &lt;style&gt;</li>
+<li>&nbsp; &nbsp; input:<strong>?</strong><strong>&nbsp;</strong>{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; background-color:pink;</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; input:<strong>??</strong><strong>&nbsp;</strong>{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; background-color:lightGreen;</li>
+<li>&nbsp; &nbsp; }</li>
+<li> &lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &nbsp;&lt;label for="email"&gt;Enter your email:&lt;/label&gt;</li>
+<li>&nbsp; &nbsp;&lt;input type="email" id="email"&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -1000,7 +1000,7 @@ This input field is useful for entering numerical values (integer or float), but
 
 For zip codes, a `<input type="text" pattern="......">` is preferable. See examples given in the `pattern` attribute section of this course.
 
-<p class="exampleHTML">Example:&nbsp;<span style="font-family: 'courier new', courier;"><strong><span class="tag">&lt;input</span><span class="pln">&nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln">&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"25"</span><span class="pln">&nbsp;</span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln">&nbsp;</span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span><span class="pln">&nbsp;</span><span class="atn">max</span><span class="pun">=</span><span class="atv">"500"</span></strong><span class="tag"><strong>/&gt;</strong></span></span></p>
+<p>Example:&nbsp;<span style="font-family: 'courier new', courier;"><strong>&lt;input&nbsp;type="number"&nbsp;value="25"&nbsp;min="0"&nbsp;step="5"&nbsp;max="500"</strong><strong>/&gt;</strong></p>
 
 Screenshot example taken with a mobile device :
 
@@ -1029,7 +1029,7 @@ Examples on desktop (the width will be adjusted depending on the `min` and `max`
 
 #### Typical usage
 
-<p><strong style="font-family: 'courier new', courier;"><span class="tag">&lt;input</span><span class="pln">&nbsp;</span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln">&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"25"</span><span class="pln">&nbsp;</span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln">&nbsp;</span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span><span class="pln">&nbsp;</span><span class="atn">max</span><span class="pun">=</span><span class="atv">"500"</span></strong><span class="tag" style="font-family: 'courier new', courier;"><strong>/&gt;</strong></span></p>
+<p><strong style="font-family: 'courier new', courier;">&lt;input&nbsp;type="number"&nbsp;value="25"&nbsp;min="0"&nbsp;step="5"&nbsp;max="500"</strong><span style="font-family: 'courier new', courier;"><strong>/&gt;</strong></span></p>
 
 This field accepts specific attributes `max`, `min`, `step`, `value` (default displayed value). 
 
@@ -1053,27 +1053,27 @@ Or, do it here in your browser (Manually enter a value that is not in the range,
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">....</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">#number:invalid {</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="pun">}</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">#number:valid {</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>background</strong></span><strong><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="pun">}</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> Example of </span><span class="tag">&lt;code&gt;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">number</span><span class="tag">&gt;&lt;/code&gt;</span><span class="pln">:</span><span class="tag">&lt;p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"number"</span><span class="tag">&gt;</span><span class="pln">Quantity (between 0 and 500, should be a multiple of 5 otherwise it's invalid): </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"25"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"500"</span></strong><span class="tag"><strong>/&gt;</strong></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">Change the different values for attributes step, max, min, value. Don't forget to try step="any" for float values...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li value="1">....</li>
+<li> &lt;style&gt;</li>
+<li>&nbsp; &nbsp;<strong>#number:invalid {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong>background</strong><strong>-color:pink;</strong></li>
+<li>&nbsp; &nbsp;<strong>}</strong></li>
+<li>&nbsp; &nbsp;<strong>#number:valid {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong>background</strong><strong>-color:lightGreen;</strong></li>
+<li>&nbsp; &nbsp;<strong>}</strong></li>
+<li> &lt;/style&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> Example of &lt;code&gt;&lt;input type=number&gt;&lt;/code&gt;:&lt;p&gt;</li>
+<li>&nbsp; &nbsp;&lt;label for="number"&gt;Quantity (between 0 and 500, should be a multiple of 5 otherwise it's invalid): &lt;/label&gt; </li>
+<li><strong>&lt;input type="number" id="number" value="25" min="0" step="5" max="500"</strong><strong>/&gt;</strong></li>
+<li>&lt;p&gt;</li>
+<li> </li>
+<li>Change the different values for attributes step, max, min, value. Don't forget to try step="any" for float values...</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -1081,26 +1081,26 @@ Source code:
 
 __Source code for the knowledge check__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example type=number</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">#myField:valid {</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">#myField:invalid {</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"myField"</span><span class="tag">&gt;</span><span class="pln">Please enter a number between 0 and 30: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myField"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"5"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"30"</span><span class="tag">/&gt;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Example type=number&lt;/title&gt;</li>
+<li> &lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>#myField:valid {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color:lightGreen;</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;}</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;#myField:invalid {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color:pink;</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;}</strong></li>
+<li> &lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &nbsp;&lt;label for="myField"&gt;Please enter a number between 0 and 30: &lt;/label&gt;</li>
+<li><strong>&nbsp; &nbsp;&lt;input type="number" id="myField" min="0" step="5" max="30"/&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -1152,8 +1152,8 @@ Typical use
 
 The basic use is to specify at least the `value`, `min` and `max` attributes, and eventually the `step` attribute, too:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"slider6"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"2"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"5"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1">&lt;input id="slider6" type="range" min="0" max="10" step="2" value="5"&gt;</li>
 </ol></div>
 
 But most of the time, you will need a visual feedback that shows the current value selected by the slider.
@@ -1163,42 +1163,42 @@ But most of the time, you will need a visual feedback that shows the current val
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span></span><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span>&lt;title&gt;</span><span class="pln">Example of input type=tel</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span></span><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span>&lt;style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="com">#rangeValue1 {</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span></span>padding</span><span class="pun">:</span><span class="lit">2px</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Called when the page is loaded, for displaying initial value in the output</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>printValue</span><span class="pun">(</span><span class="str">'slider1'</span><span class="pun">,</span><span class="str">'rangeValue1'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">function</span><span class="pln"> printValue</span><span class="pun">(</span><span class="pln">sliderId</span><span class="pun">,</span><span class="pln"> outputId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">outputId</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="kwd">var</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">sliderId</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>x</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;/head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;body&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"slider1"</span><span class="tag">&gt;</span><span class="pln">Select a value:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"slider1"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"500"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"150"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="atn">oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">printValue</span><span class="pun">(</span><span class="str">'slider1'</span><span class="pun">,</span><span class="str">'rangeValue1'</span><span class="pun">)</span><span class="atv">"</span><span class="tag">/&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"rangeValue1"</span><span class="tag">&gt;&lt;/output&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;/form&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; </span><span class="tag">&nbsp; </span><span class="tag">&lt;br/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"><span class="tag">&nbsp; </span></span><span class="pln"><span class="tag"><span class="tag">&nbsp; </span></span></span><span class="pln"><span class="tag"><span class="tag"><span class="tag">&nbsp; </span></span></span>Play with attributes: value, min, max, step...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag"><span class="tag">&nbsp; </span>&lt;/body&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp; &lt;head&gt;</li>
+<li>&nbsp; &nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp; &lt;title&gt;Example of input type=tel&lt;/title&gt;</li>
+<li>&nbsp; &nbsp; &lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; #rangeValue1 {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; border:1px solid black;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; padding:2px;</li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &lt;/style&gt;</li>
+<li>&nbsp; &nbsp; &lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; window.onload = function() {</li>
+<li> // Called when the page is loaded, for displaying initial value in the output</li>
+<li>&nbsp; &nbsp; &nbsp; printValue('slider1','rangeValue1');</li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &nbsp; function printValue(sliderId, outputId) {</li>
+<li>&nbsp; &nbsp; &nbsp; var x = document.getElementById(outputId);</li>
+<li>&nbsp; &nbsp; &nbsp; var y = document.getElementById(sliderId);</li>
+<li>&nbsp; &nbsp; &nbsp; x.value = y.value;</li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &lt;/script&gt;</li>
+<li>&nbsp; &lt;/head&gt;</li>
+<li>&nbsp; &lt;body&gt;</li>
+<li>&nbsp; &nbsp; &lt;form &gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;label for="slider1"&gt;Select a value:&lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;input id="slider1" type="range"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; min="100" max="500" step="10" value="150"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; oninput="printValue('slider1','rangeValue1')"/&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;output id="rangeValue1"&gt;&lt;/output&gt;</li>
+<li>&nbsp; &nbsp; &lt;/form&gt;</li>
+<li>&nbsp; &nbsp; &lt;br/&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; Play with attributes: value, min, max, step...</li>
+<li>&nbsp; &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -1235,19 +1235,19 @@ In the previous example, it's necessary to add quotes for setting <span style="f
 
 Using the `<datalist>` element, it's possible to display "ticks" above the range slider, at given positions.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"slider2"</span><span class="tag">&gt;</span><span class="pln">value=5 min=0, max=10 step=1, ticks at 2, 4, 6, 8 and 10:</span>&lt;/label&gt;</li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"slider2"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span></strong><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;<strong>list</strong></span><strong><span class="pun">=</span><span class="atv">"ticks2"</span></strong><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"5"</span>/&gt;</li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="tag">&lt;datalist</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">ticks2</span><span class="tag">&gt;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">0</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">2</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">4</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">6</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">8</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;option&gt;</span><span class="pln">10</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/datalist&gt;</span></li>
+<div><ol>
+<li value="1">&lt;label for="slider2"&gt;value=5 min=0, max=10 step=1, ticks at 2, 4, 6, 8 and 10:&lt;/label&gt;</li>
+<li><strong>&lt;input id="slider2" type="range"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>list</strong><strong>="ticks2"</strong> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;min="0" max="10" step="1" value="5"/&gt;</li>
+<li><strong>&lt;datalist id=ticks2&gt;</strong></li>
+<li>&nbsp; &nbsp; &lt;option&gt;0&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &lt;option&gt;2&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &lt;option&gt;4&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &lt;option&gt;6&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &lt;option&gt;8&lt;/option&gt;</li>
+<li>&nbsp; &nbsp; &lt;option&gt;10&lt;/option&gt;</li>
+<li>&lt;/datalist&gt;</li>
 </ol></div>
 
 Try the sliders below:
