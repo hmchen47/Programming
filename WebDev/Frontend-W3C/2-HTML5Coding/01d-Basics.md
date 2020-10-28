@@ -679,7 +679,7 @@ __External resources:__
 + An article on Web Platform News: "[The `<mark>` element could help make your text more scannable](https://tinyurl.com/y3awtyhc)"
 
 
-#### Knowledge check 1.4.3 
+#### Knowledge check 1.4.2
 
 1. When would you use the mark element?<br/>
   a. To download a file<br/>
