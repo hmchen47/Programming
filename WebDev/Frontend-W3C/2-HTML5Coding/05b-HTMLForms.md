@@ -17,7 +17,7 @@
     + new elements such as `<datalist>` for autocompletion
     + `<output>` for feedback
     + etc.
-
+ 
 + [Reference of Form elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms)<br/><br/>
 
 + [Manipulating HTML elements w/ JavaScript](#523-input-elements-and-attributes)
@@ -120,8 +120,6 @@
       <button>Submit form</button>
     </form>
     ```
-
-
 
 ### 5.2.1 Introduction
 
