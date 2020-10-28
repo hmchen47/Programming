@@ -153,8 +153,8 @@ Click on the label, not on the input field to see the effect.
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"first_name"</span><span>&gt;</span><span>Your First Name</span><span>&lt;/label&gt;</span></li>
-<li><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"first_name"</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"fname"</span><span>/&gt;</span></li>
+<li value="1">&lt;label for="first_name"&gt;Your First Name&lt;/label&gt;</li>
+<li>&lt;input id="first_name" type="text" name="fname"/&gt;</li>
 </ol></div>
 
 
@@ -165,9 +165,9 @@ Note that you can also include the `<input>` element inside the `<label>`...`</l
 Source code (with `<input>` inside the `<label>`):
 
 <div><ol>
-<li value="1"><strong><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"first_name"</span><span>&gt;&lt;</span></strong><span><strong>span lang=en"&gt;</strong>Your First Name</span><strong><span>&lt;/span&gt;</span></strong></li>
-<li><span>&lt;input</span><span> </span><span>id</span><span>=</span><span>"first_name"</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"fname"</span><span>/&gt;</span></li>
-<li><strong><span>&lt;/label&gt;</span></strong></li>
+<li value="1"><strong>&lt;label for="first_name"&gt;&lt;</strong><strong>span lang=en"&gt;</strong>Your First Name<strong>&lt;/span&gt;</strong></li>
+<li>&lt;input id="first_name" type="text" name="fname"/&gt;</li>
+<li><strong>&lt;/label&gt;</strong></li>
 </ol></div>
 
 __Example #3__
@@ -180,11 +180,11 @@ Click on the label "Subscribe to newsletter" to see what this does.
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"firstname"</span><span>&gt;</span><span>First name:</span><span>&lt;/label&gt;</span></li>
-<li><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"text"</span><span> </span><span>name</span><span>=</span><span>"firstname"</span><span> </span><span>id</span><span>=</span><span>"firstname"</span><span>&gt;&lt;br&gt;</span></li>
-<li><span></span></li>
-<li><span>&lt;label</span><span>&nbsp;</span><span>for</span><span>=</span><span>"subscribe"</span><span>&gt;</span><span>Subscribe to newsletter</span><span>&lt;/label&gt;</span></li>
-<li><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"checkbox"</span><span> </span><span>name</span><span>=</span><span>"subscribe"</span><span> </span><span>id</span><span>=</span><span>"subscribe"</span><span>&gt;</span></li>
+<li value="1">&lt;label for="firstname"&gt;First name:&lt;/label&gt;</li>
+<li>&lt;input type="text" name="firstname" id="firstname"&gt;&lt;br&gt;</li>
+<li></li>
+<li>&lt;label&nbsp;for="subscribe"&gt;Subscribe to newsletter&lt;/label&gt;</li>
+<li>&lt;input type="checkbox" name="subscribe" id="subscribe"&gt;</li>
 </ol></div>
 
 
@@ -197,11 +197,11 @@ When using the `<input>` element to create buttons, the label is set in the valu
 Source code for the "Submit" and "Cancel" buttons example:
 
 <div><ol>
-<li value="1"><span>&lt;button</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span>&gt;</span><span>Submit</span><span>&lt;/button&gt;</span></li>
-<li><span>&lt;button</span><span> </span><span>type</span><span>=</span><span>"button"</span><span>&gt;</span><span>Cancel</span><span>&lt;/button&gt;</span></li>
-<li><span>&nbsp;</span></li>
-<li><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"submit"</span><span> </span><span>value</span><span>=</span><span>"Submit"</span><span>&gt;</span></li>
-<li><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"button"</span><span> </span><span>value</span><span>=</span><span>"Cancel"</span><span>&gt;</span></li>
+<li value="1">&lt;button type="submit"&gt;Submit&lt;/button&gt;</li>
+<li>&lt;button type="button"&gt;Cancel&lt;/button&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;input type="submit" value="Submit"&gt;</li>
+<li>&lt;input type="button" value="Cancel"&gt;</li>
 </ol></div>
 
 These give the same results:
@@ -217,7 +217,7 @@ Enter your address:
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"address"</span><span>&gt;</span><span>Enter your address:</span><span>&lt;/label&gt;&lt;br&gt;</span><span> </span><span>&lt;textarea</span><span> </span><span>id</span><span>=</span><span>"address"</span><span> </span><span>name</span><span>=</span><span>"addresstext"</span><span>&gt;&lt;/textarea&gt;</span></li>
+<li value="1">&lt;label for="address"&gt;Enter your address:&lt;/label&gt;&lt;br&gt; &lt;textarea id="address" name="addresstext"&gt;&lt;/textarea&gt;</li>
 </ol></div>
 
 
@@ -240,18 +240,18 @@ In the example below, there are three radio buttons that allow the user to choos
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;fieldset&gt;</span></li>
-<li><span>&lt;legend&gt;</span><span>Output format</span><span>&lt;/legend&gt;</span></li>
-<li><span> </span><span>&lt;div&gt;</span></li>
-<li><span> </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"radio"</span><span> </span><span>name</span><span>=</span><span>"format"</span><span> </span><span>id</span><span>=</span><span>"txt"</span><span> </span><span>value</span><span>=</span><span>"txt"</span><span> </span><span>checked</span><span>&gt;</span></li>
-<li><span> </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"txt"</span><span>&gt;</span><span>Text file</span><span>&lt;/label&gt;</span></li>
-<li><span> </span><span>&lt;/div&gt;</span></li>
-<li><span> </span><span>&lt;div&gt;</span></li>
-<li><span> </span><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"radio"</span><span> </span><span>name</span><span>=</span><span>"format"</span><span> </span><span>id</span><span>=</span><span>"csv"</span><span> </span><span>value</span><span>=</span><span>"csv"</span><span>&gt;</span></li>
-<li><span> </span><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"csv"</span><span>&gt;</span><span>CSV file</span><span>&lt;/label&gt;</span></li>
-<li><span> </span><span>&lt;/div&gt;</span></li>
-<li><span> […]</span></li>
-<li><span>&lt;/fieldset&gt;</span></li>
+<li value="1">&lt;fieldset&gt;</li>
+<li>&lt;legend&gt;Output format&lt;/legend&gt;</li>
+<li> &lt;div&gt;</li>
+<li> &lt;input type="radio" name="format" id="txt" value="txt" checked&gt;</li>
+<li> &lt;label for="txt"&gt;Text file&lt;/label&gt;</li>
+<li> &lt;/div&gt;</li>
+<li> &lt;div&gt;</li>
+<li> &lt;input type="radio" name="format" id="csv" value="csv"&gt;</li>
+<li> &lt;label for="csv"&gt;CSV file&lt;/label&gt;</li>
+<li> &lt;/div&gt;</li>
+<li> […]</li>
+<li>&lt;/fieldset&gt;</li>
 </ol></div>
 
 
@@ -268,14 +268,14 @@ In the example below, there are three checkboxes that are all part of an opt-in 
 Source code:
 
 <div><ol>
-<li value="1"><span>&lt;fieldset&gt;</span></li>
-<li><span>&lt;legend&gt;</span><span>I want to receive</span><span>&lt;/legend&gt;</span></li>
-<li><span>&lt;div&gt;</span></li>
-<li><span>&lt;input</span><span> </span><span>type</span><span>=</span><span>"checkbox"</span><span> </span><span>name</span><span>=</span><span>"newsletter"</span><span> </span><span>id</span><span>=</span><span>"check_1"</span><span>&gt;</span></li>
-<li><span>&lt;label</span><span> </span><span>for</span><span>=</span><span>"check_1"</span><span>&gt;</span><span>The weekly newsletter</span><span>&lt;/label&gt;</span></li>
-<li><span>&lt;/div&gt;</span></li>
-<li><span>[…]</span></li>
-<li><span>&lt;/fieldset&gt;</span></li>
+<li value="1">&lt;fieldset&gt;</li>
+<li>&lt;legend&gt;I want to receive&lt;/legend&gt;</li>
+<li>&lt;div&gt;</li>
+<li>&lt;input type="checkbox" name="newsletter" id="check_1"&gt;</li>
+<li>&lt;label for="check_1"&gt;The weekly newsletter&lt;/label&gt;</li>
+<li>&lt;/div&gt;</li>
+<li>[…]</li>
+<li>&lt;/fieldset&gt;</li>
 </ol></div>
 
 
