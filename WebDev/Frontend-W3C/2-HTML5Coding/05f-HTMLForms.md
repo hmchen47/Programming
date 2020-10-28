@@ -142,7 +142,7 @@ Let's look at the HTML5 elements related to forms (specifically: `<datalist>`, `
   <tbody style="font-family: 'courier new', courier;">
     <tr>
     <td>
-    <ul class="column">
+    <ul>
     <li><strong>&lt;form&gt;</strong></li>
     <li><strong>&lt;fieldset&gt;</strong></li>
     <li><strong>&lt;legend&gt;</strong></li>
@@ -156,7 +156,7 @@ Let's look at the HTML5 elements related to forms (specifically: `<datalist>`, `
     </ul>
     </td>
     <td>
-    <ul class="column">
+    <ul>
     <li><strong>&lt;datalist&gt;</strong></li>
     <li><strong>&lt;output&gt;</strong></li>
     <li><strong>&lt;meter&gt;</strong></li>
@@ -194,19 +194,19 @@ The output element represents the result of a computation or user action. You ca
 
 __Example #1__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">o</span><span class="pun">.</span><span class="pln">value</span><span class="pun">=</span><span class="pln">a</span><span class="pun">.</span><span class="pln">value</span><span class="pun">*</span><span class="pln">b</span><span class="pun">.</span><span class="pln">value</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"a"</span><span class="pln">&nbsp;<span class="atn" style="line-height: 25.6000003814697px;">id</span><span class="pun" style="line-height: 25.6000003814697px;">=</span><span class="atv" style="line-height: 25.6000003814697px;">"a"</span>&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"2"</span><span class="tag">&gt;</span><span class="pln"> x</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"b"</span><span class="pln">&nbsp;<span class="atn" style="line-height: 25.6000003814697px;">id</span><span class="pun" style="line-height: 25.6000003814697px;">=</span><span class="atv" style="line-height: 25.6000003814697px;">"b"</span>&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"3"</span><span class="tag">&gt;</span><span class="pln"> =</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"a b"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"o"</span><span class="tag">&gt;</span><span class="pln">6</span><span class="tag">&lt;/output&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1">&lt;form oninput="o.value=a.value*b.value"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="number" name="a"&nbsp;<span style="line-height: 25.6000003814697px;">id<span style="line-height: 25.6000003814697px;">=</span><span style="line-height: 25.6000003814697px;">"a"</span>&nbsp;</span>value="2"&gt; x</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="number" name="b"&nbsp;<span style="line-height: 25.6000003814697px;">id<span style="line-height: 25.6000003814697px;">=</span><span style="line-height: 25.6000003814697px;">"b"</span>&nbsp;</span>value="3"&gt; =</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>&lt;output for="a b" name="o"&gt;6&lt;/output&gt;</strong></li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 The `oninput` event handler directly uses the `<output>` element using the value of its name attribute.
 
 Result (do change the input field values):
 
-<div class="exampleHTML"><form oninput="o.value=a.value*b.value"><input name="a" value="2" type="number"> x <input name="b" value="3" type="number"> = <output for="a b" name="o">6</output></form></div>
+<div><form oninput="o.value=a.value*b.value"><input name="a" value="2" type="number"> x <input name="b" value="3" type="number"> = <output for="a b" name="o">6</output></form></div>
 
 
 __Explanations about the attributes specific to the `<output>` element:__
@@ -218,19 +218,19 @@ __Explanations about the attributes specific to the `<output>` element:__
 
 __Example #2__
 
-<div class="exampleHTML"><form><input name="a" oninput="x.value = a.valueAsNumber + b.valueAsNumber; y.value = this.value;" value="50" type="range"><output id="y">50</output> +<input name="b" value="50" type="number"> =<output id="x" for="a b" name="x"></output></form></div>
+<div><form><input name="a" oninput="x.value = a.valueAsNumber + b.valueAsNumber; y.value = this.value;" value="50" type="range"><output id="y">50</output> +<input name="b" value="50" type="number"> =<output id="x" for="a b" name="x"></output></form></div>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"a"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"50"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">x</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">valueAsNumber </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">valueAsNumber</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span><span class="atv">"</span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"y"</span><span class="tag">&gt;</span><span class="pln">50</span><span class="tag">&lt;/output&gt;</span><span class="pln"> + </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"b"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"50"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> = </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;output</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"x"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"x"</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"a b"</span><span class="tag">&gt;&lt;/output&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1">&lt;form &gt;</li>
+<li>&nbsp; &nbsp;&lt;input name="a" value="50" type="range" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;oninput="x.value = a.valueAsNumber + b.valueAsNumber; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y.value = this.value;"/&gt;</li>
+<li>&nbsp; &nbsp;&lt;output id="y"&gt;50&lt;/output&gt; + </li>
+<li>&nbsp; &nbsp;&lt;input name="b" value="50" type="number" /&gt; = </li>
+<li>&nbsp; &nbsp;&lt;output name="x" id="x" for="a b"&gt;&lt;/output&gt;</li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 HTML5 has introduced new input field properties: `valueAsNumber` and `valueAsDate`.The last example is similar to the previous one except that we use an addition instead of a multiplication.
@@ -261,8 +261,8 @@ The `<meter>` element should not be used to indicate progress. You should instea
 
 #### Typical use
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">Storage space used: <strong>&lt;meter</strong></span><strong><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">75</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">0</span><span class="pln">&nbsp;</span><span class="atn"><span class="atn">low</span><span class="pun">=</span><span class="atv">20&nbsp;</span><span class="atn">high</span><span class="pun">=80</span><span class="atv">&nbsp;</span>max</span><span class="pun">=</span><span class="atv">100</span><span class="pln"> </span><span class="pln">optimum</span><span class="tag"><strong style="color: #3c3c3c; line-height: 25.6px;"><span class="pun"><span color="#3c3c3c" style="color: #3c3c3c;">=</span><span color="#008800" style="color: #008800;">50</span></span></strong>&gt;&lt;/meter&gt;</span></strong></li>
+<div><ol>
+<li value="1">Storage space used: <strong>&lt;meter</strong><strong> value=75 min=0&nbsp;low=20&nbsp;high=80&nbsp;max=100 optimum<strong style="color: #3c3c3c; line-height: 25.6px;"><span color="#3c3c3c" style="color: #3c3c3c;">=</span><span color="#008800" style="color: #008800;">50</span></span></strong>&gt;&lt;/meter&gt;</span></strong></li>
 </ol></div>
 
 The `<meter>` element uses the easy-to-understand value, `min`, `max`, `low`, `high` and `optimum` attributes. The `optimum` attribute, along with `min`, `low`, `high` and `max` attributes will affect the color of the bar, and of course the constraint `min < low < high < max` should be respected.
@@ -274,7 +274,7 @@ More explanations about the colors and the meaning of the `optimum` attribute wi
 
 [Try the next example online at JSBin](https://jsbin.com/jumahox/1/edit?html,output) or just play with it in your browser by dragging the slider below: ([Local Example - meter](src/5.6.3-example1.html))
 
-<div class="exampleHTML">
+<div>
 <pre>&lt;meter value=75 min=0&nbsp;<span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif; line-height: 1.6;">low=20&nbsp;</span><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif; line-height: 1.6;">high=80 </span><span style="font-size: 1em; line-height: 1.6;">max=100 optimum=19&gt;&lt;/meter&gt;</span></pre>
 <p>Grades: <meter id="meter2" value="75" optimum="19" high="80" low="20" max="100" min="0">75%</meter> <input id="meter2range" oninput="effect('meter2', 'meter2range')" min="0" max="100" value="75" high="80" low="20" type="range"> <output id="meter2val"></output></p>
 <script>// <![CDATA[
@@ -289,19 +289,19 @@ function effect(meter, meterrange) {
 
 Source code of the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;p&gt;</span><span class="pln">Grades: </span><strong><span class="tag">&lt;meter</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"meter2"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"75"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln">&nbsp;</span><span class="atn"><span class="atn">low</span><span class="pun">=</span><span class="atv">"20"&nbsp;</span><span class="atn">high</span><span class="pun">=</span><span class="atv">"80"&nbsp;</span>max</span><span class="pun">=</span><span class="atv">"100"</span><span class="tag">&gt;</span><span class="tag">&lt;/meter&gt;</span></strong><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln">&nbsp;</span><span class="atn">value</span><span class="pun">=</span><span class="atv">"75"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"meter2range"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp;oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">effect</span><span class="pun">(</span><span class="str">'meter2'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'meter2range'</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"meter2val"&nbsp;<span style="color: #660066; line-height: 25.6000003814697px;">for</span>="meter2range"</span><span class="tag">&gt;&lt;/output&gt;&lt;/p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> effect</span><span class="pun">(</span><span class="pln">meter</span><span class="pun">,</span><span class="pln"> meterrange</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> currVal </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">meterrange</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">meter</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> currVal</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">meter</span><span class="pun">+</span><span class="pln"> </span><span class="str">"val"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> currVal</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">&lt;p&gt;Grades: <strong>&lt;meter id="meter2" value="75" min="0"&nbsp;low="20"&nbsp;high="80"&nbsp;max="100"&gt;&lt;/meter&gt;</strong> </li>
+<li> </li>
+<li>&lt;input min="0" max="100"&nbsp;value="75" id="meter2range" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;oninput="effect('meter2', 'meter2range')" type="range"&gt; </li>
+<li> &lt;output id="meter2val"&nbsp;<span style="color: #660066; line-height: 25.6000003814697px;">for</span>="meter2range"&gt;&lt;/output&gt;&lt;/p&gt;</li>
+<li> &lt;script&gt;</li>
+<li> function effect(meter, meterrange) {</li>
+<li>&nbsp; &nbsp; &nbsp;var currVal = document.getElementById(meterrange).value;</li>
+<li>&nbsp; &nbsp; &nbsp;document.getElementById(meter).value = currVal;</li>
+<li>&nbsp; &nbsp; &nbsp;document.getElementById(meter+ "val").innerHTML = currVal;</li>
+<li> }</li>
+<li> &lt;/script&gt;</li>
 </ol></div>
 
 
@@ -348,8 +348,8 @@ So, a `<meter>` element used for displaying blood pressure might be a good candi
 
 The `<progress>` element is similar to `<meter>` but it is used for progress bars (i.e., the percentage of a file being uploaded, etc.):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;progress</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">pr</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">50</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">0</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">100</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1">&lt;progress id=pr value=50 min=0 max=100&gt;</li>
 </ol></div>
 
 
@@ -373,7 +373,7 @@ If no `value` attribute is set, the progress bar will display an "indeterminate 
 
 [Here is an online example at JSBin](https://jsbin.com/hebiju/edit?html,output), or try it below in your browser:  ([Local Example - progress](src/5.6.4-example1.html))
 
-<div class="exampleHTML">This example uses some JavaScript to simulate a download progress by changing in real time the <span style="font-family: 'courier new', courier;">value</span> attribute.
+<div>This example uses some JavaScript to simulate a download progress by changing in real time the <span style="font-family: 'courier new', courier;">value attribute.
 <p>The progress below is defined like this:</p>
 <pre>&lt;progress id=pr value=100 max=1000&gt;</pre>
 <p>Download progress: <progress id="pr" value="331" max="1000" min="0"></progress></p>
@@ -381,15 +381,15 @@ If no `value` attribute is set, the progress bar will display an "indeterminate 
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="typ">Download</span><span class="pln"> progress</span><span class="pun">:</span><span class="pln"> </span><strong><span class="pun">&lt;</span><span class="pln">progress id</span><span class="pun">=</span><span class="pln">pr value</span><span class="pun">=</span><span class="lit">100</span><span class="pln"> min</span><span class="pun">=</span><span class="lit">0</span><span class="pln"> max</span><span class="pun">=</span><span class="lit">1000</span><span class="pun">&gt;&lt;/</span><span class="pln">progress</span><span class="pun">&gt;</span></strong><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">&lt;script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pln">setInterval</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;i </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">%</span><span class="lit">1000</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'pr'</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> i</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;},</span><span class="lit">1</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span style="color: #008800; line-height: 25.6000003814697px;">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">Download progress: <strong>&lt;progress id=pr value=100 min=0 max=1000&gt;&lt;/progress&gt;</strong> </li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp;var i=0;</li>
+<li>&nbsp; &nbsp;setInterval(function () {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;i = (i+1) %1000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;document.getElementById('pr').value = i;</li>
+<li>&nbsp; &nbsp;},1);</li>
+<li><span style="color: #008800; line-height: 25.6000003814697px;">&lt;/script&gt;</span></li>
 </ol></div>
 
 
@@ -447,7 +447,7 @@ The input field is related to the datalist that will propose auto-completion bas
 
 Here is an [online example at JSBin](https://jsbin.com/tiqexel/1/edit?html,output), or try it here in your browser (type the name of your favorite browser): ([Local Example - Auto-completion](src/5.6.5-example1.html))
 
-<div class="exampleHTML"><form action="demo_form.asp" method="get">What is your favorite browser: <input name="browser" list="browsers" type="text">
+<div><form action="demo_form.asp" method="get">What is your favorite browser: <input name="browser" list="browsers" type="text">
 <datalist id="browsers">
 <option value="Internet Explorer"></option>
 <option value="Firefox"></option>
@@ -459,19 +459,19 @@ Here is an [online example at JSBin](https://jsbin.com/tiqexel/1/edit?html,outpu
  
 Source code of this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"demo_form.asp"</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"get"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><strong><span class="atn">list</span><span class="pun">=</span><span class="atv">"browsers"</span></strong><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"browser"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;datalist</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"browsers"</span></strong><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Internet Explorer"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Firefox"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Chrome"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Opera"</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Safari"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;/datalist&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li value="1">&lt;form action="demo_form.asp" method="get"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input <strong>list="browsers"</strong> name="browser" /&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;datalist <strong>id="browsers"</strong>&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Internet Explorer"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Firefox"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Chrome"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Opera"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option value="Safari"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;/datalist&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;input type="submit" /&gt;</li>
+<li>&lt;/form&gt;</li>
 </ol></div>
 
 As you can see at lines 2 and 4, the id and list attributes match. The `<datalist>` element is wrapped around a set of `<option>` that are available for selection by another form control (in this example the input field from line 2).
