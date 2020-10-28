@@ -94,7 +94,7 @@
       }
       ```
 
-+ [Tracking position](#644-tracking-a-position) 
++ [Tracking position](#644-tracking-a-position)
   + syntax: `watchPosition(onSuccess, onError)`
     + get the callback function only when the current position changes
     + return an `id` to use the `clearWatch(id)` method to stop the current tracking
@@ -104,7 +104,7 @@
     + stop the tracking: `navigator.geolocation.clearWatch(watchPosId);`
 
 + [Properties of the coords object for real time tracking](#options-available-when-using-the-geolocation-api-in-particular-real-time-tracking)
-  + __enableHighAccuracy:__ 
+  + __enableHighAccuracy:__
     + a boolean (true/false) indicating to the device wish to obtain its most accurate readings
     + using the GPS
     + probably making a difference, depending on your hardware, GPS availability, etc.
@@ -143,9 +143,9 @@
       }).addTo(map);
       ```
 
-    +  marker using leaflet: `marker = L.marker([latitude, longitude]).addTo(map);`
+    + marker using leaflet: `marker = L.marker([latitude, longitude]).addTo(map);`
     + popup in leaflet: `marker.bindPopup('<p>Your location</p>').openPopup();`
-  + get current position fail: ` alert('Get current position fail. Please access codepen to get geolocation.');`
+  + get current position fail: `alert('Get current position fail. Please access codepen to get geolocation.');`
 
 + [Reverse Geocoding](#646-reverse-geocoding)
   + Web services:
