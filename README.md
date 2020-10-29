@@ -422,7 +422,7 @@ Contents
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Sizing and  Dimensioning </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Sizing and Dimensioning </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#characteristics-of-size-dimensions"> Concepts </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#global-sizing"> Global </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
@@ -450,7 +450,7 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
-  <!-- CSS -->
+  <!-- JavaScript -->
 
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> JavaScript </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -469,6 +469,52 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-mediarecorder-api"> MediaRecorder API </a> </td>
   </tr>
 
+  <!-- Web Storage API -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Web Storage API </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#web-storage-api"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#cookie"> Cookie </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#set--get-web-storage"> Set & Get Store </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#delete--reset-web-storage"> Delete & Reset </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#size-of-web-storage"> Size </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#javascript-object-notation-json"> JSON </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+  </tr>
+
+
+  <!-- File API -->
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> File API </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#file-apis-1"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#file-metadata"> Metadata </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#bolb-object"> Blob Object </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#file-object"> File Object </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#text-files"> Text File </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#binary-files"> Binary File </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#dataurl-method"> dataURM File </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+  </tr>
+
+
+  <!-- GeoLocation API -->
+  
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation API </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#geolocation-apis"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#tracking-position"> Tracking Position </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#reverse-geocoding"> Reverse Geocoding </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+  </tr>
+
+
+  <!-- Temporary -->
+  
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
@@ -482,6 +528,7 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>
+
 
   </tbody>
 </table>
