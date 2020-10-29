@@ -11,7 +11,14 @@
 
 + Syntax: Attribute name, equal sign, opening quote, attribute value, closing quote, e.g., `start="5"`, Attribute name: start; Attribute Value = 5
 
-+ Boolean attribute: presence = true, omit = false
++ [Boolean attribute](../WebDev/Frontend-W3C/2-HTML5Coding/02e-Multimedia.md#253-attributes-of-audio-and-video-5-8):
+  + the presence of a boolean attribute on an element presents the true value
+  + the absence of the attribute presents the false value
+  + presence: either the empty string nor a value that is an ASCII case-incentive match for the attributes canonical name w/o leading or trailing whitespace
+  + "false" and "true" not allowed on boolean attributes
+  + e.g., `controls="false"` same as `control="true"` or `controls="controls"` or `controls` alone
+  + bad practice: using `controls="true"`
+  + <mark style="color: black; background-color: lightpink;">best practice</mark>: the presence of the attribute along
 
 + Reference: [Attribute List](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 
