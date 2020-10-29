@@ -13,9 +13,8 @@ Please try to complete the following 34 assessments in a timely manner.
 As stated in the grading policy page, they count towards 15% of your final grade.
 
 
-### 1.6.2 Quiz
 
-#### Greater simplicity (1-2)
+### 1.6.2 Greater simplicity (1-2)
 
 1. Towards more simplicity
 
@@ -43,7 +42,7 @@ As stated in the grading policy page, they count towards 15% of your final grade
   Explanation: There is only one simplified way to declare the DOCTYPE. The DOCTYPE must be declared in order to have a valid document.
 
 
-#### Sectioning elements (3-12)
+### 1.6.3 Sectioning elements (3-12)
 
 3. Sectioning elements part 1
 
@@ -110,16 +109,16 @@ As stated in the grading policy page, they count towards 15% of your final grade
   Is it recommended to use `<main>` if you use other sectioning elements such as `<article>`, `<section>`, etc.? (False/True)
 
   Ans: True<br/>
-  Explanation: If you use other sectioning elements, it is recommened to also add a<main> to your document. However, this element should only be used subject to the following constraints:
+  Explanation: If you use other sectioning elements, it is recommened to also add a `<main>` to your document. However, this element should only be used subject to the following constraints:
     + a) There must not be more than one `<main>` element in a document,
     + b) it must not be a descendant of an `<article>`, `<aside>`, `<footer>`, `<header>`, or `<nav>` element.
 
 
 10. The `<nav>` element
 
-  Should the `<nav>` element be used for major navigation blocks?
+  Should the `<nav>` element be used for major navigation blocks? (Yes/No)
 
-  Ans: True<br/>
+  Ans: Yes<br/>
   Explanation: Yes, `<nav>` is designed to be used in all navigation blocks.
 
 
@@ -127,8 +126,8 @@ As stated in the grading policy page, they count towards 15% of your final grade
 
   Is `<nav>` allowed inside an `<article>` or in a `<section>`? (Yes/No)
 
-  Ans: True<br/>
-  Explanation: `<nav>` can be used at any location that requires a navigation block. An article may have an internal navigation menu (next blog post/previous blog post, for example...).
+  Ans: Yes<br/>
+  Explanation: `<nav>` can be used at <u>any location</u> that requires a navigation block. An article may have an internal navigation menu (next blog post/previous blog post, for example...).
 
 
 12. Aside....
@@ -139,7 +138,7 @@ As stated in the grading policy page, they count towards 15% of your final grade
   Explanation: No, the `<aside>` element is used to display content not necessary for understanding the main content. It is often used for adverts, tags, recommended navigation, etc.
   
 
-#### Headers and footers (13-14)
+### 1.6.4 Headers and footers (13-14)
 
 13. Headers and footers
 
@@ -162,16 +161,16 @@ As stated in the grading policy page, they count towards 15% of your final grade
   Explanation: The `<header>` is just a container. Use it when you have more than just a simple heading.
 
 
-#### Headings (15-18)
+### 1.6.5 Headings (15-18)
 
 15. Headings and sectioning content
 
   What best practices have been presented in the course? (2 correct answers)
 
-  a. Whenever possible, try not to use `<article>` or `<section>`. Instead, use a heading (`<h1>`...`<h6>`) to define an implicit "section of a document".
-  b. `<h1>`...`<h6>` define a hierarchy that can be used to generate a table of contents.
-  c. You should use at least one heading after each sectioning content or after the `<body>` of the document.
-  d. It is necessary to use `<h1>` immediately after each sectioning content, as we did in the first version of the blog example presented in the course.
+  a. Whenever possible, try not to use `<article>` or `<section>`. Instead, use a heading (`<h1>`...`<h6>`) to define an implicit "section of a document".<br/>
+  b. `<h1>`...`<h6>` define a hierarchy that can be used to generate a table of contents.<br/>
+  c. You should use at least one heading after each sectioning content or after the `<body>` of the document.<br/>
+  d. It is necessary to use `<h1>` immediately after each sectioning content, as we did in the first version of the blog example presented in the course.<br/>
 
   Ans: bc<br/>
   Explanation: 
@@ -195,10 +194,10 @@ As stated in the grading policy page, they count towards 15% of your final grade
   To see the table of contents of an HTML5 document: (3 correct answers)
 
   a. I can use a browser extension.<br/>
-  a. I have to write some JavaScript code myself, and look at the Document Object Model structure of the document.<br/>
-  a. I can use a piece of JavaScript code that implements the outline algorithm that computes the different hierarchy levels.<br/>
-  a. There are online Web sites where you can copy and paste HTML code or the URL of a document, and that will display the table of contents.<br/>
-  a. Displaying the table of contents is a feature implemented by default in nearly all major modern Web browsers; no need to do anything but to select this feature in one menu of the browser.<br/>
+  b. I have to write some JavaScript code myself, and look at the Document Object Model structure of the document.<br/>
+  c. I can use a piece of JavaScript code that implements the outline algorithm that computes the different hierarchy levels.<br/>
+  d. There are online Web sites where you can copy and paste HTML code or the URL of a document, and that will display the table of contents.<br/>
+  e. Displaying the table of contents is a feature implemented by default in nearly all major modern Web browsers; no need to do anything but to select this feature in one menu of the browser.<br/>
 
   Ans: acd<br/>
   Explanation: You do not need to write any code yourself, tools exist both as browser extensions or ready-to-go JavaScript code you can embed, as shown in the course. There are also Web sites with useful tools that display the table of contents of HTML code that you paste or from a URL. No browser today implements the table of contents rendering natively. Correct answers are 1, 3 and 4.
@@ -212,11 +211,11 @@ As stated in the grading policy page, they count towards 15% of your final grade
   b. It shows missing headings as "Untitled" entries<br/>
   c. The table of contents does not display invalid sections<br/>
 
-  Ans: c<br/>
+  Ans: b<br/>
   Explanation: Indeed, untitled entries in the table of contents show the lack of a heading in this particular section of the document. And it is good practice to have at least a heading after each section.
 
 
-#### Other elements and attributes (19-26)
+### 1.6.6 Other elements and attributes (19-26)
 
 19. Which element?
 
@@ -239,9 +238,9 @@ As stated in the grading policy page, they count towards 15% of your final grade
 
   Can we easily style `<summary>` and `<details>`?
 
-  a. Yes, CSS rules can be used like color, background-color etc, and some browsers propose non standard pseudo-classes for the icon, depending on the state of the summary element (folded / unfolded)
-  b. Yes but we can only style them using proprietary browser-dependant pseudo classes
-  c. No, there is no support for styling these elements
+  a. Yes, CSS rules can be used like color, background-color etc, and some browsers propose non standard pseudo-classes for the icon, depending on the state of the summary element (folded / unfolded)<br/>
+  b. Yes but we can only style them using proprietary browser-dependent pseudo classes<br/>
+  c. No, there is no support for styling these elements<br/>
 
   Ans: a<br/>
   Explanation: The right answer is the last one: we can use regular CSS properties; some of them will work like color, margin, padding, etc, and browser-dependent pseudo classes can be used for customizing dedicated properties like the small icon.
@@ -288,8 +287,8 @@ As stated in the grading policy page, they count towards 15% of your final grade
 
   Which HTML5 element has been designed to highlight text?
 
-  a. `<ht>`
-  b. No element is particularly dedicated, I can use use CSS to change the background of a part of text, for example by surrounding it with `<span style="background-color:yellow">`...`<span>`
+  a. `<ht>`<br/>
+  b. No element is particularly dedicated, I can use use CSS to change the background of a part of text, for example by surrounding it with `<span style="background-color:yellow">`...`<span>`<br/>
   c. `<mark>`<br/>
   d. `<bold>`<br/>
   e. `<highlight>`<br/>
@@ -328,15 +327,15 @@ As stated in the grading policy page, they count towards 15% of your final grade
 
 #### Microdata (27-34)
 
-27. Microdata (2 correct answers)
+27. Microdata
 
-  Which of the following statements are true for microdata?
+  Which of the following statements are true for microdata? (3 correct answers)
 
-  a. They are mandatory in order to be indexed by search engines.
-  b. They are meant to be processed by machines, not read by humans.
-  c. A page with proper microdata will be better indexed and may appear in search results with an enhanced presentation.
-  d. They have been created by Google and Microsoft.
-  e. There are many vocabularies (schemas) of microdata for describing Persons, Movies, Organizations, etc.
+  a. They are mandatory in order to be indexed by search engines.<br/>
+  b. They are meant to be processed by machines, not read by humans.<br/>
+  c. A page with proper microdata will be better indexed and may appear in search results with an enhanced presentation.<br/>
+  d. They have been created by Google and Microsoft.<br/>
+  e. There are many vocabularies (schemas) of microdata for describing Persons, Movies, Organizations, etc.<br/>
 
   Ans: bce<br>
   Explanation: Microdata are meant to be processed by machines, in particular by search engines and Web crawlers. Web sites with good microdata will be better indexed and have a higher rank. Some microdata values will appear in search results too, with an enhanced presentation (this depends on the search engine, you need to read their documentation related to SEO - Search Engine Optimization). And there are many vocabularies available, new ones being published every month. You can even define your own vocabulary.
