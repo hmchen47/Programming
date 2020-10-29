@@ -2,8 +2,6 @@
 
 This repository tracks my learning on different programming languages.
 
-Contents
-
 ## C Related - C, C++, C#, 
 
 + [Learn C the Hard Way](./C_C++/CHardWay/README.md)
