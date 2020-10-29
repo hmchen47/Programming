@@ -3,7 +3,7 @@
 
 ## 1.5 Microdata
 
-
+ 
 ### 1.5.0 Lecture Notes
 
 + [Machine-readable content embedded in a classical Web document](#151-introduction)
@@ -187,9 +187,9 @@ __Note__: For advanced users, Microdata is very similar to [microformats](http:/
 #### Knowledge check 1.5.1 
 
 1. What is the correct proposition to define a city?<br/>
-  a. `itemtype="http://schema.org/PostalAddress" and itemprop = "<br/>postalCode"`<br/>
+  a. `itemtype="http://schema.org/PostalAddress" and itemprop = "postalCode"`<br/>
   b. `itemtype="http://schema.org/Country" and itemprop = "name"`<br/>
-  c. `itemtype="http://schema.org/PostalAddress" and itemprop = "addressLo<br/>cality"`<br/>
+  c. `itemtype="http://schema.org/PostalAddress" and itemprop = "addressLocality"`<br/>
   d. `itemtype="http://schema.org/Country" and itemprop = "addressRegion"`<br/>
 
   Ans: c<br/>
