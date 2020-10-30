@@ -420,8 +420,8 @@ Notice the other similarities: between the `<audio>`...`</audio>` tags, we added
 
 	a. HTML5 can use flash players<br/>
 	b. The WebAudio API<br/>
-	c. The <music> element<br/>
-	d. The <audio> element<br/>
+	c. The `<music>` element<br/>
+	d. The `<audio>` element<br/>
 	e. The JavaScript sound.js library<br/>
 	
 	Ans: bd, xde<br/>
