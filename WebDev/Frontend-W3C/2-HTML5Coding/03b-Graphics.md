@@ -688,7 +688,7 @@ The way the rectangle will be filled depends on the current value of several pro
 
 #### Knowledge check 3.2.6
 
-1. Drawing shapes in a canvas is only possible from JavaScript, and the canvas must be selected using the DOM API first, using document.getElementById(...), document.querySelector(...), etc. (True/False)
+1. Drawing shapes in a canvas is only possible from JavaScript, and the canvas must be selected using the DOM API first, using `document.getElementById(...)`, `document.querySelector(...)`, etc. (True/False)
 
   Ans: True<br/>
   Explanation: Indeed, while setting an image background in a canvas using CSS is possible, drawing shapes is done by using the canvas JavaScript API.
