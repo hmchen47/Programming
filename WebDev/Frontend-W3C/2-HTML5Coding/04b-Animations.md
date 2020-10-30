@@ -612,8 +612,8 @@ Current [support](https://caniuse.com/#feat=requestanimationframe) is really goo
   a. Yes, this is true<br/>
   b. No, it will call the function automatically every 16.6ms, resulting in a 60 frames/second smooth animation. It works like setInterval, but is more efficient.<br/>
 
-  Ans: a<br/>
-  Explanation: A call to `requestAnimationFrame` just asks the browser to call the function passed as a parameter ONCE, and the target delay is fixed, and corresponds to a 60 frames/s frame rate (16.6ms). In an animation loop, it is necessary to call again `requestAnimationFrame` at the end of the loop to ask for another frame of animation. Similarly to `setTimeout`...
+  Ans: <span style="color: magenta;">a</span><br/>
+  Explanation: A call to `requestAnimationFrame` just asks the browser to call the function passed as a parameter <mark style="background-color: lightpink;">ONCE</mark>, and the target delay is fixed, and corresponds to a 60 frames/s frame rate (16.6ms). In an animation loop, it is necessary to call again `requestAnimationFrame` at the end of the loop to ask for another frame of animation. Similarly to `setTimeout`...
 
 
 
