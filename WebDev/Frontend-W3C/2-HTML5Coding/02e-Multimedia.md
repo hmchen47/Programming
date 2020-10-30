@@ -2,7 +2,7 @@
 
 
 ## 2.5 Exercises - Week 2
-
+ 
 
 ### 2.5.1 Intro exercises - Week 2
 
