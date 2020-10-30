@@ -424,7 +424,7 @@ Notice the other similarities: between the `<audio>`...`</audio>` tags, we added
 	d. The `<audio>` element<br/>
 	e. The JavaScript sound.js library<br/>
 	
-	Ans: bd, xde<br/>
+	Ans: bd, xde<br/> 
 	Explanation: HTML5 provides the `<audio>` element for streaming audio content, and the WebAudio API for playing samples loaded in memory, for synthesizing music or for real time sound processing.
 
 
