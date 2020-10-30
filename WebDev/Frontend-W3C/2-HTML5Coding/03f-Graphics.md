@@ -3,7 +3,7 @@
 
 ## 3.6 Exercises - Week 3
 
-
+ 
 ### 3.6.1 Intro exercises - Week 3
 
 Here is an opportunity to show that you have learned the basics of drawing 2D Web graphics, and are ready to proceed with the rest of the course.
@@ -199,9 +199,8 @@ __Source code for the next question (6)__
 10. Global or local transformations?
 
   <pre>&lt;canvas id="myCanvas" width=400 height=600&gt;&lt;/canvas&gt;
-  </pre>
   ...
-  <pre>ctx.translate(100, 60);
+  ctx.translate(100, 60);
   ctx.rotate(Math.PI/4);
   // First drawing
   ctx.fillRect(0, 0, 100, 100);
@@ -228,7 +227,7 @@ __Source code for the next question (6)__
   b. Either changing any property of the context (lineWidth, font, etc.) or changing the coordinate system by applying 2D transformations to the coordinate system.<br/>
   c. Changing only the value of the fillStyle or strokeStyle property.<br/>
 
-  Ans: <span style="color: magenta;">b</span>, c<br/>
+  Ans: <span style="color: magenta;">b</span>, xc<br/>
   Explanation: Any modification in the context properties or any 2D transformation changes the context.
 
 
@@ -238,7 +237,7 @@ __Source code for the next question (6)__
   What best practice has been introduced in the course?
 
   a. Call `ctx.save()` at the beginning of any function that changes the context, call `ctx.restore()` at the end of the function.<br/>
-  a. No need to save / restore the context, it suffices to set fillStyle, strokeStyle, lineWidth, etc. and apply the correct 2D transforms before any drawing.<br/>
+  b. No need to save / restore the context, it suffices to set fillStyle, strokeStyle, lineWidth, etc. and apply the correct 2D transforms before any drawing.<br/>
 
   Ans: a<br/>
   Explanation: Of course, the best practice is to save the context at the beginning of any function that changes the context, and then restore it at the end of the function.
@@ -357,7 +356,7 @@ __Source code for the next question (17)__
 
   Will the above code draw the image every time, even with a large image that is not in the browser's cache? (Yes/No)
 
-  Ans: b<br/>
+  Ans: No<br/>
   Explanation: No, this example comes from the course content. This code may work if the image is very small or is located in the browser cache, but we cannot repeat it often enough: you cannot draw an image in a canvas until you are 100% sure that it has been loaded into memory. The course shows how to do this, using the onload event. Here is the [correct version](https://jsbin.com/faqedu/edit), and here the [same version with a very large image](https://jsbin.com/mayoma/edit).
 
 
@@ -503,12 +502,11 @@ __Source code for the next question (17)__
 
   Which of the following are possible values for the strokeStyle or fillStyle context properties? (3 correct answers.)
 
-  An image
-
-  a. A gradient<br/>
-  b. A video<br/>
-  c. A pattern<br/>
-  d. A color<br/>
+  a. An image
+  b. A gradient<br/>
+  c. A video<br/>
+  d. A pattern<br/>
+  e. A color<br/>
 
   Ans: bde<br/>
   Explanation: These context properties can get the value of a color, a pattern or a gradient.
@@ -534,7 +532,7 @@ __Source code for the next question (17)__
   What is a "gradient color stop"?
 
   a. One of the set of points defining the distribution of colors along the gradient.<br/>
-  a. The name of the last color of the gradient.<br/>
+  b. The name of the last color of the gradient.<br/>
 
   Ans: a<br/>
   Explanation: Once a gradient has been created, color stops are placed along it to define how the colors are distributed along the gradient. The color of the gradient at each stop is the color specified for that stop. Between each such stop, the colors and the alpha component must be linearly interpolated over the RGBA space without premultiplying the alpha value to find the color to use at that offset. Before the first stop, the color must be the color of the first stop. After the last stop, the color must be the color of the last stop. When there are no stops, the gradient is transparent black.
@@ -560,21 +558,28 @@ __Source code for the next question (17)__
   context.fillStyle = grd;
   </pre>
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
-      onclick="window.open('https://tinyurl.com/y2zkyegy')"
-      src    ="https://tinyurl.com/yxo2oayb"
-      alt    ="first image shows a symmetric radial gradient, second image shows an asymmetric radial gradient"
-      title  ="first image shows a symmetric radial gradient, second image shows an asymmetric radial gradient"
-    />
-  </figure>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y2zkyegy" ismap target="_blank">
+      <img style="margin: 0.1em;" height=100
+        src  ="https://tinyurl.com/yxo2oayb"
+        alt  ="first image shows a symmetric radial gradient"
+        title="first image shows a symmetric radial gradient"
+      >
+      <img style="margin: 0.1em;" height=100
+        src  ="https://tinyurl.com/y427ngpr"
+        alt  ="second image shows an asymmetric radial gradient"
+        title="second image shows an asymmetric radial gradient"
+      >
+    </a>
+  </div>
+
 
   Will this gradient produce a result like that in the first or in the second image?
 
   a. First<br/>
   b. Second<br/>
 
-  Ans: First<br/>
+  Ans: a<br/>
   Explanation: The parameters of createLinearGradient define two circles. Colors will be interpolated from the outline of the first circle to the outline of the second one. The circles in `context.createRadialGradient(150, 100, 30, 150, 100, 100)` are located at the same place (150, 100). This will produce a symmetric gradient that corresponds to the first image.
 
 
