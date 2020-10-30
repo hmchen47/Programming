@@ -963,7 +963,7 @@ We just added `mouseup` and `mousedown` listeners, extract from the source code:
   c. No problem: use the event.mouseX and event.mouseY properties.<br/>
 
   Ans: b<br/>
-  Explanation: 
+  Explanation:
     + Most of the time you need to work with the mouse position relative to the canvas, not to the window, so you must convert the coordinates between the window and the canvas. This will take into account the position of the canvas, and the CSS properties that may affect the canvas position (margin, etc.).
     + Fortunately, there exists a method for getting the position and size of any element in the page: `getBoundingClientRect()`.
 
@@ -1231,8 +1231,8 @@ The code is very similar to the previous example, we just replaced `drawDiagonal
   c. Recommended<br/>
   d. Not possible<br/>
 
-  Ans: b<br/>
-  Explanation: Using % in CSS is not recommended, and is considered a bad practice as this will modify the size of the canvas pixels and produce a blurry effect. If the size is increased, the resolution is kept the same, only with bigger pixels.
+  Ans: <span style="color: magenta;">b</span><br/>
+  Explanation: Using % in CSS is <mark style="background-color: lightpink;">not recommended</mark>, and is considered a bad practice as this will modify the size of the canvas pixels and produce a blurry effect. If the size is increased, the resolution is kept the same, only with bigger pixels.
 
 
 ### 4.3.5 Advanced canvas
