@@ -489,7 +489,7 @@ __Source code for the knowledge check 5.5.4__
   d. There are two input fields with an `autofocus` attribute, and this is not correct.<br/>
   e. _At line 9_, the value of the student ID cannot contain letters, this will make this field invalid.<br/>
 
-  Ans: <span color="color: magenta;">bd</span>, xde<br/>
+  Ans: <span style="color: magenta;">bd</span>, xde<br/>
   Explanation: The `for` and `id` attributes must match between a label and its associated input field. And you should never have more than one input field with the `autofocus` attribute.
 
 
