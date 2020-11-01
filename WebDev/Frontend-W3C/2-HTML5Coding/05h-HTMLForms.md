@@ -160,7 +160,7 @@ __Source code for the next question (4):__
      &lt;<b style="color:red">?</b> for="slider1" id="rangeValue1"&gt;&lt;/<b style="color:red">?</b>&gt;
   </pre>
 
-  Which <strong<<u>new</u></strong> element introduced by HTML5 is often used to display the value of an `<input type="range">` element? Which element name would you put instead of the red "?" in the above code?
+  Which <strong> <u>new</u></strong> element introduced by HTML5 is often used to display the value of an `<input type="range">` element? Which element name would you put instead of the red "?" in the above code?
 
   a. p<br/>
   b. div<br/>
@@ -169,8 +169,6 @@ __Source code for the next question (4):__
 
   Ans: c<br/>
   Explanation: The element introduced by HTML5, often used to display the value of a range attribute is... `<output>`! The other elements existed previously, before HTML5, and were not especially designed for displaying an input field's outputs.
-
-
 
 
 8. Floating point range
@@ -280,10 +278,10 @@ __Source code for the next question (10):__
   The `list` attribute of the input field must match an attribute of the corresponding `datalist` element in order to make the local autocompletion work. Which one?
 
   a. id<br/>
-  a. name<br/>
-  a. list<br/>
+  b. name<br/>
+  c. list<br/>
 
-  Ans: a<br/>
+  Ans: <span style="color: magenta;">a</span><br/>
   Explanation: The value of the `list` attribute of the input field must match the value of the `id` of the `<datalist>` element.
 
 
@@ -374,7 +372,7 @@ __Source code for the next question (10):__
   b. progress<br/>
   c. meter<br/>
 
-  Ans: b<br/>
+  Ans: <span style="color: magenta;">b</span><br/>
   Explanation: The `<progress>` element is similar to `<meter>` but it is used for progress bars (i.e., a percentage of a file being uploaded, etc.). Example: `<progress id=pr value=50 min=0 max=100>`
 
 
@@ -384,7 +382,7 @@ __Source code for the next question (10):__
   The `<datalist>` element, when used with `<input type=range>`, is useful for?
 
   a. Adding ticks to the slider bar<br/>
-  a. autocompletion<br/>
+  b . autocompletion<br/>
 
   Ans: <span style="color: magenta;">a</span>, xb<br/>
   Explanation: The `<datalist>` element can be used to display ticks when used together with an `<input type=range>`. See [this example at JS Bin](http://jsbin.com/xeravi/1/edit).
