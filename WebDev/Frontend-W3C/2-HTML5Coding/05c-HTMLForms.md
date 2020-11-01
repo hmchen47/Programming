@@ -148,13 +148,13 @@ __Example #1__
 
 Click on the label, not on the input field to see the effect.
 
-<p class="exampleHTML"><label class="label" for="first_name">First name: </label> <input name="firstname" id="first_name" type="text"></p>
+<p><label for="first_name">First name: </label> <input name="firstname" id="first_name" type="text"></p>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="tag">&gt;</span><span class="pln">Your First Name</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">/&gt;</span></li>
+<div><ol>
+<li value="1">&lt;label for="first_name"&gt;Your First Name&lt;/label&gt;</li>
+<li>&lt;input id="first_name" type="text" name="fname"/&gt;</li>
 </ol></div>
 
 
@@ -164,27 +164,27 @@ Note that you can also include the `<input>` element inside the `<label>`...`</l
 
 Source code (with `<input>` inside the `<label>`):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="tag">&gt;&lt;</span></strong><span class="pln"><strong>span lang=en"&gt;</strong>Your First Name</span><strong><span class="tag">&lt;/span&gt;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="tag">&lt;/label&gt;</span></strong></li>
+<div><ol>
+<li value="1"><strong>&lt;label for="first_name"&gt;&lt;</strong><strong>span lang=en"&gt;</strong>Your First Name<strong>&lt;/span&gt;</strong></li>
+<li>&lt;input id="first_name" type="text" name="fname"/&gt;</li>
+<li><strong>&lt;/label&gt;</strong></li>
 </ol></div>
 
 __Example #3__
 
 Click on the label "Subscribe to newsletter" to see what this does.
 
-<p class="exampleHTML"><label class="label" for="firstname">First name: </label> <input name="firstname" id="firstname" type="text"><br><label class="label" for="subscribe">Subscribe to newsletter</label> <input name="subscribe" id="subscribe" type="checkbox"></p>
+<p><label for="firstname">First name: </label> <input name="firstname" id="firstname" type="text"><br><label for="subscribe">Subscribe to newsletter</label> <input name="subscribe" id="subscribe" type="checkbox"></p>
 
  
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="tag">&gt;</span><span class="pln">First name:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="tag">&gt;&lt;br&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln">&nbsp;</span><span class="atn">for</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="tag">&gt;</span><span class="pln">Subscribe to newsletter</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1">&lt;label for="firstname"&gt;First name:&lt;/label&gt;</li>
+<li>&lt;input type="text" name="firstname" id="firstname"&gt;&lt;br&gt;</li>
+<li></li>
+<li>&lt;label&nbsp;for="subscribe"&gt;Subscribe to newsletter&lt;/label&gt;</li>
+<li>&lt;input type="checkbox" name="subscribe" id="subscribe"&gt;</li>
 </ol></div>
 
 
@@ -196,17 +196,17 @@ When using the `<input>` element to create buttons, the label is set in the valu
 
 Source code for the "Submit" and "Cancel" buttons example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="tag">&gt;</span><span class="pln">Cancel</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Cancel"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1">&lt;button type="submit"&gt;Submit&lt;/button&gt;</li>
+<li>&lt;button type="button"&gt;Cancel&lt;/button&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;input type="submit" value="Submit"&gt;</li>
+<li>&lt;input type="button" value="Cancel"&gt;</li>
 </ol></div>
 
 These give the same results:
 
-<p class="exampleHTML"><em>Lines 1 and 2</em> render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>... while li<em>nes 3 and 4</em> render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
+<p><em>Lines 1 and 2</em> render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>... while li<em>nes 3 and 4</em> render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
  
 
 #### Labeling text areas
@@ -216,8 +216,8 @@ Enter your address:
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;</span><span class="pln">Enter your address:</span><span class="tag">&lt;/label&gt;&lt;br&gt;</span><span class="pln"> </span><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"addresstext"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li>
+<div><ol>
+<li value="1">&lt;label for="address"&gt;Enter your address:&lt;/label&gt;&lt;br&gt; &lt;textarea id="address" name="addresstext"&gt;&lt;/textarea&gt;</li>
 </ol></div>
 
 
@@ -235,23 +235,23 @@ __Example #1: radio buttons__
 
 In the example below, there are three radio buttons that allow the user to choose an output format. Radio button groups should always be grouped using `<fieldset>`.
 
-<form><fieldset><legend>Output format</legend> <input name="format" id="txt" type="radio" value="txt"> <label class="label" for="txt">Text file<br></label><br> <input name="format" id="csv" type="radio" value="csv"> <label class="label" for="csv">CSV file<br></label><br> <input name="format" id="html" type="radio" value="HTML"> <label class="label" for="html">HTML file</label></fieldset></form>
+<form><fieldset><legend>Output format</legend> <input name="format" id="txt" type="radio" value="txt"> <label for="txt">Text file<br></label><br> <input name="format" id="csv" type="radio" value="csv"> <label for="csv">CSV file<br></label><br> <input name="format" id="html" type="radio" value="HTML"> <label for="html">HTML file</label></fieldset></form>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;legend&gt;</span><span class="pln">Output format</span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"format"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"txt"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"txt"</span><span class="pln"> </span><span class="atn">checked</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"txt"</span><span class="tag">&gt;</span><span class="pln">Text file</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"format"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"csv"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"csv"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"csv"</span><span class="tag">&gt;</span><span class="pln">CSV file</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> […]</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/fieldset&gt;</span></li>
+<div><ol>
+<li value="1">&lt;fieldset&gt;</li>
+<li>&lt;legend&gt;Output format&lt;/legend&gt;</li>
+<li> &lt;div&gt;</li>
+<li> &lt;input type="radio" name="format" id="txt" value="txt" checked&gt;</li>
+<li> &lt;label for="txt"&gt;Text file&lt;/label&gt;</li>
+<li> &lt;/div&gt;</li>
+<li> &lt;div&gt;</li>
+<li> &lt;input type="radio" name="format" id="csv" value="csv"&gt;</li>
+<li> &lt;label for="csv"&gt;CSV file&lt;/label&gt;</li>
+<li> &lt;/div&gt;</li>
+<li> […]</li>
+<li>&lt;/fieldset&gt;</li>
 </ol></div>
 
 
@@ -260,22 +260,22 @@ __Example #2: checkboxes__
 In the example below, there are three checkboxes that are all part of an opt-in function for receiving different types of information.
 
 <form action="#" method="post"><fieldset><legend>I want to receive</legend>
-<div><input name="newsletter" id="check_1" type="checkbox"> <label class="label" for="check_1">The weekly newsletter</label></div>
-<div><input name="company_offers" id="check_2" type="checkbox"> <label class="label" for="check_2">Offers from the company</label></div>
-<div><input name="assoc_offers" id="check_3" type="checkbox"> <label class="label" for="check_3">Offers from associated companies</label></div>
+<div><input name="newsletter" id="check_1" type="checkbox"> <label for="check_1">The weekly newsletter</label></div>
+<div><input name="company_offers" id="check_2" type="checkbox"> <label for="check_2">Offers from the company</label></div>
+<div><input name="assoc_offers" id="check_3" type="checkbox"> <label for="check_3">Offers from associated companies</label></div>
 </fieldset></form>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;legend&gt;</span><span class="pln">I want to receive</span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;div&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"newsletter"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"check_1"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"check_1"</span><span class="tag">&gt;</span><span class="pln">The weekly newsletter</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/div&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">[…]</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/fieldset&gt;</span></li>
+<div><ol>
+<li value="1">&lt;fieldset&gt;</li>
+<li>&lt;legend&gt;I want to receive&lt;/legend&gt;</li>
+<li>&lt;div&gt;</li>
+<li>&lt;input type="checkbox" name="newsletter" id="check_1"&gt;</li>
+<li>&lt;label for="check_1"&gt;The weekly newsletter&lt;/label&gt;</li>
+<li>&lt;/div&gt;</li>
+<li>[…]</li>
+<li>&lt;/fieldset&gt;</li>
 </ol></div>
 
 
