@@ -77,8 +77,8 @@ As stated in the grading policy page, this final exam counts towards 25% of the 
   a. Local files (located on the client-side)<br/>
   b. Remote files (located on a distant server)<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The File API is for working with local files.
 
 
 6. Which metadata?
@@ -100,8 +100,8 @@ As stated in the grading policy page, this final exam counts towards 25% of the 
   e. date<br/>
   f. lastModifiedDate<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: bcdf<br/>
+  Explanation: The different file metadata properties are `size`, `type`, `name`, and `lastModifiedDate`.
 
 
 __Source code for the next 2 questions (7 and 8)__
@@ -131,19 +131,19 @@ __Source code for the next 2 questions (7 and 8)__
 
   Is line 12 executed before line 10? (Yes/No)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: yes<br/>
+  Explanation: Yes, when we call reader.readAsText(...);, the file starts being read. Then, once entirely read, the reader.onload callback is called. The correct answer is "Yes".
 
 
 8. Value or result?
 
   At line 10, what should you put instead of the red bold "?" in order to get the file content?
 
-  a. e.target.result;<br/>
-  b. e.target.value;<br/>
+  a. `e.target.result;`<br/>
+  b. `e.target.value;`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The content of the file that has been read is located in the `e.target.result` property.
 
 
 9. data URL?
@@ -157,8 +157,8 @@ __Source code for the next 2 questions (7 and 8)__
   a. A URL that contains the resource data within the URL string itself, as a base64-encoded string.<br/>
   b. A URL for exchanging data in binary format. It is more compressed, which is useful for compressing text data, for example.<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Data URLs are a Uniform Resource Identifier scheme that allows you to include data items inline in a Web page as if they were being referenced as external resources. Data URLs are a form of Uniform Resource Locator, although they do not in fact remotely locate anything. Instead, the resource data is contained within the URL string itself as a base64-encoded string.
 
 
 
