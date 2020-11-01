@@ -68,4 +68,99 @@ As stated in the grading policy page, this final exam counts towards 25% of the 
   Explanation: JSON provides a great way of encoding and decoding data that is a really good match for JavaScript. We saw this in the course examples that store JavaScript objects as JSON.
 
 
+### 6.5.3 Exercises (5-9)
+
+5. Local or remote?
+
+  The File API has been designed to work with?
+
+  a. Local files (located on the client-side)<br/>
+  b. Remote files (located on a distant server)<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+6. Which metadata?
+
+  <pre>&lt;input type="file" id="input"/&gt;
+
+  ...
+  var selectedFile = document.getElementById('input').files[0];
+  </pre>
+
+  Suppose that we have selected at least one file with the above input field, and that selectedFile is its file descriptor.
+
+  What properties are provided by the File API on file descriptors, for consulting metadata? (4 correct answers.)
+
+  a. width<br/>
+  b. size<br/>
+  c. type<br/>
+  d. name<br/>
+  e. date<br/>
+  f. lastModifiedDate<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+__Source code for the next 2 questions (7 and 8)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"files"</span><span class="tag">&gt;</span><span class="pln">Choose a text file:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"files"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">readFileContent</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">files</span><span class="pun">)</span><span class="atv">"</span><span class="tag">/&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">rows</span><span class="pun">=</span><span class="atv">15</span><span class="pln"> </span><span class="atn">cols</span><span class="pun">=</span><span class="atv">50</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"fileContent"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> readFileContent</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"fileContent"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">=</span><span class="pln"> </span><span class="pun"><strong><span style="color: #ff0000;">?</span></strong>;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">readAsText</span><span class="pun">(</span><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+7. Execution order...
+
+  The above code works.
+
+  When a file is selected by a user, the function readFileContent is called.
+
+  Is line 12 executed before line 10? (Yes/No)
+
+  Ans: <br/>
+  Explanation: 
+
+
+8. Value or result?
+
+  At line 10, what should you put instead of the red bold "?" in order to get the file content?
+
+  a. e.target.result;<br/>
+  b. e.target.value;<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+9. data URL?
+
+  <pre>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyb
+  lAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==
+  </pre>
+
+  A data URL is?
+
+  a. A URL that contains the resource data within the URL string itself, as a base64-encoded string.<br/>
+  b. A URL for exchanging data in binary format. It is more compressed, which is useful for compressing text data, for example.<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+
+
 
