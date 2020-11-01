@@ -161,6 +161,86 @@ __Source code for the next 2 questions (7 and 8)__
   Explanation: Data URLs are a Uniform Resource Identifier scheme that allows you to include data items inline in a Web page as if they were being referenced as external resources. Data URLs are a form of Uniform Resource Locator, although they do not in fact remotely locate anything. Instead, the resource data is contained within the URL string itself as a base64-encoded string.
 
 
+### 6.5.4 Exercises (10-15)
+
+10. How do you geolocate me?
+
+  How does the HTML5 geolocation API locate the client's browser?
+
+  a. Different methods, including: GPS, GSM/3G triangulation, WIFI, and IP address; are tried to get the current location.<br/>
+  b. Using GPS only. If no GPS, it's impossible to geolocate. That's why smartphones often ask the user to turn on the GPS.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+11. She's the one!
+
+  <pre>navigator.geolocation.getCurrentPosition(showPosition, onError);
+  
+  function showPosition(position) {
+      console.log("latitude is: " + position.coords.latitude);
+      console.log("longitude is: " + position.coords.longitude);
+  }
+  
+  function onError(err) {
+      console.log("Could not get the position");
+  }
+  </pre>
+
+  With the above code, if a position is available, how many times will the showPosition callback be called?
+
+  a. Once.<br/>
+  b. Several times: if we move and the position changes, the showPosition method will be called again.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+12. Asking permission
+
+  Can the JavaScript of a Web page turn geolocation on without asking the user at least once?
+
+  a. No, a Web site user that uses geolocation must agree to be geolocated, at least once.<br/>
+  b. Yes, we can geolocate without asking permission.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+13. Be accurate, please!
+
+  Is it possible to know the accuracy of a given position? (Yes/No)
+
+  Ans: <br/>
+  Explanation: 
+
+
+14. Watch my position
+
+  `var watchPosId = navigator.geolocation.watchPosition(showPosition);`
+
+  With the above code, how often will the showPosition callback function be called?
+
+  a. It will be called only when a new position is available.<br/>
+  a. It will be called at regular intervals of time that depend on the browser's implementation; at least twice per minute.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+15. Get current position
+
+  `navigator.geolocation.getCurrentPosition(showPosition, onError,{enableHighAccuracy:true});`
+
+  What is the meaning of the third parameter?
+
+  a. It will try to use the GPS if available. This may prompt the user to turn on the GPS of his mobile device, if the GPS is turned off.<br/>
+  b. This just activates a high resolution computation of the coordinates (using 64 bit accuracy), independently of the means used to geolocate.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
 
 
 
