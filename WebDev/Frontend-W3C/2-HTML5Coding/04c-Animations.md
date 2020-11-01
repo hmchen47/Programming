@@ -238,10 +238,10 @@ __First way: declare event handlers in the HTML code__
 
 You will often find this in examples on the Web:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"someDiv"</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'clicked!'</span><span class="pun">);</span><span class="atv">"</span></strong><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; content of the div </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/div&gt;</span></li>
+<div><ol>
+<li value="1">&lt;div id="someDiv" <strong>onclick="alert('clicked!');"</strong>&gt; </li>
+<li>&nbsp; &nbsp; content of the div </li>
+<li>&lt;/div&gt;</li>
 </ol></div>
 
 Note: this is not the recommended way to handle events, even if it's very easy to use. Mixing the 'visual layer' (HTML) and the 'logic layer' (JavaScript) in one place is ok for small examples (we have used this in some examples in this course) but is not the recommended way for full scale applications where a clean separation is best.
@@ -251,10 +251,10 @@ __Second way: add an event handler to an HTML element in JavaScript__
 
 Here is an example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'someDiv'</span><span class="pun">).</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(evt)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; alert</span><span class="pun">(</span><span class="str">'clicked!'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">document.getElementById('someDiv').onclick = function(evt) {</li>
+<li>&nbsp; alert('clicked!');</li>
+<li>}</li>
 </ol></div>
 
 This method is fine, but  you will not be able to attach several listener functions. If you need to do this, the preferred version is the next one.
@@ -264,10 +264,10 @@ __Third way: register a callback to the event listener with the `addEventListene
 
 This is how we do it:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'someDiv'</span><span class="pun">).</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(evt)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">'clicked!'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">document.getElementById('someDiv').addEventListener('click', function(evt) {</li>
+<li>&nbsp; &nbsp; alert('clicked!');</li>
+<li>}, false);</li>
 </ol></div>
 
 The third parameter is not important for now, just set it to `false`, or simply do not add a third parameter.
@@ -277,10 +277,10 @@ The third parameter is not important for now, just set it to `false`, or simply 
 
 When you create an EventListener and attach it to an element,  an event object will be passed as a parameter to your callback, just like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">element</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><strong><span class="kwd">event</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// now you can use the event object inside the callback</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">element.addEventListener('click', function(<strong>event</strong>) {</li>
+<li>&nbsp; &nbsp;<strong>// now you can use the event object inside the callback</strong></li>
+<li>}, false);</li>
 </ol></div>
 
 Depending on the type of event you are listening to, we will use different properties from the event object in order to get useful information like: "what keys have been pressed down?", "what is the position of the mouse cursor?", "which mouse button is down?", etc.
@@ -294,29 +294,29 @@ Source code for the knowledge check 4.3.1
 
 [Online example on JS Bin](http://jsbin.com/korele/edit)
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Click on button</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myButton"</span><span class="tag">&gt;</span><span class="pln">Click me!</span><span class="tag">&lt;/button&gt;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> button </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myButton'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;<strong>// Define a click listener on the button</strong></span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;button</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> processClick</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// callback</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> processClick</span><span class="pun">(</span><strong><span class="pln">event</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Button clicked"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="com">// What is the event parameter?</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Click on button&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &nbsp;<strong>&lt;button id="myButton"&gt;Click me!&lt;/button&gt;</strong></li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp;var button = document.getElementById('myButton');</li>
+<li>&nbsp; &nbsp;<strong>// Define a click listener on the button</strong></li>
+<li><strong>&nbsp; &nbsp;button.addEventListener('click', processClick);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;// callback</li>
+<li>&nbsp; &nbsp;function processClick(<strong>event</strong>) {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("Button clicked");</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<strong>// What is the event parameter?</strong></li>
+<li>&nbsp; &nbsp;}</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 
@@ -336,12 +336,12 @@ This has been a bit of a nightmare for years, as different browsers have had dif
 
 When you listen to keyboard related events (`keydown`, `keyup` or `keypressed`), the event parameter passed to the listener function will contain the code of the key that fired the event. Then it is possible to test what key has been pressed or released, like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><strong><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">//left arrow was pressed</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">window.addEventListener('keydown', function(event) {</li>
+<li>&nbsp; &nbsp;if (<strong>event.keyCode === 37</strong>) {</li>
+<li>&nbsp; &nbsp; &nbsp;//left arrow was pressed</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}, false);</li>
 </ol></div>
 
 At line 2, the value "37" is the key code that corresponds to the left arrow. It might be difficult to know the correspondences between real keyboard keys and codes, so here are handy pointers:
@@ -378,23 +378,23 @@ A lot of people think that the canvas element is not able to get key events. Man
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"350"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"200"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/canvas&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// This will work when you press a key, anywhere on the document</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>window</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> handleKeydown</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> handleKeydown</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">'keycode: '</span><span class="pun">+</span><span class="pln">e</span><span class="pun">.</span><span class="pln">keyCode</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">&lt;canvas id="myCanvas" width="350" height="200"&gt;</li>
+<li>&lt;/canvas&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;script&gt;</li>
+<li> </li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp;&nbsp;<strong>// This will work when you press a key, anywhere on the document</strong></li>
+<li>&nbsp; &nbsp; <strong>window</strong><strong>.addEventListener('keydown', handleKeydown, false);</strong></li>
+<li> }</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>function handleKeydown(e){</li>
+<li>&nbsp; &nbsp; alert('keycode: '+e.keyCode);</li>
+<li>&nbsp; &nbsp;&nbsp;return false;</li>
+<li> };</li>
+<li>&lt;/script&gt;</li>
 </ol></div>
 
 Indeed this solution works well if you write a game, and want to detect events wherever the mouse cursor is, and without worrying about what HTML element has the focus, etc...
@@ -416,56 +416,56 @@ __Move the monster with the keyboard__
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><strong><span class="pln"> monsterX</span><span class="pun">=</span><span class="lit">100</span></strong><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">=</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><strong><span class="pln"> incrementX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span></strong><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// This function is called after the page is loaded</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 1 - Get the canvas</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 2 - Get the context</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// 3 add key listeners to the window element</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>window</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> handleKeydown</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>window</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keyup'</span><span class="pun">,</span><span class="pln"> handleKeyup</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 4 - start the animation</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><strong><span class="pln"> handleKeydown</span><span class="pun">(evt</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><strong><span class="pln">evt</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="com">//left key </span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>incrementX </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><strong><span class="pln">evt</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">39</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="com">// right key</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>incrementX </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><strong><span class="pln"> handleKeyup</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>incrementX </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 1 - Clear</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 2 Draw</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawMonster</span><span class="pun">(</span><span class="pln">monsterX</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// 3 Move</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>monsterX </strong></span><strong><span class="pun">+=</span><span class="pln"> incrementX</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// call again mainloop after 16.6 ms (60 frames/s)</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">&lt;script&gt;</li>
+<li> var canvas, ctx;</li>
+<li> var<strong> monsterX=100</strong>, monsterY=100, monsterAngle=0;</li>
+<li> var<strong> incrementX = 0</strong>;</li>
+<li> </li>
+<li> function init() {</li>
+<li>&nbsp; &nbsp;&nbsp;// This function is called after the page is loaded</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// 1 - Get the canvas</li>
+<li>&nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// 2 - Get the context</li>
+<li>&nbsp; &nbsp; ctx=canvas.getContext('2d');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong>// 3 add key listeners to the window element</strong></li>
+<li>&nbsp; &nbsp; <strong>window</strong><strong>.addEventListener('keydown', handleKeydown, false);</strong></li>
+<li>&nbsp; &nbsp; <strong>window</strong><strong>.addEventListener('keyup', handleKeyup, false);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// 4 - start the animation</li>
+<li>&nbsp; &nbsp; requestId = requestAnimationFrame(animationLoop);</li>
+<li> }</li>
+<li> </li>
+<li> function<strong> handleKeydown(evt)</strong> {</li>
+<li>&nbsp; &nbsp;&nbsp;if (<strong>evt.keyCode === 37</strong>) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>//left key </strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>incrementX </strong><strong>= -1;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;} else if (<strong>evt.keyCode === 39</strong>) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>// right key</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>incrementX </strong><strong>= 1;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;} </li>
+<li> }</li>
+<li> function<strong> handleKeyup(evt)</strong> {</li>
+<li>&nbsp; &nbsp; <strong>incrementX </strong><strong>= 0;</strong></li>
+<li> }</li>
+<li> </li>
+<li> function animationLoop() {</li>
+<li>&nbsp; &nbsp;&nbsp;// 1 - Clear</li>
+<li>&nbsp; &nbsp; ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// 2 Draw</li>
+<li>&nbsp; &nbsp; drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong>// 3 Move</strong></li>
+<li>&nbsp; &nbsp; <strong>monsterX </strong><strong>+= incrementX;</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// call again mainloop after 16.6 ms (60 frames/s)</li>
+<li>&nbsp; &nbsp; requestId = requestAnimationFrame(animationLoop);</li>
+<li> } </li>
+<li>&lt;/script&gt;</li>
 </ol></div>
 
 
@@ -477,17 +477,17 @@ The `tabindex` attribute of the canvas element makes it focusable. Without it, i
 
 The trick is to declare the canvas like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"350"</span><span class="pln"> </span><strong><span class="atn">tabindex</span><span class="pun">=</span><span class="atv">"1"</span></strong><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"200"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/canvas&gt;</span></li>
+<div><ol>
+<li value="1">&lt;canvas id="myCanvas" width="350" <strong>tabindex="1"</strong> height="200"&gt;</li>
+<li>&lt;/canvas&gt;</li>
 </ol></div>
 
 And we force the canvas to get the focus with:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">canvas</span><span class="pun">.</span><span class="pln">focus</span><span class="pun">();</span></strong></li>
+<div><ol>
+<li value="1">canvas=document.getElementById('myCanvas');</li>
+<li>...</li>
+<li><strong>canvas.focus();</strong></li>
 </ol></div>
 
 Now, if we try an example with the above canvas declaration, we show when an HTML element has the focus: a border is added to it, as shown in this [JSBin code](https://jsbin.com/hobuni/1/edit?html,output). ([Local Example - within Canvas](src/4.3.2-example3.html))
@@ -506,27 +506,27 @@ Note that the line that forces the focus to the canvas is commented by default. 
 
 Extract from the code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;canvas</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// This will work only if the canvas has the focus </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> handleKeydown</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">// We can set the focus on the canvas like this:</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">//canvas.focus();</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// ... but it will stop working if we click somewhere else</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// in the document</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> handleKeydown</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'keycode: '</span><span class="pun">+</span><span class="pln">e</span><span class="pun">.</span><span class="pln">keyCode</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1"> var canvas;</li>
+<li> </li>
+<li> function init() {</li>
+<li>&nbsp; &nbsp; &nbsp;canvas=document.getElementById('myCanvas');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;// This will work only if the canvas has the focus </li>
+<li>&nbsp; &nbsp; &nbsp;<strong>canvas</strong><strong>.addEventListener('keydown', handleKeydown, false);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;<strong>// We can set the focus on the canvas like this:</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>//canvas.focus();</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// ... but it will stop working if we click somewhere else</li>
+<li>&nbsp; &nbsp; &nbsp;// in the document</li>
+<li> }</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li> function handleKeydown(e){</li>
+<li>&nbsp; &nbsp; &nbsp;alert('keycode: '+e.keyCode);</li>
+<li>&nbsp; &nbsp; &nbsp;return false;</li>
+<li> };</li>
 </ol></div>
 
 Line 10 is useful to initially set the focus on the canvas, but this trick will not work if we click somewhere else in the HTML page.
@@ -553,34 +553,34 @@ When the mouse enters the canvas we call `canvas.focus()` to set the focus to th
 
 Extract from the code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// This function is called after the page is loaded</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Get the canvas</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 - Get the context</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">=</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 - Add key listeners to the window element</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> handleKeydown</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keyup'</span><span class="pun">,</span><span class="pln"> handleKeyup</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseenter'</span><span class="pun">,</span><span class="pln"> setFocus</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseout'</span><span class="pun">,</span><span class="pln"> unsetFocus</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 4 - Start the animation</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> setFocus</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">focus</span><span class="pun">();</span></strong><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> unsetFocus</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">blur</span><span class="pun">();</span></strong><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pun">&nbsp; </span><span class="pun">&nbsp;</span><span style="color: #222222; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif; font-size: 14px; line-height: 20.72px;">incrementX = 0; // stop the monster if the mouse exists the canvas</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1"> function init() {</li>
+<li>&nbsp; &nbsp;// This function is called after the page is loaded</li>
+<li>&nbsp; &nbsp;// 1 - Get the canvas</li>
+<li>&nbsp; &nbsp;canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp;// 2 - Get the context</li>
+<li>&nbsp; &nbsp;ctx=canvas.getContext('2d');</li>
+<li></li>
+<li>&nbsp; &nbsp;// 3 - Add key listeners to the window element</li>
+<li>&nbsp; &nbsp;canvas.addEventListener('keydown', handleKeydown, false);</li>
+<li>&nbsp; &nbsp;canvas.addEventListener('keyup', handleKeyup, false);</li>
+<li></li>
+<li>&nbsp; &nbsp;<strong>canvas</strong><strong>.addEventListener('mouseenter', setFocus, false);</strong></li>
+<li>&nbsp; &nbsp;<strong>canvas</strong><strong>.addEventListener('mouseout', unsetFocus, false);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;// 4 - Start the animation</li>
+<li>&nbsp; &nbsp;requestId = requestAnimationFrame(animationLoop);</li>
+<li> }</li>
+<li> </li>
+<li> function setFocus(evt) {</li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.focus();</strong> </li>
+<li> };</li>
+<li> </li>
+<li> </li>
+<li> function unsetFocus(evt) {</li>
+<li>&nbsp; &nbsp;<strong>canvas</strong><strong>.blur();</strong> </li>
+<li><strong>&nbsp; &nbsp;<span style="color: #222222; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif; font-size: 14px; line-height: 20.72px;">incrementX = 0; // stop the monster if the mouse exists the canvas</span></strong></li>
+<li> };</li>
 </ol></div>
 
 The third parameter (false) of _lines 12_ and _13_ means "we do not want to propagate the event to the ancestors of the canvas in the DOM." 
@@ -601,10 +601,10 @@ Detecting mouse events in a canvas is quite straightforward: you add an event li
 
 The example below is about listening to `mouseup` and `mousedown` events (when a user presses or releases any mouse button):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// do something with&nbsp;to the mousedown event</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<div><ol>
+<li value="1">canvas.addEventListener('mousedown', function (evt) {</li>
+<li> // do something with&nbsp;to the mousedown event</li>
+<li>});</li>
 </ol></div>
 
 The event received by the listener function will be used for getting the button number or the coordinates of the mouse cursor. Before looking at different examples, let's look at the different event types we can listen to.
@@ -647,22 +647,22 @@ Play with the [example online](https://jsbin.com/dugibiz/1/edit?html,output) tha
 
 __WRONG code:__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>mousePos </strong></span><strong><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Mouse position: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;</strong></span><strong><span class="com">//&nbsp;WRONG!!!</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>x</strong></span><strong><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX</span><span class="pun">,</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>y</strong></span><strong><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">...</li>
+<li><strong> canvas.addEventListener('mousemove', function (evt) {</strong></li>
+<li>&nbsp; &nbsp; <strong>mousePos </strong><strong>= getMousePos(canvas, evt);</strong></li>
+<li>&nbsp; &nbsp;&nbsp;var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;</li>
+<li>&nbsp; &nbsp; writeMessage(canvas, message);</li>
+<li> }, false);</li>
+<li>&nbsp;</li>
+<li>...</li>
+<li><strong>function getMousePos(canvas, evt) {</strong></li>
+<li>&nbsp; <strong>&nbsp;</strong><strong>//&nbsp;WRONG!!!</strong></li>
+<li>&nbsp; &nbsp;return {</li>
+<li>&nbsp; &nbsp; &nbsp; <strong>x</strong><strong>: evt.clientX,</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong>y</strong><strong>: evt.clientY</strong></li>
+<li>&nbsp; &nbsp;};</li>
+<li>}</li>
 </ol></div>
 
 Here is the result, when the mouse is approximately at the top left corner of the canvas:
@@ -679,15 +679,15 @@ Here is the result, when the mouse is approximately at the top left corner of th
 
 [GOOD version of the code](https://jsbin.com/woxogun/edit?html,output): ([Local Example - Good Mouse Position](src/4.3.3-example2.html))
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// necessary to take into account CSS boundaries</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><strong><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">,</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><strong><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function getMousePos(canvas, evt) {</li>
+<li>&nbsp; &nbsp;<strong>// necessary to take into account CSS boundaries</strong></li>
+<li>&nbsp; &nbsp;<strong>var rect = canvas.getBoundingClientRect();</strong></li>
+<li>&nbsp; &nbsp;return {</li>
+<li>&nbsp; &nbsp; &nbsp; x: evt.clientX <strong>- rect.left,</strong></li>
+<li>&nbsp; &nbsp; &nbsp; y: evt.clientY <strong>- rect.top</strong></li>
+<li>&nbsp; &nbsp;};</li>
+<li>}</li>
 </ol></div>
 
 Result (the cursor is approximately at the top left corner):
@@ -720,48 +720,48 @@ This example uses the previous function for computing the mouse position correct
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> mousePos</span><span class="pun">,</span><span class="pln"> mouseButton</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>mousePos </strong></span><strong><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Mouse position: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>mouseButton </strong></span><strong><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">button</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Mouse button "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">button </span><span class="pun">+</span><span class="pln"> </span><span class="str">" down at position: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Mouse up at position: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span>&nbsp;</li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">'18pt Calibri'</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="pln">message</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">25</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// necessary to take into account CSS boudaries</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;</strong></span><strong><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>x</strong></span><strong><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span></strong><span class="pun">,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>y</strong></span><strong><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var canvas, ctx, mousePos, mouseButton;</li>
+<li>&nbsp;</li>
+<li>window.onload = function init() {</li>
+<li>&nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp; ctx = canvas.getContext('2d');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.addEventListener('mousemove', function (evt) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>mousePos </strong><strong>= getMousePos(canvas, evt);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; writeMessage(canvas, message);</li>
+<li>&nbsp; &nbsp;&nbsp;}, false);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.addEventListener('mousedown', function (evt) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>mouseButton </strong><strong>= evt.button;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var message = "Mouse button " + evt.button + " down at position: " + mousePos.x + ',' + mousePos.y;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; writeMessage(canvas, message);</li>
+<li>&nbsp; &nbsp;&nbsp;}, false);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.addEventListener('mouseup', function (evt) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var message = "Mouse up at position: " + mousePos.x + ',' + mousePos.y;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; writeMessage(canvas, message);</li>
+<li>&nbsp; &nbsp;&nbsp;}, false);</li>
+<li>};</li>
+<li>&nbsp;&nbsp;</li>
+<li>function writeMessage(canvas, message) {</li>
+<li>&nbsp; &nbsp;ctx.save();</li>
+<li>&nbsp; &nbsp;ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li>&nbsp; &nbsp;ctx.font = '18pt Calibri';</li>
+<li>&nbsp; &nbsp;ctx.fillStyle = 'black';</li>
+<li>&nbsp; &nbsp;ctx.fillText(message, 10, 25);</li>
+<li>&nbsp; &nbsp;ctx.restore();</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function getMousePos(canvas, evt) {</li>
+<li>&nbsp; &nbsp;<strong>// necessary to take into account CSS boudaries</strong></li>
+<li>&nbsp; <strong>&nbsp;</strong><strong>var rect = canvas.getBoundingClientRect();</strong></li>
+<li>&nbsp; &nbsp;return {</li>
+<li>&nbsp; &nbsp; &nbsp; <strong>x</strong><strong>: evt.clientX - rect.left</strong>,</li>
+<li>&nbsp; &nbsp; &nbsp; <strong>y</strong><strong>: evt.clientY - rect.top</strong></li>
+<li>&nbsp; &nbsp;};</li>
+<li>}</li>
 </ol></div>
 
 
@@ -785,61 +785,61 @@ This example shows an animation at 60 frames/s using `requestAnimationFrame`, we
 
 Extract from source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><strong><span class="pln"> monsterX</span><span class="pun">=</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">=</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">=</span><span class="lit">0</span></strong><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> incrementX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><strong><span class="pln"> incrementAngle </span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="kwd">var</span><span class="pln"> mousePos</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 3bis - Add mouse listeners</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> handleMousemove</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> handleMousedown</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> handleMouseup</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 4 - Start the animation</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><strong><span class="pln"> handleMousemove</span></strong><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="com"><strong>// The mousePos will be taken into account in the animationLoop</strong></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>mousePos </strong></span><strong><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> handleMousedown</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// the increment on the angle will be</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// taken into account in the animationLoop</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>incrementAngle </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="lit">0.1</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><strong><span class="pln"> handleMouseup</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>incrementAngle </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">; &nbsp;// stops the rotation</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;... // same as before</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 - Draw</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawMonster</span><span class="pun">(</span><span class="pln">monsterX</span><span class="pun">,</span><span class="pln"> monsterY</span><span class="pun">,</span><span class="pln"> monsterAngle</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3 - Move</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">mousePos </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // test necessary, maybe the mouse is not yet on canvas</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>monsterX </strong></span><strong><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>monsterY </strong></span><strong><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>monsterAngle </strong></span><strong><span class="pun">+=</span><span class="pln"> incrementAngle</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call again mainloop after 16.6 ms (60 frames/s)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestId </span><span class="pun">=</span><span class="pln"> requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1"> var canvas, ctx;</li>
+<li> var<strong> monsterX=100, monsterY=100, monsterAngle=0</strong>;</li>
+<li> var incrementX = 0;</li>
+<li> var<strong> incrementAngle =0;</strong></li>
+<li> <strong>var mousePos;</strong></li>
+<li> </li>
+<li> function init() {</li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp;&nbsp;// 3bis - Add mouse listeners</li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.addEventListener('mousemove', handleMousemove, false);</strong></li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.addEventListener('mousedown', handleMousedown, false);</strong></li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.addEventListener('mouseup', handleMouseup, false);</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// 4 - Start the animation</li>
+<li>&nbsp; &nbsp; requestId = requestAnimationFrame(animationLoop);</li>
+<li> }</li>
+<li> </li>
+<li> function<strong> handleMousemove</strong>(evt) {</li>
+<li>&nbsp; &nbsp; <strong>// The mousePos will be taken into account in the animationLoop</strong></li>
+<li>&nbsp; &nbsp; <strong>mousePos </strong><strong>= getMousePos(canvas, evt);</strong></li>
+<li> }</li>
+<li> </li>
+<li> function handleMousedown(evt) {</li>
+<li>&nbsp; &nbsp;<strong>// the increment on the angle will be</strong></li>
+<li>&nbsp; &nbsp;<strong>// taken into account in the animationLoop</strong></li>
+<li>&nbsp; &nbsp;<strong>incrementAngle </strong><strong>= 0.1;</strong></li>
+<li> }</li>
+<li> </li>
+<li> function<strong> handleMouseup(evt)</strong> {</li>
+<li>&nbsp; &nbsp; <strong>incrementAngle </strong><strong>= 0; &nbsp;// stops the rotation</strong></li>
+<li> }</li>
+<li> </li>
+<li> function getMousePos(canvas, evt) {</li>
+<li>&nbsp;... // same as before</li>
+<li>}</li>
+<li>...</li>
+<li> function animationLoop() {</li>
+<li>&nbsp; &nbsp;// 1 - Clear</li>
+<li>&nbsp; &nbsp;ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// 2 - Draw</li>
+<li>&nbsp; &nbsp;drawMonster(monsterX, monsterY, monsterAngle, 'green', 'yellow');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// 3 - Move</li>
+<li>&nbsp; &nbsp;<strong>if(mousePos !== undefined) { // test necessary, maybe the mouse is not yet on canvas</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong>monsterX </strong><strong>= mousePos.x;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong>monsterY </strong><strong>= mousePos.y;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong>monsterAngle </strong><strong>+= incrementAngle;</strong></li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// call again mainloop after 16.6 ms (60 frames/s)</li>
+<li>&nbsp; &nbsp;requestId = requestAnimationFrame(animationLoop);</li>
+<li> }</li>
 </ol></div>
 
 This example shows one very important good practice when doing animation and interaction: if you want to achieve a smooth animation, set the state variables 60 times/s inside the animation loop (lines 45-49), depending on increments you set in event listeners (lines 23-31).
@@ -861,45 +861,45 @@ __Example #2: draw in a canvas as if you were using a pencil__
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> previousMousePos</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;">...</li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawLineImmediate</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// a line is a path with a single draw order</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// we need to do this in this example otherwise</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// at each mouse event we would draw the whole path</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// from the beginning. Remember that lines</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// normally are only usable in path mode</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> handleMouseMove</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Let's draw some lines that follow the mouse pos</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">started</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;previousMousePos </span><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">; // get the current mouse position</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;started </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// We need to have two consecutive mouse positions before drawing a line</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawLineImmediate</span><span class="pun">(</span><span class="pln">previousMousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> previousMousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pln" style="line-height: 1.6; background-color: #ffffff;">previousMousePos </span><span class="pun" style="line-height: 1.6; background-color: #ffffff;">=</span><span class="pln" style="line-height: 1.6; background-color: #ffffff;"> mousePos</span><span class="pun" style="line-height: 1.6; background-color: #ffffff;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;started </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> handleMouseMove</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">...</li>
+<li> &lt;script&gt;</li>
+<li> var canvas, ctx, previousMousePos;</li>
+<li>...</li>
+<li> function drawLineImmediate(x1, y1, x2, y2) {</li>
+<li>&nbsp; &nbsp;&nbsp;// a line is a path with a single draw order</li>
+<li>&nbsp; &nbsp;&nbsp;// we need to do this in this example otherwise</li>
+<li>&nbsp; &nbsp;&nbsp;// at each mouse event we would draw the whole path</li>
+<li>&nbsp; &nbsp;&nbsp;// from the beginning. Remember that lines</li>
+<li>&nbsp; &nbsp;&nbsp;// normally are only usable in path mode</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li>&nbsp; &nbsp; ctx.moveTo(x1, y1);</li>
+<li>&nbsp; &nbsp; ctx.lineTo(x2, y2);</li>
+<li>&nbsp; &nbsp; ctx.stroke();</li>
+<li> }</li>
+<li>&nbsp;</li>
+<li> function handleMouseMove(evt) {</li>
+<li>&nbsp; &nbsp; &nbsp;var mousePos = getMousePos(canvas, evt);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;// Let's draw some lines that follow the mouse pos</li>
+<li>&nbsp; &nbsp; &nbsp;if (!started) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;previousMousePos = mousePos; // get the current mouse position</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;started = true;</li>
+<li>&nbsp; &nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// We need to have two consecutive mouse positions before drawing a line</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawLineImmediate(previousMousePos.x, previousMousePos.y,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos.x,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos.y);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="line-height: 1.6; background-color: #ffffff;">previousMousePos = mousePos;</span></li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> }</li>
+<li></li>
+<li>&nbsp;window.onload = function () {</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;started = false;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;<strong>canvas</strong><strong>.addEventListener('mousemove', handleMouseMove, false);</strong></li>
+<li> };</li>
+<li> &lt;/script&gt;</li>
 </ol></div>
 
 We had to define a variable started=false; as we cannot draw any line before the mouse moved (we need at least two consecutive positions). This is done in the test at line 21.
@@ -921,36 +921,36 @@ __Example #3: same as example #2 but we draw only when a mouse button is pressed
 
 We just added `mouseup` and `mousedown` listeners, extract from the source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> handleMouseMove</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Let's draw some lines that follow the mouse pos</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">painting</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawLineImmediate</span><span class="pun">(</span><span class="pln">previousMousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> previousMousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;previousMousePos </span><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> clicked</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; previousMousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>painting </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> released</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>painting </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>painting </strong></span><strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> handleMouseMove</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> clicked</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> released</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1"> function handleMouseMove(evt) {</li>
+<li>&nbsp; &nbsp; &nbsp;var mousePos = getMousePos(canvas, evt);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;// Let's draw some lines that follow the mouse pos</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>if (painting) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawLineImmediate(previousMousePos.x, previousMousePos.y,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos.x,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos.y);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;previousMousePos = mousePos;</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> }</li>
+<li> </li>
+<li> function clicked(evt) {</li>
+<li>&nbsp; &nbsp; previousMousePos = getMousePos(canvas, evt);</li>
+<li>&nbsp; &nbsp; <strong>painting </strong><strong>= true;</strong></li>
+<li> }</li>
+<li>&nbsp;</li>
+<li> function released(evt) {</li>
+<li>&nbsp; &nbsp; <strong>painting </strong><strong>= false;</strong></li>
+<li> }</li>
+<li>&nbsp;</li>
+<li>&nbsp;window.onload = function () {</li>
+<li>&nbsp; &nbsp; canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp; ctx = canvas.getContext('2d');</li>
+<li>&nbsp; &nbsp; <strong>painting </strong><strong>= false;</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; canvas.addEventListener('mousemove', handleMouseMove, false);</li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.addEventListener('mousedown', clicked);</strong></li>
+<li>&nbsp; &nbsp; <strong>canvas</strong><strong>.addEventListener('mouseup', released);</strong></li>
+<li> };</li>
 </ol></div>
 
 
@@ -993,18 +993,18 @@ __Example #1: changing the size of a canvas on the fly erases its content!__
   />
 </figure>
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> resizeCanvas</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> </span><span class="lit">300</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">resizeCanvas</span><span class="pun">();</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Click this button to resize the canvas and erase it!</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
+<div><ol>
+<li value="1">&lt;script&gt;</li>
+<li>...</li>
+<li> function resizeCanvas() {</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>canvas</strong><strong>.width = 300;</strong></li>
+<li> }</li>
+<li>&nbsp;</li>
+<li>&lt;/script&gt;</li>
+<li>...</li>
+<li>&lt;button <strong>onclick="resizeCanvas();</strong>"&gt;</li>
+<li>&nbsp; &nbsp; Click this button to resize the canvas and erase it!</li>
+<li>&lt;/button&gt;</li>
 </ol></div>
 
 
@@ -1028,13 +1028,13 @@ Then, we added this CSS rule. Try it [online](https://jsbin.com/johovo/1/edit?ht
 
 It's the same example as before, just adding the CSS:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">#myCanvas {</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>width</strong></span><strong><span class="pun">:</span><span class="lit">100</span><span class="pun">%</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;style&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;#myCanvas {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;border: 1px solid black;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong>width</strong><strong>:100%</strong></li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li> &lt;/style&gt;</li>
 </ol></div>
 
 And the result shows clearly that the resolution is still the same, only the pixels are bigger! 
@@ -1090,48 +1090,48 @@ Yep, this is not a straightforward process...
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><strong><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"parentDiv"</span><span class="tag">&gt;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="tag">&gt;</span>&lt;/canvas&gt;</li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;/div&gt;</span></strong></li>
+<div><ol>
+<li value="1"> <strong>&lt;div id="parentDiv"&gt;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;&lt;canvas id="myCanvas" width="100" height="100" &gt;&lt;/canvas&gt;</li>
+<li> <strong>&lt;/div&gt;</strong></li>
 </ol></div>
 
 CSS code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">#parentDiv {</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>width</strong></span><strong><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong>height</strong></span><strong><span class="pun">:</span><span class="lit">50</span><span class="pun">%;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid red</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;style&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;#parentDiv {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>width</strong><strong>:100%;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>height</strong><strong>:50%;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; margin-right: 10px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; border: 1px solid red;</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; canvas {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;border: 2px solid black;</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li> &lt;/style&gt;</li>
 </ol></div>
 
 JavaScript code for the resize event listener:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// IMPORTANT: there is NO WAY to listen to a DIV's resize</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// listen to the window instead.</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'resize'</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp; </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; resizeCanvasAccordingToParentSize, false</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> resizeCanvasAccordingToParentSize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">// adjust canvas size, take parent's size, this erases content</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> divcanvas</span><span class="pun">.</span><span class="pln">clientWidth</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>canvas</strong></span><strong><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> divcanvas</span><span class="pun">.</span><span class="pln">clientHeight</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// draw something, taking into account the new canvas size</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function init() {</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;// IMPORTANT: there is NO WAY to listen to a DIV's resize</li>
+<li>&nbsp; &nbsp;// listen to the window instead.</li>
+<li>&nbsp; &nbsp;window.addEventListener('resize',&nbsp; &nbsp; &nbsp; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; resizeCanvasAccordingToParentSize, false);</li>
+<li>&nbsp; &nbsp;...</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li> function resizeCanvasAccordingToParentSize() {</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>// adjust canvas size, take parent's size, this erases content</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>canvas</strong><strong>.width = divcanvas.clientWidth;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>canvas</strong><strong>.height = divcanvas.clientHeight;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp; &nbsp;// draw something, taking into account the new canvas size</li>
+<li> }</li>
 </ol></div>
 
 See the [complete example](https://jsbin.com/quvapib/1/edit?html,output) that corresponds to the above code. ([Local Example - Resize Canvas w/ Listerner](src/4.3.4-example4.html))
@@ -1190,29 +1190,29 @@ When the canvas is resized, its width became smaller than the monster's size. We
 
 The code is very similar to the previous example, we just replaced `drawDiagonals()` by `drawMonster(...)`, and we added a test in the `drawMonster(...)` function for scaling the monster if it's bigger than the canvas width (look at lines 10-16), this is a common trick:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">,</span><span class="pln"> headColor</span><span class="pun">,</span><span class="pln"> eyeColor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// GOOD PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Moves the coordinate system so that the monster is drawn</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// at position (x, y)</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">// Adjust the scale of the monster (200x200) if the canvas </span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp;<strong>// is too small</strong></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">width </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">200</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> scaleX </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">/</span><span class="lit">200</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> scaleY </span><span class="pun">=</span><span class="pln"> scaleX</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="pun">}</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">scale</span><span class="pun">(</span><span class="pln">scaleX</span><span class="pun">,</span><span class="pln"> scaleY</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// head</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">headColor</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp;...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1"> function drawMonster(x, y, angle, headColor, eyeColor) { </li>
+<li>&nbsp; &nbsp; &nbsp;// GOOD PRACTICE: SAVE CONTEXT AND RESTORE IT AT THE END</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.save();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// Moves the coordinate system so that the monster is drawn</li>
+<li>&nbsp; &nbsp; &nbsp;// at position (x, y)</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.translate(x, y);</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.rotate(angle);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;<strong>// Adjust the scale of the monster (200x200) if the canvas </strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>// is too small</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>if(canvas.width &lt; 200) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>var scaleX = canvas.width/200;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>var scaleY = scaleX;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>}</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>ctx</strong><strong>.scale(scaleX, scaleY);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// head</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillStyle=headColor;</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillRect(0,0,200,200);</li>
+<li>&nbsp; &nbsp; &nbsp;...</li>
+<li>}</li>
 </ol></div>
 
 
