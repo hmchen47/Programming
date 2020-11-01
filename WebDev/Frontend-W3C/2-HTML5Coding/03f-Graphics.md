@@ -96,41 +96,41 @@ Please complete the following 33 exercises in a timely manner. As stated in the 
 
 __Source code for the next question (6)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// This function is called after the page is loaded</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// 1 - Get the canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// 2 - Get the context</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// 3 - Let's draw</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> drawSomething</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="com">// WHAT COLOR WILL THIS SHAPE BE?</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// set the global context values</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'blue'</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// font for all text drawing</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">'italic 20pt Calibri'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draw the two filled red rectangles</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">110</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draw the two blue wireframe rectangles</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">110</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Draw a message above the rectangles</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"hello"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">70</span><span class="pun">,</span><span class="pln"> </span><span class="lit">22</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1"> var canvas, ctx;</li>
+<li> </li>
+<li> function init() {</li>
+<li> // This function is called after the page is loaded</li>
+<li> // 1 - Get the canvas</li>
+<li> canvas = document.getElementById('myCanvas');</li>
+<li> // 2 - Get the context</li>
+<li> ctx = canvas.getContext('2d');</li>
+<li> // 3 - Let's draw</li>
+<li> drawSomething();</li>
+<li> </li>
+<li><strong>// WHAT COLOR WILL THIS SHAPE BE?</strong></li>
+<li><strong> ctx.strokeRect(100, 100, 150, 150);</strong></li>
+<li> }</li>
+<li> </li>
+<li> function drawSomething() {</li>
+<li> // set the global context values</li>
+<li> ctx.lineWidth = 5;</li>
+<li> ctx.fillStyle = 'red';</li>
+<li> ctx.strokeStyle = 'blue';</li>
+<li> // font for all text drawing</li>
+<li> ctx.font = 'italic 20pt Calibri';</li>
+<li> </li>
+<li> // Draw the two filled red rectangles</li>
+<li> ctx.fillRect(10, 30, 70, 150);</li>
+<li> ctx.fillRect(110, 30, 70, 150);</li>
+<li> </li>
+<li> // Draw the two blue wireframe rectangles</li>
+<li> ctx.strokeRect(10, 30, 70, 150);</li>
+<li> ctx.strokeRect(110, 30, 70, 150);</li>
+<li> </li>
+<li> // Draw a message above the rectangles</li>
+<li> ctx.fillText("hello", 70, 22); </li>
+<li> }</li>
 </ol></div>
 
 6. Global or local?
@@ -297,30 +297,30 @@ __Source code for the next question (6)__
 
 __Source code for the next question (16)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// It is necessary to wait until the web page has loaded before running this code.</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> context </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">"2d"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> imageObj </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>// load the image</strong></span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;imageObj</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="str">"https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="com">// draw the image</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;context</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">imageObj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></strong><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"512"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"512"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;script&gt;</li>
+<li> window.onload = function() {</li>
+<li> // It is necessary to wait until the web page has loaded before running this code.</li>
+<li> var canvas = document.getElementById("myCanvas");</li>
+<li> var context = canvas.getContext("2d");</li>
+<li> </li>
+<li> var imageObj = new Image();</li>
+<li>&nbsp;<strong>// load the image</strong></li>
+<li><strong>&nbsp;imageObj.src = </strong></li>
+<li><strong> "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png";</strong></li>
+<li><strong>&nbsp;</strong></li>
+<li><strong> // draw the image</strong></li>
+<li><strong>&nbsp;context.drawImage(imageObj, 0, 0);</strong> </li>
+<li> };</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;canvas id="myCanvas" width="512" height="512"&gt;&lt;/canvas&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 16. Call me back please!
@@ -336,20 +336,20 @@ __Source code for the next question (16)__
 
 __Source code for the next question (17)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"512"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"512"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Original image as an </span><span class="tag">&lt;img&gt;</span><span class="pln"> element:</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"logo"</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://orig15.deviantart.net/0b3d/f/2013/149/b/8/texture_85_by_voyager168-d670m68.jpg"</span><span class="tag">&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myCanvas"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">"2d"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> logo </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#logo"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>&nbsp;ctx</strong></span><strong><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">logo</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1">&lt;body&gt;</li>
+<li> &lt;canvas id="myCanvas" width="512" height="512"&gt;&lt;/canvas&gt;</li>
+<li> &lt;p&gt;Original image as an &lt;img&gt; element:&lt;/p&gt;</li>
+<li> <strong>&lt;img id="logo"</strong></li>
+<li><strong> src="http://orig15.deviantart.net/0b3d/f/2013/149/b/8/texture_85_by_voyager168-d670m68.jpg"&gt;</strong></li>
+<li></li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;var canvas = document.getElementById("myCanvas");</li>
+<li>&nbsp; &nbsp; &nbsp;var ctx = canvas.getContext("2d");</li>
+<li>&nbsp; &nbsp; &nbsp;var logo = document.querySelector("#logo");</li>
+<li>&nbsp; &nbsp; <strong>&nbsp;ctx</strong><strong>.drawImage(logo, 0, 0, 100, 100);</strong></li>
+<li>&lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 17. Am I completely here?
