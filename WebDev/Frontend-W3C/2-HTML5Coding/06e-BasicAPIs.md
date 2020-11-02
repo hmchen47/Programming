@@ -456,8 +456,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   a. Yes, with the File API, we can read a local file as a dataURL, and use that URL to set the `src` attribute or a `<audio>` or a `<video>` element.<br/>
   b. No, it's only for streaming remote audio/video files.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Indeed, wherever we have used a http:// or https:// URL, we could use a data URL instead. If we read an audio file with readAsDataURL, the file content will be a URL. We can then set the src attribute of the audio element (or of a source element inside the audio element) with that URL. The same applies to a video element. The file will be streamed from the local disk.
 
 
 24. Name this XXXXX thing!
@@ -475,8 +475,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
 
   What is the name of the element you would use instead of XXXXX, in order to add captions to the video (do not type the < and > chars)?
 
-  Ans:<br/>
-  Explanation: 
+  Ans: track<br/>
+  Explanation: The correct answer is "track". The `<track>` element is designed for adding captions or subtitles to videos.
 
 
 25. Tell me good news!
@@ -487,8 +487,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. requestAnimationFrame<br/>
   c. setTimeout<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The correct answer is `requestAnimationFrame`. This method has been designed for smooth - 60 frames per second - animation.
 
 
 26. Secular expansion or regular expression?
@@ -499,8 +499,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. regexp<br/>
   c. format<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The `pattern` attribute enables the validation of the user's input on the fly (also at submission time), based on regular expressions. It applies to the text, search, url, tel, email, and password input types.
 
 
 27. Listen to me!
@@ -516,8 +516,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   c. onmouseclicked<br/>
 
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Traditionally, we use an `onchange` listener for detecting that a date has been selected by a user with an `<input type=date>` field.
 
 
 __Source code for the next question (28)__
@@ -550,11 +550,8 @@ __Source code for the next question (28)__
   b. The color chooser will pop up.<br/>
   c. Nothing special.<br/>
 
-  Ans: <br/>
-  Explanation: 
-
-
-
+  Ans: b<br/>
+  Explanation: As the `for` attribute of the label matches the `id` attribute of the input field, clicking on the label will do the same as clicking on the input field.
 
 
 
