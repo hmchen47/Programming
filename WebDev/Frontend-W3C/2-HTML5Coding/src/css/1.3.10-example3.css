@@ -1,0 +1,25 @@
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.column {
+    margin: 0.5em;
+    min-height: 8em;
+    padding: 1em;
+    width: 40%;
+}
+
+.aside {
+    margin: 0.5em;
+    min-height: 8em;
+    padding: 1em;
+    width: 15%;
+  background-color: lightBlue;
+}
+
+.column:nth-child(1) { background-color: #9df5ba; }
+.column:nth-child(2) { background-color: #9df5d7; }

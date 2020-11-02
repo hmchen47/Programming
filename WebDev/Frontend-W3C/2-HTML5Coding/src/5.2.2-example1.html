@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <link rel="stylesheet" href="css/5.2.2-example1.css">
+  <script rel="javascript" src="js/5.2.2-example1.js"></script>
+</head>
+<body onload="init()">
+<form class="contact_form" action="" method="post" name="contact_form">
+	<ul>
+		<li>
+			requered fields 
+		</li>
+		<li>
+			<label >username:</label>
+    		<input required autofocus  pattern="\w{5,90}" type="text" name="username" id='username' placeholder="John Doe"/>
+    		<span class="form_hint">should be 5 characters long</span>
+		</li>
+		<li>
+			<label >email:</label>
+    		<input required type="email" name="email" id='email' placeholder="john@doe.nl"/>
+    		<span class="form_hint">should be email adress</span>
+
+		</li>
+		<li><label >password:</label>
+    		<input required pattern="\w{5,90}" type="password" name="password1" id='password1' oninput="checkPasswords()"/>
+    		<span class="form_hint">should be 5 characters long</span>
+    		</li>
+		<li><label >retypr password:</label>
+    		<input required type="password" name="password2" id='password2' oninput="checkPasswords()"/>
+    		</li>
+    	<li>
+			optional fields 
+		</li>
+		<li>
+			<label >first name</label>
+			<input pattern="\w{1,90}" placeholder="John"   type="text">
+		</li>
+		
+		<li>
+			<label >last name</label>
+			<input pattern="\w{2,10}" placeholder="Doe" id="lastname" optional   type="text">
+		</li>
+		<li>
+			<label >phone</label>
+			<input type="tel"  placeholder="(555) 555-5555"  pattern="^\(?\d{3}\)?[-\s]\d{3}[-\s]\d{4}.*?$" />
+		</li>
+		<li>
+			<label >adress</label>
+			<input placeholder="" id="adress"  type="text">
+			
+		</li>
+
+		<li> 
+			<label >favorite browser</label>
+			<input optional list="browsers" name="browser" /></li>
+			<datalist id="browsers">
+			<option value="Internet Explorer">
+			<option value="Firefox">
+			<option value="Chrome">
+			<option value="Opera">
+			<option value="Safari">
+ </datalist>
+	</ul>
+	
+	
+	</form>
+	<button onclick="getLocation()">get location</button>
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    #animatedDIV {
+      position:absolute;
+      background-color:red;
+      color:white;
+      height:100px;
+    }
+  </style>
+</head>
+<body>
+<button onclick="start()">Start animation</button>
+<button onclick="stop()">Stop animation</button>
+  <div>
+    <div id="animatedDIV">Animated DIV :-)</div>
+  </div>
+<script>
+   var elm = document.getElementById("animatedDIV");
+   var requestId;
+   var x = 0;
+ 
+   function render(time) {
+      elm.style.left = x++ + "px";
+   }
+ 
+   function start() {
+      requestId = setInterval(render, 10);
+   }
+   function stop() {
+      if (requestId) {
+         clearInterval(requestId);
+      }
+   }
+</script>
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML5 file upload with monitoring</title>
+  </head>
+
+  <body>
+    <button onclick="startDownload();">Start downloading a flower</button>
+    <br/><br />
+    <progress value=0 id="progress"></progress>
+    <p>
+    <div id="container"></div>
+    <script>
+      var progress = document.getElementById("progress");
+       var container = document.getElementById("container");
+      
+   function startDownload() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1000px-HTML5_logo_and_wordmark.svg.png", true);
+     xhr.responseType = 'blob';
+
+     xhr.onprogress = function(e) {
+       console.log("downloading");
+            progress.value = e.loaded;
+            progress.max = e.total;
+        };
+  xhr.onload = function(e) {
+    console.log("loaded"); 
+    var image = document.createElement("img");
+    image.src = window.URL.createObjectURL(this.response);
+    
+   
+    container.appendChild(image);
+  };
+      xhr.onerror = function(e) {
+    console.log("error");                         
+  };
+  xhr.send();
+     console.log("request sent");
+}
+    </script>
+  </body>
+</html>
+

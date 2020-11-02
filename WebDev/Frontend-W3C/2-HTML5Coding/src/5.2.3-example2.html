@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+  <script>
+    var canvas, ctx;
+    var width, height;
+    var x, y;
+    // Move 3 pixels left or right at each frame
+    var incX = 3;
+    var size = 10;
+   
+    // Called after the DOM is ready (page loaded)
+    function init() {
+      // init the different variables
+      canvas = document.querySelector("#mycanvas");
+      ctx = canvas.getContext('2d');
+      
+      width = canvas.width;
+      height = canvas.height;
+      
+      // default values
+      x=10; y = 10;
+      ctx.fillStyle='red';
+           
+      // Start animation
+      animationLoop();
+    }
+    
+    function animationLoop() {
+      // an animation is : 1) clear canvas and 2) draw shapes, 
+      // 3) move shapes, 4) recall the loop with requestAnimationFrame
+      
+      // clear canvas
+      ctx.clearRect(0, 0, width, height);
+     
+      ctx.fillRect(x, y, size, size);
+      ctx.strokeRect(x, y, size, size);
+     
+      // move rectangle
+      x += incX;
+      
+      // check collision on left or right
+      if(((x+size) > width) || (x <= 0)) {
+        // cancel move + inverse speed
+        x -= incX;
+        incX = -incX;
+      }
+      
+      // animate again at 60 frames/s
+      requestAnimationFrame(animationLoop);
+    }  
+    
+    // Polyfill for Math.sign not being supported by IE or Safari (it's ecmascript 6)
+    Math.sign = Math.sign || function(x) {
+  x = +x; // convert to a number
+  if (x === 0 || isNaN(x)) {
+    return x;
+  }
+  return x > 0 ? 1 : -1;
+}
+    function changeSpeed(event) {
+      incX = Math.sign(incX)*parseInt(event.target.value);
+      document.getElementById("speedValue").innerHTML = Math.abs(incX);
+      
+    }
+    function changeColor(event) {
+      ctx.fillStyle = event.target.value;
+    }
+    function changeSize(event) {
+      size =parseInt(event.target.value);
+      document.getElementById("sizeValue").innerHTML = size;
+    }
+    function changeLineWidth(event) {
+      ctx.lineWidth = parseInt(event.target.value);
+    }
+  </script>
+  <link rel="stylesheet" href="css/5.2.3-example1.css">
+</head>
+  
+<body onload="init();">
+  <canvas id="mycanvas" width="200" height="50" style="border: 2px solid black"></canvas>
+  <p>
+   <label >Size of the rectangle:</label> <input type="range" id="size" min=10 max=40 value=10 oninput="changeSize(event);"><output id="sizeValue">10</output><p>
+  <p>
+ 
+    <label >Color:</label> <input id="color" type="color" value='#FF0000' oninput="changeColor(event);">
+ 
+    <p>
+    <label>Line width of outline using <code>&lt;input type=number&gt;</code>:</label> <input type="number" id="lineWidth" value=1 min=1 max=5 oninput="changeLineWidth(event);">
+    <p>
+     <label>Speed:</label> <input type="range" min=1 max=10 value=3 oninput="changeSpeed(event);"><output id="speedValue">3</output><p>
+</body>
+</html>

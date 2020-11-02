@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Styling and positionning subtitles and captions</title>
+  <style type="text/css">
+        ::cue(.myclass) { color: red; }
+        ::cue(v[voice="Tarzan"]) { color: blue; }
+        ::cue(v[voice="Jane"]) { color: green; }
+        ::cue(#bigtext) { font-size: 150%; }
+  </style>
+</head>
+<body>
+<video height="540" width="1280" 
+       poster="https://mainline.i3s.unice.fr/mooc/edream.jpg" 
+       crossorigin="anonymous" controls>
+  <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" type="video/mp4">
+  <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" 
+          type="video/webm">
+  <track src="https://mainline.i3s.unice.fr/mooc/edream-features.vtt" 
+         kind="captions" label="VTT Features" default>
+</video>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>getUserMedia constraints for choosing resolution</title>
+  <link rel="stylesheet" href="css/2.4.4-example1.css">
+  <script type="text/javascript" src="js/2.4.4-example1.js"></script>
+</head>
+<body onload="init();">
+  <h1>Set the camera resolution</h1>
+  Example adapted from: 
+   <a href="http://www.simpl.info/getusermedia/constraints/">
+     http://www.simpl.info/getusermedia/constraints/
+   </a>
+   <br>
+   <p>Click a button to call <code>getUserMedia()</code> with appropriate resolution.</p>
+
+	<div id="buttons">
+	  <button id="qvga">QVGA</button>
+	  <button id="vga">VGA</button>
+	  <button id="hd">HD</button>
+	</div>
+
+  <p id="dimensions"></p>
+
+  <video autoplay></video>
+  
+  </body>
+</html>

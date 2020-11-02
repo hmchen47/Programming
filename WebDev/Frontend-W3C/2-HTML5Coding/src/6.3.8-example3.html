@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example of use of readAsDataURL with images</title>
+  <link rel="stylesheet" href="css/6.3.8-example3.css">
+</head>
+<body>
+  <label for="file">Choose a single image file:</label>
+  <input type="file" id="file" 
+         onchange="readFileAndDraw(this.files);"/><p>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
+
+<script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext('2d');
+  
+  function drawImage(imageFile) {
+      var reader = new FileReader();
+
+      //capture the file information.
+      reader.onload = function(e) {
+        // For drawing an image on a canvas we
+        // need an image object
+         var img = new Image();
+        
+        // Even if the file has been read, decoding
+        // the dataURL format may take some time
+        // so we need to use the regular way of
+        // working with images: onload callback
+        // that will be called after setting the src attribute
+        img.onload = function(e) {
+          // draw the image!
+          ctx.drawImage(img, 0, 0, 400, 400);
+        }
+        
+        // e.target.result is the dataURL, so we set the
+        // src if the image with it. This will call asyncrhonously
+        // the onload callback
+        img.src= e.target.result;
+        
+        };
+      
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(imageFile);
+  }
+  
+  function readFileAndDraw(files) {
+    drawImage(files[0]);
+  }
+</script>
+</body>
+</html>

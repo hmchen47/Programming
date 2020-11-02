@@ -1,0 +1,13 @@
+details {
+	display:block; 
+	width:300px;
+	margin:10px 0;
+}
+summary {
+	display:block; 
+	background:#99B92C;
+	color:white;
+	border-radius:5px;
+	padding:5px;
+	cursor:pointer;font-weight:bold;
+}

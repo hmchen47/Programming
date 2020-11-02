@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+  <script>
+    var canvas, ctx;
+    var width, height;
+    var x, y;
+    // Move 3 pixels left or right at each frame
+    var incX = 3;
+    var size = 10;
+   
+    // Called after the DOM is ready (page loaded)
+    function init() {
+      // init the different variables
+      canvas = document.querySelector("#mycanvas");
+      ctx = canvas.getContext('2d');
+      
+      width = canvas.width;
+      height = canvas.height;
+      
+      // default values
+      x=10; y = 10;
+      ctx.fillStyle='red';
+           
+      // Start animation
+      animationLoop();
+    }
+    
+    function animationLoop() {
+      // an animation is : 1) clear canvas and 2) draw shapes, 
+      // 3) move shapes, 4) recall the loop with requestAnimationFrame
+      
+      // clear canvas
+      ctx.clearRect(0, 0, width, height);
+     
+      ctx.fillRect(x, y, size, size);
+      ctx.strokeRect(x, y, size, size);
+     
+      // move rectangle
+      x += incX;
+      
+      // check collision on left or right
+      if(((x+size) > width) || (x <= 0)) {
+        // cancel move + inverse speed
+        x -= incX;
+        incX = -incX;
+      }
+      
+      // animate again at 60 frames/s
+      requestAnimationFrame(animationLoop);
+    }  
+  </script>
+  <link rel="stylesheet" href="css/5.2.3-example1.css"/>
+</head>
+  
+<body onload="init();">
+  <canvas id="mycanvas" width="200" height="50" style="border: 2px solid black"></canvas>
+</body>
+</html>
+

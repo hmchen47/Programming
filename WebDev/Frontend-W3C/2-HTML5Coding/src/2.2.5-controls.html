@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+   <title>HTML5 Video</title>
+   <script src="https://www.w3.org/2010/Talks/0430-www2010-plh/svg-slides.js">
+  </script>
+  <link rel="stylesheet" href="https://www.w3.org/Talks/Tools/Slidy/slidy.css" type="text/css"  >
+  <link rel="stylesheet" href="https://www.w3.org/2010/Talks/Cambridge3/template.css" type="text/css" >
+
+  <script type="text/javascript">
+var vid = null;
+var play = null;
+var pause = null;
+var rewind = null;
+
+function init() {
+ vid = document.getElementById("vid");
+ play = document.getElementById("play");
+ pause = document.getElementById("pause");
+ rewind = document.getElementById("rewind");
+}
+function playVideo() {
+ vid.play();
+ play.style.color='black';
+ pause.style.color='#999';
+ rewind.style.color='#999';
+}
+function pauseVideo() {
+ vid.pause();
+ play.style.color='#999';
+ pause.style.color='black';
+ rewind.style.color='#999';
+}
+function rewindVideo() {
+ vid.currentTime = 0;
+ play.style.color='#999';
+ pause.style.color='#999';
+ rewind.style.color='black';
+}
+</script>
+<style>
+video {
+  padding: 2px;
+  background-image: url();
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 3px outset blue;
+     -moz-box-shadow: 0px 0px 4px #ffffff; /* FF3.5+ */
+  -webkit-box-shadow: 0px 0px 4px #ffffff; /* Saf3.0+, Chrome */
+          box-shadow: 0px 0px 4px #ffffff; /* Opera 10.5, IE 9.0 */
+              filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff'); /* IE6,IE7 */
+          -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#ffffff')"; /* IE8 */
+}
+ </style>
+</head>
+
+  <body>
+
+
+<h1>HTML5 &lt;video&gt;</h1>
+
+<pre>&lt;video src='myMovie' id='myVideoElement' />
+
+var vid = document.getElementById("myVideoElement");
+<span id='play' onclick="playVideo();" style='cursor: pointer; color: #999;'>vid.play();</span>
+<span id='pause' onclick="pauseVideo();" style='cursor: pointer; color: #999;'>vid.pause();</span>
+<span id='rewind' onclick="rewindVideo();" style='cursor: pointer; color: black;'>vid.currentTime = 0;</span></pre>
+
+<p style='text-align: left; position: absolute; width: 320px; height:240px; left: 30%; top: 55%; z-index: 2'>
+This is a paragraph in HTML on top of the video.
+</p>
+<p style='text-align: left; position: absolute; width: 320px; height:240px; left: 30%; top: 70%; z-index: 0'>
+CSS opacity allows this video to be partially transparent.
+</p>
+<video style='opacity: 0.5; position: absolute; top: 55%; left: 40%; width: 320px; height:240px; z-index: 1'
+   width='360' height='240' id="vid">
+  <source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.webm">
+  <source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4">
+    <p>This video cannot be displayed.
+    <br /> No support for HTML5?</p>
+</video>
+
+
+<script>
+init();
+</script>
+
+</body>
+</html>
+

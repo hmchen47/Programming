@@ -1,0 +1,30 @@
+header, footer, section, article, aside {
+  margin: 10px;
+  background: green;
+  border-radius: 6px;
+  color: white;
+  font: 14px/24px "Lucida Console";
+  padding: 24px 15px;
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+  display:block;
+}
+
+#michelBuffa {
+  float: right;
+  margin-left:10px;
+}
+
+header, footer {
+  text-align:center;
+  clear: both;
+}
+
+section {
+  float: left;
+  width: 60%;
+}
+
+aside {
+  float: right;
+  width: 25%;
+}

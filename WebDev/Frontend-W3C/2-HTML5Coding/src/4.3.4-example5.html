@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+        <style>
+            #parentDiv {
+                width:100%;
+                height:50%;
+                margin-right: 10px;
+                border: 1px solid red;
+            }
+
+            canvas {
+                border: 2px solid black;
+            }
+        </style>
+        <script>
+            var canvas, divcanvas, context;
+
+            function init() {
+                canvas = document.querySelector("#mycanvas");
+                ctx = canvas.getContext('2d');
+                divcanvas = document.querySelector("#parentDiv");
+
+                // Let's adjust the canvas size to the parent size (the div)
+                resizeCanvasAccordingToParentSize();
+
+                drawMonster(10, 10, 0, 'lightGreen', 'yellow');
+
+                // Add an event listener for the window resize event
+                window.addEventListener('resize', resizeCanvasAccordingToParentSize, false);
+
+            }
+
+            function resizeCanvasAccordingToParentSize() {
+                // adjust canvas size
+                canvas.width = divcanvas.clientWidth;
+                canvas.height = divcanvas.clientHeight;
+                drawMonster(10, 10, 0, 'lightGreen', 'yellow');
+            }
+
+   function drawMonster(x, y, angle, headColor, eyeColor) {   
+     // GOOD PRACTICE : SAVE CONTEXT AND RESTORE IT AT THE END
+     ctx.save();
+     
+     // Moves the coordinate system so that the monster is drawn
+     // at position (x, y)
+     ctx.translate(x, y);
+     ctx.rotate(angle);
+     
+     // Adjust the scale of the monster (200x200) if the canvas is too small
+     if(canvas.width < 200) {
+       var scaleX = canvas.width/200;
+       var scaleY = scaleX;
+     }
+     ctx.scale(scaleX, scaleY);
+     
+     // head
+     ctx.fillStyle=headColor;
+     ctx.fillRect(0,0,200,200);
+     
+     // eyes
+     ctx.fillStyle='red';
+     ctx.fillRect(35,30,20,20);
+     ctx.fillRect(140,30,20,20);
+     
+     // interior of eye
+     ctx.fillStyle=eyeColor;
+     ctx.fillRect(43,37,10,10);
+     ctx.fillRect(143,37,10,10);
+     
+     // Nose
+     ctx.fillStyle='black';
+     ctx.fillRect(90,70,20,80);
+     
+     // Mouth
+     ctx.fillStyle='purple';
+     ctx.fillRect(60,165,80,20);
+     
+     // GOOD PRACTICE !
+     ctx.restore();
+   }
+        </script>
+    </head>
+    <body onload="init();">
+        Try resizing down window... The monster's size will adapt itself...
+        <p><p><p>
+        <div id="parentDiv">
+            <canvas id="mycanvas" width="100" height="100"></canvas>
+        </div> 
+    </body>
+</html>
+

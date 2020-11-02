@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example of the pattern attribute</title>
+  <style>
+  input:invalid {
+    background-color: lightPink;
+  }
+  input:valid {
+    background-color: lightGreen;
+  }
+  </style>
+</head>
+<body>
+  <label for="code">Please enter a 3 letter country code</label>
+<input type="text" name="country_code"
+       pattern="[A-Za-z]{3}"
+       title="3 letter country code"
+       id="code"/>
+</body>
+</html>
+

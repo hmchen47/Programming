@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style type="text/css">
+    canvas { 
+      border:1px solid black;
+    }
+</style>
+</head>
+<body onload="init();">
+This example shows how to handle key events in a canvas by adding a key listener to the canvas object (see the blue border around the canvas... it shows that the canvas has the focus. Try to click outside of the canvas: it will loose the focus).
+<p>
+  If you don't want a border to appear when you click on the canvas, set its style to outline: none
+  </p>
+  <p>Press a key when the canvas has the focus: an alert will display the keycode of the key you pressed. Problem: if the canvas looses the focus, key press are no more detected...</p>
+
+<canvas id="myCanvas" width="350" tabindex="1" height="200">
+</canvas>
+
+<script>
+  var canvas;
+  
+  function init() {
+ canvas=document.getElementById('myCanvas');
+
+    // This will work only if the canvas has the focus 
+    canvas.addEventListener('keydown', handleKeydown, false);
+    
+    // We can set the focus on the canvas like that:
+     //canvas.focus();
+    
+    // ... but it will stop working if we click somewhere else
+    // in the document
+  }
+
+
+  function handleKeydown(e){
+     alert('keycode: '+e.keyCode);
+     return false;
+  };
+</script>
+</body>
+ </html>
+
+ 

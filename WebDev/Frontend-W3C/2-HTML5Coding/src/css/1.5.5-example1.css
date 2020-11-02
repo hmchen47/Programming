@@ -1,0 +1,240 @@
+/*  ====================================
+    CSS Customized by Gonzalo Moreno
+    2015-02-10 - Assignment 1 - 
+    HTML5 Course by W3DEV
+     
+     Colour Palette:
+     ---------------
+     1:   #FAFAFA
+     2:   #9496A2
+     3:   #72747E
+     4:   #3C3E47
+     5:   #0F1013
+    ==================================== */
+
+
+header, nav, section, article, figure, figcaption, aside, footer {
+  display: block;
+}
+
+
+
+body {
+  background: #9496A2 url(http://i.imgur.com/QQOslA5.jpg);
+  color: #0F1013;
+  font-family: 'Oxygen', Helvetica, Verdana, Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: normal;
+  line-height: 1.6em;
+  letter-spacing: 0.1em;
+  word-spacing: 0.3em;
+  text-align: center;
+  margin: 0 auto;
+  width: 960px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+.wrapper {
+  border: 5px solid silver;
+  border-style: outset;
+  border-radius: 80px 80px;
+  margin: 10px auto;
+  background: white;
+  box-shadow: 10px 10px 10px 10px;
+}
+
+#main-header {
+  background: #3C3E47;
+  color: #FAFAFA;
+  padding: 5px;
+  margin-bottom: 0;
+  border-radius: 80px 80px 0 0;
+  border-bottom: 2px solid #9496A2;
+}
+
+#main-footer {
+  background-color: #3C3E47;
+  color: #FAFAFA;
+  padding: 5px;
+  margin-top: 10px;
+  clear: both;
+  border-radius: 0 0 80px 80px;
+  border-top: 2px solid #9496A2;
+
+}
+
+h1.intro {
+  font-family: 'Oxygen', Helvetica, Arial, sans-serif;
+  font-size: 2.2em;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 40 auto 0;
+  height: 30px;
+}
+
+hr {
+  color: #72747E;
+  border: 1px solid;
+  max-width: 780px;
+  border-style: inset;
+}
+
+strong {
+  font-size: 1em;
+  margin: 0 auto;
+}
+
+header img.personal-pic {
+  border: 3px inset #9496A2;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+
+header h2 { 
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+
+.small {
+  font-size: 0.8em;
+  font-weight: lighter;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+
+nav h1 {
+  text-indent: -9999px;
+  font-size: 8px;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 10px 0 20px;
+  display: block;
+}
+
+header nav ul li {
+  display: inline;
+  word-spacing: normal;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  margin: 20px 60px;
+  padding: 10px;
+}
+
+a:link {
+  color: #72747E;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #72747E;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #FAFAFA;
+  border-bottom: 2px solid red;
+}
+
+a:hover {
+  color: #0F1013;
+  border-bottom: none;
+}
+
+a:active {
+  color: white;
+}
+
+.main-content {
+  max-width: 600px;
+  display: block;
+  float: left;
+}
+
+section {
+  float: left;
+  text-align: justify;
+  margin: 0 40px 0 0;
+  padding: 0 15px;
+  display: block;
+}
+
+h1.content {
+  background: #3C3E47;
+  color: #FAFAFA;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+  margin: 40px 0 40px 0;
+  border-radius: 80px 80px;
+  box-shadow: 5px 5px 5px 5px #72747E;
+}
+
+section p, aside p {
+  margin: 10px 0 30px;
+  font-family: 'Oxygen', Helvetica, Arial, sans-serif;
+}
+
+article {
+  margin: 0;
+  text-align: left;
+}
+
+article h1 {
+  font-size: 1.5em;
+  font-weight: bolder;
+  text-decoration: underline;
+  text-indent: left;
+  margin: 0 0 0 20px;
+}
+
+section article ul {
+  display: block;
+  text-align: center;
+  margin: 30px auto;
+  padding: 0;
+}
+
+section article ul li {
+  font-family: 'Inconsolata', Courier, "Courier New", monospace;
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 15px 0;
+}
+
+figure, figcaption {
+  text-align: center;
+  margin:0;
+}
+
+aside {
+  max-width: 300px;
+  float: right;
+  text-align: justify;
+  margin: 0;
+  margin-right: 0px;
+  padding-left: 40px;
+  padding-right: 15px;
+  font-weight: lighter;
+  line-height: 1.8em;
+  letter-spacing: 0.04em;
+  word-spacing: 0.1em;
+}
+
+aside ul {
+  display: block;
+  text-align: left;
+}
+
+aside ul li {
+  display: inline-block;
+  padding: 0 5px;
+  margin: 0;
+}

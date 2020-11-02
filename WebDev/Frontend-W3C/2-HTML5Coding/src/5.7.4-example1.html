@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+    <title>Example of using the validation API</title>
+  <style>
+    input:focus:invalid { background-color: lightPink;}
+    input:valid { background-color:lightGreen }
+    input:required {border: 2px solid red;}
+    input:optional {border: 2px solid green;}
+  </style>
+</head>
+<body>  
+  <script>
+    function validate() {
+      var input = document.getElementById('b');
+      var validityState_object = input.validity;
+      
+      if(validityState_object.valueMissing) {
+         input.setCustomValidity('Please set an age (required)');	
+      } else if (validityState_object.rangeUnderflow) {
+         input.setCustomValidity('Your value is too low');
+      } else if (validityState_object.rangeOverflow) {
+         input.setCustomValidity('Your value is too high');
+      } else if (validityState_object.typeMismatch) {
+         input.setCustomValidity('Type mismatch');
+      } else if (validityState_object.tooLong) {
+         input.setCustomValidity('Too long');
+      } else if (validityState_object.stepMismatch) {
+         input.setCustomValidity('stepMismatch');
+      } else if (validityState_object.patternMismatch) {
+         input.setCustomValidity('patternMismatch');
+      } else {
+        input.setCustomValidity('');
+      }
+    }
+  </script>
+  <form>
+      <label for="b">Enter a value between 10 and 20 </label> 
+
+      <input  type="number" name="text" id="b"
+              required  min="10" max ="20" step="1" oninput='validate()'/>    
+        <input type="submit"/>
+  </form>
+  
+  </body>
+</html>
+
+

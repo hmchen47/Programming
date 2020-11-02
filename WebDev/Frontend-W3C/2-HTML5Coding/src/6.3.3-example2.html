@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>Reading file metadata</title>
+<link rel="stylesheet" href="css/6.3.3-example2.css">
+</head>
+<body>
+Select several images: <input type="file" accept="image/*" multiple onchange="filesProcess(this.files)" name="selection"/>
+<p>
+<div id="result">...</div>
+  
+<script>  
+  function filesProcess(files) {    
+    var selection = "<table><tr><th>Name</th><th>Bytes</th><th>MIME Type</th><th>Last modified date</th></tr>";
+    
+    for(i=0; i<files.length ;i++){      
+      file = files[i];      
+        selection += "<tr><td>"+file.name+"</td><td style=\"text-align:right\">"
+			+file.size+"</td><td>"
+			+file.type+"</td><td> "+file.lastModifiedDate+"</td></tr>";
+     }
+      selection += "</table>";
+
+     document.getElementById("result").innerHTML = selection;
+   }
+</script>
+
+</body>
+</html>
+
