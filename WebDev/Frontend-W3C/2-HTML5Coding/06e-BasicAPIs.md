@@ -447,6 +447,113 @@ __Source code for the next 3 questions (16, 17 and 18)__
   Explanation: The correct answer is getUserMedia API.
 
 
+### 6.5.6 Exercises (23-28)
+
+23. Stream locally?
+
+  Can we use a local file with the `<audio>` or `<video>` element?
+
+  a. Yes, with the File API, we can read a local file as a dataURL, and use that URL to set the `src` attribute or a `<audio>` or a `<video>` element.<br/>
+  b. No, it's only for streaming remote audio/video files.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+24. Name this XXXXX thing!
+
+  <pre>&lt;video height="272" width="640"
+        poster="https://mainline.i3s.unice.fr/mooc/q1fx20VZ-640.jpg"
+        crossorigin="anonymous"
+        controls&gt;
+    &lt;source src="https://mainline.i3s.unice.fr/mooc/sintel.mp4"
+            type="video/mp4"&gt;
+    &lt;XXXXX src="https://mainline.i3s.unice.fr/mooc/sintel-captions.vtt"
+            kind="captions" label="Closed Captions" default&gt;
+  &lt;/video&gt;
+  </pre>
+
+  What is the name of the element you would use instead of XXXXX, in order to add captions to the video (do not type the < and > chars)?
+
+  Ans:<br/>
+  Explanation: 
+
+
+25. Tell me good news!
+
+  Which of these functions has been introduced by HTML5, for doing smooth animation?
+
+  a. setInterval<br/>
+  b. requestAnimationFrame<br/>
+  c. setTimeout<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+26. Secular expansion or regular expression?
+
+  Which input field attribute relies on JavaScript regular expressions for deciding if a field content is valid or invalid?
+
+  a. pattern<br/>
+  b. regexp<br/>
+  c. format<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+27. Listen to me!
+
+  <pre>&lt;input type="date" ?="validateDate(this.value);"&gt;
+  ...
+  </pre>
+
+  Which of the following could be used instead of '?' in the above code, for responding to date change?
+
+  a. onchange<br/>
+  b. onsubmit<br/>
+  c. onmouseclicked<br/>
+
+
+  Ans: <br/>
+  Explanation: 
+
+
+__Source code for the next question (28)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Input type=color example</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://code.jquery.com/jquery-1.9.1.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.0/spectrum.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="atn" style="line-height: 1.6; background-color: #ffffff;">href</span><span class="pun" style="line-height: 1.6; background-color: #ffffff;">=</span><span class="atv" style="line-height: 1.6; background-color: #ffffff;">"https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.6.1/spectrum.min.css"</span><span class="tag" style="line-height: 1.6; background-color: #ffffff;">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag"></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"color"</span><span class="tag">&gt;</span><span class="pln">Please choose a color: </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"color"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+28. Click on my label please!
+
+  If I click on the text "Please choose a color:", what will happen?
+
+  a. The word under the cursor will be selected.<br/>
+  b. The color chooser will pop up.<br/>
+  c. Nothing special.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
 
 
 
