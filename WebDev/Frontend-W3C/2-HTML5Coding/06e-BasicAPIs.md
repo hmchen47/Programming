@@ -308,7 +308,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Image 2 (a red circle and a blue circle)<br/>
   c. Image 3 (two blue circles, disconnected)<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: The first answer is correct: the two circles are in the same path. The second call to drawSomething at line 18 will draw all arcs in the buffer (the one that has been added during the first call and the current one). As we never emptied the buffer, two circles will be drawn, in addition, as they are in the same path, they will be connected.
 
 
 17. Which best practice?
@@ -319,7 +320,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. A function that changes the context must save the context at the beginning and restore it at the end.<br/>
   c. A function must not change the current color, as this may affect other parts of the code.<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: Best practice is to save/restore the context at the beginning/end of each function that changes the context or apply transformations to the coordinate system.
 
 
 18. Improve but make no new mistakes...
@@ -369,8 +371,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Version 2<br/>
   c. Version 3<br/>
 
-  Ans: 
-
+  Ans: c<br/>
+  Explanation: Version 2 is incorrect: we translate(x, y) and keep drawing the arc at (x, y). This will move the center of the circle twice. Version 1 is incorrect, as we save the context at the beginning and never restore it. Consecutive calls of this function will accumulate the translation values. Version 3 is correct: we save and restore the context, and use translate(x, y) and draw the arc at (0, 0).
 
 
 19. Microdata?
@@ -381,7 +383,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. SEO (Search Engine Optimization)<br/>
   c. Better structuring of an HTML page<br/>
 
-  Ans:
+  Ans: b<br/>
+  Explanation: The main use for Microdata is SEO (Search Engine Optimization).
 
 
 20. I have a headache, doctor!
@@ -401,7 +404,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. The code should use a heading (a H1, H2... H6) within each section element.<br/>
   c. A header should always be used at the beginning of the page, not inside a section element.<br/>
 
-  Ans: 
+  Ans: b<br/>
+  Explanation: Best practice: always add a heading to explicit sectioning content. This is from week 1 of the course!
 
 
 21. Headers, headings, my poor head!
@@ -427,7 +431,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Do not use sections and articles, H1, H2 etc. are sufficient.<br/>
   c. Put sections into articles, not the reverse.<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: Use H1 as top level headings only, use H2...H6 in sectioning content. Here, we have a H1 in a section; this is ok. But we have also another H1 in the article in the section. While this may be ok, according to the specification, due to the lack of implementation of the outline algorithm that renumbers H1s automatically depending on the hierarchy of sectioning elements, this practice is not recommended. 
 
 
 22. Light, camera, action!
@@ -438,7 +443,10 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Multimedia API<br/>
   c. requestAnimationFrame API<br/>
 
-  Ans: 
+  Ans: a<br/>
+  Explanation: The correct answer is getUserMedia API.
+
+
 
 
 
