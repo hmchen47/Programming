@@ -97,6 +97,7 @@
 + [Tracking position](#644-tracking-a-position)
   + syntax: `watchPosition(onSuccess, onError)`
     + get the callback function only when the current position changes
+    + not calling in regular basis
     + return an `id` to use the `clearWatch(id)` method to stop the current tracking
   + track the current position
   + typical usage:
