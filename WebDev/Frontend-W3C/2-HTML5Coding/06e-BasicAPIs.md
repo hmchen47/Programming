@@ -170,8 +170,8 @@ __Source code for the next 2 questions (7 and 8)__
   a. Different methods, including: GPS, GSM/3G triangulation, WIFI, and IP address; are tried to get the current location.<br/>
   b. Using GPS only. If no GPS, it's impossible to geolocate. That's why smartphones often ask the user to turn on the GPS.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The geolocation HTML5 JavaScript API is implemented by most modern Web browsers, and uses different means to get the current location: GPS, GSM/3G triangulation, WIFI, IP address, etc. Sometimes it is not possible to get a location (behind an organization's firewall, for instance).
 
 
 11. She's the one!
@@ -193,8 +193,8 @@ __Source code for the next 2 questions (7 and 8)__
   a. Once.<br/>
   b. Several times: if we move and the position changes, the showPosition method will be called again.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: When a position is available, the showPosition will be called once.
 
 
 12. Asking permission
@@ -204,16 +204,16 @@ __Source code for the next 2 questions (7 and 8)__
   a. No, a Web site user that uses geolocation must agree to be geolocated, at least once.<br/>
   b. Yes, we can geolocate without asking permission.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The first time you open a Web page that uses geolocation, the browser will ask if you agree to share your position with the application, for privacy reasons.
 
 
 13. Be accurate, please!
 
   Is it possible to know the accuracy of a given position? (Yes/No)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: Yes<br/>
+  Explanation: It's possible to know the accuracy for the longitude/latitude positioning using the `position.coords.accuracy` property. It's also possible to know the accuracy of the altitude computation, when available, using the `position.coords.altitudeAccuracy` property.
 
 
 14. Watch my position
@@ -225,8 +225,12 @@ __Source code for the next 2 questions (7 and 8)__
   a. It will be called only when a new position is available.<br/>
   a. It will be called at regular intervals of time that depend on the browser's implementation; at least twice per minute.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Whereas getCurrentPosition just gives a position once when called, watchPosition does the following:
+    + it only calls the callback function when the current position changes. If you stay in the same place, it won't regularly call the callback function - it only does this when you move.
+    + It returns an id so that you can use the clearWatch(id) method to stop the current tracking.
+
+
 
 
 15. Get current position
@@ -238,8 +242,8 @@ __Source code for the next 2 questions (7 and 8)__
   a. It will try to use the GPS if available. This may prompt the user to turn on the GPS of his mobile device, if the GPS is turned off.<br/>
   b. This just activates a high resolution computation of the coordinates (using 64 bit accuracy), independently of the means used to geolocate.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Several options are available when using HTML5 geolocation. We can pass a third parameter to the getCurrentPosition and watchPosition methods, that will hold one or several options. enableHighAccuracy:true will indeed try to use GPS, if available.
 
 
 
