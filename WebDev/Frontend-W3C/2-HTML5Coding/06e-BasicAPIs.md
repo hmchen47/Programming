@@ -106,21 +106,21 @@ As stated in the grading policy page, this final exam counts towards 25% of the 
 
 __Source code for the next 2 questions (7 and 8)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"files"</span><span class="tag">&gt;</span><span class="pln">Choose a text file:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"files"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">readFileContent</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">files</span><span class="pun">)</span><span class="atv">"</span><span class="tag">/&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">rows</span><span class="pun">=</span><span class="atv">15</span><span class="pln"> </span><span class="atn">cols</span><span class="pun">=</span><span class="atv">50</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"fileContent"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> readFileContent</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"fileContent"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">=</span><span class="pln"> </span><span class="pun"><strong><span style="color: #ff0000;">?</span></strong>;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>reader</strong></span><strong><span class="pun">.</span><span class="pln">readAsText</span><span class="pun">(</span><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">&lt;label for="files"&gt;Choose a text file:&lt;/label&gt;</li>
+<li>&lt;input type="file" id="files"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;onchange="readFileContent(this.files)"/&gt;</li>
+<li>&lt;p&gt;</li>
+<li>&lt;textarea rows=15 cols=50 id="fileContent"&gt;&lt;/textarea&gt;</li>
+<li>&lt;script&gt;</li>
+<li> function readFileContent(files) {</li>
+<li>&nbsp; &nbsp; &nbsp;var reader = new FileReader();</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>reader</strong><strong>.onload = function(e) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.getElementById("fileContent").value= <strong><span style="color: #ff0000;">?</span></strong>;</li>
+<li>&nbsp; &nbsp; &nbsp;};</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>reader</strong><strong>.readAsText(files[0]);</strong></li>
+<li> }</li>
+<li>&lt;/script&gt;</li>
 </ol></div>
 
 7. Execution order...
@@ -250,34 +250,34 @@ __Source code for the next 2 questions (7 and 8)__
 
 __Source code for the next 3 questions (16, 17 and 18)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Canvas example</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"400"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;drawSomething</span><span class="pun">(</span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;drawSomething</span><span class="pun">(</span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="str">'blue'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">,</span><span class="pln"> color</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> color</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Canvas example&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;canvas id="myCanvas" width="400" height="400"&gt;&lt;/canvas&gt;</li>
+<li> </li>
+<li>&lt;script&gt;</li>
+<li> var canvas = document.querySelector("#myCanvas");</li>
+<li> var ctx = canvas.getContext('2d');</li>
+<li>&nbsp;</li>
+<li>&nbsp;drawSomething(120, 120, 50, 'red');</li>
+<li>&nbsp;</li>
+<li>&nbsp;ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li>&nbsp;</li>
+<li>&nbsp;drawSomething(120, 120, 20, 'blue');</li>
+<li>&nbsp;</li>
+<li> <strong>function drawSomething(x, y, r, color)</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.strokeStyle = color;</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.arc(x, y, r, 0, 2*Math.PI);</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.stroke();</li>
+<li> }</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 16. The tale of the two circles
@@ -391,7 +391,7 @@ __Source code for the next 3 questions (16, 17 and 18)__
 
   <pre>&lt;section&gt;
     &lt;header&gt;
-        &lt;p class="article title"&gt;Blog post of April 2020&lt;/p&gt;
+        &lt;p&gt;Blog post of April 2020&lt;/p&gt;
         &lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;
     &lt;/header&gt;
     ...
@@ -522,24 +522,24 @@ __Source code for the next 3 questions (16, 17 and 18)__
 
 __Source code for the next question (28)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Input type=color example</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://code.jquery.com/jquery-1.9.1.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.0/spectrum.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="atn" style="line-height: 1.6; background-color: #ffffff;">href</span><span class="pun" style="line-height: 1.6; background-color: #ffffff;">=</span><span class="atv" style="line-height: 1.6; background-color: #ffffff;">"https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.6.1/spectrum.min.css"</span><span class="tag" style="line-height: 1.6; background-color: #ffffff;">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"color"</span><span class="tag">&gt;</span><span class="pln">Please choose a color: </span><span class="tag">&lt;/label&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"color"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Input type=color example&lt;/title&gt;</li>
+<li> &lt;script src="https://code.jquery.com/jquery-1.9.1.min.js"&gt;&lt;/script&gt;</li>
+<li> &lt;script </li>
+<li>&nbsp; src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.0/spectrum.min.js"&gt;&lt;/script&gt;</li>
+<li>&lt;link rel="stylesheet" type="text/css"&nbsp;</li>
+<li><span style="line-height: 1.6; background-color: #ffffff;">href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.6.1/spectrum.min.css"&gt;</span></li>
+<li>&lt;/head&gt;</li>
+<li></li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &nbsp;&lt;label for="color"&gt;Please choose a color: &lt;/label&gt; </li>
+<li>&nbsp; &nbsp;&lt;input type="color" id="color"&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 28. Click on my label please!
