@@ -99,7 +99,7 @@
   + ref: [Categories of HTML5 Pattern](http://html5pattern.com/)
   + a `pattern` attribute w/ a value: the JavaScript regular expression matching the entire string entered in the field
   + the empty string valid by default, except if the required attribute used
-  + __best practice:__ systematically add a `title` attribute with a value that indicates what constitutes a valid entry
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>:__ systematically add a `title` attribute with a value that indicates what constitutes a valid entry
   + example: 3-letter country code
 
     ```html
@@ -165,7 +165,7 @@
   + typical usage w/ email: `<input type="email" name="myemail" title="you can enter multiple emails addresses, separated by a comma" multiple>`
     + enabling the user to enter a set of addresses
     + separated by a comma instead of a single address to enter several addresses keep the input field valid
-  + __best practice__: add a `title` attribute indicating what you expect as a valid entry
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>__: add a `title` attribute indicating what you expect as a valid entry
   + typical usage w/ file: `<input type=file multiple>`
     + able to choose multiple files
     + w/o the multiple attribute, select only one file
@@ -489,7 +489,7 @@ __Source code for the knowledge check 5.5.4__
   d. There are two input fields with an `autofocus` attribute, and this is not correct.<br/>
   e. _At line 9_, the value of the student ID cannot contain letters, this will make this field invalid.<br/>
 
-  Ans: <span color="color: magenta;">bd</span>, xde<br/>
+  Ans: <span style="color: magenta;">bd</span>, xde<br/>
   Explanation: The `for` and `id` attributes must match between a label and its associated input field. And you should never have more than one input field with the `autofocus` attribute.
 
 
@@ -585,7 +585,7 @@ A __must read:__ a good catalog of ready-to-go patterns is available at html5pat
 
 Just add a `pattern` attribute with a value that is the JavaScript regular expression that must match the entire string entered in the field. Note that the empty string is valid by default (except if the `required` attribute is used - this makes empty fields invalid).
 
-__It's best practice to systematically add a `title` attribute with a value that indicates what constitutes a valid entry.__ More on this in the section of this course dedicated to form validation.
+__It's <mark style="color: black; background-color: lightpink;">best practice</mark> to systematically add a `title` attribute with a value that indicates what constitutes a valid entry.__ More on this in the section of this course dedicated to form validation.
 
 <div><ol>
 <li value="1">&lt;input type="text" name="country_code" </li>

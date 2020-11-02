@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <title>Web Audio API: Simple load + play</title>
+</head>
+<body>
+  <p>Example of using the Web Audio API to load a sound file
+  and start playing on user-click.</p>
+  <p>The WebAudio API is beyond the scope of this course (covered in the HTML5 part 2 course), but notice that the local file is read as a binary  file with <b>reader.readAsArrayBuffer</b>.
+    <p>
+  <input type="file" accept="audio/*">
+  <button onclick="playSound()" disabled>Start</button>
+  <button onclick="stopSound()" disabled>Stop</button>
+<script>
+// WebAudio context
+var context = new window.AudioContext();
+var source = null;
+var audioBuffer = null;
+
+function stopSound() {
+  if (source) {
+    source.stop();
+  }
+}
+
+function playSound() {
+  // Build a source node for the audio graph
+  source = context.createBufferSource();
+  source.buffer = audioBuffer;
+  source.loop = false;
+  // connect to the speakers
+  source.connect(context.destination);
+  source.start(0); // Play immediately.
+}
+
+function initSound(audioFile) {
+  // The audio file may be a mp3, we must decode it before playing it from memory
+  context.decodeAudioData(audioFile, function(buffer) {
+    // audioBuffer the decoded audio file we're going to work with
+    audioBuffer = buffer;
+    
+    // Enable all buttons once the audio file is
+    // decoded
+    var buttons = document.querySelectorAll('button');
+    buttons[0].disabled = false;
+    buttons[1].disabled = false;
+  }, function(e) {
+    console.log('Error decoding file', e);
+  }); 
+}
+
+ 
+// User selects file, read it as an ArrayBuffer and pass to the API.
+var fileInput = document.querySelector('input[type="file"]');
+  
+fileInput.addEventListener('change', function(e) {  
+  var reader = new FileReader();
+  
+  reader.onload = function(e) {
+    initSound(e.target.result);
+  };
+  // THIS IS THE INTERESTING PART!
+  reader.readAsArrayBuffer(this.files[0]);
+}, false);
+</script>
+</body>
+</html>
+

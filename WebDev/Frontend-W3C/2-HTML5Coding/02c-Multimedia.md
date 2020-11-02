@@ -376,7 +376,8 @@ The displayed text can span multiple lines, but blank lines are not allowed, as 
   c. A starting time, an ending time and a textual value<br/>
   d. A timestamp<br/>
 
-  Ans: 
+  Ans: c<br/>
+  Explanation: Each "element" in a WebVTT file has a starting and ending time, plus a value (the text that will be displayed). Each element is called a "cue", and may have an ID.
 
 
 

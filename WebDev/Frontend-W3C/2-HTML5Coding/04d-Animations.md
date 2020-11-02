@@ -121,8 +121,8 @@ __Source code for the three questions (4, 5 and 6):__
   What is the id returned by the call to `requestAnimationFrame` at line 29 useful for?
 
   a. It is useful to stop an animation by calling `cancelAnimationFrame(id)`.<br/>
-  a. It is used to get the delta of time elapsed (using the id.delta property).<br/>
-  a. It is used to set properties or to call methods of the `requestAnimaTionFrame` scheduler, like this: id.interval=25, or id.stop() in order to stop the animation.<br/>
+  b. It is used to get the delta of time elapsed (using the id.delta property).<br/>
+  c. It is used to set properties or to call methods of the `requestAnimaTionFrame` scheduler, like this: id.interval=25, or id.stop() in order to stop the animation.<br/>
 
   Ans: a<br/>
   Explanation: The id is useful to cancel an animation. There could be several concurrent animations running at the same time, each having its own id. Notice that `requestAnimationFrame`, unlike `setInterval` or `setTimeout`, will make the browser merge the different animations into a single frame in the graphics card.
@@ -135,7 +135,7 @@ __Source code for the three questions (4, 5 and 6):__
   a. It gives a high resolution time (with sub-millisecond accuracy). By comparing two consecutive values of this parameter with two consecutive executions of the animation loops, we can compute the amount of time elapsed between frames. This is useful when writing Web games.<br/>
   b. No need to compute these deltas, this parameter IS the time elapsed between each frame of animation.<br/>
 
-  Ans: a<br/>
+  Ans: <span style="color: magenta;">a</span><br/>
   Explanation: The `timeStamp` parameter of the `animationLoop` function gives a high resolution time. By measuring deltas between two consecutive calls of the `animationLoop`, we will know exactly, with a sub-millisecond accuracy, what is the exact elapsed time between two frames.
 
 

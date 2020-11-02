@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>Example of localStorare API use</title>
+  <script>
+    // Using localStorage
+ 
+    var counter = localStorage.getItem("count") || 0;
+    counter++;
+    localStorage.setItem("count", counter);
+ 
+    function getCountValue() {
+       // retrieve data
+       document.querySelector("#counter").innerHTML = localStorage.count;
+    }
+    
+    function seeAllKeyValuePairsStored() {
+      // clear list first
+      document.querySelector('#list').innerHTML="";
+      
+      for (var i = 0, n = localStorage.length; i < n; i++) {
+        var key = localStorage.key(i);
+        var value = localStorage[key];
+        console.log(key + ": " + value);
+        
+        var li = document.createElement('li');
+          li.innerHTML = key + ": " + value;
+          document.querySelector('#list').insertBefore(li, null);
+      }
+    }     
+    
+    function resetStore() { 
+      // erase all key values from store 
+      localStorage.clear();
+      // reset displayed list too
+      document.querySelector('#list').innerHTML="";
+    }
+    function addSomeData() {
+      // store data
+      localStorage.lastName = "Buffa";
+      localStorage.firstName = "Michel";
+      // refresh display
+      seeAllKeyValuePairsStored();
+    }
+     function removeSomeData() {
+      // store data
+      localStorage.removeItem("lastName");
+       localStorage.removeItem("firstName");
+      // refresh display
+      seeAllKeyValuePairsStored();
+    }
+  </script>
+</head>
+<body onload="getCountValue()">
+  <h1>Number of time this page has been seen on this browser: <span id="counter"></span></h1>
+ 
+  <button onclick="seeAllKeyValuePairsStored()">Show all key value pairs stored in localStorage</button><br/>
+  <output id="list"></output>
+
+  <button onclick="addSomeData()">Add some data to the store</button><br/>
+  <button onclick="removeSomeData()">Remove some data</button><br/>
+   <button onclick="resetStore()">reset store (erase all key/value pairs)</button>
+</body>
+</html>
+

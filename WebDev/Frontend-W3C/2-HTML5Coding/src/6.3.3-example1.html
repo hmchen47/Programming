@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>Reading file metadata</title>
+  <script>
+    function displayFirstSelectedFileMetadata() {
+      var selectedFile = document.getElementById('input').files[0];
+      document.querySelector("#singleName").innerHTML = selectedFile.name;
+      document.querySelector("#singleSize").innerHTML = selectedFile.size + "  bytes";
+      document.querySelector("#singleType").innerHTML = selectedFile.type;
+      document.querySelector("#singleDate").innerHTML = selectedFile.lastModifiedDate;
+    }
+  </script>
+</head>
+<body>
+  Select one or more files: <input type="file" id="input" onchange="displayFirstSelectedFileMetadata();"/>
+<p>
+  <ul>
+    <li>File name: <span id="singleName"></span></li>
+    <li>File size: <span id="singleSize"></span></li>
+    <li>File type: <span id="singleType"></span></li>
+    <li>File last modification date: <span id="singleDate"></span></li>
+  </ul>
+  
+</body>
+</html>
+

@@ -19,7 +19,7 @@
     + submitting the form: extra messages displayed as pop up text bubbles
       + default: providing default feedback on the input field's border
       + overridden by CSS rules
-  + __best practice__: ALWAYS provide default CSS rules that give visual feedback to the user's input
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>__: ALWAYS provide default CSS rules that give visual feedback to the user's input
   + example: styling "required", "valid" and "invalid" fields 
 
     ```html
@@ -88,7 +88,7 @@
   + allowing developers to use their own validation algorithm and customize error messages
   + together w/ some HTML/CSS/JavaScript to make own message bubbles
   + example: password checking
-   
+
     ```html
     <form>
       <fieldset>
@@ -176,7 +176,7 @@
     + add an empty unnumbered list (`<ul>`...`</ul>`) to the form in style: `<ul></ul>`
     + use this class attribute for styling, and hiding by default, the error messages using CSS,: `.error-messages { display: none; ...}`
     + replace the validation UI for all forms via calling `replaceValidationUI(form)` function in JavaScript: 
- 
+
       ```js
       var forms = document.querySelectorAll("form"); 
       for (var i = 0; i < forms.length; i++) {
@@ -321,7 +321,7 @@ Source code extract:
  
 Try the online example with different Web browsers, both with and without the CSS rules. See the differences between FireFox/Chrome/Opera in the default visual feedback behavior. Don't worry: all default behavior can be overridden if you provide your own CSS rules.
 
-<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong><span style="color: #ff0000;">Best practice: &nbsp;We recommend that&nbsp;you ALWAYS&nbsp;provide default CSS rules that give visual feedback to the user's input.</strong></p>
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong><span style="color: #ff0000;"><mark style="color: black; background-color: lightpink;">best practice</mark></span>: &nbsp;We recommend that&nbsp;you ALWAYS&nbsp;provide default CSS rules that give visual feedback to the user's input.</strong></p>
 
 
 __Example #2: add CSS transitions + an icon/marker to the right of the input fields__

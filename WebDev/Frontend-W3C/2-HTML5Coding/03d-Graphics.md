@@ -925,7 +925,7 @@ This time, in order to draw the two shapes differently, we defined two separate 
   a. It will empty the current path (reset the buffer of drawing orders), but it will not change the context properties.<br/>
   b. It will reset all properties of the graphic context.<br/>
 
-  Ans: <span style="color: magenta;">a, xb<br/>
+  Ans: <span style="color: magenta;">a</span>, xb<br/>
   Explanation: Indeed, calling `ctx.beginPath()` will erase the buffer but will not change any context properties. This method is useful for starting a new path.
 
 
@@ -1307,7 +1307,7 @@ ctx.stroke();
 
 1. Will the circle above be "connected" to the last extremity of the line drawn from (100, 100) to (200, 200)? (Yes/No)
 
-  Ans: <span style="color: magenta;">Yes, xNo<br/>
+  Ans: <span style="color: magenta;">Yes</span> , xNo<br/>
   Explanation: 
     + Indeed, arcs and lines are working in "path mode", so the final drawing produced by the above code will show a line going from (100, 100) to (200, 200), then another line that goes from (200, 200) to the first pixel of the circle outline (corresponding to the arc at angle=0: 100 pixels to the right of the circle center), and the circle of radius = 100, centered in (500, 500). In order to avoid having this line, the easiest solution would be to use TWO paths here. Insert `ctx.stroke()`; `ctx.beginPath()` in the blank line in the code above and you will get a line and a circle, disconnected.
     + Another possibility would be to add the blank line ctx.moveTo(600, 500); without an extra `ctx.beginPath()`. In this case, the "pencil would jump" to the position where the circle starts being drawn (500, 500) + add the horizontal radius to the x pos, giving (600, 500).

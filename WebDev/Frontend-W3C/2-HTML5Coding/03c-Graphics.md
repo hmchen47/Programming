@@ -99,7 +99,7 @@
   + image defined in `<img src="...">`
     + add an `<img>` in the document, then the browser starts downloading it in background
     + draw w/ `document.querySelector(#img)`: work well w/ most of small images $\to$ asynchronous process
-  + best practice: only draw an fully loaded image, use the `onload` callback!
+  + <mark style="color: black; background-color: lightpink;">best practice</mark>: only draw an fully loaded image, use the `onload` callback!
   + `window.onload = function() {...};`: execute after the page loaded, i.e., the large image file loaded first, then draw images in the canvas
 
 + [Drawing images from a video stream](#334-drawing-images-from-a-video-stream)
@@ -632,7 +632,7 @@ Although you will find many examples on the Web that do it this way, they will o
 If you try to draw an image that is not loaded or partially loaded, you will have unexpected results!
 
 <div style="border: 1px solid red; margin: 20px; padding: 10px;">
-<p style="text-align: center;"><strong><em>Best practice: </em></strong><em>only draw an image that is fully loaded, use <br>the </em><em><span style="font-family: 'courier new', courier;">onload callback!</em></p>
+<p style="text-align: center;"><strong><em><mark style="color: black; background-color: lightpink;">Best practice</mark>: </em></strong><em>only draw an image that is fully loaded, use <br>the </em><em><span style="font-family: 'courier new', courier;">onload callback!</em></p>
 </div>
 
 __GOOD =>__ the right way to do this is shown in this [online example](https://jsbin.com/sejoyen/1/edit?html,css,output), that starts drawing only from the onload callback function: ([Local Example - onboard callback](src/3.3.3-example3.html))

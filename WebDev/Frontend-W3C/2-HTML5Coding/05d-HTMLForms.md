@@ -723,7 +723,7 @@ Some screenshots from Opera desktops and Safari IOS:
   d. only<br/>
   e. value<br/>
 
-  Ans: ae<br/>
+  Ans: ce<br/>
   Explanation: The value and step attributes, when used together, restrict the user to pick only one day of the week. For example `<input type="date" value="2015-06-21" step="7">` will pick only Sundays, such as the 21st of June 2015 which is a Sunday. Try it!
 
 

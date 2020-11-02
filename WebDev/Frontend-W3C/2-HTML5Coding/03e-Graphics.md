@@ -839,14 +839,14 @@ Please try: `repeat-x`, `repeat-y` or `no-repeat` as acceptable values. Just cha
   b. Yes<br/>
   c. No<br/>
 
-  Ans: B<BR/>
-  eXPLANATION: Patterns can be used with all kinds of shapes, and with both `strokeStyle` and `fillStyle`
+  Ans: b<BR/>
+  Explanation: Patterns can be used with all kinds of shapes, and with both `strokeStyle` and `fillStyle`
 
 
 
 ### 3.5.5 A multiple image loader
 
-#### Draw with multiple patterns? We need to load all of them before drawing! 
+#### Draw with multiple patterns? We need to load all of them before drawing!
 
 Below are 4 rectangles drawn with 4 different patterns.
 
@@ -1165,7 +1165,7 @@ And here is the final result:
 1. Shadows are set using the `strokeStyle` or `fillStyle` property of the context? (Yes/No)
 
   Ans: <span style="color: magenta;">No</span>, xYes<br/>
-  Explanation" No, shadows have four properties just for them: `shadowColor`, `shadowBlur`, `shadowOffsetX` and `shadowOffsetY`.
+  Explanation: No, shadows have four properties just for them: `shadowColor`, `shadowBlur`, `shadowOffsetX` and `shadowOffsetY`.
 
 
 
