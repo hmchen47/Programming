@@ -246,5 +246,200 @@ __Source code for the next 2 questions (7 and 8)__
   Explanation: Several options are available when using HTML5 geolocation. We can pass a third parameter to the getCurrentPosition and watchPosition methods, that will hold one or several options. enableHighAccuracy:true will indeed try to use GPS, if available.
 
 
+### 6.5.5 Exercises (16-22)
+
+__Source code for the next 3 questions (16, 17 and 18)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Canvas example</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"400"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;drawSomething</span><span class="pun">(</span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;drawSomething</span><span class="pun">(</span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="str">'blue'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="kwd">function</span><span class="pln"> drawSomething</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">,</span><span class="pln"> color</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> color</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+16. The tale of the two circles
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y58zmzhg" ismap target="_blank">
+      <img style="margin: 0.1em;" height=100
+        src  ="https://tinyurl.com/y6375ecp"
+        alt  ="2 blue circles, one big, one small linked together"
+        title="2 blue circles, one big, one small linked together"
+      >
+      <img style="margin: 0.1em;" height=100
+        src  ="https://tinyurl.com/y6375ecp"
+        alt  ="2 circles: one red big and one blue small, disconnected"
+        title="2 circles: one red big and one blue small, disconnected"
+      >
+      <img style="margin: 0.1em;" height=100
+        src  ="https://tinyurl.com/y4aopujo"
+        alt  ="2 blue circles, one big, one small, disconnected"
+        title="2 blue circles, one big, one small, disconnected"
+      >
+    </a>
+  </div>
+
+  Which picture will be drawn by the above code?
+
+  a. Image 1 (two blue circles with a blue line that goes from one to the other)<br/>
+  b. Image 2 (a red circle and a blue circle)<br/>
+  c. Image 3 (two blue circles, disconnected)<br/>
+
+  Ans: 
+
+
+17. Which best practice?
+
+  The function `drawSomething()` does not follow the best practice presented in the course. Which of the following describes the best practice?
+
+  a. It is absolutely necessary to call ctx.beginPath() before calling ctx.arc(...)<br/>
+  b. A function that changes the context must save the context at the beginning and restore it at the end.<br/>
+  c. A function must not change the current color, as this may affect other parts of the code.<br/>
+
+  Ans: 
+
+
+18. Improve but make no new mistakes...
+
+  drawSomething version 1
+
+  <pre>    function drawSomething(x, y, r, color) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.strokeStyle = color;
+        ctx.arc(0, 0, r, 0, 2*Math.PI);
+        ctx.stroke();
+      }
+  </pre>
+
+  drawSomething version 2
+
+  <pre>    function drawSomething(x, y, r, color) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.strokeStyle = color;
+        ctx.arc(x, y, r, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.restore();
+      }
+  </pre>
+
+  drawSomething version 3
+
+  <pre>    function drawSomething(x, y, r, color) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.strokeStyle = color;
+        ctx.arc(0, 0, r, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.restore();
+      }
+  </pre>
+
+  We tried to improve the drawSomething function, __without changing the meaning of its parameters. Call it with the same parameters and the new version should do the same thing as the original!__
+
+  For example, if we replace the original version with the new version in the colored source code at the beginning of this page, the resulting drawing should be exactly the same, at the same location.
+
+  Which of the above versions is the good one?
+
+  a. Version 1<br/>
+  b. Version 2<br/>
+  c. Version 3<br/>
+
+  Ans: 
+
+
+
+19. Microdata?
+
+  What is the primary use of microdata?
+
+  a. Defining new JavaScript variables that correspond to HTML elements in the page<br/>
+  b. SEO (Search Engine Optimization)<br/>
+  c. Better structuring of an HTML page<br/>
+
+  Ans:
+
+
+20. I have a headache, doctor!
+
+  <pre>&lt;section&gt;
+    &lt;header&gt;
+        &lt;p class="article title"&gt;Blog post of April 2020&lt;/p&gt;
+        &lt;p&gt;Posted by Michel Buffa...&lt;/p&gt;
+    &lt;/header&gt;
+    ...
+  &lt;/section&gt;
+  </pre>
+
+  While the above code has no errors, it does not follow best practice for accessibility. Which best practice is this?
+
+  a. P elements should never be used inside a header element, only a H1, H2... H6.<br/>
+  b. The code should use a heading (a H1, H2... H6) within each section element.<br/>
+  c. A header should always be used at the beginning of the page, not inside a section element.<br/>
+
+  Ans: 
+
+
+21. Headers, headings, my poor head!
+
+  <pre class="prettyprint  linenums:1">&lt;section&gt;
+    &lt;header&gt;    
+      &lt;h1&gt;Blog posts for April 2020&lt;/h1&gt;    
+    &lt;/header&gt;
+    &lt;article&gt;
+      &lt;header&gt;
+        &lt;h1&gt;&lt;a href=""&gt;Information about this example&lt;/a&gt;&lt;/h1&gt;
+        This example is a modified version of 
+        &lt;a href="http://netstream.ru/htmlsamples/html5-blog/index.html"&gt;
+        http://netstream.ru/htmlsamples/html5-blog/index.html&lt;/a&gt;
+      &lt;/header&gt;
+    ...
+  &lt;/article&gt;
+  &lt;/section&gt;</pre>
+
+  While the above code has no errors, the course offered a recommendation about using sectioning elements and headings in this way. What did the course recommend?
+
+  a. Use H1 as top level headings only, use H2... H6 in sectioning content. The H1 in the article should be replaced by a H2.<br/>
+  b. Do not use sections and articles, H1, H2 etc. are sufficient.<br/>
+  c. Put sections into articles, not the reverse.<br/>
+
+  Ans: 
+
+
+22. Light, camera, action!
+
+  What is the name of the API for accessing the Webcam or the microphone?
+
+  a. getUserMedia API<br/>
+  b. Multimedia API<br/>
+  c. requestAnimationFrame API<br/>
+
+  Ans: 
+
+
 
 
