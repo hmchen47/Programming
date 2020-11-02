@@ -2,7 +2,7 @@
 
 
 ## 2.5 Exercises - Week 2
-
+ 
 
 ### 2.5.1 Intro exercises - Week 2
 
@@ -73,7 +73,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   a. stream<br/>
   b. controls<br/>
   c. src<br/>
-  d. loop<br/>
+  d. loop<br/> 
   e. looping<br/>
   f. autoplay<br/>
 
@@ -117,7 +117,7 @@ Please complete the following 25 exercises in a timely manner. As stated in the 
   c. Same as above, but you can also use `<audio controls="controls">`<br/>
   d. Add this attribute: `showcontrols`<br/>
 
-  Ans: bd<br/>
+  Ans: bc<br/>
   Explanation:
     + Right answer: add the `controls` boolean attribute.
     + From the HTML5 specification: "A number of attributes are boolean attributes. The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.
@@ -294,7 +294,7 @@ __Source code for the next 3 questions (16, 17 and 18):__
 
 16. Captions or subtitles
 
-  What is the name of the attribute for setting the track type? What would you use instead of the AAA string in the source code above?
+  What is the name of the attribute for setting the track type? What would you use instead of the __AAA__ string in the source code above?
 
   Ans: kind<br/>
   Explanation: The correct attribute is `kind`, like in: `kind="subtitles"` or `kind="captions"`.
@@ -303,7 +303,7 @@ __Source code for the next 3 questions (16, 17 and 18):__
 
 17. Nice subtitle/caption menu in the player?
 
-  What is the name of the attribute whose role is to inform the browser of the subtitle's description (to appear in the player menu when choosing subtitles)? What would you use instead of the BBB string in the source code above?
+  What is the name of the attribute whose role is to inform the browser of the subtitle's description (to appear in the player menu when choosing subtitles)? What would you use instead of the __BBB__ string in the source code above?
 
   Ans: label<br/>
   Explanation: The correct attribute is `label`, like in: `label="English for the Hard of Hearing"` or `label="French"`.
@@ -311,7 +311,7 @@ __Source code for the next 3 questions (16, 17 and 18):__
 
 18. Which language?
 
-  What is the name of the attribute which will tell the browser what language is used by the track subtitles/captions? What would you use instead of the CCC string in the source code above?
+  What is the name of the attribute which will tell the browser what language is used by the track subtitles/captions? What would you use instead of the __CCC__ string in the source code above?
 
   Ans: srclang<br/>
   Explanation: The correct attribute is `srclang`, like in: `srclang="fr"` or `srclang="en"`.
@@ -335,7 +335,7 @@ __Source code for the next 3 questions (16, 17 and 18):__
   How can we distinguish different voices, to be displayed in different colors, in subtitles/captions (for example, a karaoke duo)?<br/>
 
   a. Use `<v nameOfVoice>` followed by the text of the subtitle, like in: `<v Michel>` Hello dear students of this W3Cx course!<br/>
-  a. Use `<voice nameOfVoice>` followed by the text of the subtitle, like in `<voice Michel>` Hello dear students of this W3Cx course!<br/>
+  b. Use `<voice nameOfVoice>` followed by the text of the subtitle, like in `<voice Michel>` Hello dear students of this W3Cx course!<br/>
 
   Ans: a<br/>
   Explanation: Using the `<v>` tag, you can distinguish different voices that should be displayed in different colors (depending on the HTML5 video player implementation).
@@ -380,11 +380,11 @@ __Source code for the next 3 questions (22, 23 and 24):__
 
 22. Display video stream from webcam?
 
-  Instead of AAA in the source code above, which attribute is used to start displaying the webcam stream as soon as it is available?<br/>
+  Instead of __AAA__ in the source code above, which attribute is used to start displaying the webcam stream as soon as it is available?<br/>
 
   a. loop<br/>
-  a. autoplay<br/>
-  a. preload="none"<br/>
+  b. autoplay<br/>
+  c. preload="none"<br/>
 
   Ans: b<br/>
   Explanation: The `autoplay` attribute is the one that should be used. It will play the video stream as soon as data become available.
@@ -392,7 +392,7 @@ __Source code for the next 3 questions (22, 23 and 24):__
 
 23. Video no audio
 
-  How do you indicate that you want to capture the webcam stream (only the video, not the audio)? What would you use instead of the BBB string in the source code above?<br/>
+  How do you indicate that you want to capture the webcam stream (only the video, not the audio)? What would you use instead of the __BBB__ string in the source code above?<br/>
 
   a. {video=true}<br/>
   b. {video:true, audio:false}<br/>
@@ -404,7 +404,7 @@ __Source code for the next 3 questions (22, 23 and 24):__
 
 24. Stream to URL
 
-  What would you use instead of the CCC string in the above code?<br/>
+  What would you use instead of the __CCC__ string in the above code?<br/>
 
   a. createObjectURL as in: `output.srcObject = window.URL.createObjectURL(stream);`<br/>
   b. Nothing, the stream is a UR, just use `output.srcObject = stream;`<br/>

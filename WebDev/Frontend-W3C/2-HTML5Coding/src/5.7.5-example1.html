@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Aggregating error messages</title>
+        <style>
+            input:invalid { background-color: lightPink;}
+            input:valid { background-color:lightGreen; }
+            input:required {border: 2px solid red;}
+            input:optional {border: 2px solid green;}
+
+            .error-messages {
+                display: none;
+                margin: 0 10px 15px 10px;
+                padding: 8px 35px 8px 30px;
+                color: #B94A48;
+                background-color: #F2DEDE;
+                border: 2px solid #EED3D7;
+                border-radius: 4px;
+            }
+            fieldset {
+                border:1px solid;
+                padding:20px;
+            }
+           label { display: inline-block; width: 140px; text-align: right; } 
+        </style>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+              <legend>Submit with one or two invalid fields </legend>
+                <ul class="error-messages"></ul>
+                <label for="name">Name:</label>
+                <input id="name" name="name" required>
+                <p>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="email" required>
+                <p>
+                    <button>Submit</button>
+            </fieldset>
+
+        </form>
+
+        <script>
+            function replaceValidationUI(form) {
+                // Suppress the default bubbles
+                form.addEventListener("invalid", function (event) {
+                    event.preventDefault();
+                }, true);
+
+                // Support Safari, iOS Safari, and the Android browser—each of which do not prevent
+                // form submissions by default
+                form.addEventListener("submit", function (event) {
+                    if (!this.checkValidity()) {
+                        event.preventDefault();
+                    }
+                });
+
+                // Container that holds error messages. By default it has a CSS display:none property
+                var errorMessages = form.querySelector(".error-messages");
+
+                var submitButton = form.querySelector("button:not([type=button]), input[type=submit]");
+
+                submitButton.addEventListener("click", function (event) {
+                    var invalidFields = form.querySelectorAll("input:invalid"),
+                            listHtml = "",
+                            errorMessagesContainer = form.querySelector(".error-messages"),
+                            label;
+
+                    // Get the labels' values of their name attributes + the validation error
+                    // message of the corresponding input field using the validationMessage
+                    // property of input fields
+                    // We build a list of <li>...</li> that we add to the error message container
+                    for (var i = 0; i < invalidFields.length; i++) {
+                        label = form.querySelector("label[for=" + invalidFields[ i ].id + "]");
+                        listHtml += "<li>" +
+                                label.innerHTML +
+                                " " +
+                                invalidFields[ i ].validationMessage +
+                                "</li>";
+                    }
+
+                    // Update the list with the new error messages
+                    errorMessagesContainer.innerHTML = listHtml;
+
+                    // If there are errors, give focus to the first invalid field and show
+                    // the error messages container by setting its CSS property display=block
+                    if (invalidFields.length > 0) {
+                        invalidFields[ 0 ].focus();
+                        errorMessagesContainer.style.display = "block";
+                    }
+                });
+            }
+
+            // Replace the validation UI for all forms
+            var forms = document.querySelectorAll("form");
+          
+            for (var i = 0; i < forms.length; i++) {
+                replaceValidationUI(forms[ i ]);
+            }
+        </script>
+    </body>
+</html>
+

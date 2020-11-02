@@ -61,7 +61,7 @@
       + execute the function passed as first parameter every n milliseconds regardless of when the function was last called or how long the function takes to execute
       + the function taking longer than the interval $\to$ queue too many function executions back to back $\to$ unpredictable results
       + e.g., call game loop function every $n$ ms, even if the previous one is not yet finished
-  + __best practice__: avoid using `setInterval` for animation in a canvas, except for trivial cases
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>__: avoid using `setInterval` for animation in a canvas, except for trivial cases
 
 + [`setTimeout` method](#424-animating-using-settimeout)
   + syntax: `setTimeout(function, delay);`
@@ -76,8 +76,8 @@
     + `setTimeout()`: probably take slightly longer than the expected timeout period to start executing
     + `setInterval`: the timing not "very" reliable
     + designed long time ago while high precision timers and 60 frames per second animation were not an option
-  + __best practice__: avoid using setTimeout for animating in a canvas, except for trivial cases
-  + __best practice__: using `requestAnimationFrame` for 60 frames/second animation
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>__: avoid using setTimeout for animating in a canvas, except for trivial cases
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>__: using `requestAnimationFrame` for 60 frames/second animation
 
 + [`requestAnimationFrame` method](#425-the-requestanimationframe-api)
   + syntax: `id = requestAnimationFrame(animationLoop)`
@@ -612,8 +612,8 @@ Current [support](https://caniuse.com/#feat=requestanimationframe) is really goo
   a. Yes, this is true<br/>
   b. No, it will call the function automatically every 16.6ms, resulting in a 60 frames/second smooth animation. It works like setInterval, but is more efficient.<br/>
 
-  Ans: a<br/>
-  Explanation: A call to `requestAnimationFrame` just asks the browser to call the function passed as a parameter ONCE, and the target delay is fixed, and corresponds to a 60 frames/s frame rate (16.6ms). In an animation loop, it is necessary to call again `requestAnimationFrame` at the end of the loop to ask for another frame of animation. Similarly to `setTimeout`...
+  Ans: <span style="color: magenta;">a</span><br/>
+  Explanation: A call to `requestAnimationFrame` just asks the browser to call the function passed as a parameter <mark style="background-color: lightpink;">ONCE</mark>, and the target delay is fixed, and corresponds to a 60 frames/s frame rate (16.6ms). In an animation loop, it is necessary to call again `requestAnimationFrame` at the end of the loop to ask for another frame of animation. Similarly to `setTimeout`...
 
 
 

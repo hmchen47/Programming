@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example of use of FileReader with a text file</title>
+</head>
+<body>
+  <label for="file">Choose a text file:</label><input type="file" id="file"  onchange="readFileContent(this.files)"/><br/>
+<p>
+<textarea rows=15 cols=50 id="fileContent"></textarea> 
+ 
+<script>
+  function readFileContent(files) {
+    console.log("In readFileContent");
+ 
+      var reader = new FileReader();
+ 
+      // Called when the file content is loaded, e.target.result is
+      // The content
+      reader.onload = function(e) {   
+        // display content in the textarea with id="fileContent"
+        document.getElementById("fileContent").value= e.target.result;
+      };   
+ 
+      // Read in the tfile as text
+      console.log("Reading file:" + files[0].name);
+      
+      // Start reading asynchronously the file
+      reader.readAsText(files[0]);
+    }
+</script>
+</body>
+</html>

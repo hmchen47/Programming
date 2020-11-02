@@ -23,7 +23,7 @@
     <li>&lt;/html&gt;</li>
     </ol></div>
 
-  + `<meta charset="utf-8">`: best practice to declare the character set
+  + `<meta charset="utf-8">`: <mark style="color: black; background-color: lightpink;">best practice</mark> to declare the character set
   + `<!DOCTYPE html>`: used by tools and specifying the rules used by an HTML or an XHTML page
     + rules in "Document Type Definitions" (DTDs)
     + not used by Web browsers to validate the structure of an HTML page
@@ -148,7 +148,7 @@
   + constraints
     + no more than one `<main>` element in a document
     + not a descendant of an `<article>`, `<aside>`, `<footer>`, `<header>`, or `<nav>` element
-  + best practice:
+  + <mark style="color: black; background-color: lightpink;">best practice</mark>:
     + split page content into "regions" defined by the 5 elements (`aside`, `footer`, `header`, `main` and `nav`)
     + add a `<main>` to document if other sectioning elemets used
 
@@ -1073,7 +1073,7 @@ In the above example, please note two things:
 
 ### 1.3.6 Best practices when using sectioning elements
 
-__Best practice #1: always add a heading to explicit sectioning content__
+__<mark style="color: black; background-color: lightpink;">Best practice #1</mark>: always add a heading to explicit sectioning content__
 
 It's always better - mainly for accessibility reasons - to include a heading (a `<h1>, <h2>...<h6>`) in each sectioning element (`<section>`, `<article>`, `<nav>`, `<aside>`), but also after the `<body>` element (called a "sectioning root").
 
@@ -1198,7 +1198,7 @@ If you do not want the subtitles to be included in the table of contents, just u
 </ol></div>
 
 
-__Best practice #2: try not to rely on implicit sectioning, use `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`__
+__<mark style="color: black; background-color: lightpink;">Best practice #2</mark>: try not to rely on implicit sectioning, use `<section>`, `<article>`, etc. instead of just `<h1>...<h6>`__
 
 The example below defines several implicit "sections" by using `<Hx>` directly (at lines 7 and 9):
 
@@ -1477,52 +1477,20 @@ We recommend this article written by Steve Faulkner: "[Easy content organisation
 #### Knowledge check 1.3.8
 
 <div>
-      <ol>
-        <li style="margin-bottom:0px;" value="1">
-          &lt;!-- other content --&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-             
-          &lt;article&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-                 
-          &lt;main
-           
-          role
-          =
-          "main"
-          &gt;
-        </li>
-        <li style="margin-bottom:0px;">
-                    
-          &lt;h2&gt;
-          Longboards
-          &lt;/h2&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-                    
-          &lt;p&gt;
-          Longboards are a type of skateboard with a longer
-        </li>
-        <li style="margin-bottom:0px;">
-                    wheelbase and larger, softer wheels.
-          &lt;/p&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-                 
-          &lt;/main&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-             
-          &lt;/article&gt;
-        </li>
-        <li style="margin-bottom:0px;">
-           
-          &lt;!-- other content --&gt;
-        </li>
-      </ol>
-  </div>
+  <ol>
+    <li style="margin-bottom:0px;" value="1">
+      &lt;!-- other content --&gt;
+    </li>
+    <li style="margin-bottom:0px;">&lt;article&gt;</li>
+    <li style="margin-bottom:0px;">&lt;main role = "main" &gt;</li>
+    <li style="margin-bottom:0px;">&lt;h2&gt; Longboards &lt;/h2&gt;</li>
+    <li style="margin-bottom:0px;">&lt;p&gt;Longboards are a type of skateboard with a longer</li>
+    <li style="margin-bottom:0px;">wheelbase and larger, softer wheels.&lt;/p&gt;</li>
+    <li style="margin-bottom:0px;">&lt;/main&gt;</li>
+    <li style="margin-bottom:0px;"> &lt;/article&gt;</li>
+    <li style="margin-bottom:0px;">&lt;!-- other content --&gt;</li>
+  </ol>
+</div>
 
 1. Is this code correct? (No/Yes)
 
@@ -1617,7 +1585,7 @@ nav header {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;  height: 1px !important; <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;  width: 1px !important; <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;  overflow: hidden;<br/>
-}       
+}
 </code></p>
 
 <p style="align: center; margin: 20px; padding: 20px; border: 1px solid red;"><strong style="color: olive;">BEST PRACTICE #2:&nbsp;</strong>it is not advised to include interactive content (links, controls etc) that is hidden offscreen (it is in fact a violation of the <a href="https://www.w3.org/TR/WCAG20/" target="_blank">W3C WCAG 2.0 Guidelines</a>). All interactive content must have a visible focus indicator (and be on screen when focused).<strong style="color: olive;"><br></strong></p>

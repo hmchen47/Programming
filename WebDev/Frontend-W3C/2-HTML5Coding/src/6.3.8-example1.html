@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example of use of FileReader with a text file</title>
+</head>
+<body>
+<label for="files">Choose a text file:</label><input type="file" id="files" multiple onchange="readFilesAndDisplayAsText(this.files);"/><br/>
+<p>
+<textarea rows=30 cols=50 id="filesContent"></textarea> 
+ 
+<script>
+  var filesContent = document.getElementById("filesContent");
+  
+  function readFilesAndDisplayAsText(files) {
+    console.log("dans read files");
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+ 
+      var reader = new FileReader();      
+ 
+      // Add an onload listener to the reader
+      addOnLoadListener(reader, f.name);
+      // start reading, will call the listener later, when the file f is read
+      reader.readAsText(f);
+      
+    }
+  }
+ 
+  function addOnLoadListener(reader, name) {
+    // Add an onload listener that will be able to print the name of the
+    // file...
+    reader.onload = function(e) {  
+        filesContent.value += "###### READING FILE " + name + " ######";
+        filesContent.value += e.target.result;
+      };
+  }
+</script>
+</body>
+</html>
+

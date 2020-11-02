@@ -29,6 +29,9 @@
 ## Web Develop
 
 + [JavaScript Promises: An introduction](https://web.dev/promises/#promise-api-reference)
++ [How to structure a web form](https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form)
++ [Forms tutorial - WAI](https://www.w3.org/WAI/tutorials/forms/)
++ [Building HTML5 Form Validation Bubble Replacements](https://tinyurl.com/yy85v45z)
 
 
 ## Python
@@ -50,6 +53,20 @@
 + [Practical Programming in C - MIT](https://tinyurl.com/yyjb2aef)
 + [Introduction to C Memory Management and C++ Object-Oriented Programming - MIT](https://tinyurl.com/y4bn4t7q)
 + [Introduction to C++ - MIT](https://tinyurl.com/yakxhn54)
++ Gain skills in computer engineering by learning C and Linux - edX
+  + [C Programming: Getting Started](https://www.edx.org/course/c-programming-getting-started)
+  + [C Programming: Language Foundations](https://www.edx.org/course/c-programming-language-foundations)
+  + [C Programming: Modular Programming and Memory Management](https://www.edx.org/course/c-programming-modular-programming-and-memory-manag)
+  + [C Programming: Pointers and Memory Management](https://www.edx.org/course/c-programming-pointers-and-memory-management)
+  + [C Programming: Advanced Data Types](https://www.edx.org/course/c-programming-advanced-data-types)
+  + [Linux Basics: The Command Line Interface](https://www.edx.org/course/linux-basics-the-command-line-interface)
+  + [C Programming: Using Linux Tools and Libraries](https://www.edx.org/course/c-programming-using-linux-tools-and-libraries)
++ Introduction to Programming in C Specialization - CVoursera
+  + [Programming Fundamentals](https://www.coursera.org/learn/programming-fundamentals)
+  + [Writing, Running, and Fixing Code in C](https://www.coursera.org/learn/writing-running-fixing-code)
+  + [Pointers, Arrays, and Recursion](https://www.coursera.org/learn/pointers-arrays-recursion)
+  + [Interacting with the System and Managing Memory](https://www.coursera.org/learn/interacting-system-managing-memory)
+
 
 
 

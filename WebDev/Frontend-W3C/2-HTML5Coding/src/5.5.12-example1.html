@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head >
+    <meta charset="utf-8">
+    <title>Example of formnovalidate attribute</title>
+    <style>
+      fieldset {
+        border:1px solid;
+        padding:20px;
+        }
+        input[type=email]:invalid {
+            background-color:lightPink;
+        }
+            input[type=email]:valid {
+            background-color:lightGreen;
+        }
+    </style>
+  </head>
+<body>
+
+<p> Enter a bad email address, then submit, you should see an error message. Using the other submit button will submit the form anyway.</p>
+<form action="form.php">
+  <fieldset>
+    <legend>Example of formnovalidate attribute</legend>
+  <label for="email">E-mail:</label> <input type="email" name="email" id="email"/><br>
+  <input type="submit" value="Submit" /><br>
+  <input type="submit" formnovalidate="formnovalidate" value="Submit without validation" />
+  </fieldset>
+</form>
+
+</body>
+</html>
+

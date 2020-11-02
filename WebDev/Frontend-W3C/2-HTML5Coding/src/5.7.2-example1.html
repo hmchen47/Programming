@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta charset="utf-8">
+    <title>CSS3 pseudo-classes for form validation visual feedback</title>
+<style>
+
+input:invalid { background-color: lightPink;}
+input:valid { background-color:lightGreen; }
+input:required {border: 2px solid red;}
+input:optional {border: 2px solid green;}
+  fieldset {
+ border:1px solid;
+ padding:20px;
+ }
+ .formLabel { display: inline-block; width: 140px; text-align: right; } 
+</style>
+  </head>
+<body>
+
+<form>
+  <fieldset>
+    <legend>Type invalid values and see the result</legend>
+  <label for="myEmail" class="formLabel">E-mail:</label> <input type="email" id="myEmail" required/><br>
+     <label for="myURL" class="formLabel">Homepage (URL):</label> <input type="url" id="myURL" required/><br>
+     <label for="myPhone" class="formLabel">Phone number:</label> <input type="tel" id="myPhone" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" placeholder="e.g. 416-555-1234" required/><br>
+    <button>Submit form</button><br />
+  </fieldset>
+</form>
+ 
+</body>
+</html>
+

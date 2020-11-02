@@ -197,7 +197,7 @@
   + rules of resizing a canvas
     + changing `width` and `height` property $\to$ erase the content and reset the context
     + using `%` in the CSS `width` and `height` properties of a canvas $\to$ scaling the existing pixels w/o erasing the content, given a blurry image
-  + __best practice__: never use CSS percentage on a canvas width or height
+  + __<mark style="color: black; background-color: lightpink;">best practice</mark>__: never use CSS percentage on a canvas width or height
   + responsive canvas
     + embedded in a `<div>` or in any parent container
     + using CSS w/ percentages on the width and the height CSS properties of the parent
@@ -889,7 +889,7 @@ Source code:
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// We need to have two consecutive mouse positions before drawing a line</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;drawLineImmediate(previousMousePos.x, previousMousePos.y,</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos.x,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mousePos.y);</li>
-<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="line-height: 1.6; background-color: #ffffff;">previousMousePos </span><span style="line-height: 1.6; background-color: #ffffff;">=</span><span style="line-height: 1.6; background-color: #ffffff;"> mousePos</span><span style="line-height: 1.6; background-color: #ffffff;">;</span></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="line-height: 1.6; background-color: #ffffff;">previousMousePos = mousePos;</span></li>
 <li>&nbsp; &nbsp; &nbsp;}</li>
 <li> }</li>
 <li></li>
@@ -963,7 +963,7 @@ We just added `mouseup` and `mousedown` listeners, extract from the source code:
   c. No problem: use the event.mouseX and event.mouseY properties.<br/>
 
   Ans: b<br/>
-  Explanation: 
+  Explanation:
     + Most of the time you need to work with the mouse position relative to the canvas, not to the window, so you must convert the coordinates between the window and the canvas. This will take into account the position of the canvas, and the CSS properties that may affect the canvas position (margin, etc.).
     + Fortunately, there exists a method for getting the position and size of any element in the page: `getBoundingClientRect()`.
 
@@ -1062,7 +1062,7 @@ Even bigger:
 
 
 <div style="border: 1px solid red; margin: 20px; padding: 10px;">
-<p style="text-align: center;"><em><strong>BEST PRACTICE: <span style="color: #ff0000;">never use CSS percentages on a canvas width or height!</span></strong></em></p>
+<p style="text-align: center;"><em><strong><mark style="color: black; background-color: lightpink;">Best practice</mark>: <span style="color: #ff0000;">never use CSS percentages on a canvas width or height!</span></strong></em></p>
 </div>
 
 
@@ -1231,8 +1231,8 @@ The code is very similar to the previous example, we just replaced `drawDiagonal
   c. Recommended<br/>
   d. Not possible<br/>
 
-  Ans: b<br/>
-  Explanation: Using % in CSS is not recommended, and is considered a bad practice as this will modify the size of the canvas pixels and produce a blurry effect. If the size is increased, the resolution is kept the same, only with bigger pixels.
+  Ans: <span style="color: magenta;">b</span><br/>
+  Explanation: Using % in CSS is <mark style="background-color: lightpink;">not recommended</mark>, and is considered a bad practice as this will modify the size of the canvas pixels and produce a blurry effect. If the size is increased, the resolution is kept the same, only with bigger pixels.
 
 
 ### 4.3.5 Advanced canvas

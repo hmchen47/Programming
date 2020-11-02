@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <title>Jsbin</title>
+  </head>
+<body>
+  Try to change the values in the input fields and see how the <output> field is updated, without the need to JavaScript !<p>
+  
+  Example 1 :<p>
+<form oninput="o.value=a.value*b.value">
+	<input type="number" name="a" value="2"> x
+	<input type="number" name="b" value="3"> =
+	<output for="a b"    name="o">6</output>
+</form>
+  
+  Example 2 :<p>
+<form oninput="x.value=a.valueAsNumber+b.valueAsNumber">
+<input type="range" name="a" value="50" />100
++<input type="number" name="b" value="50" />
+=<output name="x" for="a b"></output>
+</form>
+  
+</body>
+</html>
+

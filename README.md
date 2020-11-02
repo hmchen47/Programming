@@ -2,8 +2,6 @@
 
 This repository tracks my learning on different programming languages.
 
-Contents
-
 ## C Related - C, C++, C#, 
 
 + [Learn C the Hard Way](./C_C++/CHardWay/README.md)
@@ -27,7 +25,7 @@ Contents
   + [iPython Notebook Tutorial]
   + [Data Processing Using Python]
   + [Python 3 OO Notebook]
-  + [Webscrapr]
+  + [Webscraper]
   + [Exercises and Notes]
 + [Scraping]
 + [UnitTesting]
@@ -58,11 +56,11 @@ Contents
 
 ### Web Design
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 58vw;" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 10vw; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
-    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
+    <th style="width: 10%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
+    <th colspan="4" style="width: 30%; text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
   </tr>
   </thead>
   <tbody>
@@ -72,10 +70,10 @@ Contents
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Hypertext Markup Language (HTML) </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Info </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#tags-elelemnts-and-attributes-of-html"> Tags, Elements & Attrbutes </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#template"> Template </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#useful-references-tool-links"> References & Tools </a></td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#tags-elements-and-attributes-of-html"> Tags, Elements & Attributes </a></td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#template"> Template </a></td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#useful-references-tool-links"> References & Tools </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Basics.md#html-layout-elements"> Layout </a></td>
@@ -253,6 +251,67 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
   </tr>
 
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Forms and related Elements</th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#mdn-form-elements"> Form Elements - MDN </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#javatpoint-html-form-tags"> Form Tags - JavaTPoint </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#basics"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#accessible-forms"> Accessibility </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#output-tag"> &lt;output&gt; element </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#meter-tag"> &lt;meter&gt; element </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#  progress-tag"> &lt;progress&gt; element </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#datalist-tag"> &lt;datalist&gt; element </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Forms - Input Types </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#reference-input-types"> List of Input Types </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#input-element"> &lt;input&gt; element </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#color-type"> color </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#date--time-related-types"> date / time </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#email-type"> email </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#tel-type"> tel </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#url-type"> url </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#search-type"> search </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#number-type"> number </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#range-type"> range </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Form and Associated Attributes </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#reference-html5-form-attributes"> List of Form Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#form-attribute-of-input-element"> form attribute </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#autocomplete-attribute"> autocomplete </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#autofocus-attribute"> autofocus </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#list-attribute"> list </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#pattern-attribute"> pattern </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#multiple-attribute"> multiple </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#min-max-step-and-optimum-attributes"> min, max, step, optimum, value, etc. </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#formaction-formmethod-formnovaliate-formtarget-formenctype-attributes"> formaction, formmethod, formnovalidate, formtarget, etc. </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Form Validation API </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#visual-feedback"> Visual Feedback </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#title-attribute"> title Attr. </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#javascript-form-validation-api"> JS API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
+  </tr>
+
+
   <!-- Template -->
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -389,16 +448,7 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
   </tr>
 
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> head </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS.md#">  </a> </td>
-  </tr>
-
-
-  <!-- CSS -->
+  <!-- JavaScript -->
 
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> JavaScript </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -417,6 +467,52 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-mediarecorder-api"> MediaRecorder API </a> </td>
   </tr>
 
+  <!-- Web Storage API -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Web Storage API </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#web-storage-api"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#cookie"> Cookie </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#set--get-web-storage"> Set & Get Store </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#delete--reset-web-storage"> Delete & Reset </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#size-of-web-storage"> Size </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#javascript-object-notation-json"> JSON </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+  </tr>
+
+
+  <!-- File API -->
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> File API </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#file-apis-1"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#file-metadata"> Metadata </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#bolb-object"> Blob Object </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#file-object"> File Object </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#text-files"> Text File </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#binary-files"> Binary File </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#dataurl-method"> dataURM File </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+  </tr>
+
+
+  <!-- GeoLocation API -->
+  
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation API </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#geolocation-apis"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#tracking-position"> Tracking Position </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#reverse-geocoding"> Reverse Geocoding </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+  </tr>
+
+
+  <!-- Temporary -->
+  
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
@@ -431,15 +527,23 @@ Contents
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>
 
+
   </tbody>
 </table>
 
 <br/>
-<hr/>
-<br/>
 
 
-### Reading Notes
+## Python Programming Language
+
+
+
+## C/C++ Programming Language
+
+
+
+
+## Reading Notes
 
 + [Reading Notes Indexing](RefCards/ReadingIdx.md)
 

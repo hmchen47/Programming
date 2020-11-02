@@ -679,7 +679,7 @@ __External resources:__
 + An article on Web Platform News: "[The `<mark>` element could help make your text more scannable](https://tinyurl.com/y3awtyhc)"
 
 
-#### Knowledge check 1.4.3 
+#### Knowledge check 1.4.2
 
 1. When would you use the mark element?<br/>
   a. To download a file<br/>
@@ -862,7 +862,7 @@ When you define an element as not being translatable, its children inherit this 
 + An article from W3C's Internationalization Activity: ["Using HTML's translate attribute"](https://tinyurl.com/yy5pjwtp)
 
 
-#### Knowledge check 1.4.4
+#### Knowledge check 1.4.3
 
 <div>
       <ol>

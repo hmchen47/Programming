@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset=utf-8 />
+<title>Progressbar</title>
+  
+</head>
+<body>
+ This example uses some JavaScript to simulate a download progress by changing in real time the value attribute.<p>
+  The progress below is defined like this:<br>
+  <pre>
+&lt;progress id=pr value=100 max=1000&gt;
+  </pre>
+Download progress:  <progress id=pr value=100  max=1000></progress> 
+  <script>
+    var i=0;
+window.setInterval(function () {
+  i = (i+1) %1000;
+  document.getElementById('pr').value = i;
+},1);
+  </script>
+</body>
+</html>
+
