@@ -48,10 +48,12 @@
   + [Numerical Programming with Python](https://www.python-course.eu/numerical_programming_with_python.php)
 
 
-+ Bryan Weber, [Using Python datetime to Work With Dates and Times](https://realpython.com/python-datetime/)
-+ [Pandas - Time series / date functionality](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html)
-+ Ian London, [Encoding cyclical continuous features - 24-hour time](https://ianlondon.github.io/blog/encoding-cyclical-features-24hour-time/)
-+ D. Kaleko, [Feature Engineering - Handling Cyclical Features](http://blog.davidkaleko.com/feature-engineering-cyclical-features.html)
++ Date & Time
+  + Bryan Weber, [Using Python datetime to Work With Dates and Times](https://realpython.com/python-datetime/)
+  + [Pandas - Time series / date functionality](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html)
+  + Ian London, [Encoding cyclical continuous features - 24-hour time](https://ianlondon.github.io/blog/encoding-cyclical-features-24hour-time/)
+  + D. Kaleko, [Feature Engineering - Handling Cyclical Features](http://blog.davidkaleko.com/feature-engineering-cyclical-features.html)
+  + [NumPy Datetime: How to Work with Dates and Times in Python?](https://blog.finxter.com/how-to-work-with-dates-and-times-in-python/)
 
 
 ## C/C++ Programming
