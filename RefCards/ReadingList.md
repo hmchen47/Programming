@@ -53,7 +53,9 @@
   + [Pandas - Time series / date functionality](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html)
   + Ian London, [Encoding cyclical continuous features - 24-hour time](https://ianlondon.github.io/blog/encoding-cyclical-features-24hour-time/)
   + D. Kaleko, [Feature Engineering - Handling Cyclical Features](http://blog.davidkaleko.com/feature-engineering-cyclical-features.html)
-  + [NumPy Datetime: How to Work with Dates and Times in Python?](https://blog.finxter.com/how-to-work-with-dates-and-times-in-python/)
+  + A. Murphy, [NumPy Datetime: How to Work with Dates and Times in Python?](https://blog.finxter.com/how-to-work-with-dates-and-times-in-python/)
+  + [Date and Time](https://pythonpedia.com/en/tutorial/484/date-and-time)
+  + P. Yip, [Python and NumPy: Time and Date (datetime and timedelta64)](https://dellwindowsreinstallationguide.com/python-and-numpy-time-and-date-datetime-and-timedelta64/)
 
 
 ## C/C++ Programming
