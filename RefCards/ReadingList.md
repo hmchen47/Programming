@@ -48,6 +48,9 @@
   + [Numerical Programming with Python](https://www.python-course.eu/numerical_programming_with_python.php)
 
 
++ Bryan Weber, [Using Python datetime to Work With Dates and Times](https://realpython.com/python-datetime/)
++ [Pandas - Time series / date functionality](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html)
+
 ## C/C++ Programming
 
 + [Practical Programming in C - MIT](https://tinyurl.com/yyjb2aef)
