@@ -317,7 +317,12 @@ Michel Buffa
     + example: `<img src="https://goo.gl/pVxY0e" alt="Floating Flower">`
     + including: `area`, `base`, `br`, `col`, `embed`, `hr`, `img`, `input`, `link`, `menuitem`, `meta`, `param`, `source`, `track`, `wbr`
 
-
++ HTML attributes
+  + a given element dinguiashed by any number of unique or common attributes
+  + example: `<img src="n666194627.jpg" width=200 alt="Michel Buffa plays rock&roll">`
+    + `width` attribute: constraint the width of an image
+  + different tags sharing some common attributes and w/ specific attributes
+  + shared attributes useful when coupled w/ CSS (id & class)
 
 
 
