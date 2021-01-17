@@ -234,6 +234,63 @@ Michel Buffa
   Ans: 
 
 
+#### Notes of 1.2.1 HTML is for structure
+
++ Hypertext
+  + fundamental key to the WWW
+  + idea:
+    + linking information together: far easier and more flexible
+    + "mark up" document w/ links
+    + define how break document down into different segments (chapters, sections, paragraphs, tables, figures, etc.)
+  + Tim Berners-Lee (1989): Hypertext Markup Language, to provide a simple, uniform way to incorporate hyperlinks into a text document
+    + thoroughly interconnected documents
+    + traditionally done with footnotes and bibliographies but cumbersome
+    + information easily transferable from one place to another
+    + easy to access everything related (linked) to it
+    + imagined a "Web" of interconnected documents
+  + browser: a tool to navigate the sea of information
+
++ Markup documents
+  + annotating a document w/ extra info
+  + components: elements, tags & attributes
+  + many ways to makup a document
+  + HTML utilizing SGML syntax
+    + using angle brackets ("<" and ">") to separate the annotations from the regular text
+    + these annotations called "tags"
+  + meta-information: everything in angle brackets
+  + putting things in btw those brackets w/o showing up (directly) in the finished document
+  + tags:
+    + big effect on how Web page looks
+    + how document responds and interacts with users
+
++ Popular coding tools
+  + source code editors
+    + [Sublime Text](https://www.sublimetext.com/)
+    + [Atom](https://atom.io/)
+    + [Brackets](http://brackets.io/)
+    + any lightweight text editor
+  + professional tools
+    + [Visual Studio Code](https://code.visualstudio.com/)
+    + [NetBeans](https://netbeans.org/)
+    + [Eclipse](https://eclipse.org/downloads/)
+    + [WebStorm](https://www.jetbrains.com/webstorm)
+    + etc.
+  + online IDE
+    + [JSBin](https://jsbin.com/)
+    + [CodePen](https://codepen.io/)
+    + [Plunker](https://plnkr.co/)
+    + etc.
+
++ HTML elements
+  + the pieces themselves
+  + examples: a paragraph, a header, even the body
+  + able to contain other elements
+  + all of the visible elements of the Document Object Model (DOM)
+    + tree diagram
+    + any given element contained inside another elements, except for the outmost "html" element
+    + child elements: elements contained within a given element
+    + sibling: children of a common parent element
+
 
 
 
