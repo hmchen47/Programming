@@ -211,20 +211,6 @@ This shows a `<h2>` heading and `<ol>` nested in a `<p>` paragraph, I did not no
 
 Michel Buffa
 
-
-#### Knowledge check 1.2.1 
-
-1. HTML tags and HTML elements the same thing. True or false?
-
-  Ans: 
-
-#### Knowledge check 1.2.2
-
-1. The HTML structure of a document is a tree. (Correct/Incorrect)
-
-  Ans: 
-
-
 #### Notes of 1.2.1 HTML is for structure
 
 + Hypertext
@@ -323,6 +309,21 @@ Michel Buffa
     + `width` attribute: constraint the width of an image
   + different tags sharing some common attributes and w/ specific attributes
   + shared attributes useful when coupled w/ CSS (id & class)
+
+#### Knowledge check 1.2.1 
+
+1. HTML tags and HTML elements the same thing. True or false?
+
+  Ans: False<br/>
+  Explanation: No, tags are not the elements themselves. They are the bits of text you use to tell the computer where an element begins and ends; they are enclosed between the < and > characters.
+
+#### Knowledge check 1.2.2
+
+1. The HTML structure of a document is a tree. (Correct/Incorrect)
+
+  Ans: Correct<br/>
+  Explanation: The structure of an HTML document is a "tree". Any given element (except for the outermost "html" element) is wholly contained inside another element, referred to as the "parent" element.
+
 
 
 
