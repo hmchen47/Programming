@@ -132,15 +132,6 @@ That may be a great picture, but how do we represent such a structure in a text 
 
 #### HTML tags
 
-Thinking about HTML tags
-
-```html
-<html>
-<BODY>
-<p>
-<em>
-```
-
 "Tags" are what we use to organize a text file (which is just a long string of characters) such that it represents a tree of elements that make up the html document. Tags are not the elements themselves, rather they're the bits of text you use to tell the computer where an element begins and ends. When you "mark up" a document, you generally don't want those extra notes that are not really part of the text to be presented to the reader.
 
 HTML borrows a technique from another language, SGML, to provide an easy way for a computer to determine which parts are "MarkUp" and which parts are the content. By using "<" and ">" as a kind of parentheses, HTML can indicate the beginning and end of a tag, i.e. the presence of "<" tells the browser "this next bit is markup, pay attention".
@@ -164,7 +155,7 @@ For example, the "`<em>`" tag is used for element that needs Emphasis.  The  "<"
   />
 </figure>
 
-Most tags have open and close versions, but there are a few strange ones.  For more info, we strongly recommend that you follow the W3Cx HTML5&CSS Fundamentals course, but we generally refer to the strange ones as "self closing" tags.   Usually these tags represent an element that is completely described by its attributes, and thus there is no need for other content.  So if you see something like this:
+Most tags have open and close versions, but there are a few strange ones.  For more info, we strongly recommend that you follow the W3Cx [HTML5&CSS Fundamentals](https://www.edx.org/course/html5-and-css-fundamentals) course, but we generally refer to the strange ones as "self closing" tags.   Usually these tags represent an element that is completely described by its attributes, and thus there is no need for other content.  So if you see something like this:
 
 <div><ol>
 <li value="1"><span>&lt;img</span><span>&nbsp;src="https://goo.gl/pVxY0e" alt="Floating Flower"</span><span>/&gt;</span></li>
@@ -291,6 +282,40 @@ Michel Buffa
     + child elements: elements contained within a given element
     + sibling: children of a common parent element
 
++ HTML Tags
+  + used to organize a text file s.t. representing a tree of elements
+  + not the element themselves
+  + the bits of text to tell the computer where an element begins and ends
+  + when marking up a document, none these extract notes displayed
+  + SGML providing an easy to determine
+    + which parts are "MakUp"
+    + which pars are the contents
+  + by using "<" and ">" to indicate the begining and end
+  + adding "/" right after the "<" to indicate a close tag
+  + example: `<p>This is my first paragraph!</p>`
+    + `<p>`: a new paragraph starting and starting a new line
+    + `</p>`: the paragraph working on finished and braking the line
+  + illustration of a tag
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick="window.open('https://tinyurl.com/y6osf6ba')"
+        src    ="https://tinyurl.com/yyo882n2"
+        alt    ="Diagram of an element"
+        title  ="Diagram of an element"
+      />
+    </figure>
+
+  + self-closing tags
+    + most tags w/ open and close versions
+    + some tags representing an element completely described by its attributes $\implies$ no need for content
+    + using "/" before ">" to indicate the complete of the tag
+    + example: `<img src="https://goo.gl/pVxY0e" alt="Floating Flower"/>`
+  + void elements
+    + elements w/o a "/" at the end
+    + all info required declared in an "attribute"
+    + example: `<img src="https://goo.gl/pVxY0e" alt="Floating Flower">`
+    + including: `area`, `base`, `br`, `col`, `embed`, `hr`, `img`, `input`, `link`, `menuitem`, `meta`, `param`, `source`, `track`, `wbr`
 
 
 
