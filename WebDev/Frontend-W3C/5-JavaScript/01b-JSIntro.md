@@ -514,6 +514,20 @@ Note that when you use an online IDE, you usually type/paste the CSS rules in a 
       + used for setting the look and feel of the selected elements
       + a set of properties and values
 
++ CSS rules
+  + rules applied in sequences
+  + multiple selector
+    + example
+
+      ```css
+      p, h1, h2 {
+        font-family: cursive
+      }
+      ```
+
+    + all `p`, `h1`, & `h2` using cursive font
+    + ',' means "and also"
+
 
 
 
