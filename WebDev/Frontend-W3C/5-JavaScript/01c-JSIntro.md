@@ -13,10 +13,12 @@
 
 [Transcript](https://tinyurl.com/y4byq56f)
 
+
+#### Best Practice to learn JavaScript
+
 What is the best method to learn JavaScript?
 
-
-#### FIRST: learn by looking at and tweaking the code in the examples
+__FIRST: learn by looking at and tweaking the code in the examples__
 
 Well, there is no definitive answer to this question, but I'd recommend firstly looking at small examples, tweaking them and trying to guess what they do. You will rapidly discover that you can learn a lot just by modifying a few lines of JavaScript code, even if you do not understand the whole thing. 
 
@@ -28,7 +30,7 @@ During module 1, we give you some basics:
 + We present many examples (some short and some bigger ones) that will show what can be done with JavaScript. We strongly encourage you to tweak them, look at the code, download them on your hard disk, etc. Even if you do not understand everything, have a go at modifying them; further down this page we outline such an exercise.
 + In further modules, we will be revisiting the examples, and discussing them in greater detail and with fuller explanations.
 
-#### SECOND: take some time to carefully read the sections titled "What you've learnt / let's detail ...."
+__SECOND: take some time to carefully read the sections titled "What you've learnt / let's detail ...."__
 
 During the course, we provide extra "reference pages" that detail some important parts of the language. For example, in a later section this week, we explain the concepts of "variables", "values", "operators", "output", etc.
 
@@ -36,7 +38,7 @@ __Here is an example - we provide some clues, but it's your job to tweak it!__
 
 Here is an example that uses an external JavaScript library useful for plotting math functions. Look at the JavaScript code (click on the JS button) and try to guess where the function is specified, where the range for the x and y values is set, etc. Notice that you can use your mouse wheel to zoom in/out the function plot.
 
-[Demo - Sin function](src/01c-example01.html)
+[Demo - Sine function](src/01c-example01.html)
 
 By looking at this example (HTML and JS code), you note a few things:
 
@@ -47,9 +49,9 @@ Two lines in the HTML code that correspond to the inclusion in the document of s
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mauriciopoppe.github.io/function-plot/js/function-plot.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
 </ol></div><br/>
 
-We will examine this soon in a later section of the course, but, in brief, it means that we will use the [d3js plotting library](https://d3js.org/), and another from github (a famous repository for open source contributions), and located in the github account of a person named "mauriciopoppe", the repository is named "function plot" ("[function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/").
+We will examine this soon in a later section of the course, but, in brief, it means that we will use the [d3js plotting library](https://d3js.org/), and another from github (a famous repository for open source contributions), and located in the github account of a person named "mauriciopoppe", the repository is named "function plot" ("[function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/)").
 
-Then, looking at the JavaScript code of the example (click the JS button on the CodePen example), we see:
+Then, looking at the JavaScript code of the example (click the JS button on the [CodePen example](https://codepen.io/w3devcampus/pen/PpYpjJ)), we see:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">functionPlot</span><span class="pun">(<strong>{</strong></span></li>
@@ -185,7 +187,7 @@ __In arrays, the different elements are separated by commas.__ Let's try to plot
 </ol></div><br/>
 
 
-[Demo - Sin & Cos functions](src/01c-example02.html)
+[Demo - Sine & Cosine functions](src/01c-example02.html)
 
 #### Conclusion
 
@@ -200,7 +202,32 @@ Not bad ;-)
 
 #### Notes for 1.3.1
 
++ Learning JavaScript:
+  + Best practice
+    + read and tweak small JavaScript code snippet
+    + carfully read the references that details some important parts of the language
+  + example: external JavaScript code
+    + [d3js plotting library](https://d3js.org/): `<script src="https://d3js.org/d3.v3.min.js"></script>`
+    + [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/): `<script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>`
+  + example: JavaScript code
 
+    ```js
+    functionPlot({
+           target: '#myFunction',
+           data: [{
+           fn: 'sin(x)',
+           color: 'red'
+        }],
+        grid: true,
+        yAxis: {domain: [-1, 1]},
+        xAxis: {domain: [0, 2*Math.PI]}
+    });
+    ```
+
+    + `fn: 'sin(x)'`: function to plot
+    + `color: 'red'`: curve line color
+    + `xAxis: {domain: [0, 2*Math.PI]}`: range of the x values
+    + `yAxis: {domain: [-1, 1]}`: range of the y values
 
 
 
