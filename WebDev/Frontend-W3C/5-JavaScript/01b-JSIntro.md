@@ -622,3 +622,143 @@ Finally, note that, in these examples, the JavaScript code is located in the HTM
     + a node JS interpreter on a remote server
     + in scripts run by the OS
 
+
+### 1.2.4 JavaScript history
+
+JavaScript is the most commonly used programming language with 67.8% of developers employing it in 2020 (see this [survey's results](https://insights.stackoverflow.com/survey/2019#most-popular-technologies)).
+
+
+#### How and why JS was created?
+
+Created out of necessity, it is used to build 95.2% (1.52 billion) of websites today, including some of the world’s largest, like Facebook and YouTube. Without it, we would not have popular and useful web apps such as Google Maps and eBay.
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y2yxsnth" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/yyp4azrf"
+      alt  ="Photo of Brendan Eich, creator of JavaScript"
+      title="Photo of Brendan Eich, creator of JavaScript"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/yydejjzg"
+      alt  ="Cover page of the Netscape JavaScript 1.2 bookyear 1995"
+      title="Cover page of the Netscape JavaScript 1.2 bookyear 1995"
+    >
+  </a>
+</div>
+
+JavaScript was born in 1995 as part of the work of Brendan Eich's team at [Netscape](https://en.wikipedia.org/wiki/Netscape) (the ancestor of [Mozilla](https://www.mozilla.org/)). At that time, Netscape, in association with Sun MicroSystems, provided popular server and client-oriented solutions ([Netscape Navigator](https://en.wikipedia.org/wiki/Netscape_Navigator), ancestor of [Firefox](https://en.wikipedia.org/wiki/Firefox)) which depended on Java. (Sun Microsystems,  the company that created the Java programming language, no longer exists, having been bought by Oracle Corporation in 2009.)
+
+But Netscape realized that Java wasn't a suitable language for in-browser use. Netscape thought of JavaScript at the beginning, as a lightweight Java.
+
+JavaScript was initially inspired by Java, but in fact only some naming conventions remained the same. We highly recommend not even trying to look for similarities - this is actually a bad way to start learning JavaScript! We'd rather just say that the only real commonality between these two languages is their names. If you are coming to this course from Java, leave the Java thinking behind!
+
+JavaScript quickly became a success following its first appearance in [Netscape Navigator 2 in March 1996](http://cybernetnews.com/cybernotes-history-of-web-browsers-opera-netscape-firefox-and-ie/), and it was quickly integrated into other popular browsers. Microsoft also created its own version named JScript (and shipped it with Internet Explorer 3 in 1996). 
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y2yxsnth" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/yyzjqctr"
+      alt  ="Netscape Navigator 2 in 1996, with big buttons and plain HTML pages (CSS did not exist at that time)"
+      title="Screenshot of a page in Netscape Navigator 2"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y39ke967"
+      alt  ="Internet Explorer 3 in 1996 - look at the official Yahoo page :-) CSS did not exist at this time!"
+      title="Snapshot of a Web page in Internet Explorer 3"
+    >
+  </a>
+</div>
+
+Towards the end of 1996, JavaScript was standardized by ECMA as the EcmaScript standard. So no matter whether you see it called JavaScript or EcmaScript, don't worry, it's the same thing. EcmaScript has continued to be released right up to the present day.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2yxsnth')"
+    src    ="https://tinyurl.com/y2wl2dge"
+    alt    ="JavaScript detailed timeline"
+    title  ="JavaScript detailed timeline"
+  />
+</figure>
+
+
+#### The present: what is the current version?
+
+What about ES6/ES2015/ES2016/ES2017/ES2018/ES2019/ES2020?
+Are these the new names of JavaScript?
+
+Since 1996, multiple versions of JavaScript have appeared. For a long time, the stable version supported by all major browsers deployed on computers and smartphones was __EcmaScript version 5 from 2010__, but in 2015, a new version known first as EcmaScript 6 or ES 2015 came out with lots of new features (classes, etc.). Since then, every year a new version is published, with some adjustments/novelties.  The latest official version is ES2020. 
+
+__Back in 2015, ES2015 was a pseudonym for the 6th version of the JavaScript__ programming language to be approved by ECMA International, the standards group responsible for vetting and approving different versions of the language. In June 2015, ECMA International [approved the 6th edition of the language](https://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf). The name, ES2015, was used because the latest version of JavaScript is identified as the 2015 version of ECMAScript (the alternative name for JavaScript). [Read this blog post about all these naming incongruities!](https://benmccormick.org/2015/09/14/es5-es6-es2016-es-next-whats-going-on-with-javascript-versioning)
+
+At the beginning, ES2015 was referred to as ES6 and before that, Harmony. Moving forward, ES suffixed with the year of the latest approved standard is the naming convention. The next version was called... ES2016, etc.! Browser vendors do not wait that ECMA standardizes a version as they start implementing it during the standardization process, which can take months or years (they also contribute to the standardization process all along its life cycle).
+
+The new open development process adopted by the ECMA TC39 committee decided that every year, a new version will occur. This annual publication rate has been effective since 2015.
+
+The current edition of the ECMA-262 standard is __the 11th edition, published in June 2020 and is known as ES2020__.
+
+Beware: even on recent Web browsers the whole supported feature sets of the latest versions are generally not completely implemented, as it takes time for browser vendors to follow the standards!
+
+#### Current support for ES2020/ 11th version (June 2020):
+
+There is no easy-to-read table of current browser global support, but caniuse.com can be used to check feature by feature which browsers support them. For example, [this link shows the support for the new "javascript private class fields" feature](https://caniuse.com/#feat=mdn-javascript_classes_private_class_fields).
+
+Up to date browsers usually support more than 90% of the features from the version corresponding to the previous year. For example, in 2020, there is an good support for ES2019, while certain features from ES2020 won't be implemented before some months.
+
+
+#### Which version will we learn?
+
+First of all, this is an intro course! Not all features of JavaScript need to be covered, in particular the ones that you cannot run in your browser without using advanced tools (there are tools, such as Babel,  that can turn ESxxxx source code into ES5 code that can be run in nearly any browser, but they are tricky to use and not for beginners).
+
+__We will cover all the important features of the last version that are relevant for an intro course.__
+
+__Is JavaScript an important language to learn? What about Java, PHP, C#, Python, Ruby and all the others?__
+
+JavaScript is the only programming language you can run in your browser. Without JavaScript there would be no games, no fancy dynamic HTML forms, no interactive maps, no Gmail, no YouTube, no Twitch TV, no Netflix....
+
+JavaScript is integrated into nearly every popular Web browser and is probably the most frequently used language in the world. More than 90% of Web documents now use JavaScript too.
+
+Every computer, smartphone, and tablet uses JavaScript many times a day within the browser and even as native code! Indeed, some applications are compiled from their JavaScript/HTML/CSS version into "classic" applications that can be run without a browser. This compilation step can give an extra performance boost, the NetFlix application, or Office 365 are such applications.
+
+In the beginning, JavaScript was invented to work not only on the client side (in Web browsers) but also on the server side (on the Netscape HTTP Web server back in 1995).
+
+In recent years this trend has returned, thanks to the appearance of the Node.js server/JavaScript interpreter. It's common to see JavaScript applications running on a remote Web server. Mastering JavaScript basics is highly recommended before trying to learn JavaScript server side programming.
+
+
+#### JavaScript is an interpreted language
+
+JavaScript is an interpreted (or just-in-time compiled) language, which means that the code is converted into a machine language at, or just before, runtime. The most popular JavaScript engines are:
+
++ [SpiderMonkey](https://developer.mozilla.org/fr/docs/SpiderMonkey) (included in Mozilla Firefox)
++ [JavaScriptCore](https://developer.apple.com/reference/javascriptcore) (included in Apple Safari)
++ [Chrome V8](https://developers.google.com/v8/) (included in Google Chrome, in the Node.js server)
++ [Chakra](https://github.com/Microsoft/ChakraCore) (included in Microsoft Internet Explorer and now in the Microsoft Edge browser)
+
+
+#### Notes for 1.2.4 JavaScript history
+
+
+
+
+#### Knowledge check 1.2.4
+
+1. JavaScript was created by Google in 2005 for the Gmail application that needed more interactivity.
+
+  a. No, JavaScript was invented in 1995 by Netscape Corp.<br/>
+  b. Yes, Google proposed an open implementation of the language in 2003 to ECMA<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+2. JavaScript can only run in a browser.
+
+  a. Incorrect. It can also run in other environments<br/>
+  b. Correct<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
