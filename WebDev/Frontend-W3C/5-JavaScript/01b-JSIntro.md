@@ -486,6 +486,35 @@ Note that when you use an online IDE, you usually type/paste the CSS rules in a 
 
 #### Notes for 1.2.2 CSS is for style
 
++ Cascade Style Sheet (CSS)
+  + a style sheet language used to describe the way an HTML or XML document shown
+  + able to specify the color, sizee, spacing, font and other visual aspect of the content
+  + used along side HTML to desceibe the way a Web page looks and feels
+  + w/o CSS: difficult to make document looks the way intended
+  + almost every Web page combining HTML and CSS
+  + example:
+
+    ```css
+    h1 {
+      color:red;
+      background-color:lightGreen;
+      border:12px solid violet;
+      padding: 5px;   
+      border-radius: 15px;
+      text-align: center;
+    }
+    ```
+
+    + CSS selector
+      + the part before the opening brace
+      + indicating the elements w/ properties changed inside the brace
+      + example: `h1`
+    + property:
+      + the part inside brace
+      + used for setting the look and feel of the selected elements
+      + a set of properties and values
+
+
 
 
 #### Knowledge check 1.2.3
