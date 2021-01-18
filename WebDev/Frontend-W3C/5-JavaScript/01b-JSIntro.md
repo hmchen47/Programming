@@ -457,7 +457,7 @@ This rule changes the color, font family and size of two out of three paragraphs
 
 There are many, many, many different CSS properties in existence, and many different ways to select elements. We recommend that you follow the W3Cx [CSS Basics](https://www.edx.org/course/css-basics) and [HTML5&CSS Fundamentals](https://www.edx.org/course/html5-and-css-fundamentals) courses to learn more about CSS and about HTML5 basics.
 
-#### Where can we put the CSS rules: in the HTML file? in another file? 
+#### CSS rules: HTML file / another file
 
 You can do both! 
 
@@ -549,7 +549,11 @@ Note that when you use an online IDE, you usually type/paste the CSS rules in a 
     ```
 
   + `#` in selector: to select an element by its `id` attribute
-  + `<link>` tag in HTML `<head>` element
+
++ CSS location in HTML
+  + embedded CSS rules: within `<style>...</style>` tags inside the `<head>...</head>` of the HTML documents
+  + external CSS rukles
+    + `<link>` tag in HTML `<head>` element
     + including other CSS properties from remote/local CSS style sheet file
     + example: `<link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">`
 
