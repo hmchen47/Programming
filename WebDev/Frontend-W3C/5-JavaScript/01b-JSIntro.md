@@ -594,13 +594,12 @@ Actually, this description does not do justice to JavaScript, which can do far m
 
 So, in the browser, JavaScript lies between HTML and CSS and will be used together with these two languages. Let's take a look at two small examples:
 
-
-Example #1: push the button to modify the heading of the page.
+__Example #1:__ push the button to modify the heading of the page.
 
 [Demo - Button Modification](src/01b-example08.html)
 
 
-Example #2: push another button to modify the CSS style (color, background-color, border) of a paragraph in the page.
+__Example #2:__ push another button to modify the CSS style (color, background-color, border) of a paragraph in the page.
 
 [Demo - Another Button Modification](src/01b-example09.html)
 
@@ -609,7 +608,17 @@ We have a closer look at how these examples work in the subsequent parts of the 
 Finally, note that, in these examples, the JavaScript code is located in the HTML of the document.
 
 
-### Notes for 1.2.3 JavaScript is "the interactive glue"
+#### Notes for 1.2.3 JavaScript is "the interactive glue"
 
++ JavaScript
+  + the "magic trio" of Web page: HTML5/CSS/Javascript
+  + the only programming language that a browser can run
+  + w/o installingany plugins or extensions
+  + a real standard of Web
 
++ JS: interactive glue btw HTML and CSS
+  + more than just in browser
+  + able to be run outside of the browser
+    + a node JS interpreter on a remote server
+    + in scripts run by the OS
 
