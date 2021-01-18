@@ -405,7 +405,7 @@ The paragraph above has a unique identifier: the id attribute whose value is "pa
 
 Again, the fact that the computer does not care what we put in those strings (except for some restrictions) means we can use them to convey meaning to a human developer. I could just as easily have said id='x' and class='y', but anyone looking at that would have no hint what the significance of x and y are. Best practice is to name these things to increase clarity, consistency and brevity.
 
-Let's look at a modified version of Michel Buffa's home page example: [Deom - Modified](src/01b-example06.html)
+Let's look at a modified version of Michel Buffa's home page example: [Demo - Modified](src/01b-example06.html)
 
 The last two rules first target the element whose id is 'hobbyTitle', in our case it's the second h2 element:
 
@@ -423,7 +423,7 @@ And here is the CSS rule:
 <li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div><br/>
 
-_Line 1_ uses the "#" character in the selector, meaning that we're going to select an element by its id attribute. In this case, the selector equal to `#hobbyTitle`, selects the element that has an attribute `id="hobbyTitle"`.
+_Line 1_ uses the "#" character in the selector, meaning that we're going to select an element by its `id` attribute. In this case, the selector equal to `#hobbyTitle`, selects the element that has an attribute `id="hobbyTitle"`.
 
 In that case, we use a funny char font called 'caveat' we took from the Google font service (see [fonts.google.com](https://fonts.google.com/)), and in order to be able to use it in a font-family CSS property, we included its definition using a `<link>` tag in the HTML part of the document:
 
@@ -442,7 +442,7 @@ The last rule targets all elements that have an attribute `class="funny"`. Notic
 <li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pun">.</span><span class="pln">funny </span></strong><span class="pun">{</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; color</span><span class="pun">:</span><span class="pln">purple</span><span class="pun">;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln"> </span><span class="str">'caveat'</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="lit">40px</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="lit">40px</span><span class="pun">;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div><br/>
 
@@ -527,6 +527,32 @@ Note that when you use an online IDE, you usually type/paste the CSS rules in a 
 
     + all `p`, `h1`, & `h2` using cursive font
     + ',' means "and also"
+
++ `id` and `class` attributes
+  + `id` attribute: identifying any element in Web page uniquely
+  + `class` attribute: grouping any elements w/ a class of other elements
+  + example: `<p id="paragraph-1" class="regular-paragraphs">`
+    + unique identifier w/ `id="paragraph-1"`
+    + part of class `regular-paragraphs`
+  + text within the quotes
+    + w/o meaning to the computer
+    + used to convey the meaning to a human developer
+    + best pratice: named to increase clarity, consistency, and brevity
+  + example: `<h2 id="hobbyTitle">My Hobbies</h2>`
+
+    ```css
+    #hobbyTitle {
+      font-family: 'caveat';
+      font-size:40px;
+      text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+    }
+    ```
+
+  + `#` in selector: to select an element by its `id` attribute
+  + `<link>` tag in HTML `<head>` element
+    + including other CSS properties from remote/local CSS style sheet file
+    + example: `<link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">`
+
 
 
 
