@@ -738,6 +738,18 @@ JavaScript is an interpreted (or just-in-time compiled) language, which means th
 
 #### Notes for 1.2.4 JavaScript history
 
++ Creation of JavaScript
+  + born in 1995
+  + creator: Brendan Eich's team
+  + organization: Netscape, ancestor of Mozilla
+  + in association w/ Sun Microsystems, depending on Java, to provide server and client-oriented solutions
+  + Java not suitable in-browser uise
+  + as a lightweight Java
+  + ispired by Java but only some naming conventions remaining the same
+  + success following the popularity of Netscape Navigator 2 in March 1996
+  + quickly integrated into other popular browsers
+  + standardized by ECMA as the EcmaScript standar in 1996
+  + called JavaScript or EcmaScript
 
 
 
