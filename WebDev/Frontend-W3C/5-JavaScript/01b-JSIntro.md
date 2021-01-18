@@ -576,6 +576,40 @@ Note that when you use an online IDE, you usually type/paste the CSS rules in a 
 
 
 
+### 1.2.3 JavaScript is "the interactive glue"
+
+#### Live coding video: JavaScript is the interactive glue between HTML and CSS
+
+<a href="https://edx-video.net/W3CJSIXX2016-V000500_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y4yuoen4)
+
+JavaScript is the third of the "magic trio": HTML5/CSS/JavaScript. It is the only programming language a browser can run (without installing any plugins or extensions), and it's a real standard of the Web (even if not standardized by the W3C).
+
+#### Why call "the interactive glue between HTML and CSS"?
+
+Actually, this description does not do justice to JavaScript, which can do far more than just act as glue. JavaScript can be run outside of the browser (on a nodeJS interpreter on a remote server, or in scripts run by the operating system), but for this intro course, we focus on "JavaScript" in the browser.
+
+So, in the browser, JavaScript lies between HTML and CSS and will be used together with these two languages. Let's take a look at two small examples:
+
+
+Example #1: push the button to modify the heading of the page.
+
+[Demo - Button Modification](src/01b-example08.html)
+
+
+Example #2: push another button to modify the CSS style (color, background-color, border) of a paragraph in the page.
+
+[Demo - Another Button Modification](src/01b-example09.html)
+
+We have a closer look at how these examples work in the subsequent parts of the course. These examples are just here to show you how JavaScript can interact with the HTML content and the CSS styles of a Web document.
+
+Finally, note that, in these examples, the JavaScript code is located in the HTML of the document.
+
+
+### Notes for 1.2.3 JavaScript is "the interactive glue"
 
 
 
