@@ -751,6 +751,24 @@ JavaScript is an interpreted (or just-in-time compiled) language, which means th
   + standardized by ECMA as the EcmaScript standar in 1996
   + called JavaScript or EcmaScript
 
++ Versions of JavaScript
+  + stable version supported by all major browsers: EcmaScript version 5 from 2010
+  + EcmaScript 6 or ES 2015: introduced many new features
+  + a new version every year w/ some adjustments/novelties
+  + ES w/ year: naming convention since 2015
+  + no global support list for browsers but caniuse.com used to check feature by feature
+
++ JavaScript programming language
+  + the only programming language running in browsers
+  + integrated into nearly every popular Web browser
+  + some applications compiled from JavaScript/HTML/CSS version into "classic" applications w/o a browser
+  + invented to work not only on the client side but also on the server side
+  + an interpreted language
+  + most popular JavaScript engines
+    + [SpiderMonkey](https://developer.mozilla.org/fr/docs/SpiderMonkey) (included in Mozilla Firefox)
+    + [JavaScriptCore](https://developer.apple.com/reference/javascriptcore) (included in Apple Safari)
+    + [Chrome V8](https://developers.google.com/v8/) (included in Google Chrome, in the Node.js server)
+    + [Chakra](https://github.com/Microsoft/ChakraCore) (included in Microsoft Internet Explorer and now in the Microsoft Edge browser)
 
 
 #### Knowledge check 1.2.4
@@ -760,8 +778,8 @@ JavaScript is an interpreted (or just-in-time compiled) language, which means th
   a. No, JavaScript was invented in 1995 by Netscape Corp.<br/>
   b. Yes, Google proposed an open implementation of the language in 2003 to ECMA<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: JavaScript was born in 1995 as part of the work of Brendan Eich's team at Netscape (the ancestor of Mozilla).
 
 
 2. JavaScript can only run in a browser.
@@ -769,8 +787,25 @@ JavaScript is an interpreted (or just-in-time compiled) language, which means th
   a. Incorrect. It can also run in other environments<br/>
   b. Correct<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: In the beginning, JavaScript was invented to work not only on the client side (in Web browsers) but also on the server side (on the Netscape HTTP Web server - year 1995). In recent years, thanks to the appearance of the Node.js server/JavaScript interpreter, this trend has returned. It's now common to see JavaScript applications running on a remote Web server. This introductory course will just be focussing on "JavaScript in the browser".
+
+
+### 1.2.5 Discussion and project
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+__Suggested topics__
+
++ Did you know about JavaScript history? Do you have stories to share?
++ What online tools do you know about, that could be useful for other students?
++ Do you prefer trying small examples using an online IDE or using a source code editor and working with files located on your hard disk?
++ Do you know a good service for hosting Web sites made with HTML/CSS/JS files?
+
+__Optional project__
+
++ Try to make a simple home page and add some interactivity to it, adapting the examples provided in the course (change the HTML content by clicking on a button, change the CSS style of some parts of the document).
+
 
 
 
