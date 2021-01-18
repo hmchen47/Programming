@@ -29,7 +29,7 @@ So the "M" in HTML stands for "Markup", but what does Markup really mean?  Essen
 
 There are many ways to markup a document, but HTML borrows a technique from an ancestor language, SGML ([Standard Generalized Markup Language](https://en.wikipedia.org/wiki/Standard_Generalized_Markup_Language)), which uses angle brackets ("<" and ">") to separate the annotations from the regular text.  In HTML these annotations are called "tags".
 
-For example, consider the following chunk of HTML code (note: you can edit the source code and see the resulting Web page updating in real time): [Local Example - tags](src/01b-example1.html)
+For example, consider the following chunk of HTML code (note: you can edit the source code and see the resulting Web page updating in real time): [Local Example - tags](src/01b-example01.html)
 
 <div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
 <li style="margin-bottom: 0px;" value="1">&nbsp; &nbsp;&lt;body&gt;</li>
@@ -56,7 +56,7 @@ Here is another, more generic example:
 _Notes:_
 
 + Remember that the first line of your HTML5 page should start by `<!DOCTYPE html>`. CodePen does not force you to add a DOCTYPE on CodePen, but be assured that you have to specify the DOCTYPE in all your Web documents.
-+ You can modify the source code in the [Demo File](src/01b-example2.html), and see the results in real time.
++ You can modify the source code in the [Demo File](src/01b-example02.html), and see the results in real time.
 
 <br/>
 <div><ol>
@@ -122,7 +122,7 @@ As an example, let's look at a simplified version of the last HTML code we prese
 <li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/html&gt;</span></li>
 </ol></div><br/>
 
-Click the red circle next to HTML to unfold this HTML document structure (we can also say "see its DOM structure"): ([Demo File - DOM Structure](src/01b-example3.html))
+Click the red circle next to HTML to unfold this HTML document structure (we can also say "see its DOM structure"): ([Demo File - DOM Structure](src/01b-example03.html))
 
 Consider the figure above. It contains a single `html` element. It turns out this includes within it the entire content of your html file. If you click on the "html" red node, you'll find that it contains two components, a `head` and a `body`. Clicking on each of those will reveal their respective contents. This structure is what we computer scientists call a "tree". Any given element (except for the outermost "html" element) is wholly contained inside another element, referred to as the "parent" element. Not surprisingly, the elements contained within a given element are its "child" elements. And, yes, children of a common parent are often referred to as "siblings".
 
@@ -184,7 +184,7 @@ As you might guess, the `<img>` tag also has a height attribute, as well as othe
 
 Try changing the value of the width attribute in the example below, or add a height attribute, and see the result:
 
-[Local Demo Exxample - Image](src/01b-example4.html)
+[Local Demo Exxample - Image](src/01b-example04.html)
 
 
 #### Live coding video: creating a simple Web page using common tags and attributes
@@ -323,6 +323,188 @@ Michel Buffa
 
   Ans: Correct<br/>
   Explanation: The structure of an HTML document is a "tree". Any given element (except for the outermost "html" element) is wholly contained inside another element, referred to as the "parent" element.
+
+
+
+### 1.2.2 CSS is for style
+
+#### Live coding video: using CSS to style HTML elements
+
+<a href="https://edx-video.net/W3CJSIXX2016-V000300_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y6z8xyhz) <br/>
+
+
+CSS, or <b>C</b>ascading <b>S</b>tyle <b>S</b>heets, is a style sheet language used to describe the way an HTML or XML document should look to a user. CSS is where you specify the color, size, spacing, font and other visual aspects of the content that you create in your markup language document.
+
+Usually, you see CSS used alongside HTML to describe the way a Web page looks and feels. You can have a Web page without CSS, but it would be very difficult to make it look the way you want with just HTML. This is why almost every Web page is a combination of HTML and CSS.
+
+<p><b style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; vertical-align: baseline;"><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: 16pt; line-height: 22.8267px; font-family: inherit; vertical-align: baseline;">CSS</span></b><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14pt; line-height: 19.9733px; font-family: inherit; vertical-align: baseline;">&nbsp;</span><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: 17.12px; font-family: inherit; vertical-align: baseline;">•</span><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14pt; line-height: 19.9733px; font-family: inherit; vertical-align: baseline;">&nbsp;/</span><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14pt; line-height: 19.9733px; font-family: inherit; vertical-align: baseline;"><span class="transcribed_word" style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; vertical-align: baseline;">si-ɛs-ɛs</span>/</span><span style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; line-height: 17.12px; font-family: inherit; vertical-align: baseline;">&nbsp;•&nbsp;</span><i style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; vertical-align: baseline;">noun&nbsp;</i></p>
+
+<p class="MsoNormal" style="text-rendering: optimizeLegibility; margin-right: 0px; margin-left: 0.2in; padding: 0px; border: 0px; outline: 0px; font-variant-numeric: inherit; font-stretch: inherit; font-size: 16px; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; vertical-align: baseline;">Stands&nbsp;for "<b style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; vertical-align: baseline;">C</b>ascading&nbsp;<b style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; vertical-align: baseline;">S</b>tyle&nbsp;<b style="text-rendering: optimizeLegibility; margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: 1.4em; font-family: inherit; vertical-align: baseline;">S</b>heets". A style sheet language for describing how to display an HTML document.</p>
+
+#### An example
+
+Let's take the (ridiculous) Michel Buffa home page again:
+
+Notice the use of some HTML tags: h1, img, p, body etc.
+
+Now, we can add some "CSS rules" to the HTML, and see that the appearance of the resulting HTML page rendering is rather different (click on the HMTL/CSS buttons to see alternatively the HTML or the CSS code, remember you can always make changes to the code: change the color in the CSS part, etc.): [Demo - CSS](src/01b-example05.html)
+
+If you click on the CSS button on the top left of the previous codepen example, you see the CSS rules that have been applied to the HTML document. Let's look at the first one:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">h1 </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightGreen</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">:</span><span class="lit">12px</span><span class="pln"> solid violet</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">; &nbsp;&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15px</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br/>
+
+This rule turns all the `h1s` in the document into red text, centered horizontally, on a light green background, with a violet border of 12 pixels (a solid border, not a dashed one), and this border has rounded corners made of arcs of a circle whose radius is 15 pixels.
+
+The part before the opening brace (_line 1_) is the "CSS selector", it indicates the elements that have their properties changed according to what is inside the braces.
+
+The part inside the braces is a set of properties and values that are useful for setting the look and feel of the selected elements.
+
+Line 2 for example, says that all `h1s` is colored in `red`.
+
+
+#### CSS rules are applied in sequence
+
+After the previous rule is applied, then the second rule is taken into account, then the next, etc. In this way, you can see that all `h2s` is in brown (second rule).
+
+The third rule uses what is called "a multiple selector":
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">p</span><span class="pun">,</span><span class="pln"> h1</span><span class="pun">,</span><span class="pln"> h2 </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln"> cursive </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br/>
+
+This one says that all `p`, `h1` and `h2` uses a cursive font character. The "," means "and also".
+
+This is also how we indicate in the last rule that images and paragraphs should be moved to the right 50 pixels (property `margin-left: 50px`).
+
+#### The id and class attributes
+
+Basically, any given element on your Web page can be identified uniquely with an '`id`' attribute, or grouped with a class of other elements by setting the '`class`' attribute.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"paragraph-1"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"regular-paragraphs"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Call me Ishmael . . .</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span></li>
+</ol></div><br/>
+
+The paragraph above has a unique identifier: the id attribute whose value is "paragraph-1" and is part of a class of "regular-paragraphs". The letters inside the quotes have no meaning to the computer, they just need to be consistent. They are actually strings. 
+
+Again, the fact that the computer does not care what we put in those strings (except for some restrictions) means we can use them to convey meaning to a human developer. I could just as easily have said id='x' and class='y', but anyone looking at that would have no hint what the significance of x and y are. Best practice is to name these things to increase clarity, consistency and brevity.
+
+Let's look at a modified version of Michel Buffa's home page example: [Deom - Modified](src/01b-example06.html)
+
+The last two rules first target the element whose id is 'hobbyTitle', in our case it's the second h2 element:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;h2</span><span class="pln"> </span><span style="color: #ff0000;"><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"hobbyTitle"</span></strong></span><span class="tag">&gt;</span><span class="pln">My Hobbies</span><span class="tag">&lt;/h2&gt;</span></li>
+</ol></div><br/>
+
+And here is the CSS rule:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com"><strong>#hobbyTitle</strong> {</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln"> </span><span class="str">'caveat'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="lit">40px</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; text</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4px</span><span class="pln"> </span><span class="lit">4px</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> rgba</span><span class="pun">(</span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br/>
+
+_Line 1_ uses the "#" character in the selector, meaning that we're going to select an element by its id attribute. In this case, the selector equal to `#hobbyTitle`, selects the element that has an attribute `id="hobbyTitle"`.
+
+In that case, we use a funny char font called 'caveat' we took from the Google font service (see [fonts.google.com](https://fonts.google.com/)), and in order to be able to use it in a font-family CSS property, we included its definition using a `<link>` tag in the HTML part of the document:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;title&gt;</span><span class="pln">Your first HTML page</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp;&nbsp;</span>&lt;meta charset="utf-8"/&gt;</li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; <strong>&lt;link</strong></span><strong><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://fonts.googleapis.com/css?family=Caveat"</span><span class="pln"> </span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="tag">&gt;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+</ol></div><br/>
+
+The last rule targets all elements that have an attribute `class="funny"`. Notice they can be different elements, we can have a p and an h3 element that have the `class="funny"` attribute:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pun">.</span><span class="pln">funny </span></strong><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; color</span><span class="pun">:</span><span class="pln">purple</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln"> </span><span class="str">'caveat'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="lit">40px</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br/>
+
+This rule changes the color, font family and size of two out of three paragraphs in the HTML element:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">p </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"funny"</span><span class="pun">&gt;</span><span class="pln">I also play electric guitar </span><span class="kwd">and</span><span class="pln"> love coding </span><span class="typ">WebAudio</span><span class="pln"> applications</span><span class="pun">...&lt;/</span><span class="pln">p</span><span class="pun">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">p </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"funny"</span><span class="pun">&gt;</span><span class="typ">Music</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Movies</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Video</span><span class="pln"> </span><span class="typ">Games</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Traveling</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Family</span><span class="pun">,</span><span class="pln"> etc</span><span class="pun">.&lt;/</span><span class="pln">p</span><span class="pun">&gt;</span></li>
+</ol></div><br/>
+
+There are many, many, many different CSS properties in existence, and many different ways to select elements. We recommend that you follow the W3Cx [CSS Basics](https://www.edx.org/course/css-basics) and [HTML5&CSS Fundamentals](https://www.edx.org/course/html5-and-css-fundamentals) courses to learn more about CSS and about HTML5 basics.
+
+#### Where can we put the CSS rules: in the HTML file? in another file? 
+
+You can do both! 
+
+You can embed the CSS rules between a `<style>...</style>` tag, located inside the `<head>...</head>` of the HTML documents, like in this example: [Demo - Inline Style](src/01b-example07.html)
+
+This is OK if you do not have too many CSS rules. In general it's better to put the CSS rules in one or more separate .css files, like this (open [this example in Plunker](https://plnkr.co/edit/vedmaDmnfiJzoiLPrInG?p=preview))
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y3k2wqtk')"
+    src    ="https://tinyurl.com/y3f5ayyy"
+    alt    ="Snapshot of a code editor showing a separate css file"
+    title  ="Snapshot of a code editor showing a separate css file"
+  />
+</figure>
+
+Note that when you use an online IDE, you usually type/paste the CSS rules in a "CSS tab" in the online editor, and it hides all the "plumbing" for you (except the more complete ones such as Plunker or AWS Cloud9 that enable you to manage files in the cloud).
+
+#### Live coding video: mixing HTML and CSS
+
+<a href="https://edx-video.net/W3CJSIXX2016-V000400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/yy27g4dp)
+
+#### Notes for 1.2.2 CSS is for style
+
+
+
+#### Knowledge check 1.2.3
+
+<pre>.important {
+  color:red;
+}
+</pre>
+
+  In CSS, when we use a selector like .important, it means that:
+
+  a. `.important` is not correct, there is no such selector in CSS<br/>
+  b. We are going to select all HTML elements that have a `class="important"` attribute/value, and the CSS rule will be applied to all these elements<br/>
+  c. We are going to select a single HTML element that has the `id="important"` attribute. Two HTML elements cannot have the same value for the `id` attribute (it must be unique and it acts as an identifier)
+
+  Ans: <br/>
+  Explanation: 
+
+
 
 
 
