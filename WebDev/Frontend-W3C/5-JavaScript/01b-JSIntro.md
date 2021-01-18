@@ -558,9 +558,6 @@ Note that when you use an online IDE, you usually type/paste the CSS rules in a 
     + example: `<link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">`
 
 
-
-
-
 #### Knowledge check 1.2.3
 
 <pre>.important {
@@ -568,14 +565,14 @@ Note that when you use an online IDE, you usually type/paste the CSS rules in a 
 }
 </pre>
 
-  In CSS, when we use a selector like .important, it means that:
+  In CSS, when we use a selector like `.important`, it means that:
 
   a. `.important` is not correct, there is no such selector in CSS<br/>
   b. We are going to select all HTML elements that have a `class="important"` attribute/value, and the CSS rule will be applied to all these elements<br/>
   c. We are going to select a single HTML element that has the `id="important"` attribute. Two HTML elements cannot have the same value for the `id` attribute (it must be unique and it acts as an identifier)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The CSS rule targets all elements that have an attribute `class="important"`. Note that they can be different elements, as we can have a p and an h3 element that have the `class="important"` attribute, for example.
 
 
 
