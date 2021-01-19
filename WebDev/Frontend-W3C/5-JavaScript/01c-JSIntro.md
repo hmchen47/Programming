@@ -139,7 +139,7 @@ In our examples, the properties of the object that is passed as a parameter to t
 They are respectively:
 
 + __target:__ the CSS selector that corresponds to the HTML element that will contain the plot. Look at the HTML code (`<div id="myFunction"></div>`), the id value corresponds to `target`: "#myFunction" in the object.
-+ __data:__ this is where we indicate the value of the function(s) to be plotted. We talk about this in greater detail below.coordplane
++ __data:__ this is where we indicate the value of the function(s) to be plotted. We talk about this in greater detail below.
 + __grid:__ this can be true or false (we call these "boolean values") and indicates whether or not we want a grid to be drawn in the background.
 + __xAxis:__ the value specifies the domain (range) for the x values...
 + __yAxis:__ the value specifies the domain (range) for the y values...
@@ -232,10 +232,52 @@ Not bad ;-)
 + JavaScript function
   + a piece of code defined somewhere else
   + accepting parameters to do something
+  + function parameters: the data passed to the function
   + example: `functionPlot(...);`
     + function name: `functionPlot`
     + `...`: parametres
     + goal: plot a mathematical function
+
++ JavaScript object
+  + defined by two braces `{...}` w/ a set of properties/values inside, separated by a comma
+  + more structured values
+  + example
+
+    ```js
+    {
+       givenName: "Michel",
+       familyName: "Buffa"
+    }
+    ```
+
+    + `:`: seperator btw the property name and its value
+    + `,`: separator btw two properties and omitting after the last property
+  + example: passing parameter for `functionPlot(parameters)`
+
+    ```js
+    {
+        target: '#myFunction',
+        data: [{
+                 fn: 'sin(x)',
+                 color: 'red'
+              }],
+        grid: true,
+        yAxis: {
+             domain: [-1, 1]
+        },
+        xAxis: {
+             domain: [0, 2*Math.PI]
+        }
+    }
+    ```
+
+    + `target`: the CSS selectorcorresponding to the HTML element that will contain the plot
+    + `data`: the value of the function(s) to be plotted
+    + `grid`: boolean value indicating whether or not a grid to be drawn iin the bacjkground
+    + `xAxis`: specifying the domain (range) for the x values
+    + `yAxis`: specifying the domain (range) for the y values
+
+
 
 
 
