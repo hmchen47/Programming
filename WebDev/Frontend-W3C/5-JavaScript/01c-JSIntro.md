@@ -453,6 +453,9 @@ Here is an example that will display the current and past members of famous rock
     + orientation: on mobile devices
     + accessing webcam or microphone, etc.
 
++ Remote HTTP server
+  + download and upload data from browser to remote Web server
+  + __AjaX__ (Asynchronous JAvascript and Xml): term used in JS to download & upload data
 
 
 #### Knowledge check 1.3.2
