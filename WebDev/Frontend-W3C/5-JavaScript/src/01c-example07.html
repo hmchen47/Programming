@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example 1</title>
+</head>
+<body>
+  <h1>Example 1: js in the .html file</h1>
+<p>Open the dev console (F12 or ctrl-shift-i or cmd-alt-i), and see that the
+  JavaScript code has been executed.</p>
+  <script>
+    var x = 2;
+    // show a message in the body of the html document
+    document.body.innerHTML += "<b>JavaScript code executed. The value of the variable x is: " + x + "</b>";
+    // also print a message in the devtool console
+    console.log("JavaScript code executed");
+  </script>
+</body>
+</html>
