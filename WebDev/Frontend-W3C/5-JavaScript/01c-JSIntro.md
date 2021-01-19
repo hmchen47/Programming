@@ -302,9 +302,123 @@ Not bad ;-)
   Explanation: In JavaScript, brackets are used to create arrays of "things" (multiple, enumerable things). __Braces__ are used to define JavaScript objects. The `var c = 10;` is a variable that contains a number, so it's neither an object nor an array.
 
 
+### 1.3.2 What can be done with JavaScript
+
+#### Live coding video: what can be done with JavaScript
+
+<a href="https://edx-video.net/W3CJSIXX2016-V000900_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y4jkxn7r)
+
+
+What can be done with JavaScript:
+
+#### Interact with the HTML and CSS content
+
+__1) interact with the HTML and CSS content of a document, respond to events__
+
+We have already seen three examples in previous parts of this week's course material.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/pREjaE)
+
+[Demo](src/01c-example03.html)
+
+This first example used __the selector API__ for selecting a particular element in the document (the main title) and __*the DOM API*__ for modifying its content.
+
++ An API is an __*application programming interface*__. In the case of JavaScript, the DOM API is implemented natively by the browser, and you can call several functions/methods or access properties of the DOM:  an object that represents the document (the Web page).
+
+It uses __the selector API__ to target a particular part of the DOM (in our case, the main title of the page), the HTML element with an id attribute equal to "mainTitle". The selector API uses the same syntax as CSS to select elements in the document. In our case, `"#mainTitle"` is a selector value that means "the element whose `id` is equal to `mainTitle`".
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mainTitle"</span><span class="pun">);</span></li>
+</ol></div><br/>
+
+It uses __the DOM API__ to change the HTML content of the selected element:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">title</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"This new title has been changed from JavaScript!"</span><span class="pun">;</span></li>
+</ol></div><br/>
+
+__It listens to click events__ in order to call the `changeTitle()` function when we click on the button:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span style="color: #ff0000;"><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeTitle</span><span class="pun">();</span></strong></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click me to change the title of the page</span><span class="tag">&lt;/button&gt;</span></li>
+</ol></div><br/>
+
+And it executes the whole action (changing the title text) in a _function_ (a block of code that is executed only when we call it by adding a parenthesis after its name, followed by a semi colon):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span style="color: #ff0000;"><strong><span class="kwd">function</span><span class="pln"> changeTitle</span><span class="pun">()</span></strong></span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mainTitle"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; title</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"This new title has been changed from JavaScript!"</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div><br/>
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/bgwVvN)
+
+[Demo](src/01c-example04.html)
+
+The second example is nearly the same except that we changed the name of the function, and instead of using the DOM API to update the text content of the main title, __we use its `style` property to change its look and feel. Using the `style` property is a way of altering the CSS property values of this HTML element.__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> changeTitleCSSStyle</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mainTitle"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>title</strong></span><strong><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; title</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">backgroundColor </span><span class="pun">=</span><span class="pln"> </span><span class="str">"yellow"</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; title</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">border </span><span class="pun">=</span><span class="pln"> </span><span class="str">"5px dashed red"</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div><br/>
+
+`title` is in reality what we call "an object" and `style` is a property of the title object. The `style` is an object as well and has attributes that correspond to the different CSS properties we set. For example, `style.color` returns the color that element has set on it. By calling `title.style.color = "yellow";` you can apply the style change dynamically.
+
+Some of you may be wondering what happens when the CSS property being set has a hyphen. The syntax has to be different here, because, for example, if you write `title.style.background-color`, JavaScript will try to subtract `color` from the `title.style.background` notation, which is not what you want to happen. To stop this problem from occurring, all the CSS properties are written out in CamelCase: the CSS name `background-color` becomes `backgroundColor`, `text-size` becomes `textSize`, `border-color` becomes `borderColor` etc.
+
+Don't worry, we will return to this later in this course, these first examples are just here as an introduction.
+
+The third example (outlined in the previous section), which showed how to plot math functions, illustrated that with a few lines of code you can reuse code from others (a third party JavaScript library).
+
+#### Using APIs
+
+__2) use numerous APIs in addition to the DOM and selector APIs: multimedia, drawing, animating, geolocation, webcam, etc.__
+
+Your browser comes with a lot of different "libraries" that are called "standards APIs" for "application programming interfaces". Such APIs are "W3C standards" and are present in all Web browsers that follow the Web Standards. You will have APIs for manipulating multimedia (audio and video), geolocation (getting the longitude and latitude), orientation (on mobile devices), accessing the webcam or the microphone, etc. In a later section we will provide a set of examples that use some of the most useful APIs provided by your Web browser.
+
+Example of an HTML page that embeds an interactive OpenStreet Map (<span style=color: red; font-weight: bold">you need to click the CodePen logo on top right to run this example. For security reasons it cannot be run inside this course page</span>).
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/LYVgyxE)
+
+[Demo](src/01c-example05.html)
+
+
+#### Working with remote HTTP server
+
+__3) work with remote data / speak with a remote HTTP Web server__
+
+You can also download or upload data from your browser to a remote Web server. When this is done from JavaScript the popular term to describe such operations is "AjaX" (Asynchronous JAvascript and Xml), even though XML is not used in any examples you'll see in this course (XML is a language for describing structured data that was very popular a few years ago).
+
+Here is an example that will display the current and past members of famous rock bands:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/wJwpKq)
+
+[Local Demo](src/01c-example06.html)
+
+
+#### Notes for 1.3.2 What can be done with JavaScript
 
 
 
 
+#### Knowledge check 1.3.2
+
+1. In JavaScript, in order to change the content of an HTML document or the CSS style of HTML elements, we use:
+
+  a. The selector and the DOM API<br/>
+  b. The HTML API<br/>
+  c. The CSS API<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
