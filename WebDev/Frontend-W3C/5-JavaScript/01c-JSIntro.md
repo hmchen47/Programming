@@ -413,11 +413,11 @@ Here is an example that will display the current and past members of famous rock
   + API: an application programming interface
   + DOM: an object representing the document
   + the selector API:
-    + selecting a particular element in the document
     + targeting the particular part of the DOM
     + using the same syntax as CSS to select element in the document
     + example: `var title = document.querySelector("#mainTitle");`
   + the DOM API:
+    + modifying the HTML content or the style of HTML elements
     + `.innerHTML`
       + modifying content of a document
       + implemented natively by the browser
@@ -466,7 +466,18 @@ Here is an example that will display the current and past members of famous rock
   b. The HTML API<br/>
   c. The CSS API<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation:
+    + In JavaScript, in order to dynamically modify an HTML document (content or style), we use the selector API to target a particular part of the DOM, then the DOM API to modify the HTML content or the style of HTML elements.
+    + For example:
+
+      ```js
+      var title = document.querySelector("#mainTitle");
+      title.innerHTML = "This new title has been changed from JavaScript!";
+      ```
+
+
+
+
 
 
