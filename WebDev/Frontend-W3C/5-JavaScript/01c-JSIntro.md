@@ -387,7 +387,7 @@ __2) use numerous APIs in addition to the DOM and selector APIs: multimedia, dra
 
 Your browser comes with a lot of different "libraries" that are called "standards APIs" for "application programming interfaces". Such APIs are "W3C standards" and are present in all Web browsers that follow the Web Standards. You will have APIs for manipulating multimedia (audio and video), geolocation (getting the longitude and latitude), orientation (on mobile devices), accessing the webcam or the microphone, etc. In a later section we will provide a set of examples that use some of the most useful APIs provided by your Web browser.
 
-Example of an HTML page that embeds an interactive OpenStreet Map (<span style=color: red; font-weight: bold">you need to click the CodePen logo on top right to run this example. For security reasons it cannot be run inside this course page</span>).
+Example of an HTML page that embeds an interactive OpenStreet Map (you need to click the CodePen logo on top right to run this example. For security reasons it cannot be run inside this course page).
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/LYVgyxE)
 
@@ -443,6 +443,15 @@ Here is an example that will display the current and past members of famous rock
       + `title`: an object
       + `style`: a property of the title object
 
++ Application APIs
+  + bowsers w/ many different libraries as standard APIs
+  + W3C standards
+  + all browseers following the Web Standards
+  + standard APIs
+    + multimedia: audio & video
+    + geolocation: getting the longitude and latitude
+    + orientation: on mobile devices
+    + accessing webcam or microphone, etc.
 
 
 
