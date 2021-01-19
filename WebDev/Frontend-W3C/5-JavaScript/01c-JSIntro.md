@@ -200,9 +200,9 @@ Just by looking at one example, and without going into the boring details, you s
 Not bad ;-)
 
 
-#### Notes for 1.3.1
+#### Notes for 1.3.1 The best way to learn JavaScript
 
-+ Learning JavaScript:
++ Learning JavaScript
   + Best practice
     + read and tweak small JavaScript code snippet
     + carfully read the references that details some important parts of the language
@@ -228,6 +228,15 @@ Not bad ;-)
     + `color: 'red'`: curve line color
     + `xAxis: {domain: [0, 2*Math.PI]}`: range of the x values
     + `yAxis: {domain: [-1, 1]}`: range of the y values
+
++ JavaScript function
+  + a piece of code defined somewhere else
+  + accepting parameters to do something
+  + example: `functionPlot(...);`
+    + function name: `functionPlot`
+    + `...`: parametres
+    + goal: plot a mathematical function
+
 
 
 
