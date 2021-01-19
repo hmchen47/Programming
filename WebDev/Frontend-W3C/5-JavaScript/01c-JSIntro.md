@@ -38,7 +38,9 @@ __Here is an example - we provide some clues, but it's your job to tweak it!__
 
 Here is an example that uses an external JavaScript library useful for plotting math functions. Look at the JavaScript code (click on the JS button) and try to guess where the function is specified, where the range for the x and y values is set, etc. Notice that you can use your mouse wheel to zoom in/out the function plot.
 
-[Demo - Sine function](src/01c-example01.html)
+[CodePen Demo](https://codepen.io/w3devcampus/pen/PpYpjJ)
+
+[Local Demo - Sine function](src/01c-example01.html)
 
 By looking at this example (HTML and JS code), you note a few things:
 
@@ -319,17 +321,17 @@ What can be done with JavaScript:
 
 __1) interact with the HTML and CSS content of a document, respond to events__
 
-We have already seen three examples in previous parts of this week's course material.
+We have already seen three examples in previous parts of this week's course material.<hr/>
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/pREjaE)
 
-[Demo](src/01c-example03.html)
+[Local Demo](src/01c-example03.html)
 
 This first example used __the selector API__ for selecting a particular element in the document (the main title) and __*the DOM API*__ for modifying its content.
 
 + An API is an __*application programming interface*__. In the case of JavaScript, the DOM API is implemented natively by the browser, and you can call several functions/methods or access properties of the DOM:  an object that represents the document (the Web page).
 
-It uses __the selector API__ to target a particular part of the DOM (in our case, the main title of the page), the HTML element with an id attribute equal to "mainTitle". The selector API uses the same syntax as CSS to select elements in the document. In our case, `"#mainTitle"` is a selector value that means "the element whose `id` is equal to `mainTitle`".
+It uses __the selector API__ to target a particular part of the DOM (in our case, the main title of the page), the HTML element with an `id` attribute equal to "mainTitle". The selector API uses the same syntax as CSS to select elements in the document. In our case, `"#mainTitle"` is a selector value that means "the element whose `id` is equal to `mainTitle`".
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mainTitle"</span><span class="pun">);</span></li>
@@ -354,11 +356,11 @@ And it executes the whole action (changing the title text) in a _function_ (a bl
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mainTitle"</span><span class="pun">);</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; title</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"This new title has been changed from JavaScript!"</span><span class="pun">;</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-</ol></div><br/>
+</ol></div><hr/>
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/bgwVvN)
 
-[Demo](src/01c-example04.html)
+[Local Demo](src/01c-example04.html)
 
 The second example is nearly the same except that we changed the name of the function, and instead of using the DOM API to update the text content of the main title, __we use its `style` property to change its look and feel. Using the `style` property is a way of altering the CSS property values of this HTML element.__
 
@@ -379,7 +381,7 @@ Don't worry, we will return to this later in this course, these first examples a
 
 The third example (outlined in the previous section), which showed how to plot math functions, illustrated that with a few lines of code you can reuse code from others (a third party JavaScript library).
 
-#### Using APIs
+#### Using Application APIs
 
 __2) use numerous APIs in addition to the DOM and selector APIs: multimedia, drawing, animating, geolocation, webcam, etc.__
 
@@ -389,7 +391,7 @@ Example of an HTML page that embeds an interactive OpenStreet Map (<span style=c
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/LYVgyxE)
 
-[Demo](src/01c-example05.html)
+[Local Demo](src/01c-example05.html)
 
 
 #### Working with remote HTTP server
@@ -406,6 +408,40 @@ Here is an example that will display the current and past members of famous rock
 
 
 #### Notes for 1.3.2 What can be done with JavaScript
+
++ Interact w/ HTML and CSS
+  + API: an application programming interface
+  + DOM: an object representing the document
+  + the selector API:
+    + selecting a particular element in the document
+    + targeting the particular part of the DOM
+    + using the same syntax as CSS to select element in the document
+    + example: `var title = document.querySelector("#mainTitle");`
+  + the DOM API:
+    + `.innerHTML`
+      + modifying content of a document
+      + implemented natively by the browser
+      + calling serval functions/methods or access properties of the DOM
+      + example: `title.innerHTML = "This new title has been changed from JavaScript!";`
+    + `onclick`
+      + listening to click event to call a specific function
+      + executing the whole action in the called function
+      + example" `<button onclick="changeTitle();">Click me to change the title of the page</button>`
+
+        ```js
+        function changeTitle() {
+            var title = document.querySelector("#mainTitle");
+            title.innerHTML = "This new title has been changed from JavaScript!";
+        }
+        ```
+
+  + `style` property
+    + changing the look and feel of the document
+    + `style`: an object w/ attributes corresponding to the different CSS properties
+    + syntax different from CSS: instead of `-` in CSS and using CamelCase
+    + example: `title.style.color = 'black';`, `title.style.backgroundColor = "yellow";`,  `title.style.border = "5px dashed red";`
+      + `title`: an object
+      + `style`: a property of the title object
 
 
 
