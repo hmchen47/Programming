@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JavaScript and HTML</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="css/01c-example04.css">
+  <script>
+    function changeTitleCSSStyle() {
+      var title = document.querySelector("#mainTitle");
+      title.style.color = 'black';
+      title.style.backgroundColor = "yellow";
+      title.style.border = "5px dashed red";
+    }
+  </script>
+</head>
+  <body>
+    <h1 id="mainTitle">My home page</h1> 
+
+    <p>This is an example of interactivity between JavaScript and the HTML content of a document.</p>
+    <button onclick="changeTitleCSSStyle();">Click me to change the CSS colors of the title of the page</button>
+  </body>
+</html>
