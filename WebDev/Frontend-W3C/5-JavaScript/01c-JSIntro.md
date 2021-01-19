@@ -298,8 +298,8 @@ Not bad ;-)
   b. var a = ['sin', 'cos', 'tan'];<br/>
   c. var b = {min:-1, max:1};<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: In JavaScript, brackets are used to create arrays of "things" (multiple, enumerable things). __Braces__ are used to define JavaScript objects. The `var c = 10;` is a variable that contains a number, so it's neither an object nor an array.
 
 
 
