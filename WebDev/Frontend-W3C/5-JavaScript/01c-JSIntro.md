@@ -636,5 +636,230 @@ This application (available [online](https://mainline.i3s.unice.fr/)). And 100% 
     + [Cloud9 IDE](https://c9.io/): huge project
 
 
+### 1.3.4 Where to put JavaScript code
+
+#### Live coding video: where to put JavaScript code?
+
+<a href="https://edx-video.net/W3CJSIXX2016-V000700_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y2ushwmy)
+
+
+#### JavaScript code can be located in different places
+
+1. In your HTML code between <script> and </script> tag
+2. In local files, usually ending with the .js suffix (i.e: in a script.js file), and included using, for example, a syntax such as: `<script src="style.js"></script>` tag
+3. In external files located on the Web, using their URLs, also using the `<script src="https://www.aserver.com/..../js/script.js"></script>` tag
+
+Here are some examples:
+
+
+#### Examples 
+
+__Example #1:  the JavaScript code is included in an HTML file using the `<script>...</script>` tag__
+
+__First variant: in the `<body>..</body>` of the HTML document__
+
+Typically:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">...</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&nbsp;&lt;script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// show a message in the body of the html document</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;b&gt;JavaScript code executed. The value of the variable x is: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/b&gt;"</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// also print a message in the devtool console</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"JavaScript code executed"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp;&lt;/script&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">...</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div> <br/>
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/ZLBPpY)
+
+[Local Demo](src/01c-examp[le07.html])
+
+
+Old JavaScript examples may use a `type` attribute: `<script type="text/javascript">.`
+
+The type attribute is now obsolete and should be ignored.
+
+__Second variant: in the `<head>...</head>` of the document__
+
+In this example, the `<script>...</script>` element is placed in the `<head>..</head>` section of an HTML page.
+
+This time, we placed a JavaScript function that is invoked (called) when a button is clicked:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; <strong>&lt;script&gt;</strong></span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp;function</span><span class="pln"> addSomeText</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // append a message in the body of the html document</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;br&gt;Function executed!"</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp;}</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="tag">&nbsp; &lt;/script&gt;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">addSomeText</span><span class="pun">();</span><span class="atv">"</span></strong><span class="tag">&gt;</span><span class="pln">Click me to call a JavaScript function that will add </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;some content to this document</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div><hr/>
+
+Here is this second example on CodePen:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/apBMYJ)
+
+[Local Demo](src/01c-example08.html)
+
+__Example #2: put the JavaScript code in local `.js` files__
+
+Putting JavaScript code in external scripts files is easy, and offers many advantages:
+
+1. It separates HTML and code (and also CSS code, if you use external CSS files)
+1. It makes HTML and JavaScript easier to read and maintain
+1. JavaScript files can be reused more easily in other projects
+1. Cached JavaScript files can speed up page loads
+
+A typical example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"css/style.css"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;<strong>&lt;script</strong></span><strong><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+</ol></div><br/>
+
+__To use an external JavaScript file:__
+
+1. In the HTML, put the name of the script file in the src (source) attribute of a `<script>` tag, like in the typical example above,
+1. JavaScript files must end with the .js extension,
+1. Do no use any `<script>...</script>` tag in a .js file!
+1. Using an external JavaScript file with `<script src="..."></script>` is 100% equivalent to using `<script>...</script>` with the file content between the opening and closing tags. 
+1. It's possible to use more than one JavaScript file, just use multiple `<script src="..."></script>`
+
+Example that uses more than one JavaScript file:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"css/style.css"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;<strong>&lt;script</strong></span><strong><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/script1.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="tag"><strong>&nbsp; &nbsp;&lt;script</strong><strong style="color: #3c3c3c;"><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/script2.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="tag"><strong style="color: #3c3c3c;"><span class="tag"><strong>&nbsp; &nbsp;&lt;script</strong><strong style="color: #3c3c3c;"><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/anotherOne.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong><br></span></strong></span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="tag"><strong style="color: #3c3c3c;"><span class="tag"><strong style="color: #3c3c3c;"><span class="tag">&nbsp; &nbsp;...</span></strong></span></strong></span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+</ol></div><br/>
+
+#### A typical HTML/CSS/JS project folder structure, when working with external local files
+
+It is good practice to locate CSS files in a css subfolder, and JavaScript files in a js subfolder.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/yyge6mgp')"
+    src    ="https://tinyurl.com/y5q92um6"
+    alt    ="A typical HTML/CSS/JS project folder structure"
+    title  ="A typical HTML/CSS/JS project folder structure"
+  />
+</figure>
+
+In this example, we have just one CSS file and one JavaScript file:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/yyge6mgp')"
+    src    ="https://tinyurl.com/y5l8ok5h"
+    alt    ="A typical HTML/CSS/JS project folder structure, with folders expanded"
+    title  ="A typical HTML/CSS/JS project folder structure, with folders expanded"
+  />
+</figure>
+
+Content of the index.html file:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="tag">&nbsp; &nbsp;&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"css/style.css"</span><span class="tag">&gt;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h1&gt;</span><span class="pln">Example 3: JavaScript and CSS in local files!</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">addSomeText</span><span class="pun">();</span></strong><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click me to call a JavaScript function that will add some content to this document</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div><br/>
+
+Content of the js/script.js file (JavaScript file):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> addSomeText</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;p&gt;Function executed!&lt;/p&gt;"</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br/>
+
+Content of the style.css file:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">p </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln">green</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br/>
+
+How to run this example:
+
+1. Download the zip file of this project: Example_3.zip
+1. Unzip/unarchive it somewhere
+1. Double click the index.html file, this will open your Web browser and load the index.html file.
+1. Click on the button in the page
+
+
+__Example #3: use external references to JavaScript files/libraries located on the Web__
+
+External JavaScript libraries (they are just big JS files) can be also referenced with a full URL, like in this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.22/paper.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
+</ol></div><br/>
+
+Here, we just included in our HTML document the excellent [paperJS](http://paperjs.org/) library that can be used to make fancy animations in the HTML canvas element - we will use it later in the course. 
+
+Once the library is included, the JavaScript code you will write can call functions located in this library. This "reuse existing" work made by others is really common when working on JavaScript projects.
+
+Here is a running example that uses the paperJS library, included using an external URL:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/VPmNWg)
+
+[Local Demo](src/01c-example09.html)
+
+
+#### Notes for 1.3.4 Where to put JavaScript code
+
+
+
+
+#### Knowledge check 1.3.3
+
+1. Which of these statements are correct? (two correct answers!)
+
+  a. JavaScript code can only be located between the `<script>...</script>` tags<br/>
+  a. JavaScript code can be located outside of the HTML file and included using `<script src=...>...</script>`<br/>
+  a. The `<script>` opening tag always come with a `</script>` closing tag<br/>
+  a. We cannot have more than one external JavaScript file<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+
+
+
+
+
 
 
