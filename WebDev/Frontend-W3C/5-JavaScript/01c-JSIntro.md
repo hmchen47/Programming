@@ -186,8 +186,9 @@ __In arrays, the different elements are separated by commas.__ Let's try to plot
 <li class="L7" style="margin-bottom: 0px;"><span class="pun">]</span></li>
 </ol></div><br/>
 
+[CodePen Demo - Sine & Cosine functions](https://codepen.io/w3devcampus/pen/KWPyeX)
 
-[Demo - Sine & Cosine functions](src/01c-example02.html)
+[Local Demo - Sine & Cosine functions](src/01c-example02.html)
 
 #### Conclusion
 
@@ -277,10 +278,17 @@ Not bad ;-)
     + `xAxis`: specifying the domain (range) for the x values
     + `yAxis`: specifying the domain (range) for the y values
 
++ Embedded objects
+  + arrays: using brackets to create arrays of things
+  + different elements within an arrays seperated by commas `,`
+  + example
 
-
-
-
+    ```js
+    data: [{
+       fn: 'sin(x)',
+       color: 'red'
+    }],
+    ```
 
 #### Knowledge check 1.3.1
 
