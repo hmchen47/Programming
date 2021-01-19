@@ -477,6 +477,141 @@ Here is an example that will display the current and past members of famous rock
       ```
 
 
+### 1.3.3 Source code editors to use
+
+#### Foreword
+
+<p class="exampleHTML">Michel Buffa, author of this course: <br><br><em>"When I work locally, with files located on my computer hard drive, I use the Sublime Text source code editor, Visual Studio Code, WebStorm, NetBeans, depending on the size of the project I'm working on. <br>- For testing simple examples, I mainly use the JsBin.com online code editor.<br>- For embedding online examples in this course, I use the CodePen.io online code editor.<br>- For choosing a CSS color, shadow, text-shadow, gradients, etc. I use the LiveWeave online code editor."</em></p>
+
+
+#### Traditional source code editors
+
+You can use any source code editor that has good support for HTML, CSS and JavaScript files. For this course, you are free to use whichever you prefer. However, there are some in particular that we recommend.
+
+##### Sublime Text
+
+Sublime Text is a very powerful, multi-platform source code editor, it's semi-free (you can use it without paying, it will pop up a dialog asking you to buy it once in a while, but not very often). Sublime text supports hundreds of plugins to enhance its features.
+
+##### Visual Studio Code
+
+Visual Studio Code is a free, open source, multi-platform editor by Microsoft.
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ged569" ismap target="_blank">
+    <img style="margin: 0.1em;" height=250
+      src  ="https://tinyurl.com/y3x4goqr"
+      alt  ="Snapshot of Sublime Text editing an html/css/js project"
+      title="Snapshot of Sublime Text editing an html/css/js project"
+    >
+    <img style="margin: 0.1em;" height=250
+      src  ="https://tinyurl.com/y5d43x65"
+      alt  ="Snapshot of a Visual Studio code editing an HTML/CSS/JS project"
+      title="Snapshot of a Visual Studio code editing an HTML/CSS/JS project"
+    >
+  </a>
+</div>
+
+##### Other tools
+
+Free of charge:
+
++ [Atom source](https://atom.io/) code editor (note that Visual Studio code is based on Atom).
++ [Brackets source](http://brackets.io/) code editor.
++ [NotePad++](https://notepad-plus-plus.org/) (Windows only)
++ [NetBeans](https://netbeans.org/) and [Eclipse](https://eclipse.org/): very powerful IDEs (integrated development environments), but heavier than all the "lightweight" source editors that we've talked about so far. More dedicated to "mid-size/large-size projects", more for pro developers that are also looking for good support for server-side languages such as Java, Python, PHP, etc.
+
+Not free of charge:
+
++ [IDEs by JetBrains.com](https://www.jetbrains.com/) have a very good reputation and can be obtained for free if you are an academic customer (student or teacher). The [WebStorm](https://www.jetbrains.com/webstorm) IDE is a very good mid-weight tool for developing HTML/CSS/JS/NodeJS code.
++ [BBedit](https://www.barebones.com/products/bbedit/) (for Macs): source code editor for mac with support for Web languages.
+
+#### Online editors/IDEs
+
+To help you practice for the duration of the course, you will use the following tools. Pretty much all the course's examples will use these tools.
+
+##### JsBin.com
+
+[JS Bin](https://jsbin.com/) is an open source collaborative Web development debugging tool. Most of the examples you will find in this course are either on JsBin or on CodePen.
+
+Tutorials can be found on the Web (such as [this one](https://code.tutsplus.com/tutorials/javascript-tools-of-the-trade-jsbin--net-36843)) or on YouTube. The tool is really simple: just open the link to the provided examples, look at the code, look at the result, etc. And you can modify the examples as you like, you can also modify / clone / save / share them. Keep in mind that it's always better to be logged in (it's free) if you do not want to lose your work.
+
+In our opinion, JsBin is the best online IDE for "live coding": typing and seeing what you are doing in real time, monitoring error messages in the console tab, and debugging your code. We will mainly use this tool for the live coding videos.
+
+##### CodePen.io
+
+[CodePen](https://codepen.io/) is similar to JSBin except that its Web site includes a search engine, which is very useful for finding out what others  have developed. Looking for a nice HTML5/CSS button style? Just search for "button", etc. It's also easier for us to embed HTML/CSS/JS examples in this course with CodePen than with other online IDEs; this is why so many "pens" are embedded in the course pages.
+
+##### Plunker
+
+Plunker allows us to work online with separate files. So when we have no choice but to use separate files, we might use this tool.
+
+##### LiveWeave
+
+[LiveWeave](https://liveweave.com/) is great for writing CSS code or for embedding SVG Graphics in an HTML document, as it includes online wizards and interactive editors. We use it when we have problems with CSS shadows, CSS colors or gradients, or when we want to include an SVG arrow in a document.
+
+##### JsFiddle
+
+[JsFiddle](https://jsfiddle.net/) is very similar to JsBin and CodePen in terms of features. 
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ged569" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/yyegf3tm"
+      alt  ="JSBin example"
+      title="JSBin example"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/yxzm2db2"
+      alt  ="Snapshot of a CodePen example"
+      title="Snapshot of a CodePen example"
+    >
+    <img style="margin: 0.1em;" height=150
+      src  ="https://tinyurl.com/y25ey7fo"
+      alt  ="Snapshot of a Plunker example"
+      title="Snapshot of a Plunker example"
+    >
+  </a>
+</div>
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ged569" ismap target="_blank">
+    <img style="margin: 0.1em;" height=200
+      src  ="https://tinyurl.com/yxw374k2"
+      alt  ="LiveWeave code editor"
+      title="LiveWeave code editor"
+    >
+    <img style="margin: 0.1em;" height=200
+      src  ="https://tinyurl.com/y4ayy6yd"
+      alt  ="LiveWeave CSS editor"
+      title="LiveWeave CSS editor"
+    >
+  </a>
+</div>
+
+##### Other tools
+
+There are many other online IDEs and new ones appear each year. If you want a real, heavyweight online IDE that has nearly all the features offered by "big IDEs" such as Eclipse, NetBeans and WebStorm, take a look at the [Cloud9 IDE](https://c9.io/). It's free and will enable you to develop huge projects, that can include many files, it supports uploaded assets such as images, videos and sound files.  Furthermore, like Google Docs, it will support multiple users working at the same time on the same project, even on the same file. It's a real collaborative environment.
+
+Michel Buffa, author of this course, developed a whole multitrack audio player this way. See these screenshots:
+
+This application (available [online](https://mainline.i3s.unice.fr/)). And 100% of the development was done in a Web browser, by Michel Buffa and two friends, using the c9.io (Cloud 9) IDE (to see if online IDEs were a valuable approach):
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y5ged569" ismap target="_blank">
+    <img style="margin: 0.1em;" height=200
+      src  ="https://tinyurl.com/y2daccc7"
+      alt  ="multitrack audio player"
+      title="multitrack audio player"
+    >
+    <img style="margin: 0.1em;" height=200
+      src  ="https://tinyurl.com/y3eltq52"
+      alt  ="C9 ide"
+      title="C9 ide"
+    >
+  </a>
+</div>
+
 
 
 
