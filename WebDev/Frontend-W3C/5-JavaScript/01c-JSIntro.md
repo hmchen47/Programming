@@ -490,11 +490,11 @@ You can use any source code editor that has good support for HTML, CSS and JavaS
 
 ##### Sublime Text
 
-Sublime Text is a very powerful, multi-platform source code editor, it's semi-free (you can use it without paying, it will pop up a dialog asking you to buy it once in a while, but not very often). Sublime text supports hundreds of plugins to enhance its features.
+[Sublime Text](https://www.sublimetext.com/) is a very powerful, multi-platform source code editor, it's semi-free (you can use it without paying, it will pop up a dialog asking you to buy it once in a while, but not very often). Sublime text supports hundreds of plugins to enhance its features.
 
 ##### Visual Studio Code
 
-Visual Studio Code is a free, open source, multi-platform editor by Microsoft.
+[Visual Studio Code](https://code.visualstudio.com/) is a free, open source, multi-platform editor by Microsoft.
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y5ged569" ismap target="_blank">
@@ -543,7 +543,7 @@ In our opinion, JsBin is the best online IDE for "live coding": typing and seein
 
 ##### Plunker
 
-Plunker allows us to work online with separate files. So when we have no choice but to use separate files, we might use this tool.
+[Plunker](https://plnkr.co/) allows us to work online with separate files. So when we have no choice but to use separate files, we might use this tool.
 
 ##### LiveWeave
 
@@ -612,6 +612,28 @@ This application (available [online](https://mainline.i3s.unice.fr/)). And 100% 
   </a>
 </div>
 
+#### Note for 1.3.3 Source code editors to use
+
++ Source code editors / IDEs
+  + traditional
+    + [Sublime Text](https://www.sublimetext.com/)
+    + [Visual Studio Code](https://code.visualstudio.com/)
+    + [Atom source](https://atom.io/) code editor (based on Atom).
+    + [Brackets source](http://brackets.io/) code editor.
+    + [NotePad++](https://notepad-plus-plus.org/) (Windows only)
+    + [NetBeans](https://netbeans.org/): big IDE
+    + [Eclipse](https://eclipse.org/): big IDE
+  + commercial
+    + [IDEs by JetBrains.com](https://www.jetbrains.com/)
+    + [BBedit](https://www.barebones.com/products/bbedit/) (for Macs)
+    + [WebStorm](https://www.jetbrains.com/webstorm) IDE: mid-weight tool for HTML/CSS/JS/NodeJS
+  + online editors / IDEs
+    + [JS Bin](https://jsbin.com/): best online editor for "live coding"
+    + [CodePen](https://codepen.io/): search engine to find examples
+    + [Plunker](https://plnkr.co/): separate files
+    + [LiveWeave](https://liveweave.com/): CSS code or embedding SVG Graphics in an HTML document
+    + [JsFiddle](https://jsfiddle.net/)
+    + [Cloud9 IDE](https://c9.io/): huge project
 
 
 
