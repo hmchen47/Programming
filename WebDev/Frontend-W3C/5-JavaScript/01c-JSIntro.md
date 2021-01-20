@@ -888,7 +888,6 @@ Here is a running example that uses the paperJS library, included using an exter
 
 [Transcript](https://tinyurl.com/y4fqtb4b)
 
-
 Let's introduce what is debugging.
 
 #### You will make errors!
@@ -1019,5 +1018,12 @@ And if we click on the line number to the right, the dev. tool shows the source 
 Without such tools, debugging JavaScript code is impossible. So you need to look at some basic tutorials on how to use the dev. tools of your browsers, since they differ from one another in the way they work - although the principles remain the same.
 
 
+#### Note for 1.3.5 How to debug JavaScript
+
++ Debugging w/ JavaScript
+  + error messages: printing message for debugging code
+  + basics of debuging: seeing error messages
+    + in the devtool console
+    + in the "console tab" of source code editor
 
 
