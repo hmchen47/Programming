@@ -878,11 +878,145 @@ Here is a running example that uses the paperJS library, included using an exter
     + The `<script>` tag cannot be used without a closing `</script>` tag.
 
 
+### 1.3.5 How to debug JavaScript
+
+#### Live coding video: how to open the browser devtool console
+
+<a href="https://edx-video.net/W3CJSIXX2016-V001100_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y4fqtb4b)
 
 
+Let's introduce what is debugging.
 
+#### You will make errors!
 
+When you are developing a Web Application that contains JavaScript code, you will make errors. 
 
+<span style="color: red;">Repeat after me: "I WILL MAKE ERRORS!" ; "I WILL MAKE ERRORS!"</span>
+
+So there will be error messages, and you will need to print messages for debugging your code. We will see more advanced debugging techniques at different points in this course, but for the moment, let's see the basics of JavaScript debugging: seeing error messages in the devtool console, or in the "console tab" of your source code editor.
+
+We will not look at the JavaScript syntax here, but more at "JavaScript in the browser", how it works, how to start writing code, etc.
+
+First of all, you need to find a way to debug your code and see errors. If your work does not produce any results, you need to know why!
+
+#### Browser devtools
+
+__Your Swiss army knife: your browser devtools, especially the devtool console!__
+
+For this you will use __the dev. tools of your browser__. Press _F12_ (or ctrl-shift-i) in Windows or cmd-option-i in MacOS to open the dev. tools, then go to the console tab: __this is where errors will be displayed__, or messages of your own (use the `console.log(string)` JavaScript function in the JavaScript code embedded in your html page). In the console, you will be able to type any JavaScript command.
+
+Let's look at [this example on JS Bin](http://jsbin.com/moqimuz/edit?html,console,output):
+
+<div class="rj_insertcode" style="color: #444444; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; line-height: 25px;">
+<div class="rj_insertcode_html4strict" style="overflow: auto; width: 546.174987792969px; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<table class="html4strict" style="max-width: 100%; border-spacing: 0px; width: 545.599975585938px; background-color: transparent;">
+<tbody>
+<tr class="li1">
+<td style="width: 1px; vertical-align: top; color: #676f73; border-right-style: dotted; border-right-color: #dddddd; font-size: 12px; text-align: right; background: #f0f0f0;">
+<pre style="padding: 0px 4px; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12px; color: #333333; border-radius: 4px; margin-top: 0px; margin-bottom: 0px; line-height: 20px; word-break: normal; border: 1px solid rgba(0, 0, 0, 0.14902); vertical-align: top; background: none;">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre>
+</td>
+<td style="margin-top: 0px; margin-bottom: 0px; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal; background: none;">
+<pre style="padding: 0px 4px; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12px; color: #333333; border-radius: 4px; margin-top: 0px; margin-bottom: 0px; line-height: 20px; word-break: normal; border: 1px solid rgba(0, 0, 0, 0.14902); vertical-align: top; background: none;"><span style="color: #00bbdd;">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;"><a style="color: purple;" href="http://december.com/html/4/element/html.html">html</a> lang="en</span>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/head.html"><span style="color: #000000; font-weight: bold;">head</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/meta.html"><span style="color: #000000; font-weight: bold;">meta</span></a> <span style="color: #000066;">charset</span><span style="color: #66cc66;">=</span>utf-<span style="color: #cc66cc;">8</span> <span style="color: #66cc66;">/</span>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/title.html"><span style="color: #000000; font-weight: bold;">title</span></a>&gt;</span>Web Audio API<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/title.html"><span style="color: #000000; font-weight: bold;">title</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span>
+&nbsp; &nbsp;console.log("Some JavaScript code has been executed");
+&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/head.html"><span style="color: #000000; font-weight: bold;">head</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span>
+&nbsp; &nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/h1.html"><span style="color: #000000; font-weight: bold;">h1</span></a>&gt;</span>JavaScript debugging using the dev tool console<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/h1.html"><span style="color: #000000; font-weight: bold;">h1</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/html.html"><span style="color: #000000; font-weight: bold;">html</span></a>&gt;</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+The simplest way to add JavaScript code in an HTML page is to use the `<script>...</script>` element.
+
+__The code in this example is executed sequentially when the page is loaded:__ the JavaScript code is executed before the browser could see the rest of the page (as the `<script></script>` is located before the `<body>`).
+
+The H1 element, for example, does not exist in the Document Object Model, and has not yet been displayed when the JavaScript code is executed. If we move the `<script></script>` at the end of the document, then the H1 would have been built before the JavaScript code is executed.
+
+The only line of code we have is `console.log("Some JavaScript code has been executed");`
+
+This means "display in the JavaScript console the message...". If we open the console tab provided by jsbin.com in a dedicated tab (that redirects all `console.log()` messages), and re-execute the page (just type a space at the end of a line to re-render the page and display the message in the console), we see the message in the console tab, as well as in the dev. tools console. This is illustrated by the image below:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y4x46h23')"
+    src    ="https://tinyurl.com/yy3bdxlj"
+    alt    ="Snapshot of a JavaScript console view (#1)"
+    title  ="Snapshot of a JavaScript console view (#1)"
+  />
+</figure>
+
+It is also possible to use the "real dev. tool console", and for this, I recommend running the application in a single window, not in the JsBin editor. Press the black arrow on the top right of the output window - this will render the page as a standalone Web page, then press F12. You should see:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y4x46h23')"
+    src    ="https://tinyurl.com/yyjyhe5b"
+    alt    ="View of the JavaScript console"
+    title  ="View of the JavaScript console"
+  />
+</figure>
+
+Ok, now, let's make an error: change `console.log()` into `consollle.log()`. Let's see what happens:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y4x46h23')"
+    src    ="https://tinyurl.com/yyegf3tm"
+    alt    ="View of the javascript console showing an error"
+    title  ="View of the javascript console showing an error"
+  />
+</figure>
+
+And if we run it standalone and use the dev. tool console:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y4x46h23')"
+    src    ="https://tinyurl.com/y2cp227z"
+    alt    ="View of the JavaScript console (showing the line that caused the error)"
+    title  ="View of the JavaScript console (showing the line that caused the error)"
+  />
+</figure>
+
+And if we click on the line number to the right, the dev. tool shows the source code centered on the line that caused the error:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick="window.open('https://tinyurl.com/y4x46h23')"
+    src    ="https://tinyurl.com/y4xkv2jo"
+    alt    ="View of the JavaScript console"
+    title  ="View of the JavaScript console"
+  />
+</figure>
+
+Without such tools, debugging JavaScript code is impossible. So you need to look at some basic tutorials on how to use the dev. tools of your browsers, since they differ from one another in the way they work - although the principles remain the same.
 
 
 
