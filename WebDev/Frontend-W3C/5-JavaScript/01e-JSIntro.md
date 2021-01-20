@@ -2,6 +2,221 @@
 
 ## 1.5 Variables, values, functions, operators and expressions
 
+### 1.5.1 JS variables and values
+
+#### Live coding video: JavaScript variables
+
+<a href="https://edx-video.net/W3CJSIXX2016-V001400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y5y8mg88)
+
+In most of the examples seen earlier, we've used the concept of "variable", and we have used them to "store values". It's time to take a break and talk about them :-)
+
+#### Variables
+
+In order to remember a value, programming languages share the concept of "variables". When you write programs, you will need to store values in the computer's memory. By saving these values in "variables", by giving them a "name" (we call it an identifier), you can reuse them later for display, for computations, etc.
+
+#### Create (declaring) a variable
+
+With JavaScript versions < 5 (prior to 2015), there was a single way to create (we say "declare") a variable: using the var keyword. But with the subsequent versions (called ES2015/ES2016 or JavaScript 6/7), we can also use the keyword let (this has some subtle differences, which we'll explain later in the course when we will talk about "functions").
+
+JavaScript is weakly typed. Each variable is declared with the keyword var or let. So you are not required to specify the type of variable you are creating. __After the keyword "var" and a space, just give the name of the variable.__
+
+Example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> myVar</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> x</span><span class="pun">;</span></li>
+</ol></div><br/>
+
+The first letter of a variable can only be "$", "_", "a" to "z", or "A" to "Z". The other characters in a name must be any of these, or numeric digits. The name is case sensitive. __So variables "myVar" and "MyVar" are different variables.__
+
+There are some reserved names that you can't use as a variable name: boolean, if, delete, var, function, etc. as they are reserved words of the JavaScript language.
+
+
+#### Give a value to a variable (assign a value to a variable)
+
+A value can be assigned to a declared variable, or even directly in the variable declaration. For this, we use the equal character, also called "the assignment operator".
+
+Example:
+
+(notice at _line 4_ one way to introduce comments in your code: start a line with "//"!)
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> myValue</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">myValue </span><span class="pun">=</span><span class="pln"> </span><span class="lit">78</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// With the ES2015 syntax. BTW, lines staring with // are comments!</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> myNumber </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1.34</span><span class="pun">;</span></li>
+</ol></div><br/>
+
+At _line 2_, we are not saying that "myValue" and "78" are the same, we're saying "hey, I want to store the value 78, and I'm putting it in a variable whose name is "myValue". It's like giving an id to a location somewhere in the memory of the computer.
+
+Using the id "myValue", we store 78 into a memory location identified by the name "myValue": a variable, or if you prefer, a value that can vary over time if we assign a new value to the variable "myValue" (for example by executing `myValue = 5;`).
+
+You can also declare many variables at once by separating them with a comma. Always end each instruction line with a semi colon.
+
+Example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> myNumber1</span><span class="pun">,</span><span class="pln"> myNumber2 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">34</span><span class="pun">,</span><span class="pln"> myNumber3</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// Or with the ES2015 syntax, you can also use "let"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> z </span><span class="pun">=</span><span class="pln"> </span><span class="lit">12</span><span class="pun">;</span></li>
+</ol></div><br/>
+
+
+#### Try the devtool console - you can type code in there too!
+
+Reminder: you can always open the devtool console using F12 on windows, or ctrl-shift i, or cmd-alt-i on other computers.
+
+If we copy and paste the variable declarations from the previous example, and type myNumber2 in the devtool console, it will display 34 (while `myNumber1` will have an undefined value):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> myNumber1</span><span class="pun">,</span><span class="pln"> myNumber2 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">34</span><span class="pun">,</span><span class="pln"> myNumber3</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="com">// Or with the ES6 syntax you can also use "let"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">let</span><span class="pln"> x</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">=</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> z</span><span class="pun">=</span><span class="lit">12</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> x</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> z</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">12</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> myNumber2</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="lit">34</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> myNumber1</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+</ol></div>
+
+Below is an image that explains how you can try JavaScript code in the devtools console:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y66nzttl')"
+    src    ="https://tinyurl.com/y68zj6jo"
+    alt    ="Display JS variable in the console devtools, type some instructions, press return. For example type var x=2; then press the enter key; then type x; it will display its value '2'"
+    title  ="Display JS variable in the console devtools, type some instructions, press return. For example type var x=2; then press the enter key; then type x; it will display its value '2'"
+  />
+</figure>
+
+If you try to use a variable that has never been declared, you get an error message:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y66nzttl')"
+    src    ="https://tinyurl.com/y4nkh6zc"
+    alt    ="If you type k; followed by the enter key in the devtool console, and if k has not been defined, then an error message is displayed: 'uncaught referenceError: k is not defined...'"
+    title  ="If you type k; followed by the enter key in the devtool console, and if k has not been defined, then an error message is displayed: 'uncaught referenceError: k is not defined...'"
+  />
+</figure>
+
+#### Name conventions for variables
+
+The JavaScript community has some conventions about naming variables:
+
++ The camelCase notation is preferred: mySpaceShip, sumOfAllGrades, etc.
++ For a variable, the first letter is lowercase and each first letter of each word is capitalized. Example: var myVariableName
+
+Example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln">&nbsp;m</span><span class="typ">yModel</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span style="color: #000000;" color="#000000">// ES2015 syntax</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> michelBuffaAge </span><span class="pun">=</span><span class="pln"> </span><span class="lit">51</span><span class="pun">;</span></li>
+</ol></div><br/>
+
+Most JavaScript examples you will find are written in the camelCase format. For harmony in the code source, it is a good idea to keep this convention. Sometimes, you will see the snake_case naming convention, which separates each word of a variable with an underscore.
+
+Here's an interesting article: [CamelCase vs underscores: Scientific showdown](https://whatheco.de/2011/02/10/camelcase-vs-underscores-scientific-showdown/)
+
+
+#### Constants
+
+Constants are variables that cannot be modified after a value has been set.
+
+__The naming convention is to use uppercase letters with underscores.__
+
+__Example: `var TIME_LIMIT = 50;`__
+
+With JavaScript 5, constants were declared as normal variables, using the var keyword, and there were no verifications by the JavaScript interpreter forbidding you to modify them after you assigned a value to them.
+
+With ES2015/2016 it is recommended that you use the keyword const instead of `var` to declare them. This means that an error will be raised if you try to change their value in the future.
+
+Example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> TIME_LIMIT</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// ES2015 Syntax</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> MAX_GRADE </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span></li>
+</ol></div><br/>
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y66nzttl')"
+    src    ="https://tinyurl.com/y64wlzh2"
+    alt    ="Constants in the devtool console. We see the difference between var and const. The code executed is the one from the above example"
+    title  ="Constants in the devtool console. We see the difference between var and const. The code executed is the one from the above example"
+  />
+</figure>
+
+
+#### Summary
+
+Here are a set of examples (using the `let` keyword, but they would also work with `var`):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">let</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> thisIsAVariable</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> and_this_too</span><span class="pun">;</span><span class="pln"> </span><span class="com">// but <strong>does not respect the usual naming convention</strong></span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> mix12three</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">// invalid!</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> </span><span class="lit">2three4five</span><span class="pun">;</span><span class="pln"> </span><span class="com">// <strong>can't start with a digit!</strong></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> v1</span><span class="pun">,</span><span class="pln"> v2</span><span class="pun">,</span><span class="pln"> v3 </span><span class="pun">=</span><span class="pln"> </span><span class="str">'hello'</span><span class="pun">,</span><span class="pln"> v4 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> v5</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="com">// Beware with lowercase / uppercase</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> case_matters </span><span class="pun">=</span><span class="pln"> </span><span class="str">'lower'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">let</span><span class="pln"> CASE_MATTERS </span><span class="pun">=</span><span class="pln"> </span><span class="str">'upper'</span><span class="pun">;</span></li>
+</ol></div><br/>
+
+#### Notes for 1.5.1 JS variables and values
+
+
+
+
+#### Knowledge check 1.5.1
+
+1. What is valid JavaScript below? (four correct answers!)
+  
+  a. `var !x = 3;`<br/>
+  b. `var x, y=2, z=3;`<br/>
+  c. `let myCar = "Ferrari";`<br/>
+  d. `let _12 = 4;`<br/>
+  e. `var michel123Buffa = "Your JavaScript teacher";`<br/>
+  
+  Ans: <br/>
+  Explanation:
+
+
+2. An undefined variable is:
+
+  a. A variable that has been declared but not initialized<br/>
+  b. A variable that has not been declared<br/>
+  
+  Ans: <br/>
+  Explanation:
+
+
 
 
 
