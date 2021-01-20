@@ -41,11 +41,11 @@ In the video, at 3:19, there are some mistakes in the HTML code:
 
 #### CodePen example with the starting code used in the video
 
-If you want to code while watching the video, [please open this CodePen](https://codepen.io/w3devcampus/pen/GmbpzZ). It contains the source code of the example we started coding from. 
+If you want to code while watching the video, [please open this CodePen](https://codepen.io/w3devcampus/pen/GmbpzZ). It contains the source code of the example we started coding from. ([Local Demo](src/01d-example02.html))
 
-And [here is the same version](https://codepen.io/w3devcampus/pen/PjomvR?editors=1000#0) with the polyfill for the `<input type="color">` input field, not yet supported by Safari.
+And [here is the same version](https://codepen.io/w3devcampus/pen/PjomvR?editors=1000#0) with the polyfill for the `<input type="color">` input field, not yet supported by Safari. ([Local Demo](src/01d-example03.html))
 
-In case you have a hard time to follow the video, [here is the full example](https://codepen.io/w3devcampus/pen/bqGboZ) (this link points to the example from the previous course page).
+In case you have a hard time to follow the video, [here is the full example](https://codepen.io/w3devcampus/pen/bqGboZ) (this link points to the example from the previous course page). ([Local Demo](src/01d-example04.html))
 
 
 
