@@ -906,7 +906,7 @@ First of all, you need to find a way to debug your code and see errors. If your 
 
 __Your Swiss army knife: your browser devtools, especially the devtool console!__
 
-For this you will use __the dev. tools of your browser__. Press _F12_ (or ctrl-shift-i) in Windows or cmd-option-i in MacOS to open the dev. tools, then go to the console tab: __this is where errors will be displayed__, or messages of your own (use the `console.log(string)` JavaScript function in the JavaScript code embedded in your html page). In the console, you will be able to type any JavaScript command.
+For this you will use __the dev. tools of your browser.__ Press _F12_ (or ctrl-shift-i) in Windows or cmd-option-i in MacOS to open the dev. tools, then go to the console tab: __this is where errors will be displayed__, or messages of your own (use the `console.log(string)` JavaScript function in the JavaScript code embedded in your html page). In the console, you will be able to type any JavaScript command.
 
 Let's look at [this example on JS Bin](http://jsbin.com/moqimuz/edit?html,console,output):
 
@@ -933,18 +933,18 @@ Let's look at [this example on JS Bin](http://jsbin.com/moqimuz/edit?html,consol
 </td>
 <td style="margin-top: 0px; margin-bottom: 0px; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal; background: none;">
 <pre style="padding: 0px 4px; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12px; color: #333333; border-radius: 4px; margin-top: 0px; margin-bottom: 0px; line-height: 20px; word-break: normal; border: 1px solid rgba(0, 0, 0, 0.14902); vertical-align: top; background: none;"><span style="color: #00bbdd;">&lt;!DOCTYPE html&gt;</span>
-<span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;"><a style="color: purple;" href="http://december.com/html/4/element/html.html">html</a> lang="en</span>&gt;</span>
-&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/head.html"><span style="color: #000000; font-weight: bold;">head</span></a>&gt;</span>
-&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/meta.html"><span style="color: #000000; font-weight: bold;">meta</span></a> <span style="color: #000066;">charset</span><span style="color: #66cc66;">=</span>utf-<span style="color: #cc66cc;">8</span> <span style="color: #66cc66;">/</span>&gt;</span>
-&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/title.html"><span style="color: #000000; font-weight: bold;">title</span></a>&gt;</span>Web Audio API<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/title.html"><span style="color: #000000; font-weight: bold;">title</span></a>&gt;</span>
-&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<span style="font-weight: bold;"><a style="color: purple;" href="http://december.com/html/4/element/html.html">html</a> lang="en</span>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/head.html"><span style="font-weight: bold;">head</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/meta.html"><span style="font-weight: bold;">meta</span></a> <span style="color: #00CC66;">charset</span><span style="color: #66cc66;">=</span>utf-<span style="color: #cc66cc;">8</span> <span style="color: #66cc66;">/</span>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/title.html"><span style="font-weight: bold;">title</span></a>&gt;</span>Web Audio API<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/title.html"><span style="font-weight: bold;">title</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/script.html"><span style="font-weight: bold;">script</span></a>&gt;</span>
 &nbsp; &nbsp;console.log("Some JavaScript code has been executed");
-&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span>
-&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/head.html"><span style="color: #000000; font-weight: bold;">head</span></a>&gt;</span>
-&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span>
-&nbsp; &nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/h1.html"><span style="color: #000000; font-weight: bold;">h1</span></a>&gt;</span>JavaScript debugging using the dev tool console<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/h1.html"><span style="color: #000000; font-weight: bold;">h1</span></a>&gt;</span>
-&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span>
-<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/html.html"><span style="color: #000000; font-weight: bold;">html</span></a>&gt;</span></pre>
+&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/script.html"><span style="font-weight: bold;">script</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/head.html"><span style="font-weight: bold;">head</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/body.html"><span style="font-weight: bold;">body</span></a>&gt;</span>
+&nbsp; &nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/h1.html"><span style="font-weight: bold;">h1</span></a>&gt;</span>JavaScript debugging using the dev tool console<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/h1.html"><span style="font-weight: bold;">h1</span></a>&gt;</span>
+&nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/body.html"><span style="font-weight: bold;">body</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/html.html"><span style="font-weight: bold;">html</span></a>&gt;</span></pre>
 </td>
 </tr>
 </tbody>
@@ -1025,5 +1025,18 @@ Without such tools, debugging JavaScript code is impossible. So you need to look
   + basics of debuging: seeing error messages
     + in the devtool console
     + in the "console tab" of source code editor
+
++ Browser devtool for debugging
+  + Swiss army knife of JavaScript: browser devtools, in particular, the devtool concole
+  + open dev tools of browser
+    + Windows: F12 (or ctrl-shift-i)
+    + MacOS: cmd-option-i
+  + console tab: error message or messages of `console.log(string)` JavaScript function displayed
+  + example" `console.log("Some JavaScript code has been executed");`
+  + code executed in sequence when the page is loaded
+  + error message to debug
+    + showing the error message in console tab
+    + click the top-right corner on the error message to show the source code
+    + the line causing error highlighted
 
 
