@@ -48,6 +48,14 @@ And [here is the same version](https://codepen.io/w3devcampus/pen/PjomvR?editors
 In case you have a hard time to follow the video, [here is the full example](https://codepen.io/w3devcampus/pen/bqGboZ) (this link points to the example from the previous course page). ([Local Demo](src/01d-example04.html))
 
 
+### 1.4.3 Using SublimeText
+
+<a href="https://edx-video.net/W3CJSIXX2016-V001000_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/yygxc59p)
+
 
 
 
