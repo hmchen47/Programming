@@ -57,6 +57,13 @@ In case you have a hard time to follow the video, [here is the full example](htt
 [Transcript](https://tinyurl.com/yygxc59p)
 
 
+### 1.4.4 Discussion and project
+
+Here is the discussion forum for this part of the course.
+
+#### Optional project
+
+Share your version of the interactive HTML page, do not hesitate to go further, change things, etc.
 
 
 
