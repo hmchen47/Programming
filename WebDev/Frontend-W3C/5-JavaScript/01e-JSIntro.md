@@ -223,9 +223,13 @@ Here are a set of examples (using the `let` keyword, but they would also work wi
     + CamelCase notation preferred
     + 1st letter is lowercase and each 1st letter of each letter is capitalized
 
-
-  
-
++ Constant
+  + variables unable to be modified after set
+  + naming convention: all uppercase letter w/ underscore
+  + decalration
+    + using `var` to declare w/ JavaScript 5 and w/o verification to modify it
+    + recommended `const` after ES2015/ES2016 and raising error message if modifying
+  + example: `var TIME_LIMIT = 50;` & `const MAX_GRADE = 20;`
 
 
 #### Knowledge check 1.5.1
