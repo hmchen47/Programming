@@ -649,7 +649,7 @@ This application (available [online](https://mainline.i3s.unice.fr/)). And 100% 
 
 #### JavaScript code can be located in different places
 
-1. In your HTML code between <script> and </script> tag
+1. In your HTML code between `<script>` and `</script>` tag
 2. In local files, usually ending with the .js suffix (i.e: in a script.js file), and included using, for example, a syntax such as: `<script src="style.js"></script>` tag
 3. In external files located on the Web, using their URLs, also using the `<script src="https://www.aserver.com/..../js/script.js"></script>` tag
 
@@ -676,11 +676,11 @@ Typically:
 <li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp;&lt;/script&gt;</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="tag">...</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-</ol></div> <br/>
+</ol></div>
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/ZLBPpY)
 
-[Local Demo](src/01c-examp[le07.html])
+[Local Demo](src/01c-example07.html)
 
 
 Old JavaScript examples may use a `type` attribute: `<script type="text/javascript">.`
@@ -707,7 +707,7 @@ This time, we placed a JavaScript function that is invoked (called) when a butto
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;some content to this document</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-</ol></div><hr/>
+</ol></div>
 
 Here is this second example on CodePen:
 
@@ -736,9 +736,9 @@ A typical example:
 
 __To use an external JavaScript file:__
 
-1. In the HTML, put the name of the script file in the src (source) attribute of a `<script>` tag, like in the typical example above,
-1. JavaScript files must end with the .js extension,
-1. Do no use any `<script>...</script>` tag in a .js file!
+1. In the HTML, put the name of the script file in the `src` (source) attribute of a `<script>` tag, like in the typical example above,
+1. JavaScript files must end with the `.js` extension,
+1. Do no use any `<script>...</script>` tag in a `.js` file!
 1. Using an external JavaScript file with `<script src="..."></script>` is 100% equivalent to using `<script>...</script>` with the file content between the opening and closing tags. 
 1. It's possible to use more than one JavaScript file, just use multiple `<script src="..."></script>`
 
@@ -840,6 +840,22 @@ Here is a running example that uses the paperJS library, included using an exter
 
 #### Notes for 1.3.4 Where to put JavaScript code
 
++ Locations of JavaScript Code
+  + in HTML code between `<script>` and `</script>` tag, either within `<body>...</body>` or `<head>...</head>`
+  + external file
+    + in local files, usually ending w/ `.js` suffix, e.g., `<script src="style.js"></script>`
+    + in external file located on the Web, e.g., `<script src="https://www.aserver.com/..../js/script.js"></script>`
+    + advantages
+      + separate HTML and code
+      + easier to read and maintain
+      + reuse JavaScript code
+      + cached JavaScript files to speed up page loads
+    + usage
+      + link the script file w/ `src` attribute of `<script>` tag
+      + JavaScript file must end w/ `.js`
+      + no `<script>...</script>` in '`.js` file
+      + external JavaScript file w/ `<script src="..."></script>` = `<script>...</script>` in HTML
+      + multiple JavaScript allowed w/ `<script src="..."></script>`
 
 
 
