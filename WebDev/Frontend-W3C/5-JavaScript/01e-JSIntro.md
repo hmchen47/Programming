@@ -18,11 +18,11 @@ In most of the examples seen earlier, we've used the concept of "variable", and 
 
 In order to remember a value, programming languages share the concept of "variables". When you write programs, you will need to store values in the computer's memory. By saving these values in "variables", by giving them a "name" (we call it an identifier), you can reuse them later for display, for computations, etc.
 
-#### Create (declaring) a variable
+##### Create (declaring) a variable
 
-With JavaScript versions < 5 (prior to 2015), there was a single way to create (we say "declare") a variable: using the var keyword. But with the subsequent versions (called ES2015/ES2016 or JavaScript 6/7), we can also use the keyword let (this has some subtle differences, which we'll explain later in the course when we will talk about "functions").
+With JavaScript versions < 5 (prior to 2015), there was a single way to create (we say "declare") a variable: using the `var` keyword. But with the subsequent versions (called ES2015/ES2016 or JavaScript 6/7), we can also use the keyword `let` (this has some subtle differences, which we'll explain later in the course when we will talk about "functions").
 
-JavaScript is weakly typed. Each variable is declared with the keyword var or let. So you are not required to specify the type of variable you are creating. __After the keyword "var" and a space, just give the name of the variable.__
+JavaScript is weakly typed. Each variable is declared with the keyword `var` or `let`. So you are not required to specify the type of variable you are creating. __After the keyword "var" and a space, just give the name of the variable.__
 
 Example:
 
@@ -33,10 +33,10 @@ Example:
 
 The first letter of a variable can only be "$", "_", "a" to "z", or "A" to "Z". The other characters in a name must be any of these, or numeric digits. The name is case sensitive. __So variables "myVar" and "MyVar" are different variables.__
 
-There are some reserved names that you can't use as a variable name: boolean, if, delete, var, function, etc. as they are reserved words of the JavaScript language.
+There are some reserved names that you can't use as a variable name: `boolean`, `if`, `delete`, `var`, `function`, etc. as they are reserved words of the JavaScript language.
 
 
-#### Give a value to a variable (assign a value to a variable)
+##### Give a value to a variable (assign a value to a variable)
 
 A value can be assigned to a declared variable, or even directly in the variable declaration. For this, we use the equal character, also called "the assignment operator".
 
@@ -68,7 +68,7 @@ Example:
 </ol></div><br/>
 
 
-#### Try the devtool console - you can type code in there too!
+##### Try the devtool console - you can type code in there too!
 
 Reminder: you can always open the devtool console using F12 on windows, or ctrl-shift i, or cmd-alt-i on other computers.
 
@@ -118,7 +118,7 @@ If you try to use a variable that has never been declared, you get an error mess
   />
 </figure>
 
-#### Name conventions for variables
+##### Name conventions for variables
 
 The JavaScript community has some conventions about naming variables:
 
@@ -146,9 +146,9 @@ __The naming convention is to use uppercase letters with underscores.__
 
 __Example: `var TIME_LIMIT = 50;`__
 
-With JavaScript 5, constants were declared as normal variables, using the var keyword, and there were no verifications by the JavaScript interpreter forbidding you to modify them after you assigned a value to them.
+With JavaScript 5, constants were declared as normal variables, using the `var` keyword, and there were no verifications by the JavaScript interpreter forbidding you to modify them after you assigned a value to them.
 
-With ES2015/2016 it is recommended that you use the keyword const instead of `var` to declare them. This means that an error will be raised if you try to change their value in the future.
+With ES2015/2016 it is recommended that you use the keyword `const` instead of `var` to declare them. This means that an error will be raised if you try to change their value in the future.
 
 Example:
 
@@ -191,6 +191,40 @@ Here are a set of examples (using the `let` keyword, but they would also work wi
 
 #### Notes for 1.5.1 JS variables and values
 
++ JavaScript common syntax and devtool console
+  + `//`: comments
+  + devtools console: able to type and execute JavaScript Code as an interperter
+
+
++ Variables
+  + used to "store values"
+  + declaration
+    + `var`
+      + 'variable'; the only keyword to declare a variable before version 5 (2015)
+      + example: `var myVar;`
+    + `let`
+      + allowed in subsequent versions (ES2015/ES2016 or JavaScript 6/7)
+      + example: `let x;`
+  + naming rules
+    + first letter only "$", "_", "a" to "z", or "A" to "Z" allowed
+    + other letters: "$", "_", "a" to "z", "A" to "Z", or "0" to "9"
+    + case sensitive
+    + reserved names: `boolean`, `if`, `delete`, `var`, `function`, etc.
+  + assigning value
+    + `=`: the assignment operator
+    + `var myValue; myValue = 78`
+      + store the value 78 and put it in a variable named "muValue"
+      + given an id to a location somewhere in the memory of the computer
+      + using the id "myValue", store 78 into a memory location identified by the name "muValue"
+      + a value able to vary over time if assigning a new value to the variable "myValue", e.g., `myValue = 5;`
+    + multiple variables allowed and saparated by ";", eg, `var myNumber1, myNumber2 = 34, myNumber3;`
+  + using a variable never assigning a value: error message, eg, `Uncaught ReferenceError: k is not defined`
+  + naming conventions
+    + CamelCase notation preferred
+    + 1st letter is lowercase and each 1st letter of each letter is capitalized
+
+
+  
 
 
 
