@@ -1,0 +1,19 @@
+
+
+section {
+  border:4px solid grey;
+  border-radius:15px;
+  box-shadow: 5px 5px 5px grey;
+  float:left;
+  height:360px;
+  padding: 20px;
+  margin:10px;
+}
+
+#plotSettings {
+  width:120px;
+}
+
+#plot {
+  width:550px;
+}
