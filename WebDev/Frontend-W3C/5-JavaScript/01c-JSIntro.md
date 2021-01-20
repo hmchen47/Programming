@@ -757,7 +757,7 @@ Example that uses more than one JavaScript file:
 
 #### A typical HTML/CSS/JS project folder structure, when working with external local files
 
-It is good practice to locate CSS files in a css subfolder, and JavaScript files in a js subfolder.
+It is good practice to locate CSS files in a `css` subfolder, and JavaScript files in a `js` subfolder.
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
@@ -813,7 +813,7 @@ Content of the style.css file:
 
 How to run this example:
 
-1. Download the zip file of this project: Example_3.zip
+1. Download the zip file of this project: [Example_3.zip](https://tinyurl.com/y5lcfxon)
 1. Unzip/unarchive it somewhere
 1. Double click the index.html file, this will open your Web browser and load the index.html file.
 1. Click on the button in the page
@@ -857,6 +857,9 @@ Here is a running example that uses the paperJS library, included using an exter
       + external JavaScript file w/ `<script src="..."></script>` = `<script>...</script>` in HTML
       + multiple JavaScript allowed w/ `<script src="..."></script>`
 
++ Folder structure of Web project
+  + CSS files in `css` subfolder
+  + JavaScript file in `js` subfolder
 
 
 #### Knowledge check 1.3.3
