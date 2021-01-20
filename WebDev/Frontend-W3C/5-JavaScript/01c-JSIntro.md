@@ -862,17 +862,22 @@ Here is a running example that uses the paperJS library, included using an exter
   + JavaScript file in `js` subfolder
 
 
-#### Knowledge check 1.3.3
+#### Knowledge check 1.3.4
 
 1. Which of these statements are correct? (two correct answers!)
 
   a. JavaScript code can only be located between the `<script>...</script>` tags<br/>
-  a. JavaScript code can be located outside of the HTML file and included using `<script src=...>...</script>`<br/>
-  a. The `<script>` opening tag always come with a `</script>` closing tag<br/>
-  a. We cannot have more than one external JavaScript file<br/>
+  b. JavaScript code can be located outside of the HTML file and included using `<script src=...>...</script>`<br/>
+  c. The `<script>` opening tag always come with a `</script>` closing tag<br/>
+  d. We cannot have more than one external JavaScript file<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: bc<br/>
+  Explanation:
+    + JavaScript code, when located in external files, is not included inside `<script>...</script>` tags.
+    + We can have as many external JS file as we like, just duplicate `<script src="file1.js"></script>`, `<script src="file2.js"></script>`, etc.
+    + The `<script>` tag cannot be used without a closing `</script>` tag.
+
+
 
 
 
