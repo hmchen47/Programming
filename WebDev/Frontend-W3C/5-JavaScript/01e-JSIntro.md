@@ -255,8 +255,102 @@ Here are a set of examples (using the `let` keyword, but they would also work wi
   Explanation: An undefined variable x is a variable that has been declared with `var x;` or with `let x;` but that has no value yet. An error is triggered only when the variable is used in an expression such as `var z = x + y;`. A `console.log(x)` would give the value "undefined".
 
 
+### 1.5.2 Scope of JS variables
+
+#### Live coding video: scope of JavaScript variables
+
+<a href="https://edx-video.net/W3CJSIXX2016-V001500_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y6kduvn9)
+
+#### Scope of JavaScript variables
+
+__1)  JavaScript 5 / ES5 scopes, with the `var` keyword__
+
+<span style="color: red; font-weight: bold;">JavaScript 5 / ES5 has the <code>var</code> keyword for declaring variables.</span>
+
+<span style="color: red; font-weight: bold;">JavaScript 5 / ES5 has two scopes: 1) a global scope</span> for declaring global variables, and <span style="color: red; font-weight: bold;">2) a function scope</span> for declaring variables that are local to a function.
+
+Furthermore, like in most programming languages, inside a function, <span style="color: red; font-weight: bold;">a local variable masks a global variable that has the same name.</span>
+
+See examples below.
+
+__1.1) Global scope / global variable__
+
+Global variables are variables declared outside of functions. They can be used anywhere in the code.
+
+Here is an example:
+
+[CodePen Demo](https://codepen.io/pen/)
+
+[Local Demo](src/js/01e-example01.js)
 
 
+__1.2) Local scope / local variable (also called function scope)__
+
+Variables declared with the keyword `var` in a function, are said to be "local to the function". They "mask" any global variable that may have the same name.
+
+__When a variable is declared in a function, we also call it simply "a local variable",__ as opposed to "a global variable". __In JavaScript 5 (and this is not common in programming languages), local variables are__ <span style="color: red; font-weight: bold;">local to the function</span>. They can be used anywhere inside the function.
+
+Most programming languages have local variables that are limited to the block of instructions between '{' and '}' that contains the variable declaration. We call these variables "block variables". This is the case with variables declared with the let keyword  introduced by JavaScript 6 / ES6. See examples at the end of this section.
+
+Example of a local variable declared in a function, that is NOT local to the block, but to the whole function:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/RVMOGx)
+
+[Local Demo](src/js/01e-example02.js)
+
+Here is another example that shows the differences between global and local variables, and highlights the "masking" of global variables by local variables when they share the same name.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/oWEEmN)
+
+[Local Demo](src/js/01e-example03.js)
+
+__1.3) Never declare a variable without the keyword var!__
+
+JavaScript is sometimes an overly permissive language. We can make stupid errors that turn out to be very hard to detect. One such error occurs when we forgot to use the `var` keyword while declaring a local variable.
+
+In JavaScript 5 / ES5, a variable declared in a function without the `var` keyword, makes it a global variable.
+
+<p style="text-align: center; border: 1px solid; padding: 20px; margin: 20px;"><strong><span style="color: #ff0000;">BEST PRACTICE: in JavaScript 5 / ES5, always use the keyword <span style="font-family: 'courier new', courier;">var</span> when declaring a global or a local variable. <br><br>Better: use the keyword <span style="font-family: 'courier new', courier;">let</span> if you target browsers that support JavaScript 6 or above.</span></strong></p>
+
+Here is an example that shows what happens when you forget to use var or let while declaring a local variable:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/rmJJbo)
+
+[Local Demo](src/js/01e-example04.js)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y3mylxab')"
+    src    ="https://tinyurl.com/y6xaksco"
+    alt    ="Declaring a variable without var in a function makes it global"
+    title  ="Declaring a variable without var in a function makes it global"
+  />
+</figure>
+
+
+__2) Since 2015 and ES2015, there are new scopes, with the `let` keyword__
+
+<span style="color: red; font-weight: bold;">Modern JavaScript has the <code>let</code> keyword for declaring variables, and the <code>const</code> keyword for declaring constants.</span>
+
+<span style="color: red; font-weight: bold;">Modern JavaScript has two scopes: 1) a global scope</span> for declaring global variables, and <span style="color: red; font-weight: bold;">2) a block scope</span> for declaring variables between { and }. This is similar to what we find in many other programming languages such as Java, C# etc.
+
+Furthermore, like in most programming languages, inside a block, <span style="color: red; font-weight: bold;">a local variable masks other variables located in higher scopes (global or in another block that contains the current block).</span>
+
+Example of a local variable declared with the `let` keyword. Its scope is the block:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/VbXNPz)
+
+[Local Demo](src/js/01e-example05.js)
+
+__3) Recommended way to declare variables: var or let?__
+
+Well, all modern browsers support the `let` and `const` keywords, however, you might find lots of examples that still use the `var` keyword...
+
+<span style="color: red; font-weight: bold;">Anyway, we highly recommend to use <code>let</code> and <code>const</code> instead of <code>var</code>, for declaring </span>variables and constants!
 
 
 
