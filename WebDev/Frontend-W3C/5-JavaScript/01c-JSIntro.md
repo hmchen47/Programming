@@ -1040,3 +1040,18 @@ Without such tools, debugging JavaScript code is impossible. So you need to look
     + the line causing error highlighted
 
 
+### 1.3.6 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ Which source code editor(s) do you use?
++ If you use a source code editor that supports plugins/extension modules, which one do you recommend? Please share your experience with us in the forum!
+
+#### Optional projects
+
++ Share your versions of the examples from the course with improvements and changes!
++ We are pretty sure that you can do something better with the "[rock band member example](https://codepen.io/w3devcampus/pen/wJwpKq". Share your best work(s) ;)
++ Try to experiment further our "best way to learn JavaScript" and try to tweak an example of your own that uses the  [paperJS](http://paperjs.org/) library. Start from a simple example from the paperJS Web site, modify it and share it in the forum. You can look at the [example from the course](https://codepen.io/w3devcampus/pen/VPmNWg) if you want to include paperJS in a shareable CodePen example (we use a version of paperJS located on a Content Delivery Network, a "CDN", no need to download it, and it's very easy to use it in online IDEs such as CodePen, JsBin, etc.).
+
