@@ -242,8 +242,8 @@ Here are a set of examples (using the `let` keyword, but they would also work wi
   d. `let _12 = 4;`<br/>
   e. `var michel123Buffa = "Your JavaScript teacher";`<br/>
   
-  Ans: <br/>
-  Explanation:
+  Ans: bcde<br/>
+  Explanation: Only `var !x = 3;` is incorrect, as `!x` is not a valid variable name. All other declarations are valid. It is not necessary to assign a value when a variable is declared, so `var x, y=2, z=3;` is valid, even if x is not initialized.
 
 
 2. An undefined variable is:
@@ -251,8 +251,10 @@ Here are a set of examples (using the `let` keyword, but they would also work wi
   a. A variable that has been declared but not initialized<br/>
   b. A variable that has not been declared<br/>
   
-  Ans: <br/>
-  Explanation:
+  Ans: a<br/>
+  Explanation: An undefined variable x is a variable that has been declared with `var x;` or with `let x;` but that has no value yet. An error is triggered only when the variable is used in an expression such as `var z = x + y;`. A `console.log(x)` would give the value "undefined".
+
+
 
 
 
