@@ -1088,7 +1088,15 @@ And finally, you cannot start a string with a single and end with a double quote
 
 Image from the devtool console, from the above example:
 
-Snapshot of a devtool console: do not mix simple and double quotes
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2exgnkp')"
+    src    ="https://tinyurl.com/y4z2ll2x"
+    alt    ="Snapshot of a devtool console: do not mix simple and double quotes"
+    title  ="Snapshot of a devtool console: do not mix simple and double quotes"
+  />
+</figure>
+
 
 There are many reasons to use simple quotes when possible:
 
@@ -1100,7 +1108,8 @@ There are many reasons to use simple quotes when possible:
 
 #### Notes for 1.5.7 Strings (part 1)
 
-
++ Strings
+  + 
 
 
 #### Knowledge check 1.5.7
