@@ -474,6 +474,295 @@ This operator is not often use in JavaScript programs, but it's useful for us, f
   Explanation: JavaScript variables are dynamically typed, but you can't add a data type when you declare a variable.
 
 
+### 1.5.4 Numbers
 
+Number values can be:
+
++ Integer: `1`, `4`, `274929`<br/>
+  Type `343` in the devtool console, and after you press the Enter key,  the corresponding value (343) will be displayed.
++ Signed integer: `-17`
++ Decimal: `3.46`, `-466.8770`
+
+Examples of integer and decimals:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1234</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">1234</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1.23</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">1.23</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="lit">123</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+</ol></div>
+
++ __Scientific notation:__ `3.46e4`, `5.3e+6`, `5344000e-5` <br/>
+  `3.46e4` equals `3.46 x 10^4` equals `34600`
+
+  Examples:
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e1</span><span class="pun">;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e+1</span><span class="pun">;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2e+3</span><span class="pun">;</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="lit">2000</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="lit">2e+3</span><span class="pun">;</span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2e-3</span><span class="pun">;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="lit">0.002</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">123.456E-3</span><span class="pun">;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="lit">0.123456</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="lit">2e-3</span><span class="pun">;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  </ol></div>
+
++ __Octal:__ `010`
+
+  <span style="color: brown; font-weight: bold;">Be careful with this, don't start an integer with 0 (zero), JavaScript will understand it as an octal value.</span>
+
+  `010` equals `8` which means `1 * 8^1 + 0 * 8^0`
+
+  The number `0456` means `4 * 8^2 + 5 * 8^1 + 6 * 8^0`
+
+  __Question 1:__ What's the result, as an integer, of the operation: `24 - 024`?
+
+  __Explanation 1:__ `24` is an integer which equals `24` but `024` is an octal value which equals `20`.
+
+  __Question 2:__ Which value will be displayed in the devtool console if you type 098 followed by the Enter key?
+
+  __Explanation 2:__ `9` and `8` don't exist in base `8` (only `0` to `7`), so the typed number will be considered as an integer.
+
++ __Hexadecimal:__ `0xF3`
+
+  `0xFF` equals `255`, `0xF3` means `15 * 16^1 + 3 * 16^0` and the resulting value is `243`
+
+Examples of octal and hexadecimal data types:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n3 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0377</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n3</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n3</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">255</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n4 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n4</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n4</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">0</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n5 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0xFF</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n5</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n5</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="lit">255</span></li>
+</ol></div>
+
++ __Special values:__
+  + `+Infinity`
+  + `-Infinity`
+  + `NaN` (Not a Number)
+
+The value `Infinity` (or `+Infinity`) represents all number values greater than `1.79769313486231570e+308` and `-Infinity` represents values smaller than `-1.79769313486231570e+308`.
+
+Finally, `Nan` represents _not-a-number_ values, for example if you try to divide 0 by 0 (type 0/0 in the devtool console).
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+</ol></div>
+
+Examples:
+
+Any operation with Infinity gives Infinity as a result:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e309</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e308</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">1e+308</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">6</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> i</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">-</span><span class="kwd">Infinity</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> i</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+</ol></div><br/>
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+</ol></div><br/>
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">-</span><span class="kwd">Infinity</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">9999999999999</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+</ol></div>
+
+Examples with `NaN`:
+
+`NaN` is a special value and its type is "Number"!
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="kwd">NaN</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">NaN</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+</ol></div><br/>
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="str">"f"</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+</ol></div>
+
+#### [ADVANCED] Optional explanations about numbers
+
+In JavaScript, numbers are represented with a double-precision 64-bit format (IEEE 754). These 64 bits are used with this table:
+
+<table id="yui_3_17_2_2_1487531927070_329" style="font-family: Verdana; max-width: 100%; background-color: #dddddd; border-spacing: 0px; color: #333333; font-size: 14px; width: 492px; height: 38px; border: 0px solid #999999;" frame="box" border="0">
+<tbody id="yui_3_17_2_2_1487531927070_328">
+<tr>
+<td style="font-family: Verdana; padding-left: 0px; word-wrap: break-word;">
+<p style="margin: 0px 0px 10px;">Total bits</p>
+</td>
+<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
+<p style="margin: 0px 0px 10px;">Sign</p>
+</td>
+<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
+<p style="margin: 0px 0px 10px;">Exponent</p>
+</td>
+<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
+<p style="margin: 0px 0px 10px;">Significant</p>
+</td>
+</tr>
+<tr>
+<td style="font-family: Verdana; padding-left: 0px; word-wrap: break-word;">
+<p style="margin: 0px 0px 10px;">64</p>
+</td>
+<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
+<p style="margin: 0px 0px 10px;">1</p>
+</td>
+<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
+<p style="margin: 0px 0px 10px;">11</p>
+</td>
+<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
+<p style="margin: 0px 0px 10px;">52</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+What does it mean?
+
+First, each number is represented as a float. For example, `1` equals `1.0`. But there are approximation errors that are well-known in float calculations. One common example of errors due to the approximation of floating point numbers is that `0.1 + 0.2` does not equal `0.3`.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0.1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">0.2</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">0.30000000000000004</span></li>
+</ol></div>
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y6penhc3')"
+    src    ="https://tinyurl.com/y4w3xj37"
+    alt    ="devtool console 0.1 + 0.2 is not equal to 0.3 but to 0.30000000000000004"
+    title  ="devtool console 0.1 + 0.2 is not equal to 0.3 but to 0.30000000000000004"
+  />
+</figure>
+
+
+Second, an integer has `2^52` relevant bits, so the biggest integer is `2^53`. There is one bit that determines the sign of the number, so the smallest signed integer is `-2^53`.
+
+Note: Some arithmetic functions use only numbers with a 32-bit format. Larger numbers will be converted...
+
+(Advanced) For more information about floating point numbers, [follow this link at Wikipedia](https://en.wikipedia.org/wiki/IEEE_floating_point).
+
+#### Notes for 
+
+
+
+
+
+#### Knowledge check 1.5.4
+
+1. What is the value of a after the execution of `var a = 18 / 0`;?
+
+  a. `Infinity`<br/>
+  b. `0`<br/>
+  c. `undefined`<br/>
+  d. `NaN`<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
