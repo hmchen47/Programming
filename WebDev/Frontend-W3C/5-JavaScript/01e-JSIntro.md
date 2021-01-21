@@ -784,7 +784,6 @@ Note: Some arithmetic functions use only numbers with a 32-bit format. Larger nu
   d. `NaN`<br/>
 
   Ans: a<br/>
-  Explanation: 
 
 
 2. What is the value of a after the execution of `var a = 0 / 0;`?
@@ -794,7 +793,11 @@ Note: Some arithmetic functions use only numbers with a 32-bit format. Larger nu
   c. `0`<br/>
   d. `Infinity`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: Something not null divided by zero is infinity, but 0 divided by zero means nothing. So, the result is `NaN` (Not a Number)
+
+
+
+
 
 
