@@ -1113,6 +1113,7 @@ There are many reasons to use simple quotes when possible:
   + no difference btw single quote and double quote
   + single and double quotes musg be shown in pair
   + community preference: single quote for string
+  + using double quote if text consisting at least a single quote
   + example: `"Hello World";`,  `'With simple quotes';`
 
 
@@ -1124,8 +1125,8 @@ There are many reasons to use simple quotes when possible:
   b. "I'm the king of the world"<br/>
   c. I"'"m the king of the world<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: When a string contains at least a single quote, use double quotes at the beginning and at the end of the string value.
 
 
 
