@@ -478,42 +478,43 @@ This operator is not often use in JavaScript programs, but it's useful for us, f
 
 Number values can be:
 
-+ Integer: `1`, `4`, `274929`<br/>
++ __Integer:__ `1`, `4`, `274929`<br/>
   Type `343` in the devtool console, and after you press the Enter key,  the corresponding value (343) will be displayed.
-+ Signed integer: `-17`
-+ Decimal: `3.46`, `-466.8770`
++ __Signed integer:__ `-17`
++ __Decimal:__ `3.46`, `-466.8770`
 
-Examples of integer and decimals:
+  Examples of integer and decimals:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1234</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">1234</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1.23</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">1.23</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="lit">123</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-</ol></div>
+  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1</span><span class="pun">;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1234</span><span class="pun">;</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="lit">1234</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">=</span><span class="lit">1.23</span><span class="pun">;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="lit">1.23</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="lit">123</span><span class="pun">;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  </ol></div>
 
-+ __Scientific notation:__ `3.46e4`, `5.3e+6`, `5344000e-5` <br/>
++ __Scientific notation:__ `3.46e4`, `5.3e+6`, `5344000e-5`
+
   `3.46e4` equals `3.46 x 10^4` equals `34600`
 
   Examples:
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e1</span><span class="pun">;</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="lit">10</span></li>
   <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
@@ -556,36 +557,36 @@ Examples of integer and decimals:
 
   `0xFF` equals `255`, `0xF3` means `15 * 16^1 + 3 * 16^0` and the resulting value is `243`
 
-Examples of octal and hexadecimal data types:
+  Examples of octal and hexadecimal data types:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n3 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0377</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n3</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n3</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">255</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n4 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n4</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n4</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="lit">0</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n5 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0xFF</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n5</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n5</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="lit">255</span></li>
-</ol></div>
+  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n3 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0377</span><span class="pun">;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n3</span><span class="pun">;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n3</span><span class="pun">;</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="lit">255</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n4 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00</span><span class="pun">;</span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n4</span><span class="pun">;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n4</span><span class="pun">;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="lit">0</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n5 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0xFF</span><span class="pun">;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n5</span><span class="pun">;</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n5</span><span class="pun">;</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="lit">255</span></li>
+  </ol></div>
 
 + __Special values:__
   + `+Infinity`
@@ -606,84 +607,84 @@ Finally, `Nan` represents _not-a-number_ values, for example if you try to divid
 
 Examples:
 
-Any operation with Infinity gives Infinity as a result:
+  Any operation with Infinity gives Infinity as a result:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e309</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e308</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="lit">1e+308</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">6</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> i</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">-</span><span class="kwd">Infinity</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> i</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-</ol></div><br/>
+  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e309</span><span class="pun">;</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1e308</span><span class="pun">;</span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="lit">1e+308</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">6</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> i</span><span class="pun">;</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pun">-</span><span class="kwd">Infinity</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> i</span><span class="pun">;</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  </ol></div><br/>
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
-</ol></div><br/>
+  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pun">;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+  </ol></div><br/>
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">-</span><span class="kwd">Infinity</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">9999999999999</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
-</ol></div>
+  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pun">-</span><span class="kwd">Infinity</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">Infinity</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">9999999999999</span><span class="pun">;</span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="kwd">Infinity</span></li>
+  </ol></div>
 
 Examples with `NaN`:
 
-`NaN` is a special value and its type is "Number"!
+  `NaN` is a special value and its type is "Number"!
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="kwd">NaN</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">NaN</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
-</ol></div><br/>
+  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> </span><span class="kwd">NaN</span><span class="pun">;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">NaN</span><span class="pun">;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+  </ol></div><br/>
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="str">"f"</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
-</ol></div>
+  <div class="source-code"><ol style="list-style-type: decimal;" class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="str">"f"</span><span class="pun">;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> a</span><span class="pun">;</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+  </ol></div>
 
 #### [ADVANCED] Optional explanations about numbers
 
