@@ -830,6 +830,26 @@ In JavaScript, expressions can evaluate to four types, which are: `numbers`, `st
 
 #### Notes for 1.5.5 JS operators and expressions
 
++ Expression
+  + a small piece of code used to produce a value, eg,. `3 + 5` & `11`
+  + within an expression, find values, variables, operators, and expressions
+  + using parentheses to force the execution of the expression inside
+  + parentheses used to indicate precedence, eg, `(3 + 2)`, `(3 + 2) * 4`
+  + evaluate to four types: `numbers`, `strings`, `booleans`, and `objects`
+
++ Operators
+  + unary operator
+    + applied to one expression
+    + prefixed or suffixed
+    + example: `typeof 'world';`
+  + binary operator
+    + applied to different expressions
+    + both prefixed and suffixed
+    + example: `var x = 45/32;`
+  + ternary  operator
+    + `(condition) ? 'something' : 'others'`
+    + example: `var kindergarten_eligible = (age < 5) ? "Too young" : socially_ready`
+
 
 
 
