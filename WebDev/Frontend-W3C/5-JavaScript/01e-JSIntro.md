@@ -851,6 +851,202 @@ In JavaScript, expressions can evaluate to four types, which are: `numbers`, `st
     + example: `var kindergarten_eligible = (age < 5) ? "Too young" : socially_ready`
 
 
+### 1.5.6 Number operators
+
+#### Live coding video: number operators
+
+<a href="https://edx-video.net/W3CJSIXX2016-V001800_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y4vjwthw)
+
+
+The following arithmetic operators are __binary__:
+
++, - , /, *, % (modulo)
+
+Example: 7 % 5 equals 2, which is the remainder of the integer division of 7 by 5
+
+Note: (7 / 5 = 5 * 1 + 2 ).
+
+
+And there are also __unary__ operators:
+
+++, --, - (the opposite of a number)
+
+++ and -- operators increment or decrement the value of a variable. They can be both prefixed or suffixed, which have different effects:
+
++ Suffixed ++ adds one to the value of the variable, then returns the old value.
++ Prefixed ++ also adds one to the value, but returns the new value. Both of these must be used with variables.
+
+#### Examples typed in the devtool console of a browser
+
+__Example #1: simple operator use__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">2</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">4</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> c</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+</ol></div>
+
+__Example #2: more operators__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">99.99</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">11</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">88.99</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">6</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">6</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">1.5</span></li>
+</ol></div>
+
+__Example #3: pre and post increments__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> m </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> m</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">0</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="com">// regular use of the + operator</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">m </span><span class="pun">=</span><span class="pln"> m </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> m</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> m </span><span class="pun">=</span><span class="pln"> m </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">2</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> m</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">2</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="com">// post increment</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">m</span><span class="pun">++;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">2</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> m</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">m</span><span class="pun">++);</span><span class="pln"> </span><span class="com">// will display 3 but after that m is incremented</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> m</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="lit">4</span></li>
+</ol></div>
+
+Below is snapshot with explanations:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y2wd75ds')"
+    src    ="https://tinyurl.com/y54daal5"
+    alt    ="pre and post increments, image with the code above, but with arrows pointing to each line and comments associated (same comments are in the code above)"
+    title  ="pre and post increments, image with the code above, but with arrows pointing to each line and comments associated (same comments are in the code above)"
+  />
+</figure>
+
+
+__Example #4: other versions of post and pre increments__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">123</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">++;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">123</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">124</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">123</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="pun">++</span><span class="pln">a</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">124</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">124</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">123</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">--;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="lit">123</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="lit">122</span></li>
+</ol></div>
+
+__Example #5: short variant that mixes assignment and execution of an operator__
+
+Binary operators can be used with a shorter syntax when we want to assign the resulting value to a variable at the same time.
+
+Code below (try it in the devtool console of your browser):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln">&nbsp;a </span><span class="pun">*=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> </span><span class="com">// equivalent to a = a * 5;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln">&nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="lit">50</span></li>
+</ol></div>
+
+__Example #6: more with pre operators +=, -=, *=, /=__
+
+There are good chances you will encounter such code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="com">// equivalent to a = a + 3;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">8</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a </span><span class="pun">-=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="com">// equivalent to a = a - 2;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">6</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a </span><span class="pun">*=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln"> </span><span class="com">// equivalent to a = a * 10;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">60</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a </span><span class="pun">/=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> </span><span class="com">// equivalent to a = a / 5;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">12</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a </span><span class="pun">%=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="com">// equivalent to a = a % 2;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">0</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="com">// this is normal, as a is even</span></li>
+</ol></div>
+
+
+#### Notes for 1.5.6 Number operators
+
+
 
 
 
