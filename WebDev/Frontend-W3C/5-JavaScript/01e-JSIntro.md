@@ -797,6 +797,40 @@ Note: Some arithmetic functions use only numbers with a 32-bit format. Larger nu
   Explanation: Something not null divided by zero is infinity, but 0 divided by zero means nothing. So, the result is `NaN` (Not a Number)
 
 
+### 1.5.5 JS operators and expressions
+
+__An expression__ is a small piece of code used to produce a value.
+
+For example, the expression 3 + 5 produces the value 8, and the value 11 alone is also an expression. Within an expression, we can find values, variables, operators, and expressions. The first two have been already described above, so all that's left are __operators__.
+
+In JavaScript, __an operator__ can be unary or binary (plus one ternary operator). A unary operator is applied to one expression. It can be prefixed or suffixed.
+
+__Unary operator example:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">typeof</span><span class="pln"> </span><span class="str">'world'</span><span class="pun">;</span></li>
+</ol></div>
+
+A binary operator is applied to two different expressions, and is both prefixed and suffixed.
+
+__Binary operator example:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="lit">var x = 45</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">32</span><span class="pun">;</span></li>
+</ol></div>
+
+The division operator is binary.
+
+Within an expression, we can also use parentheses to force the execution of the expression inside. Parentheses can be used to indicate precedence.
+
+For example, this is an expression: `(3 + 2)`. And the expression `(3 + 2) * 4`, which equals 20, depends on the expression within the parentheses.
+
+In JavaScript, expressions can evaluate to four types, which are: `numbers`, `strings`, `booleans`, and `objects`. For example, an expression with the operator - will evaluate to a `number`. But an expression with the operator + can evaluate to a `number` or a `string` (for addition or concatenation).
+
+
+#### Notes for 1.5.5 JS operators and expressions
+
+
 
 
 
