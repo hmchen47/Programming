@@ -759,6 +759,21 @@ Note: Some arithmetic functions use only numbers with a 32-bit format. Larger nu
     + `-Infinity`: all number values smaller than `-1.79769313486231570e+308`, `-1/0`
     + `NaN` (Not a Number): `0/0`
 
++ Precision of numbers
+  + a double-precision 64-bit format
+    + total bits: 64
+    + sign: 1 bit
+    + exponent: 11 bits
+    + significant: 52 bits
+  + following IEEE 754 standard
+  + each number represented as a float
+  + an integer:
+    + $2^{52}$ relevenat bits
+    + biggest number: $2^{53}$
+    + smallest number: $-2^{53}$
+  + some arithmetic function only w/ 32-bit format
+
+
 
 #### Knowledge check 1.5.4
 
