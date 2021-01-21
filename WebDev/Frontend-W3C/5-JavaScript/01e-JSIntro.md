@@ -405,7 +405,7 @@ Well, there are multiple possibilities:
 
 1. What we call "primitive data types": for example a number, a string, etc. ex: `var x = 3; var name = "Buffa";`
 2. Objects (everything that is not a  "primitive data type" is an object): `var michel = {firstName:'Michel', lastName:'Buffa'};`
-  + There is a set of "predefined objects" in JavaScript (arrays, functions, etc). We will come back on these later in the course.
+    + There is a set of "predefined objects" in JavaScript (arrays, functions, etc). We will come back on these later in the course.
 
 ##### JavaScript has a small set of primitive data types
 
@@ -442,6 +442,21 @@ This operator is not often use in JavaScript programs, but it's useful for us, f
 
 
 #### Notes for 1.5.3 JS data types
+
++ Types of data in JS
+  + primitive data types
+    + __number:__ `1,2,105,3.14 ...`
+    + __string:__ `'a', "one", 'two' , 'World Wide Web' ...`
+    + __boolean:__ `true / false`
+    + __undefined:__ absent or unknown value
+    + __null:__ special keyword, meaning no value or empty
+  + objects
+    + everything not a "primitive data type"
+    + a set of "predefined objects": arrays, functions, etc.
+    + example: `ar michel = {firstName:'Michel', lastName:'Buffa'};`
+  + `null` still defined
+
+
 
 
 #### Knowledge check 1.5.3
