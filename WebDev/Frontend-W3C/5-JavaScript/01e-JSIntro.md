@@ -864,7 +864,7 @@ In JavaScript, expressions can evaluate to four types, which are: `numbers`, `st
 
 The following arithmetic operators are __binary__:
 
-+, - , /, *, % (modulo)
+`+`, `-` , `/`, `*`, `%` (modulo)
 
 Example: 7 % 5 equals 2, which is the remainder of the integer division of 7 by 5
 
@@ -873,12 +873,12 @@ Note: (7 / 5 = 5 * 1 + 2 ).
 
 And there are also __unary__ operators:
 
-++, --, - (the opposite of a number)
+`++`, `--`, `-` (the opposite of a number)
 
-++ and -- operators increment or decrement the value of a variable. They can be both prefixed or suffixed, which have different effects:
+`++` and `--` operators increment or decrement the value of a variable. They can be both prefixed or suffixed, which have different effects:
 
-+ Suffixed ++ adds one to the value of the variable, then returns the old value.
-+ Prefixed ++ also adds one to the value, but returns the new value. Both of these must be used with variables.
++ Suffixed `++` adds one to the value of the variable, then returns the old value.
++ Prefixed `++` also adds one to the value, but returns the new value. Both of these must be used with variables.
 
 #### Examples typed in the devtool console of a browser
 
@@ -1045,6 +1045,26 @@ There are good chances you will encounter such code:
 
 
 #### Notes for 1.5.6 Number operators
+
++ Numeric operators
+  + binary
+    + operators: `+`, `-` , `/`, `*`, `%`
+    + example: `7 % 5` = 2; `1 + 2` = 3; 
+  + unary operator
+    + operators: `++`, `--`, `-` (opposite of a number, negative)
+    + suffix `++`: adding one to the variable, then return the old value
+    + prefix `++`: adding one tot he variable, then return the new value
+    + example: `let x = 3;`
+      + `console.log(x++); x;` $\to$ print 3 and x = 4
+      + `console.log(++x); x;` $\to$ print 4 and x = 4
+      + `let a = 123; var b = a++; b; a;` $\to$ 123, 124
+      + `let a = 123; var b = ++a; b; a;` $\to$ 124, 124
+      + `let a = 123; var b = a--; b; a;` $\to$ 123, 122
+  + mixing assignment
+    + binary operator used w/ a shorter syntax when assigning the resulting value to a variable
+    + pre operators: `+=`, `-=`, `*=`, `/=`, `%=`
+    + example: `let a = 10; a *= 5;` equivalent to `a = a * 5`
+
 
 
 
