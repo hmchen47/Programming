@@ -690,37 +690,31 @@ Examples with `NaN`:
 
 In JavaScript, numbers are represented with a double-precision 64-bit format (IEEE 754). These 64 bits are used with this table:
 
-<table id="yui_3_17_2_2_1487531927070_329" style="font-family: Verdana; max-width: 100%; background-color: #dddddd; border-spacing: 0px; color: #333333; font-size: 14px; width: 492px; height: 38px; border: 0px solid #999999;" frame="box" border="0">
-<tbody id="yui_3_17_2_2_1487531927070_328">
-<tr>
-<td style="font-family: Verdana; padding-left: 0px; word-wrap: break-word;">
-<p style="margin: 0px 0px 10px;">Total bits</p>
-</td>
-<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
-<p style="margin: 0px 0px 10px;">Sign</p>
-</td>
-<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
-<p style="margin: 0px 0px 10px;">Exponent</p>
-</td>
-<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
-<p style="margin: 0px 0px 10px;">Significant</p>
-</td>
-</tr>
-<tr>
-<td style="font-family: Verdana; padding-left: 0px; word-wrap: break-word;">
-<p style="margin: 0px 0px 10px;">64</p>
-</td>
-<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
-<p style="margin: 0px 0px 10px;">1</p>
-</td>
-<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
-<p style="margin: 0px 0px 10px;">11</p>
-</td>
-<td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word;">
-<p style="margin: 0px 0px 10px;">52</p>
-</td>
-</tr>
-</tbody>
+<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 50vw;" cellspacing="0" cellpadding="5" border="1">
+  <thead>
+  <tr style="font-size: 1.2em; vertical-align:middle"">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Total bits</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Sign</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Exponent</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Significant</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td style="font-family: Verdana; padding-left: 0px; word-wrap: break-word; text-align: center;">
+  <p style="margin: 0px 0px 10px;">64</p>
+  </td>
+  <td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word; text-align: center;">
+  <p style="margin: 0px 0px 10px;">1</p>
+  </td>
+  <td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word; text-align: center;">
+  <p style="margin: 0px 0px 10px;">11</p>
+  </td>
+  <td style="font-family: Verdana; padding-left: 20px; word-wrap: break-word; text-align: center;">
+  <p style="margin: 0px 0px 10px;">52</p>
+  </td>
+  </tr>
+  </tbody>
 </table>
 
 What does it mean?
@@ -733,7 +727,7 @@ First, each number is represented as a float. For example, `1` equals `1.0`. But
 </ol></div>
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick="window.open('https://tinyurl.com/y6penhc3')"
     src    ="https://tinyurl.com/y4w3xj37"
     alt    ="devtool console 0.1 + 0.2 is not equal to 0.3 but to 0.30000000000000004"
@@ -748,10 +742,22 @@ Note: Some arithmetic functions use only numbers with a 32-bit format. Larger nu
 
 (Advanced) For more information about floating point numbers, [follow this link at Wikipedia](https://en.wikipedia.org/wiki/IEEE_floating_point).
 
-#### Notes for 
+#### Notes for 1.5.4 Numbers
 
-
-
++ Number values in JS
+  + __integer__: `1`, `23865`; not starting w/ `0` but `089 = 89`
+  + __signed integer__: `-17`
+  + __decimal__: `3.46`, `-466.877`
+  + __scientific notation__: `3.46e4`, `5.3e+6`, `5344000e-5`
+  + __octal__: `010 = 8`, `0456 = 4 * 8^2 + 5 * 8^1 + 6 * 8^0`; starting w/ `0` w/ all numbers `0`~`7`
+  + __hexadecimal__: `0xF3`
+  + special values
+    + `+Infinity`
+      + all number values greater than `1.79769313486231570e+308`
+      + `1/0` $\to$ `Infinity`
+      + `typeof(Infinity)` $\to$ number
+    + `-Infinity`: all number values smaller than `-1.79769313486231570e+308`, `-1/0`
+    + `NaN` (Not a Number): `0/0`
 
 
 #### Knowledge check 1.5.4
