@@ -470,8 +470,10 @@ This operator is not often use in JavaScript programs, but it's useful for us, f
   a. No, JavaScript does not allow you to declare a type for its variables.<br/>
   b. Yes, you can optionally declare the type of a variable.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: JavaScript variables are dynamically typed, but you can't add a data type when you declare a variable.
+
+
 
 
 
