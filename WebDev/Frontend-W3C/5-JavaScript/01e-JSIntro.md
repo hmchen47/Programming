@@ -1066,6 +1066,53 @@ There are good chances you will encounter such code:
     + example: `let a = 10; a *= 5;` equivalent to `a = a * 5`
 
 
+### 1.5.7 Strings (part 1)
+
+To declare or manipulate strings you must write them with __single quotes ' or double quotes "__ around them. Single quotes or double quotes are both accepted, and there is no difference between them in JavaScript. However, the community prefers to use single quote for string - this is not a convention, but a recommendation.
+
+And finally, you cannot start a string with a single and end with a double quotes, or the opposite.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">"Hello World"</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"Hello World"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">"JavaScript Course"</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"JavaScript Course"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">'With simple quotes'</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"With simple quotes"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">"Do not mix double and simple quotes'; // here we opened the string with double and closed with simple quotes</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">VM24763:1 Uncaught SyntaxError: Invalid or unexpected token</span></li>
+</ol></div>
+
+Image from the devtool console, from the above example:
+
+Snapshot of a devtool console: do not mix simple and double quotes
+
+There are many reasons to use simple quotes when possible:
+
+1. Double quotes are used in HTML
+1. You must hold the Shift key to type "
+1. Single quotes are easier to read and to type
+1. To output HTML in JavaScript, single quotes are more useful
+
+
+#### Notes for 1.5.7 Strings (part 1)
+
+
+
+
+#### Knowledge check 1.5.7
+
+1. How would you give this value to the string variable s: I'm the king of the world?
+
+  a. 'I/'m the king of the world'<br/>
+  b. "I'm the king of the world"<br/>
+  c. I"'"m the king of the world<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
