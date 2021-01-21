@@ -1129,6 +1129,215 @@ There are many reasons to use simple quotes when possible:
   Explanation: When a string contains at least a single quote, use double quotes at the beginning and at the end of the string value.
 
 
+### 1.5.8 String operators
+
+#### Live coding video: strings and string operators
+
+<a href="https://edx-video.net/W3CJSIXX2016-V002400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y3cyzyr6)
+
+#### Introduction to string operators
+
+##### The concatenation operator (`+`)
+
+The operator (`+`) used with strings is called the concatenation operator, and it allows you to concatenate strings.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">//the operator (+)</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> </span><span class="str">'one'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s2</span><span class="pun">=</span><span class="pln"> </span><span class="str">'two'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> s1 </span><span class="pun">+</span><span class="pln"> s2</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">s</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// returns 'onetwo'</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">typeof</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">//'string'</span></li>
+</ol></div>
+
+##### The shorthand assignment operator (`+=`)
+
+The shorthand assignment operator (`+=`) can also be used to concatenate strings.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">//the assignment operator (+=)</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> </span><span class="str">'one'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s2 </span><span class="pun">=</span><span class="pln"> </span><span class="str">'two'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">s1</span><span class="pun">+=</span><span class="pln"> s2</span><span class="pun">;</span><span class="pln"> </span><span class="com">// or directly s1+='two'</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">s1</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">//returns 'onetwo'</span></li>
+</ol></div>
+
+
+##### The method `concat()`
+
+Another way to concatenate strings is the method `concat()`.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">//the 'concat' method</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> </span><span class="str">'one'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s2 </span><span class="pun">=</span><span class="str">'two'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> s1</span><span class="pun">.</span><span class="pln">concat</span><span class="pun">(</span><span class="pln">s2</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">s</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">//returns 'onetwo'</span></li>
+</ol></div>
+
+All the methods shown above can be used with a variable number of arguments:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Hello'</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">s1 </span><span class="pun">=</span><span class="pln"> s1 </span><span class="pun">+</span><span class="pln"> </span><span class="str">' World'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">' JavaScript'</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s2 </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Hello'</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">s2</span><span class="pun">+=</span><span class="pln"> </span><span class="str">' World'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">' JavaScript'</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s3 </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Hello'</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">s3</span><span class="pun">.</span><span class="pln">concat</span><span class="pun">(</span><span class="str">' World'</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> </span><span class="str">' JavaScript'</span><span class="pln"> </span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">//s1,s2 and s3 return 'Hello World JavaScript'</span></li>
+</ol></div>
+
+#### Converting strings
+
+A String number in an arithmetic expression is converted to Number, unless the formula is a pure addition.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'1'</span><span class="pun">;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'1'</span><span class="pun">;</span><span class="pln"> s</span><span class="pun">++;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">2</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"100"</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"string"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> s </span><span class="pun">*</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">100</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> d </span><span class="pun">=</span><span class="pln"> </span><span class="str">"101 dalmatians"</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d </span><span class="pun">*</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">NaN</span></li>
+</ol></div>
+
+The above example is shown in the devtools console:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/y4c4q75a')"
+    src    ="https://tinyurl.com/y4xth3vg"
+    alt    ="Devtool console showing var s = '1'; s = 3 * s; typeof s; `number` s 3 var s = '1'; s++; typeof s; `number` s 2 var s = `100`; typeof s; `string` s = s * 1; 100 typeof s; `number` var d = '101 dalmatiens'; undefined d * 1 NaN"
+    title  ="Devtool console showing var s = '1'; s = 3 * s; typeof s; `number` s 3 var s = '1'; s++; typeof s; `number` s 2 var s = `100`; typeof s; `string` s = s * 1; 100 typeof s; `number` var d = '101 dalmatiens'; undefined d * 1 NaN"
+  />
+</figure>
+
+
+#### How to convert a Number into a String
+
+There is trick for converting a Number into a String: we concatenate with an empty string, at the beginning of expression (type this in the devtools):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">// returns "number"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">n </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">// returns "1"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">// returns "string"</span></li>
+</ol></div>
+
+##### Special character: the "\"
+
+The `\` is useful for "escaping" special characters. Here are a few examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'I don\'t know'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"I don\'t know"</span><span class="pun">; // here the&nbsp;</span>\ is useless</li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"I don't know"</span><span class="pun">; &nbsp;// same result as previous line</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'"Hello", he said.'</span><span class="pun">; // ok, double quotes inside single one will be displayed</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"\"Hello\", he said."</span><span class="pun">; // double quotes inside double quotes need to be escaped</span></li>
+</ol></div>
+
+
+##### Escaping the escape! Use a double "\"
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"1\\2"</span><span class="pun">;</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// returns "1\2"</span></li>
+</ol></div>
+
+##### Special characters starting with "\"
+
+__"\n" for "next line":__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'\n1\n2\n3\n'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">s</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// returns "</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="lit">1</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="lit">2</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="lit">3</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"</span></li>
+</ol></div>
+
+__"\r" for "carriage return":__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'1\r2'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'1\n\r2'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'1\r\n2'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// the three previous lines give :</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"1</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str"> 2"</span></li>
+</ol></div>
+
+__"\t" for "insert a tabulation":__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"1\t2"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// s is equal to</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"1 2"</span></li>
+</ol></div>
+
+
+#### Notes for 1.5.8 String operators
+
+
+
+
+
+#### Knowledge check 1.5.8
+
+```js
+var s1 = "32";
+var s2 = "32";
+var sum = s1 + s2;
+console.log(sum);
+```
+
+1. What value will be displayed in the devtools console?
+
+  a. NaN<br/>
+  b. 3232<br/>
+  c. 64<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
 
 
 
