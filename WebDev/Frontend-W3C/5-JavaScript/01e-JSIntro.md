@@ -388,3 +388,71 @@ Well, all modern browsers support the `let` and `const` keywords, however, you m
     + variable declared within "{" and "}"
   + highly recommended to use `let` and `const` instead of `var` for declaring variables and constants
 
+
+### 1.5.3 JS data types
+
+#### Live coding video: JavaScript data types
+
+<a href="https://edx-video.net/W3CJSIXX2016-V001600_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y62bflrz)
+
+#### What kind of values can we assign to a variable?
+
+Well, there are multiple possibilities:
+
+1. What we call "primitive data types": for example a number, a string, etc. ex: `var x = 3; var name = "Buffa";`
+2. Objects (everything that is not a  "primitive data type" is an object): `var michel = {firstName:'Michel', lastName:'Buffa'};`
+  + There is a set of "predefined objects" in JavaScript (arrays, functions, etc). We will come back on these later in the course.
+
+##### JavaScript has a small set of primitive data types
+
++ __number:__ `1,2,105,3.14 ...`
++ __string:__ `'a', "one", 'two' , 'World Wide Web' ...`
++ __boolean:__ `true / false`
++ __undefined:__ absent or unknown value
++ __null:__ special keyword, meaning no value or empty. The difference from `undefined` is that when a variable is `null`, it is still defined.
+
+These are the simplest forms of data we can use in programming.
+
+Anything that is not listed above is _an object_ (JavaScript objects are covered later in Week 3). 
+
+##### You said JavaScript does not have types for variables?
+
+No! I said that JavaScript is weakly typed; you do not declare the type of variable. In some other languages (Java language syntax, for instance) instead of `var x=2;` or `let name="Buffa";` you would write `int x=2;` or String `name = "Buffa";`, with the datatype explicit in the variable declaration.
+
+#### Knowing the type of a JavaScript variable: the `typeof` operator
+
+The next section of the course talks about "operators" but there is one that is better introduced in this section: the typeof operator, that is useful for knowing the type of a variable depending in its value (possible values: `number`, `string`, `boolean`, `undefined`, `object`, or `function`)
+
+We will use it in lots of examples in the next three sections.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/y5rea57w')"
+    src    ="https://tinyurl.com/y6hmpqr9"
+    alt    ="dynamic typing. You can use the typeof operator to see the 'dynamic type of a variable'. For example, type let n=3; then typeof n, it will display 'number'. Then type n='toto'; and typeof n; this time it displays 'string'"
+    title  ="dynamic typing. You can use the typeof operator to see the 'dynamic type of a variable'. For example, type let n=3; then typeof n, it will display 'number'. Then type n='toto'; and typeof n; this time it displays 'string'"
+  />
+</figure>
+
+This operator is not often use in JavaScript programs, but it's useful for us, for explaining the data types.
+
+
+#### Notes for 1.5.3 JS data types
+
+
+#### Knowledge check 1.5.3
+
+1. Can we declare types for JavaScript variables, like var String givenName = "Michel";
+
+  a. No, JavaScript does not allow you to declare a type for its variables.<br/>
+  b. Yes, you can optionally declare the type of a variable.<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
