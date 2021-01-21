@@ -456,7 +456,11 @@ This operator is not often use in JavaScript programs, but it's useful for us, f
     + example: `ar michel = {firstName:'Michel', lastName:'Buffa'};`
   + `null` still defined
 
-
++ JavaScript data type
+  + weakly typed programming language
+  + not declaring w/ the type of variable
+  + `typeof` operator: showing the type of a variable depending on its value
+  + possible values of `typeof` operator: `number`, `string`, `boolean`, `undefined`, `object`, or `function`
 
 
 #### Knowledge check 1.5.3
