@@ -1436,6 +1436,20 @@ Accessing an object's properties: we use the operator "."
 
 #### Notes for 1.5.9 Objects (part 1)
 
++ Objects
+  + declaration
+    + using "{" and "}"
+    + properties & values
+    + example: `var p = {givenName:'Michel', familyName: 'Buffa'}`
+      + property: `givenname` & `familyname`
+      + values: `'Michel'` & `'Buffa'`
+  + accessing properties or method
+    + using `.` operator
+    + pre-defined objects: `windows`, `document`, `navigator`, `console`, etc.
+    + examples
+      + `daysOfTheWeek.length`: array property
+      + `document.body` or `window.innerWidth`
+      + `console.log(...)`
 
 
 
