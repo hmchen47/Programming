@@ -1481,14 +1481,15 @@ Accessing an object's properties: we use the operator "."
 #### Knowledge check 1.5.9
 
 1. Which of these are predefined objects that you can use in your JS code when running in a browser environment (three correct answers!)
+
   a. browser<br/>
   b. navigator<br/>
   c. htmlDocument<br/>
   d. document<br/>
   e. window<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: bde<br/>
+  Explanation: If you type the names of these objects in the devtool console, you can easily check that `navigator`, `window` and `document` do exist, while `browser` and `htmlDocument` will give errors.
 
 
 
