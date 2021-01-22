@@ -1354,7 +1354,7 @@ __"\t" for "insert a tabulation":__
   + special characters starting w/ `\`
     + `\n` for next line
     + `\r` for carriage return
-    + `t` for insert a tabulation
+    + `\t` for insert a tabulation
 
 
 #### Knowledge check 1.5.8
@@ -1372,8 +1372,9 @@ console.log(sum);
   b. 3232<br/>
   c. 64<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: s1 and s2 are strings. The + operator will concatenate strings if one of the variables in the expression s1 + s2 is a string, and the result will be a string. The sum variable will be the value "3232" (concatenation of "32" and "32", and not 64 (the addition of two numbers).
+
 
 
 
