@@ -1626,7 +1626,24 @@ Examples:
 
 #### Notes for 1.5.10 Arrays (part 1)
 
-
++ Arrays
+  + definition: containers w/ indexes
+  + declaration w/ `[]`
+    + examples: `var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];`, `var gradesInMaths = [12, 7, 14, 18, 9, 11];`
+  + access using indexes
+    + 1st element index: 0
+    + accessing w/ `[#]` where `#` as the index
+    + example
+      + `var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunda'];`
+      + `daysOfWeek[0];`, `daysOfWeek[1];`, `daysOfWeek[2]` $\to$ `"Monday"`, `"Tuesday"`, `"Wednesday"`
+  + array length
+    + `length` property
+    + example: ``var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunda']; daysOfWeek.length` $\to$ `7`
+  + index range: [0, daysOfWeek - 1]
+  + strings: arrays of characters
+    + objects
+    + with length property
+    + using index to access individual character
 
 
 #### Knowledge check 1.5.10
