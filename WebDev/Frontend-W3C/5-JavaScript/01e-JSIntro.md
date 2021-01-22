@@ -1376,6 +1376,80 @@ console.log(sum);
   Explanation: s1 and s2 are strings. The + operator will concatenate strings if one of the variables in the expression s1 + s2 is a string, and the result will be a string. The sum variable will be the value "3232" (concatenation of "32" and "32", and not 64 (the addition of two numbers).
 
 
+### 1.5.9 Objects (part 1)
+
+We have already encountered objects in different examples. You can easily recognize these objects:
+
++ They are declared using "{" and "}", such as in `var p = {givenName:'Michel', familyName: 'Buffa'}`, `givenName` and `familyName` are called "properties" and `Michel` and `Buffa` are their respective values.
++ We are using the "." operator to access their properties or methods. Example : `daysOfTheWeek.length` (arrays are objects too - special ones, but objects), or `document.body` or `window.innerWidth` (try typing that in the devtool console). There are plenty of predefined objects in JavaScript (`window`, `document`, `navigator`, etc.). We have also used `console.log(...)`, and indeed console is a predefined JavaScript object. With the object `var p = {givenName:'Michel', familyName: 'Buffa'}`, we can access the properties the same way, with: `p.givenName` and `p.familyName`.
+
+
+#### Take a look at some common objects and properties!
+
+Open your devtool console (F12 or ctrl-alt-i or cmd-alt-i on Mac), go to the console tab and type "window" followed by a ".", normally you should see an auto-completion menu. Start typing "inne" and you should see some possible completions.
+
+Try looking at the values of the size of the current browser window (type `window.innerWidth` followed by the "enter/return" key, type `window.innerHeight`, etc.).
+
+Try looking at the vendor of your browser: type `"navigator.vendor"`, try looking at the current URL displayed in your window: type `window.location`, etc.
+
+We will study these objects later, but for the moment, just play with objects :-)
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">&gt; window</span><span class="pun">.</span><span class="pln">innerHeight</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">217</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&gt; window</span><span class="pun">.</span><span class="pln">innerWidth</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">1704</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&gt; navigator</span><span class="pun">.</span><span class="pln">vendor</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">"Google Inc."</span></li>
+</ol></div>
+
+
+#### You can define your own objects
+
+There are many ways to create your own JavaScript objects. For the moment, let's stick to the simplest one, "singleton objects", and for now all you need to know is that they can have properties that hold values. We will return to objects in Week 4 and cover them in further detail.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> student1 </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; fullName</span><span class="pun">:</span><span class="str">'John Doe'</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">23</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; city</span><span class="pun">:</span><span class="pln"> </span><span class="str">'New York'</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ssn</span><span class="pun">:</span><span class="pln"> </span><span class="str">"11-22-33-44" // no comma at the end of the last property</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// declaration</span></li>
+</ol></div>
+
+Accessing an object's properties: we use the operator "."
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">&gt; student1</span><span class="pun">.</span><span class="pln">ssn</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"11-22-33-44"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&gt; student1</span><span class="pun">.</span><span class="pln">age</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">23</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&gt; student1</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">[</span><span class="kwd">object</span><span class="pln"> </span><span class="typ">Object</span><span class="pun">]</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">23</span><span class="pun">,</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; city</span><span class="pun">:</span><span class="pln"> </span><span class="str">"New York"</span><span class="pun">,</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; fullName</span><span class="pun">:</span><span class="pln"> </span><span class="str">"John Doe"</span><span class="pun">,</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ssn</span><span class="pun">:</span><span class="pln"> </span><span class="str">"11-22-33-44"</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Notes for 1.5.9 Objects (part 1)
+
+
+
+
+#### Knowledge check 1.5.9
+
+1. Which of these are predefined objects that you can use in your JS code when running in a browser environment (three correct answers!)
+  a. browser<br/>
+  b. navigator<br/>
+  c. htmlDocument<br/>
+  d. document<br/>
+  e. window<br/>
+  
+  Ans: <br/>
+  Explanation: 
 
 
 
