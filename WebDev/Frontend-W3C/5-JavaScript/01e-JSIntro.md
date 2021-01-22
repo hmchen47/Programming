@@ -1451,6 +1451,11 @@ Accessing an object's properties: we use the operator "."
       + `document.body` or `window.innerWidth`
       + `console.log(...)`
 
++ Common objects & properties
+  + auto-completion w/ `.` to display options in devtools console tab
+  + the size of current browser window: `window.innerWidth` & `window.innerHeight`
+  + current URL w/ the page: `windows.location`
+  + vendor of browser: `navigator.vender`
 
 
 #### Knowledge check 1.5.9
