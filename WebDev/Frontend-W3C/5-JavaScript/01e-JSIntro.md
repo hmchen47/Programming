@@ -1457,6 +1457,26 @@ Accessing an object's properties: we use the operator "."
   + current URL w/ the page: `windows.location`
   + vendor of browser: `navigator.vender`
 
++ Defining singleton objects
+
+  ```js
+  var student1 = {
+      fullName:'John Doe',
+      age: 23,
+      city: 'New York',
+      ssn: "11-22-33-44" // no comma at the end of the last property
+  }
+
+  student1.ssn;     // 11-22-33-44
+  student1.age;     // 23
+  student1
+  // [object Object] {
+  //     age: 23,
+  //     city: "New York",
+  //     fullName: "John Doe",
+  //     ssn: "11-22-33-44"
+  // }
+  ```
 
 #### Knowledge check 1.5.9
 
