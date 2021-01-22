@@ -1699,7 +1699,7 @@ If parameters are omitted during the call, JavaScript gives them the value undef
 </ol></div>
 
 
-#### Functions with a variable number of parameters
+##### Functions with a variable number of parameters
 
 An array named "arguments" is created automatically in each function, it contains all the call parameters of the function:
 
@@ -1716,7 +1716,7 @@ An array named "arguments" is created automatically in each function, it contain
 </ol></div>
 
 
-#### Example of the sum with a variable number of arguments
+##### Example of the sum with a variable number of arguments
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> newSum</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -1737,7 +1737,23 @@ An array named "arguments" is created automatically in each function, it contain
 
 #### Notes for 1.5.11 Functions (part 1)
 
++ Functions
+  + grouping code, providing name and accessing by calling the given name
+  + always returning a value
+    + explicityly, using the keyworkd `return` followed by the value
+    + implicityly, return value is `undefined`
+  + declaring a function, e.g., 
 
+    ```js
+    function sum(a, b) {
+        var c = a + b;
+        return c;
+    }
+    ```
+
+  + calling a function: `var result = sum(1, 2);`, `console.log(result);` $\to$ `3`
+  + function parameters
+    + 
 
 
 #### Knowledge check 1.5.11
