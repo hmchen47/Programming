@@ -1752,8 +1752,24 @@ An array named "arguments" is created automatically in each function, it contain
     ```
 
   + calling a function: `var result = sum(1, 2);`, `console.log(result);` $\to$ `3`
-  + function parameters
-    + 
+
++ Function parameters
+  + arguments
+    + an array created automatically in each function
+    + containing all the call parameters of the function
+  + omitted during the call, JavaScript providing the value `undefined`
+  + a variable number of parameters
+
+    ```js
+    function f() {
+      return arguments;
+    }
+    ...
+    f();    // returns []
+    ...
+    f( 1, 2, 3, 4, true, 'Michel Buffa');
+    // returns [1, 2, 3, 4, true, "Michel Buffa"]
+    ```
 
 
 #### Knowledge check 1.5.11
