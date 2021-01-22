@@ -1261,7 +1261,7 @@ There is trick for converting a Number into a String: we concatenate with an emp
 
 
 #### Special characters
-##### Special character: the "\"
+##### Special character: the "\\"
 
 The `\` is useful for "escaping" special characters. Here are a few examples:
 
@@ -1274,14 +1274,14 @@ The `\` is useful for "escaping" special characters. Here are a few examples:
 </ol></div>
 
 
-##### Escaping the escape! Use a double "\"
+##### Escaping the escape! Use a double "\\"
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"1\\2"</span><span class="pun">;</span><span class="pln"> s</span><span class="pun">;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="com">// returns "1\2"</span></li>
 </ol></div>
 
-##### Special characters starting with "\"
+##### Special characters starting with "\\"
 
 __"\n" for "next line":__
 
@@ -1346,7 +1346,15 @@ __"\t" for "insert a tabulation":__
     + concatentate w/ an empty string at the beginning of expression
     + example: `var n = 1; typeof n;`, `n = "" + n;`, `typeof n;` $\to$ `"number"`, `"1"`, `"string"`
 
-+ 
++ Special characters
+  + escaping special character: `\`
+    + examples: `var s = 'I don\'t know';`, `var s = "I don\'t know"; // here the \ is useless`, `var s = '"Hello", he said.';`, `var s = "\"Hello\", he said.";`
+  + escaping the escape w/ double `\`: `\\`
+    + example: `var s = "1\\2"; s;` $\to$ `"1\2"`
+  + special characters starting w/ `\`
+    + `\n` for next line
+    + `\r` for carriage return
+    + `t` for insert a tabulation
 
 
 #### Knowledge check 1.5.8
