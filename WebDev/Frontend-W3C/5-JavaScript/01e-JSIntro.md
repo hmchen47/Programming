@@ -1492,5 +1492,155 @@ Accessing an object's properties: we use the operator "."
   Explanation: If you type the names of these objects in the devtool console, you can easily check that `navigator`, `window` and `document` do exist, while `browser` and `htmlDocument` will give errors.
 
 
+### 1.5.10 Arrays (part 1)
+
+#### Definition: arrays are containers with indexes 
+
+Arrays are a special datatype. You declare arrays using brackets, like this:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> daysOfWeek </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
+</ol></div>
+
+You can fill them at declaration time:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> daysOfWeek </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Monday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tuesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Wednesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Thursday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Friday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Saturday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Sunday'</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gradesInMaths </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">14</span><span class="pun">,</span><span class="pln"> </span><span class="lit">18</span><span class="pun">,</span><span class="pln"> </span><span class="lit">9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">11</span><span class="pun">];</span></li>
+</ol></div>
+
+#### Elements in an array can be accessed using indexes
+
+Each element in an array has an index. <span style="color: brown; font-weight: bold;">The first element's index is 0</span>, the second element's index is 1 etc.
+
+To access an element, you use the array variable and "[" followed by the index value followed by "]", as shown in these examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> daysOfWeek </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Monday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tuesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Wednesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Thursday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Friday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Saturday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Sunday'</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> daysOfWeek</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"Monday"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> daysOfWeek</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">"Tuesday"</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> daysOfWeek</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"Wednesday"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> daysOfWeek</span><span class="pun">.</span><span class="pln">length</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="lit">7</span></li>
+</ol></div>
+
+#### Use the length property of an array to know its length
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">&gt; var</span><span class="pln"> daysOfWeek </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Monday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tuesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Wednesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Thursday'</span><span class="pun">,</span>'Friday'<span class="pun">,</span><span class="pln"> </span><span class="str">'Saturday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Sunday'</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&gt; daysOfWeek</span><span class="pun">.</span><strong><span class="pln">length</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="lit">7</span></strong></li>
+</ol></div>
+
+Indeed, there are seven days in a week and the daysOfWeek array has seven elements, indexed from 0 to __daysOfWeek.length -1__
+
+<p style="border: 1px solid; text-align: center; margin: 20px; padding: 20px;"><strong><span style="color: #ff0000;">This way of enumerating all elements (from 0 to the length of the array -1) is very, very common, and will prove to be very useful when you learn how to iterate on an array's elements (Week 2).</span></strong></p>
+
+
+#### You can add elements to an array using a new index
+
+If you want to add a new element at the end of an array, use the index equal to the length of the array
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">&gt; var</span><span class="pln"> daysOfWeek </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Monday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tuesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Wednesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Thursday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Friday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Saturday'</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&gt; daysOfWeek</span><span class="pun">.</span><span class="pln">length</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">6</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&gt; daysOfWeek</span><span class="pun">[</span><span class="lit">6</span><span class="pun">]</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// NO ELEMENT AT INDEX 6 in an array of 6 elements, first index is 0 // last 6-1 = 5</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span style="color: #000088;" color="#000088">&gt;&nbsp;</span>daysOfWeek<span class="pun">[</span><span class="lit">6</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Sunday'</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">"Sunday"</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&gt; daysOfWeek</span><span class="pun">.</span><span class="pln">length</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">7</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// Sunday, the 7th day of week is at index 6 !</span></li>
+</ol></div>
+
+
+#### Arrays are JavaScript objects!
+
+Well, this is not so important for the moment, but look:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">&gt; var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;&nbsp;</span><strong><span class="kwd">typeof</span><span class="pln"> a</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="str">"object"</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&gt; var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">];</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;&nbsp;</span><span class="pln">a</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;&nbsp;</span><span class="pln">a</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="lit">1</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="lit">2</span></li>
+</ol></div>
+
+And indeed, when you write daysOfWeek.length, you are using the array as an object, and you are using the length property of array objects.
+
+
+#### Add an element at the end of an array using the push method
+
+Since arrays are objects, we can do much more with them - in particular, they have more properties and more methods than the push method. You will learn more about this in a later lesson (Arrays part 2), but for the moment, let's focus on the most useful features...
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">&gt; var</span><span class="pln"> daysOfWeek </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Monday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tuesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Wednesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Thursday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Friday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Saturday'</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&gt; daysOfWeek</span><span class="pun">.</span><span class="pln">length</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">6</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&gt; daysOfWeek</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">'Sunday'</span><span class="pun">);</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="lit">7</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&gt; daysOfWeek</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">[</span><span class="str">"Monday"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Tuesday"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Wednesday"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Thursday"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Friday"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Saturday"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Sunday"</span><span class="pun">]</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&gt; daysOfWeek</span><span class="pun">.</span><span class="pln">length</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="lit">7</span></li>
+</ol></div>
+
+
+#### Arrays and Strings
+
+Strings are arrays of characters! 
+
+Consequence:
+
+1. They are objects too!
+1. They have a length property,
+1. Each individual character can be accessed using an index.
+
+Examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'one'</span><span class="pun">;</span></li>
+<li class="L1"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span></li>
+<li class="L2"><span class="pln"> </span><span class="str">"o"</span></li>
+<li class="L3"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">[</span><span class="lit">1</span><span class="pun">];</span></li>
+<li class="L4"><span class="pln"> </span><span class="str">"n"</span></li>
+<li class="L5"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">[</span><span class="lit">2</span><span class="pun">];</span></li>
+<li class="L6"><span class="pln"> </span><span class="str">"e"</span></li>
+<li class="L7"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
+<li class="L8"><span class="pln"> </span><span class="lit">3</span></li>
+</ol></div>
+
+#### Notes for 1.5.10 Arrays (part 1)
+
+
+
+
+#### Knowledge check 1.5.10
+
+`var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];`
+
+1. Which element of the daysOfWeek array contains 'Wednesday'?
+
+  a. `daysOfWeek[2]`<br/>
+  b. `daysOfWeek['Wednesday']`<br/>
+  c. `daysOfWeek[3]`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
 
 
