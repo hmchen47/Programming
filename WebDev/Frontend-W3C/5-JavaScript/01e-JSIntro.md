@@ -1245,7 +1245,7 @@ The above example is shown in the devtools console:
 </figure>
 
 
-#### How to convert a Number into a String
+##### How to convert a Number into a String
 
 There is trick for converting a Number into a String: we concatenate with an empty string, at the beginning of expression (type this in the devtools):
 
@@ -1259,6 +1259,8 @@ There is trick for converting a Number into a String: we concatenate with an emp
 <li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">// returns "string"</span></li>
 </ol></div>
 
+
+#### Special characters
 ##### Special character: the "\"
 
 The `\` is useful for "escaping" special characters. Here are a few examples:
@@ -1332,6 +1334,13 @@ __"\t" for "insert a tabulation":__
       + `let s1 = 'one'; let s2 = 'two'; let s = s1.concat(s2); s;` $\to$ 'onetwo'
       + `var s3 = 'Hello'; s3.concat(' World' , ' JavaScript' );` $\to$ `"Hello World JavaScript"`
 
++ String to Number conversion
+  + String number in an arithmetic expression converted  to Number
+  + examples:
+    + `var s = '1'; s = 3 * s; typeof s;` & `s;` $\to$ `"number"` & `3`
+    + `var s = '1'; s++; typeof s;` & `s;` $\to$ `"number"` & `2`
+    + `var s = "100"; typeof s;` & `s = s * 1;` $\to$ `"string"` & `100`
+    + `var d = "101 dalmatians"; d * 1;` $\to$ `NaN`
 
 
 #### Knowledge check 1.5.8
