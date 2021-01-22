@@ -1334,13 +1334,19 @@ __"\t" for "insert a tabulation":__
       + `let s1 = 'one'; let s2 = 'two'; let s = s1.concat(s2); s;` $\to$ 'onetwo'
       + `var s3 = 'Hello'; s3.concat(' World' , ' JavaScript' );` $\to$ `"Hello World JavaScript"`
 
-+ String to Number conversion
-  + String number in an arithmetic expression converted  to Number
-  + examples:
-    + `var s = '1'; s = 3 * s; typeof s;` & `s;` $\to$ `"number"` & `3`
-    + `var s = '1'; s++; typeof s;` & `s;` $\to$ `"number"` & `2`
-    + `var s = "100"; typeof s;` & `s = s * 1;` $\to$ `"string"` & `100`
-    + `var d = "101 dalmatians"; d * 1;` $\to$ `NaN`
++ String Number conversion
+  + string number to number
+    + String number in an arithmetic expression converted  to Number
+    + examples:
+      + `var s = '1'; s = 3 * s; typeof s;` & `s;` $\to$ `"number"` & `3`
+      + `var s = '1'; s++; typeof s;` & `s;` $\to$ `"number"` & `2`
+      + `var s = "100"; typeof s;` & `s = s * 1;` $\to$ `"string"` & `100`
+      + `var d = "101 dalmatians"; d * 1;` $\to$ `NaN`
+  + converting number into a string
+    + concatentate w/ an empty string at the beginning of expression
+    + example: `var n = 1; typeof n;`, `n = "" + n;`, `typeof n;` $\to$ `"number"`, `"1"`, `"string"`
+
++ 
 
 
 #### Knowledge check 1.5.8
