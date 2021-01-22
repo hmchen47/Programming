@@ -1236,7 +1236,7 @@ A String number in an arithmetic expression is converted to Number, unless the f
 The above example is shown in the devtools console:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick="window.open('https://tinyurl.com/y4c4q75a')"
     src    ="https://tinyurl.com/y4xth3vg"
     alt    ="Devtool console showing var s = '1'; s = 3 * s; typeof s; `number` s 3 var s = '1'; s++; typeof s; `number` s 2 var s = `100`; typeof s; `string` s = s * 1; 100 typeof s; `number` var d = '101 dalmatiens'; undefined d * 1 NaN"
@@ -1315,7 +1315,22 @@ __"\t" for "insert a tabulation":__
 
 #### Notes for 1.5.8 String operators
 
-
++ String concatentation
+  + concatenation operator: `+`
+    + used to concatenate two strings
+    + examples
+      + `let s1 = 'one'; let s2 = 'two'; let s = s1 + s2; s;` $\to$ `'onetwo'`
+      + `let s1 = 'Hello'; let s1 = s1 + 'World' + 'JavaAScript'; s1` $\to$ `"Hello World JavaScript"`
+  + shorthand assignment operator `+=`
+    + used to concatenate strings
+    + examples
+      + `let s1 = 'one'; let s2 = 'two'; s1 += s2; s1;` $\to$ `'onetwo'`
+      + `var s2 = 'Hello'; s2+= ' World' + ' JavaScript'; s2;` $\to$ `"Hello World JavaScript"`
+  + method `concat()`
+    + another way to concatentate strings
+    + examples
+      + `let s1 = 'one'; let s2 = 'two'; let s = s1.concat(s2); s;` $\to$ 'onetwo'
+      + `var s3 = 'Hello'; s3.concat(' World' , ' JavaScript' );` $\to$ `"Hello World JavaScript"`
 
 
 
