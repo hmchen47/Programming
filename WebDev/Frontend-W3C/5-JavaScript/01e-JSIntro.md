@@ -1660,4 +1660,103 @@ Examples:
   Explanation: In JavaScript, arrays have elements with an index starting at 0. So 'Wednesday' is in the third element, whose index is 3-1 = 2;
 
 
+### 1.5.11 Functions (part 1)
+
+#### Definition of a function
+A function allows you to group code, give it a name and be able to execute it by calling it by name.
+
+Functions always return a value:
+
++ Explicitly, using the keyword `return` followed by the value (_line 3_ of the next example),
++ Implicitly, in which case the return value is `undefined`.
+
+#### Declaring a function
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> sum</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> c</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+</ol></div>
+
+#### Calling a function
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> sum</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">//result is equal to&nbsp;3</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com"></span>console.log(result)</li>
+<li class="L1" style="margin-bottom: 0px;">&gt; 3</li>
+</ol></div>
+
+
+#### Function parameters
+
+If parameters are omitted during the call, JavaScript gives them the value undefined:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> sum</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">NaN</span><span class="pln"> </span></li>
+</ol></div>
+
+
+#### Functions with a variable number of parameters
+
+An array named "arguments" is created automatically in each function, it contains all the call parameters of the function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> f</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">&nbsp; &nbsp;return</span><span class="pln"> arguments</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> f</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// returns []</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> f</span><span class="pun">(</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Michel Buffa'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// returns [1, 2, 3, 4, true, "Michel Buffa"]</span></li>
+</ol></div>
+
+
+#### Example of the sum with a variable number of arguments
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> newSum</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> res </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln">&nbsp;numberOfParameters&nbsp;</span><span class="pun">=</span><span class="pln"> arguments</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln">&nbsp;</span><span class="pun">numberOfParameters;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;res </span><span class="pun">+=</span><span class="pln"> arguments</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> res</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;&gt;&gt;</span><span class="pln">&nbsp;</span><span class="pun">newSum(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="lit">3</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;&gt;&gt;</span><span class="pln">&nbsp;</span>newSum(1, 2, 3, 4);</li>
+<li class="L1" style="margin-bottom: 0px;">10</li>
+</ol></div>
+
+
+#### Notes for 1.5.11 Functions (part 1)
+
+
+
+
+#### Knowledge check 1.5.11
+
+```js
+function f() {
+  // get the parameters
+  var allCallParameters = XXX;
+  // do something with the parameters
+  // ...
+}
+```
+
+1. A JavaScript function can have a variable number of parameters. What is the name of the array that is created automatically in each function, and that contains the call parameters (what would you write instead of XXX in the code above)?
+
+  a. arguments<br/>
+  b. params<br/>
+  c. parameters<br/>
+
+  Ans: <br/>
+  Explanation: 
 
