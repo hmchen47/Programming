@@ -1656,8 +1656,8 @@ Examples:
   b. `daysOfWeek['Wednesday']`<br/>
   c. `daysOfWeek[3]`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: In JavaScript, arrays have elements with an index starting at 0. So 'Wednesday' is in the third element, whose index is 3-1 = 2;
 
 
 
