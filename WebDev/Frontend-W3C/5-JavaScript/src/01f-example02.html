@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Write messages to the devtool console</title>
+  <meta charset="utf-8"/>
+  <script>
+    var x = 10;
+    
+    function addXToThePage() {
+      // THIS WILL DISPLAY A MESSAGE IN THE DEVTOOL CONSOLE
+      console.log("In The addXToThePage function");
+      
+      // This code is strangely never executed...
+      document.body.innerHTML += "<p>The value of x = " + x + "</p>";
+      x = X + 1;
+    }
+  </script>
+</head>
+  <body>
+    <button onclick="addXToToThePage();">Click me to display the value of the x variable</button>
+  </body>
+</html>
