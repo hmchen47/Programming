@@ -356,6 +356,39 @@ __Example #5: move a monster in an HTML5 canvas using left and right arrow keys_
     + right/left key movement: `window.addEventListener('keydown', handleKeydown, false);  window.addEventListener('keyup', handleKeyup, false);`
 
 
+### 1.6.6 Using built-in HTML5 APIs
+
+Your browser comes with a lot of standard W3C APIs. By standard, we mean "parts of HTML5" or real Web standards that will still work in 10 years. In contrast to "industry standards", W3C standards are meant to be supported by browsers for years to come. These standards are a joint effort by the industry, the community, and W3C to develop stable, reliable standards.
+
+The following example uses some of these APIs, simply to "show the possibilities". Others will be discussed later on in the course, or in other W3Cx courses.
+
+
+#### Examples
+
+__Example #1: using the WebCam__
+
+CLICK ON THE TOP RIGHT OF THE BELOW WINDOW (on the "Codepen" logo) to see this example running. 
+
+Due to security restrictions, the webcam image cannot be seen in this embedded example anymore.
+
+Look at the JavaScript tab! The [W3Cx HTML5 Coding Essentials and Best Practices](https://www.edx.org/course/html5-part-1-html5-coding-essentials-w3cx-html5-1x-2) course will provide many other examples that use the WebCam.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/ZLNwqx)
+
+[Local Demo](src/01f-example13.html)
+
+If you want to spend some time having fun with the WebCam, don't forget to try the WebCam Toy demo!
+
+
+__Example #2: using the WebAudio API to build a small synthetizer__
+
+Click on the piano keyboard. Use the different buttons, sliders, etc. This example uses the WebAudio API in order to synthesize sounds.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/oBRVgv)
+
+[Local Demo](src/01f-example14.html)
+
+
 
 
 
