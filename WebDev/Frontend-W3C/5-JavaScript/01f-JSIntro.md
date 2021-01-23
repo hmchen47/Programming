@@ -34,4 +34,11 @@ Let's check if the function is really executed. We need to add a `console.log("I
 [Local Demo](src/01f-example02.html)
 
 
+#### Notes for 1.6.2 The devtool console
+
++ devtool console
+  + a common way to debug JavaScript code
+  + `console.log(...)`: instruction to write message to the devtool console
+
+
 
