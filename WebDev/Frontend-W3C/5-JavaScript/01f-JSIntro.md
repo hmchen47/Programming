@@ -199,5 +199,15 @@ Just click the button to build the HTML table dynamically. You should see this:
 </figure>
 
 
+#### Notes for 1.6.3 Modifying an HTML document
+
++ Modifying HTML document
+  + selection API: used for "selecting elements in the document", e.g., `var tableBody = document.querySelector("#tableContactBody");`
+  + DOM API: used for adding content to the body of the page (page = document), e.g., `document.body.innerHTML += "<p>The value of x is " + x + "</p>";`
+  + HTML Table JavaScript API: useful for building tables on the fly; e.g.,
+    + add new row to end of the table: `var newRow   = tableBody.insertRow();`
+    + add cell for the row: `var firstNameCell  = newRow.insertCell(); firstNameCell.innerHTML = firstName;`
+
+
 
 
