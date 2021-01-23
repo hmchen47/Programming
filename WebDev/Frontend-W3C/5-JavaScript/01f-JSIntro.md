@@ -244,5 +244,40 @@ Notice how the CSS properties change when we use them from JavaScript:
 And the positions, widths and heights are always string values. In our example we used pixel units and a percentage, so we need to add the "px" and "%" character(s) when we manipulate these properties from JavaScript.
 
 
+#### Notes for 1.6.4 Modifying CSS styles on the fly
+
++ Modifying CSS style
+  + change the CSS property names to CamelCase as JaVaScript variable names
+  + position values (height & width): string values w/ "px" and "%"
+  + change common properties (color, border, background color), e.g.,
+    + select element: `divElem = document.querySelector("#theDiv");`
+    + modify CSS: `divElem.style.border = "5px dashed purple"; divElem.style.padding = "10px"; divElem.style.backgroundColor = "lightGreen";`
+  + change the background image property w/ external image, e.g.,
+    + select element: `divElm = document.querySelector("#theDiv");`
+    + modify background: `divElem.innerHTML = ""; divElem.style.width= "100%"; divElem.style.height = "300px"; divElem.style.backgroundImage = "url(https://mainline.i3s.unice.fr/mooc/marioSprite.png)";`
+  + use the background image as sprite sheet
+    + select element: `divElem = document.querySelector("#theDiv");`
+    + animate images: `drawMario(currentImage); currentImage = (currentImage +1) % 3;`
+    + draw images
+
+      ```js
+      function drawMario(indexImage) {
+        // set the left pos of the div using the left margin
+        divElem.style.marginLeft = leftPos + "px";
+        // change the width and height of the div
+        divElem.style.width = "22px";
+        divElem.style.height = "32px";
+        // remove the text inside the div
+        divElem.innerHTML = "";
+        // set the background image
+        divElem.style.backgroundImage = "url(https://mainline.i3s.unice.fr/mooc/marioSprite.png)";
+        // remove the background color
+        divElem.style.backgroundColor = "transparent";
+        // select the starting pos in the background image
+        var offset = indexImage * 24;
+        divElem.style.backgroundPosition  = offset + "px";
+      }
+      ```
+
 
 
