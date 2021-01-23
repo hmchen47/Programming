@@ -170,3 +170,34 @@ And of course, you can use such code in your programs, not only in the devtool c
   + using concatentate operator `+` w/ `console.log(...)` for variable value
 
 
+### 1.6.3 Modifying an HTML document
+
+Don't worry if we do not explain all the details of this example. In the first module, we're giving you "a taste" of what we can do with JavaScript. Over the following modules, we'll delve deeper into the details... 
+
+We've already seen some examples that modify the content of the document __dynamically__. We changed a title by clicking on a button, we displayed the value of a variable named x in the previous section, etc.
+
+The browser comes with some very powerful APIs (Application Programming Interfaces - a set of predefined objects/functions/variables you can use):
+
+1. "The selection API" is used for "selecting elements in the document". It uses the same syntax as CSS selectors. 
+1. The "DOM API" for "Document Object Model" API. When we used `document.body.innerHTML += "<p>The value of x is " + x + "</p>";` in a previous example, we used the DOM API for adding content to the body of the page (page = document).
+1. Another API is called the HTML Table JavaScript API, and is useful for building tables on the fly.
+1. etc.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/pRmZqY)
+
+[Local Demo](src/01f-example05.html)
+
+Just click the button to build the HTML table dynamically. You should see this:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/y5k2vnul')"
+    src    ="https://tinyurl.com/y6cjnbdg"
+    alt    ="Dynamic table"
+    title  ="Dynamic table"
+  />
+</figure>
+
+
+
+
