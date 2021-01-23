@@ -209,5 +209,40 @@ Just click the button to build the HTML table dynamically. You should see this:
     + add cell for the row: `var firstNameCell  = newRow.insertCell(); firstNameCell.innerHTML = firstName;`
 
 
+### 1.6.4 Modifying CSS styles on the fly
+
+We've already seen some examples in which we modify the style of some parts of a document using JavaScript. Here we show another example of what can be done.
+
+#### Examples
+
+__Example #1: change common properties (color, border, background color)__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/rjgQgN)
+
+[Local Demo](src/01f-example06.html)
+
+
+__Example #2: change the background image property using an external image__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/MJdzMM)
+
+[Local Demo](src/01f-example07.html)
+
+
+__Example #3: Use the background image as a sprite sheet - animate Mario!__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/ygWGBd)
+
+[Local Demo](src/01f-example08.html)
+
+Notice how the CSS properties change when we use them from JavaScript:
+
++ `background-color` (CSS) becomes `backgroundColor` (JS)
++ `margin-left` (CSS) becomes `marginLeft` (JS)
++ etc.
+
+And the positions, widths and heights are always string values. In our example we used pixel units and a percentage, so we need to add the "px" and "%" character(s) when we manipulate these properties from JavaScript.
+
+
 
 
