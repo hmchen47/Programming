@@ -1,0 +1,288 @@
+#synth
+{
+    padding:20px;
+    background: #2b2b2b;
+    width:968px;
+    height:570px;
+    box-shadow: 2px 2px 10px black;
+    margin:auto;
+    position: relative;
+}
+
+#synth:before
+{
+    content:"";
+    width:968px;
+    height:5%;
+    background: #2b2b2b;
+    position: absolute;
+    left:20px;
+    top:325px;
+    box-shadow: 0px 5px 5px black;
+}
+
+#synth:after
+{
+    content:"";
+    width:980px;
+    height:5%;
+    background: #2b2b2b;
+    position: absolute;
+    left:15px;
+    top:325px;
+}
+
+
+h4, h5 {
+    line-height: 0em;
+}
+
+datalist
+{
+    display: block;
+}
+.waveForms li
+{
+
+    list-style: none;
+    margin:10px -25px;
+}
+
+
+.white
+{
+    border: 2px groove black;
+    height: 250px;
+    width: 40px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px black;
+
+    background: linear-gradient(85deg, rgba(188,188,188,1) 0%,rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+}
+
+
+.white.keyDown
+{
+    background: linear-gradient(89deg, rgba(76,76,76,1) 0%,rgba(255,255,255,1) 10%,rgba(247,247,247,1) 100%);
+    transition: all 0.2s;
+}
+
+
+
+.black
+{
+    border: 1px solid black;
+    height: 150px;
+    width: 20px;
+    position: absolute;
+    top:0;
+    right:-12px;
+
+    background:black;
+    color:white;
+    z-index: 10;
+    box-shadow: 2px 2px 2px black;
+
+
+
+    background: linear-gradient(to bottom,  rgba(28,28,28,1) 0%,rgba(63,63,63,1) 100%);
+
+
+}
+
+
+
+#pianoKeys p
+{
+
+    width:100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+
+#pianoKeys
+{
+    margin-top: 20px;
+    clear:both;
+    width:100%;
+}
+
+#blackKeys
+{
+    position: absolute;
+    top:0;
+}
+
+
+
+.keyDown
+{
+    color: #48a6ff;
+
+    /*background: #48a6ff;*/
+    /*border-right: 2px groove #c0c0c0 !important;*/
+    /*background: linear-gradient(to bottom, rgba(73,192,240,1) 0%,rgba(44,175,227,1) 100%);*/
+
+    box-shadow: 0 0 1px black;
+    transition: all 0.2s;
+}
+
+
+#oscs, #mixer
+{
+    /*width:50%;*/
+    width:968px;
+    height:340px;
+    float:left;
+    background: #2b2b2b;
+    color: whitesmoke;
+}
+
+
+.waveForm, .gain, .octave, .fineTune
+{
+    float: left;
+}
+.osc
+{
+    clear: both;
+
+}
+
+#osc1,#osc2
+{
+    padding-left:2em;
+    display: block;
+    height: 150px;
+}
+
+#osc1
+{
+    border-bottom: 1px solid black;
+}
+
+#osc2
+{
+    border-top: 1px ridge grey;
+}
+
+
+.gain, .octave, .fineTune
+{
+    margin-left: 60px;
+}
+
+.gain, .fineTune
+{
+  max-width:150px;
+}
+
+.ledLabel
+{
+    margin:0 0 0.75em 1em;
+}
+
+.ledLabel input[type="radio"] {
+    display:none;
+}
+.ledLabel input[type="radio"] + label {
+    font-family:Arial, sans-serif;
+    font-size:14px;
+}
+.ledLabel input[type="radio"] + label span {
+    display:inline-block;
+    width:10px;
+    height:10px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    -moz-border-radius:  50%;
+    border-radius:  50%;
+}
+
+.ledLabel input[type="radio"] + label span {
+    background: radial-gradient(ellipse at center,  rgba(152,255,84,1) 0%,rgba(135,196,56,1) 31%,rgba(0,0,0,1) 100%); /* W3C */
+
+}
+
+.ledLabel input[type="radio"]:checked + label span{
+    box-shadow: 0 0 15px #79ff5d;
+    background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 12%,rgba(210,255,82,1) 39%,rgba(145,232,66,1) 65%,rgba(0,0,0,1) 92%); /* W3C */
+
+}
+
+.ledLabel input[type="radio"] + label span,
+.ledLabel input[type="radio"]:checked + label span {
+    -webkit-transition:background-color 0.4s linear;
+    /*-moz-transition:background-color 0.4s linear;*/
+    transition:background-color 0.4s linear;
+}
+
+.ledLabel
+{
+    float:left;
+}
+
+.ledLabel img
+{
+    height:10px;
+}
+
+
+
+input[type="range"]:focus
+{
+    outline:none;
+}
+
+
+
+
+/*================Button Style=================*/
+
+button
+{
+    width:85%;
+    height:80%;
+    box-shadow: 1px 1px 2px black;
+    cursor:pointer;
+    position: absolute;
+    top:10%;
+    left:7%;
+    background: linear-gradient(to bottom,  rgba(75,75,75,1) 0%,rgba(63,63,63,1) 100%); /* W3C */
+    border:none;
+}
+
+
+button:active
+{
+    box-shadow: 0 0 0 black;
+    border: 2px groove #2b2b2b;
+    background: linear-gradient(to bottom,  rgba(47,47,47,1) 0%,rgba(59,59,59,1) 100%); /* W3C */
+    width:90%;
+    height:84%;
+    left:5%;
+}
+
+button:focus
+{
+    outline:none;
+}
+
+.buttonDrop
+{
+    width:50px;
+    height:30px;
+    display:block;
+    position: relative;
+    /*left:190px;/*/
+    /*top:-5px;*/
+
+    border-radius: 10%;
+    background: linear-gradient(to bottom,  rgba(28,28,28,1) 0%,rgba(63,63,63,1) 100%); /* W3C */
+
+}
