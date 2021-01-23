@@ -323,5 +323,39 @@ __Example #5: move a monster in an HTML5 canvas using left and right arrow keys_
 [Local Demo](src/01f-example12.html)
 
 
+#### Notes for 1.6.5 Adding interactivity with events
+
++ Interaction w/ events
+  + possible actions able to react to
+    + user interactions (keyboard, mouse, gamepad)
+    + changes in the lifecycle of document, e.g., pages loading or resizing, screen rotation on a mobile device
+    + notified after compeltion of a long process; e.g. loading a large image or source track from the network
+  + examples:
+    + react to a mouse click w/ `<button onclick="...">Click me</button>`
+    + react to keyboard typing: `<input type="text" oninput="showWhatWeTyped();" id="inputField" />`, `theDiv.innerHTML = field.value;`
+    + HTML Canvas
+      + useful for drawing and animating at 60 frames/second
+      + create canvas: `<canvas id="myCanvas" width="578" height="200"></canvas>`
+      + liesten mouse position winthin canvas:
+
+        ```js
+        window.onload = function init() {
+            canvas = document.getElementById('myCanvas');
+            ctx = canvas.getContext('2d');
+
+            canvas.addEventListener('mousemove', function (evt) {
+                mousePos = getMousePos(canvas, evt);
+                var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+                writeMessage(canvas, message);
+            }, false);
+
+            ...
+        }
+        ```
+
+    + right/left key movement: `window.addEventListener('keydown', handleKeydown, false);  window.addEventListener('keyup', handleKeyup, false);`
+
+
+
 
 
