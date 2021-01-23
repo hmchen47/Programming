@@ -153,7 +153,7 @@ Result:
   />
 </figure>
 
-You can use any operator (+, -, /, *, etc.), you are not limited to using the "+" operator.
+You can use any operator (`+`, `-`, `/`, `*`, etc.), you are not limited to using the "+" operator.
 
 And of course, you can use such code in your programs, not only in the devtool console :-)
 
@@ -165,6 +165,8 @@ And of course, you can use such code in your programs, not only in the devtool c
 + devtool console
   + a common way to debug JavaScript code
   + `console.log(...)`: instruction to write message to the devtool console
-
+  + CodePen: click on the bottom left 'console' tab to display the console
+  + Browser: open devtool, then click on 'cpnsole' tab
+  + using concatentate operator `+` w/ `console.log(...)` for variable value
 
 
