@@ -280,4 +280,48 @@ And the positions, widths and heights are always string values. In our example w
       ```
 
 
+### 1.6.5 Adding interactivity with events
+
+With JavaScript, you can react to user interactions (keyboard, mouse, gamepad), to changes in the lifecycle of your document (page has just loaded or resized, screen has been rotated on a mobile device), or to be notified when a long process has been completed (loading a large image or sound from the network).
+
+We've already seen how we can make a `<button>` react to a mouse click with `<button onclick="...">Click me</button>`
+
+Below, we outline some extra examples. In the next course module, we will go into detail about events, and in the following modules, we will study some of the most useful events in even greater depth.
+
+
+#### Examples
+
+__Example #1: use input events on an HTML input field__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/jyoXGN)
+
+[Local Demo](src/01f-example09.html)
+
+
+__Example #2: listen to mouse events in an HTML5 canvas__
+
+The HTML5 canvas is useful for drawing and animating at 60 frames/second. Very detailed tutorials are provided in the W3C [HTML5 Coding Essentials and Best Practices](https://www.edx.org/course/html5-coding-essentials-and-best-practices) course, while the W3Cx [HTML5 Apps and Games](https://www.edx.org/course/html5-apps-and-games) MOOC addresses how to write video games using the canvas 2D API.
+
+In this JS introductory course, we use HTML5 canvas to draw curves, to make a small game, etc. Small and diverse examples for illustrating some JavaScript data structures such as Arrays or Objects are going to be presented.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/QdRzJw)
+
+[Local Demo](src/01f-example10.html)
+
+
+__Example #3: a paint program - click and drag mouse, then release__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/VPOqJG)
+
+[Local Demo](src/01f-example11.html)
+
+
+__Example #5: move a monster in an HTML5 canvas using left and right arrow keys__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/ygWZEP)
+
+[Local Demo](src/01f-example12.html)
+
+
+
 
