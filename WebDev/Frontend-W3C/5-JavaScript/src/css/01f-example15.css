@@ -1,0 +1,17 @@
+div {
+  float: left;
+}
+
+#quadratic {
+  padding: 25px;
+  width: 250px;
+  height: 250px;
+}
+
+#sin {
+  padding: 25px;
+}
+
+#multiple {
+  padding: 25px;
+}

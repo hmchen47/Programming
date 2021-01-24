@@ -242,7 +242,7 @@ function handleKeyPress(e)
       case 55:    id = "F#3";    break;
       case 85:    id = "G3";     break;
       case 56:    id = "G#3";    break;
-      case 73:   id = "A3";     break;
+      case 73:    id = "A3";     break;
 
       default:
    }
