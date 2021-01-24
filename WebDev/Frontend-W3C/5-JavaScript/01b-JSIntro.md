@@ -611,7 +611,7 @@ Finally, note that, in these examples, the JavaScript code is located in the HTM
 + JavaScript
   + the "magic trio" of Web page: HTML5/CSS/Javascript
   + the only programming language that a browser can run
-  + w/o installingany plugins or extensions
+  + w/o installing any plugins or extensions
   + a real standard of Web
 
 + JS: interactive glue btw HTML and CSS
@@ -741,8 +741,7 @@ JavaScript is an interpreted (or just-in-time compiled) language, which means th
   + creator: Brendan Eich's team
   + organization: Netscape, ancestor of Mozilla
   + in association w/ Sun Microsystems, depending on Java, to provide server and client-oriented solutions
-  + Java not suitable in-browser uise
-  + as a lightweight Java
+  + Java not suitable in-browser use, as a lightweight Java
   + ispired by Java but only some naming conventions remaining the same
   + success following the popularity of Netscape Navigator 2 in March 1996
   + quickly integrated into other popular browsers
