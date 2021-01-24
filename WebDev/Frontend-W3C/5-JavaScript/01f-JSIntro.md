@@ -505,4 +505,33 @@ This example just shows how to use the HowlerJS external library to load remote 
 [Local Demo](src/01f-example21.html)
 
 
+#### Notes for 1.6.8 Working with remote data
+
++ Accessing remote data
+  + fetch library: `<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.js"></script>`
+  + access remote data
+
+    ```js
+    function search() {
+      var queryURL = "https://jsonplaceholder.typicode.com/users";
+
+      fetch(queryURL)
+        .then(function (response) {
+            // response.json() returns a json string,
+            // returning it will convert it 
+            // to a pure JavaScript 
+            // object for the next then's callback
+            return response.json();
+        })
+        .then(function (users) {
+            // users is a JavaScript object here
+            displayUsersAsATable(users);
+        })
+        .catch(function (error) {
+            console.log('Error during fetch: ' + error.message);
+        });
+    }
+    ```
+
+
 
