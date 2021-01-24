@@ -425,7 +425,7 @@ Thousands of JavaScript libraries exist. Their purposes range from making it eas
 
 We provide some examples below, but feel free to look on the Web for other external libraries.
 
-__Example #1: plot mathematical functions using the [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/__
+__Example #1: plot mathematical functions using the [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/)__
 
 There are numerous libraries for plotting math functions, but this one is pretty easy to use and very powerful. Here is an example that plots `f(x) = x^2`, then `f(x) = sin(x)` and finally a mix of fours functions: `f(x) = x^2` (in red), `f(x) = 3*x` (in green), `f(x) = cos(x)` (in blue) and `f(x) = -3*x^2 + x^2` (dashed)
 
@@ -469,6 +469,15 @@ This is just a small example of the use of the [sprite.js library](https://githu
 [Local Demo](src/01f-example19.html)
 
 
+#### Notes for 1.6.7 Using third-party JS APIs/libraries
+
++ 3rd-party JS APIs/Libraries
+  + thousands of JavaScript linbraries existed w/ various purpose
+  + Examples
+    + [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/): plotting mathematical functions
+    + [d3.js JavaScript library](https://d3js.org/): plot a force directed graph
+    + [chiptune.js library](https://rawgithub.com/deskjet/chiptune.js/): play chiptune songs, [mod archive](https://modarchive.org/)
+    + [sprite.js library](https://github.com/IceCreamYou/Canvas-Sprite-Animations): animate a sprite in an HTML5 canvas
 
 
 
