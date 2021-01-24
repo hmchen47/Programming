@@ -476,9 +476,33 @@ This is just a small example of the use of the [sprite.js library](https://githu
   + Examples
     + [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/): plotting mathematical functions
     + [d3.js JavaScript library](https://d3js.org/): plot a force directed graph
-    + [chiptune.js library](https://rawgithub.com/deskjet/chiptune.js/): play chiptune songs, [mod archive](https://modarchive.org/)
+    + [chiptune.js library](https://rawgithub.com/deskjet/chiptune.js/): play chiptune songs, [mod archive](https://modarchive.org/) for demos
     + [sprite.js library](https://github.com/IceCreamYou/Canvas-Sprite-Animations): animate a sprite in an HTML5 canvas
 
+
+
+### 1.6.8 Working with remote data
+
+Let's see a few examples on how to work with remote data.
+
+#### Examples
+
+__Example #1: use remote structured data__
+
+This example downloads and displays a list of users in a table (see remote data):
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/xgoZdg)
+
+[Local Demo](src/01f-example20.html)
+
+
+__Example #2: load and decode remote sounds for use in a video game__
+
+This example just shows how to use the HowlerJS external library to load remote sounds, decode them and play them as samples in memory (useful for video games):
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/BWbNQG)
+
+[Local Demo](src/01f-example21.html)
 
 
 
