@@ -389,6 +389,31 @@ Click on the piano keyboard. Use the different buttons, sliders, etc. This examp
 [Local Demo](src/01f-example14.html)
 
 
+#### Notes for 1.6.6 Using built-in HTML5 APIs
+
++ Built-in HTML5 APIs
+  + standard
+    + standard W3C APIs, part of HTML5
+    + supported by browsers
+    + joint effort by the industry, the community, and W3C
+  + examples
+    + access and display WebCam
+
+      ```js
+      navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: true
+      }).then(function(stream) {
+        var video = document.createElement('video');
+        document.body.appendChild(video);
+        video.srcObject = stream;
+        video.play();
+      }).catch(err => {
+        console.log(err)
+      })
+      ```
+
+    + WenAudio APIs: `oscillator.createOscillator(); oscillator.setFreq(freq);`
 
 
 
