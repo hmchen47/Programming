@@ -534,4 +534,17 @@ This example just shows how to use the HowlerJS external library to load remote 
     ```
 
 
+### 1.6.9 Discussion and project
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+
+#### Suggested topic
+
++ Please share any fun/interesting JS examples that could interest your fellow students.
+
+#### Optional project
+
++ You can tweak and share some of the examples provided in this section. No need to understand the whole code...
+
 
