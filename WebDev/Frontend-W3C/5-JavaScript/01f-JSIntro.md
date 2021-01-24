@@ -416,4 +416,60 @@ Click on the piano keyboard. Use the different buttons, sliders, etc. This examp
     + WenAudio APIs: `oscillator.createOscillator(); oscillator.setFreq(freq);`
 
 
+### 1.6.7 Using third-party JS APIs/libraries
+
+Thousands of JavaScript libraries exist. Their purposes range from making it easier to plot a math function, playing [chiptune](https://fr.wikipedia.org/wiki/Chiptune) music, animating objects, through to visualizing data and much more.
+
+
+#### Examples
+
+We provide some examples below, but feel free to look on the Web for other external libraries.
+
+__Example #1: plot mathematical functions using the [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/__
+
+There are numerous libraries for plotting math functions, but this one is pretty easy to use and very powerful. Here is an example that plots `f(x) = x^2`, then `f(x) = sin(x)` and finally a mix of fours functions: `f(x) = x^2` (in red), `f(x) = 3*x` (in green), `f(x) = cos(x)` (in blue) and `f(x) = -3*x^2 + x^2` (dashed)
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/jyjEob)
+
+[Local Demo](src/01f-example15.html)
+
+Here is another much simpler example, please edit the code (click on "edit on codepen") and change the function for something like `f(x) = x^3` and look at the result (don't forget to change the xRange and yRange values). If you have trouble, [look here](https://codepen.io/w3devcampus/pen/MJMYNb) for a solution.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/NdVJvy)
+
+[Local Demo](src/01f-example16.html)
+
+
+__Example #2: plot a force directed graph using the d3.js JavaScript library__
+
+Try to click and drag nodes... All the graphics, animation and force repulsion, is done using the very powerful [d3.js plotting library](https://d3js.org/). Look at the HTML source code to see how we included this library in our HTML page. Look at the JS part; it seems complicated, but hey! I guess you can make your own graph with your own colors and your own node labels, without mastering JavaScript ;-) The beauty of this language is that you can find so many examples on the Web that you can easily learn by copying and pasting, tweaking code you haven't even written, etc. Go to codepen.io and use the search button for "d3" and you will find plenty of examples that use that library.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/Bpgypq)
+
+[Local Demo](src/01f-example17.html)
+
+
+__Example #3: play chiptune songs using the chiptune.js library__
+
+I really like this example, as it takes me back to my youth playing games on the Commodore 64, the Nintendo NES console, etc. In that prehistoric age, there weren't a lot of kilobytes available in the memory, and most sounds were synthesized, not audio samples. The audio resolution was low as CPUs were rather weaker than today. Musicians used tools called "mod players/editors" for creating the music score (you can [try a re-creation on the browser of a mod editor](https://mod.haxor.fi/Necros/point_of_departure.s3m) to see how it looked in the late 80's).
+
+To try the example below, click on "load demo song", then on the play button. If you want to try other compatible songs, look for any .mod, .it, .xm song on the Web and drag and drop it into the example page. A good resource for such files is [The Mod Archive](https://modarchive.org/), you can download plenty of chiptune files from there.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/GrbgMB)
+
+[Local Demo](src/01f-example18.html)
+
+
+__Example #4: animate a sprite in an HTML5 canvas using the sprite.js library__
+
+This is just a small example of the use of the [sprite.js library](https://github.com/IceCreamYou/Canvas-Sprite-Animations), which makes it easier to animate sprites (sub images from a big image called a "sprite sheet") in an HTML5 canvas. We will see how to use the HTML5 canvas later on in this course. The example is just here to illustrate what can be done using external libraries.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/dNBPQm)
+
+[Local Demo](src/01f-example19.html)
+
+
+
+
+
 
