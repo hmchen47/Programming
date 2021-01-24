@@ -259,8 +259,7 @@ Michel Buffa
     + etc.
 
 + HTML elements
-  + the pieces themselves
-  + examples: a paragraph, a header, even the body
+  + the pieces themselves, e.g., a paragraph, a header, even the body
   + able to contain other elements
   + all of the visible elements of the Document Object Model (DOM)
     + tree diagram
@@ -273,14 +272,14 @@ Michel Buffa
   + not the element themselves
   + the bits of text to tell the computer where an element begins and ends
   + when marking up a document, none these extract notes displayed
-  + SGML providing an easy to determine
+  + SGML providing an easy way to determine
     + which parts are "MakUp"
     + which pars are the contents
   + by using "<" and ">" to indicate the begining and end
   + adding "/" right after the "<" to indicate a close tag
   + example: `<p>This is my first paragraph!</p>`
     + `<p>`: a new paragraph starting and starting a new line
-    + `</p>`: the paragraph working on finished and braking the line
+    + `</p>`: the paragraph working on finished and breaking the line
   + illustration of a tag
 
     <figure style="margin: 0.5em; text-align: center;">
@@ -294,7 +293,7 @@ Michel Buffa
 
   + self-closing tags
     + most tags w/ open and close versions
-    + some tags representing an element completely described by its attributes $\implies$ no need for content
+    + some tags representing an element completely described by its attributes $\implies$ no content needed
     + using "/" before ">" to indicate the complete of the tag
     + example: `<img src="https://goo.gl/pVxY0e" alt="Floating Flower"/>`
   + void elements
@@ -310,16 +309,15 @@ Michel Buffa
   + different tags sharing some common attributes and w/ specific attributes
   + shared attributes useful when coupled w/ CSS (id & class)
 
-#### Knowledge check 1.2.1 
+#### Knowledge check 1.2.1
 
 1. HTML tags and HTML elements the same thing. True or false?
 
   Ans: False<br/>
   Explanation: No, tags are not the elements themselves. They are the bits of text you use to tell the computer where an element begins and ends; they are enclosed between the < and > characters.
 
-#### Knowledge check 1.2.2
 
-1. The HTML structure of a document is a tree. (Correct/Incorrect)
+2. The HTML structure of a document is a tree. (Correct/Incorrect)
 
   Ans: Correct<br/>
   Explanation: The structure of an HTML document is a "tree". Any given element (except for the outermost "html" element) is wholly contained inside another element, referred to as the "parent" element.
