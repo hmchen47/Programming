@@ -1020,7 +1020,7 @@ Without such tools, debugging JavaScript code is impossible. So you need to look
 
 #### Note for 1.3.5 How to debug JavaScript
 
-+ Debugging w/ JavaScript
++ Debugging in JavaScript
   + error messages: printing message for debugging code
   + basics of debuging: seeing error messages
     + in the devtool console
@@ -1032,7 +1032,7 @@ Without such tools, debugging JavaScript code is impossible. So you need to look
     + Windows: F12 (or ctrl-shift-i)
     + MacOS: cmd-option-i
   + console tab: error message or messages of `console.log(string)` JavaScript function displayed
-  + example" `console.log("Some JavaScript code has been executed");`
+  + example: `console.log("Some JavaScript code has been executed");`
   + code executed in sequence when the page is loaded
   + error message to debug
     + showing the error message in console tab
