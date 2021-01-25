@@ -209,17 +209,17 @@ Not bad ;-)
   + Best practice
     + read and tweak small JavaScript code snippet
     + carfully read the references that details some important parts of the language
-  + example: external JavaScript code
+  + example: external JavaScript libraies
     + [d3js plotting library](https://d3js.org/): `<script src="https://d3js.org/d3.v3.min.js"></script>`
     + [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/): `<script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>`
-  + example: JavaScript code
+  + example: JavaScript code snippet
 
     ```js
     functionPlot({
-           target: '#myFunction',
-           data: [{
-           fn: 'sin(x)',
-           color: 'red'
+        target: '#myFunction',
+        data: [{
+          fn: 'sin(x)',
+          color: 'red'
         }],
         grid: true,
         yAxis: {domain: [-1, 1]},
@@ -254,7 +254,7 @@ Not bad ;-)
     ```
 
     + `:`: seperator btw the property name and its value
-    + `,`: separator btw two properties and omitting after the last property
+    + `,`: separator btw two properties and omitted after the last property
   + example: passing parameter for `functionPlot(parameters)`
 
     ```js
@@ -274,9 +274,9 @@ Not bad ;-)
     }
     ```
 
-    + `target`: the CSS selectorcorresponding to the HTML element that will contain the plot
+    + `target`: the CSS selector corresponding to the HTML element that will contain the plot
     + `data`: the value of the function(s) to be plotted
-    + `grid`: boolean value indicating whether or not a grid to be drawn iin the bacjkground
+    + `grid`: boolean value indicating whether or not a grid to be drawn iin the background
     + `xAxis`: specifying the domain (range) for the x values
     + `yAxis`: specifying the domain (range) for the y values
 
