@@ -271,7 +271,7 @@ Michel Buffa
   + used to organize a text file s.t. representing a tree of elements
   + not the element themselves
   + the bits of text to tell the computer where an element begins and ends
-  + when marking up a document, none these extract notes displayed
+  + when marking up a document, none of these extract notes displayed
   + SGML providing an easy way to determine
     + which parts are "MakUp"
     + which pars are the contents
