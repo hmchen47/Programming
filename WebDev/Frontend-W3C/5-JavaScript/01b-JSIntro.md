@@ -745,14 +745,14 @@ JavaScript is an interpreted (or just-in-time compiled) language, which means th
   + ispired by Java but only some naming conventions remaining the same
   + success following the popularity of Netscape Navigator 2 in March 1996
   + quickly integrated into other popular browsers
-  + standardized by ECMA as the EcmaScript standar in 1996
+  + standardized by ECMA as the EcmaScript standard in 1996
   + called JavaScript or EcmaScript
 
 + Versions of JavaScript
   + stable version supported by all major browsers: EcmaScript version 5 from 2010
   + EcmaScript 6 or ES 2015: introduced many new features
   + a new version every year w/ some adjustments/novelties
-  + ES w/ year: naming convention since 2015
+  + ES####: naming convention since 2015, #### = year
   + no global support list for browsers but caniuse.com used to check feature by feature
 
 + JavaScript programming language
