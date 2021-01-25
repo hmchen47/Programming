@@ -853,7 +853,7 @@ Here is a running example that uses the paperJS library, included using an exter
     + usage
       + link the script file w/ `src` attribute of `<script>` tag
       + JavaScript file must end w/ `.js`
-      + no `<script>...</script>` in '`.js` file
+      + no `<script>...</script>` in `.js` file
       + external JavaScript file w/ `<script src="..."></script>` = `<script>...</script>` in HTML
       + multiple JavaScript allowed w/ `<script src="..."></script>`
 
