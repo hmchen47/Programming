@@ -25,7 +25,7 @@ __Here is what the resulting Web page will look like:__
 
 #### Note for 1.4.1 Creating an HTML/CSS/JS project
 
-+ Example: creating project w/ math function plot
++ Example: creating project for math function plot
   + input fields:
     + math function to plot
     + range for x and y
@@ -35,7 +35,7 @@ __Here is what the resulting Web page will look like:__
     + function plot: `<script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>`
   + HTML code
     + section for input fields: `<section id="plotSettings">`
-    + executing function `plot()` after page load: `<body onload="plot();">`
+    + executing init function `plot()` after page load: `<body onload="plot();">`
     + label and input field: `<label for="xMin">xMin: </label> value: <input type=number id="xMin" value=0 step=0.5 oninput="plot();">`
     + forcing the page to plot curve w/ given math function: `<button onclick="plot();">Plot it!</button>`
     + section for curve plotting: `<section id="plot">  <div id="myFunction"></div> </section>`  
@@ -51,7 +51,7 @@ __Here is what the resulting Web page will look like:__
       data: [{
         fn: 'sin(x)', 
         color: 'red'
-    }],
+      }],
       grid: true,
       yAxis: {domain: [-1, 1]},
       xAxis: {domain: [0, 2*Math.PI]}
