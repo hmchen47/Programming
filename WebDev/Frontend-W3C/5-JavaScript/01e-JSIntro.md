@@ -452,7 +452,7 @@ This operator is not often use in JavaScript programs, but it's useful for us, f
   + objects
     + everything not a "primitive data type"
     + a set of "predefined objects": arrays, functions, etc.
-    + example: `ar michel = {firstName:'Michel', lastName:'Buffa'};`
+    + example: `var michel = {firstName:'Michel', lastName:'Buffa'};`
   + `null` still defined
 
 + JavaScript data type
