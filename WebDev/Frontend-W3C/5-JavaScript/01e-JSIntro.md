@@ -1740,8 +1740,8 @@ An array named "arguments" is created automatically in each function, it contain
   + grouping code, providing name and accessing by calling the given name
   + always returning a value
     + explicityly, using the keyworkd `return` followed by the value
-    + implicityly, return value is `undefined`
-  + declaring a function, e.g., 
+    + implicityly, returning value is `undefined`
+  + declaring a function, e.g.,
 
     ```js
     function sum(a, b) {
@@ -1757,7 +1757,7 @@ An array named "arguments" is created automatically in each function, it contain
     + an array created automatically in each function
     + containing all the call parameters of the function
   + omitted during the call, JavaScript providing the value `undefined`
-  + a variable number of parameters
+  + a various number of parameters
 
     ```js
     function f() {
