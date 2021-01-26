@@ -1353,7 +1353,7 @@ __"\t" for "insert a tabulation":__
   + special characters starting w/ `\`
     + `\n` for next line
     + `\r` for carriage return
-    + `\t` for insert a tabulation
+    + `\t` for inserting a tabulation
 
 
 #### Knowledge check 1.5.8
