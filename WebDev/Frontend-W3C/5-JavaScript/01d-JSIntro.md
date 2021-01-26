@@ -23,6 +23,62 @@ __Here is what the resulting Web page will look like:__
 [Local Demo](src/01d-example01.html)
 
 
+#### Note for 1.4.1 Creating an HTML/CSS/JS project
+
++ Example: creating project w/ math function plot
+  + input fields:
+    + math function to plot
+    + range for x and y
+    + color of curve
+  + JavaScript libraries
+    + d3js plot: `<script src="https://d3js.org/d3.v3.min.js"></script>`
+    + function plot: `<script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>`
+  + HTML code
+    + section for input fields: `<section id="plotSettings">`
+    + executing function `plot()` after page load: `<body onload="plot();">`
+    + label and input field: `<label for="xMin">xMin: </label> value: <input type=number id="xMin" value=0 step=0.5 oninput="plot();">`
+    + forcing the page to plot curve w/ given math function: `<button onclick="plot();">Plot it!</button>`
+    + section for curve plotting: `<section id="plot">  <div id="myFunction"></div> </section>`  
+  + CSS style
+    + section selector: `section {border:4px solid grey;  border-radius:15px;  box-shadow: 5px 5px 5px grey;  float:left;  height:360px;  padding: 20px;  margin:10px;}`
+    + plot setting selector: `#plotSettings {width:150px;}`
+    + plot selector: `#plot {width:550px;}`
+  + JS plotting parameters
+
+    ```js
+    var parameters = {
+      target: '#myFunction',
+      data: [{
+        fn: 'sin(x)', 
+        color: 'red'
+    }],
+      grid: true,
+      yAxis: {domain: [-1, 1]},
+      xAxis: {domain: [0, 2*Math.PI]}
+    };
+    ```
+
+  + JS plot function
+
+    ```js
+    function plot() {
+      var f = document.querySelector("#function").value;
+      var xMin = document.querySelector("#xMin").value;
+      var xMax = document.querySelector("#xMax").value;
+      var yMin = document.querySelector("#yMin").value;
+      var yMax = document.querySelector("#yMax").value;
+      var color = document.querySelector("#color").value;
+      
+      parameters.data[0].fn = f;
+      parameters.xAxis.domain = [xMin, xMax];
+      parameters.yAxis.domain = [yMin, yMax];
+      parameters.data[0].color = color;
+      
+      functionPlot(parameters);
+    }
+    ```
+
+
 ### 1.4.2 Using CodePen
 
 #### Live coding video: using CodePen
