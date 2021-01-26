@@ -195,14 +195,13 @@ Here are a set of examples (using the `let` keyword, but they would also work wi
   + `//`: comments
   + devtools console: able to type and execute JavaScript Code as an interperter
 
-
 + Variables
   + used to "store values"
   + declaration
     + `var`
       + 'variable'; the only keyword to declare a variable before version 5 (2015)
       + example: `var myVar;`
-    + `let`
+    + `let` & `const`
       + allowed in subsequent versions (ES2015/ES2016 or JavaScript 6/7)
       + example: `let x;`
   + naming rules
@@ -212,16 +211,16 @@ Here are a set of examples (using the `let` keyword, but they would also work wi
     + reserved names: `boolean`, `if`, `delete`, `var`, `function`, etc.
   + assigning value
     + `=`: the assignment operator
-    + `var myValue; myValue = 78`
+    + example: `var myValue; myValue = 78;`
       + store the value 78 and put it in a variable named "muValue"
       + given an id to a location somewhere in the memory of the computer
-      + using the id "myValue", store 78 into a memory location identified by the name "muValue"
+      + using the id "myValue", store 78 into a memory location identified by the name "myValue"
       + a value able to vary over time if assigning a new value to the variable "myValue", e.g., `myValue = 5;`
     + multiple variables allowed and saparated by ";", eg, `var myNumber1, myNumber2 = 34, myNumber3;`
   + using a variable never assigning a value: error message, eg, `Uncaught ReferenceError: k is not defined`
   + naming conventions
-    + CamelCase notation preferbrown
-    + 1st letter is lowercase and each 1st letter of each letter is capitalized
+    + CamelCase notation preferred
+    + 1st letter is lowercase and each 1st letter of each word is capitalized
 
 + Constant
   + variables unable to be modified after set
