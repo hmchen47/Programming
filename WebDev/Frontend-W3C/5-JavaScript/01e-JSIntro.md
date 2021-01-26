@@ -1637,11 +1637,11 @@ Examples:
       + `daysOfWeek[0];`, `daysOfWeek[1];`, `daysOfWeek[2]` $\to$ `"Monday"`, `"Tuesday"`, `"Wednesday"`
   + array length
     + `length` property
-    + example: ``var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunda']; daysOfWeek.length` $\to$ `7`
-  + index range: [0, daysOfWeek - 1]
+    + example: `var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunda']; daysOfWeek.length` $\to$ `7`
+  + index range: `[0, daysOfWeek.length - 1]`
   + strings: arrays of characters
     + objects
-    + with length property
+    + w/ length property
     + using index to access individual character
 
 
