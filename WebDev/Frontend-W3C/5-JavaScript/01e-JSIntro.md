@@ -1444,7 +1444,7 @@ Accessing an object's properties: we use the operator "."
       + values: `'Michel'` & `'Buffa'`
   + accessing properties or method
     + using `.` operator
-    + pre-defined objects: `windows`, `document`, `navigator`, `console`, etc.
+    + pre-defined objects: `window`, `document`, `navigator`, `console`, etc.
     + examples
       + `daysOfTheWeek.length`: array property
       + `document.body` or `window.innerWidth`
@@ -1453,7 +1453,7 @@ Accessing an object's properties: we use the operator "."
 + Common objects & properties
   + auto-completion w/ `.` to display options in devtools console tab
   + the size of current browser window: `window.innerWidth` & `window.innerHeight`
-  + current URL w/ the page: `windows.location`
+  + current URL w/ the page: `window.location`
   + vendor of browser: `navigator.vender`
 
 + Defining singleton objects
