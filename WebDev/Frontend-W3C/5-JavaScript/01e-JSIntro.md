@@ -748,13 +748,13 @@ Note: Some arithmetic functions use only numbers with a 32-bit format. Larger nu
   + __signed integer__: `-17`
   + __decimal__: `3.46`, `-466.877`
   + __scientific notation__: `3.46e4`, `5.3e+6`, `5344000e-5`
-  + __octal__: `010 = 8`, `0456 = 4 * 8^2 + 5 * 8^1 + 6 * 8^0`; starting w/ `0` w/ all numbers `0`~`7`
+  + __octal__: `010 = 8`, `0456 = 4 * 8^2 + 5 * 8^1 + 6 * 8^0`; starting w/ `0` w/ all numbers `0` ~ `7`
   + __hexadecimal__: `0xF3`
   + special values
     + `+Infinity`
       + all number values greater than `1.79769313486231570e+308`
-      + `1/0` $\to$ `Infinity`
-      + `typeof(Infinity)` $\to$ number
+      + `1/0` $\to$ `Infinity`, `-1/0` $\to$ `-Infinity`
+      + `typeof Infinity` $\to$ number
     + `-Infinity`: all number values smaller than `-1.79769313486231570e+308`, `-1/0`
     + `NaN` (Not a Number): `0/0`
 
