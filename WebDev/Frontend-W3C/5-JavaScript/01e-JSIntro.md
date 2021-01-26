@@ -1048,17 +1048,17 @@ There are good chances you will encounter such code:
 + Numeric operators
   + binary
     + operators: `+`, `-` , `/`, `*`, `%`
-    + example: `7 % 5` = 2; `1 + 2` = 3; 
+    + example: `7 % 5;` $\to$ 2; `1 + 2;` $\to$ 3; 
   + unary operator
     + operators: `++`, `--`, `-` (opposite of a number, negative)
     + suffix `++`: adding one to the variable, then return the old value
     + prefix `++`: adding one tot he variable, then return the new value
-    + example: `let x = 3;`
+    + example: `let x = 3; let a = 123;`
       + `console.log(x++); x;` $\to$ print 3 and x = 4
       + `console.log(++x); x;` $\to$ print 4 and x = 4
-      + `let a = 123; var b = a++; b; a;` $\to$ 123, 124
-      + `let a = 123; var b = ++a; b; a;` $\to$ 124, 124
-      + `let a = 123; var b = a--; b; a;` $\to$ 123, 122
+      + `var b = a++; b; a;` $\to$ 123, 124
+      + `var b = ++a; b; a;` $\to$ 124, 124
+      + `var b = a--; b; a;` $\to$ 123, 122
   + mixing assignment
     + binary operator used w/ a shorter syntax when assigning the resulting value to a variable
     + pre operators: `+=`, `-=`, `*=`, `/=`, `%=`
