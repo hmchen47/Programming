@@ -362,7 +362,7 @@ Well, all modern browsers support the `let` and `const` keywords, however, you m
     + local variable within a function overrides a global variable w/ the same name
     + global scope / global variable
       + variable declared outside of a function
-      + used naywhere in the code
+      + used anywhere in the code
     + local scope / local variable (function scope)
       + variable declared to be local to the function
       + override any global variable w/ the same name
@@ -375,7 +375,7 @@ Well, all modern browsers support the `let` and `const` keywords, however, you m
       + always declaring a global or a local variable w/ `var`
       + using `let` if browser supporting JavaScript 6
   + `let` & `const` keywords since ES2015
-    + `let` keyword to declar variables
+    + `let` keyword to declare variables
     + `const` keywork to declare constants
     + scope
       + global scope for global variable
