@@ -1110,10 +1110,10 @@ There are many reasons to use simple quotes when possible:
 + Strings
   + text surrounded by single quote `'` or double quote `"`
   + no difference btw single quote and double quote
-  + single and double quotes musg be shown in pair
+  + single and double quotes must be shown in pair
   + community preference: single quote for string
   + using double quote if text consisting at least a single quote
-  + example: `"Hello World";`,  `'With simple quotes';`
+  + example: `"Hello World";`,  `'With simple quotes';`, `"It's my pleasure.";`
 
 
 #### Knowledge check 1.5.7
