@@ -295,8 +295,25 @@
 
 
 
-## Operators
+## Expressions and Operators
 
++ [Expression](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-155-js-operators-and-expressions)
+  + a small piece of code used to produce a value
+  + within an expression, find values, variables, operators, and expressions
+  + using parentheses to force the execution of the expression inside
+  + parentheses used to indicate precedence
+  + evaluate to four types: `numbers`, `strings`, `booleans`, and `objects`
+
++ [Operators](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-155-js-operators-and-expressions)
+  + unary operator
+    + applied to one expression
+    + prefixed or suffixed
+  + binary operator
+    + applied to different expressions
+    + both prefixed and suffixed
+  + ternary  operator
+    + `(condition) ? 'something' : 'others'`
+    + example: `var kindergarten_eligible = (age < 5) ? "Too young" : socially_ready`
 
 
 
