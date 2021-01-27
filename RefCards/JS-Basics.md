@@ -214,6 +214,24 @@
 
 ## Data Types
 
++ [Types of data in JS](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-153-js-data-types)
+  + primitive data types
+    + __number:__ `1,2,105,3.14 ...`
+    + __string:__ `'a', "one", 'two' , 'World Wide Web' ...`
+    + __boolean:__ `true / false`
+    + __undefined:__ absent or unknown value
+    + __null:__ special keyword, meaning no value or empty
+  + objects
+    + everything not a "primitive data type"
+    + a set of "predefined objects": arrays, functions, etc.
+  + `null` still defined
+
++ [JavaScript data type](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-153-js-data-types)
+  + weakly typed programming language
+  + not declaring w/ the type of variable
+  + `typeof` operator: showing the type of a variable depending on its value
+  + possible values of `typeof` operator: `number`, `string`, `boolean`, `undefined`, `object`, or `function`
+
 
 
 
