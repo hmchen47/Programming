@@ -301,6 +301,12 @@
 
 ## Strings
 
++ [Strings](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-157-strings-part-1)
+  + text surrounded by single quote `'` or double quote `"`
+  + no difference btw single quote and double quote
+  + single and double quotes must be shown in pair
+  + community preference: single quote for string
+  + using double quote if text consisting at least a single quote
 
 
 
