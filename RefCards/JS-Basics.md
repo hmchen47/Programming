@@ -237,6 +237,34 @@
 
 ## Numbers
 
++ [Number values in JS](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-154-numbers)
+  + __integer__: `1`, `23865`; not starting w/ `0` but `089 = 89`
+  + __signed integer__: `-17`
+  + __decimal__: `3.46`, `-466.877`
+  + __scientific notation__: `3.46e4`, `5.3e+6`, `5344000e-5`
+  + __octal__: `010 = 8`, `0456 = 4 * 8^2 + 5 * 8^1 + 6 * 8^0`; starting w/ `0` w/ all numbers `0` ~ `7`
+  + __hexadecimal__: `0xF3`
+  + special values
+    + `+Infinity`
+      + all number values greater than `1.79769313486231570e+308`
+      + `1/0` $\to$ `Infinity`, `-1/0` $\to$ `-Infinity`
+      + `typeof Infinity` $\to$ number
+    + `-Infinity`: all number values smaller than `-1.79769313486231570e+308`, `-1/0`
+    + `NaN` (Not a Number): `0/0`
+
++ [Precision of numbers](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-154-numbers)
+  + a double-precision 64-bit format
+    + total bits: 64
+    + sign: 1 bit
+    + exponent: 11 bits
+    + significant: 52 bits
+  + following IEEE 754 standard
+  + each number represented as a float
+  + an integer:
+    + $2^{52}$ relevenat bits
+    + biggest number: $2^{53}$
+    + smallest number: $-2^{53}$
+  + some arithmetic function only w/ 32-bit format
 
 
 
