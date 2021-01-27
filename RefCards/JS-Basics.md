@@ -139,6 +139,13 @@
     + click the top-right corner on the error message to show the source code
     + the line causing error highlighted
 
++ [devtool console](../WebDev/Frontend-W3C/5-JavaScript/01f-JSIntro.md#notes-for-162-the-devtool-console)
+  + a common way to debug JavaScript code
+  + `console.log(...)`: instruction to write message to the devtool console
+  + CodePen: click on the bottom left 'console' tab to display the console
+  + Browser: open devtool, then click on 'cpnsole' tab
+  + using concatentate operator `+` w/ `console.log(...)` for variable value
+
 
 ## Common syntax
 
