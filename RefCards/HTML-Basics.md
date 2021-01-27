@@ -37,6 +37,32 @@
     + dev. tool on web browser &gt; console tab &gt; error/log msgs
     + allowing to type any JS command
 
++ [Hypertext](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-of-121-html-is-for-structure)
+  + fundamental key to the WWW
+  + idea:
+    + linking information together: far easier and more flexible
+    + "mark up" document w/ links
+    + define how break document down into different segments (chapters, sections, paragraphs, tables, figures, etc.)
+  + Tim Berners-Lee (1989): Hypertext Markup Language, to provide a simple, uniform way to incorporate hyperlinks into a text document
+    + thoroughly interconnected documents
+    + traditionally done with footnotes and bibliographies but cumbersome
+    + information easily transferable from one place to another
+    + easy to access everything related (linked) to it
+    + imagined a "Web" of interconnected documents
+  + browser: a tool to navigate the sea of information
+
++ [Markup documents](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-of-121-html-is-for-structure)
+  + annotating a document w/ extra info
+  + components: elements, tags & attributes
+  + many ways to makup a document
+  + HTML utilizing SGML syntax
+    + using angle brackets ("<" and ">") to separate the annotations from the regular text
+    + these annotations called "tags"
+  + meta-information: everything in angle brackets
+  + putting things in btw those brackets w/o showing up (directly) in the finished document
+  + tags:
+    + big effect on how Web page looks
+    + how document responds and interacts with users
 
 
 ## Tags, Elements and Attributes of HTML
@@ -99,6 +125,52 @@
 	+ interactive content
 		+ specifically intended for user interaction
 		+ a (if the href attribute is present), audio (if the controls attribute is present), button, details, embed, iframeimg (if the usemap attribute is present), input (if the type attribute is not in the Hidden state), label, object (if the usemap attribute is present), select, textarea, video (if the controls attribute is present)
+
++ [HTML elements](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-of-121-html-is-for-structure)
+  + the pieces themselves, e.g., a paragraph, a header, even the body
+  + able to contain other elements
+  + all of the visible elements of the Document Object Model (DOM)
+    + tree diagram
+    + any given element contained inside another elements, except for the outmost "html" element
+    + child elements: elements contained within a given element
+    + sibling: children of a common parent element
+
++ [HTML Tags](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-of-121-html-is-for-structure)
+  + used to organize a text file s.t. representing a tree of elements
+  + not the element themselves
+  + the bits of text to tell the computer where an element begins and ends
+  + when marking up a document, none of these extract notes displayed
+  + SGML providing an easy way to determine
+    + which parts are "MakUp"
+    + which pars are the contents
+  + by using "<" and ">" to indicate the begining and end
+  + adding "/" right after the "<" to indicate a close tag
+  + illustration of a tag
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick="window.open('https://tinyurl.com/y6osf6ba')"
+        src    ="https://tinyurl.com/yyo882n2"
+        alt    ="Diagram of an element"
+        title  ="Diagram of an element"
+      />
+    </figure>
+
+  + self-closing tags
+    + most tags w/ open and close versions
+    + some tags representing an element completely described by its attributes $\implies$ no content needed
+    + using "/" before ">" to indicate the complete of the tag
+  + void elements
+    + elements w/o a "/" at the end
+    + all info required declared in an "attribute"
+    + including: `area`, `base`, `br`, `col`, `embed`, `hr`, `img`, `input`, `link`, `menuitem`, `meta`, `param`, `source`, `track`, `wbr`
+
++ [HTML attributes](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-of-121-html-is-for-structure)
+  + a given element dinguiashed by any number of unique or common attributes
+  + example: `<img src="n666194627.jpg" width=200 alt="Michel Buffa plays rock&roll">`
+    + `width` attribute: constraint the width of an image
+  + different tags sharing some common attributes and w/ specific attributes
+  + shared attributes useful when coupled w/ CSS (id & class)
 
 
 
