@@ -471,7 +471,7 @@ This is just a small example of the use of the [sprite.js library](https://githu
 
 + 3rd-party JS APIs/Libraries
   + thousands of JavaScript linbraries existed w/ various purpose
-  + Examples
+  + examples
     + [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/): plotting mathematical functions
     + [d3.js JavaScript library](https://d3js.org/): plot a force directed graph
     + [chiptune.js library](https://rawgithub.com/deskjet/chiptune.js/): play chiptune songs, [mod archive](https://modarchive.org/) for demos
