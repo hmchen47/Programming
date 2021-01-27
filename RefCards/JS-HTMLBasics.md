@@ -1,5 +1,22 @@
 # JavaScript Basic HTML APIs
 
+
+## Standard APIs
+
+### Modifying HTML document
+
++ [Modifying HTML document](../WebDev/Frontend-W3C/5-JavaScript/01f-JSIntro.md#notes-for-163-modifying-an-html-document)
+  + selection API:
+    + used for "selecting elements in the document"
+    + syntax: `document.querySelector("#myId");`
+  + DOM API:
+    + used for adding content to the body of the page (page = document)
+    + syntax: `document.body.innerHTML = "...";`
+  + HTML Table JavaScript API: useful for building tables on the fly; e.g.,
+    + add new row to end of the table: `var newRow   = tableBody.insertRow();`
+    + add cell for the row: `var firstNameCell  = newRow.insertCell(); firstNameCell.innerHTML = firstName;`
+
+
 ## Web Storage APIs
 
 ### Web Storage API
