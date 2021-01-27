@@ -356,6 +356,23 @@
   + vendor of browser: `navigator.vender`
 
 
+
+## Arrays
+
++ Arrays
+  + definition: containers w/ indexes
+  + declaration w/ `[]`
+  + access using indexes
+    + 1st element index: 0
+    + accessing w/ `[#]` where `#` as the index
+  + array length: `length` property
+  + strings: arrays of characters
+    + objects
+    + w/ length property
+    + using index to access individual character
+
+
+
 ## Functions
 
 + [JavaScript function](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-131-the-best-way-to-learn-javascript)
