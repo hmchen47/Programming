@@ -3,23 +3,24 @@
 
 ## General Information
 
-### [CSS design principles(CSS 2.2)][001]
+### CSS design principles(CSS 2.2)
 
-+ Forward and backward compatibility.
-+ Complementary to structured documents.
-+ Vendor, platform, and device independence.
-+ Maintainability.
-+ Simplicity.
-+ Network performance.
-+ Flexibility
-+ Richness
-+ Alternative language binding.
-+ Accessibility
++ [CSS design principles (CSS2.2)](https://www.w3.org/TR/CSS22/intro.html#design-principles)
+  + Forward and backward compatibility.
+  + Complementary to structured documents.
+  + Vendor, platform, and device independence.
+  + Maintainability.
+  + Simplicity.
+  + Network performance.
+  + Flexibility
+  + Richness
+  + Alternative language binding.
+  + Accessibility
 
 
-### [Effective Use of Style Sheets][002]
+### Effective Use of Style Sheets
 
-+ Generalized Style
++ [Generalized Style](https://www.nngroup.com/articles/effective-use-of-style-sheets/)
   + single style sheet for all of the pages on your site
   + linked style sheets
   + centralized design
@@ -27,7 +28,7 @@
   + plenty of examples
   + page authors should be allowed to create additional embedded styles for their own pages
 
-+ Implementation advice
++ [Implementation advice](https://www.nngroup.com/articles/effective-use-of-style-sheets/)
   + continue to work when style sheets are disabled
   + Do not use more than two fonts
   + Do not use absolute font sizes
@@ -94,9 +95,9 @@
 
 ### Tools
 
-+ [CSS Validator][000]
++ [CSS Validator](https://jigsaw.w3.org/css-validator/)
 
-+ [CSS Zen Garden][003]
++ [CSS Zen Garden](http://www.csszengarden.com/)
 
 + [WC3 complete list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html)
 
@@ -133,12 +134,12 @@
   ```
 
 
-### [CSS Syntax][004]
+### CSS Syntax
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div>
-  <a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/fa2e67e5afb94de3981b22805acd686c/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%4098c09f586c9c45349fe25ca9e1742a14">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/39ef39b8e6685b816badb923520fa827/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-3-1_css_anatomy.PNG" style="margin: 0.1em;" alt="A CSS rule is broken into two parts: the selector and the property" title="css anatomy" width="250">
+  <a href="https://tinyurl.com/yc944w7n">
+    <img src="https://tinyurl.com/y4o4ah8y" style="margin: 0.1em;" alt="A CSS rule is broken into two parts: the selector and the property" title="css anatomy" width="250">
     <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/989b2e8ecef6fec3fcc6fd02a5baed58/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/2-3-1_property_anatomy.PNG" style="margin: 0.1em;" alt="This is what tells the browser how to style the HTML tag that has been selected. This can be as many lines of code as you choose, each of which has two parts- the property and the value you want that property to be." title="property anatomy" width="250">
   </a>
   <a href="https://www.w3schools.com/css/css_syntax.asp">
@@ -148,24 +149,24 @@
 </div>
 
 
-+ Selector:
++ [Selector](../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#constructing-your-css-rules)
   + tell the browser what HTML tags this rule applies to
   + types: tag, class & id
   + attribute selectors: Classes and IDs
   + multiple HTML elements with similar style: `p, ul, ol {color: blue; }`
 
-+ Property:
++ [Property](../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#constructing-your-css-rules)
   + tell the browser how to style the HTML tag that has been selected
   + as many lines of code as you choose
   + each of which has two parts- the property and the value you want that property to be
   + with its own collection of possible values
-  + [complete list of latest CSS properties][005] at the W3C
+  + [complete list of latest CSS properties](https://www.w3.org/Style/CSS/all-properties#list) at the W3C
 
 
 ### Comment
 
 + Comments
-  + begin with /* and must end with */
+  + begin with `/*` and must end with `*/`
   + able to span several lines
   + not nested
 
@@ -283,7 +284,7 @@
   + [&lt;time-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/time-percentage): a value that can be either a &lt;time&gt; or a &lt;percentage&gt;
 
 + [Special data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Special_data_types_(defined_in_other_specs))
-  + [&lt;color&gt;]()
+  + [&lt;color&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
     + specify the color of an element feature
     + a color in the sRGB color space
     + may include an alpha-channel transparency value
@@ -345,144 +346,6 @@
     + e.g., Simple usage: `attr(data-count);`, With type: `attr(src url);`, With fallback: `attr(data-count number, 0);`
 
 
-
-<!-- A version based on W3C Specification
-
-+ [Integers and real numbers](https://www.w3.org/TR/CSS22/syndata.html#numbers)
-  + Real numbers and Integers: decimal notation only
-  + &lt;integer&gt; : one or more digits "0" to "9"
-  + &lt;number&gt; : either an &lt;integer&gt; or zero or more digits followed by a dot (.) followed by one or more digits
-  + preceded by a "-" or "+" to indicate the sign
-  + '-0' = 0: not a negative number
-
-+ [Lrngths](https://www.w3.org/TR/CSS22/syndata.html#length-units)
-  + refer to distance measurements
-  + &gt;length&lt; : a &lt;number&gt; (with or without a decimal point) immediately followed by a unit identifier (e.g., px, em, etc.)
-  + negative length values
-    + allowed for some properties
-    + converted to the nearest value if not supported
-  + Relative length units
-    + specify a length relative to another length property
-    + more easily scale from one output environment to another
-    + <span style="font-weight: bold; color: #ff6000;">em</span>: the 'font-size' of the relevant font
-      + equal to the computed value of the 'font-size' property of the element on which it is used
-      + EXCEPTIOn: when the value of the 'font-size' property itself refers to the font size of the parent element
-      + used for vertical or horizontal measurement
-    + <span style="font-weight: bold; color: #ff6000;">ex</span> : the 'x-height' of the relevant font
-      + defined by the element's first available font
-      + often equal to the height of the lowercase "x"
-      + EXCEPTIOn: when the value of the 'font-size' property itself refers to the 'ex' of the parent element
-  + Absolute length units
-    + <span style="font-weight: bold; color: #ff6000;">in</span>: inches — 1in is equal to 2.54cm.
-    + <span style="font-weight: bold; color: #ff6000;">cm</span>: centimeters
-    + <span style="font-weight: bold; color: #ff6000;">mm</span>: millimeters
-    + <span style="font-weight: bold; color: #ff6000;">pt</span>: points — the points used by CSS are equal to 1/72nd of 1in.
-    + <span style="font-weight: bold; color: #ff6000;">pc</span>: picas — 1pc is equal to 12pt.
-    + <span style="font-weight: bold; color: #ff6000;">px</span>: pixel units — 1px is equal to 0.75pt.
-
-
-+ [Percentages](https://www.w3.org/TR/CSS22/syndata.html#percentage-units)
-  + a &lt;number&gt; immediately followed by '%'
-  + always relative to another value
-  + be that of another property for the same element, a property for an ancestor element, or a value of the formatting context
-  + set for a property of the root element: percentage times the initial value of that property
-
-+ [URLs and URIs](https://www.w3.org/TR/CSS22/syndata.html#uri)
-  + Uniform Resource Identifiers
-  + used to designate URIs in property values
-
-+ [Counters](https://www.w3.org/TR/CSS22/syndata.html#counter)
-  + denoted by case-sensitive identifiers
-  + 'counter(&lt;identifier&gt;)' or 'counter(&lt;identifier&gt;, &lt;'list-style-type'&gt;)': the value of a counter
-  + 'counters(&lt;identifier&gt;, &lt;string&gt;)' or 'counters(&lt;identifier&gt;, &lt;string&gt;, &lt;'list-style-type'&gt;)': a sequence of nested counters of the same name
-  + optional white space separating the tokens
-
-+ [Colors](https://www.w3.org/TR/CSS22/syndata.html#color-units)
-  + A &lt;color&gt; is either a keyword or a numerical RGB specification.
-  + color keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, and yellow
-  + The RGB color model
-    + used in numerical color specifications
-    + hexadecimal notation: a '#' immediately followed by either three or six hexadecimal characters; e.g., #f60 (#rgb) or  #ff66000 (#rrggbb)
-    + functional notation: 'rgb(x, y, z)', where x, y, x in [0, 255] or [0, 100%]; e.g, rgb(255,0,0) or rgb(100%, 0%, 0%)
-
-    <div style="width: 25em; height: 20em; margin: 1em auto; font-family: Verdana,sans-serif; font-size: 12px;" id="TanteksColorDiagram20020613">
-    <div style="height: 5em;">
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: maroon; color:white"><span style="font-weight: bold;">maroon</span> #800000
-    </span><span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: red"><span style="font-weight: bold;">red</span> #ff0000
-    </span><span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: orange"><span style="font-weight: bold;">orange</span> #ffA500
-    </span><span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: yellow"><span style="font-weight: bold;">yellow</span> #ffff00
-    </span><span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: olive;color:white"><span style="font-weight: bold;">olive</span> #808000</span>
-    </div>
-    <div style="height: 5em;">
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: purple;color:white"><span style="font-weight: bold;">purple</span> #800080</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: fuchsia"><span style="font-weight: bold;">fuchsia</span> #ff00ff</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: white"><span style="font-weight: bold;">white</span> #ffffff</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: lime"><span style="font-weight: bold;">lime</span> #00ff00</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: green;color:white"><span style="font-weight: bold;">green</span> #008000</span>
-    </div>
-    <div style="height: 5em; padding:0 2.5em">
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: navy;color:white"><span style="font-weight: bold;">navy</span> #000080</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: blue"><span style="font-weight: bold;">blue</span> #0000ff</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: aqua"><span style="font-weight: bold;">aqua</span> #00ffff</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background: teal;color:white"><span style="font-weight: bold;">teal</span> #008080</span>
-    </div>
-    <div style="height: 5em; padding:0 5em">
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background:black;color:white"><span style="font-weight: bold;">black</span> #000000</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background:silver"><span style="font-weight: bold;">silver</span> #c0c0c0</span>
-    <span style="float: left; width: 5em; height: 3em; text-align: center; padding: 1.2em 0 .8em; background:gray;color:white"><span style="font-weight: bold;">gray</span> #808080</span>
-    </div>
-    </div>
-
-+ [Strings](https://www.w3.org/TR/CSS22/syndata.html#strings)
-  + either be written with double quotes or with single quotes
-  + double quotes cannot occur inside double quotes, unless escaped (e.g., as '\"' or as '\22')
-  + e.g., "this is a 'string'" = "this is a \"string\"" = 'this is a "string"' = 'this is a \'string\''
-
-
-<table  table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=70%>
-  <caption style="font-size: 1.5em;"><a href="url">Measurement Units</a></caption>
-  <thead>
-  <tr>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">Unit</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 20%;">Specification</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%">Link</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><code>px</code></a></td>
-    <td>pixel, a single dot on the screen</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#px">Unit</a></td>
-  </tr>
-  <tr>
-    <td><code>em</code></a></td>
-    <td>vertical dimensions, height of capital letter in the _parent_ context</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#em">Unit</a></td>
-  </tr>
-  <tr>
-    <td><code>rem</code></a></td>
-    <td>vertical dimensions, size relative to the <em>root</em></td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rem">Unit</a></td>
-  </tr>
-  <tr>
-    <td><code>%</code></a></td>
-    <td>relative to the <em>parent</em> dimension</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#-">Unit</a></td>
-  </tr>
-  <tr>
-    <td><code>vh</code></a></td>
-    <td>viewport height, percentage of the screen</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
-  </tr>
-  <tr>
-    <td><code>vw</code></a></td>
-    <td>viewport width, percentage of the screen</td>
-    <td><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#vh-vw">Unit</a></td>
-  </tr>
-  </tbody>
-</table>
-
--->
 
 ### Relative Length
 
@@ -1018,13 +881,14 @@
 </table>
 
 
-### [Typography][066]
+### Typography
 
-+ sans-serif: the letters do not have added flourishes; most popular; `Helvetica`, `Verdana`, `Arial`, `Tahoma`
-+ serif - the small flourish lines at the edges of letters and symbols; `Times New Roman`, `Book Antiqua`, `Georgia`
-+ monospace - all letters have the same fixed width; `Courier New`
-+ cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
-+ fantasy - the most diverse category of fonts including all of those that are particularly decorative
++ [Typography](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+  + sans-serif: the letters do not have added flourishes; most popular; `Helvetica`, `Verdana`, `Arial`, `Tahoma`
+  + serif - the small flourish lines at the edges of letters and symbols; `Times New Roman`, `Book Antiqua`, `Georgia`
+  + monospace - all letters have the same fixed width; `Courier New`
+  + cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
+  + fantasy - the most diverse category of fonts including all of those that are particularly decorative
 
 
 
@@ -1063,9 +927,11 @@
     </a></div>
   </div>
 
+
 ### List of Color Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.w3.org/TR/css3-color/#foreground">Foreground</a></caption>
   <thead>
   <tr>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
@@ -2650,207 +2516,3 @@
 </table>
 
 
-
-<br/><hr/><br/>
--------------------------------------------
-<!--
-[097]: 
-[098]: 
-[099]: 
-[100]: 
-[101]: 
-[102]: 
-[103]: 
-[104]: 
-[105]: 
-[106]: 
-[107]: 
-[108]: 
-[109]: 
-[100]: 
-[111]: 
-[112]: 
-[113]: 
-[114]: 
-[115]: 
-[116]: 
-[117]: 
-[118]: 
-[119]: 
-[120]: 
-[121]: 
-[122]: 
-[123]: 
-[124]: 
-[125]: 
-[126]: 
-[127]: 
-[128]: 
-[129]: 
-[130]: 
-[131]: 
-[132]: 
-[133]: 
-[134]: 
-[135]: 
-[136]: 
-[137]: 
-[138]: 
-[139]: 
-[140]: 
-[141]: 
-[142]: 
-[143]: 
-[144]: 
-[145]: 
-[146]: 
-[147]: 
-[148]: 
-[149]: 
-[150]: 
-[151]: 
-[152]: 
-[153]: 
-[154]: 
-[155]: 
-[156]: 
-[157]: 
-[158]: 
-[159]: 
-[160]: 
-[161]: 
-[162]: 
-[163]: 
-[164]: 
-[165]: 
-[166]: 
-[167]: 
-[168]: 
-[169]: 
-[170]: 
-[171]: 
-[172]: 
-[173]: 
-[174]: 
-[175]: 
-[176]: 
-[177]: 
-[178]: 
-[179]: 
-[180]: 
-[181]: 
-[182]: 
-[183]: 
-[184]: 
-[185]: 
-[186]: 
-[187]: 
-[188]: 
-[189]: 
-[190]: 
-[191]: 
-[192]: 
-[193]: 
-[194]: 
-[195]: 
-[196]: 
-[197]: 
-[198]: 
-[199]: 
--->
-
-[000]: https://jigsaw.w3.org/css-validator/
-[001]: https://www.w3.org/TR/CSS22/intro.html#design-principles
-[002]: https://www.nngroup.com/articles/effective-use-of-style-sheets/
-[003]: http://www.csszengarden.com/
-[004]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#constructing-your-css-rules
-[005]: https://www.w3.org/Style/CSS/all-properties#list
-[006]: https://www.w3.org/TR/css3-color/#foreground
-[007]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#color
-[008]: https://www.w3.org/TR/css3-background/#the-background-color
-[009]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#background-color
-[010]: https://www.w3.org/Style/Examples/007/fonts
-[011]: https://www.w3.org/TR/css-fonts/#font-family-prop
-[012]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-family
-[013]: https://www.w3.org/TR/css-fonts/#font-size-prop
-[014]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-size
-[015]: https://www.w3.org/TR/css-fonts/#font-weight-prop
-[016]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#font-weight
-[017]: https://www.w3.org/TR/CSS2/box.html#propdef-padding-top
-[018]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#padding
-[019]: https://www.w3.org/TR/css3-background/#borders
-[020]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#border
-[021]: https://www.w3.org/TR/CSS2/box.html#propdef-margin
-[022]: ../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#margin
-[023]: https://www.w3.org/TR/html52/dom.html#classes
-[024]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#classes
-[025]: https://www.w3.org/TR/html52/dom.html#the-id-attribute
-[026]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#ids
-[027]: https://www.w3schools.com/cssref/css_selectors.asp
-[028]: https://www.w3.org/TR/CSS22/selector.html#link-pseudo-elements
-[029]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#link-and-visited
-[030]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
-[031]: https://www.w3.org/TR/CSS22/selector.html#dynamic-pseudo-classes
-[032]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#hover
-[033]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#focus
-[034]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#active
-[035]: ../WebDev/Frontend-W3C/4-CSSBasics/03-Selectors.md#contextual-selectors
-
-[037]: ./HTML.md#image-element
-[038]: https://www.w3.org/TR/CSS22/text.html#alignment-prop
-[039]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#text-align
-[040]: https://www.w3.org/TR/CSS22/visudet.html#line-height
-[041]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#line-height
-[042]: https://www.w3.org/TR/CSS22/visudet.html#the-width-property
-[043]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height
-[044]: https://www.w3.org/TR/CSS22/visudet.html#the-height-property
-[045]: https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
-[046]: https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
-[047]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#width-and-height
-[048]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#min-width-max-width-min-height-max-height
-[049]: https://www.w3.org/TR/CSS22/visuren.html#float-position
-[050]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-float-property
-[051]: https://www.w3.org/TR/CSS22/visuren.html#propdef-clear
-[052]: ../WebDev/Frontend-W3C/4-CSSBasics/04-Layout.md#the-clear-property
-
-[056]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#css-best-practices
-[057]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#executive-summary
-[058]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#foundations
-[059]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#testing
-[060]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#adaptability
-[061]: ../WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#defensive-coding
-[062]: https://developer.mozilla.org/en-US/docs/Web/CSS/top
-[063]: https://developer.mozilla.org/en-US/docs/Web/CSS/right
-[064]: https://developer.mozilla.org/en-US/docs/Web/CSS/bottom
-[065]: https://developer.mozilla.org/en-US/docs/Web/CSS/float
-[066]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
-[067]: https://developer.mozilla.org/en-US/docs/Web/CSS/clear
-[068]: https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements
-[069]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements
-[070]: https://github.com/hmchen47/Programming/blob/css/WebDev/Frontend-W3C/4-CSSBasics/05-DesignWeb.md#typography
-[071]: https://www.w3.org/Style/CSS/all-properties.en.html#list
-[072]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-size
-[073]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#line-height
-[074]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-align
-[075]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#text-decoration-underline
-[076]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-weight-bold
-[077]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#font-family
-[078]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-type
-[079]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-position
-[080]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#list-style-image
-[081]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#px
-[082]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#em
-[083]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#rem
-[084]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#
-[085]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#vh--vw
-[086]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#selectors
-[087]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#tag-selector
-[088]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#id-selector
-[089]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#class-selector
-[090]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#comma-separated-selectors
-[091]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#specialized-selectors
-[092]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#descendant-selectors
-[093]: ../WebDev/Frontend-W3C/1.HTML5CSS/03.CSS.md#direct-descendant-selectors---
-[094]: ..WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-hover-active
-[095]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-nth-child
-[096]: ../WebDev/Frontend-W3C/1.HTML5CSS/05.HTMLCSS.md#-visited
