@@ -47,6 +47,30 @@
     + [Chakra](https://github.com/Microsoft/ChakraCore) (included in Microsoft Internet Explorer and now in the Microsoft Edge browser)
 
 
+## Data Types
+
+
+
+
+## Numbers
+
+
+
+
+### Strings
+
+
+
+
+## Objects
+
+
+
+
+
+## Functions
+
+
 
 
 
