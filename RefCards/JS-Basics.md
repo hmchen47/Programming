@@ -308,6 +308,27 @@
   + community preference: single quote for string
   + using double quote if text consisting at least a single quote
 
++ [String concatentation](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-158-string-operators)
+  + concatenation operator: `+`
+    + used to concatenate two strings
+  + shorthand assignment operator `+=`
+    + used to concatenate strings
+  + method `concat()`: another way to concatentate strings
+
++ [String Number conversion](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-158-string-operators)
+  + string number to number
+    + String number in an arithmetic expression converted  to Number
+  + converting number into a string: concatentate w/ an empty string at the beginning of expression
+
++ [Special characters](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-158-string-operators)
+  + escaping special character: `\`
+  + escaping the escape w/ double `\`: `\\`
+  + special characters starting w/ `\`
+    + `\n` for next line
+    + `\r` for carriage return
+    + `\t` for inserting a tabulation
+
+
 
 
 ## Objects
