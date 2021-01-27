@@ -3,6 +3,22 @@
 
 ## General Information
 
+
++ [Cascade Style Sheet (CSS)](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
+  + a style sheet language used to describe the way an HTML or XML document shown
+  + able to specify the color, size, spacing, font and other visual aspect of the content
+  + used along side HTML to desceibe the way a Web page looks and feels
+  + w/o CSS: difficult to make document looks the way intended
+  + almost every Web page combining HTML and CSS
+  + CSS selector
+    + the part before the opening brace
+    + indicating the elements w/ properties changed inside the brace
+  + property:
+    + the part inside brace
+    + used for setting the look and feel of the selected elements
+    + a set of properties and values
+
+
 ### CSS design principles(CSS 2.2)
 
 + [CSS design principles (CSS2.2)](https://www.w3.org/TR/CSS22/intro.html#design-principles)
@@ -133,6 +149,13 @@
   </head>
   ```
 
++ [CSS location in HTML](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
+  + embedded CSS rules: within `<style>...</style>` tags inside the `<head>...</head>` of the HTML documents
+  + external CSS rules
+    + `<link>` tag in HTML `<head>` element
+    + including other CSS properties from remote/local CSS style sheet file
+
+
 
 ### CSS Syntax
 
@@ -154,6 +177,18 @@
   + types: tag, class & id
   + attribute selectors: Classes and IDs
   + multiple HTML elements with similar style: `p, ul, ol {color: blue; }`
+
++ [`id` and `class` attributes](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
+  + `id` attribute: identifying any element in Web page uniquely
+  + `class` attribute: grouping any elements w/ a class of other elements
+  + example: `<p id="paragraph-1" class="regular-paragraphs">`
+    + unique identifier w/ `id="paragraph-1"`
+    + part of class `regular-paragraphs`
+  + text within the quotes
+    + w/o meaning to the computer
+    + used to convey the meaning to a human developer
+    + best pratice: named to increase clarity, consistency, and brevity
+  + example: `<h2 id="hobbyTitle">My Hobbies</h2>`
 
 + [Property](../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#constructing-your-css-rules)
   + tell the browser how to style the HTML tag that has been selected
@@ -414,7 +449,7 @@
   </div>
 
 + Selectors
-  + tag selecctor
+  + tag selector
     + consist solely of a single tag (without punctuation or spacing) will be applied to any matching tag on the page
     + e.g., `li { list-style-type: circle; }`
   + id selector
@@ -422,7 +457,7 @@
     + the value for any given id attribute can only appear once in a document
     + no spaces, nor most punctuation, nor begin with numbers
     + e.g., declartion: `#p19 { color: green; }`; use: `<p id="p19">Madam, you have spoken truly.</p>`
-  + Class selector
+  + class selector
     + similar to the id, but shared by multiple tags
     + assigned to a tag by simply separating them with spaces
     + simply a period (.) followed by the class name itself
@@ -451,6 +486,7 @@
   + e.g., `p { color: orange !important; }`
 
 
+
 ### List of CSS Selectors
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="0" align="center" width=90%>
@@ -463,171 +499,61 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td><strong>.<i>class</i></strong></td><td>.intro</td><td>Selects all elements with class="intro"</td>
-  </tr>
-  <tr>
-    <td><strong>#<i>id</i></strong></td><td>#firstname</td><td>Selects the element with id="firstname"</td>
-  </tr>  
-  <tr>
-    <td><strong>*</strong></td><td>*</td><td>Selects all elements</td>
-  </tr>
-  <tr>
-    <td><strong><i>element</i></strong></td><td>p</td><td>Selects all &lt;p&gt; elements</td>
-  </tr>
-  <tr>
-    <td><strong><i>element,element</i></strong></td><td>div, p</td><td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td>
-  </tr>
-  <tr>
-    <td><strong><i>element</i> <i>element</i></strong></td><td>div p</td><td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td>
-  </tr>
-  <tr>
-    <td><strong><i>element</i>&gt;<i>element</i></strong></td><td>div &gt; p</td><td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong><i>element</i>+<i>element</i></strong></td><td>div + p</td><td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td>
-  </tr>
-  <tr>
-    <td><strong><i>element1</i>~<i>element2</i></strong></td><td>p ~ ul</td><td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>[<i>attribute</i>]</strong></td><td>[target]</td><td>Selects all elements with a target attribute</td>
-  </tr>
-  <tr>
-    <td><strong>[<i>attribute</i>=<i>value</i>]</strong></td><td>[target=_blank]</td><td>Selects all elements with target="_blank"</td>
-  </tr>
-  <tr>
-    <td><strong>[<i>attribute</i>~=<i>value</i>]</strong></td><td>[title~=flower]</td><td>Selects all elements with a title attribute containing the word "flower"</td>
-  </tr>
-  <tr>
-    <td><strong>[<i>attribute</i>|=<i>value</i>]</strong></td><td>[lang|=en]</td><td>Selects all elements with a lang attribute value starting with "en"</td>
-  </tr>
-  <tr>
-    <td><strong>[<i>attribute</i>^=<i>value</i>]</strong></td><td>a[href^="https"]</td><td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td>
-  </tr>
-  <tr>  
-    <td><strong>[<i>attribute</i>&#x24;=<i>value</i>]</strong></td><td>a[href$=".pdf"]</td><td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td>
-  </tr>
-  <tr>
-    <td><strong>[<i>attribute</i>*=<i>value</i>]</strong></td><td>a[href*="w3schools"]</td><td>Selects every &lt;a&gt; element whose href attribute value contains the substring "w3schools"</td>
-  </tr>
-  <tr>
-    <td><strong>:active</strong></td><td>a:active</td><td>Selects the active link</td>
-  </tr>
-  <tr>
-    <td><strong>::after</strong></td><td>p::after</td><td>Insert something after the content of each &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>::before</strong></td><td>p::before</td><td>Insert something before&nbsp;the content of each &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>:checked</strong></td><td>input:checked</td><td>Selects every checked &lt;input&gt; element</td>
-  <tr>
-  <tr>
-    <td><strong>:default</strong></td><td>input:default</td><td>Selects the default &lt;input&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>:disabled</strong></td><td>input:disabled</td><td>Selects every disabled &lt;input&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>:empty</strong></td><td>p:empty</td><td>Selects every &lt;p&gt; element that has no children (including text nodes)</td>
-  </tr>
-  <tr>
-    <td><strong>:enabled</strong></td><td>input:enabled</td><td>Selects every enabled &lt;input&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>:first-child</strong></td><td>p:first-child</td><td>Selects every &lt;p&gt; element that is the first child of its parent</td>
-  </tr>
-  <tr>
-    <td><strong>::first-letter</strong></td><td>p::first-letter</td><td>Selects the first letter of every &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>::first-line</strong></td><td>p::first-line</td><td>Selects the first line of every &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>:first-of-type</strong></td><td>p:first-of-type</td><td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td>
-  </tr>
-  <tr>
-    <td><strong>:focus</strong></td><td>input:focus</td><td>Selects the input element which has focus</td>
-  </tr>
-  <tr>
-    <td><strong>:hover</strong></td><td>a:hover</td><td>Selects links on mouse over</td>
-  </tr>
-  <tr>
-    <td><strong>:in-range</strong></td><td>input:in-range</td><td>Selects input elements with a value within a specified range</td>
-  </tr>
-  <tr>
-    <td><strong>:indeterminate</strong></td><td>input:indeterminate</td><td>Selects input elements that are in an indeterminate state</td>
-  </tr>
-  <tr>
-    <td><strong>:invalid</strong></td><td>input:invalid</td><td>Selects all input elements with an invalid value</td>
-  </tr>
-  <tr>
-    <td><strong>:lang(<i>language</i>)</strong></td><td>p:lang(it)</td><td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td>
-  </tr>
-  <tr>
-    <td><strong>:last-child</strong></td><td>p:last-child</td><td>Selects every &lt;p&gt; element that is the last child of its parent</td>
-  </tr>
-  <tr>
-    <td><strong>:last-of-type</strong></td><td>p:last-of-type</td><td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td>
-  </tr>
-  <tr>
-    <td><strong>:link</strong></td><td>a:link</td><td>Selects all unvisited links</td>
-  </tr>
-  <tr>
-    <td><strong>:not(<i>selector</i>)</strong></td><td>:not(p)</td><td>Selects every element that is not a &lt;p&gt; element</td>
-  </tr>
-  <tr>
-    <td><strong>:nth-child(<i>n</i>)</strong></td><td>p:nth-child(2)</td><td>Selects every &lt;p&gt; element that is the second child of its parent</td>
-  </tr>
-  <tr>
-    <td><strong>:nth-last-child(<i>n</i>)</strong></td><td>p:nth-last-child(2)</td><td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td>
-  </tr>
-  <tr>
-    <td><strong>:nth-last-of-type(<i>n</i>)</strong></td><td>p:nth-last-of-type(2)</td><td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td>
-  </tr>
-  <tr>
-    <td><strong>:nth-of-type(<i>n</i>)</strong></td><td>p:nth-of-type(2)</td><td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td>
-  </tr>
-  <tr>
-    <td><strong>:only-of-type</strong></td><td>p:only-of-type</td><td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td>
-  </tr>
-  <tr>
-    <td><strong>:only-child</strong></td><td>p:only-child</td><td>Selects every &lt;p&gt; element that is the only child of its parent</td>
-  </tr>
-  <tr>
-    <td><strong>:optional</strong></td><td>input:optional</td><td>Selects input elements with no "required" attribute</td>
-  </tr>
-  <tr>
-    <td><strong>:out-of-range</strong></td><td>input:out-of-range</td><td>Selects input elements with a value outside a specified range</td>
-  </tr>
-  <tr>
-    <td><strong>::placeholder</strong></td><td>input::placeholder</td><td>Selects input elements with placeholder text</td>
-  </tr>
-  <tr>
-    <td><strong>:read-only</strong></td><td>input:read-only</td><td>Selects input elements with the "readonly" attribute specified</td>
-  </tr>
-  <tr>
-    <td><strong>:read-write</strong></td><td>input:read-write</td><td>Selects input elements with the "readonly" attribute NOT specified</td>
-  </tr>
-  <tr>
-    <td><strong>:required</strong></td><td>input:required</td><td>Selects input elements with the "required" attribute specified</td>
-  </tr>
-  <tr>
-    <td><strong>:root</strong></td><td>:root</td><td>Selects the document's root element</td>
-  </tr>
-  <tr>
-    <td><strong>::selection</strong></td><td>::selection</td><td>Selects the portion of an element that is selected by a user</td>
-  </tr>
-  <tr>
-    <td><strong>:target</strong></td><td>#news:target </td><td>Selects the current active #news element (clicked on a URL containing that anchor name)</td>
-  </tr>
-  <tr>
-    <td><strong>:valid</strong></td><td>input:valid</td><td>Selects all input elements with a valid value</td>
-  </tr>
-  <tr>
-    <td><strong>:visited</strong></td><td>a:visited</td><td>Selects all visited links</td>
-  </tr>
+  <tr><td><strong>.<i>class</i></strong></td><td>.intro</td><td>Selects all elements with class="intro"</td></tr>
+  <tr><td><strong>#<i>id</i></strong></td><td>#firstname</td><td>Selects the element with id="firstname"</td></tr>  
+  <tr><td><strong>*</strong></td><td>*</td><td>Selects all elements</td></tr>
+  <tr><td><strong><i>element</i></strong></td><td>p</td><td>Selects all &lt;p&gt; elements</td></tr>
+  <tr><td><strong><i>element,element</i></strong></td><td>div, p</td><td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td></tr>
+  <tr><td><strong><i>element</i> <i>element</i></strong></td><td>div p</td><td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td></tr>
+  <tr><td><strong><i>element</i>&gt;<i>element</i></strong></td><td>div &gt; p</td><td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td></tr>
+  <tr><td><strong><i>element</i>+<i>element</i></strong></td><td>div + p</td><td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td></tr>
+  <tr><td><strong><i>element1</i>~<i>element2</i></strong></td><td>p ~ ul</td><td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td></tr>
+  <tr><td><strong>[<i>attribute</i>]</strong></td><td>[target]</td><td>Selects all elements with a target attribute</td></tr>
+  <tr><td><strong>[<i>attribute</i>=<i>value</i>]</strong></td><td>[target=_blank]</td><td>Selects all elements with target="_blank"</td></tr>
+  <tr><td><strong>[<i>attribute</i>~=<i>value</i>]</strong></td><td>[title~=flower]</td><td>Selects all elements with a title attribute containing the word "flower"</td></tr>
+  <tr><td><strong>[<i>attribute</i>|=<i>value</i>]</strong></td><td>[lang|=en]</td><td>Selects all elements with a lang attribute value starting with "en"</td></tr>
+  <tr><td><strong>[<i>attribute</i>^=<i>value</i>]</strong></td><td>a[href^="https"]</td><td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td></tr>
+  <tr>  <td><strong>[<i>attribute</i>&#x24;=<i>value</i>]</strong></td><td>a[href$=".pdf"]</td><td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td></tr>
+  <tr><td><strong>[<i>attribute</i>*=<i>value</i>]</strong></td><td>a[href*="w3schools"]</td><td>Selects every &lt;a&gt; element whose href attribute value contains the substring "w3schools"</td></tr>
+  <tr><td><strong>:active</strong></td><td>a:active</td><td>Selects the active link</td></tr>
+  <tr><td><strong>::after</strong></td><td>p::after</td><td>Insert something after the content of each &lt;p&gt; element</td></tr>
+  <tr><td><strong>::before</strong></td><td>p::before</td><td>Insert something before&nbsp;the content of each &lt;p&gt; element</td></tr>
+  <tr><td><strong>:checked</strong></td><td>input:checked</td><td>Selects every checked &lt;input&gt; element</td><tr>
+  <tr><td><strong>:default</strong></td><td>input:default</td><td>Selects the default &lt;input&gt; element</td></tr>
+  <tr><td><strong>:disabled</strong></td><td>input:disabled</td><td>Selects every disabled &lt;input&gt; element</td></tr>
+  <tr><td><strong>:empty</strong></td><td>p:empty</td><td>Selects every &lt;p&gt; element that has no children (including text nodes)</td></tr>
+  <tr><td><strong>:enabled</strong></td><td>input:enabled</td><td>Selects every enabled &lt;input&gt; element</td></tr>
+  <tr><td><strong>:first-child</strong></td><td>p:first-child</td><td>Selects every &lt;p&gt; element that is the first child of its parent</td></tr>
+  <tr><td><strong>::first-letter</strong></td><td>p::first-letter</td><td>Selects the first letter of every &lt;p&gt; element</td></tr>
+  <tr><td><strong>::first-line</strong></td><td>p::first-line</td><td>Selects the first line of every &lt;p&gt; element</td></tr>
+  <tr><td><strong>:first-of-type</strong></td><td>p:first-of-type</td><td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td></tr>
+  <tr><td><strong>:focus</strong></td><td>input:focus</td><td>Selects the input element which has focus</td></tr>
+  <tr><td><strong>:hover</strong></td><td>a:hover</td><td>Selects links on mouse over</td></tr>
+  <tr><td><strong>:in-range</strong></td><td>input:in-range</td><td>Selects input elements with a value within a specified range</td></tr>
+  <tr><td><strong>:indeterminate</strong></td><td>input:indeterminate</td><td>Selects input elements that are in an indeterminate state</td></tr>
+  <tr><td><strong>:invalid</strong></td><td>input:invalid</td><td>Selects all input elements with an invalid value</td></tr>
+  <tr><td><strong>:lang(<i>language</i>)</strong></td><td>p:lang(it)</td><td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td></tr>
+  <tr><td><strong>:last-child</strong></td><td>p:last-child</td><td>Selects every &lt;p&gt; element that is the last child of its parent</td></tr>
+  <tr><td><strong>:last-of-type</strong></td><td>p:last-of-type</td><td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td></tr>
+  <tr><td><strong>:link</strong></td><td>a:link</td><td>Selects all unvisited links</td></tr>
+  <tr><td><strong>:not(<i>selector</i>)</strong></td><td>:not(p)</td><td>Selects every element that is not a &lt;p&gt; element</td></tr>
+  <tr><td><strong>:nth-child(<i>n</i>)</strong></td><td>p:nth-child(2)</td><td>Selects every &lt;p&gt; element that is the second child of its parent</td></tr>
+  <tr><td><strong>:nth-last-child(<i>n</i>)</strong></td><td>p:nth-last-child(2)</td><td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td></tr>
+  <tr><td><strong>:nth-last-of-type(<i>n</i>)</strong></td><td>p:nth-last-of-type(2)</td><td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td></tr>
+  <tr><td><strong>:nth-of-type(<i>n</i>)</strong></td><td>p:nth-of-type(2)</td><td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td></tr>
+  <tr><td><strong>:only-of-type</strong></td><td>p:only-of-type</td><td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td></tr>
+  <tr><td><strong>:only-child</strong></td><td>p:only-child</td><td>Selects every &lt;p&gt; element that is the only child of its parent</td></tr>
+  <tr><td><strong>:optional</strong></td><td>input:optional</td><td>Selects input elements with no "required" attribute</td></tr>
+  <tr><td><strong>:out-of-range</strong></td><td>input:out-of-range</td><td>Selects input elements with a value outside a specified range</td></tr>
+  <tr><td><strong>::placeholder</strong></td><td>input::placeholder</td><td>Selects input elements with placeholder text</td></tr>
+  <tr><td><strong>:read-only</strong></td><td>input:read-only</td><td>Selects input elements with the "readonly" attribute specified</td></tr>
+  <tr><td><strong>:read-write</strong></td><td>input:read-write</td><td>Selects input elements with the "readonly" attribute NOT specified</td></tr>
+  <tr><td><strong>:required</strong></td><td>input:required</td><td>Selects input elements with the "required" attribute specified</td></tr>
+  <tr><td><strong>:root</strong></td><td>:root</td><td>Selects the document's root element</td></tr>
+  <tr><td><strong>::selection</strong></td><td>::selection</td><td>Selects the portion of an element that is selected by a user</td></tr>
+  <tr><td><strong>:target</strong></td><td>#news:target </td><td>Selects the current active #news element (clicked on a URL containing that anchor name)</td></tr>
+  <tr><td><strong>:valid</strong></td><td>input:valid</td><td>Selects all input elements with a valid value</td></tr>
+  <tr><td><strong>:visited</strong></td><td>a:visited</td><td>Selects all visited links</td></tr>
 </tbody></table>
 
 <br/>
