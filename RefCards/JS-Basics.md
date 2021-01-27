@@ -17,6 +17,10 @@
   + read and tweak small JavaScript code snippet
   + carfully read the references that details some important parts of the language
 
++ [Folder structure of Web project](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-134-where-to-put-javascript-code)
+  + CSS files in `css` subfolder
+  + JavaScript file in `js` subfolder
+
 
 ## History
 
@@ -89,6 +93,26 @@
 
 
 
+## Locations of JS code
+
++ [Locations of JavaScript Code](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-134-where-to-put-javascript-code)
+  + in HTML code between `<script>` and `</script>` tag, either within `<body>...</body>` or `<head>...</head>`
+  + external file
+    + in local files, usually ending w/ `.js` suffix
+    + in external file located on the Web
+    + advantages
+      + separate HTML and code
+      + easier to read and maintain
+      + reuse JavaScript code
+      + cached JavaScript files to speed up page loads
+    + usage
+      + link the script file w/ `src` attribute of `<script>` tag
+      + JavaScript file must end w/ `.js`
+      + no `<script>...</script>` in `.js` file
+      + external JavaScript file w/ `<script src="..."></script>` = `<script>...</script>` in HTML
+      + multiple JavaScript allowed w/ `<script src="..."></script>`
+
+
 
 ## Debugging
 
@@ -122,7 +146,7 @@
 
 
 
-### Strings
+## Strings
 
 
 
