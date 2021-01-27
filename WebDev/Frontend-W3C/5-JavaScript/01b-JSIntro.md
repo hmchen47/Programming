@@ -550,7 +550,7 @@ Note that when you use an online IDE, you usually type/paste the CSS rules in a 
 
 + CSS location in HTML
   + embedded CSS rules: within `<style>...</style>` tags inside the `<head>...</head>` of the HTML documents
-  + external CSS rukles
+  + external CSS rules
     + `<link>` tag in HTML `<head>` element
     + including other CSS properties from remote/local CSS style sheet file
     + example: `<link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">`
