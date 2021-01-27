@@ -252,7 +252,7 @@ And the positions, widths and heights are always string values. In our example w
     + modify CSS: `divElem.style.border = "5px dashed purple"; divElem.style.padding = "10px"; divElem.style.backgroundColor = "lightGreen";`
   + changing the background image property w/ external image, e.g.,
     + select element: `divElem = document.querySelector("#theDiv");`
-    + modify background: `divElem.innerHTML = ""; divElem.style.width= "100%"; divElem.style.height = "300px"; divElem.style.backgroundImage = "url(https://mainline.i3s.unice.fr/mooc/marioSprite.png)";`
+    + modify background: `divElem.innerHTML = ""; divElem.style.width = "100%"; divElem.style.height = "300px"; divElem.style.backgroundImage = "url(https://mainline.i3s.unice.fr/mooc/marioSprite.png)";`
   + using the background image as sprite sheet
     + select element: `divElem = document.querySelector("#theDiv");`
     + animate images: `drawMario(currentImage); currentImage = (currentImage +1) % 3;`
@@ -334,14 +334,14 @@ __Example #5: move a monster in an HTML5 canvas using left and right arrow keys_
     + HTML Canvas
       + useful for drawing and animating at 60 frames/second
       + create canvas: `<canvas id="myCanvas" width="578" height="200"></canvas>`
-      + liesten mouse position winthin canvas:
+      + listen to mouse position winthin canvas:
 
         ```js
         window.onload = function init() {
             canvas = document.getElementById('myCanvas');
             ctx = canvas.getContext('2d');
 
-            canvas.addEventListener('mousemove', function (evt) {
+            canvas.addEventListener('mousemover', function (evt) {
                 mousePos = getMousePos(canvas, evt);
                 var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
                 writeMessage(canvas, message);
@@ -351,7 +351,7 @@ __Example #5: move a monster in an HTML5 canvas using left and right arrow keys_
         }
         ```
 
-    + right/left key movement: `window.addEventListener('keydown', handleKeydown, false);  window.addEventListener('keyup', handleKeyup, false);`
+    + right/left arrow key movement: `window.addEventListener('keydown', handleKeydown, false);  window.addEventListener('keyup', handleKeyup, false);`
 
 
 ### 1.6.6 Using built-in HTML5 APIs
