@@ -209,7 +209,7 @@ Not bad ;-)
   + Best practice
     + read and tweak small JavaScript code snippet
     + carfully read the references that details some important parts of the language
-  + example: external JavaScript libraies
+  + example: external JavaScript libraries
     + [d3js plotting library](https://d3js.org/): `<script src="https://d3js.org/d3.v3.min.js"></script>`
     + [function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/): `<script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>`
   + example: JavaScript code snippet
@@ -438,7 +438,7 @@ Here is an example that will display the current and past members of famous rock
   + `style` property
     + changing the look and feel of the document
     + `style`: an object w/ attributes corresponding to the different CSS properties
-    + syntax different from CSS: instead of `-` in CSS and using CamelCase
+    + syntax different from CSS: instead of `-` (dash) in CSS and using CamelCase
     + example: `title.style.color = 'black';`, `title.style.backgroundColor = "yellow";`,  `title.style.border = "5px dashed red";`
       + `title`: an object
       + `style`: a property of the title object
