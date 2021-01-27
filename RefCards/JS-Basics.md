@@ -359,7 +359,7 @@
 
 ## Arrays
 
-+ Arrays
++ [Arrays](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-1510-arrays-part-1)
   + definition: containers w/ indexes
   + declaration w/ `[]`
   + access using indexes
@@ -380,6 +380,31 @@
   + accepting parameters to do something
   + function parameters: the data passed to the function
 
++ [Functions](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-1511-functions-part-1)
+  + grouping code, providing name and accessing by calling the given name
+  + always returning a value
+    + explicitly, using the keyword `return` followed by the value
+    + implicitly, returning value is `undefined`
+  + declaring a function: `function sum() {...}`
+  + calling a function: `var result = sum(1, 2);`, `console.log(result);` $\to$ `3`
+
++ [Function parameters](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-1511-functions-part-1)
+  + __arguments__
+    + an array created automatically in each function
+    + containing all the call parameters of the function
+  + omitted during the call, JavaScript providing the value `undefined`
+  + a various number of parameters
+
+    ```js
+    function f() {
+      return arguments;
+    }
+    ...
+    f();    // returns []
+    ...
+    f( 1, 2, 3, 4, true, 'Michel Buffa');
+    // returns [1, 2, 3, 4, true, "Michel Buffa"]
+    ```
 
 
 
