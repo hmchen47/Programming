@@ -90,6 +90,28 @@
 
 
 
+## Debugging
+
++ [Debugging in JavaScript](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#note-for-135-how-to-debug-javascript)
+  + error messages: printing message for debugging code
+  + basics of debuging: seeing error messages
+    + in the devtool console
+    + in the "console tab" of source code editor
+
++ [Browser devtool for debugging](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#note-for-135-how-to-debug-javascript)
+  + Swiss army knife of JavaScript: browser devtools, in particular, the devtool concole
+  + open dev tools of browser
+    + Windows: F12 (or ctrl-shift-i)
+    + MacOS: cmd-option-i
+  + console tab: error message or messages of `console.log(string)` JavaScript function displayed
+  + example: `console.log("Some JavaScript code has been executed");`
+  + code executed in sequence when the page is loaded
+  + error message to debug
+    + showing the error message in console tab
+    + click the top-right corner on the error message to show the source code
+    + the line causing error highlighted
+
+
 ## Data Types
 
 
