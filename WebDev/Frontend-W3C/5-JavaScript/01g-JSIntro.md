@@ -9,16 +9,16 @@
 
   Can JavaScript only run in a Web browser? (No/Yes)
   
-  Ans: <br/>
-  Explanation: 
+  Ans: No<br/>
+  Explanation: JavaScript can be run outside of the browser (on a nodeJS interpreter on a remote server, for example, or in scripts run by the operating system), but for this intro course, we focus on "JavaScript in the browser" (an advanced course about "server side JavaScript" is on its way at W3Cx).
 
 
 2. Browser, what language do you speak?
 
   On modern browsers, JavaScript is the only programming language a browser can run without installing any plugins or extensions. True or false?
   
-  Ans: <br/>
-  Explanation:
+  Ans: True<br/>
+  Explanation: JavaScript is the third of the "magic trio": HTML5/CSS/JavaScript. It is the only programming language a browser can run (without installing any plugins or extensions), and it's a real standard of the Web (even if not standardized by the W3C).
 
 
 <hr/>
@@ -58,8 +58,8 @@ __Source code for the next question (3):__
   b. There is an error in this code, it will do nothing and raise an error in the devtool console<br>
   c. The style of the title whose id is "mainTitle" will change (colors, border)<br>
   
-  Ans: <br/>
-  Explanation:
+  Ans: b<br/>
+  Explanation: This code will do nothing and display an error in the devtool console. A click on a button will try to call a JavaScript function named "changeTheTitle", and there is no such function in the JavaScript code between <script> and </script>. The only defined function is named "changeTitleCSSStyle".
 
 
 <hr/>
@@ -87,8 +87,8 @@ __Source code for the next 3 questions (4, 5 and 6)__
 
   In the above code, the variable named "parameters" is an object. One of its direct properties is an array. Please enter its name:
   
-  Ans: <br/>
-  Explanation: 
+  Ans: data<br/>
+  Explanation: The `data` property is the only direct property that is an array, as it is declared using brackets.
 
 
 5. Detect the grid
@@ -99,8 +99,8 @@ __Source code for the next 3 questions (4, 5 and 6)__
   b. `parameters(grid)`<br/>
   c. `parameters/grid`<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: We access properties of an object using the "." operator. The correct answer is `parameters.grid`.
 
 
 6. Detect the color
@@ -113,8 +113,10 @@ __Source code for the next 3 questions (4, 5 and 6)__
   a. `parameter.data[1].color`<br/>
   a. `parameters/data/color`<br/>
   
-  Ans: </br/>
-  Explanation: 
+  Ans: b</br/>
+  Explanation: _data_ is a direct property of parameters. We access the data property using `parameters.data`, then _data_ is an array, and array indexes start at 0. data has only one element (the object {fn: 'sin(x)', color: 'red'}).
+
+
 
 
 
