@@ -51,6 +51,17 @@
 
 
 
+## Reacting events
+
++ [Interaction w/ events](../WebDev/Frontend-W3C/5-JavaScript/01f-JSIntro.md#notes-for-165-adding-interactivity-with-events)
+  + possible actions able to react to
+    + user interactions (keyboard, mouse, gamepad)
+    + changes in the lifecycle of document, e.g., pages loading or resizing, screen rotation on a mobile device
+    + notified after compeltion of a long process; e.g. loading a large image or source track from the network
+
+
+
+
 
 
 ## Web Storage APIs
