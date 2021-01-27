@@ -1,7 +1,42 @@
 # JavaScript Basic HTML APIs
 
 
-## Standard APIs
+## Overview
+
++ [Standard APIs](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-132-what-can-be-done-with-javascript)
+  + API: an application programming interface
+  + DOM: an object representing the document
+  + the selector API:
+    + targeting the particular part of the DOM
+    + using the same syntax as CSS to select element in the document
+  + the DOM API:
+    + modifying the HTML content or the style of HTML elements
+    + `.innerHTML`
+      + modifying content of a document
+      + implemented natively by the browser
+      + calling serval functions/methods or access properties of the DOM
+    + `onclick`
+      + listening to click event to call a specific function
+      + executing the whole action in the called function
+  + `style` property
+    + changing the look and feel of the document
+    + `style`: an object w/ attributes corresponding to the different CSS properties
+    + syntax different from CSS: instead of `-` (dash) in CSS and using CamelCase
+
++ [Application APIs](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-132-what-can-be-done-with-javascript)
+  + bowsers w/ many different libraries as standard APIs
+  + W3C standards
+  + all browseers following the Web Standards
+  + standard APIs
+    + multimedia: audio & video
+    + geolocation: getting the longitude and latitude
+    + orientation: on mobile devices
+    + accessing webcam or microphone, etc.
+
++ [Remote HTTP server](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-132-what-can-be-done-with-javascript)
+  + download and upload data from browser to remote Web server
+  + __AjaX__ (Asynchronous JAvascript and Xml): term used in JS to download & upload data
+
 
 ### Modifying HTML document
 
