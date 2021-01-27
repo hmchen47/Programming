@@ -17,6 +17,42 @@
     + add cell for the row: `var firstNameCell  = newRow.insertCell(); firstNameCell.innerHTML = firstName;`
 
 
+
+### Modifying CSS style
+
++ [Modifying CSS style](../WebDev/Frontend-W3C/5-JavaScript/01f-JSIntro.md#notes-for-164-modifying-css-styles-on-the-fly)
+  + changing the CSS property names to CamelCase as JaVaScript variable names
+  + position values (height & width): string values w/ "px" and "%"
+  + changing common properties (color, border, background color), e.g.,
+    + select element: `divElem = document.querySelector("#theDiv");`
+    + modify CSS: `divElem.style.border = "5px dashed purple"; divElem.style.padding = "10px"; divElem.style.backgroundColor = "lightGreen";`
+  + changing the background image property w/ external image, e.g.,
+    + select element: `divElem = document.querySelector("#theDiv");`
+    + modify background: `divElem.innerHTML = ""; divElem.style.width = "100%"; divElem.style.height = "300px"; divElem.style.backgroundImage = "url(https://mainline.i3s.unice.fr/mooc/marioSprite.png)";`
+  + using the background image as sprite sheet
+    + select element: `divElem = document.querySelector("#theDiv");`
+    + animate images: `drawMario(currentImage); currentImage = (currentImage +1) % 3;`
+    + draw images
+
+      ```js
+      function drawMario(indexImage) {
+        divElem.style.marginLeft = leftPos + "px";
+        divElem.style.width = "22px";
+        divElem.style.height = "32px";
+        divElem.innerHTML = "";
+        divElem.style.backgroundImage = "url(https://mainline.i3s.unice.fr/mooc/marioSprite.png)";
+        divElem.style.backgroundColor = "transparent";
+        var offset = indexImage * 24;
+        divElem.style.backgroundPosition  = offset + "px";
+      }
+      ```
+
+
+
+
+
+
+
 ## Web Storage APIs
 
 ### Web Storage API
