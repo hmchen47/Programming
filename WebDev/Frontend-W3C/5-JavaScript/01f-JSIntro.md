@@ -158,8 +158,6 @@ You can use any operator (`+`, `-`, `/`, `*`, etc.), you are not limited to usin
 And of course, you can use such code in your programs, not only in the devtool console :-)
 
 
-
-
 #### Notes for 1.6.2 The devtool console
 
 + devtool console
@@ -247,15 +245,15 @@ And the positions, widths and heights are always string values. In our example w
 #### Notes for 1.6.4 Modifying CSS styles on the fly
 
 + Modifying CSS style
-  + change the CSS property names to CamelCase as JaVaScript variable names
+  + changing the CSS property names to CamelCase as JaVaScript variable names
   + position values (height & width): string values w/ "px" and "%"
-  + change common properties (color, border, background color), e.g.,
+  + changing common properties (color, border, background color), e.g.,
     + select element: `divElem = document.querySelector("#theDiv");`
     + modify CSS: `divElem.style.border = "5px dashed purple"; divElem.style.padding = "10px"; divElem.style.backgroundColor = "lightGreen";`
-  + change the background image property w/ external image, e.g.,
-    + select element: `divElm = document.querySelector("#theDiv");`
+  + changing the background image property w/ external image, e.g.,
+    + select element: `divElem = document.querySelector("#theDiv");`
     + modify background: `divElem.innerHTML = ""; divElem.style.width= "100%"; divElem.style.height = "300px"; divElem.style.backgroundImage = "url(https://mainline.i3s.unice.fr/mooc/marioSprite.png)";`
-  + use the background image as sprite sheet
+  + using the background image as sprite sheet
     + select element: `divElem = document.querySelector("#theDiv");`
     + animate images: `drawMario(currentImage); currentImage = (currentImage +1) % 3;`
     + draw images
