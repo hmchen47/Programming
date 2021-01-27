@@ -24,6 +24,8 @@
 + [Example: creating project for math function plot](../WebDev/Frontend-W3C/5-JavaScript/01d-JSIntro.md#note-for-141-creating-an-htmlcssjs-project)
 
 
+
+
 ## History
 
 + [Creation of JavaScript](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-124-javascript-history)
@@ -136,6 +138,44 @@
     + showing the error message in console tab
     + click the top-right corner on the error message to show the source code
     + the line causing error highlighted
+
+
+## Common syntax
+
++ [JavaScript common syntax and devtool console](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-151-js-variables-and-values)
+  + `//`: comments
+  + devtools console: able to type and execute JavaScript Code as an interperter
+
+
+## Syntax: Variables
+
++ [Variables](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-151-js-variables-and-values)
+  + used to "store values"
+  + declaration
+    + `var`: 'variable'; the only keyword to declare a variable before version 5 (2015)
+    + `let` & `const`: allowed in subsequent versions (ES2015/ES2016 or JavaScript 6/7)
+  + naming rules
+    + first letter only "$", "_", "a" to "z", or "A" to "Z" allowed
+    + other letters: "$", "_", "a" to "z", "A" to "Z", or "0" to "9"
+    + case sensitive
+    + reserved names: `boolean`, `if`, `delete`, `var`, `function`, etc.
+  + assigning value
+    + `=`: the assignment operator
+    + given an id to a location somewhere in the memory of the computer
+    + multiple variables allowed and saparated by ";", eg, `var myNumber1, myNumber2 = 34, myNumber3;`
+  + using a variable never assigning a value: error message, eg, `Uncaught ReferenceError: k is not defined`
+  + naming conventions
+    + CamelCase notation preferred
+    + 1st letter is lowercase and each 1st letter of each word is capitalized
+
++ [Constant](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-151-js-variables-and-values)
+  + variables unable to be modified after set
+  + naming convention: all uppercase letter w/ underscore
+  + decalration
+    + using `var` to declare w/ JavaScript 5 and w/o verification to modify it
+    + recommended `const` after ES2015/ES2016 and raising error message if modifying
+
+
 
 
 ## Data Types
