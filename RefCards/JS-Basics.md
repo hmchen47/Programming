@@ -21,6 +21,8 @@
   + CSS files in `css` subfolder
   + JavaScript file in `js` subfolder
 
++ [Example: creating project for math function plot](../WebDev/Frontend-W3C/5-JavaScript/01d-JSIntro.md#note-for-141-creating-an-htmlcssjs-project)
+
 
 ## History
 
