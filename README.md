@@ -536,26 +536,12 @@ This repository tracks my learning on different programming languages.
 <br/>
 
 
-## Python Programming Language
-
-
-
-## C/C++ Programming Language
+### Python Programming Language
 
 
 
 
-## Reading Notes
-
-+ [Reading Notes Indexing](RefCards/ReadingIdx.md)
-
-+ [Reading List](Notes/ReadingList.md)
-
-
-
-## Python Syntax and Libraries
-
-### Web Scraping
+### Python Syntax and Libraries
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 80%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
   <thead>
@@ -599,6 +585,23 @@ This repository tracks my learning on different programming languages.
 
   </tbody>
 </table>
+
+
+
+
+### C/C++ Programming Language
+
+
+
+
+## Reading Notes
+
++ [Reading Notes Indexing](RefCards/ReadingIdx.md)
+
++ [Reading List](Notes/ReadingList.md)
+
+
+
 
 
 ## Keywords for Git Commits
