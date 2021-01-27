@@ -175,6 +175,40 @@
     + using `var` to declare w/ JavaScript 5 and w/o verification to modify it
     + recommended `const` after ES2015/ES2016 and raising error message if modifying
 
++ [Scope of JS variables](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-152-scope-of-js-variables)
+  + `var` keyword in JavaScript 5 / ES5
+    + declaring variable
+    + scope
+      + global scope for global variable
+      + function scope for local variable within function
+    + local variable within a function overrides a global variable w/ the same name
+    + global scope / global variable
+      + variable declared outside of a function
+      + used anywhere in the code
+    + local scope / local variable (function scope)
+      + variable declared to be local to the function
+      + override any global variable w/ the same name
+      + local to the function
+      + used anywhere inside the function
+    + only declaring a variable w/ `var` keyword
+      + possibly making stupid errors hard to detect
+      + variable declared in function w/o the `var` keyword $\to$ global variable
+    + best practice
+      + always declaring a global or a local variable w/ `var`
+      + using `let` if browser supporting JavaScript 6
+  + `let` & `const` keywords since ES2015
+    + `let` keyword to declare variables
+    + `const` keywork to declare constants
+    + scope
+      + global scope for global variable
+      + block scope for variable declared btw "{" and "}"
+    + a local variable override other variables located in higher scopes
+  + block variables
+    + most programming languages applied
+    + local variable within the block of instructions btw "{" and "}"
+    + variable declared within "{" and "}"
+  + highly recommended to use `let` and `const` instead of `var` for declaring variables and constants
+
 
 
 
