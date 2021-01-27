@@ -121,7 +121,7 @@ __Source code for the next 3 questions (4, 5 and 6)__
 
 7. Correct usage of the script tag
 
-  We use the script HTML tag for inserting/embedding JavaScript code in an HTML document. Below, we describe different uses of this tag. Please check the ones that are incorrect. (3 answers are incorrect!)
+  We use the `script` HTML tag for inserting/embedding JavaScript code in an HTML document. Below, we describe different uses of this tag. Please check the ones that are <span style="color: brown;">incorrect</span>. (3 answers are incorrect!)
 
   a. `<script src="myScript.js">`<br/>
   b. `<script src="myScript.js"/>`<br/>
@@ -201,10 +201,10 @@ __Source code for the next 2 questions (11 and 12)__
 
 12. Print me but I'm lazy
 
-  Is it possible to see the value of the global variables x1, x2, x3, x4 without adding any source code?
+  Is it possible to see the value of the global variables `x1, x2, x3, x4` without adding any source code?
 
-  a. Yes. x1, x2, x3, x4 are global variables declared with the keyword var, outside any function. They can be accessed from the devtool console. Just type their name in the console.<br/>
-  b. No, variable values cannot be accessed without using an instruction such as alert(...), console.log(...) or the DOM API to display their value in the HTML document.<br/>
+  a. Yes. `x1, x2, x3, x4` are global variables declared with the keyword var, outside any function. They can be accessed from the devtool console. Just type their name in the console.<br/>
+  b. No, variable values cannot be accessed without using an instruction such as `alert(...)`, `console.log(...)` or the DOM API to display their value in the HTML document.<br/>
   
   Ans: <br/>
   Explanation: 
