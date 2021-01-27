@@ -117,6 +117,99 @@ __Source code for the next 3 questions (4, 5 and 6)__
   Explanation: _data_ is a direct property of parameters. We access the data property using `parameters.data`, then _data_ is an array, and array indexes start at 0. data has only one element (the object {fn: 'sin(x)', color: 'red'}).
 
 
+### 1.7.2 Exercises (7-12)
+
+7. Correct usage of the script tag
+
+  We use the script HTML tag for inserting/embedding JavaScript code in an HTML document. Below, we describe different uses of this tag. Please check the ones that are incorrect. (3 answers are incorrect!)
+
+  a. `<script src="myScript.js">`<br/>
+  b. `<script src="myScript.js"/>`<br/>
+  c. `<script src="myScript.js"> </script>`<br/>
+  d. `<script src="../utils.html"> </script>`<br/>
+  e. `<script src="http://myServer.com/js/math.js"> </script>`<br/>
+  f. `<script src="https://myServerSecure.com/js/math.js"> </script>`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+8. Where are my files?
+
+  Only one of these is true:
+
+  a. JavaScript code can be located in external JS files, using a relative or absolute URL (they can be on the same hard disk as the html file that includes them or on any external HTTP server). <br/>
+  b. JavaScript code can be located in external JS files, but on the same server as the HTML file that includes them<br/>
+  c. JavaScript code should be always located between `<script>...</script>` tags in an HTML document<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
+9. How many files?
+
+  Can we include more than one JavaScript file in an HTML document? (Yes/No)
+  
+  Ans: <br/>
+  Explanation: 
+
+
+10. Debug me!
+
+  How do you print a debug message in the devtool console?
+
+  a. Execute `console.log(...)` in your code.<br/>
+  b. Execute `alert(...)` in your code.<br/>
+
+  Ans: <br/>
+  Explanation: 
+  
+<hr>
+
+__Source code for the next 2 questions (11 and 12)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> x1 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> x2 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">12</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> x3 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">9.5</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> x4 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">15</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> compute</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> x3</span><span class="pun">,</span><span class="pln"> x4</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> m </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x1 </span><span class="pun">+</span><span class="pln"> x2 </span><span class="pun">+</span><span class="pln"> x3 </span><span class="pun">+</span><span class="pln"> x4</span><span class="pun">)/</span><span class="lit">5.0</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> m</span><span class="pun">*</span><span class="lit">12</span><span class="pun">*</span><span class="pln">m</span><span class="pun">/</span><span class="lit">2.</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> o </span><span class="pun">=</span><span class="pln"> n</span><span class="pun">-</span><span class="lit">0.94</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> o</span><span class="pun">/</span><span class="lit">518</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// Call the above function with x1, x2, x3, x4</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// What is the result, add here a mean to display </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">// the result in the console</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com" style="color: #000000;">var result = compute(x1, x2, x3, x4);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com" style="color: #000000;">console.log(result);</span></li>
+</ol></div>
+
+11. Get the result!
+
+  Type the above source code in CodePen or in the devtool console and execute it, a result will be printed in the devtool console. Try to understand where it comes from? what is the value of m, of n, of o, etc.
+
+  Once you have executed the code, please type the result in the text field below:
+
+  Ans: <br/>
+  Explanation: 
+
+
+
+12. Print me but I'm lazy
+
+  Is it possible to see the value of the global variables x1, x2, x3, x4 without adding any source code?
+
+  a. Yes. x1, x2, x3, x4 are global variables declared with the keyword var, outside any function. They can be accessed from the devtool console. Just type their name in the console.<br/>
+  b. No, variable values cannot be accessed without using an instruction such as alert(...), console.log(...) or the DOM API to display their value in the HTML document.<br/>
+  
+  Ans: <br/>
+  Explanation: 
+
+
 
 
 
