@@ -58,7 +58,7 @@ This repository tracks my learning on different programming languages.
 
 ### Web Design
 
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 58vw;" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 58vw;" cellspacing=0 cellpadding=5 border=1 align="center">
   <thead>
   <tr style="border-bottom: double black;">
     <th style="width: 10%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
@@ -315,7 +315,6 @@ This repository tracks my learning on different programming languages.
 
 
   <!-- Template -->
-
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
@@ -451,18 +450,47 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <!-- JavaScript -->
-
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> JavaScript </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#general"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#history"> History </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#locations-of-js-code"> Location </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#debugging"> Debugging </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Syntax </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#common-syntax"> Common </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#expressions-and-operators> Expressions & Operators </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#syntax-variables"> Variables </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Data Types </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#data-types"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#numbers"> Numbers </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#strings"> Strings </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#objects"> Objects </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#arrays"> Arrays </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#functions"> Functions </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
   </tr>
 
+  <!-- Standard APIs -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Standard APIs </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#overview"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-html-document"> HTML </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-css-style"> CSS </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#reacting-events"> Events </a></td>
+  </tr>
+
+  <!-- DOM APIs -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM APIs </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-video-element"> Video Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-track-element"> Track Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-getusermedia-api---accessing-webcam--microphone"> getUserMedia API </a></td>
@@ -471,7 +499,7 @@ This repository tracks my learning on different programming languages.
 
   <!-- Web Storage API -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Web Storage API </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Web Storage APIs </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#web-storage-api"> Basics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#cookie"> Cookie </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#set--get-web-storage"> Set & Get Store </a> </td>
@@ -484,11 +512,9 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
   </tr>
 
-
   <!-- File API -->
-
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> File API </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> File APIs </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#file-apis-1"> Basics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#file-metadata"> Metadata </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#bolb-object"> Blob Object </a> </td>
@@ -503,9 +529,8 @@ This repository tracks my learning on different programming languages.
 
 
   <!-- GeoLocation API -->
-  
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation API </th>
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation APIs </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#geolocation-apis"> Basics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#tracking-position"> Tracking Position </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#reverse-geocoding"> Reverse Geocoding </a> </td>
@@ -538,22 +563,26 @@ This repository tracks my learning on different programming languages.
 
 ### Python Programming Language
 
-
-
-
-### Python Syntax and Libraries
-
-<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 80%;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 58vw;" cellspacing=0 cellpadding=5 border=1 align="center">
   <thead>
-  <tr style="border-bottom: double black; width: 80vw;">
-    <th style="font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
-    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
+  <tr style="border-bottom: double black;">
+    <th style="width: 10%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
+    <th colspan="4" style="width: 30%; text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
   </tr>
   </thead>
   <tbody>
 
-  <!--Web Scraping -->
+  <!-- Python Syntax -->
+  <tr> <td colspan="5" style="width: 100vw; text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Python Syntax </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/">  </a></td>
+  </tr>
 
+  <!--Web Scraping -->
   <tr> <td colspan="5" style="width: 100vw; text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Web Scraping </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Requests </th>
