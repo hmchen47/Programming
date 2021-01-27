@@ -411,7 +411,7 @@ Click on the piano keyboard. Use the different buttons, sliders, etc. This examp
       })
       ```
 
-    + WenAudio APIs: `oscillator.createOscillator(); oscillator.setFreq(freq);`
+    + WebAudio APIs: `oscillator.createOscillator(); oscillator.setFreq(freq);`
 
 
 ### 1.6.7 Using third-party JS APIs/libraries
