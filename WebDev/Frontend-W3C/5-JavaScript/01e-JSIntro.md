@@ -1740,8 +1740,8 @@ An array named "arguments" is created automatically in each function, it contain
 + Functions
   + grouping code, providing name and accessing by calling the given name
   + always returning a value
-    + explicityly, using the keyworkd `return` followed by the value
-    + implicityly, returning value is `undefined`
+    + explicitly, using the keyword `return` followed by the value
+    + implicitly, returning value is `undefined`
   + declaring a function, e.g.,
 
     ```js
