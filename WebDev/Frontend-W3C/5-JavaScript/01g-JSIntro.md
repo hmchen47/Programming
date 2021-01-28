@@ -130,8 +130,8 @@ __Source code for the next 3 questions (4, 5 and 6)__
   e. `<script src="http://myServer.com/js/math.js"> </script>`<br/>
   f. `<script src="https://myServerSecure.com/js/math.js"> </script>`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: abd<br/>
+  Explanation: The script tag always comes with a closing tag. It can only be used to include js code, not html. Finally it can be used to include external js source files using http or https URLs.
 
 
 8. Where are my files?
@@ -142,16 +142,17 @@ __Source code for the next 3 questions (4, 5 and 6)__
   b. JavaScript code can be located in external JS files, but on the same server as the HTML file that includes them<br/>
   c. JavaScript code should be always located between `<script>...</script>` tags in an HTML document<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: JavaScript code can be located in different places, in HTML between script tags, in local or external files, using relative or absolute URLs.
 
 
 9. How many files?
 
   Can we include more than one JavaScript file in an HTML document? (Yes/No)
   
-  Ans: <br/>
-  Explanation: 
+  Ans: Yes<br/>
+  Explanation: It it possible to use more than one JavaScript file, just use multiple `<script src="..."></script>`
+
 
 
 10. Debug me!
@@ -161,8 +162,8 @@ __Source code for the next 3 questions (4, 5 and 6)__
   a. Execute `console.log(...)` in your code.<br/>
   b. Execute `alert(...)` in your code.<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: `console.log("value of x: " + x);` will display in the console the value of the variable x. This is the best way to display messages in the console.
   
 <hr>
 
@@ -184,8 +185,8 @@ __Source code for the next 2 questions (11 and 12)__
 <li class="L2" style="margin-bottom: 0px;"><span class="com">// Call the above function with x1, x2, x3, x4</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="com">// What is the result, add here a mean to display </span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="com">// the result in the console</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com" style="color: #000000;">var result = compute(x1, x2, x3, x4);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com" style="color: #000000;">console.log(result);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com" style="color: brown;">var result = compute(x1, x2, x3, x4);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com" style="color: brown;">console.log(result);</span></li>
 </ol></div>
 
 11. Get the result!
@@ -194,8 +195,7 @@ __Source code for the next 2 questions (11 and 12)__
 
   Once you have executed the code, please type the result in the text field below:
 
-  Ans: <br/>
-  Explanation: 
+  Ans: 1<br/> 
 
 
 
@@ -206,8 +206,8 @@ __Source code for the next 2 questions (11 and 12)__
   a. Yes. `x1, x2, x3, x4` are global variables declared with the keyword var, outside any function. They can be accessed from the devtool console. Just type their name in the console.<br/>
   b. No, variable values cannot be accessed without using an instruction such as `alert(...)`, `console.log(...)` or the DOM API to display their value in the HTML document.<br/>
   
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Indeed, `x1, x2, x3, x4` are global variables. Their value can be printed in the console just by typing their name.
 
 
 
