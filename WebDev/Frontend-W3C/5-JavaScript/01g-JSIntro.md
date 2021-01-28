@@ -191,7 +191,7 @@ __Source code for the next 2 questions (11 and 12)__
 
 11. Get the result!
 
-  Type the above source code in CodePen or in the devtool console and execute it, a result will be printed in the devtool console. Try to understand where it comes from? what is the value of m, of n, of o, etc.
+  Ty  pe the above source code in CodePen or in the devtool console and execute it, a result will be printed in the devtool console. Try to understand where it comes from? what is the value of m, of n, of o, etc.
 
   Once you have executed the code, please type the result in the text field below:
 
@@ -223,16 +223,17 @@ __Source code for the next 2 questions (11 and 12)__
   e. `var x = 0xFF;`<br/>
   f. `var x=1, y=2, z;`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: cef<br/>
+  Explanation: <br/>
+    + The first letter of a variable can only be "$", "_", "a" to "z", or "A" to "Z". The other characters in a name must be any of these, or numeric digits.
+    + There are some reserved names that you can't use as a variable name: for, boolean, if, delete, var, function, etc. They are reserved words of the JavaScript language. 1x, for, #x are not valid names.
 
 
 14. Case sensitive?
 
   Are variable names case sensitive? (i.e: `var x=10; console.log(X);` will give an error) (Yes/No)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: Yes
 
 
 15. Naming conventions
@@ -245,8 +246,10 @@ __Source code for the next 2 questions (11 and 12)__
   d. `var final_result;`<br/>
   e. `var _myCar = "Ferrari";`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: abc<br/>
+  Explanation: The JavaScript community has some conventions about naming variables:
+    + The camelCase notation is preferred: mySpaceShip, sumOfAllGrades, etc. If a variable name is a single word, use lowercase.
+    + For a variable with a composed name, the first letter is lowercase and each first letter of every word is capitalized. Example: var myVariableName
 
 
 <hr>
@@ -285,8 +288,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Batman<br/>
   c. Indiana Jones<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: The execution of the function `displayName` will display the value of the global variable name: Zorro
 
 
 17. Check my scope (part 2)
@@ -297,8 +300,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Indiana Jones<br/>
   c. Zorro<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The execution of the function `displayName1` will display the value of the call parameter, that will mask the global variable that has the same name. The displayed value will be "Indiana Jones".
 
 
 18. Check my scope (part 3)
@@ -309,8 +312,9 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Batman<br/>
   c. Indiana Jones<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The execution of the function `displayName2` will display the value of the local variable at line 17, that will mask the global variable that has the same name. The displayed value will be "Batman".
+
 
 
 19. Are you crazy?
@@ -327,8 +331,9 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Infinity<br/>
   c. An error<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: NaN means "Not a Number". As we cannot divide a string value by a number (it's Not A Number!), NaN will be displayed.
+
 
 
 20. Can you compute this?
@@ -345,8 +350,11 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. Infinity<br/>
   c. An error<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: Divide 125 by zero and you will get Infinity!
+
+
+
 
 
 
