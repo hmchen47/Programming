@@ -173,7 +173,7 @@ Used with logical operators or within statements, __non-boolean values are impli
 + __null__
 + __0__
 + __NaN__
-+ __the empty string ''__
++ __the empty string: '' or ""__
 
 <span style="color: brown; font-weight: bold;">Everything else is evaluated as true!</span>
 
@@ -480,10 +480,15 @@ All the examples for this section are in this codepen (<span style="color: brown
 
 (Please look, edit and try whatever you want. There are parts that are commented - please remove comments and try to understand the results).
 
+[CodePen Demo](https://codepen.io/w3devcampus/pen/qrjdza)
+
+[Local Demo](src/02b-example05.html)
+
+
 <p class="exampleHTML" style="text-align: center;"><strong>Conditional statements are used to execute a unit of code <br>only if a condition is evaluated as <span style="font-family: 'courier new', courier;">true.</span></strong></p>
 
 
-#### The `if` statement
+##### The `if` statement
 
 __Syntax:__
 
@@ -535,11 +540,11 @@ The following values will evaluate to false:
 + `null`
 + `0`
 + `NaN`
-+ `""` (empty string)
++ `""` or `''` (empty string)
 
 All other values, including all objects, evaluate to true when passed to a conditional statement.
 
-#### The if-then-else ternary operator
+##### The if-then-else ternary operator
 
 This ternary operator is a shortcut version of `if...then...else`.
 
@@ -720,6 +725,7 @@ To finish up this section, here is a complete example (<span style="color: brown
   + flow of program
     + statement executed sequentially from top to bottom
     + modified by statements such as conditional statements or iteration statement
+  + conditional statements: used to execute a unit of code only if a condition is evaluated as `true`
 
 + Block statement
   + a simple statement allowing to group a set of statements wrapped in curly braces`{` & `}`
@@ -732,6 +738,45 @@ To finish up this section, here is a complete example (<span style="color: brown
         var result = false;
         console.log('i = ' + i);
     }
+    ```
+
++ The `if` statement
+  + syntax:
+    + <code><span style="color: brown; font-weight: bold;">if</span> (Expr) <span style="color: brown; font-weight: bold;">else</span> (Expr)</code>
+    + <code><span style="color: brown; font-weight: bold;">if</span> (Expr)</code>
+  + `Expr` possibly including
+    + logical operators: `&&`,. `||`, & `!`
+    + comparison expressions: `==`, `===`, `>`, `>=`, `<`, `<=`
+    + any values or expressions able to converted to boolean
+  + example:
+
+    ```js
+    var num = 10;
+    
+    if (num === 10) { num = 20; } // num = 10
+
+    if (num > 10) { num = 20; } else { num = 0; } // num = 0
+    ```
+
++ The if-then-else ternary operator
+  + ternary operator:
+    + using a syntax w/ "?" and ":"
+    + statement: `(expr1) ? (expr2) : (expr3)`
+  + a shortcut version of `if...then...else`
+  + read as `if (expr1) then (expr2) else (expr3)`
+  + short version not recommended except for very simple statement
+  + example: equivalent
+
+    ```js
+    var max; var min = 2;
+    
+    if (min < 10) {     // if...then...else
+        max = min + 10;
+    } else {
+        max = min;
+    }
+
+    max = (min < 10)? min+10 : min; // ternary
     ```
 
 
