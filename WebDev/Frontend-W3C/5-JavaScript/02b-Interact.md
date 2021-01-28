@@ -351,6 +351,15 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
     + undeclared variable: `bar;`
       + accessing: raising `ReferenceError` error msg
       + typeof operator: return `undefined`
+  + `NaN` (Not-a-Number)
+    + equal to nothing: `NaN == NaN; // false`, `NaN === NaN; // false`
+    + checking w/ `isNaN(expr)`
+      + examples: `isNaN(0/0); //true`, `isNaN(NaN); // true`, `isNaN(12); // false`
+      + `X = NaN;` $\implies$ `X != X; // true`
+    + possible ways to produce `NaN`
+      + `(0/0) || 0` $\iff$ `NaN || 0` $\iff$ `false || 0`
+      + `ParseInt('foo');`: converting a String to a Number
+      + `Math.sqrt(-1);`: returning `NaN`
 
 + Logical operators
   + `&&` (AND): binary
@@ -388,6 +397,7 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
   + triple-equals operator never doing type coercion
   + examples: `1 == 1; // true`, `1 == '1'; // true`, `1 === 1; // true`, `1 === '1'; // false`
   + best practice: always use `===` or `!==` for comparisons
+
 
 #### Knowledge check 2.2.1
 
