@@ -372,7 +372,22 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
       + `var boo = (0/0) || 43.2;   // 43.2`
       + `var muNum = !1; if (muNum == null){ muNum = 3; } muNum = myNum || 2; // 2`
 
++ Comparison operators
+  + Equal `==`
+  + Not equal `!=`
+  + Greater than `>`
+  + Greater than or equal `>=`
+  + Less than `<`
+  + Less than or equal to `<=`
+  + Strict equal `===`
+  + Strict not equal `!==`
 
++ Equal vs. strict equal
+  + Equal `==`: return true if strictly equal __w/ type conversion__
+  + Strict equal `===`: return true if strictly equal __w/0 type conversion__
+  + triple-equals operator never doing type coercion
+  + examples: `1 == 1; // true`, `1 == '1'; // true`, `1 === 1; // true`, `1 === '1'; // false`
+  + best practice: always use `===` or `!==` for comparisons
 
 #### Knowledge check 2.2.1
 
