@@ -1,5 +1,5 @@
 var javaScriptCourse = true;
-[Local Demo]
+
 if(javaScriptCourse) {
    console.log("This is a JavaScript course!");
 } else {
@@ -9,8 +9,8 @@ if(javaScriptCourse) {
 // comparison operators
 // < > <= >= == !=, and === !==
 // comparison operators: < > <= >= == !=
- 
-var age = "72"; 
+
+var age = "72";
 
 if(age < 2) {
   console.log("I'm a baby");
