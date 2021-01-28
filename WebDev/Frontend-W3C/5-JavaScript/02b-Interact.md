@@ -721,6 +721,19 @@ To finish up this section, here is a complete example (<span style="color: brown
     + statement executed sequentially from top to bottom
     + modified by statements such as conditional statements or iteration statement
 
++ Block statement
+  + a simple statement allowing to group a set of statements wrapped in curly braces`{` & `}`
+  + used by other statements including if-statement or for-statement
+  + example: 
+
+    ```js
+    {
+        var i = 0;
+        var result = false;
+        console.log('i = ' + i);
+    }
+    ```
+
 
 
 
