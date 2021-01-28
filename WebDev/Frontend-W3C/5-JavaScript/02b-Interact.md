@@ -415,8 +415,10 @@ if ((a === 5) || (a === 6))  {
   b. before (`a === 5`)<br/>
   c. after (`a === 5`)<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: As a equals 5, the (`a === 5`) expression will be true. With the || binary operator, if the left part is true, then the right part is never evaluated. true || something (an expression) is evaluated to true, and the part to the right of the || operator is not tested.
+
+
 
 
 
