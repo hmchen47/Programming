@@ -716,10 +716,10 @@ To finish up this section, here is a complete example (<span style="color: brown
 + Expressions
   + a statement closed w/ semicolon (`;`)
   + missing semicolon automatically inserted
-  + readability: always recommended adding a semicolon at the end of all satatements
+  + readability: always recommended adding a semicolon at the end of all statements
   + flow of program
-    + statement exectuted sequentially from top to bottom
-    + modified by statements such as consitional statements or iteration statement
+    + statement executed sequentially from top to bottom
+    + modified by statements such as conditional statements or iteration statement
 
 
 
