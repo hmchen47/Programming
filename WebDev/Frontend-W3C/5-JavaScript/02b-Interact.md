@@ -419,6 +419,326 @@ if ((a === 5) || (a === 6))  {
   Explanation: As a equals 5, the (`a === 5`) expression will be true. With the || binary operator, if the left part is true, then the right part is never evaluated. true || something (an expression) is evaluated to true, and the part to the right of the || operator is not tested.
 
 
+### 2.2.2 Conditional statements
+
+#### Live coding video: switch statement
+
+<a href="https://edx-video.net/W3CJSIXX2016-V002600_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y6p9tozl)
+
+
+##### Example from the video
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/jmoJRZ)
+
+[Local Demo](src.js/02b-example02.js)
+
+JavaScript source code is a set of statements. There are a couple of different statement types. We have already seen one of them, the variable statement:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> myVar </span><span class="pun">=</span><span class="pln"> </span><span class="str">'hello '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'world'</span><span class="pun">;</span></li>
+</ol></div>
+
+We've also seen the expression statement:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="lit">3</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// more often like this</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="lit">3</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> x</span><span class="pun">);</span></li>
+</ol></div>
+
+A statement closes with a semicolon, but we will see later that missing semicolons are automatically inserted (for readability reasons, we highly recommend systematically adding a semicolon at the end of all statements).
+
+Statements are generally executed sequentially from top to bottom of the script. However, this flow can be modified by statements such as conditional statements and iteration statements.
+
+
+#### The block statement
+
+The block statement is a simple statement which allows us to group a set of statements wrapped in curly braces. 
+
+Block statement:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'i = '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+The block statement is used by other statements such as the if-statement or for-statement. We will see these statements below.
+
+
+#### Conditional statements
+
+All the examples for this section are in this codepen (<span style="color: brown;">to run it: click on the "edit on CodePen" label, and once in CodePen, open the devtool console to see the outputs of this program</span>):
+
+(Please look, edit and try whatever you want. There are parts that are commented - please remove comments and try to understand the results).
+
+<p class="exampleHTML" style="text-align: center;"><strong>Conditional statements are used to execute a unit of code <br>only if a condition is evaluated as <span style="font-family: 'courier new', courier;">true.</span></strong></p>
+
+
+#### The `if` statement
+
+__Syntax:__
+
+<div class="exampleHTML">
+<p style="padding-left: 30px;"><span style="color: #ff0000;"><strong><span style="font-family: 'courier new', courier;">if</span></strong></span> ( Expression ) Statement <span style="color: #ff0000;"><strong><span style="font-family: 'courier new', courier;">else</span></strong></span> Statement</p>
+<p style="padding-left: 30px;"><span style="color: #ff0000;"><strong><span style="font-family: 'courier new', courier;">if</span></strong></span> ( Expression ) Statement</p>
+</div>
+
+__The expression may include:__
+
++ logical operators ( `! && ||` )
++ comparison operators ( `==`, `===`, `>`, `>=`, `<`, `<=`)
++ any values or expressions which can be converted to boolean
+
+__Example #1: if-statement__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">if</span></strong><span class="pln"> </span><span class="pun">(</span><span class="pln">num </span><span class="pun">===</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln"> </span><strong><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// num equals 20</span></li>
+</ol></div>
+
+
+__Example #2: if-else statement__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">if</span></strong><span class="pln"> </span><span class="pun">(</span><span class="pln">num </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln"> </span><strong><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong><span class="pln"> </span><strong><span class="kwd">else</span></strong><span class="pln"> </span><strong><span class="pun">{</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; num </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// num equals 0</span></li>
+</ol></div>
+
+
+__Reminder:__
+
+The following values will evaluate to false:
+
++ `false`
++ `undefined`
++ `null`
++ `0`
++ `NaN`
++ `""` (empty string)
+
+All other values, including all objects, evaluate to true when passed to a conditional statement.
+
+#### The if-then-else ternary operator
+
+This ternary operator is a shortcut version of `if...then...else`.
+
+Let's look at this code example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> max</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> min </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">min </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; max </span><span class="pun">=</span><span class="pln"> min </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; max </span><span class="pun">=</span><span class="pln"> min</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+_Explanation_: You can replace this "if-then-else" statement with the ternary operator that uses a syntax with "?" and ":"
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> max</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> min</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">max </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">min </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)?</span><span class="pln"> min</span><span class="pun">+</span><span class="lit">10</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> min</span><span class="pun">;</span></li>
+</ol></div>
+
+
+_Line 3_ can be read as if `(min < 10)` then `max = min+10`, else `max = min`. The "then" part is after the "?" and the "else" part is after the ":" part.
+
+This "short" version is not recommended except for very simple statements that involve a very obvious block of instructions for the "then" and the "else". Usually this syntax is much harder to read for beginners.
+
+
+#### Curly braces
+
+Should we use them in if-then-else statements? There are examples without curly braces on the Web: what does this mean?
+
+Here are two versions of the same code.
+
+__Version 1:__ `no curly` braces
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">if</span></strong><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; result </span><span class="pun">=</span><span class="pln"> </span><span class="str">'a is bigger than 2'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">else</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; result </span><span class="pun">=</span><span class="pln"> </span><span class="str">'a is not bigger than 2'</span><span class="pun">;</span></li>
+</ol></div>
+
+__Version 2:__ with curly braces for delimiting the "then" and "else" blocks
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">if</span></strong><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><strong><span class="pun">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; result </span><span class="pun">=</span><span class="pln"> </span><span class="str">'a is bigger than 2'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; result </span><span class="pun">=</span><span class="pln"> </span><span class="str">'a is not bigger than 2'</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+</ol></div>
+
+Version 1 and version 2 are equivalent. Indeed, version 1 is correct: you can omit curly braces if the "then" or "else" blocks are made of only one statement (one line of code).
+
+But version 2 is cleaner and more readable, and, in particular, it is much better for maintainability (because you can add a statement just by pressing the enter key. And you can add some extra lines of code without worrying about adding curly braces because you broke the "1 line statement rule").
+
+<p class="exampleHTML" style="text-align: center;"><strong>So it is strongly recommended that you&nbsp;always use if-statements <br>enclosed in curly braces.&nbsp;</strong></p>
+
+Of course, one-line if-statements like this :
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> doSomething</span><span class="pun">();</span></li>
+</ol></div>
+
+...are really fast to write, but if you want to add a second statement later it will become more time consuming.
+
+__Conclusion: always use curly braces!__
+
+
+#### The switch statement
+
+In order to avoid having a series of ifs and elses, it is possible to use a __`switch`__ statement. 
+
+The syntax of the `switch` statement is:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">switch</span></strong><span class="pln"> </span><span class="pun">(</span><span class="pln">expression</span><span class="pun">)</span><span class="pln"> </span><strong><span class="pun">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> value1</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span class="kwd">break</span></strong><span class="pun">; &nbsp; &nbsp; &nbsp; // break can be omitted in that case</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the second test case will be executed</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// most of the time we add a break; at the end</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// of a "case"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> value2</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span class="kwd">break</span></strong><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> value3</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span class="kwd">break</span></strong><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">default</span></strong><span class="pun">: &nbsp; &nbsp; &nbsp; &nbsp; // if no case tested true</span><span class="pln"></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span class="kwd">break</span></strong><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+If the value of an expression equals one of the cases (the equality operator evaluated is ===), all the statements next to this case block are executed sequentially until the keyword break is reached.
+
+__Example #1: a common switch/case/default example__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> gear </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">switch</span></strong><span class="pln"> </span><span class="pun">(</span><span class="pln">cloudColor</span><span class="pun">)</span><span class="pln"> </span><strong><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> </span><span class="str">'green'</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">=</span><span class="pln"> </span><span class="str">'spacesuit'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> </span><span class="str">'black'</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">=</span><span class="pln"> </span><span class="str">'boots'</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> </span><span class="str">'grey'</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">=</span><span class="pln"> </span><span class="str">'umbrella'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> </span><span class="str">'white'</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">=</span><span class="pln"> </span><span class="str">'jacket'</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">default</span></strong><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">=</span><span class="pln"> </span><span class="str">'watch'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span class="pun">;</span><span class="pln"> </span><span class="com">// useless if in the last case</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun"><strong>}</strong> // end of the switch statement</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+</ol></div>
+
+In this example, if the clouds are grey, then my gear will be just an umbrella. If they are white, I'll wear only a jacket, if they are black I'll be nude with just boots (!), and if they are green I'll get a spacesuit. And if the cloud color is none of these, then I'll only wear a watch. The presence of the __`break`__ keyword at the end of the different cases make the choices 100% exclusive. Only one case can be executed!
+
+__Example 2#: a switch without "breaks" at the end of each cas__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> gear </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">switch</span></strong><span class="pln"> </span><span class="pun">(</span><span class="pln">cloudColor</span><span class="pun">)</span><span class="pln"> </span><strong><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> </span><span class="str">'green'</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'spacesuit'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span class="kwd">break</span></strong><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> </span><span class="str">'black'</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'boots, '</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> </span><span class="str">'grey'</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'umbrella, '</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">case</span></strong><span class="pln"> </span><span class="str">'white'</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'jacket, '</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><strong><span class="kwd">default</span></strong><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'watch'</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun"><strong>}</strong> // end of the switch statement</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+</ol></div>
+
+
+_Explanation_: if the clouds are black, then my gear will be 'boots, umbrella, jacket, watch'. If the clouds are green, my gear is a spacesuit (because of the `break` keyword, other cases will not be tested). If the cloud color is not in the listed colors, then my gear is only a watch (default case).
+
+__Example #3: three ways to do condition statements__
+
+To finish up this section, here is a complete example (<span style="color: brown;">to run it: click on the "edit on codepen" label and once in codepen, open the devtool console to see the outputs of this program</span>):
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/PpjPKy)
+
+[Local Demo](src/02b-example04.html)
+
+
+#### Knowledge check 2.2.2 
+
+```js
+var x = 2;
+var y = 5;
+
+if(y > 0) {
+    if ((x > 2) && (y < 10)) {
+        if(x === 2) console.log("YES");
+    } else {
+        if((x > 10) && (y === 5)) console.log("NO");
+    }
+} else {
+    console.log("MAYBE");
+}
+console.log(" THE END");
+```
+1. What will be printed in the devtool console?
+
+  a. THE END<br/>
+  b. NO THE END<br/>
+  c. YES THE END<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+
 
 
 
