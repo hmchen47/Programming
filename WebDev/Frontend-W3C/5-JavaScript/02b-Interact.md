@@ -840,11 +840,249 @@ console.log(" THE END");
   Explanation: y is 5 so the first if statement will be true. The second if statement tests the condition (x > 2) that is false. The execution will continue to the else. The next test is ((x > 10) && (y === 5)), where (x > 10) is false, the right part of the expression will not be evaluated because of the && operator and "NO" will never been printed.<br/>So, neither YES or NO will be printed. Only THE END will be printed.
 
 
+### 2.2.3 Loop statements
 
 
+#### Live coding video: loop statements
+
+<a href="https://edx-video.net/W3CJSIXX2016-V002700_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y5ubn8ad)
+
+Example from the video
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/qmGeYZ?editors=0012)
+
+[Local Demo](src/js/02b-example06.js)
 
 
+#### Loops
+
+A loop is used to run the same block of code several times while a condition is satisfied.
+
+If you have trouble with loops, the online tool [slowmoJS](https://toolness.github.io/slowmo-js/) can be really useful: you just have to copy and paste an example into it to run it step by step and see how your program executes loops.
+
+##### The while statement
+
+With a `while` statement, a block of code is executed repeatedly while the specified condition is satisfied (evaluates to true).
+
+Syntax:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> condition </span><span class="pun">)</span><span class="pln"> statement</span></li>
+</ol></div>
+
+The condition is an expression, and the statement can be a block statement.
+
+Typical example of a while statement:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">4</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; j </span><span class="pun">+=</span><span class="pln"> i</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; i +</span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span style="color: #666600;" color="#666600">...</span></li>
+</ol></div>
+
+The block inside the while (_lines 4 and 5_) will be executed three times:
+
++ _Line 1_ initializes i with a value of 1.
++ We enter the while statement at _line 3_. Is the value of `i` strictly less than 4?
++ Yes, the variable `i` is equal to 1, we enter the statement inside the `while`.
++ __Run 1:__
+  + We execute _line 4_: `j += i;` (equivalent to `j = j + i`). As `j` was set to 1 at _line 1_, `j` is now equal to 2.
+  + We execute _line 5_ and increment `i` by one. The variable i is now equal to 2.
+  + We go back to the while at _line 3_. Is `i < 4`? Yes, we execute lines 3 and 4 again.
++ __Run 2:__
+  + Now at the end of _line 5_, `j` is equal to "old j value" + "new i value", so `j = 2 + 2 = 4`, i has been incremented and is now equal to 3.
+  + We go back to the while at _line 3_. Is `i < 4`? Yes, we execute lines 3 and 4 again.
++ __Run 3:__
+  + Now at the end of _line 5_, `j` is equal to "old j value" + "new i value", so `j = 4 + 3 = 7`, `i` has been incremented and is now equal to 4.
+  + We go back to the while at _line 3_. Is `i < 4`? No! The value of `i` is now 4, which is not less than 4. We continue the execution of the program at line 7 with `i = 4` and `j = 7`.
+
+Of course, if the condition never evaluates to false, the block will be executed infinitely until the machine crashes... a test like `while (i > 0) { .....}` will never stop and will eat all the CPU.
+
+Try this example now with [slowmoJS](https://tinyurl.com/y56ntfz4)!
 
 
+##### The do-while statement
+
+The do-while statement is very similar to the while statement, but its syntax is different:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">do</span><span class="pln"> statement </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> condition </span><span class="pun">)</span></li>
+</ol></div>
+
+Typical example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">do</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'i = '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; i</span><span class="pun">++;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pun">}</span><span class="pln"> </span><span class="kwd">while</span><span class="pun">(</span><span class="pln">i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'Value of i after the do-while statement: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span></li>
+</ol></div>
+
+The <span style="color: brown; font-weight: bold;">do-while statement executes the content of the loop once before checking the condition of the while</span>, whereas a <span style="color: cyan; font-weight: bold;">while statement will check the condition first before executing the content.</span>
+
+A do-while is used for a block of code that must be executed at least once.These situations tend to be relatively rare, thus the simple while-statement is more commonly used. 
+
+If you want to "see" the difference, [look at the "do-while" statement with slowmoJS](https://tinyurl.com/y3a963y4) and [the "while" statement slowmoJS](https://tinyurl.com/yy7j48fe).
+
+
+##### The `for` statement
+
+This statement adds some things to the while and do-while statements: an initialization expression and an incrementing expression.
+
+Its syntax is:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">initialization</span><span class="pun">;</span><span class="pln"> condition</span><span class="pun">;</span><span class="pln"> incrementation</span><span class="pun">)</span><span class="pln"> statement</span></li>
+</ol></div>
+
+The three expressions within the parentheses are optional. If the condition is omitted, it is replaced by true (infinite loop).
+
+Typical example (counting from 0 to 10):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'i = '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+We can have more than one instruction in the "initialization part" (var i = 0), and more than one instruction in the "incrementation part" (i++). Here is another example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><strong><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></strong><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><strong><span class="pln"> i</span><span class="pun">++,</span><span class="pln">&nbsp;j</span><span class="pun">+=</span><span class="lit">2</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'i = '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i </span><span class="pun">+</span><span class="pln"> </span><span class="str">' j = '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> j</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+In this example, two variables are defined and assigned within the initialization expression. Before each execution of the block statement, the condition is checked; here we need `i <=10`. After each execution of the block statement, the @@incrementation expression is executed to increment the variables `i` by 1 and `j` by 2.
+
+Open the devtool console of your browser and copy and paste the above code, or [look at the slowmoJS execution](https://tinyurl.com/y5ucfaq2).
+
+
+##### The `for-in` statement
+
+The for-in statement is used to iterate through an object (or through an array, which is also an object). 
+
+Its syntax is:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> variable </span><span class="kwd">in</span><span class="pln"> expression </span><span class="pun">)</span><span class="pln"> statement</span></li>
+</ol></div>
+
+Typical example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> michel </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// michel&nbsp;is an object</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; familyName</span><span class="pun">:</span><span class="str">'Buffa'</span><span class="pun">, &nbsp; &nbsp; // familyName, givenName, age </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // are its properties</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; givenName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">51</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> </span><span class="kwd">property</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> michel</span><span class="pun">)</span><span class="pln"> </span></strong><span class="pun"><strong>{</strong> &nbsp; // the for-in will </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // enumerate properties</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; console.log(property); &nbsp; &nbsp; &nbsp;// will print "familyName", </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // "givenName", </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // "age"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">michel</span><span class="pun">[</span><span class="kwd">property</span><span class="pun">]);</span><span class="pln">&nbsp; // michel['givenName'] same&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // as michel.givenName</span></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+</ol></div>
+
+Before each execution of the block statement, the variable named "property" is assigned with the name of one of the properties (the keys) of the object.
+
+We will see further examples of this statement in module 4, which is devoted to the study of JavaScript objects.
+
+
+#### [ADVANCED] Other statements
+
+
+##### The `continue` statement
+
+The `continue` statement is used to stop the execution of a block and start the next iteration of the loop. The difference from the "`break`" statement is that the loop continues.
+
+Syntax:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">continue</span><span class="pln"> </span><span class="pun">[</span><span class="pln">label</span><span class="pun">]</span></li>
+</ol></div>
+
+The label is optional.
+
+Typical example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> k </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">===</span><span class="pln"> </span><span class="lit">3</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">continue</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; k </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="pln">i</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'k += '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="pun">(</span><span class="lit">2</span><span class="pun">*</span><span class="pln">i</span><span class="pun">));</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'Final k value:'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> k</span><span class="pun">)</span></li>
+</ol></div>
+
+
+Copy and paste this example in your devtool console, but first, try to guess what the value of `k` will be!
+
+Hint: _lines 2-4_ mean that _line 6_ will never be executed for `i = 3`. That means that `i*2` will only be added to k for i = 1, 2 and 4...
+
+
+##### The `break` statement
+
+The `break` statement is used to stop an iteration, a switch or a labelled statement.
+
+Syntax:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">break</span><span class="pln"> </span><span class="pun">[</span><span class="pln">label</span><span class="pun">]</span></li>
+</ol></div>
+
+Typical example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> tab </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'michel'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'john'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'donald'</span><span class="pun">,<span style="color: #000000;" color="#000000">&nbsp;</span></span><span class="str">'paul'</span><span class="pun">]; // johh at index = 1</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> isNameInTheArray</span><span class="pun">(</span><span class="pln">name</span><span class="pun">,</span><span class="pln"> theArray</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Number of elements in the array : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> theArray</span><span class="pun">.</span><span class="pln">length</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> theArray</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'comparing with element in the array at pos '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">theArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> name</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'the name '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> name </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' is in the array at pos: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>break</strong></span><strong><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; }</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">' is not at pos '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; }</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// Execute the function</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">isNameInTheArray</span><span class="pun">(</span><span class="str">'john'</span><span class="pun">,</span><span class="pln"> tab</span><span class="pun">);</span></li>
+</ol></div>
+
+Copy and paste in the devtool console. You'll see that the function that compares each element in the array passed as the second parameter with the name 'john', will stop looping after 'john' has been found at index = 1.
+
+__Detailed explanations:__
+
++ _Line 20_ executes the function
++ _Line 6_: The `for` statement loops on all existing indexes in the `tab`, from 0 to `tab.length`
++ _Line 9_: if the condition is `true`, we enter the block and execute _lines 10-12_
++ The `break` statement at _line 12_ will exit from the loop, it "breaks" the loop.
++ The different `console.log(...)` will never display the message "comparing with elements..." with indexes greater than 1: the loop exists when 'john' is found at index 1 (i equal to 1).
 
 
