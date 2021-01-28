@@ -742,12 +742,16 @@ To finish up this section, here is a complete example (<span style="color: brown
 
 + The `if` statement
   + syntax:
-    + <code><span style="color: brown; font-weight: bold;">if</span> (Expr) <span style="color: brown; font-weight: bold;">else</span> (Expr)</code>
-    + <code><span style="color: brown; font-weight: bold;">if</span> (Expr)</code>
+    + <code><span style="color: brown; font-weight: bold;">if</span> (Expr1) <span style="color: brown; font-weight: bold;">else</span> (Expr1)</code>
+    + <code><span style="color: brown; font-weight: bold;">if</span> (Expr1)</code>
   + `Expr` possibly including
     + logical operators: `&&`,. `||`, & `!`
     + comparison expressions: `==`, `===`, `>`, `>=`, `<`, `<=`
     + any values or expressions able to converted to boolean
+  + curly brace
+    + `Expr1` and `Expr2` possible block statements w/ curly braces
+    + omitted curly braces allowed if only one statement in the block
+    + stronly recommended enclosing if-statement in curly braces
   + example:
 
     ```js
