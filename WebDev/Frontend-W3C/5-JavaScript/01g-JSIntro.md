@@ -366,8 +366,10 @@ __Source code for the next 3 questions (16, 17 and 18)__
   d. object<br/>
   e. string<br/>
 
-  Ans: <br/>
+  Ans: c<br/>
   Explanation: 
+    + JavaScript has a small set of primitive data types: `number`, `string`, `boolean`, `undefined` and `null`.
+    + Anything that is not listed above is an object. Array or array is not a data type.
 
 
 22. 10 or 010, that is the question!
@@ -384,8 +386,10 @@ __Source code for the next 3 questions (16, 17 and 18)__
   a. `x = 8 y = 10`<br/
   b. `x = 10 y = 10`<br/
 
-  Ans: <br/>
+  Ans: a<br/>
   Explanation: 
+    + Be careful: don't start an integer with 0 (zero), as JavaScript will understand it as an octal value.
+    + 010 equals 8, which means 1 * 8^1 + 0 * 8^0
 
 
 23. I like you
@@ -401,8 +405,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. `b = 200 a = 199`<br/>
   c. `b = 200 a = 200`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The correct answer is "b = 200 a = 199", as a has been decremented AFTER its original value has been given to b.
 
 
 24. Simple object
@@ -417,8 +421,15 @@ __Source code for the next 3 questions (16, 17 and 18)__
 
   Is the above code correct? (No/Yes)
 
-  Ans: <br/>
-  Explanation: 
+  Ans: No<br/>
+  Explanation: When declaring an object using { and }, the property name should be followed by a column, not the equal sign. The correct version is:
+    ```js
+    var john = {
+        fullName:'John Doe',
+        city: 'New York',
+        ssn: "11-22-33-44" // no comma at the end of the last property
+    }
+    ```
 
 
 25. Array length
@@ -433,8 +444,8 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. 7<br/>
   c. 8<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: The length of an array is the number of elements it holds. console.log(daysOfWeek.length); will display 7 in the devtool console.
 
 
 26. Array index
@@ -449,7 +460,7 @@ __Source code for the next 3 questions (16, 17 and 18)__
   b. 'Wednesday'<br/>
   c. 'Tuesday'<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation: Indexes start at 0. 'Monday' is at index 0, so 'Wednesday' is at index 2.
 
 
