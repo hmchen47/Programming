@@ -113,7 +113,7 @@
 ## Common syntax
 
 + [JavaScript common syntax and devtool console](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-151-js-variables-and-values)
-  + `//`: comments
+  + `//` and `/* (code block */`): comments
   + devtools console: able to type and execute JavaScript Code as an interperter
 
 ## Expressions and Operators
