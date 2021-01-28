@@ -354,10 +354,102 @@ __Source code for the next 3 questions (16, 17 and 18)__
   Explanation: Divide 125 by zero and you will get Infinity!
 
 
+### 1.7.4 Exercises (21-26)
+
+21. Find the intruder
+
+  JavaScript is a weakly typed language. This means that you do not declare the type of the variables. However, variables do have a data type and JavaScript figures out this type for you (and you can know it using the `typeof` operator). Which of these data types does not exist in JavaScript?
+
+  a. number<br/>
+  b. boolean<br/>
+  c. array<br/>
+  d. object<br/>
+  e. string<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
+22. 10 or 010, that is the question!
+
+  ```js
+  var x = 010;
+  var y = 10;
+
+  console.log("x = " + x + " y = " + y);
+  ```
+
+  What will be displayed in the devtool console?
+
+  a. `x = 8 y = 10`<br/
+  b. `x = 10 y = 10`<br/
+
+  Ans: <br/>
+  Explanation: 
 
 
+23. I like you
 
+  ```js
+  var a = 200; var b = a--;
+  console.log("b = " + b + " a = " + a);
+  ```
+
+  What will be displayed in the devtool console?
+
+  a. `b = 199 a = 199`<br/>
+  b. `b = 200 a = 199`<br/>
+  c. `b = 200 a = 200`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+24. Simple object
+
+  ```js
+  var john = {
+      fullName='John Doe',
+      city='New York',
+      ssn="11-22-33-44"
+  }
+  ```
+
+  Is the above code correct? (No/Yes)
+
+  Ans: <br/>
+  Explanation: 
+
+
+25. Array length
+
+  ```js
+  var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  ```
+
+  What is the length of the array shown above?
+
+  a. 6<br/>
+  b. 7<br/>
+  c. 8<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+26. Array index
+
+  ```js
+  var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  ```
+
+  What day corresponds to `daysOfWeek[2]`?
+
+  a. 2 is not a correct index value<br/>
+  b. 'Wednesday'<br/>
+  c. 'Tuesday'<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
