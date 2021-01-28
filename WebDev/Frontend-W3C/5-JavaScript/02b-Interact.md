@@ -434,7 +434,7 @@ if ((a === 5) || (a === 6))  {
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/jmoJRZ)
 
-[Local Demo](src.js/02b-example02.js)
+[Local Demo](src/js/02b-example02.js)
 
 JavaScript source code is a set of statements. There are a couple of different statement types. We have already seen one of them, the variable statement:
 
@@ -709,6 +709,19 @@ To finish up this section, here is a complete example (<span style="color: brown
 [CodePen Demo](https://codepen.io/w3devcampus/pen/PpjPKy)
 
 [Local Demo](src/02b-example04.html)
+
+
+#### Notes for 2.2.2 Conditional statements
+
++ Expressions
+  + a statement closed w/ semicolon (`;`)
+  + missing semicolon automatically inserted
+  + readability: always recommended adding a semicolon at the end of all satatements
+  + flow of program
+    + statement exectuted sequentially from top to bottom
+    + modified by statements such as consitional statements or iteration statement
+
+
 
 
 #### Knowledge check 2.2.2 
