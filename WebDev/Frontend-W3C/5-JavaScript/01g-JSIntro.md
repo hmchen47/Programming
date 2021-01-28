@@ -210,6 +210,144 @@ __Source code for the next 2 questions (11 and 12)__
   Explanation: Indeed, `x1, x2, x3, x4` are global variables. Their value can be printed in the console just by typing their name.
 
 
+### 1.7.3 Exercices (13-20)
+
+13. You don't like my name?
+
+  Check the valid variable declarations: (3 correct answers.)
+
+  a. `var 1x = 10;`<br/>
+  b. `var for=2;`<br/>
+  c. `let $name = "Michel";`<br/>
+  d. `const #x = 5;`<br/>
+  e. `var x = 0xFF;`<br/>
+  f. `var x=1, y=2, z;`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+14. Case sensitive?
+
+  Are variable names case sensitive? (i.e: `var x=10; console.log(X);` will give an error) (Yes/No)
+
+  Ans: <br/>
+  Explanation: 
+
+
+15. Naming conventions
+
+  There are naming rules and conventions for JavaScript variable and constant names, that we presented in the course. Check the names that follow these conventions: (3 correct answers.)
+
+  a. `var bestGrade = 10;`<br/>
+  b. `let name = "Michel";`<br/>
+  c. `const FAMILY_NAME = "Buffa";`<br/>
+  d. `var final_result;`<br/>
+  e. `var _myCar = "Ferrari";`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+<hr>
+
+__Source code for the next 3 questions (16, 17 and 18)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Zorro"</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayName</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">name</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">displayName</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayName1</span><span class="pun">(</span><span class="pln">name</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">name</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">displayName1</span><span class="pun">(</span><span class="str">"Indiana Jones"</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">// local scope again</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayName2</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Batman"</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">name</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">displayName2</span><span class="pun">();</span><span class="pln"> </span></li>
+</ol></div>
+
+16. Check my scope (part 1)
+
+  What value will be displayed in the devtool console after the execution of line 7?
+
+  a. Zorro<br/>
+  b. Batman<br/>
+  c. Indiana Jones<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+17. Check my scope (part 2)
+
+  What value will be displayed in the devtool console after the execution of _line 13_?
+
+  a. Batman<br/>
+  b. Indiana Jones<br/>
+  c. Zorro<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+18. Check my scope (part 3)
+
+  What value will be displayed in the devtool console after the execution of line 21?
+
+  a. Zorro<br/>
+  b. Batman<br/>
+  c. Indiana Jones<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+19. Are you crazy?
+
+  ```js
+  var name = "Michel";
+  var result = name/3;
+  console.log(result);
+  ```
+
+  What will be printed in the devtool console?
+
+  a. NaN<br/>
+  b. Infinity<br/>
+  c. An error<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+20. Can you compute this?
+
+  ```js
+  var x = 125;
+  var result = x/0;
+  console.log(result);
+  ```
+
+  What will be printed in the devtool console?
+
+  a. Nan<br/>
+  b. Infinity<br/>
+  c. An error<br/>
+
+  Ans: <br/>
+  Explanation: 
+
 
 
 
