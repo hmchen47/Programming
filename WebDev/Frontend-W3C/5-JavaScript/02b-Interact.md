@@ -42,7 +42,7 @@ A boolean variable should not be enclosed in quotation marks, otherwise it becom
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="str">'true'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// b is not a boolean but a string</span></li>
 </ol></div>
 
-##### Undefined and null values
+#### Undefined and null values
 
 __Undefined__
 
@@ -134,7 +134,7 @@ The logical operators are:
 In an expression with logical operators, as shown in _lines 8_ and _11_ of the previous example, non-boolean values are implicitly converted to boolean.
 
 
-#### Lazy evaluation or short-circuit evaluation
+##### Lazy evaluation or short-circuit evaluation
 
 Logical expressions are evaluated from left to right. JavaScript uses a mechanism known as "short-circuit evaluation" to prevent the second, third, and nth conditions from being tested in certain cases: 
 
@@ -162,7 +162,7 @@ Examples:
 <li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
 
-#### Implicit conversions of non boolean values in expressions
+##### Implicit conversions of non boolean values in expressions
 
 Used with logical operators or within statements, __non-boolean values are implicitly converted to booleans__.  
 
@@ -351,6 +351,26 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
     + undeclared variable: `bar;`
       + accessing: raising `ReferenceError` error msg
       + typeof operator: return `undefined`
+
++ Logical operators
+  + `&&` (AND): binary
+  + `||` (OR): binary
+  + `!` (NOT): unary, e.g., `!true // false`
+  + implicit conversion
+    + expression w/ logical operators
+    + non-boolean value implicitly converted to boolean
+    + example: `var b = "one"; !b; // false`
+  + lazy / short-circuit evaluation
+    + `false &&`: always false, `&&` not tested
+    + `true ||`: always true, `||` not tested
+  + values evaluated as false: `false`, `undefined`, `null`, `0`, `NaN`, the empty string
+  + everything else evaluated as true
+  + `&&` and `||` evaluation rules
+    + `A && B`: return A if A = false, otherwise return B
+    + `A || B`: return A if A = true, otherwise return B
+    + examples:
+      + `var boo = (0/0) || 43.2;   // 43.2`
+      + `var muNum = !1; if (muNum == null){ muNum = 3; } muNum = myNum || 2; // 2`
 
 
 
