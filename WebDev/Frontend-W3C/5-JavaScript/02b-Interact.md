@@ -783,7 +783,33 @@ To finish up this section, here is a complete example (<span style="color: brown
     max = (min < 10)? min+10 : min; // ternary
     ```
 
++ The switch statement
+  + syntax:
 
+    ```js
+    witch (expression) {
+        case value1:
+            statement
+            break;      
+            // break can be omitted in that case the second test case will be
+            // executed most of the time we add a break; at the end of a "case"
+    
+        case value2:
+            statement
+            break;
+    
+        case value3:
+            statement
+            break;
+    
+        default:         // if no case tested true
+            statement
+            break;
+    }
+    ```
+  
+  + the equality operator evaluated w/ `===`
+  + all statement next to the `case` block executed sequentially until 'break' keyword reached
 
 
 #### Knowledge check 2.2.2 
