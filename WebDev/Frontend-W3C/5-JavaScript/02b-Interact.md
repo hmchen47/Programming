@@ -13,9 +13,9 @@
 
 [Transcript](https://tinyurl.com/y479f5az)
 
-#### Source code of the example shown in the video
+##### Source code of the example shown in the video
 
-[This example is available on CodePen](https://codepen.io/w3devcampus/pen/pPmqwq?editors=0012)
+[CodePen Demo](https://codepen.io/w3devcampus/pen/pPmqwq?editors=0012)
 
 [Local Demo](src/js/02b-example01.js)
 
@@ -335,6 +335,23 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
 
 + `parseInt('foo');`  returns `NaN`   //parseInt tries to convert a String to a Number 
 + `Math.sqrt(-1);` return `NaN`
+
+
+#### Notes for 2.2.1 Boolean values and logical operators
+
++ Special values
+  + boolean values
+    + two values: `true` and `false`
+    + no quotation marks for these values
+  + undefined
+    + a variable not been assigned
+    + part of rhe JS language
+    + assigning a variable `undefined` allowed
+    + `var foo;` and `var foo = undefined;`: equivalent but 1st recommended (shorter)
+    + undeclared variable: `bar;`
+      + accessing: raising `ReferenceError` error msg
+      + typeof operator: return `undefined`
+
 
 
 #### Knowledge check 2.2.1
