@@ -614,7 +614,7 @@ Of course, one-line if-statements like this :
 
 ...are really fast to write, but if you want to add a second statement later it will become more time consuming.
 
-__Conclusion: always use curly braces!__
+__Conclusion: <span style="color: brown;">always use curly braces!</span>__
 
 
 #### The switch statement
@@ -812,7 +812,7 @@ To finish up this section, here is a complete example (<span style="color: brown
   + all statement next to the `case` block executed sequentially until 'break' keyword reached
 
 
-#### Knowledge check 2.2.2 
+#### Knowledge check 2.2.2
 
 ```js
 var x = 2;
@@ -829,14 +829,15 @@ if(y > 0) {
 }
 console.log(" THE END");
 ```
+
 1. What will be printed in the devtool console?
 
   a. THE END<br/>
   b. NO THE END<br/>
   c. YES THE END<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: y is 5 so the first if statement will be true. The second if statement tests the condition (x > 2) that is false. The execution will continue to the else. The next test is ((x > 10) && (y === 5)), where (x > 10) is false, the right part of the expression will not be evaluated because of the && operator and "NO" will never been printed.<br/>So, neither YES or NO will be printed. Only THE END will be printed.
 
 
 
