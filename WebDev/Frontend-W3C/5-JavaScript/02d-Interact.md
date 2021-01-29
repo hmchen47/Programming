@@ -183,6 +183,47 @@ When we click on the button, we execute the `processClick(evt)` callback functio
 Note that to remove an event listener, you should have added it with its named function, so that we can pass it to both `addEventListener` and `removeEventListener`.
 
 
+#### Notes for 2.4.2 Adding and removing event listeners
+
++ Event listerners in JS
+  + `addEventListener` function
+    + one possible syntax for registering as function to be called when a given type of event occurs
+    + syntax: `addEventListener(typeOfEvent, callbackFunction)`
+    + example
+
+      ```js
+      addEventListener('click', function(evt) {
+          document.body.innerHTML += 'Button clicked!';
+      });
+      ```
+
+  + ways to provide callback function
+    + standard function block
+    + function expression: common practice w/ small function
+    + examples
+
+      ```js
+      // standard function block
+      function(evt) {
+        console.log("Button clicked!");
+      }
+      ```
+
+      ```html
+      <!-- function expression -->
+      <script>
+      addEventListener('click', function(evt) {
+          document.body.innerHTML += 'Button clicked!';
+      });
+      </script>
+      ```
+
+
+
+
+
+
+
 #### Knowledge check 2.4.1
 
 1. What precaution should you take when adding an event listener to a given HTML element?
