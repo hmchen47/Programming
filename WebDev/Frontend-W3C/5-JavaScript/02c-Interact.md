@@ -89,7 +89,7 @@ Callback functions are derived from a programming paradigm known as __functional
 
       ```js
       var varName = function(parameters) {
-        // code to be executed but not return anything
+        // code to be executed
       };
       ```
 
@@ -108,6 +108,27 @@ Callback functions are derived from a programming paradigm known as __functional
       + variable able to be used to execute the function
     + 1st class object: manipulated like any other object/value in JS
 
++ Callback functions
+  + functions: 1st class objects
+    + used as an argument, a parameter to another function
+    + executing the passed-in function or even returning it to be executed later
+  + a function passed to another function and executed inside the function called
+  + event listerners used callback functions
+  + example
+
+    ```js
+    // example 1
+    window.addEventListener('click', processClick);
+
+    function processClick(event) {
+      document.body.innerHTML += "Button clicked<br>";
+    }
+
+    //example 2
+    window.addEventListener('click', function(evt) {
+      document.body.innerHTML += "Button clicked version 2<br>";
+    });
+    ```
 
 
 
