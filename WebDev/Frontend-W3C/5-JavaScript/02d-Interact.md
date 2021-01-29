@@ -45,4 +45,153 @@ Then the browser looks at a list of "Event Listeners" and calls the ones that co
     + browser looks at a list of "Event Listerners" and calls the ones corresponding to the type of evenet listening to
 
 
+### 2.4.2 Adding and removing event listeners
+
+#### Live coding video: adding an event listener to a document
+
+<a href="https://edx-video.net/W3CJSIXX2016-V002800_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y6ebbnap)
+
+Online example used in the above video:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/zzOVGB?editors=1000)
+
+[Local Demo](src/02d-example02.html)
+
+
+#### Live coding video: adding an event listener to a specific HTML element
+
+<a href="https://edx-video.net/W3CJSIXX2016-V002900_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/yxpvgolf)
+
+Online example used in the above video
+
+[CodePen](https://codepen.io/w3devcampus/pen/pwzXqb?editors=1000)
+
+[Local Demo](src/02d-example03.html)
+
+
+#### Event listeners: a typical example
+
+Here is one possible syntax for registering an event listener that listens to "click" events on any part of the window (clicks anywhere on a web document will be processed by this event handler):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1">&lt;script&gt;</li>
+<li class="L2" style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><strong><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong><br><span class="pln"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>document.body.innerHTML += 'Button clicked!';</strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span></strong><span class="pun"><strong>&nbsp; &nbsp; }</strong>);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+Try it below by clicking anywhere on the document:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/peaeoZ)
+
+[Local Demo](src/02d-example04.html)
+
+The `addEventListener` function is one possible syntax for registering a function to be called when a given type of event occurs.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">addEventListener</span><span class="pun">(</span><span class="pln">type_of_event</span><span class="pun">,</span><span class="pln"> callback_function</span><span class="pun">)</span></li>
+</ol></div>
+
+In the example below, the type of event is a 'click', and the callback function is the part in bold:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Button clicked!"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+When this function is small (a few lines of code), it's common practice to put its body as the second parameter of the `addEventListener` function.
+
+In other words, this:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><strong><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong>document.body.innerHTML += 'Button clicked!';</strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong><span class="pun"><strong>}</strong>);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+... is the same as this (the function called when a click occurs has its body "outside" of the `addEventListener` parameters, and we use its name as the second parameter):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><strong><span class="pln"> processClick</span></strong><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><strong><span class="pln"> processClick</span></strong><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Button clicked!"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+
+#### Adding an event listener to specific HTML elements
+
+Instead of listening to event on the whole document (using `addEventListener` is the same as using `window.addEventListener`), we can listen to specific DOM elements.
+
+For example, here is how we can listen to clicks on a specific button (whereas clicks on the rest of the document will be ignored).
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/vxdxdm)
+
+[Local Demo](src/02d-example05.html)
+
+In this example, instead of using the `addEventListener` method directly, we used it on a DOM object (the button):
+
+1. Get a reference of the HTML element that can fire the events you want to detect. This is done using the DOM API that we'll cover in detail later this week. In this example we used one of the most common/useful methods: `var b = document.querySelector("#myButton");`
+2. Call the addEventListener method on this object. In the example: `b.addEventListener('click', callback)`
+
+Every DOM object has an `addEventListener` method. Once you get a reference of  any HMTL element from JavaScript, you can start listening to events on it.
+
+__An alternative method for adding an event listener to an HTML element: use an "on" attribute (ex: `onclick = "...."`)__
+
+Instead of using `b.addEventListener('click', callback)`, it's possible to use an `onclick='doSomething();'` attribute directly in the HTML tag of the element:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/aJqWZJ)
+
+[Local Demo](src/02d-example06.html)
+
+This syntax:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myButton"</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">processClick</span><span class="pun">(</span><span class="pln">event</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click me!</span><span class="tag">&lt;/button&gt;</span></li>
+</ol></div>
+
+... is ok when you only need a single event listener to click events for this button, as there can be only one `onclick` attribute per element.
+
+Using the `b.addEventListener('click', callback)` syntax,  you can register more than one event listener. You'll need rarely to do this, so in my opinion it's fine to choose whichever syntax you like.
+
+Remember that for big projects, it's always better to separate the HTML, CSS and JavaScript code. In this case, I'd recommend that you put all your event listener definitions in a separate JavaScript file, and use the `addEventListener` syntax in preference to the "on" attributes syntax.
+
+
+#### Removing event listeners
+
+When we click on the button, we execute the `processClick(evt)` callback function, and inside we remove the listener we previously registered. Consequence: if we click on the button again, nothing happens as there is no longer a click event listener attached to it.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/PpRBxP)
+
+[Local Demo](src/02d-example07.html)
+
+Note that to remove an event listener, you should have added it with its named function, so that we can pass it to both `addEventListener` and `removeEventListener`.
+
+
+#### Knowledge check 2.4.1
+
+1. What precaution should you take when adding an event listener to a given HTML element?
+
+  a. I need to be sure that the element is in the DOM before selecting it using the DOM API or the selector API<br/>
+  b. Nothing special<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
 
