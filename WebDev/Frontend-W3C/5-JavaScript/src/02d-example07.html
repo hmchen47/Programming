@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Removing an event listener</title>
+    <meta charset="utf-8">
+</head>
+<body>
+  <button id="myButton">Click me, this will work only once!</button>
+  <p></p>
+  <script>
+    var b = document.querySelector("#myButton");
+    b.addEventListener('click', processClick);
+    
+    function processClick(evt) {
+     alert("Button clicked, event listener removed, try to click on the button again: nothing will happen anymore!"); 
+      b.removeEventListener('click', processClick);
+    }
+  </script> 
+</body>
+</html>
