@@ -726,6 +726,9 @@ To finish up this section, here is a complete example (<span style="color: brown
     + statement executed sequentially from top to bottom
     + modified by statements such as conditional statements or iteration statement
   + conditional statements: used to execute a unit of code only if a condition is evaluated as `true`
+  + loop statement
+    + used to run the block of code several times while a condition satisfied
+    + [slowmoJS](https://toolness.github.io/slowmo-js/): online tool to check how the loop executed
 
 + Block statement
   + a simple statement allowing to group a set of statements wrapped in curly braces`{` & `}`
@@ -1084,5 +1087,38 @@ __Detailed explanations:__
 + _Line 9_: if the condition is `true`, we enter the block and execute _lines 10-12_
 + The `break` statement at _line 12_ will exit from the loop, it "breaks" the loop.
 + The different `console.log(...)` will never display the message "comparing with elements..." with indexes greater than 1: the loop exists when 'john' is found at index 1 (i equal to 1).
+
+
+#### Notes for 2.2.3 Loop statements
+
++ `while` loop
+  + `while` statement
+    + a block of code executed repeatedly while the specified conditionsatisfied
+    + syntax: `while (condition) statement`
+      + condition: a logical expression; true to execute the statement, otherwise exit
+      + statement: probably a block statement
+    + checking the condition first before executing the content
+  + `do-while` statement
+    + syntax: `do statement while (condition)`
+    + executing the content of the loop once before checcking the condition of the while
+  + examples
+
+    ```js
+    var i = 1, j = 1;
+    while (i < 4) {
+        j += i;
+        i += 1; 
+    }
+
+    var i = 0;
+    do {
+        console.log('i = ' + i);
+        i++;
+    } while(i < 20);
+    ```
+
+
+
+
 
 
