@@ -1205,7 +1205,7 @@ Here is the discussion forum for this part of the course. Please either post you
 
 #### Optional projects
 
-+ If not allergic to High School math: please write a piece of code that solves second degree equations. You pass the a, b, c parameters of: ax2 + bx + c, and the solve function will compute delta = b2 - 4a*c. Test the sign of delta, and if it's equal to zero, then display (in the console, or better, in the page) the roots of the equation.
++ If not allergic to High School math: please write a piece of code that solves second degree equations. You pass the a, b, c parameters of: $ax^2 + bx + c$, and the solve function will compute delta = $b^2 - 4a*c$. Test the sign of delta, and if it's equal to zero, then display (in the console, or better, in the page) the roots of the equation.
 + Try to write a small program that asks you to guess a number. It will choose randomly a number, and will ask you to enter a value in an input field. Then it will display "too small" or "too big", until you find the number.
 
   _Hint:_ use the `Math.random` and `Math.round` methods, such as in `let randomNumber = Math.round(Math.random() * 10);` to get a random value between 0 and 10.
