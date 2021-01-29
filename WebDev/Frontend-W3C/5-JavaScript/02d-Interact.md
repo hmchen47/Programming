@@ -4,7 +4,7 @@
 
 ### 2.4.1 Introduction
 
-Adding interactivity to a Web application can be achieved by using only CSS, such as by using the :hover pseudo CSS class.
+Adding interactivity to a Web application can be achieved by using only CSS, such as by using the `:hover`2.4.1 Introduction pseudo CSS class.
 
 For example:
 
@@ -20,8 +20,29 @@ Each time an event occurs, the browser puts it in a "queue of events".
 
 Then the browser looks at a list of "Event Listeners" and calls the ones that correspond to the type of event "they listen to".
 
+#### Notes for 2.4.1 Introduction
 
-
++ Interactivity of Web application
+  + CSS:
+    + limited w/ pseudo CSS class
+    + example. `.hover`
+  + JavaScript:
+    + extended features
+    + examples: mouse button clicked
+      + which mouse button used
+      + mouse pointer position in button system coordinate
+      + executing more complex tasks
+  + events
+    + interaction created, e.g., button clicked, mouse movement, window resized
+    + timing and order unable to be predicted in advance
+    + asynchronous event processing
+    + event listerners
+      + a.k.a. handlers or callbacks for special event
+      + registered functions
+      + web browser detecting events as they occur
+      + pass these events to JavaScript code
+    + events placed in "queue of events"
+    + browser looks at a list of "Event Listerners" and calls the ones corresponding to the type of evenet listening to
 
 
 
