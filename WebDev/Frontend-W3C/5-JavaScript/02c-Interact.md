@@ -73,3 +73,41 @@ In this case, the `processClick` function is passed as a parameter to the `addEv
 Callback functions are derived from a programming paradigm known as __functional programming__. They are very, very common in JavaScript. We'll use them a lot in the next section of the course, called "Handling events".
 
 
+#### Notes for  2.3.1 Functions and callbacks
+
++ Functions
+  + Syntax: two ways to declare function
+    + standardard function declaration
+
+      ```js
+      function functionName(parameters) {
+      // code to be executed
+      }
+      ```
+
+    + using a function expression
+
+      ```js
+      var varName = function(parameters) {
+        // code to be executed but not return anything
+      };
+      ```
+
+  + standard declaration
+    + not an executable statement
+    + w/o semicolon at the end of a function declararion
+    + semicolon used to separate executable JS statements
+  + function expression
+    + used a variable to store a function expression
+    + calling the functions using the variable name
+    + adding a semicolon at the end as a JS instruction
+    + giving a value to a variable
+    + an anonymous function
+      + a function w/o function name
+      + representing a value able to be assigned to a variable
+      + variable able to be used to execute the function
+    + 1st class object: manipulated like any other object/value in JS
+
+
+
+
