@@ -1194,6 +1194,28 @@ __Detailed explanations:__
       ```
 
 
+### 2.2.4 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topic of discussion
+
++ Did you know about the `===` and `!==` operators we recommend you to use?
+
+
+#### Optional projects
+
++ If not allergic to High School math: please write a piece of code that solves second degree equations. You pass the a, b, c parameters of: ax2 + bx + c, and the solve function will compute delta = b2 - 4a*c. Test the sign of delta, and if it's equal to zero, then display (in the console, or better, in the page) the roots of the equation.
++ Try to write a small program that asks you to guess a number. It will choose randomly a number, and will ask you to enter a value in an input field. Then it will display "too small" or "too big", until you find the number.
+
+  _Hint:_ use the `Math.random` and `Math.round` methods, such as in `let randomNumber = Math.round(Math.random() * 10);` to get a random value between 0 and 10.
+
++ For working with input fields, look at section 1.4 from the first module, the math function plotter example used input fields. Or look at the section about DOM in this module.
++ quizzTry to make a quiz using the DOM and buttons, checkboxes, etc.
++ Display a question, for example "Which actor played in Titanic?", and display two or three buttons ("Leonardo Di Caprio", "Christian Bale", "Nicolas Cage"). Then, when the user presses a button, you must check the answer and display the next question, etc.
++ Use CSS with an image background for the buttons.
++ Or use images with click listeners - we saw this in the section about the DOM and events.
++ A bit more challenging: use checkboxes instead of a set of buttons (we've done an example close to this in the section that presented the DOM).
 
 
 
