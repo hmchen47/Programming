@@ -1101,6 +1101,8 @@ __Detailed explanations:__
   + `do-while` statement
     + syntax: `do statement while (condition)`
     + executing the content of the loop once before checcking the condition of the while
+    + used for a block of code executed at least once
+    + rarely used
   + examples
 
     ```js
@@ -1117,6 +1119,43 @@ __Detailed explanations:__
     } while(i < 20);
     ```
 
++ `for` loop
+  + `for` statement
+    + adding an initialization expression and an incrementing expression to `while` or `do-while` statements
+    + syntax: `for (initialization; condition; incrementation) statement`
+    + `condition` omitted $\to$ replaceing w/ `true` $\to$ infinity loop
+    + examples: 
+
+      ```js
+      for (var i = 0; i <= 10; i++) {
+        console.log('i = ' + i);
+      }
+
+      for (var i = 1, j = 1; i <= 10; i++, j+=2) {
+          console.log('i = ' + i + ' j = ' + j);
+      }
+      ```
+
+  + `for-in` statement
+    + used to iterate through an object
+    + syntax: `for (variable in expression) statement`
+    + example
+
+      ```js
+      var michel = {
+          familyName:'Buffa',   // michel is an object
+          givenName: 'Michel',  // familyName, givenName, age
+          age: 51               // are its properties
+      }
+      
+      for(var property in michel) {
+          // the for-in will enumerate properties will print 
+          // "familyName", "givenName", "age"
+          console.log(property); 
+          // michel['givenName'] same as michel.givenName
+          console.log(michel[property]); 
+      }
+      ```
 
 
 
