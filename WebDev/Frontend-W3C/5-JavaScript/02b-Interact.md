@@ -1157,6 +1157,44 @@ __Detailed explanations:__
       }
       ```
 
++ Loop interrruption sattement
+  + `continue` statement
+    + used to stop the execution of a block and starting the next iteration of the loop
+    + syntax: `continue [label]`
+    + label optional
+    + example
+
+      ```js
+      for(var i = 1, k = 0; i < 5; i++) {
+          if (i === 3) {
+              continue;
+          }
+      
+          k += 2*i;
+          console.log('k += ' + (2*i));
+      }
+      ```
+
+  + `break` statement
+    + used to stop an iteration, a switch or a labelled statement
+    + syntax: `break [label]`
+    + example
+
+      ```js
+      for(var i=0; i < theArray.length; i++) {
+          console.log('comparing with element in the array at pos ' + i);
+
+          if(theArray[i] === name) {
+            console.log('the name ' + name + ' is in the array at pos: ' + i);
+            break;
+          } else {
+            console.log(name + ' is not at pos ' + i);
+          }
+      }
+      ```
+
+
+
 
 
 
