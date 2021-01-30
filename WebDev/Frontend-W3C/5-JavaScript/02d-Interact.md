@@ -482,6 +482,97 @@ function init(evt) {
   Explanation: All answers are correct. All of these syntaxes have the same effect: call init once the page is loaded.
 
 
+### 2.4.5 Key events
+
+This has been a bit of a nightmare for years, as different browsers have had different ways of handling key events and key codes ([read this](https://unixpapa.com/js/key.html) if you are fond of JavaScript archeology). Fortunately it's much better today, and we are able to rely on methods that should work on any browser.
+
+When you listen to keyboard related events (`keydown`, `keyup` or `keypressed`), the event parameter passed to the listener function will contain the code of the key that fired the event. Then it is possible to test which key has been pressed or released, like this:
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln" style="color: #000000;">window</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'keydown'</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(</span><span class="kwd" style="color: #000088;">event</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">if</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">(</span><strong><span class="kwd" style="color: #000088;">event</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">keyCode&nbsp;</span><span class="pun" style="color: #666600;">===</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="lit" style="color: #006666;">37</span></strong><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">//left arrow was pressed</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span><span class="pun" style="color: #666600;">);</span></li>
+</ol></div>
+
+At _line 2_, the value "37" is the key code that corresponds to the left arrow. It might be difficult to know which codes represent which real keyboard keys, so here are some handy pointers:
+
++ Try key codes with this [interactive example](http://www.asquare.net/javascript/tests/KeyCode.html).
++ And find a list of keyCodes (taken from this CSS Tricks article).
+
+
+#### The different key events
+
+##### Event types related to keyboard
+
+<table style="the event occurs when the user presses a keyborder: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">keydown</span></td>
+<td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">The event occurs when the user is pressing a key.</span></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">keyup</span></td>
+<td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">The event occurs when the user releases a key.</span></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">keypress (now deprecated)</span></td>
+<td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">The event occurs when the user presses a key (up and release).</span></td>
+</tr>
+</tbody>
+</table>
+
+
+#### keyboardEvent properties
+
+These are legacy properties, still used by many JavaScript code around the world. However, we do not recommend that you use them if you are targeting modern browsers. `keyCode` has a more powerful/easy to use replacement called `code` @@TJS LE CAS ? (not yet supported by all browsers), that comes with a new `key` property (see the following pages of the course).
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">keyCode</span></td>
+<td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">Returns the Unicode character code of the key that triggered the onkeypress ,onkeydown or onkeyup event.</span></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">shiftKey</span></td>
+<td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">Returns whether the "shift" key was pressed when the key event was triggered.</span></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">ctrlKey</span></td>
+<td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">Returns whether the "ctrl" key was pressed when the key event was triggered.</span></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 150%; border: 2px solid LightSlateGray;" valign="top">altKey</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns whether the "alt" key was pressed when the key event was triggered</td>
+</tr>
+</tbody>
+</table>
+
+
+#### Examples
+
+
+##### Example #1: use keyup and keydown on the window object
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/wJZJZp)
+
+[Local Demo](src/02d-example14.html)
+
+
+##### Example #2: see  keypress on the window object
+
+See the Pen [keyup and keydown events on window](https://codepen.io/w3devcampus/pen/WpWjey/) by W3Cx ([@w3devcampus](https://codepen.io/w3devcampus)) on [CodePen](https://codepen.io/).
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/WpWjey/)
+
+[Local Demo](src/02d-example15.html)
+
+
+##### Example #3: detect a combination of keys + modifier keys (shift, ctrl, alt)
+
+Try to type shift-a for example, ctrl-shift-b or alt-f...
+
 
 
 
