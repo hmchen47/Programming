@@ -454,6 +454,7 @@ In this example, we're listening to page `load` and page `resize` events. When t
   + ways to wait until page loaded
     + `<body onload="init();">` in HTML
     + `window.onload = init;` in JS code
+    + `window.addEventListener('load', init);` in JS code
   + window resizing
     + calling callback function as the window loaded for the first time or resized; e.g., `resize()`
     + used to display the updated size of the window w/ `window.innerWidth` and `window.innerHeight`
@@ -468,6 +469,7 @@ function init(evt) {
    // access the DOM using the DOM API or the selector API
    var elem = document.querySelector(...);
    elem.innerHTML = ....;
+}
 ```
 
 1. Check the correct ways to call the function init only when the page has loaded and the DOM is ready:
@@ -476,8 +478,8 @@ function init(evt) {
   b. In a JS code, add `window.onload = init;`<br/>
   c. in a JS code, add `window.addEventListener('load', init);`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: brown;">abc</span>, xab<br/>
+  Explanation: All answers are correct. All of these syntaxes have the same effect: call init once the page is loaded.
 
 
 
