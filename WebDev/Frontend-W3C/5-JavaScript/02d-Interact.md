@@ -195,6 +195,7 @@ Note that to remove an event listener, you should have added it with its named f
       + listening to specific DOM elements
         + get a reference of the HTML to detect the event; e.g., `var b = document.querySelector("#myButton");`
         + call the `addEventListener` method on the object; e.g., `b.addEventListener('click', callback);`
+    + ensuring the existence before electing an element w/ `querySelector`
     + every DOM object w/ an `addEventListener` method starting listening to event on it, once getting a reference of any HTML element from JS
     + example
 
@@ -248,8 +249,8 @@ Note that to remove an event listener, you should have added it with its named f
   a. I need to be sure that the element is in the DOM before selecting it using the DOM API or the selector API<br/>
   b. Nothing special<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: brown;">a</span>, xb<br/>
+  Explanation: Indeed, we need to be sure that the element is in the DOM before quering it. You can do that by locating the JavaScript code after the HTML tag that corresponds to the element, or do this in a JavaScript function that is called only when the DOM is ready, for example using <body onload="init()">, and put the code in the init function.
 
 
 
