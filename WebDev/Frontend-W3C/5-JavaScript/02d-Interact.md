@@ -489,10 +489,10 @@ This has been a bit of a nightmare for years, as different browsers have had dif
 When you listen to keyboard related events (`keydown`, `keyup` or `keypressed`), the event parameter passed to the listener function will contain the code of the key that fired the event. Then it is possible to test which key has been pressed or released, like this:
 
 <div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln" style="color: #000000;">window</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'keydown'</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(</span><span class="kwd" style="color: #000088;">event</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">if</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">(</span><strong><span class="kwd" style="color: #000088;">event</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">keyCode&nbsp;</span><span class="pun" style="color: #666600;">===</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="lit" style="color: #006666;">37</span></strong><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">//left arrow was pressed</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">}</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun" style="color: #666600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'keydown'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #666600;">(</span><span class="kwd" style="color: #008888;">event</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">if</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">(</span><strong><span class="kwd" style="color: #008888;">event</span><span class="pun" style="color: #666600;">.</span><span class="pln">keyCode&nbsp;</span><span class="pun" style="color: #666600;">===</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">37</span></strong><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">//left arrow was pressed</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">}</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span><span class="pun" style="color: #666600;">);</span></li>
 </ol></div>
 
@@ -509,15 +509,15 @@ At _line 2_, the value "37" is the key code that corresponds to the left arrow. 
 <table style="the event occurs when the user presses a keyborder: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
 <tbody>
 <tr>
-<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">keydown</span></td>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">keydown</span></td>
 <td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">The event occurs when the user is pressing a key.</span></td>
 </tr>
 <tr>
-<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">keyup</span></td>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">keyup</span></td>
 <td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">The event occurs when the user releases a key.</span></td>
 </tr>
 <tr>
-<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">keypress (now deprecated)</span></td>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">keypress (now deprecated)</span></td>
 <td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">The event occurs when the user presses a key (up and release).</span></td>
 </tr>
 </tbody>
@@ -531,19 +531,19 @@ These are legacy properties, still used by many JavaScript code around the world
 <table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
 <tbody>
 <tr>
-<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">keyCode</span></td>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">keyCode</span></td>
 <td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">Returns the Unicode character code of the key that triggered the onkeypress ,onkeydown or onkeyup event.</span></td>
 </tr>
 <tr>
-<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">shiftKey</span></td>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">shiftKey</span></td>
 <td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">Returns whether the "shift" key was pressed when the key event was triggered.</span></td>
 </tr>
 <tr>
-<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif; vertical-align: middle;">ctrlKey</span></td>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">ctrlKey</span></td>
 <td style="border: 2px solid LightSlateGray;" valign="top"><span style="font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;">Returns whether the "ctrl" key was pressed when the key event was triggered.</span></td>
 </tr>
 <tr>
-<td style="text-align: center; background-color: lightslategray; color: white; font-size: 150%; border: 2px solid LightSlateGray;" valign="top">altKey</td>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 150%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">altKey</td>
 <td style="border: 2px solid LightSlateGray;" valign="top">Returns whether the "alt" key was pressed when the key event was triggered</td>
 </tr>
 </tbody>
@@ -574,5 +574,20 @@ See the Pen [keyup and keydown events on window](https://codepen.io/w3devcampus/
 Try to type shift-a for example, ctrl-shift-b or alt-f...
 
 
+#### Notes for 2.4.5 Key events
+
+
+
+
+#### Knowledge check 2.4.5
+
+1. Which of one of these events is now deprecated?
+
+  a. `keypress`<br/>
+  b. `keydown`<br/>
+  c. `keyup`<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
