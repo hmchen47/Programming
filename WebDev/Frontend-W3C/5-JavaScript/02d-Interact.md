@@ -147,7 +147,7 @@ For example, here is how we can listen to clicks on a specific button (whereas c
 In this example, instead of using the `addEventListener` method directly, we used it on a DOM object (the button):
 
 1. Get a reference of the HTML element that can fire the events you want to detect. This is done using the DOM API that we'll cover in detail later this week. In this example we used one of the most common/useful methods: `var b = document.querySelector("#myButton");`
-2. Call the addEventListener method on this object. In the example: `b.addEventListener('click', callback)`
+2. Call the `addEventListener` method on this object. In the example: `b.addEventListener('click', callback)`
 
 Every DOM object has an `addEventListener` method. Once you get a reference of  any HMTL element from JavaScript, you can start listening to events on it.
 
@@ -185,10 +185,17 @@ Note that to remove an event listener, you should have added it with its named f
 
 #### Notes for 2.4.2 Adding and removing event listeners
 
-+ Event listerners in JS
++ Event listerners
   + `addEventListener` function
     + one possible syntax for registering as function to be called when a given type of event occurs
     + syntax: `addEventListener(typeOfEvent, callbackFunction)`
+    + able to register more than one event listener
+    + procedure
+      + listening to event on the whole document: `addEventListener` = `window.addEventListener`
+      + listening to specific DOM elements
+        + get a reference of the HTML to detect the event; e.g., `var b = document.querySelector("#myButton");`
+        + call the `addEventListener` method on the object; e.g., `b.addEventListener('click', callback);`
+    + every DOM object w/ an `addEventListener` method starting listening to event on it, once getting a reference of any HTML element from JS
     + example
 
       ```js
@@ -197,31 +204,41 @@ Note that to remove an event listener, you should have added it with its named f
       });
       ```
 
-  + ways to provide callback function
-    + standard function block
-    + function expression: common practice w/ small function
-    + examples
+  + `on` attribute
+    + adding an event listener to an HTML tag of an element directly
+    + syntax in HTML: `onclick='doSomething();`
+    + limited to a single event listener to click on this button
+    + example: `<button id="myButton" onclick="processClick(event);">Click me!</button>`
+  + big project
+    + better to separate the HTML, CSS and JS code
+    + recommended putting all event listener definition in a separate JS file
+    + using `addEventListener` syntax in preference to the "on" attribute syntax
+  + removing event listener
+    + removing previous registered event listener
+    + syntax: `removeEventListener(TypeOfEvent, callBackFunction)`
+    + must pass `callBackFunction` used in `addEventListener` to remote
+    + example: `b.removeEventListener('click', processClick);`
 
-      ```js
-      // standard function block
-      function(evt) {
-        console.log("Button clicked!");
-      }
-      ```
++ Ways to provide callback function
+  + standard function block
+  + function expression: common practice w/ small function
+  + examples
 
-      ```html
-      <!-- function expression -->
-      <script>
-      addEventListener('click', function(evt) {
-          document.body.innerHTML += 'Button clicked!';
-      });
-      </script>
-      ```
+    ```js
+    // standard function block
+    function(evt) {
+      console.log("Button clicked!");
+    }
+    ```
 
-
-
-
-
+    ```html
+    <!-- function expression -->
+    <script>
+    addEventListener('click', function(evt) {
+        document.body.innerHTML += 'Button clicked!';
+    });
+    </script>
+    ```
 
 
 #### Knowledge check 2.4.1
