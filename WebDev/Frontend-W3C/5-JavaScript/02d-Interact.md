@@ -359,6 +359,98 @@ The most useful common methods are:
     + `stopPropagation()`: preventing further propagation of an event flow
 
 
+### 2.4.4 Page lifecycle events
+
+#### Live coding video: page 'load' event and the event object
+
+<a href="https://edx-video.net/W3CJSIXX2016-V003000_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y4u8h54w)
+
+Online example used in the above video
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/XgrveY?editors=0001)
+
+[Local Demo](src/02d-example09.html)
+
+The page lifecycle events detect when the page is loaded and when the DOM is ready.
+
+#### Events related to the page lifecycle
+
+There are many other events related to the page life cycle. The most useful ones for an introduction course are shown below:
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border-width: 2px; border-color: lightslategray; vertical-align: middle;" valign="top">load</td>
+  <td style="border-width: 2px; border-color: lightslategray;" valign="top">This event occurs when an object has loaded (including all its resources: images, etc.). This event is very useful when you want to run JS code and be sure that the DOM is ready (in other words, be sure that a <span style="font-family: 'courier new', courier;">document.getElementById(...)</span> or <span style="font-family: 'courier new', courier;">document.querySelector(...)</span> will not raise an error because the document has not been loaded and elements you are looking for are not ready).</td>
+</tr>
+<tr>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border-width: 2px; border-color: lightslategray; vertical-align: middle;" valign="top">resize</td>
+  <td style="border-width: 2px; border-color: lightslategray;" valign="top">The event occurs when the document view is resized. Usually, we get the new size of the window inside the event listener using <span style="font-family: 'courier new', courier;">var w = window.innerWidth;</span> and<br><span style="font-family: 'courier new', courier;">var h = window.innerHeight;</span></td>
+</tr>
+<tr>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border-width: 2px; border-color: lightslategray; vertical-align: middle;" valign="top">scroll</td>
+  <td style="border-width: 2px; border-color: lightslategray;" valign="top">The event occurs when an element's scrollbar is being scrolled. Usually in the scroll event listener we use things such as:<br>&nbsp;&nbsp;<span style="font-family: 'courier new', courier;">var max = document.body.scrollHeight - innerHeight;</span><br><span style="font-family: 'courier new', courier;">&nbsp;var percent = (pageYOffset / max);</span><br>...to know the percentage of the scroll in the page.</td>
+</tr>
+</tbody>
+</table>
+
+Page event properties
+There are no particular properties that need to be mentioned here. Usually, the load event listener corresponds to a JavaScript function that can be seen as "the main" function of your Web application. It is a best practice to start everything after the page has been completely loaded. In the resize listener, you get the new size of the window, or the new size of some HTML elements in the page (as they might have been resized too when the window was resized), and then you do something (redraw a graphic in an HTML canvas that takes into account the new canvas size, for example).
+
+
+__Example 1: wait until the page is loaded (when the DOM is ready) before doing something__
+
+This first variant that uses `<body onload="init();">`
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/vxMgvw)
+
+[Local Demo](src/02d-example10.html)
+
+This second variant: using `window.onload = init;` in the JavaScript code...
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/EWJZeE)
+
+[Local Demo](src/02d-example11.html)
+
+
+__Example 2: detect a resize of the window__
+
+In this example, we're listening to page `load` and page `resize` events. When the window is loaded for the first time, or resized, we call the `resize()` callback function. The `window.innerWidth` and `window.innerHeight` properties are used to display the updated size of the window. We also use `screen.width` and `screen.height` to display the screen size.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/YZMZaw)
+
+[Local Demo](src/02d-example12.html)
+
+
+__Example 3: do something as the page is being scrolled up or down__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/EWJWMq)
+
+[Local Demo](src/02d-example13.html)
+
+
+#### Knowledge check 2.4.2
+
+```js
+function init(evt) {
+   console.log("Page loaded! DOM Ready!");
+   // access the DOM using the DOM API or the selector API
+   var elem = document.querySelector(...);
+   elem.innerHTML = ....;
+```
+
+1. Check the correct ways to call the function init only when the page has loaded and the DOM is ready:
+
+  a. `<body onload="init();">`<br/>
+  b. In a JS code, add `window.onload = init;`<br/>
+  c. in a JS code, add `window.addEventListener('load', init);`<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
