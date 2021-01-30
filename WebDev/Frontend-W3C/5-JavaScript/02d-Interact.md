@@ -294,11 +294,11 @@ The most useful common properties are:
 <tbody>
 <tr>
   <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top">type</td>
-  <td style="background-color: white; border: 2px solid LightSlateGray;" valign="top">Returns the name of the event.</td>
+  <td style="border: 2px solid LightSlateGray;" valign="top">Returns the name of the event.</td>
 </tr>
 <tr>
   <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top">target</td>
-  <td style="background-color: white; border: 2px solid LightSlateGray;" valign="top">Returns the element that triggered the event.</td>
+  <td style="border: 2px solid LightSlateGray;" valign="top">Returns the element that triggered the event.</td>
 </tr>
 </tbody>
 </table>
@@ -308,14 +308,19 @@ The most useful common methods are:
 <table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
 <tbody>
 <tr>
-  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top">preventDefault()</td>
-  <td style="background-color: white; border: 2px solid LightSlateGray;" valign="top">Cancels the event if it is "cancelable", meaning that the default action that belongs to the event will not occur. It is useful for cancelling the default browser behavior. <em>For example</em>: if you want to create a context menu that pops up with a right click, you must prevent the default behavior of the browser that will pop up its default context menu.</td>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">preventDefault()</td>
+  <td style="border: 2px solid SlateGray;" valign="top">Cancels the event if it is "cancelable", meaning that the default action that belongs to the event will not occur. It is useful for cancelling the default browser behavior. <em>For example</em>: if you want to create a context menu that pops up with a right click, you must prevent the default behavior of the browser that will pop up its default context menu.</td>
 </tr>
 <tr>
-  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top">stopPropagation()</td>
-  <td style="background-color: white; border: 2px solid LightSlateGray;" valign="top">Prevents further propagation of an event during event flow.<br><br></td>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">stopPropagation()</td>
+  <td style="border: 2px solid SlateGray;" valign="top">Prevents further propagation of an event during event flow.<br><br></td>
 </tr>
 </tbody>
 </table>
+
+
+#### Notes for 2.4.3 The event object
+
+
 
 
