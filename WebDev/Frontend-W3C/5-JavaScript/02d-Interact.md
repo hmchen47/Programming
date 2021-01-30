@@ -253,4 +253,69 @@ Note that to remove an event listener, you should have added it with its named f
   Explanation: Indeed, we need to be sure that the element is in the DOM before quering it. You can do that by locating the JavaScript code after the HTML tag that corresponds to the element, or do this in a JavaScript function that is called only when the DOM is ready, for example using <body onload="init()">, and put the code in the init function.
 
 
+### 2.4.3 The event object
+
+The event object is the only parameter passed to event listeners.
+
+Typical example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1">function<span class="pln"> processClick</span><span class="pun">(</span><strong><span class="pln">evt</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Button clicked!"</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+Each event listener has a single parameter that is  a "DOM event object". It has various properties and methods that can be very useful.
+
+For example, with a `'keyup'`, `'keydown'` or `'keypress'` event, the event object contains the code of the key that has been pressed/released, with a `'mousemove'` listener we can get the relative position of the mouse in the DOM element that has generated the event, etc.
+
+The event object contains some important properties and methods that are common to all types of events:
+
++ `evt.type`: the name of the event
++ `evt.target`: for example, is the HTML element that has fired the event. In our previous examples with the click listeners on a button, evt.target in the event listener is the button itself.
++ `evt.stopPropagation()`: will not propagate the event to all other elements that listen to it. If several elements are registered for a click event - for example, you have a click listener on a button and on the window (the whole page). If you click on the button, and if in its click event listener you call evt.stopPropagation(); then the click event listener on the window object will never be called.
++ `evt.preventDefault()`: the default browser behavior will not be executed. For example, in a 'contextmenu' event listener attached to an object, if you call `evt.preventDefault()`, instead of having the right click default context menu of your browser displayed, you'll be able to display your own context menu, like in this example.
+
+It also contains properties that are associated with the type of the event, for example:
+
++ `evt.button`: the mouse button that has been used in the case of a mouse event listener
++ `evt.keyCode`: the code of the key that has been used
++ `evt.pageX`: coordinate of the mouse relative to the page
++ etc.
+
+In the subsequent sections of this course we will look at the most common types of events in detail.
+
+
+#### Reference table
+
+The most useful common properties are:
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top">type</td>
+  <td style="background-color: white; border: 2px solid LightSlateGray;" valign="top">Returns the name of the event.</td>
+</tr>
+<tr>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top">target</td>
+  <td style="background-color: white; border: 2px solid LightSlateGray;" valign="top">Returns the element that triggered the event.</td>
+</tr>
+</tbody>
+</table>
+
+The most useful common methods are:
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top">preventDefault()</td>
+  <td style="background-color: white; border: 2px solid LightSlateGray;" valign="top">Cancels the event if it is "cancelable", meaning that the default action that belongs to the event will not occur. It is useful for cancelling the default browser behavior. <em>For example</em>: if you want to create a context menu that pops up with a right click, you must prevent the default behavior of the browser that will pop up its default context menu.</td>
+</tr>
+<tr>
+  <td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray;" valign="top">stopPropagation()</td>
+  <td style="background-color: white; border: 2px solid LightSlateGray;" valign="top">Prevents further propagation of an event during event flow.<br><br></td>
+</tr>
+</tbody>
+</table>
+
 
