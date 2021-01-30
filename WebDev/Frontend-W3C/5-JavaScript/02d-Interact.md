@@ -321,6 +321,44 @@ The most useful common methods are:
 
 #### Notes for 2.4.3 The event object
 
++ Event object
+  + DOM event object
+    + the only parameter passed to event listener
+    + containing various properties and methods
+  + common properties and methods
+    + `evt.type`: the name of the event
+    + `evt.target`: the HTML element fired the event, e.g., `evt.target` = button as the click listeners on the button
+    + `evt.stopPropagation()`:
+      + several elements registered for an event
+      + not propagating the event to all other elements that listen to it
+      + example:
+        + several element registered for a click on the button
+        + a click listener on a button and on the window (the whole page)
+        + click on the button, the event listener calling `evt.stopPropagation()`
+        + the click event listener on the window object never be called
+    + `evt.preventDefault()`:
+      + default browser behavior not be executed
+      + example: `contextmenu` event listener attached to an object for user's own contextmenu
+  + typical specific properties associated w/ the type of the event
+    + `evt.button`: mouse button used in case of a mouse event listerner
+    + `evt.keyCode`: code of the key been used
+    + `evt.pageX`: coordinate of the mouse relative to the page
+  + examples
+    + key related events: `keyup`, `keydown` and `keypress` for key pressed/released
+    + mouse related position: `mouseover` to get mouse postion in the DOM element generated the event
+
++ Most useful common properties and methods
+  + properties
+    + `type`: returning the name of the event
+    + `target`: returning the element triggering the event
+  + methods
+    + `preventDefault()`:
+      + cancelling the cancelable event
+      + the default action belonging to the event not occuring
+      + useful for cancelling the default browser behavior
+    + `stopPropagation()`: preventing further propagation of an event flow
+
+
 
 
 
