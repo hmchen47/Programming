@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Example1 of the 'load' event</title>
+  <link rel="stylesheet" href="css/02d-example10.css">
+  <script src="js/02d-example10.js"></script>
+</head>
+<body onload='init();'>
+  <p>This page uses <code>&lt;body onload='init();'&gt;</code> in the JS code  to execute the init function ONLY WHEN THE PAGE HAS BEEN LOADED!</p>
+  
+  <p>This is important as very often we cannot do important things before the DOM is ready (all HTML elements have been created and can be manipulated from JavaScript).</p>
+  
+  <p>PAGE STATUS: <span id="pageStatus">NOT LOADED YET</span></p>
+</body>
+</html>
+

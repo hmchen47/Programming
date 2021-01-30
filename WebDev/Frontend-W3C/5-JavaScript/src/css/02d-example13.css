@@ -1,0 +1,21 @@
+.progress {
+  border: 1px solid blue;
+  width: 100px;
+  position: fixed;
+  top: 10px; right: 10px;
+}
+
+.progress > div {
+  height: 12px;
+  background: lightBlue;
+  width: 0%;
+  font-size:8px;
+}
+
+#text {
+  margin-top:50px;
+}
+body {
+  height: 2000px;
+}
+
