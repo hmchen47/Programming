@@ -398,11 +398,15 @@ There are many other events related to the page life cycle. The most useful ones
 </tbody>
 </table>
 
-Page event properties
+
+##### Page event properties
+
 There are no particular properties that need to be mentioned here. Usually, the load event listener corresponds to a JavaScript function that can be seen as "the main" function of your Web application. It is a best practice to start everything after the page has been completely loaded. In the resize listener, you get the new size of the window, or the new size of some HTML elements in the page (as they might have been resized too when the window was resized), and then you do something (redraw a graphic in an HTML canvas that takes into account the new canvas size, for example).
 
 
-__Example 1: wait until the page is loaded (when the DOM is ready) before doing something__
+#### Examples
+
+##### Example 1: wait until the page is loaded (when the DOM is ready) before doing something
 
 This first variant that uses `<body onload="init();">`
 
@@ -417,7 +421,7 @@ This second variant: using `window.onload = init;` in the JavaScript code...
 [Local Demo](src/02d-example11.html)
 
 
-__Example 2: detect a resize of the window__
+##### Example 2: detect a resize of the window
 
 In this example, we're listening to page `load` and page `resize` events. When the window is loaded for the first time, or resized, we call the `resize()` callback function. The `window.innerWidth` and `window.innerHeight` properties are used to display the updated size of the window. We also use `screen.width` and `screen.height` to display the screen size.
 
@@ -426,11 +430,34 @@ In this example, we're listening to page `load` and page `resize` events. When t
 [Local Demo](src/02d-example12.html)
 
 
-__Example 3: do something as the page is being scrolled up or down__
+##### Example 3: do something as the page is being scrolled up or down
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/EWJWMq)
 
 [Local Demo](src/02d-example13.html)
+
+
+#### Notes for 2.4.4 Page lifecycle events
+
++ Page lifecycle events
+  + detected when the page loaded and DOM ready
+  + related events
+    + `load`:
+      + occurred when an object loaded (including all resources)
+      + ensuring DOM ready before executing JS code, in particular, `document.getElementId(...)` or `document.querySelector(...)`
+    + `resize`:
+      + occurred when resizing document view
+      + new size of window: `var w = window.innerWidth;` & `var h = window.innerHeight;`
+    + `scroll`
+      + occurred when scrolling an element's scrollbar
+      + usually knowing the percentage of the scroll in the page: `var max = document.body.scrollHeight - innerHeight; var percent = (pageYOffset / max);`
+  + ways to wait until page loaded
+    + `<body onload="init();">` in HTML
+    + `window.onload = init;` in JS code
+  + window resizing
+    + calling callback function as the window loaded for the first time or resized; e.g., `resize()`
+    + used to display the updated size of the window w/ `window.innerWidth` and `window.innerHeight`
+    + displaying the screen size w/ `screen.width` and `screen.height`
 
 
 #### Knowledge check 2.4.2
