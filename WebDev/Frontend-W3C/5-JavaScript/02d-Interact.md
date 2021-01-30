@@ -271,16 +271,16 @@ For example, with a `'keyup'`, `'keydown'` or `'keypress'` event, the event obje
 
 The event object contains some important properties and methods that are common to all types of events:
 
-+ `evt.type`: the name of the event
-+ `evt.target`: for example, is the HTML element that has fired the event. In our previous examples with the click listeners on a button, evt.target in the event listener is the button itself.
-+ `evt.stopPropagation()`: will not propagate the event to all other elements that listen to it. If several elements are registered for a click event - for example, you have a click listener on a button and on the window (the whole page). If you click on the button, and if in its click event listener you call evt.stopPropagation(); then the click event listener on the window object will never be called.
-+ `evt.preventDefault()`: the default browser behavior will not be executed. For example, in a 'contextmenu' event listener attached to an object, if you call `evt.preventDefault()`, instead of having the right click default context menu of your browser displayed, you'll be able to display your own context menu, like in this example.
++ __evt.type__: the name of the event
++ __evt.target__: for example, is the HTML element that has fired the event. In our previous examples with the click listeners on a button, __evt.target__ in the event listener is the button itself.
++ __evt.stopPropagation()__: will not propagate the event to all other elements that listen to it. If several elements are registered for a click event - for example, you have a click listener on a button and on the window (the whole page). If you click on the button, and if in its click event listener you call `evt.stopPropagation();` then the click event listener on the window object will never be called.
++ __evt.preventDefault()__: the default browser behavior will not be executed. For example, in a 'contextmenu' event listener attached to an object, if you call __evt.preventDefault()__, instead of having the right click default context menu of your browser displayed, you'll be able to display your own context menu, like [in this example](https://jsbin.com/kuyorac/edit?html,css,js,console,output). ([Local Demo]())
 
 It also contains properties that are associated with the type of the event, for example:
 
-+ `evt.button`: the mouse button that has been used in the case of a mouse event listener
-+ `evt.keyCode`: the code of the key that has been used
-+ `evt.pageX`: coordinate of the mouse relative to the page
++ __evt.button__: the mouse button that has been used in the case of a mouse event listener
++ __evt.keyCode__: the code of the key that has been used
++ __evt.pageX__: coordinate of the mouse relative to the page
 + etc.
 
 In the subsequent sections of this course we will look at the most common types of events in detail.
@@ -357,6 +357,8 @@ The most useful common methods are:
       + the default action belonging to the event not occuring
       + useful for cancelling the default browser behavior
     + `stopPropagation()`: preventing further propagation of an event flow
+
+
 
 
 
