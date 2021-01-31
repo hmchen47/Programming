@@ -12,13 +12,13 @@ function processKeyDown(evt) {
 
   var modifiers = "";
   
-  if(event.shiftKey)
+  if(evt.shiftKey)
     modifiers += "SHIFT ";
 
-  if(event.altKey)
+  if(evt.altKey)
     modifiers += "ALT ";
 
-  if(event.ctrlKey)
+  if(evt.ctrlKey)
     modifiers += "CTRL ";
 
   if(modifiers === "")
