@@ -623,5 +623,84 @@ Try to type shift-a for example, ctrl-shift-b or alt-f...
   Ans: a
 
 
+### 2.4.6 Dealing with different keyboard layouts
+
+Please do not assume that each key is at the same location on the keyboard in every country!
+
+We've shown how to detect keyup, keydown and keypress events using the DOM API, and how to use the keyCode property of the DOM event.
+
+Be careful when you use the key events in your application, as keyboard layouts vary from one country to another. Most first person shooter games (FPS) use three keys located on the top left of your keyboard to move your character. French AZERTY keyboards will use ZQSD for this (Z = up/move forward, Q and D are for left/right and S is for down/move backward), while US keyboards will use WASD, for example. So keep in mind that keys are not located at the same place on keyboards from different countries.
+
+Extract from the "[Internationalize your keyboard controls](https://hacks.mozilla.org/2017/03/internationalize-your-keyboard-controls/)" article on MDN:
+
+  > "Recently I came across two lovely new graphical demos, and in both cases, the controls would not work on my French [AZERTY keyboard](https://en.wikipedia.org/wiki/AZERTY).
+
+  > There was the wonderful WebGL 2 technological demo [After The Flood](https://www.youtube.com/watch?v=TT7ugKuUMv0/), and the very cute [Alpaca Peck](https://codepen.io/shshaw/full/apwMwM/). [Shaw](https://codepen.io/shshaw/#) was nice enough to fix the latter when I told him about the issue. It turns out the Web browser actually exposes a useful API for this."
+
+
+#### One keyboard, many layouts
+
+For details, see [Wikipedia’s keyboard layout page](https://en.wikipedia.org/wiki/Keyboard_layout)!
+
+[QWERTY](https://en.wikipedia.org/wiki/QWERTY) layout, used in US, GB, etc.
+
+[AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout, used in some French-speaking countries
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y2jwxzxt" ismap target="_blank">
+    <img style="margin: 0.1em;" height=120
+      src  ="https://tinyurl.com/y6muencp"
+      alt  ="QWERTY keyboard layout"
+      title="QWERTY keyboard layout"
+    >
+    <img style="margin: 0.1em;" height=120
+      src  ="https://tinyurl.com/yyfmtdkw"
+      alt  ="AZERTY keyboard layout"
+      title="AZERTY keyboard layout"
+    >
+  </a>
+</div>
+
+In addition, [QWERTZ](https://en.wikipedia.org/wiki/QWERTZ) keyboards are in use in Germany and other European countries, and [DVORAK](https://en.wikipedia.org/wiki/Dvorak_keyboard_layout) is another alternative to QWERTY:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y2jwxzxt" ismap target="_blank">
+    <img style="margin: 0.1em;" height=120
+      src  ="https://tinyurl.com/yyteudcy"
+      alt  ="QWERTZ layout keyboard"
+      title="QWERTZ layout keyboard"
+    >
+    <img style="margin: 0.1em;" height=120
+      src  ="https://tinyurl.com/yyh46en3"
+      alt  ="DVORAK layout keyboard"
+      title="DVORAK layout keyboard"
+    >
+  </a>
+</div>
+
+Saudi Arabic keyboard layout (see more [Arabic keyboards](https://en.wikipedia.org/wiki/Arabic_alphabet#Keyboards)):
+
+[Bangla National (Jatiyo) keyboard](https://en.wikipedia.org/wiki/Bengali_input_methods#Bangla_Jatiyo):
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/y2jwxzxt" ismap target="_blank">
+    <img style="margin: 0.1em;" height=120
+      src  ="https://tinyurl.com/yyrz4ott"
+      alt  ="Saoudian Arabic keyboard layout"
+      title="Saoudian Arabic keyboard layout"
+    >
+    <img style="margin: 0.1em;" height=120
+      src  ="https://tinyurl.com/yykojsjl"
+      alt  ="Bangladesh keyboard layout"
+      title="Bangladesh keyboard layout"
+    >
+  </a>
+</div>
+
+
+
+
+
+
 
 
