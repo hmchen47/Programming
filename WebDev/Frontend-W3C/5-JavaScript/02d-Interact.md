@@ -789,3 +789,189 @@ Please note that the W3C has also published a sibling specification describing t
     </figure>
 
 
+### 2.4.8 Mouse events
+
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick="window.open('https://tinyurl.com/yyklwjat')"
+    src    ="https://tinyurl.com/y586qx4j"
+    alt    ="Illustration of mouse events' types"
+    title  ="Illustration of mouse events' types"
+  />
+</figure>
+
+_**Important note:** Remember that many people do not use the mouse and rely on the keyboard to interact with the Web. This requires keyboard access to all functionality, including form controls, input, and other user interface components ([learn more](https://www.w3.org/WAI/intro/people-use-web/principles#operable))._
+
+Detecting mouse events in a canvas is quite straightforward: you add an event listener to the canvas, and the browser invokes that listener when the event occurs.
+
+The example below is about listening to `mouseup` and `mousedown` events (when a user presses or releases any mouse button):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// do something with the mousedown event</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// do something with the mouseup event</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+</ol></div>
+
+The event received by the listener function will be used for getting the button number or the coordinates of the mouse cursor. Before looking at different examples, let's look at the different event types we can listen to.
+
+
+#### Mouse events
+
+##### Event types related to mouse
+
+<table style="the event occurs when the user right-clicks on an element to open a context menuborder: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">click</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user clicks on an element (presses a button and releases it)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">dblclick</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user double-clicks on an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mousedown</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user presses a mouse button</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mouseup</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when a user releases a mouse button over an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mousemove</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the pointer is moving while it is over an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mouseenter</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the pointer is moved onto an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mouseleave</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the pointer is moved out of an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mouseover</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the pointer is moved onto an element, or onto one of its children</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">contextmenu</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user right-clicks on an element to open a context menu</td>
+</tr>
+</tbody>
+</table>
+
+##### MouseEvent properties
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle; width: 10vw;" valign="top">button</td>
+<td style="border: 2px solid LightSlateGray; width: 30vw;" valign="top">Returns which mouse button was pressed when the mouse event was triggered</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">clientX and clientY</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the coordinates of the mouse pointer, relative to the element coordinate system that triggered the event. <strong>If you click in the left top corner the value will always be (0,0) independent of scroll position, these coordinates are relative to the VIEWPORT (the visible part of the document page)</strong></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">pageX and pageY</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the coordinates of the mouse pointer, relative to the document, when the mouse event was triggered. <strong>They are relative to the complete document/page, and will always be relative to the very beginning of the document/page, even if the top of the page is not visible because you've scrolled down. They&nbsp;will change when the page scrolls and the mouse does not move!</strong></td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">screenX and screenY</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the coordinates of the mouse pointer, relative to the screen, when an event was triggered.</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">altKey, ctrlKey, shiftKey</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns whether the "alt, ctrl and shif" key was pressed when an event was triggered</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">detail</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns a number that indicates how many times the mouse was clicked</td>
+</tr>
+</tbody>
+</table>
+
+
+#### Examples
+
+##### Example #1: detect a click on an element
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/EWJmyj)
+
+[Local Demo](src/02d-example18.html)
+
+
+##### Example #2: see the differences between clientX/clientY and pageX/pageY
+
+The source code is not meant to be understood. It uses the jQuery lib.
+
+Please move the mouse pointer, and look at the different properties. Then scroll the page (the table at the top will not move), and look at the properties again; notice how `pageX/pageY` change, since they are relative to the top of the page, even if they are not visible.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/bqJWJJ)
+
+[Local Demo](src/02d-example19.html)
+
+
+##### Example #3: detect a mousemove event and get the mouse position relative to the page
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/OpGmjE)
+
+[Local Demo](src/02d-example20.html)
+
+
+##### Example #4: detect a mousemove and get the mouse position relative to the element that fired the event
+
+Here is a first version that does not work well due to a naive use of clientX/PageX and clientY/pageY mouse event properties:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/oZryVL)
+
+[Local Demo](src/02d-example21.html)
+
+
+Here is another version that uses `clientX/clientY` and the `e.target.getBoundingClientRect()` method that returns the bounding rectangle that contains the element that fired the event. The return value has `top`, `left`, `width`, and `height` properties that describe this rectangle. We can use the top and left properties along with `evt.clientX` and `evt.clientY` to fix the mouse position and to get a real position relative to the top left corner of the canvas:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/oZOWQG)
+
+[Local Demo](src/02d-example22.html)
+
+JavaScript source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> processMouseMouve</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> mousePositions </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mousePositions'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // adjust mouse position relative to the canvas</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">()</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> mouseX </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> mouseY </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; mousePositions</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"mouse pos X: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mouseX </span><span class="pun">+</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" mouse pos Y: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mouseY </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"&lt;br&gt;"</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+
+##### Example #5: combine mouseup, mousedown, mousemove to implement a click and drag behavior
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/bqJRMV)
+
+[Local Demo](src/02d-example23.html)
+
+
+##### Example #6: create  and attach a right-click context menu to any element
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/oZOweM)
+
+[Local Demo](src/02d-example24.html)
+
+
+
+
+
+
