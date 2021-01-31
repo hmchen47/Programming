@@ -499,7 +499,7 @@ When you listen to keyboard related events (`keydown`, `keyup` or `keypressed`),
 At _line 2_, the value "37" is the key code that corresponds to the left arrow. It might be difficult to know which codes represent which real keyboard keys, so here are some handy pointers:
 
 + Try key codes with this [interactive example](http://www.asquare.net/javascript/tests/KeyCode.html).
-+ And find a list of keyCodes (taken from this CSS Tricks article).
++ And find a list of keyCodes (taken from this CSS Tricks [article](https://css-tricks.com/snippets/javascript/javascript-keycodes/#keycode-values)).
 
 
 #### The different key events
@@ -573,10 +573,43 @@ See the Pen [keyup and keydown events on window](https://codepen.io/w3devcampus/
 
 Try to type shift-a for example, ctrl-shift-b or alt-f...
 
+[CodePen Demo](https://codepen.io/w3devcampus/pen/BWERyY)
+
+[Local Demo](src/02d-example16.html)
+
 
 #### Notes for 2.4.5 Key events
 
++ Key events
+  + related events: `keydown`, `keyup` and `keypress`
+  + event parameter passed to the listener function containing the code of the key that fired the event
+  + example:
 
+    ```js
+    window.addEventListener('keydown', function(evt) {
+      if (evt.keyCode === 37) {
+        // left arrrow pressed
+      }
+    })
+    ```
+
+  + key code w/ keyboard keys
+    + [JavaScript Event KeyCode Test Page](http://www.asquare.net/javascript/tests/KeyCode.html)
+    + [list of keycode values](https://css-tricks.com/snippets/javascript/javascript-keycodes/#keycode-values)
+  + key events
+    + `keydown`: pressing a key
+    + `keyup`: releasing a key
+    + `keypress` (deprecated): pressing a key or up and release
+  + keyboardEvent properties
+    + legacy properties still used by many JS code
+    + not recommended if targeting modem browsers
+    + `keyCode`
+      + more powerful/easy to use replacement `code`
+      + return the Unicode character code of the key
+      + triggering the onkeypress, onkeydown or onkeyup event
+    + `shiftKey`: return whether the "shift" key pressed when the key event triggered
+    + `ctrlKey`: return whether the "ctrl" key pressed when the key event triggered
+    + `altKey`: return whether the "alt" key pressed when the key event triggered
 
 
 #### Knowledge check 2.4.5
