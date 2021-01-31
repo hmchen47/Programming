@@ -601,15 +601,16 @@ Try to type shift-a for example, ctrl-shift-b or alt-f...
     + `keyup`: releasing a key
     + `keypress` (deprecated): pressing a key or up and release
   + keyboardEvent properties
-    + legacy properties still used by many JS code
-    + not recommended if targeting modem browsers
     + `keyCode`
-      + more powerful/easy to use replacement `code`
+      + more powerful/easy to use (legacy properties still used by many JS code)
       + return the Unicode character code of the key
       + triggering the onkeypress, onkeydown or onkeyup event
     + `shiftKey`: return whether the "shift" key pressed when the key event triggered
     + `ctrlKey`: return whether the "ctrl" key pressed when the key event triggered
     + `altKey`: return whether the "alt" key pressed when the key event triggered
+    + examples:
+      + regular keys: `keys.innerHTML += "keypress: " + evt.key + " code: " + evt.keyCode + " Modifiers : ";`
+      + modifier keys: `if(evt.ctrlKey) modifiers += "CTRL ";`
 
 
 #### Knowledge check 2.4.5
@@ -642,9 +643,7 @@ Extract from the "[Internationalize your keyboard controls](https://hacks.mozill
 
 For details, see [Wikipedia’s keyboard layout page](https://en.wikipedia.org/wiki/Keyboard_layout)!
 
-[QWERTY](https://en.wikipedia.org/wiki/QWERTY) layout, used in US, GB, etc.
-
-[AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout, used in some French-speaking countries
+[QWERTY](https://en.wikipedia.org/wiki/QWERTY) layout, used in US, GB, etc. & [AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout, used in some French-speaking countries
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y2jwxzxt" ismap target="_blank">
@@ -678,24 +677,32 @@ In addition, [QWERTZ](https://en.wikipedia.org/wiki/QWERTZ) keyboards are in use
   </a>
 </div>
 
-Saudi Arabic keyboard layout (see more [Arabic keyboards](https://en.wikipedia.org/wiki/Arabic_alphabet#Keyboards)):
-
-[Bangla National (Jatiyo) keyboard](https://en.wikipedia.org/wiki/Bengali_input_methods#Bangla_Jatiyo):
+Saudi Arabic keyboard layout (see more [Arabic keyboards](https://en.wikipedia.org/wiki/Arabic_alphabet#Keyboards)) & [Bangla National (Jatiyo) keyboard](https://en.wikipedia.org/wiki/Bengali_input_methods#Bangla_Jatiyo):
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://tinyurl.com/y2jwxzxt" ismap target="_blank">
-    <img style="margin: 0.1em;" height=120
+    <img style="margin: 0.1em;" height=150
       src  ="https://tinyurl.com/yyrz4ott"
       alt  ="Saoudian Arabic keyboard layout"
       title="Saoudian Arabic keyboard layout"
     >
-    <img style="margin: 0.1em;" height=120
+    <img style="margin: 0.1em;" height=150
       src  ="https://tinyurl.com/yykojsjl"
       alt  ="Bangladesh keyboard layout"
       title="Bangladesh keyboard layout"
     >
   </a>
 </div>
+
+
+#### Note for 2.4.6 Dealing with different keyboard layouts
+
++ Keyboard layouts
+  + keyboard layout varying from one country to another
+  + keys not located at the same place on keyboards from different countries
+  + key events & properties
+    + DOM API: `keyup`, `keydown` and `keypress`
+    + `KeyCode` property of the DOM event
 
 
 
