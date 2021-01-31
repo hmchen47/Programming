@@ -899,14 +899,14 @@ The event received by the listener function will be used for getting the button 
 
 #### Examples
 
-##### Example #1: detect a click on an element
+__Example #1: detect a click on an element__
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/EWJmyj)
 
 [Local Demo](src/02d-example18.html)
 
 
-##### Example #2: see the differences between clientX/clientY and pageX/pageY
+__Example #2: see the differences between clientX/clientY and pageX/pageY__
 
 The source code is not meant to be understood. It uses the jQuery lib.
 
@@ -917,14 +917,14 @@ Please move the mouse pointer, and look at the different properties. Then scroll
 [Local Demo](src/02d-example19.html)
 
 
-##### Example #3: detect a mousemove event and get the mouse position relative to the page
+__Example #3: detect a mousemove event and get the mouse position relative to the page__
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/OpGmjE)
 
 [Local Demo](src/02d-example20.html)
 
 
-##### Example #4: detect a mousemove and get the mouse position relative to the element that fired the event
+__Example #4: detect a mousemove and get the mouse position relative to the element that fired the event__
 
 Here is a first version that does not work well due to a naive use of clientX/PageX and clientY/pageY mouse event properties:
 
@@ -957,18 +957,99 @@ JavaScript source code extract:
 </ol></div>
 
 
-##### Example #5: combine mouseup, mousedown, mousemove to implement a click and drag behavior
+__Example #5: combine mouseup, mousedown, mousemove to implement a click and drag behavior__
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/bqJRMV)
 
 [Local Demo](src/02d-example23.html)
 
 
-##### Example #6: create  and attach a right-click context menu to any element
+__Example #6: create  and attach a right-click context menu to any element__
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/oZOweM)
 
 [Local Demo](src/02d-example24.html)
+
+
+#### Notes for 2.4.8 Mouse events
+
++ Mouse events and properties
+  + events
+    + `click`: occurred when the user clicks on an element (press and release)
+    + `dblclick`: occurred when the user double-clicks on an element
+    + `mousedown`: occurred when the user presses a mouse button
+    + `mouseup`: occurred when the user releases a mouse button
+    + `mousemove`: occurred when the pointer is moving while it over an element
+    + `mouseenter`: occurred when the pointer is moved onto an element
+    + `mouseleave`: occurred when the pointer is moved out of an element
+    + `mouseover`: occurred when the pointer is moved onto an element, or onto one of its children
+    + `contextmenu`: occurred when the user right-clicks on an element to open a context menu
+  + properties
+    + `button`: which buttom pressed when the mouse event is triggered
+    + `clientX` and `clientY`
+      + the coordinates of the mouse pointer
+      + relative to the element coordinate system
+        + left-top corner: always (0, 0) independent of scroll position
+        + coordinates relative to the VIEWPORT (the visualable part of the document page)
+    + `pageX` and `pageY`
+      + the coordinates of the mouse pointer
+      + relative to the complete document/page
+      + always relative to the very beginning of the document/page, even if the top of the page not visible
+      + values changed when page scrolls down and mouse not moved
+    + `screenX` and `screenY`: the coordinates of the mouse pointer, relative to the screen
+    + `altKey`, `ctrlKey` and `shiftKey`: whether the "alt", "ctrl" and "shift" pressed
+    + `detail`: a number that indicates how many times the mouse clicked
+  + event received by the listener used for getting the button number or the coordinates if the mouse cursor
+  + examples: listening to `mouseup` and `mousedown` events
+
+    ```js
+    canvas.addEventListener('mousedown', function (evt) {
+      // do something with the mousedown event
+    });
+    
+    canvas.addEventListener('mouseup', function (evt) {
+      // do something with the mouseup event
+    });
+    ```
+
+  + example: mouse position related to an element
+    + version 1: using `clientX` and `clientY` only to get position relative to the page
+    + version 2: using `clientX` and `clientY` & `e.target.getBoundingClientRect()` method
+    + `e.target.getBoundingClientRect()` method
+      + return value w/ `top`, `left`, `width`, and `height` properties that describe this rectangle
+      + using the `top` and `left` properties along w/ `evt.clientX` and `evt.clientY` to get the real position relative to the the top & left corner of the element
+
+    ```js
+    window.onload = init;
+
+    function init() {
+      // page has been loaded
+      canvas = document.querySelector('#myCanvas');
+      canvas.addEventListener('mousemove', processMouseMove)
+    }
+
+    // version 1
+    function processMouseMove(evt) {
+      var mousePositions = document.querySelector('#mousePositions');
+      mousePositions.innerHTML = "mouse pos X: " + evt.clientX +
+        " mouse pos Y: " + evt.clientY + "<br>" 
+    }
+
+    // version 2
+    function processMouseMove(evt) {
+        var mousePositions = document.querySelector('#mousePositions');
+        // adjust mouse position relative to the canvas
+        var rect = evt.target.getBoundingClientRect()
+        var mouseX = evt.clientX - rect.left;
+        var mouseY = evt.clientY - rect.top;
+        mousePositions.innerHTML = "mouse pos X: " + mouseX +
+          " mouse pos Y: " + mouseY + "<br>"
+    }
+    ```
+
+  + example: [click and drag](src/02d-example23.html)
+  + example: [right-click context menu](src/02d-example24.html)
+
 
 
 
