@@ -620,7 +620,8 @@ Try to type shift-a for example, ctrl-shift-b or alt-f...
   b. `keydown`<br/>
   c. `keyup`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a
+
+
 
 
