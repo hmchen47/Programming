@@ -705,9 +705,49 @@ Saudi Arabic keyboard layout (see more [Arabic keyboards](https://en.wikipedia.o
     + `KeyCode` property of the DOM event
 
 
+### 2.4.7 Key and code properties
+
+`key` and `code` are new recommended properties you can use with modern browsers.
+
+You may have noticed that in some examples from the previous course page about key events, we used `event.key` in order to display the character that has been typed. The `key` property has been introduced with a new W3C API called UI Events (or DOM level 3 events), that has been discussed since 2000.  All major browsers have implemented this very practical `key` property. It comes with another property named `code`, which is what `keyCode` should have been. The value of the code property corresponds to a code that is more readable than the value of the old `keyCode` property.
+
++ __`key`__: when the pressed key is a printable character, you get the character in string form. When the pressed key is not a printable character (for example: Backspace, Control, but also Enter or Tab which actually are printable characters), you get a multi-character descriptive string, like 'Backspace', 'Control', 'Enter', 'Tab'.
++ __`code`__: Gives you the physical key that was pressed, in string form. This means it’s totally independent of the keyboard layout that is being used. So let’s say the user presses the Q key on a QWERTY keyboard. __Then `event.code` gives you 'KeyQ' while `event.key` gives you 'q'.__
+
+<span style="colr: brown; font-weight: bold;">But when an AZERTY keyboard user presses the A key, he also gets <code>'KeyQ'</code> as <code>event.code</code>, yet <code>event.key</code> contains 'a'. This happens because the A key on a AZERTY keyboard is at the same location as the Q key on a QWERTY keyboard.</span>
+
+As for numbers, the top digit bar yields values like 'Digit1', while the numeric pad yields values like 'Numpad1'.
+
+#### List of codes, the reference keyboard
+
+There’s no existing keyboard with all the possible keys. That’s why the W3C published [a specification just for this](https://www.w3.org/TR/uievents-code/). You can read about the [existing mechanical layouts](https://www.w3.org/TR/uievents-code/#keyboard-layout) around the world, as well as their [reference keyboard](https://www.w3.org/TR/uievents-code/#code-value-tables). For instance here is their reference keyboard for the alphanumerical part:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick="window.open('https://tinyurl.com/yyh6fm43')"
+    src    ="https://tinyurl.com/y44haoho"
+    alt    ="Reference alphanumeric keyboard"
+    title  ="Reference alphanumeric keyboard"
+  />
+</figure>
 
 
+Also, please read through [the examples given in the specification](https://w3c.github.io/uievents/#code-examples). They show very clearly what happens when the user presses various types of keys, both for code and key.
+
+#### Example that displays the key and code values with your current keyboard
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/GmYxNY)
+
+[Local Demo](src/02d-example17.html)
+
+I encourage you to take a look and get at least an overview of this specification.
+
+Please note that the W3C has also published a sibling specification describing the values for the key property.
 
 
+#### Current browser support
+
++ [CanIUse table for `key`](https://caniuse.com/#feat=keyboardevent-key)
++ [CanIUse table F-for `code`](https://caniuse.com/#feat=keyboardevent-code)
 
 
