@@ -1051,7 +1051,80 @@ __Example #6: create  and attach a right-click context menu to any element__
   + example: [right-click context menu](src/02d-example24.html)
 
 
+### 2.4.9 Form and input field events
 
+#### Events related to forms
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">input</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when an element gets user input (e.g., a key is typed on an input field, a slider is moved, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">change</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the content of a form element, the selection, or the checked state have changed (for &lt;input&gt;, &lt;select&gt;, and &lt;textarea&gt;).&nbsp;A change event listener on a slider will generate an event when the drag/move ends, while input events will be useful to do something as the slider is being moved.</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">focus</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when an element gets focus (e.g., the user clicks in an input field)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">blur</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when an element loses focus (e.g., the user clicks on another element)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">select</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs after the user selects some text (for &lt;input&gt; and &lt;textarea&gt;)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">submit</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when a form is submitted</td>
+</tr>
+</tbody>
+</table>
+
+
+#### FormEvent properties
+
+There are no particular properties that need to be mentioned here. Usually, on a form event listener, we check the content of the different input fields, using their `value` property. See examples in the part of the course that deals with form events.
+
+__Example #1: validating on the fly as the user types in a text input field__
+
+First variant: using the 'input' event:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/vxMgxQ)
+
+[Local Demo](src/02d-example25.html)
+
+
+Second variant: using the 'keyup' event:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/XMQpRa)
+
+[Local Demo](src/02d-example26.html)
+
+Note that HTML5 forms and the multiple facets of form and input field validation are covered in depth in the W3C [HTML5 Coding Essentials and Best Practices](https://www.edx.org/course/html5-coding-essentials-and-best-practices) course, which dedicates a whole week to this topic.
+
+__Example #2: do something while a slider is being moved__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/yMrgPg)
+
+[Local Demo](src/02d-example27.html)
+
+
+__Example #3: detect value changes in a number input field__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/LWvxeB)
+
+[Local Demo](src/02d-example28.html)
+
+
+__Example #4: choose a color and do something__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/gmygzV)
+
+[Local Demo](src/02d-example29.html)
 
 
 
