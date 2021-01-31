@@ -1,0 +1,9 @@
+canvas {
+  border:4px solid;
+  margin-left:20px;
+  background-color:lightGrey;
+}
+
+body {
+  height:2000px;
+}

@@ -1,0 +1,22 @@
+body{
+  height:4000px;
+  font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+
+table{
+  position:fixed;
+  width:100%;
+  padding:10px 20px;
+  background:#eee;
+  border-spacing:5px 0; 
+}
+table td{
+  vertical-align:bottom;
+  border:1px dashed #ddd;
+  padding:3px 10px;
+}
+table tr:first-child{
+  background:#ddd;
+}
+
