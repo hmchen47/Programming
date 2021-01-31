@@ -601,8 +601,10 @@ Try to type shift-a for example, ctrl-shift-b or alt-f...
     + `keyup`: releasing a key
     + `keypress` (deprecated): pressing a key or up and release
   + keyboardEvent properties
+    +legacy properties still used by many JS code
+    + not recommended for modern browser
     + `keyCode`
-      + more powerful/easy to use (legacy properties still used by many JS code)
+      + more powerful/easy to use
       + return the Unicode character code of the key
       + triggering the onkeypress, onkeydown or onkeyup event
     + `shiftKey`: return whether the "shift" key pressed when the key event triggered
@@ -732,7 +734,7 @@ There’s no existing keyboard with all the possible keys. That’s why the W3C 
 </figure>
 
 
-Also, please read through [the examples given in the specification](https://w3c.github.io/uievents/#code-examples). They show very clearly what happens when the user presses various types of keys, both for code and key.
+Also, please read through [the examples given in the specification](https://w3c.github.io/uievents/#code-examples). They show very clearly what happens when the user presses various types of keys, both for `code` and `key`.
 
 #### Example that displays the key and code values with your current keyboard
 
@@ -749,5 +751,41 @@ Please note that the W3C has also published a sibling specification describing t
 
 + [CanIUse table for `key`](https://caniuse.com/#feat=keyboardevent-key)
 + [CanIUse table F-for `code`](https://caniuse.com/#feat=keyboardevent-code)
+
+
+#### Notes for 2.4.7 Key and code properties
+
++ `key` and `code` properties
+  + new recommended properties w/ modern browsers
+  + UI Events / DOM level 3 events: a new W3C API
+  + both introduced w/ UI Events
+  + `key` property
+    + a character in string form as the pressed key a printable character
+    + a multi-character descriptive string as the pressed key not a printable character, e.g., 'Backspace', 'Control', 'Enter', 'Tab'
+    + all major browsers implemented
+  + `code` property
+    + the physical key pressed in string form
+    + totally independent of the keyboard layout
+  + example: pressing 'Q' key on a QWERTY keyboard
+    + `evt.code` value: `KeyQ`
+    + `evt.key` value: `q`
+  + example: pressing `A` key on a AZERTY keyboard
+    + `evt.code` value" `KeyQ`
+    + `evt.key` value:" `a`
+  + `code` property of number keys
+    + top digit bar: 'Digit#', eg, `Digit1'
+    + numeric pad: 'Numpad#', eg, 'Numpad1'
+  + list of code
+    + [specification of UI Events KeyboardEvent code values](https://www.w3.org/TR/uievents-code/)
+    + [reference alphanumeric keyboard](https://www.w3.org/TR/uievents-code/#keyboard-key-codes)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system')"
+        src    ="https://www.w3.org/TR/uievents-code/images/keyboard-codes-alphanum1.svg"
+        alt    ="Reference alphanumeric keyboard"
+        title  ="Reference alphanumeric keyboard"
+      />
+    </figure>
 
 
