@@ -156,13 +156,13 @@ So we've decided to focus on only 20% of the DOM API and on the selector API (fo
 
 #### Accessing HTML elements with the selector API (recommended)
 
-Extract from [HTML5 selectors API – It’s like a Swiss Army Knife for the DOM](https://tinyurl.com/1xy4oke0) : _"One of the many reasons for the success of JavaScript libraries like [jQuery](https://jquery.org/) and [Prototype](http://prototypejs.org/), on top of their easing the pain of cross-browser development was how they made working with the DOM far less painful than it had previously been, and indeed how it was with the standard DOM. Being able to use arbitrary CSS selector notation to get matching elements from a document made the standard DOM methods seem antiquated, or at the very least, far too much like hard work._
+Extract from [HTML5 selectors API – It’s like a Swiss Army Knife for the DOM](https://tinyurl.com/1xy4oke0) : _"One of the many reasons for the success of JavaScript libraries like [jQuery](https://jquery.com/) and [Prototype](http://prototypejs.org/), on top of their easing the pain of cross-browser development was how they made working with the DOM far less painful than it had previously been, and indeed how it was with the standard DOM. Being able to use arbitrary CSS selector notation to get matching elements from a document made the standard DOM methods seem antiquated, or at the very least, far too much like hard work._
 
 _Luckily, the standards and browser developers took notice. The W3C developed the Selectors API, a way of easily accessing elements in the DOM using standard CSS selector concepts, and browser developers have baked these into all modern browsers, way back to IE8."_
 
 #### The `querySelector(CSSSelector)` and `querySelectorAll(CSSSelector)` methods
 
-Ah... these methods owe a lot to [jQuery](https://jquery.org/)! They introduce a way to use CSS selectors (including CSS3 selectors) for requesting the DOM, like jQuery introduced ages ago.
+Ah... these methods owe a lot to [jQuery in OpenJS](https://jquery.org/)! They introduce a way to use CSS selectors (including CSS3 selectors) for requesting the DOM, like jQuery introduced ages ago.
 
 Any CSS  selector can be passed as a parameter for these methods.
 
@@ -254,7 +254,7 @@ __JavaScript part:__ the `init` function is executed as soon as the page is load
 
 #### Miscellanous examples of use of querySelector(CSSSelector) and querySelectorAll(CSSselector)
 
-Here are some other examples that use more complicated CSS selectors. If you are not familiar with their syntax, we recommend that you follow the CSS basics, and HTML5 and CSS fundamentals courses from W3Cx.
+Here are some other examples that use more complicated CSS selectors. If you are not familiar with their syntax, we recommend that you follow the CSS basics, and HTML5 and CSS fundamentals courses from [W3Cx](https://www.edx.org/school/w3cx).
 
 
 __Example #1: get all `<li>` directly in a `<ul>` of class nav__
@@ -387,7 +387,7 @@ HTML code:
 
 JavaScript code: we build a CSS selector using the id passed as a parameter. In this example, the id is 'firstDiv', the id of the div at _line 3_ in the above code.
 
-So0, the variable CSS selector at _line 2_ in the JavaScript code below will have a value equal to "`#firstDiv p`", that means: select all `<p>` under an element whose `id` is "firstDiv". The `paragraphs` variable is a list that contains the paragraphs selected. Then we iterate on this list (this time using a for loop, which is an alternative method to using the forEach method used in previous examples) (_lines 5-7_), and we change the background of all selected paragraphs (_line 6_).
+So, the variable CSS selector at _line 2_ in the JavaScript code below will have a value equal to "`#firstDiv p`", that means: select all `<p>` under an element whose `id` is "firstDiv". The `paragraphs` variable is a list that contains the paragraphs selected. Then we iterate on this list (this time using a for loop, which is an alternative method to using the forEach method used in previous examples) (_lines 5-7_), and we change the background of all selected paragraphs (_line 6_).
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> changeBackGroundOfPs</span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -450,6 +450,64 @@ From the document we can access the elements composing our Web page in a few way
 
 Notice that `identifier`, `tagName` and `className` must be of type String.
 
+
+#### Notes for 2.5.3 Accessing HTML elements
+
++ The `selector` API
+  + a way of easily accessing elements in the DOM
+  + a way to use CSS selector for requesting the DOM
+  + methdos
+    + `querySelector`: return the 1st element int he DOM that matched the selector
+    + `querySelectorAll`: return a collection of HTML elements of all elements matching the selector
+  + example: [typical usage](src/02e-example02.html)
+    + HTML: `<img src="https://i.imgur.com/Ntvj5rq.png" id="img1" width=200> <img src="https://i.imgur.com/yiU59oi.gif" width=200>`
+    + JavaScript
+      + initialization: `window.onload = init;`
+      + `init` function executed as soon as the page loaded (DOME ready)
+
+        ```js
+        function init() {
+            var listImages = document.querySelectorAll("img");
+
+            listImages.forEach(function(img) {
+                img.style.boxShadow = "5px 5px 15px 5px grey";
+                img.style.margin = "10px";
+            });
+        }
+        ```
+
+      + manipulate the firs image
+
+        ```js
+        function addBorderToFirstImage() {
+            var img1 = document.querySelector('#img1');
+            img1.style.border = '3px solid red';
+        }
+        ```
+
+      + manipulate all images
+ 
+        ```js
+        function resizeAllImages() {
+            var listImages = document.querySelectorAll("img");
+            listImages.forEach(function(img) {
+                img.width = 100;
+            });
+        }
+        ```
+
+  + example: [get all `<li>` directly in a `<ul>` of class nav](src/02e-example03.html)
+  + example: `var list = document.querySelectorAll("#fruits input:checked");` in [display all checked `<input type="checkbox">` elements](src/02e-example04.html)
+  + example: [change the back ground of all paragraphs](src/02e-example04.html)
+    + HTML: `<button onclick="changeBackGroundOfPs('firstDiv');">Change backgrounds of p under a given element known by id</button>`
+    + JavaScript: `var paragraphs = document.querySelectorAll("#" + id + " p");`
+  + examples: more complex selectors
+    + `var el = document.querySelector('#nav ul li');`: all elements li in ul elements in an element of id=nav
+    + `var els = document.querySelectorAll('ul li:nth-child(even)');`: all li in a ul, but only even elements
+    + `var els = document.querySelectorAll('form.test > tr > td');`: all td directly in tr in a form of class test
+    + `querySelectorAll("p.warning, p.error");`: all paragraphs of class warning or error
+    + `querySelector("#foo, #bar");`: first element of id=foo or id=bar
+    + `var div = document.getElementById("bar"); var p = div.querySelector("p");`: first p in a div
 
 
 
