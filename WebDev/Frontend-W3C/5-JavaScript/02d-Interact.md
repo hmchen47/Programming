@@ -1127,5 +1127,75 @@ __Example #4: choose a color and do something__
 [Local Demo](src/02d-example29.html)
 
 
+#### Note for 2.4.9 Form and input field events
+
++ Form and input field events
+  + form related events
+    + `input`: occurred when an element gets user input, e.g., a key is typed on an input field, a slider is moved, etc.
+    + `change`
+      + occurred when the content of a form element, the selection or the checked state have changed
+      + for `<input>`, `<select>` and `<textarea>`
+      + change event on a slider: generating an event when drag/move ends
+      + input event: useful to do something as the slider is being moved
+    + `focus`: occurred when an element gets focus, e.g., the user clicks in an input field
+    + `blur`: occurred when an element loses focus, e.g., the user clicks on another element
+    + `select`: occurred after the user selects some text (for `<input>` and `<textarea>`)
+    + `submit`: occurred when a form is submitted
+  + FormEvent properties
+    + no particular properties required to be mentioned
+    + using `value` property of a form event listener to check the content of the different input fields
+  + examples
+    + [validating the user input w/ `input` event](src/02d-example25.html)
+
+      ```html
+      <label>
+        <span>Name (required):</span>
+        <input type="text" name="nom" maxlength="32" required oninput = "validateName(this)">
+      </label>
+      <p> <span id="nameTyped"></span> </p>
+      ```
+
+      ```js
+      function validateName(field) {
+        var name = field.value;  
+        var output = document.querySelector('#nameTyped');
+        output.innerHTML = "Valid name: " + name;
+
+        if(name.length < 5) {
+          output.innerHTML = "This name is too short (at least 5 chars)";
+        }
+      }
+      ```
+  
+    + [validating the user typed key w/ `keyup` event](src/02d-example26.html)
+
+      ```html
+      <label>
+        <span>Name (required):</span>
+        <input type="text" name="nom" maxlength="32" require onkeyup = "validateName(event)">
+      </label>
+      <p> <span id="keyTyped"></span> </p> 
+      ```
+
+      ```js
+      function validateName(evt) {
+        var key = evt.key;  
+        var output = document.querySelector('#keyTyped');
+        output.innerHTML = "Valid key: " + key;
+
+        if(key === "!") {
+          output.innerHTML = "This key is forbidden!";
+          var name = evt.target.value;
+          evt.target.value = name.substring(0, name.length-1);
+        }
+      }
+      ```
+
+    + [action for moving slider w/ `input` event](src/02d-example27.html)
+    + [detect number change w/ `input` event](src/02d-example28.html)
+    + [choose a color w/ `change` event](src/02d-example29.html)
+
+
+
 
 
