@@ -135,6 +135,15 @@ You can also use the "DOM inspector" to locate a particular element with the mou
       + devtool > console > type "inspec(document.querySlector("input"));" to focus on 'input' element
 
 
+### 2.5.2 A warning about the DOM API
+
+The DOM and the DOM API can be cumbersome and complicated. There are many methods and properties for manipulating the DOM tree, that are not "very JavaScript". There are historical reasons for this: the DOM wasn’t designed exclusively for JavaScript. Rather, it tries to define a language-neutral interface that can be used in other systems as well — not just HTML but also XML, which is a generic data format with an HTML-like syntax.
+
+HTML5 made some additions that are not in the DOM API but which greatly help the JavaScript programmer (we'll see this in a minute with the "selector API", for example).
+
+So we've decided to focus on only 20% of the DOM API and on the selector API (for selecting elements in the DOM). These are the most useful parts and it will give you enough knowledge to solve nearly every problem where you need to manipulate the DOM.
+
+
 
 
 
