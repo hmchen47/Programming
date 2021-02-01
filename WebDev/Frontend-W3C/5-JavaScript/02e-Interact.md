@@ -509,7 +509,7 @@ Notice that `identifier`, `tagName` and `className` must be of type String.
     + `querySelector("#foo, #bar");`: first element of id=foo or id=bar
     + `var div = document.getElementById("bar"); var p = div.querySelector("p");`: first p in a div
 
-+ The `getEelement` APIs
++ The `getElement` APIs
   + able to be replaced by `querySelector` and `querySelectorAll` methods
   + `document.getElementById(identifier)`
     + return the element which has the id “identifier”.
@@ -523,5 +523,163 @@ Notice that `identifier`, `tagName` and `className` must be of type String.
     + return a list of elements which have the class “className”.
     + equivalent to `document.querySelectorAll('.className');`
     + example: `var list = document.getElementByClassName('important');` = `document.querySelector('.important');`
+
+
+### 2.5.4 Changing the style of selected HTML elements
+
+
+#### The `style` attribute
+
+How to modify an HTML element's CSS properties from JavaScript?
+
+The most common way to modify the CSS style of one of several elements you selected using the DOM or Selector API, is to use the `style` attribute.
+
+Typical use:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// select the paragraph with id = "paragraph1" </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#paragraph1'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// change its color</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">p</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
+</ol></div>
+
+
+_Warning_: with the style attribute, you can modify (or read) any CSS property, but be careful: the syntax changes a little due to the fact that in JavaScript the "-" is a math operator, while in CSS it is used to separate properties made of multiple words, such as background-color.
+
+When using such properties from JavaScript, the rule is simple:
+
+1. Remove the "-" sign,
+1. Capitalize the word after the "-" sign!
+
+Simple, isn't it?
+
+Examples:
+
++ `text-align` becomes `style.textAlign`
++ `margin-left` becomes `style.marginLeft`
++ etc.
+
+The most useful CSS properties (we do recommend that you follow the W3Cx courses CSS basics, CSS and HTML5 fundamentals from W3Cx to learn more about CSS):
+
++ `color`: changing the color of the text content of selected element(s),
++ `background-color`: same but this time the background color,
++ `margin` and `padding` properties (external and internal margins), including their variants: `margin-left`, `margin-top`, `margin-right`, `margin-bottom`, also `padding-left`, etc.
++ `border` and `border-radius`: change the border, type (plain, dashed), color, thickness, rounded corners etc.
++ `box-shadow` to add shadows to selected elements, 
++ `font`, `font-style`: font characters and style (italic, bold, plain)
++ `text-align` (centered, etc.)
+
+Here are some examples:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/evxoQq)
+
+[Local Demo](src/02e-example06.html)
+
+
+#### Using the ClassList interface to change more than one CSS property simultaneously
+
+External resources:
+
++ [The W3C specification about the classList DOM interface](http://www.w3.org/TR/dom/#dom-element-classlist)
++ [An article from the Mozilla Developer's web site](https://hacks.mozilla.org/2010/01/classlist-in-firefox-3-6/)
+
+Until now, to manipulate CSS classes of an HTML element was a bit complex, both for verifying the presence of a class name in an element, and for adding or removing classes associated with a given element.
+
+The ClassList interface simplifies it all by acting as a container object and by providing a set of methods to manipulate its content.
+
+The `classList` property applies to an HTML element, and returns a collection of class names:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> elem</span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.querySelector</span><span class="pun">(</span><span class="str">"#id1"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> allClasses </span><span class="pun">=</span><span class="pln"> elem</span><span class="pun">.</span><strong><span class="pln">classList</span></strong><span class="pun">;</span></li>
+</ol></div>
+
+
+##### The classList API
+
+The list of methods usable on a classList object are `add()`, `remove()`, `toggle()` and `contains()`.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// By default, start without a class in the div: &lt;div class=""/&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// Set "foo" as the class by adding it to the classList</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">div</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">'foo'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// now &lt;div class="foo"/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// Check that the classList contains the class "foo"</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">div</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">contains</span><span class="pun">(</span><span class="str">'foo'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// returns true</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// Remove the class "foo" from the list</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">div</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'foo'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// now &lt;div class=""/&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// Check if classList contains the class "foo"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">div</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">contains</span><span class="pun">(</span><span class="str">'foo'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// returns false: "foo" is gone</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">// Check if class contains the class "foo",</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// If it does, "foo" is removed, if it doesn't, it's added</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">div</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">toggle</span><span class="pun">(</span><span class="str">'foo'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// class set to &lt;div class="foo"/&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">div</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">toggle</span><span class="pun">(</span><span class="str">'foo'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// class set to &lt;div class=""/&gt;</span></li>
+</ol></div>
+
+
+__Another example: add and remove multiple CSS properties in a list of checkboxes__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/GWeJzz)
+
+[Local Demo](src/02d-example07.html)
+
+
+This is a variation of an example from a previous section. This time, when the <input type="checkbox"> elements have been checked, in order to give the parent <li> a background color, a border, and to change the text color, we use a CSS class named "checked":
+
+CSS code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">.</span><span class="kwd">checked</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">yellow</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+... and the `classList.add(CSS_class)` and `classList.remove(CSS_class)` methods on the `<li>` elements:
+
+JavaScript code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> displayListOfCheckedItems</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // all inputs that have been checked</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> listOfSelectedValues</span><span class="pun">=</span><span class="str">""</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> list </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"#fruits input:checked"</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; list</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">elm</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; listOfSelectedValues </span><span class="pun">+=</span><span class="pln"> elm</span><span class="pun">.</span><span class="pln">value </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; <strong>// get the li parent of the current selected input</strong></span></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> liParent </span><span class="pun">=</span><span class="pln"> elm</span><span class="pun">.</span><span class="pln">parentNode</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; // add the CSS class .checked</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; liParent</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">"checked"</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; });</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"You selected: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> listOfSelectedValues</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> reset</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> list </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"#fruits input"</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; list</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">elm</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // uncheck</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; elm</span><span class="pun">.</span><span class="kwd">checked</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; <strong>// remove CSS decoration</strong></span></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> liParent </span><span class="pun">=</span><span class="pln"> elm</span><span class="pun">.</span><span class="pln">parentNode</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; liParent</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">"checked"</span><span class="pun">);</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; });</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+
+
+
+
 
 
