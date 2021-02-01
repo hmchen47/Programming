@@ -1690,4 +1690,18 @@ There are no particular properties that need to be mentioned here. Usually, on a
   </table>
 
 
+### 2.4.11 Discussion and project
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ Did you know the differences between `clientX`, `pageX`, etc. when dealing with `mousemove` events? Did you know the method we showed for getting the mouse position relative to the elements you're moving the mouse on?
++ Did you know the different keyboard layouts, and the `code` and `key` event properties?
+
+
+#### Optional project
+
++ timesTry to write a small game that will display a word taken from an array, randomly, and you will have to type the letters of this word as fast as you can. A bit like the "type of the dead" game (look on YouTube). You can imagine the evolution such as choosing the level, start with 3 letter words, 4 letter words, etc. <br/>Choose a topic (medicine, with very difficult words to spell, etc.). If you look at the end of the module, you will see how to work with graphics and animation, you can also imagine a graphic version of this game.
+
 
