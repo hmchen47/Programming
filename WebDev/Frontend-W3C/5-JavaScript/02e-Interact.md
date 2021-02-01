@@ -56,7 +56,7 @@ Consider the figure above.  It contains a single `html` element.  It turns out t
 Thus in the example above, the top element is the html element, which contains just two elements, the head and body.  The head element contains a title element and the body contains an h1 element and a p element.  In a more typical example, the body would contain many more children, but for our purposes this is enough. p is for "paragraph" (the text between <p> and </p> will be separated by some space before the next element is displayed in the final HTML page rendering), h1 means "heading level 1", and will be rendered by default in bold with a bigger char size than any other text element, etc.
 
 
-#### There are different types of nodes in the DOM
+#### Different types of nodes in the DOM
 
 There are different types of nodes, but don't worry - the most useful ones are highlighted in bold.
 
@@ -102,8 +102,37 @@ You can also use the "DOM inspector" to locate a particular element with the mou
 </figure>
 
 
+#### Notes for 2.5.1 Introducing the DOM
 
-
++ Overview of DOM
+  + Document Object Model (DOM): a modle of the dicument's structure
+  + used to render the HTML page on the screen
+  + a standard describing how a document must be manipulated
+  + defining a "language- and platform natural interface"
+  + all browers offerring the same JS DOM API
+  + DOM API:
+    + a programming interface used to modify the HTML content ot the CSS style of HTML element on the fly
+    + providing the `document` object as a structure object
+  + `document` object
+    + a group of nodes represented as a tree
+    + exposing a large set of methods to access and manipulate the structured document
+    + method capability:
+      + look for nodes (html elements that compose the page)
+      + move nodes
+      + delete nodes
+      + modify nodes (attributes, contents)
+      + handle associated events
+    + a propert of the global object `window`
+    + implicitly `window.document` = `document`
+  + types of nodes (moste useful ones highlighted)
+    + __element__, e.g., `<ul></ul>`
+    + __text__, e.g., `<p>the text within the element p is a node of type text</p>`
+    + Document, DocumentFragment, DocumentType, Comment, ProcessingInstruction
+  + viewing DOM w/ devtool
+    + Firfox: devtool > console > type "document.body"
+    + Chrome: ([devtool video](https://youtu.be/VYyQv0CSZOE))
+      + devtool > console > tyep "window"
+      + devtool > console > type "inspec(document.querySlector("input"));" to focus on 'input' element
 
 
 
