@@ -1517,6 +1517,14 @@ There are no particular properties that need to be mentioned here. Usually, on a
     + callback function: `element.addEventListener('click', function(event) { // able to use event object inside the callback }, false);`
     + obtaining useful info from the `event` object w/ its properties
 
-+ 
++ Most common useful properties/methods of event object
+  + properties
+    + `type`: the name of the event
+    + `target`: the element that triggered the event
+  + methods
+    + `preventDefault()`: cancel the cancelable event, i.e., the default behavior not happened
+    + `stopPropagation()`: further propagation of an event during event flow
+
+
 
 
