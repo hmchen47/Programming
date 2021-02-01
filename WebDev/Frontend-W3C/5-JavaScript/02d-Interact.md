@@ -1229,7 +1229,7 @@ __Method #2: attach an event handler to an HTML element in JavaScript__
 This method is fine, but  you will not be able to attach multiple listener functions. If you need to do this, use the version shown below.
 
 
-__Method #3: register a callback to the event listener with the addEventListener method (preferred  method)__
+__Method #3: register a callback to the event listener with the `addEventListener` method (preferred  method)__
 
 <div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun" style="color: #666600;">.</span><span class="pln">getElementById</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'someDiv'</span><span class="pun" style="color: #666600;">).</span><strong><span class="pln">addEventListener</span></strong><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'click'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
@@ -1237,7 +1237,7 @@ __Method #3: register a callback to the event listener with the addEventListener
 <li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">},</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">false</span><span class="pun" style="color: #666600;">);</span></li>
 </ol></div>
 
-Note that the third parameter describes whether the callback has to be called during the captured phase. This is not important for now, just set it to false or ignore it (you can even pass only two parameters to the addEventListener function call and do not set this boolean parameter at all).
+Note that the third parameter describes whether the _callback_ has to be called during the captured phase. This is not important for now, just set it to false or ignore it (you can even pass only two parameters to the `addEventListener` function call and do not set this boolean parameter at all).
 
 
 ##### Details of the DOM event are passed to the event listener function
@@ -1492,6 +1492,31 @@ There are no particular properties that need to be mentioned here. Usually, on a
 #### Notes for 2.4.10 Reference tables
 
 + Event management in JS
-  + 
+  + no input ot output in JS
+  + treating events caused by user actions as input
+  + manipulating DOM structure as output
+  + DOM events:
+    + retaining variable info, including the key stroke, the mouse button clicks, and the mouse position
+    + the variables referred to determine what action to perform
+  + __event handler__ created by the DOM APIs
+  + ways to manage events 
+    + declaring an event handler in the HTNL code
+      + syntax: `<div id="someDiv" onclick="alert('clicked!')"> content of the div </div>`
+      + easy to use but not recommended
+      + probably deplicated
+      + mixing 'visual layer' (HTML) and 'logical layer' (JS) $\to$ a host problems during development
+    + attaching an event handler to an HTML element in JS
+      + syntax: `document.getElementById('someDiv').onclick = function() { alert('clicked!'); }`
+      + unable to attach multiple listener fucntions
+    + registering a callback to the event listener w/ the `addEventListener` method
+      + syntax: `document.getElementById('someDiv').addEventListener('click', function() { alert('clicked!'); }, false);`
+      + 3rd parameter: whether the _callback_ to be called dueing the captured phase, default as false
+  + passing DOM event to the event listener function
+    + creating an event listener and attached to an element $\to$ creating an `event` object to describe what happen
+    + event object as a parameetr of the __callback fucntion__
+    + callback function: `element.addEventListener('click', function(event) { // able to use event object inside the callback }, false);`
+    + obtaining useful info from the `event` object w/ its properties
+
++ 
 
 
