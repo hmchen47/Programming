@@ -434,7 +434,7 @@ From the document we can access the elements composing our Web page in a few way
 
   This is equivalent to `document.querySelector("#identifier');` (just add a # before the id when using a CSS selector). 
 
-  Example: `var elm = document.getElementById('myDiv'); is equivalent to document.querySelector('#myDiv');`
+  Example: `var elm = document.getElementById('myDiv');` is equivalent to `document.querySelector('#myDiv');`
 
 + __document.getElementsByTagName(tagName)__ returns a list of elements which are named “tagName”.
 
@@ -509,6 +509,19 @@ Notice that `identifier`, `tagName` and `className` must be of type String.
     + `querySelector("#foo, #bar");`: first element of id=foo or id=bar
     + `var div = document.getElementById("bar"); var p = div.querySelector("p");`: first p in a div
 
-
++ The `getEelement` APIs
+  + able to be replaced by `querySelector` and `querySelectorAll` methods
+  + `document.getElementById(identifier)`
+    + return the element which has the id “identifier”.
+    + equivalent to `document.querySelector("#identifier');`
+    + `var elm = document.getElementById('myDiv');` = `document.querySelector('#myDiv');`
+  + `document.getElementsByTagName(tagName)`
+    + return a list of elements which are named “tagName”.
+    + equivalent to `document.querySelectorAll(tagName);`
+    + example: `var list = document.getElementByTagName('img');` = `document.querySelector('img');`
+  + `document.getElementsByClassName(className)`
+    + return a list of elements which have the class “className”.
+    + equivalent to `document.querySelectorAll('.className');`
+    + example: `var list = document.getElementByClassName('important');` = `document.querySelector('.important');`
 
 
