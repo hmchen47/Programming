@@ -1196,6 +1196,298 @@ __Example #4: choose a color and do something__
     + [choose a color w/ `change` event](src/02d-example29.html)
 
 
+### 2.4.10 Reference tables
+
+#### Quick summary of event management in JavaScript
+
+##### HTML5 events
+
+There is no input or output in JavaScript. We treat events caused by user actions as inputs, and we manipulate the DOM structure as output. Usually in a JavaScript application, we will get info such as the key strokes, the mouse button clicks and the mouse position, and we will refer to these variables when determining what action to perform.
+
+In any case, the events are called DOM events, and we use the DOM APIs to create _event handlers_.
+
+##### How to listen to events
+
+There are three ways to manage events in the DOM structure. You could attach an event inline in your HTML code like this:
+
+__Method #1: declare an event handler in the HTML code__
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag" style="color: #000088;">&lt;div</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="atn" style="color: #660066;">id</span><span class="pun" style="color: #666600;">=</span><span class="atv" style="color: #008800;">"someDiv"</span><span class="pln" style="color: #000000;">&nbsp;</span><strong><span class="atn" style="color: #660066;">onclick</span></strong><span class="pun" style="color: #666600;">=</span><span class="atv" style="color: #008800;">"</span><span class="pln" style="color: #000000;">alert</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;"><g class="gr_ gr_70 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="70" data-gr-id="70">'clicked</g>!'</span><span class="pun" style="color: #666600;">)</span><span class="atv" style="color: #008800;">"</span><span class="tag" style="color: #000088;">&gt;</span><span class="pln" style="color: #000000;">&nbsp;content of the div&nbsp;</span><span class="tag" style="color: #000088;">&lt;/div&gt;</span></li>
+</ol></div>
+
+This method is very easy to use, but it is not the recommended way to handle events. Indeed, although it currently works, it is deprecated (will probably be abandoned in the future). Mixing 'visual layer' (HTML) and 'logic layer' (JavaScript) in one place is really bad practice and causes a host of problems during development.
+
+__Method #2: attach an event handler to an HTML element in JavaScript__
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln" style="color: #000000;">document</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">getElementById</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'someDiv'</span><span class="pun" style="color: #666600;">).</span><strong><span class="pln" style="color: #000000;">onclick&nbsp;</span></strong><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">()</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;alert</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;"><g class="gr_ gr_54 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="54" data-gr-id="54">'clicked</g>!'</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+</ol></div>
+
+This method is fine, but  you will not be able to attach multiple listener functions. If you need to do this, use the version shown below.
+
+
+__Method #3: register a callback to the event listener with the addEventListener method (preferred  method)__
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln" style="color: #000000;">document</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">getElementById</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'someDiv'</span><span class="pun" style="color: #666600;">).</span><strong><span class="pln" style="color: #000000;">addEventListener</span></strong><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'click'</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">()</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;alert</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'clicked!'</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">},</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">false</span><span class="pun" style="color: #666600;">);</span></li>
+</ol></div>
+
+Note that the third parameter describes whether the callback has to be called during the captured phase. This is not important for now, just set it to false or ignore it (you can even pass only two parameters to the addEventListener function call and do not set this boolean parameter at all).
+
+
+##### Details of the DOM event are passed to the event listener function
+
+When you create an event listener and attach it to an element, the listener will create an `event` object to describe what happened. This object is provided as a parameter of the _callback function_:
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln" style="color: #000000;">element</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;"><g class="gr_ gr_64 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="64" data-gr-id="64">'click</g>'</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(</span><strong><span class="kwd" style="color: #000088;">event</span></strong><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><strong><span class="com" style="color: #880000;">// now you can use event object inside the callback</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">},</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">false</span><span class="pun" style="color: #666600;">);</span></li>
+</ol></div>
+
+Depending on the type of event you are listening to, you will consult different properties from the `event` object in order to obtain useful information such as: "which keys are pressed down?", "what is the location of the mouse cursor?", "which mouse button has been clicked?", etc.
+
+In the following lessons, we will remind you how to deal with the keyboard and the mouse.
+
+#### Further reading
+
+In method 1 (above), we mentioned that "mixing 'visual layer' (HTML) and 'logic layer' (JavaScript) ... is bad practice", and this is similarly reflected in many style features being deprecated in HTML5 and moved into CSS3. The management philosophy at play here is called "the separation of concerns" and applies in several ways to software development - at the code level, through to the management of staff. It's not part of the course, but professionals may find the following references useful:
+
++ [Separation of concerns - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Separation_of_concerns)
++ [Software Architecture and the Art of Separation of Concerns](https://tinyurl.com/yylramlu)
+
+
+#### Reference tables for events and properties/methods
+
+These tables are provided as a reference. They are a compilation of the most common event types sorted by domain (key, mouse, forms, etc.). For each domain you will see the most useful event types and their properties. In the following course pages, we will show  examples that use most of the events displayed in these tables.
+
+
+##### Event object
+
+Most useful common properties:
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">type</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the name of the event</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">target</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the element that triggered the event</td>
+</tr>
+</tbody>
+</table>
+
+Most useful common methods:
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">preventDefault()</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">stopPropagation()</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Prevents further propagation of an event during event flow</td>
+</tr>
+</tbody>
+</table>
+
+##### Page
+
+__Events related to the page lifecycle__
+
+There are many other events related to the page life cycle. Below are the most useful ones for an intro course:
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">load</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">This event occurs when an object has loaded (including all its resources: images, etc.) This event is very useful when you want to run JS code and be sure that the DOM is ready (in other words, be sure that a document.getElementById(...) or document.querySelector(...) will not raise an error because the document has not been loaded and elements you are looking for are not ready.</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">resize</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the document view is resized. Usually we get the new size of the window inside the event listener using var w = window.innerWidth; and<br>var h = window.innerHeight;</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">scroll</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when an element's scrollbar is being scrolled. Usually, in the scroll event listener, we use things such as:<br>&nbsp;&nbsp;<span style="font-family: 'courier new', courier;">var max = document.body.scrollHeight - innerHeight;</span><br><span style="font-family: 'courier new', courier;">&nbsp;var percent = (pageYOffset / max);</span><br>...to know the percentage of the scroll in the page.</td>
+</tr>
+</tbody>
+</table>
+
+##### Page event properties
+
+There are no particular properties that need to be mentioned here. Usually, the `load` event listener corresponds to a JavaScript function that can be seen as "the main" function of your Web Application. It is good practice to start everything after the page has been completely loaded. In the `resize` listener, you get the new size of the window, or the new size of some HTML elements in the page (as they might have been resized too when the window was resized) and then you do something (redraw a graphic in an HTML canvas that takes into account the new canvas size, for example).
+
+
+#### Keyboard
+
+
+##### Event types related to keyboard
+
+<table style="the event occurs when the user presses a keyborder: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle" valign="top">keydown</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user is pressing a key</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle" valign="top">keyup</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user releases a key</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle" valign="top">keypress</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user presses a key (up and release)</td>
+</tr>
+</tbody>
+</table>
+
+##### keyboardEvent properties
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle" valign="top">keyCode</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the Unicode character code of the key that triggered the onkeypress ,onkeydown or onkeyup event</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle" valign="top">shiftKey</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns whether the "shift" key was pressed when the key event was triggered</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle" valign="top">ctrlKey</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns whether the "ctrl" key was pressed when the key event was triggered</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle" valign="top">altKey</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns whether the "alt" key was pressed when the key event was triggered</td>
+</tr>
+</tbody>
+</table>
+
+#### Mouse
+
+##### Event types related to mouse
+
+<table style="the event occurs when the user right-clicks on an element to open a context menuborder: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">click</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user clicks on an element (presses a button and releases it)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">dblclick</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user double-clicks on an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mousedown</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user presses a key (up and release)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mouseup</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when a user releases a mouse button over an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mousemove</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the pointer is moving while it is over an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mouseenter</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the pointer is moved onto an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mouseleave</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the pointer is moved out of an element</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">mouseover</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the pointer is moved onto an element, or onto one of its children</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">contextmenu</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the user right-clicks on an element to open a context menu</td>
+</tr>
+</tbody>
+</table>
+
+
+##### MouseEvent properties
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">button</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns which mouse button was pressed when the mouse event was triggered</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">clientX and clientY</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the coordinates of the mouse pointer, relative to the element coordinate system that triggered the event</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">pageX and pageY</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the coordinates of the mouse pointer, relative to the document, when the mouse event was triggered</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">screenX and screenY</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns the coordinates of the mouse pointer, relative to the screen, when an event was triggered</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">altKey, ctrlKey, shiftKey</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns whether the "alt, ctrl and shift" key was pressed when an event was triggered</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">detail</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">Returns a number that indicates how many times the mouse was clicked</td>
+</tr>
+</tbody>
+</table>
+
+
+#### Forms
+
+##### Events related to forms
+
+<table style="table-layout: auto; border: 5px solid LightSlateGray; color: black; font-size: 100%; font-family: arial,helvetica,sans-serif;" cellspacing="0" cellpadding="5" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">input</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when an element gets user input (e.g., a key is typed on an input field, a slider is moved, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">change</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when the content of a form element, the selection, or the checked state have changed (for &lt;input&gt;, &lt;select&gt;, and &lt;textarea&gt;).&nbsp;A change event listener on a slider will generate an event when the drag/move ended, while input events will be useful to do something as the slider is being&nbsp;moved.</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">focus</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when an element gets focus (e.g., the user clicks in an input field)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">blur</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when an element loses focus (e.g., the user clicks on another element)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">select</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs after the user selects some text (for &lt;input&gt; and &lt;textarea&gt;)</td>
+</tr>
+<tr>
+<td style="text-align: center; background-color: lightslategray; color: white; font-size: 120%; border: 2px solid LightSlateGray; vertical-align: middle;" valign="top">submit</td>
+<td style="border: 2px solid LightSlateGray;" valign="top">The event occurs when a form is submitted</td>
+</tr>
+</tbody>
+</table>
+
+
+##### FormEvent properties
+
+There are no particular properties that need to be mentioned here. Usually, on a form event listener, we check the content of the different input fields, using their `value` property. See examples in the course, in the part dealing with form events.
+
 
 
 
