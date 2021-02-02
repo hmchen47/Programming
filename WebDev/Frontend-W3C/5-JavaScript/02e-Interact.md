@@ -738,8 +738,10 @@ JavaScript code:
 
 We've already seen many examples in which we selected one or more elements, and modified their content. Let's summarize all the methods we've seen, and perhaps introduce a few new things...
 
-Properties that can be used to change the value of selected DOM node
-Using the innerHTML property
+#### Properties that can be used to change the value of selected DOM node
+
+##### Using the `innerHTML` property
+
 This property is useful when you want to change all the children of a given element. It can be used to modify the text content of an element, or to insert a whole set of HTML elements inside another one.
 
 Typical use:
@@ -758,7 +760,7 @@ Typical use:
 <li class="L8" style="margin-bottom: 0px;"><span class="pln">elem</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span><span class="pln"> </span><span class="com">// empty the elem</span></li>
 </ol></div>
 
-### Using the `textContent` property
+#### Using the `textContent` property
 
 It's also possible, with selected nodes/elements that contain text, to use the textContent property to read the text content or to modify it. There are subtle differences that can be seen in the above example (click the 'edit on CodePen" part on the top left, and once in codePen, open the devtool console):
 
@@ -811,6 +813,25 @@ This example shows some of the things we can do:
 [Local Demo](src/02e-example09.html)
 
 
+#### Notes for 2.5.5 Modifying selected HTML elements
+
++ Value of a selected DOM node
+  + the `innerHTML` property
+    + useful when changing all the children of a given element
+    + used to modify the text content of an element or insert a whole set of HTML element inside another one
+    + including all contents and child elements
+    + example: `var elem = document.querySelector('#myElem');`
+      + replace conetnt: `elem.innerHTML = 'Hello ';`
+      + append conetnt: `elem.innerHTML += '<b>Michel Buffa</b>',`
+  + the `textContent` property
+    + used to read the text content or to modify the content
+    + only containing the text content
+  + example: `<p id="second"><em>second</em> paragraph</p>`
+    + `console.log(secondP.textContent);` $\to$ `<em>second</em> paragraph`
+    + `console.log(secondP.innerHTML);` $\to$ `second paragraph`
+  + modifying the attributes
+    + using `value` property of objects
+    + examples: `colorChooser.value = "#00FF00";`, `number.value = 10; number.step = "0.1"; number.max = 11;`, `img.src="n_400x400.jpg"; img.width=250;`
 
 
 
