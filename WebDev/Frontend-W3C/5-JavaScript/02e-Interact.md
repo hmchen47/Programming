@@ -597,7 +597,7 @@ The `classList` property applies to an HTML element, and returns a collection of
 </ol></div>
 
 
-##### The classList API
+#### The classList API
 
 The list of methods usable on a classList object are `add()`, `remove()`, `toggle()` and `contains()`.
 
@@ -627,10 +627,10 @@ __Another example: add and remove multiple CSS properties in a list of checkboxe
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/GWeJzz)
 
-[Local Demo](src/02d-example07.html)
+[Local Demo](src/02e-example07.html)
 
 
-This is a variation of an example from a previous section. This time, when the <input type="checkbox"> elements have been checked, in order to give the parent <li> a background color, a border, and to change the text color, we use a CSS class named "checked":
+This is a variation of an example from a previous section. This time, when the `<input type="checkbox">` elements have been checked, in order to give the parent `<li>` a background color, a border, and to change the text color, we use a CSS class named "checked":
 
 CSS code:
 
@@ -694,10 +694,44 @@ JavaScript code:
     + `box-shadow`: add shadow to selected elements
     + `font` and `font-style`: font characterrs and style (italic, bold, plain)
     + `text-align`: text alignment
-  + examples: ` p.style.backgroundColor = 'lightGreen';`, `p.style.marginLeft = '100px';`, and `p.style.border = '2px solid blue';`
+  + examples: `p.style.backgroundColor = 'lightGreen';`, `p.style.marginLeft = '100px';`, and `p.style.border = '2px solid blue';`
 
++ The `ClassList` interface
+  + simplifying to manipulate CSS classes of an HTML element
+  + acting as a container object and providing a set of methods to manipulate its conetnt
+  + applyied to an HTML element and returning a collection of class names
+  + typical usage: `var elem = document.querySelector("#id1"); var allClasses  elem.classList;`
+  + methods usable on a classList objet
+    + methods: `add()`, `remove()`, `toggle()` and `contains()`
+    + typical usages:
+      + `div.classList.add('foo');`: set "foo" as the class by adding it to the classList
+      + `div.classList.contains('foo');`: check that the classList contains the class "foo"
+      + `div.classList.remove('foo');`: remove the class "foo" from the list
+      + `div.classList.toggle('foo');`: add if not existed or remove if existed the class "foo"
+  + example: [add and remove multiple CSS properties](src/02e-example07.html)
 
+    ```js
+    function displayListOfCheckedItems() {
+      var listOfSelectedValues="";
+      var list = document.querySelectorAll("#fruits input:checked");
 
+      list.forEach(function(elm) {
+        listOfSelectedValues += elm.value + " ";
+        var liParent = elm.parentNode;
+        liParent.classList.add("checked");
+      });
+      document.body.append("You selected: " + listOfSelectedValues);
+    }
+    
+    function reset() {
+      var list = document.querySelectorAll("#fruits input");
+      list.forEach(function(elm) {
+        elm.checked = false;
+        var liParent = elm.parentNode;
+        liParent.classList.remove("checked");
+      });
+    }
+    ```
 
 
 
