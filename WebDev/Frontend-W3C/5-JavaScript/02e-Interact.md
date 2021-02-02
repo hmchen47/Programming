@@ -834,6 +834,112 @@ This example shows some of the things we can do:
     + examples: `colorChooser.value = "#00FF00";`, `number.value = 10; number.step = "0.1"; number.max = 11;`, `img.src="n_400x400.jpg"; img.width=250;`
 
 
+### 2.5.6 Adding new elements to the DOM
+
+The DOM API comes with a set of methods you can use on DOM elements.
+
+In general, to add new nodes to the DOM we follow these steps:
+
+1. Create a new element by calling the `createElement()` method, using a syntax like:
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> elm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="pln">name_of_the_element</span><span class="pun">).</span><span class="pln"> </span></li>
+  </ol></div>
+
+  Examples:
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span><span class="pln"> </span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> img </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'img'</span><span class="pun">);</span><span class="pln"> etc</span><span class="pun">.</span></li>
+  </ol></div>
+
+2. Set some attributes / values  / styles for this element.
+
+  Examples:
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">li</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">'&lt;b&gt;This is a new list item in bold!&lt;/b&gt;'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// can add HTML in it</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Another new list item'</span><span class="pun">;</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">li</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// green text</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">img</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://..../myImage.jpg"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// url of the image</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">img</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> </span><span class="lit">200</span><span class="pun">;</span></li>
+  </ol></div>
+
+3. Add the newly created element to another element in the DOM, using append(), appendChild(), insertBefore() or the innerHTML property
+
+  Examples:
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> ul </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myList'</span><span class="pun">);</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">ul</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span><span class="pln"> </span><span class="com">// insert at the end, appendChild() could also be used (old)</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">ul</span><span class="pun">.</span><span class="pln">prepend</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span><span class="pln"> </span><span class="com">// insert at the beginning</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln">ul</span><span class="pun">.</span><span class="pln">insertBefore</span><span class="pun">(</span><span class="pln">li</span><span class="pun">,</span><span class="pln"> another_element_child_of_ul</span><span class="pun">);</span><span class="com">// insert in the middle</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">img</span><span class="pun">);</span><span class="pln"> </span><span class="com">// adds the image at the end of the document</span></li>
+  </ol></div>
+
+
+#### Examples
+
+__Example #1: use of the `createElement()`, `append()` methods and of the textContent attribute__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/aWeqzO)
+
+[Local Demo](src/02e-example10.html)
+
+HTML code extract: we use an `<input type="number">` for entering a number (_line 2_). Then if one clicks on the "Add to the list" button, the `add()` JavaScript function is called (_line 3_), this will add the typed number to the empty list at _line 7_. If one presses the "reset" button, it will empty this same list by calling the `reset()` JavaScript function.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"newNumber"</span><span class="tag">&gt;</span><span class="pln">Please enter a number</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"newNumber"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">0</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><strong><span class="pln">add</span><span class="pun">();</span></strong><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Add to the list</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;br&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><strong><span class="pln">reset</span><span class="pun">();</span></strong><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Reset list</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">You entered:</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"numbers"</span><span class="tag">&gt;&lt;/ul&gt;</span></li>
+</ol></div>
+
+JavaScript code extract: notice at _line 25_ the use of the innerHTML property for resetting the content of the `<ul>` list. innerHTML corresponds to all the sub DOM contained inside the `<ul>...</ul>`. InnerHTML can be used for adding/deleting/modifying a DOM node's content.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> add</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // get the current value of the input field</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#newNumber'</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; if</span><span class="pun">((</span><span class="pln">val </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">val </span><span class="pun">!==</span><span class="pln"> </span><span class="str">""</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // val exists and non empty</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // get the list of numbers. It's a &lt;ul&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> ul </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#numbers"</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // add it to the list as a new &lt;li&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> newNumber </span><span class="pun">=</span><strong><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"li"</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>newNumber</strong></span><strong><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> val</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // or newNumber.innerHTML = val</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>ul</strong></span><strong><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">newNumber</span><span class="pun">);</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> reset</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // get the list of numbers. It's a &lt;ul&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> ul </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#numbers"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // reset it: no children</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>ul</strong></span><strong><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span></strong><span class="pun"><strong>;</strong> &nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+__Example #2: using the innerHTML property to add new elements__
+
+This is the same example, but in an abbreviated form, using the `innerHTML` property:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/jBJbqM)
+
+[Local Demo](src/02e-example11.html)
+
+
 
 
 
