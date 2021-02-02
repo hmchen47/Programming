@@ -734,5 +734,86 @@ JavaScript code:
     ```
 
 
+### 2.5.5 Modifying selected HTML elements
+
+We've already seen many examples in which we selected one or more elements, and modified their content. Let's summarize all the methods we've seen, and perhaps introduce a few new things...
+
+Properties that can be used to change the value of selected DOM node
+Using the innerHTML property
+This property is useful when you want to change all the children of a given element. It can be used to modify the text content of an element, or to insert a whole set of HTML elements inside another one.
+
+Typical use:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> elem </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myElem'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">elem</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Hello '</span><span class="pun">;</span><span class="pln"> </span><span class="com">// replace content by Hello</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">elem</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'&lt;b&gt;Michel Buffa&lt;/b&gt;'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// append at the end </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Michel Buffa in bold</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">elem</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Welcome'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> elem</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">;</span><span class="pln"> </span><span class="com">// insert Welcome </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// at the beginning</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">elem</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span><span class="pln"> </span><span class="com">// empty the elem</span></li>
+</ol></div>
+
+### Using the `textContent` property
+
+It's also possible, with selected nodes/elements that contain text, to use the textContent property to read the text content or to modify it. There are subtle differences that can be seen in the above example (click the 'edit on CodePen" part on the top left, and once in codePen, open the devtool console):
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/MpxEdj)
+
+[Local Demo](src/02e-example08.html)
+
+Extract from the HTML code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first"</span><span class="tag">&gt;</span><span class="pln">first paragraph</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"second"</span><span class="tag">&gt;&lt;em&gt;</span><span class="pln">second</span><span class="tag">&lt;/em&gt;</span><span class="pln"> paragraph</span><span class="tag">&lt;/p&gt;</span></li>
+</ol></div>
+
+JavaScript code: the comments after lines that start with `console.log` correspond to what is printed in the devtool debug console. Notice the difference between the `textNode` value and the `innerHTML` property values at _lines 13-14_: while `textContent` returns only the text inside the second paragraph, innerHTML also returns the `<em>...</em>` that surrounds it. However, when we modify the `textContent` value, it also replaces the text decoration (the `<em>` is removed), this is done at _lines 16-20_.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> init</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// DOM is ready</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> firstP </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#first"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">firstP</span><span class="pun">.</span><span class="pln">textContent</span><span class="pun">); //&nbsp;</span>"first paragraph"</li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">firstP</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">); &nbsp;&nbsp;</span>//&nbsp;<span style="background-color: #eeeeee;">"first paragraph"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;firstP</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello I'm the first paragraph"</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">firstP</span><span class="pun">.</span><span class="pln">textContent</span><span class="pun">); //&nbsp;</span>"Hello I'm the first paragraph"</li>
+<li class="L2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> secondP </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#second"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">secondP</span><span class="pun">.</span><span class="pln">textContent</span><span class="pun">); //&nbsp;</span>"second paragraph"</li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">secondP</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">); &nbsp; //&nbsp;</span>"&lt;em&gt;second&lt;/em&gt; paragraph"</li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;secondP</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello I'm the second paragraph"</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">secondP</span><span class="pun">.</span><span class="pln">textContent</span><span class="pun">); //&nbsp;</span>"Hello I'm the second</li>
+<li class="L6" style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// paragraph"</li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">secondP</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">); &nbsp;&nbsp;</span>//&nbsp;"Hello I'm the second</li>
+<li class="L6">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// paragraph"</li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Changing the attributes of selected elements
+
+It's very common to modify the attributes of selected elements: the width of an image, CSS style with the style attribute, value of an input field, etc.
+
+This example shows some of the things we can do:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/RpdjwE)
+
+[Local Demo](src/02e-example09.html)
+
+
+
+
+
+
 
 
