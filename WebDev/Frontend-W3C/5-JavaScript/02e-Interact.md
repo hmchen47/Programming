@@ -1106,6 +1106,17 @@ In the same example, if you look at the `reset()` JavaScript function, we use th
     ```
 
 
+### 2.5.9 Discussion
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ Did you know there were different keyboard layouts?
++ Did you know the best practices in order to make a Web application compatible with different keyboard layouts?
++ Did you know there were different properties for getting the mouse coordinates?
++ Did you know the method we proposed for getting the mouse coordinate relative to the element the mouse is being moved on?
++ Sometimes, detecting key events on a canvas HTML element is tricky. Do not forget to visit the W3Cx [HTML5 Coding essentials and Best practices](https://www.edx.org/course/html5-coding-essentials-and-best-practices) MOOC, as we cover these in details in the section about the HTML5 canvas element.
 
 
 
