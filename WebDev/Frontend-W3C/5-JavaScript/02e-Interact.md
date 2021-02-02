@@ -677,6 +677,25 @@ JavaScript code:
 </ol></div>
 
 
+#### Notes for 2.5.4 Changing the style of selected HTML elements
+
++ The `style` attribute
+  + most common way to modify the CSS style of one of several elements
+  + typical usage: `var p = document.querySelector('#paragraph1'); p.style.color = 'red';`
+  + rule to change syntax of attribute in JS
+    + remove the "-" sign in CSS attributes if presented
+    + catptalize the word after the "-" sign
+    + example: 1text-align` $\to$ `style.textAlign`, `margin-left` $\to$ `style.marginLeft`
+  + most useful CSS properties
+    + `color`: changing the color of the text content of selected element(s)
+    + `background-color`: the background color of the select element(s)
+    + `margin` and `padding`: external and internal margins, including `margin-top`, `margin-left`, `margin-bottom`, and `margin-right` and also `padding-top`, etc.
+    + `border` and `border-radius`: chnage the border, type, color, thickness, rounded corners, etc.
+    + `box-shadow`: add shadow to selected elements
+    + `font` and `font-style`: font characterrs and style (italic, bold, plain)
+    + `text-align`: text alignment
+  + examples: ` p.style.backgroundColor = 'lightGreen';`, `p.style.marginLeft = '100px';`, and `p.style.border = '2px solid blue';`
+
 
 
 
