@@ -959,5 +959,42 @@ This is the same example, but in an abbreviated form, using the `innerHTML` prop
       + `document.body.append(img);`: adds the image at the end of the document
 
 
+### 2.5.7 Moving HTML elements in the DOM
+
+The `append()`, `appendChild()` methods normally adds  a new element to an existing one, as shown in this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;">ul<span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">li</span><span class="pun">); // adds the new li to the ul element</span></li>
+</ol></div>
+
+One interesting thing to know is that if we do not create the new element, but rather get it from somewhere else in the document, it is then removed from its parents and added to the new parent.
+
+In other words: it moves from its original location to become a child of the targetElem.
+
+
+#### Examples
+
+__Example #1: a simple one__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/peYyPz)
+
+[Local Demo](src/02e-example12.html)
+
+
+__Example #2: a more significant example, that also uses drag'n'drop__
+
+Notice that this example comes from the HTML5 advanced course. Our plan here is not to explain drag'n'drop in detail, but to show how `append()` can be used to move an element.
+
+In this example, when a user starts to drag an element, the `drag()` JavaScript function is called. In this function we use the drag'n'drop clipboard to store the id of the image that is being dragged.
+
+When the image is dropped, the `drop()` method is called. As the drop event listener is declared on the two divs (on the left and the right), we just call `append()` on the target div element, and this will add the dragged image to the div, while removing it from its original location.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/xwxEZg)
+
+[Local Demo](src/02d-example13.html)
+
+
+
 
 
