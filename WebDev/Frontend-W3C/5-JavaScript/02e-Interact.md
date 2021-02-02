@@ -995,6 +995,30 @@ When the image is dropped, the `drop()` method is called. As the drop event list
 [Local Demo](src/02d-example13.html)
 
 
+#### Notes for 2.5.7 Moving HTML elements in the DOM
+
++ Moving HTML elements
+  + `append()`, `appendChild()`: adding a new element to an existing one
+  + example: `var li = createElement('li'); ul.append(li);`
+  + moving from its original location to become a child of the targetElem
+  + example: [drag'n'drop](src/02d-example13.html)
+    + HTML: 
+      + select element: `<img src="https://.../ABiBCwZ.png" id="cr" ondragstart="drag(this, event)" alt="Logo Chrome">`
+      + destination to place elemen: `<div class="box" ondragover="return false" ondrop="drop(this, event)">`
+    + Javascript
+
+      ```js
+      function drag(target, evt) {
+        evt.dataTransfer.setData("browser", target.id);
+      }
+
+      function drop(target, evt) {
+        var id = evt.dataTransfer.getData("browser");
+        
+        target.appendChild(document.getElementById(id));
+        evt.preventDefault();
+      }
+      ```
 
 
 
