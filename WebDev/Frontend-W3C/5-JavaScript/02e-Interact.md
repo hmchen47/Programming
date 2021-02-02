@@ -1077,7 +1077,23 @@ In the same example, if you look at the `reset()` JavaScript function, we use th
 </ol></div>
 
 
+#### Notes for 2.5.8 Removing elements from the DOM
 
++ Removing elements
+  + `removeChild()`: remove a chile element fron the DOM document
+  + example: [remove selected item](src/02e-example14.html)
+
+    ```js
+    function removeSelected() {  
+      var list = document.querySelectorAll("#fruits input:checked"); 
+      var ul = document.querySelector("#fruits");
+      
+      list.forEach(function(elm) {
+        var li = elm.parentNode;
+        ul.removeChild(li);
+      });
+    }
+    ```
 
 
 
