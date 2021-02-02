@@ -1003,7 +1003,7 @@ When the image is dropped, the `drop()` method is called. As the drop event list
   + moving from its original location to become a child of the targetElem
   + example: [drag'n'drop](src/02d-example13.html)
     + HTML: 
-      + select element: `<img src="https://.../ABiBCwZ.png" id="cr" ondragstart="drag(this, event)" alt="Logo Chrome">`
+      + select element to drag: `<img src="https://.../ABiBCwZ.png" id="cr" ondragstart="drag(this, event)" alt="Logo Chrome">`
       + destination to place elemen: `<div class="box" ondragover="return false" ondrop="drop(this, event)">`
     + Javascript
 
@@ -1019,6 +1019,65 @@ When the image is dropped, the `drop()` method is called. As the drop event list
         evt.preventDefault();
       }
       ```
+
+
+### 2.5.8 Removing elements from the DOM
+
+
+#### Removing elements using the `removeChild()` method
+
+Let's take an example that we've already encountered. This time, you will check the elements you want to remove from the list!
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/NpJxdX)
+
+[Local Demo](src/02e-example14.html)
+
+
+JavaScript code extract: we need to get the `<ul>` that contains all the `<li><input type="checkbox"></li>` elements (_line 3_). This is the element we will use for calling `removeChild(...)`. The loop on the checked element (_lines 5-12_) iterates on a list of checked input elements. In order to make both the text (Apples, Oranges, etc.) AND the checkbox disappear, we need to access the different `<li>` elements that contain the selected checkboxes. This is done in line 10. Then, we can call ul.removeChild(li) on the `<ul>` for removing the `<li>` that contains the selected element (_line 11_). 
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> removeSelected</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> list </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"#fruits input:checked"</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; <strong>var</strong></span><strong><span class="pln"> ul </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#fruits"</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; list</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">elm</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // elm is an &lt;input type="checkbox"&gt;, its parent is a li</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // we want to remove from the &lt;ul&gt; list</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // when we remove the &lt;li&gt;, the &lt;input&gt; will also</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // be removed, as it's a child of the &lt;li&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>var</strong></span><strong><span class="pln"> li </span><span class="pun">=</span><span class="pln"> elm</span><span class="pun">.</span><span class="pln">parentNode</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>ul</strong></span><strong><span class="pun">.</span><span class="pln">removeChild</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; });</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Removing all children of an element using the `innerHTML` property
+
+In the same example, if you look at the `reset()` JavaScript function, we use the ul's innerHTML property both for emptying the list (_lines 3-4_) and for appending to it all the initial HTML code (_lines 6-17_):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> reset</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> ul </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#fruits"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; <strong>// Empty the &lt;ul&gt;</strong></span></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; ul</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Adds each list item to the &lt;ul&gt; using innerHTML += ...</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>ul</strong></span><strong><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span></strong><span class="pln"> </span><span class="str">"&lt;li&gt;&lt;input type='checkbox' name='fruit' &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='apples'&gt;Apples&lt;/li&gt;"</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>ul</strong></span><strong><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span></strong><span class="pln"> </span><span class="str">"&lt;input type='checkbox' name='fruit' <br></span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='oranges'&gt;Oranges&lt;/li&gt;&lt;br&gt;"</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>ul</strong></span><strong><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span></strong><span class="pln"> </span><span class="str">"&lt;input type='checkbox' name='fruit' </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='bananas'&gt;Bananas&lt;/li&gt;&lt;br&gt;"</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; ul</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span></strong><span class="pln"> </span><span class="str">"&lt;input type='checkbox' name='fruit' </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='grapes'&gt;Grapes&lt;/li&gt;"</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+
 
 
 
