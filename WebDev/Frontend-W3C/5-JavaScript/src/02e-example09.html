@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Modifying content of selected DOM nodes</title>
+  <script src="js/02e-example09.js"></script>
+</head>
+<body>
+  <h1>Try these</h1>
+<p>What is your name: <input type="text" id="name" value="Michel"> <button onclick="resetName();">Reset (click to empty the input field)</button></p>
+  <p>Pick a color: <input id="color" type="color" value='#FF0000'><button onclick="setToGreen();">Set color chooser to green</button></p>
+  <p>In the next example, click on the input field and use the small vertical arrows to increase the value. Notice that the numbers go 1 by 1 and that the maximum value is 20. Then click the button and do the same thing!</p>
+    <p>Pick a number between 0 and 20: <input id="number" type="number" min=0 max=20 step = 1 value='10'><button onclick="changeStep();">Change step and max attribute values </button></p>
+  <p>Click the next image to change its url and size:</p>
+<img src="https://www.paris-web.fr/2013/assets_c/2013/08/michel-buffa-thumb-143x143-372.jpg" onclick="changeAndResize(this)" alt="Michel Buffa">
+</body>
+</html>
