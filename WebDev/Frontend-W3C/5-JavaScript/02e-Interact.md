@@ -842,13 +842,13 @@ In general, to add new nodes to the DOM we follow these steps:
 
 1. Create a new element by calling the `createElement()` method, using a syntax like:
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> elm </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="pln">name_of_the_element</span><span class="pun">).</span><span class="pln"> </span></li>
   </ol></div>
 
   Examples:
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span><span class="pln"> </span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> img </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'img'</span><span class="pun">);</span><span class="pln"> etc</span><span class="pun">.</span></li>
   </ol></div>
@@ -857,7 +857,7 @@ In general, to add new nodes to the DOM we follow these steps:
 
   Examples:
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">li</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">'&lt;b&gt;This is a new list item in bold!&lt;/b&gt;'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// can add HTML in it</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="pln">li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Another new list item'</span><span class="pun">;</span></li>
   <li class="L2" style="margin-bottom: 0px;"><span class="pln">li</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// green text</span></li>
@@ -865,11 +865,11 @@ In general, to add new nodes to the DOM we follow these steps:
   <li class="L5" style="margin-bottom: 0px;"><span class="pln">img</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> </span><span class="lit">200</span><span class="pun">;</span></li>
   </ol></div>
 
-3. Add the newly created element to another element in the DOM, using append(), appendChild(), insertBefore() or the innerHTML property
+3. Add the newly created element to another element in the DOM, using `append()`, `appendChild()`, `insertBefore()` or the `innerHTML` property
 
   Examples:
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> ul </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myList'</span><span class="pun">);</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="pln">ul</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span><span class="pln"> </span><span class="com">// insert at the end, appendChild() could also be used (old)</span></li>
   <li class="L2" style="margin-bottom: 0px;"><span class="pln">ul</span><span class="pun">.</span><span class="pln">prepend</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span><span class="pln"> </span><span class="com">// insert at the beginning</span></li>
@@ -888,7 +888,7 @@ __Example #1: use of the `createElement()`, `append()` methods and of the textCo
 
 HTML code extract: we use an `<input type="number">` for entering a number (_line 2_). Then if one clicks on the "Add to the list" button, the `add()` JavaScript function is called (_line 3_), this will add the typed number to the empty list at _line 7_. If one presses the "reset" button, it will empty this same list by calling the `reset()` JavaScript function.
 
-<div class="source-code"><ol class="linenums">
+<div class="source-code"><ol class="linenums" style="list-style: decimal;">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"newNumber"</span><span class="tag">&gt;</span><span class="pln">Please enter a number</span><span class="tag">&lt;/label&gt;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"newNumber"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">0</span><span class="tag">&gt;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><strong><span class="pln">add</span><span class="pun">();</span></strong><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Add to the list</span><span class="tag">&lt;/button&gt;</span></li>
@@ -901,7 +901,7 @@ HTML code extract: we use an `<input type="number">` for entering a number (_lin
 
 JavaScript code extract: notice at _line 25_ the use of the innerHTML property for resetting the content of the `<ul>` list. innerHTML corresponds to all the sub DOM contained inside the `<ul>...</ul>`. InnerHTML can be used for adding/deleting/modifying a DOM node's content.
 
-<div class="source-code"><ol class="linenums">
+<div class="source-code"><ol class="linenums" style="list-style: decimal;">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> add</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // get the current value of the input field</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#newNumber'</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></li>
@@ -940,6 +940,23 @@ This is the same example, but in an abbreviated form, using the `innerHTML` prop
 [Local Demo](src/02e-example11.html)
 
 
+#### Notes for 2.5.6 Adding new elements to the DOM
+
++ Adding new node w/ the DOM API
+  + create a new element by calling `createEelement()` method
+    + syntax: `var elm = document.createElement(name_of_the_element)`
+    + example: `var li = document.createElement('li');`
+  + set some attributes / values / styles for this element, e.g.,
+    + `li.innerHTML = '<b>This is a new list item in bold!</b>';` & `li.textContent = 'Another new list item';`
+    + `li.style.color = 'green';`
+    + `img.src = "https://..../myImage.jpg";` & `img.width = 200;`
+  + add the newly created element to another element in the DOM
+    + using `append()`, `appendChild()`, `insertBefore()` or the `innerHTML` property
+    + examples: `var ul = document.querySelector('#myList');`
+      + `ul.append(li);`: insert at the end, appendChild() could also be used (old)
+      + `ul.prepend(li);`: insert at the beginning
+      + `ul.insertBefore(li, another_element_child_of_ul);`: insert in the middle
+      + `document.body.append(img);`: adds the image at the end of the document
 
 
 
