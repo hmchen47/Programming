@@ -30,7 +30,7 @@ A typical HTML code for adding a canvas to a Web page:
 <li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
 </ol></div>
 
-The canvas declaration is at line 8. Use attributes to give it a `width` and a `height`, but unless you add some CSS properties, you will not see it on the screen because it's transparent!
+The canvas declaration is at _line 8_. Use attributes to give it a `width` and a `height`, but unless you add some CSS properties, you will not see it on the screen because it's transparent!
 
 Let's use CSS to reveal the canvas, for example, add a 1px black border around it:
 
@@ -191,7 +191,7 @@ In this small example, we used the context object to draw a monster using the de
 + `ctx.strokeRect(x, y, width, height)`: same but in wireframe mode.
 Note that we use (_line 30_) `ctx.translate(x, y)` to make it easier to move the monster around. So, all the drawing instructions are coded as if the monster was in (0, 0), at the top left corner of the canvas (look at _line 33_). We draw the body outline with a rectangle starting from (0, 0). Calling `context.translate` "changes the coordinate system" by moving the "old (0, 0)" to (x, y) and keeping other coordinates in the same position relative to the origin.
 + _Line 19_: we call the `drawMonster` function with (10, 10) as parameters, which will cause the original coordinate system to be translated by (10, 10).
-+ And if we change the coordinate system (this is what the call to `ctx.translate(...)` does) in a function, it is good practice to always save the previous context at the beginning of the function and restore it at the end of the function (lines 27 and 50).
++ And if we change the coordinate system (this is what the call to `ctx.translate(...)` does) in a function, it is good practice to always save the previous context at the beginning of the function and restore it at the end of the function (_lines 27 and 50_).
 
 
 #### Notes for 2.6.1 Drawing
@@ -242,7 +242,145 @@ Note that we use (_line 30_) `ctx.translate(x, y)` to make it easier to move the
     + function parameters: values for `x`, `y`, `width`, `height`, `radius`, `color`, etc.
     + move the shapes by calling `ctx.translate(x, y)` w/ given (x, y)
   + example: [monster](src/02f-example03.html)
-  
+
+
+
+### 2.6.2 Animating
+
+
+#### Live coding video: basic animation techniques
+
+<a href="https://edx-video.net/W3CxJS.0x-V000200_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](tinyurl.com/13acju4l)
+
+A typical animation loop does the following at regular intervals:
+
+1. Clear the canvas
+1. Draw graphic objects / shapes
+1. Move graphic shapes / objects
+1. Go to step 1
+
+Optional steps can be:
+
++ Look at the keyboard / mouse / gamepad if we need to do something according to their status (i.e. if the left arrow is pressed: move the player to the left)
++ Test collisions: the player collided with an enemy, remove one life
++ Test game states: if there are no more lives, then go to the "game over" state and display a "game over" menu.
++ Etc.
+
+
+#### Examples
+
+__Example #1: monster on the move__
+
+There are different methods for coding an animation loop in JavaScript, as described in the above video.
+
+The trick is to write a function, and at the end of this function, to ask the browser to call it again in 1/60th of a second if possible. See the CodePen example below
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/PpLLKY)
+
+[Local Demo](src/02f-example04.html)
+
+
+__Example #2: bouncing balls__
+
+Here the balls bounce on the sides of the canvas (walls).
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/OpqqqM)
+
+[Local Demo](src/02f-example05.html)
+
+
+__Explanations:__
+
+This time, we've used "simple objects" for the circle and the rectangles, and we've called them "player" and "ball":
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> ball </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">100</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; color</span><span class="pun">:</span><span class="str">'green'</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; speedX</span><span class="pun">:</span><span class="lit">2</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; speedY</span><span class="pun">:</span><span class="lit">1</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; width</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; height</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; color</span><span class="pun">:</span><span class="str">'red'</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+With this syntax, it's easier to manipulate "the x pos of the ball" - you just have to use `ball.x`. we added two properties to the ball object: `speedX` and `speedY`. Their value is the number of pixels that will be added to the current `ball.x` and `ball.y` position, at each frame of animation.
+
+Let's look at the animation loop:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // 1 - clear the canvas</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; <strong>// draw the ball and the player</strong></span></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; drawFilledRectangle</span><span class="pun">(</span><span class="pln">player</span><span class="pun">);</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; drawFilledCircle</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">);</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; // animate the ball that is bouncing all over the walls</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; moveBall</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // ask for a new animation frame</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+Now, let's decompose the animation loop in some external functions to make it more readable. At each frame of animation, we will clear the canvas, draw the player as a rectangle, draw the ball as a circle, and move the ball. 
+
+You can take a look at the new versions of `drawFilledRectangle` that now take only one parameter named `r`, instead of x, y, width, height and a color. We've only changed a few things in its code (changed x to `r.x`, y to `r.y`, color to `r.color` etc.)
+
+Let's look at the moveBall function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> moveBall</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+This function is called 60 times per second. So, 60 times per second we modify the `b.x` and `b.y` positions of the ball passed as parameter by adding to them the `b.speedX` and `b.speedY` property values.
+
+Notice that we call `moveBall(ball)` from `mainLoop`. In the `moveBall` function, the ball passed as a parameter becomes the `b` parameter. So when we change the `b.x` value inside the function, we are in reality changing the x value of the global object `ball`! 
+
+Ok, and at _line 5_ we call `testCollisionBallWithWalls(b)`, which will test if the ball `b hits` a vertical or horizontal wall. Let's see an extract of this function now:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // COLLISION WITH VERTICAL WALLS?</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">((</span><span class="pln">b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> w</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // the ball hit the right wall</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // change horizontal direction</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">b</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // put the ball at the collision point</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> w </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span><span class="pln"> </span><span class="pun">...</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; ...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+At _line 3_ you can see the test that checks if the ball b hits the right side of the canvas. The right wall is at `w` (the width of the canvas) on the X-axis. If we compare (`b.x + b.radius`) with `w`, we can check if a part of the ball extends beyond the right wall. 
+
+Remember that each 1/60th of a second, the ball moves a certain number of pixels to the right (the exact value is `b.speedX`). Imagine that the ball moves 10 pixels to the right at each frame of animation. At some point, it will "cross the right wall". We cannot just change the sign of `b.speedX` to make it go to the other side. If we did this, it may stay stuck against the side with one half of the ball on either side of the wall. 
+
+If we now remove `b.speedX` to the `ball.x` position, we return the ball to the position it was in before it hit the wall. If we then reverse `speedX`, the ball will indeed start moving with a reverse horizontal speed. This will work but can give a strange visual effect if the balls moves, say, 20 pixels per frame or more. The ball will never be in a position where the eye can "see it against the wall". This is why experienced game coders know that you just need to put the ball "at the contact position", not to its previous position, before reversing the speed value. This is done at _lines 8-9_. Try changing `speedX` to say, 20, and you'll see what we mean.
+
+
+
 
 
 
