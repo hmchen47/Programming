@@ -527,4 +527,41 @@ __Explanations:__
 These two functions use an iterator on the array of balls (using the `forEach` method that looked the best fit here). The code inside the iterator is the same as in the previous example. We did not have to modify the `testCollisionBallWithWalls` code, for example.
 
 
+#### Notes for 2.6.3 Animating multiple objects
+
++ Aminating multiple objects
+  + `forEach` method: iterate elements in an array
+  + example: [3 bouncing balls](src/02f-example06.html)
+
+    ```js
+    function mainLoop() {
+        // 1 - clear the canvas
+        ctx.clearRect(0, 0, w, h);
+        // draw the balls and the player
+        drawFilledRectangle(player);
+        drawFilledCircle(ball1); drawFilledCircle(ball2); drawFilledCircle(ball3);
+    
+        // animate the balls bouncing all over the walls
+        moveBall(ball1); moveBall(ball2); moveBall(ball3);
+        // ask for a new animation frame
+        requestAnimationFrame(mainLoop);
+    }
+    ```
+
+  + example: [arrays for bouncing balls](src/02f-example07.html)
+    + `createBalls(numberOfBalls)`: return an array of balls
+      + init empty array; `var ballArray = [];`
+      + create n balls w/ for loop: `for (var i = 0; i < n; i++) { ballProperties & toArray }`
+      + ball properties: `var b = {x: w/2, y: h/2, radius: -5 + 30*Math.random(), speedX: ..., speedY: ..., color: getARandomColor()}`
+      + add ball to array: `ballArray.push(b);`
+    + `getARandomColor()` function: randomly assign ball color
+      + init color array: `var colors = ['red', 'blue, ..., 'yellow'];`
+      + randonly assign a color: `var colorIdx = Math.round((colors.length-1)*Math.random()); return colors[colorIdx];`
+    + `drawBalls(ballArray` function: `ballArray.forEach(function(b){ drawFilledCircle(b)})`
+    + `moveBallsArray(ballArray)` function
+      + iterate on all balls in array: `ballArray.forEach(function(b) { ballPosition & collisionDetect });`
+      + ball position: `bx += b.speedX; by += b.speedY;`
+      + collision detection: `testCollisionBallWithEWalls(b);`
+
+
 
