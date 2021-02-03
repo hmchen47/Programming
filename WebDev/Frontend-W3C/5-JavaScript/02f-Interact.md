@@ -196,5 +196,53 @@ Note that we use (_line 30_) `ctx.translate(x, y)` to make it easier to move the
 
 #### Notes for 2.6.1 Drawing
 
++ HTML5 canvas
+  + a transparent element useful for drawing and animating
+  + adding canvas in HTML: `<canvas id="myCanvas" width="200" height="200"></canvas>`
+    + not visible: transparent
+    + CSS style border to be visible: `canvas { border: 1px solid black; }`
+  + best practice
+    + use a function called AFTER the page fully loaded, the DOM ready, and select the canvas
+    + get a 2D graph context for this canvas
+      + an object used to draw on the canvas and to set global properties
+      + syntax: `ctx = canvas.getContext('2d');`
+    + draw something
+      + `ctx.fillRect(x, y, width, height)`: draw a filled rectangle
+      + `ctx.strokeRect(x, y, width, height)`: draw a wireframed rectangle
+    + use global variables for the canvas and context objects
+      + `ctx.fillStyle = 'color';`: set filled color
+      + `ctx.strokeStyle = 'color';`: set wireframe color
+      + `ctx.lineWidth = number;`: set framewire line width
+      + `ctx.beginPath();`: lift pen to begin a new draw, no line btw the previous ned point and the current starting point
+      + useful global properties: `w = canvas.width; h = canvas.height;`
+    + typical procedure for function to change the context
+      + change any properties of global context: 
+        + start by saving the content: `ctx.save();`
+        + end by restoring it: `ctx.restore();`
+      + properties including color, line, width, coordinate system, etc.
+      + the change in the function won't effect anything outside the function
+  + coordinate system
+    + origin: top left of the canvas
+    + default: (0, 0)
+    + `ctx.translate(x, y)`: relocate the origin to (x, y) of the canvas
+    + useful to have multiple shapes by translating the origin
+  + example: [simple drawing](src/02f-example01.html)
+    + call `init()` function after page loaded: `window.onload = function init()`
+    + get `canvas` element: `canvas = document.querySelector("#myCanvas");`
+    + request a graphic context: `ctx = canvas.getContext('2d');`
+      + a variable for 2D or 3D drawing on the canvas
+      + used for drawing or setting global variables
+    + draw
+      + red filled rectangle: `ctx.fillStyle = 'red'; ctx.fillRect(10, 10, 30, 30);`
+      + green framewire rectangle: `ctx.strokeStyle = 'green'; ctx.lineWidth = 4; ctx.strokeRect(100, 40, 40, 40);`
+      + red filled/storked circle: `ctx.beginPath(); ctx.arc(60, 60, 10, 0, 2*Math.PI); ctx.fill();` or `ctx.stroke();`
+      + purple filled/stroked text: `ctx.fillStyle = "purple"; ctx.font = "20px Arial"; ctx.fillText("Hello!", 60, 20);` or `ctx.strokeText("Hello!", 60, 20);`
+  + example: [function w/ save and restore context](src/02f-example02.html)
+    + two functions to draw fille rectangle w/ a given color and filled circle w/ a given color, respectively
+    + function parameters: values for `x`, `y`, `width`, `height`, `radius`, `color`, etc.
+    + move the shapes by calling `ctx.translate(x, y)` w/ given (x, y)
+  + example: [monster](src/02f-example03.html)
+  
+
 
 
