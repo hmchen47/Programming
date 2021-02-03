@@ -380,7 +380,27 @@ Remember that each 1/60th of a second, the ball moves a certain number of pixels
 If we now remove `b.speedX` to the `ball.x` position, we return the ball to the position it was in before it hit the wall. If we then reverse `speedX`, the ball will indeed start moving with a reverse horizontal speed. This will work but can give a strange visual effect if the balls moves, say, 20 pixels per frame or more. The ball will never be in a position where the eye can "see it against the wall". This is why experienced game coders know that you just need to put the ball "at the contact position", not to its previous position, before reversing the speed value. This is done at _lines 8-9_. Try changing `speedX` to say, 20, and you'll see what we mean.
 
 
+#### Notes for 2.6.2 Animating
 
++ Animation
+  + ways to animation
+    + `setInterval(func, time)`: execute `func` every `time` ms
+    + `setTimeout(func, time)`: execute only once after the delay `time` ms
+    + `requestAnimationFrame(func)`: request a new frame of animation in 1/60 seconds
+  + best practice: `requestAnimationFrame(func)`
+  + typical animation loop procedure
+    + clear the canvas
+    + draw graphic objects / shapes
+    + move graphic objects / shapes
+    + repeat previous 3 steps
+  + optional steps for animation loop
+    + observe the keyboard / mouse / gamepad to change status
+    + test collisions: decrease one life if player collides
+    + test game state: game over if no life left
+    + etc.
+  + example: [moving monster](src/02f-example04.html)
+  + example: [bouncing balls](src/02f-example05.html)
+  
 
 
 
