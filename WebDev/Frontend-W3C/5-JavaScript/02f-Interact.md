@@ -1078,6 +1078,117 @@ This function is called by the `mainLoop`:
       + restore context: `ctx.restore();`
 
 
+### 2.6.7 Adding input fields
+
+Let's use some other techniques that we've learnt in this module. There are input fields: sliders, color chooser, number chooser. We are going to use the DOM API to handle them.
+
+We use these input fields to indicate the number of balls we want, the max speed we would like, the color and size of the player, etc.
+
+New version:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/RpOyRN)
+
+[Local Demo](src/02f-example13.html)
+
+__Explanations:__
+
+HTML code: this time we've used an `oninput` in each input field, and an `onchange` attribute on the `<select>` HTML drop down menu:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"nbBalls"</span><span class="tag">&gt;</span><span class="pln">Number of balls: </span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">1</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">30</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">10</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"nbBalls"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>oninput</strong></span><strong><span class="pun">=</span><span class="atv">"</span><span class="pln">changeNbBalls</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"nbBalls"</span><span class="tag">&gt;</span><span class="pln">Player color: </span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'#FF0000'</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong></span><strong><span class="pun">=</span><span class="atv">"</span><span class="pln">changePlayerColor</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"nbBalls"</span><span class="tag">&gt;</span><span class="pln">Color of ball to eat: </span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;select</span><span class="pln"> </span><strong><span class="atn">onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeColorToEat</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'red'</span><span class="tag">&gt;</span><span class="pln">red</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'blue'</span><span class="tag">&gt;</span><span class="pln">blue</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'green'</span><span class="tag">&gt;</span><span class="pln">green</span><span class="tag">&lt;/option&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;/select&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"nbBalls"</span><span class="tag">&gt;</span><span class="pln">Change ball speed: </span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;- </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'1'</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min</span><span class="pun">=</span><span class="atv">0.1</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">3</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">0.1</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong></span><strong><span class="pun">=</span><span class="atv">"</span><span class="pln">changeBallSpeed</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span><span class="atv">"</span></strong><span class="tag">&gt;</span><span class="pln"> + </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"></li>
+</ol></div>
+
+JavaScript code: we've added some new variables in order to get closer to a real game with a goal, levels, game over menu and so on.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> initialNumberOfBalls</span><span class="pun">; // number of balls at the beginning</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> globalSpeedMutiplier </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">; // will change when we move the speed&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // slider</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> colorToEat </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">; &nbsp; &nbsp; &nbsp; // color of the "good" balls to eat</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> wrongBallsEaten </span><span class="pun">=</span><span class="pln"> goodBallsEaten </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">; //number of good/bad balls </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // eaten</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> numberOfGoodBalls</span><span class="pun">; &nbsp; &nbsp; &nbsp; &nbsp;// number of good balls in the set</span></li>
+</ol></div>
+
+And here are the callback functions called when you use the input fields:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> changeNbBalls</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; startGame</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> changeColorToEat</span><span class="pun">(</span><span class="pln">color</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; colorToEat </span><span class="pun">=</span><span class="pln"> color</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; startGame(</span>initialNumberOfBalls);</li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> changePlayerColor</span><span class="pun">(</span><span class="pln">color</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; player</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> color</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> changeBallSpeed</span><span class="pun">(</span><span class="pln">coef</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; globalSpeedMutiplier </span><span class="pun">=</span><span class="pln"> coef</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+Each time we change the number of balls in the game, or the color of the balls you need to eat, we need to restart the game. 
+
+Here is the `startGame(nb_balls)` function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> startGame</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; do</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;balls </span><span class="pun">=</span><span class="pln"> createBalls</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;initialNumberOfBalls </span><span class="pun">=</span><span class="pln"> nb</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;numberOfGoodBalls </span><span class="pun">=</span><span class="pln"> countNumberOfGoodBalls</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">,</span><span class="pln"> colorToEat</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span><span class="pln"> </span><span class="kwd">while</span><span class="pun">(</span><span class="pln">numberOfGoodBalls </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">); // in case no good ball in the set</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; wrongBallsEaten </span><span class="pun">=</span><span class="pln"> goodBallsEaten </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+... and here is the function that counts the number of good balls in the newly created set of balls:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> countNumberOfGoodBalls</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">,</span><span class="pln"> colorToEat</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> nb </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; balls</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">b</span><span class="pun">.</span><span class="pln">color </span><span class="pun">===</span><span class="pln"> colorToEat</span><span class="pun">) // we count the number of balls</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; nb</span><span class="pun">++; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// of this color in the balls array</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; });</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; return</span><span class="pln"> nb</span><span class="pun">; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // return this number to the caller</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
 
 
 
