@@ -11,7 +11,7 @@
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
 </a><br/><br/>
 
-[Transcript](tinyurl.com/ynysboc7)
+[Transcript](https://tinyurl.com/ynysboc7)
 
 The HTML5 canvas is a transparent element that is useful for drawing and animating. We'll see some simple examples here, as we're going to finish this week by writing a small, simple game together, that will use most of what we've learnt so far: loops, conditional statements, events, functions, callbacks, simple objects, a few input fields, etc.
 
@@ -263,7 +263,7 @@ Note that we use (_line 30_) `ctx.translate(x, y)` to make it easier to move the
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
 </a><br/><br/>
 
-[Transcript](tinyurl.com/13acju4l)
+[Transcript](https://tinyurl.com/13acju4l)
 
 A typical animation loop does the following at regular intervals:
 
@@ -589,6 +589,189 @@ These two functions use an iterator on the array of balls (using the `forEach` m
       + iterate on all balls in array: `ballArray.forEach(function(b) { ballPosition & collisionDetect });`
       + ball position: `bx += b.speedX; by += b.speedY;`
       + collision detection: `testCollisionBallWithEWalls(b);`
+
+
+### 2.6.4 Mouse interactions
+
+Detecting mouse events in a canvas is quite straightforward: you add an event listener to the canvas, and the browser invokes that listener when the event occurs.
+
+The example below is about listening to mouseup and mousedown events (when a user presses or releases any mouse button):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // do something with the mousedown event</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // do something with the mouseup event</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+</ol></div>
+
+The event received by the listener function will be used for getting the button number or the coordinates of the mouse cursor. Before looking at different examples, let's look at the different event types we can listen to.
+
+#### The different mouse events (reminder)
+
+In the last example, we saw how to detect the `mouseup` and `mousedown` events.
+
+There are other events related to the mouse:
+
++ `mouseleave`: similar to `mouseout`, fired when the mouse leaves the surface of the element. The difference between `mouseleave` and `mouseout` is that `mouseleave` does not fire when the cursor moves over descendant elements, and `mouseout` is fired when the element the cursor moves to is outside the bounds of the original element or is a child of the original element.
++ `mouseover`: the mouse cursor is moving over the element that listens to that event. A `mouseover` event occurs on an element when you are over it - <u>coming from either its child OR parent element</u>, but a `mouseenter` event only occurs when the mouse <u>moves from the parent element to the child element</u>.
++ `mousedown`: fired when a mouse button is pressed.
++ `mouseup`: fired when a mouse button is released.
++ `mouseclick`: fired after a `mousedown` and a `mouseup` have occurred.
++ `mousemove`: fired while the mouse moves over the element. Each time the mouse moves, a new event is fired, unlike with `mouseover` or `mouseenter`, where only one event is fired.
+
+
+#### The tricky part: getting the position of the mouse relative to the canvas
+
+When you listen to any of the above events, the event object (we call it a "DOM event"), passed to the listener function, has properties that correspond to the mouse coordinates: `clientX` and `clientY`.
+
+<span style="color: brown;">However, these are what we call "viewport coordinates". Instead of being relative to the canvas itself, they are relative to the viewport (the visible part of the page).</span>
+
+Most of the time you need to work with the mouse position relative to the canvas, not to the viewport, so you must convert the coordinates between the viewport and the canvas. This will take into account the position of the canvas in the viewport, and the CSS properties that may affect the canvas position (margin, etc.).
+
+Fortunately, there is a method for getting the position and size of any element in the viewport: `getBoundingClientRect()`.
+
+Here is an example that shows the problem:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/Wpmqdw)
+
+[Local Demo](src/02f-example08.html)
+
+
+__WRONG code used in this example:__
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun" style="color: #666600;">...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'mousemove'</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">evt</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong></span><strong><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;message&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">'Mouse position: '</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">x&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">','</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">y</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;message</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span><span class="pun" style="color: #666600;">},</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">false</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">...</span></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;&nbsp;<strong>&nbsp;</strong></span><strong><span class="com" style="color: #880000;">//&nbsp;WRONG!!!</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">return</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong></span><strong><span class="pun" style="color: #666600;">:</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">clientX</span><span class="pun" style="color: #666600;">,</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong></span><strong><span class="pun" style="color: #666600;">:</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">clientY</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+</ol></div>
+
+Here is the result, when the mouse is approximately at the top left corner of the canvas:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/19s0kpa8')"
+    src    ="https://tinyurl.com/13n0iqsk"
+    alt    ="bad mouse coords"
+    title  ="bad mouse coords"
+  />
+</figure>
+
+
+A good version of the code:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/MpxMQo)
+
+[Local Demo](src/02f-example09.html)
+
+
+And here is the fixed version of the getMousePos function:
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><strong><span class="com" style="color: #880000;">// necessary to take into account CSS boundaries</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><strong><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;rect&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">getBoundingClientRect</span><span class="pun" style="color: #666600;">();</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">return</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; x</span><span class="pun" style="color: #666600;">:</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">clientX&nbsp;</span><strong><span class="pun" style="color: #666600;">-</span><span class="pln" style="color: #000000;">&nbsp;rect</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">left</span><span class="pun" style="color: #666600;">,</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; y</span><span class="pun" style="color: #666600;">:</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">clientY&nbsp;</span><strong><span class="pun" style="color: #666600;">-</span><span class="pln" style="color: #000000;">&nbsp;rect</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">top</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+</ol></div>
+
+Result (the cursor is approximately at the top left corner):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/19s0kpa8')"
+    src    ="https://tinyurl.com/3looe5fs"
+    alt    ="mouse at zero zero"
+    title  ="mouse at zero zero"
+  />
+</figure>
+
+
+
+#### How to display the mouse position, and the mouse button that has been pressed or released
+
+This example uses the previous function for computing the mouse position correctly. It listens to mousemove, mousedown and mouseup events, and shows how to get the mouse button number using the evt.button property.
+
+Example:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/zZbVjW)
+
+[Local Demo](src/02f-example10.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/19s0kpa8')"
+    src    ="https://tinyurl.com/fca8xxkv"
+    alt    ="mouse event example"
+    title  ="mouse event example"
+  />
+</figure>
+
+
+Extract from source code:
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;ctx</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;mouseButton</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">window</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">onload&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;init</span><span class="pun" style="color: #666600;">()</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; canvas&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;document</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">getElementById</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'myCanvas'</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; ctx&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">getContext</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'2d'</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong></span><strong><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'mousemove'</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">evt</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong></span><strong><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">);</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;message&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">'Mouse position: '</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">x&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">','</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">y</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;message</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #666600;">},</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">false</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong></span><strong><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'mousedown'</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">evt</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mouseButton&nbsp;</strong></span><strong><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">button</span><span class="pun" style="color: #666600;">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;message&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"Mouse button "</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">button&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">" down at position: "</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">x&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">','</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">y</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;message</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #666600;">},</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">false</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong></span><strong><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'mouseup'</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">evt</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;message&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"Mouse up at position: "</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">x&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">','</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">y</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;message</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #666600;">},</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">false</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">};</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span>&nbsp;</li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;message</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">save</span><span class="pun" style="color: #666600;">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">clearRect</span><span class="pun" style="color: #666600;">(</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">width</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">height</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">font&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">'18pt Calibri'</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">fillStyle&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">'black'</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">fillText</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">message</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="lit" style="color: #006666;">25</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">restore</span><span class="pun" style="color: #666600;">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><strong><span class="com" style="color: #880000;">// necessary to take into account CSS boudaries</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;&nbsp;<strong>&nbsp;</strong></span><strong><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;rect&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">getBoundingClientRect</span><span class="pun" style="color: #666600;">();</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">return</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong></span><strong><span class="pun" style="color: #666600;">:</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">clientX&nbsp;</span><span class="pun" style="color: #666600;">-</span><span class="pln" style="color: #000000;">&nbsp;rect</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">left</span></strong><span class="pun" style="color: #666600;">,</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong></span><strong><span class="pun" style="color: #666600;">:</span><span class="pln" style="color: #000000;">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">clientY&nbsp;</span><span class="pun" style="color: #666600;">-</span><span class="pln" style="color: #000000;">&nbsp;rect</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">top</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+</ol></div>
+
+
 
 
 
