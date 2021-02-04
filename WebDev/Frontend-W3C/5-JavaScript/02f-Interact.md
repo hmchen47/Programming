@@ -894,6 +894,12 @@ The mouse position may be `undefined` if the animation loop started without the 
 Perhaps it's occurred to you that it might be better to move the player "from its center" instead of from its top left corner. We leave this improvement to you! :-)
 
 
+#### Notes for 2.6.5 Moving a player with the mouse
+
++ Moving element w/ mouse pointer
+  + get mouse position in a canvas: `getMousePos(evt)`
+  + the mouse cursor out of canvas: `mousePos === undefined`
+  + mouse positionwithin the canvas: `player.x = mousePos.x; player.y = mousePos.y;`
 
 
 
