@@ -241,7 +241,16 @@ Note that we use (_line 30_) `ctx.translate(x, y)` to make it easier to move the
     + two functions to draw fille rectangle w/ a given color and filled circle w/ a given color, respectively
     + function parameters: values for `x`, `y`, `width`, `height`, `radius`, `color`, etc.
     + move the shapes by calling `ctx.translate(x, y)` w/ given (x, y)
-  + example: [monster](src/02f-example03.html)
+  + example: [monster](src/02f-example03.html): `drawMyMonster(x, y)` function:
+    + save the context by using 2D context: `ctx.save();`
+    + translate the corrdinate system w/ given position: `ctx.translate(x, y);`
+    + drawing monster: `drawMyMonster(x, y){...}` (relative to the top left corner)
+      + head (outter frame): `ctx.strokeRect(0, 0, 100, 100);`
+      + eyes: `ctx.fillRect(20, 20, 10, 10); ctx.fillRect(65, 20, 10, 10);`
+      + nose: `ctx.strokeRect(45, 40, 10, 40);`
+      + mouse: `ctx.strokeRect(35, 84, 30, 10);`
+      + teeth: `ctx.fillRect(38, 84, 10, 10); ctx.fillRect(52, 84, 10, 10);`
+    + restore the context: `ctx.restore();`
 
 
 
@@ -399,7 +408,32 @@ If we now remove `b.speedX` to the `ball.x` position, we return the ball to the 
     + test game state: game over if no life left
     + etc.
   + example: [moving monster](src/02f-example04.html)
+    + global variables: `var canvas, ctx, w, h; var xMonster = 10;var yMonster = 10;var monsterSpeed = 1;`
+    + `init` function after page loaded: `window.onload = function init() {...}`
+      + access element: `canvas = document.querySelector("#myCanvas");`
+      + regular used info (no `var` or `let` w/ these variables $\to$ global variables): `w = canvas.width; h = canvas.height;`
+      + drawing object declaration: `ctx = canvas.getContext('2d');`
+      + start the drawing and moving: `mainLoop();`
+    + major iteration of the program: `function mainLoop() { baseSetting & mainLoop}`
+      + clear the canvas: `ctx.clearRect(0, 0, w, h);`
+      + draw the monster: `drawMonster(xMonster, yMonster);`
+      + move the monster: `xMonster += monsterSpeed;`
+      + test collisions w/ vertical walls: `if (((xMonster + 100)> w) || (xMonster < 0)) { monsterSpeed = -monsterSpeed; }`
+      + request a new frame of animation in 1/60s: `requestAnimationFrame(mainLoop);`
   + example: [bouncing balls](src/02f-example05.html)
+    + global variables: `var canvas, ctx, w, h; var ball = { x: 100, y:100, radius: 15, color:'green', speedX:2, speedY:1}; var player = { x:10, y:10, width:20, height:20, color:'red'}`
+    + major iteration of the program: `function mainLoop() {...}`
+      + clear the canvas: `ctx.clearRect(0, 0, w, h);`
+      + `init` function after page loaded: `window.onload = function init() { baseSetting & mainLoop}`
+      + draw the ball and the player: `drawFilledRectangle(player); drawFilledCircle(ball);` 
+      + animate the ball: `moveBall(ball);`
+      + ask for a new animation frame: `requestAnimationFrame(mainLoop);`
+    + moving ball: `function moveBall(b) { newPosition & collisionDetection }`
+      + new position of ball: `b.x += b.speedX; b.y += b.speedY;`
+      + collision detection: `testCollisionBallWithWalls(b);`
+    + collision detection: `function testCollisionBallWithWalls(b) {...}`
+      + collision w/ vertical walls: `if((b.x + b.radius) > w) { b.speedX = -b.speedX; b.x = w - b.radius; } else if((b.x -b.radius) < 0) { b.speedX = -b.speedX; b.x = b.radius; }`
+      + collision w/ horizontal walls: `if((b.y + b.radius) > h) { b.speedY = -b.speedY; b.y = h - b.radius; } else if((b.y -b.radius) < 0) { b.speedY = -b.speedY;b.Y = b.radius; }`
 
 
 ### 2.6.3 Animating multiple objects
@@ -531,34 +565,27 @@ These two functions use an iterator on the array of balls (using the `forEach` m
 
 + Aminating multiple objects
   + `forEach` method: iterate elements in an array
-  + example: [3 bouncing balls](src/02f-example06.html)
-
-    ```js
-    function mainLoop() {
-        // 1 - clear the canvas
-        ctx.clearRect(0, 0, w, h);
-        // draw the balls and the player
-        drawFilledRectangle(player);
-        drawFilledCircle(ball1); drawFilledCircle(ball2); drawFilledCircle(ball3);
-    
-        // animate the balls bouncing all over the walls
-        moveBall(ball1); moveBall(ball2); moveBall(ball3);
-        // ask for a new animation frame
-        requestAnimationFrame(mainLoop);
-    }
-    ```
-
+  + example: [3 bouncing balls and the player](src/02f-example06.html)
+    + global variables for 3 balls and the player
+    + initialize the program: `window.onload = function init() {...}`
+    + iterate for moving balls: `function mainLoop(){...}`
+      + clear the canvas: `ctx.clearRect(0, 0, w, h);`
+      + drawing the balls and the player: `drawFilledRectangle(player); drawFilledCircle(ball1); ...;`
+      + animate the balls: `moveBall(ball1); moveBall(ball2); moveBall(ball3);`
+      + ask for a new animation frame: `requestAnimationFrame(mainLoop);`
+    + move the balls: `function moveBall(b) {...}`
+    + collision detection: `testCollisionBallWithWalls(b) {...}`
   + example: [arrays for bouncing balls](src/02f-example07.html)
-    + `createBalls(numberOfBalls)`: return an array of balls
+    + `function createBalls(numberOfBalls)`: return an array of balls
       + init empty array; `var ballArray = [];`
       + create n balls w/ for loop: `for (var i = 0; i < n; i++) { ballProperties & toArray }`
       + ball properties: `var b = {x: w/2, y: h/2, radius: -5 + 30*Math.random(), speedX: ..., speedY: ..., color: getARandomColor()}`
       + add ball to array: `ballArray.push(b);`
-    + `getARandomColor()` function: randomly assign ball color
+    + `function getARandomColor()` function: randomly assign ball color
       + init color array: `var colors = ['red', 'blue, ..., 'yellow'];`
       + randonly assign a color: `var colorIdx = Math.round((colors.length-1)*Math.random()); return colors[colorIdx];`
-    + `drawBalls(ballArray` function: `ballArray.forEach(function(b){ drawFilledCircle(b)})`
-    + `moveBallsArray(ballArray)` function
+    + `function drawBalls(ballArray){...}`: `ballArray.forEach(function(b){ drawFilledCircle(b)})`
+    + moving balls: `function moveBallsArray(ballArray)`
       + iterate on all balls in array: `ballArray.forEach(function(b) { ballPosition & collisionDetect });`
       + ball position: `bx += b.speedX; by += b.speedY;`
       + collision detection: `testCollisionBallWithEWalls(b);`
