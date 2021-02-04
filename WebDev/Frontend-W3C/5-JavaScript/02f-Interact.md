@@ -903,4 +903,120 @@ Perhaps it's occurred to you that it might be better to move the player "from it
 
 
 
+### 2.6.6 Adding collision detection
+
+Let's make it a game by adding collision detection! And try to move the player to all the balls as fast as you can.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/gmEVJG)
+
+[Local Demo](src/02f-example12.html)
+
+
+#### How do we detect collisions?
+
+First, if you're into game programming, we have a full section about collision detection one of the W3Cx [HTML5 Apps and Games](https://www.edx.org/course/html5-apps-and-games) course modules.
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/7mmfaeyr" ismap target="_blank">
+    <img style="margin: 0.1em;" height=80
+      src  ="https://tinyurl.com/y8nsrfm2"
+      alt  ="circle rect collision (not here)"
+      title="circle rect collision (not here)"
+    >
+    <img style="margin: 0.1em;" height=80
+      src  ="https://tinyurl.com/6qu5oc3q"
+      alt  ="circle rect collision"
+      title="circle rect collision"
+    >
+  </a>
+</div>
+
+
+We have a player that is a rectangle and other objects that are circles. This is cool, as it allows us to find a short function that tests if a circle collides with a rectangle whose sides are aligned to the X-axis and Y-axis (we implemented this after reading this [thread at StackOverflow](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" value="1"><span class="com">// Collisions between rectangle and circle</span></li>
+<li class="L1"><span class="kwd">function</span><span class="pln">&nbsp;circRectsOverlap</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">,</span><span class="pln">&nbsp;y0</span><span class="pun">,</span><span class="pln">&nbsp;w0</span><span class="pun">,</span><span class="pln">&nbsp;h0</span><span class="pun">,</span><span class="pln">&nbsp;cx</span><span class="pun">,</span><span class="pln">&nbsp;cy</span><span class="pun">,</span><span class="pln">&nbsp;r</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
+<li class="L2"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;testX</span><span class="pun">=</span><span class="pln">cx</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L3"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;testY</span><span class="pun">=</span><span class="pln">cy</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L4"><span class="pln"></span></li>
+<li class="L5"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">testX&nbsp;</span><span class="pun">&lt;</span><span class="pln">&nbsp;x0</span><span class="pun">)</span><span class="pln">&nbsp;testX</span><span class="pun">=</span><span class="pln">x0</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L6"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">testX&nbsp;</span><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">+</span><span class="pln">w0</span><span class="pun">))</span><span class="pln">&nbsp;testX</span><span class="pun">=(</span><span class="pln">x0</span><span class="pun">+</span><span class="pln">w0</span><span class="pun">);</span><span class="pln"></span></li>
+<li class="L7"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">testY&nbsp;</span><span class="pun">&lt;</span><span class="pln">&nbsp;y0</span><span class="pun">)</span><span class="pln">&nbsp;testY</span><span class="pun">=</span><span class="pln">y0</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L8"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">testY&nbsp;</span><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">y0</span><span class="pun">+</span><span class="pln">h0</span><span class="pun">))</span><span class="pln">&nbsp;testY</span><span class="pun">=(</span><span class="pln">y0</span><span class="pun">+</span><span class="pln">h0</span><span class="pun">);</span><span class="pln"></span></li>
+<li class="L9"><span class="pln"></span></li>
+<li class="L0"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln">&nbsp;</span><span class="pun">(((</span><span class="pln">cx</span><span class="pun">-</span><span class="pln">testX</span><span class="pun">)*(</span><span class="pln">cx</span><span class="pun">-</span><span class="pln">testX</span><span class="pun">)+(</span><span class="pln">cy</span><span class="pun">-</span><span class="pln">testY</span><span class="pun">)*(</span><span class="pln">cy</span><span class="pun">-</span><span class="pln">testY</span><span class="pun">))&lt;&nbsp;</span><span class="pln">r</span><span class="pun">*</span><span class="pln">r</span><span class="pun">);</span><span class="pln"></span></li>
+<li class="L1"><span class="pln"></span><span class="pun">}</span></li>
+</ol></div>
+
+Let's look at our game! This time, we've added into the loop a collision test between the player and the balls. If the player hits a ball, it's removed from the ball array. We did this test in the moveBalls function, as we were already testing collisions with walls for each ball in the array. Let's look at this new version:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> moveAllBalls</span><span class="pun">(</span><span class="pln">ballArray</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // iterate on all balls in array</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ballArray</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><strong><span class="pln"> index</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; });</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> testCollisionWithPlayer</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">circRectsOverlap</span><span class="pun">(</span><span class="pln">player</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">height</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp;// we remove the element located at index</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp;// from the balls array</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp;// splice: first parameter = starting index</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp;// second parameter = number of elements to remove</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; balls</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">index</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+__Explanations:__
+
++ _Line 3_: Look at the iterator;  this time instead of just one parameter (the current element), we've added a second optional parameter that will be the in`dex of the current element, starting from zero.
++ _Line 10_: for each ball in the array, we will call `testCollisionWithPlayer(b, index);` that will check if there is a collision between the ball b and the player. We also pass the `index` of the ball. If a collision occurs, we will have to remove the ball from the array, and for that, we will need its index in the array.
++ _Line 15_ is the collision test, and if it is `true` (collision with the player), then the ball dies and we remove it from the array using the `splice` method you can use on arrays.
++ _Line 22_: here it is, we remove the current ball in the array using `balls.splice(position, numberOfElementsToRemove)`. The positon is given by `index`, and the number of balls to remove is one.
+
+We've also added a function for displaying the number of balls in the array while we are playing. When this number reaches zero, we display "You Win!":
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawNumberOfBallsAlive</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">font</span><span class="pun">=</span><span class="str">"30px Arial"</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">.</span><span class="pln">length </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"YOU WIN!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">.</span><span class="pln">length</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+This function is called by the mainLoop:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // 1 - clear the canvas</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; ...</span></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; drawNumberOfBallsAlive</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">);</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; ...</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // ask for a new animation frame</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+
 
