@@ -985,6 +985,7 @@ __Explanations:__
 + _Line 15_ is the collision test, and if it is `true` (collision with the player), then the ball dies and we remove it from the array using the `splice` method you can use on arrays.
 + _Line 22_: here it is, we remove the current ball in the array using `balls.splice(position, numberOfElementsToRemove)`. The positon is given by `index`, and the number of balls to remove is one.
 
+
 We've also added a function for displaying the number of balls in the array while we are playing. When this number reaches zero, we display "You Win!":
 
 <div class="source-code"><ol class="linenums">
@@ -1001,7 +1002,7 @@ We've also added a function for displaying the number of balls in the array whil
 <li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
 
-This function is called by the mainLoop:
+This function is called by the `mainLoop`:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -1016,6 +1017,67 @@ This function is called by the mainLoop:
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
+
+
+#### Notes for 2.6.6 Adding collision detection
+
++ Collision detection
+  + [circle-Rectangle collision detection](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
+    + either the circle's center lies insiode the rectangle
+    + one of the edges of the rectangle has a point in the circle
+
+    ```shell
+    def intersect(Circle(P, R), Rectangle(A, B, C, D)):
+      S = Circle(P, R)
+      return (pointInRectangle(P, Rectangle(A, B, C, D)) or
+              intersectCircle(S, (A, B)) or
+              intersectCircle(S, (B, C)) or
+              intersectCircle(S, (C, D)) or
+              intersectCircle(S, (D, A)))
+    ```
+  
+    + `intersectCircle()`:
+      + check if the foot of the perpendicular from `P` to the line is close enough and btw the endpoints
+      + check endpoint  otherwise
+  + JavaScript implementation
+
+    ```js
+    function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {
+      var testX=cx; var testY=cy;
+
+      if (testX < x0) testX=x0;
+      if (testX > (x0+w0)) testX=(x0+w0);
+      if (testY < y0) testY=y0;
+      if (testY > (y0+h0)) testY=(y0+h0);
+
+      return (((cx-testX)*(cx-testX)+(cy-testY)*(cy-testY))< r*r);
+    }
+    ```
+
+  + example: [collision detection btw balls & the player](src/02f-example12.html)
+    + moving all balls: `function moveAllBalls(ballArray) {...}`
+      + iterate all balls in the array: `ballArray.forEach(function(b, index) {...}`
+        + position of a certain ball: `b.x += b.speedX; b.y += b.speedY;`
+        + detect collision w/ walls: `testCollisionBallWithWalls(b);`
+        + detect collision btw balls & the player: ` testCollisionWithPlayer(b, index);`
+    + detecting collection btw balls & the player (intersection): `function testCollisionWithPlayer(b, index) {...}`
+      + check overlap w/ given params: `if(circRectsOverlap(player.x, player.y, player.width, player.height, b.x, b.y, b.radius)) {...}`
+      + remove collided element (ball): `balls.splice(index, 1);`
+    + printing number of alive balls: `function drawNumberOfBallsAlive(balls) {...}`
+      + save context before drawing: `ctx.save();`
+      + check and print number of alive balls:
+
+        ```js
+        if(balls.length === 0) {
+          ctx.fillText("YOU WIN!", 20, 30);
+        } else {
+          ctx.fillText(balls.length, 20, 30);
+        }
+        ```
+
+      + restore context: `ctx.restore();`
+
+
 
 
 
