@@ -152,7 +152,7 @@ So we've decided to focus on only 20% of the DOM API and on the selector API (fo
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
 </a><br/><br/>
 
-[Transcript](tinyurl.com/1qt6jhfu)
+[Transcript](https://tinyurl.com/1qt6jhfu)
 
 #### Accessing HTML elements with the selector API (recommended)
 
