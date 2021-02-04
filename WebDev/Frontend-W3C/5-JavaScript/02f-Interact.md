@@ -772,6 +772,23 @@ Extract from source code:
 </ol></div>
 
 
+#### Notes for 2.6.4 Mouse interactions
+
++ Mouse interactions in canvas
+  + detecting mouse events
+    + add event listener to the canvas
+    + the browser invoking listener when the event occurs
+  + mouse events
+    + `mousedown`: mouse button pressed
+    + `mouseup`: mouse button released
+    + `mouseclick`: fired after a `mousedown` and `mouseup` occurred
+    + `mouseover`: mouse coming from either its child OR parent element; mouse cursor moving over the element that listens to the event
+    + `mouseenter`: mouse moving from the parent element to child element
+    + `mouseleave`: mouse leaving the surface of the element
+    + `mouseout`: mouse moving to outside the bounds of the original element or a child of the original element
+    + `mousemove`: mouse moving over an element, each time the mouse moves
+
+
 
 
 
