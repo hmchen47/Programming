@@ -1092,14 +1092,14 @@ __Detailed explanations:__
 
 + `while` loop
   + `while` statement
-    + a block of code executed repeatedly while the specified conditionsatisfied
-    + syntax: `while (condition) statement`
+    + a block of code executed repeatedly while the specified condition satisfied
+    + syntax: `while (condition) {statement}`
       + condition: a logical expression; true to execute the statement, otherwise exit
       + statement: probably a block statement
     + checking the condition first before executing the content
   + `do-while` statement
-    + syntax: `do statement while (condition)`
-    + executing the content of the loop once before checcking the condition of the while
+    + syntax: `do {statement} while (condition)`
+    + executing the content of the loop once before checking the condition of the while
     + used for a block of code executed at least once
     + rarely used
   + examples
@@ -1156,7 +1156,7 @@ __Detailed explanations:__
       }
       ```
 
-+ Loop interrruption sattement
++ Loop interruption sattement
   + `continue` statement
     + used to stop the execution of a block and starting the next iteration of the loop
     + syntax: `continue [label]`
