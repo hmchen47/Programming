@@ -95,7 +95,7 @@ Callback functions are derived from a programming paradigm known as __functional
 
   + standard declaration
     + not an executable statement
-    + w/o semicolon at the end of a function declararion
+    + w/o semicolon at the end of a function declaration
     + semicolon used to separate executable JS statements
   + function expression
     + used a variable to store a function expression
