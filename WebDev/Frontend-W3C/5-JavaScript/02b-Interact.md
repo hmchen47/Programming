@@ -345,11 +345,11 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
     + no quotation marks for these values
   + undefined
     + a variable not been assigned
-    + part of rhe JS language
+    + part of the JS language
     + assigning a variable `undefined` allowed
     + `var foo;` and `var foo = undefined;`: equivalent but 1st recommended (shorter)
     + undeclared variable: `bar;`
-      + accessing: raising `ReferenceError` error msg
+      + accessing: raising `ReferenceError` msg
       + typeof operator: return `undefined`
   + `NaN` (Not-a-Number)
     + equal to nothing: `NaN == NaN; // false`, `NaN === NaN; // false`
@@ -358,7 +358,7 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
       + `X = NaN;` $\implies$ `X != X; // true`
     + possible ways to produce `NaN`
       + `(0/0) || 0` $\iff$ `NaN || 0` $\iff$ `false || 0`
-      + `ParseInt('foo');`: converting a String to a Number
+      + `parseInt('foo');`: converting a String to a Number
       + `Math.sqrt(-1);`: returning `NaN`
 
 + Logical operators
@@ -379,7 +379,7 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
     + `A || B`: return A if A = true, otherwise return B
     + examples:
       + `var boo = (0/0) || 43.2;   // 43.2`
-      + `var muNum = !1; if (muNum == null){ muNum = 3; } muNum = myNum || 2; // 2`
+      + `var myNum = !1; if (myNum == null){ myNum = 3; } myNum = myNum || 2; // 2`
 
 + Comparison operators
   + Equal `==`
@@ -393,7 +393,7 @@ Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, 
 
 + Equal vs. strict equal
   + Equal `==`: return true if strictly equal __w/ type conversion__
-  + Strict equal `===`: return true if strictly equal __w/0 type conversion__
+  + Strict equal `===`: return true if strictly equal __w/o type conversion__
   + triple-equals operator never doing type coercion
   + examples: `1 == 1; // true`, `1 == '1'; // true`, `1 === 1; // true`, `1 === '1'; // false`
   + best practice: always use `===` or `!==` for comparisons
