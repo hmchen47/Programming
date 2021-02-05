@@ -737,8 +737,7 @@ To finish up this section, here is a complete example (<span style="color: brown
 
     ```js
     {
-        var i = 0;
-        var result = false;
+        var i = 0; var result = false;
         console.log('i = ' + i);
     }
     ```
@@ -747,14 +746,14 @@ To finish up this section, here is a complete example (<span style="color: brown
   + syntax:
     + <code><span style="color: brown; font-weight: bold;">if</span> (Expr1) <span style="color: brown; font-weight: bold;">else</span> (Expr1)</code>
     + <code><span style="color: brown; font-weight: bold;">if</span> (Expr1)</code>
-  + `Expr` possibly including
+  + `Expr1` possibly including
     + logical operators: `&&`,. `||`, & `!`
     + comparison expressions: `==`, `===`, `>`, `>=`, `<`, `<=`
     + any values or expressions able to converted to boolean
   + curly brace
     + `Expr1` and `Expr2` possible block statements w/ curly braces
     + omitted curly braces allowed if only one statement in the block
-    + stronly recommended enclosing if-statement in curly braces
+    + strongly recommended enclosing if-statement in curly braces
   + example:
 
     ```js
@@ -790,29 +789,29 @@ To finish up this section, here is a complete example (<span style="color: brown
   + syntax:
 
     ```js
-    witch (expression) {
+    switch (expression) {
         case value1:
-            statement
+            statement;
             break;      
-            // break can be omitted in that case the second test case will be
-            // executed most of the time we add a break; at the end of a "case"
+            // break can be omitted in that case the second test case will be executed
+            // most of the time we add a break; at the end of a "case"
     
         case value2:
-            statement
+            statement;
             break;
     
         case value3:
-            statement
+            statement;
             break;
     
         default:         // if no case tested true
-            statement
+            statement;
             break;
     }
     ```
   
   + the equality operator evaluated w/ `===`
-  + all statement next to the `case` block executed sequentially until 'break' keyword reached
+  + all statements next to the `case` block executed sequentially until `break` keyword reached
 
 
 #### Knowledge check 2.2.2
