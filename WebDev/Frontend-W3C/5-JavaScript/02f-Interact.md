@@ -1219,6 +1219,27 @@ Here is the `startGame(nb_balls)` function:
       + return the number of existed balls: `return nb;`
 
 
+### 2.6.8 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ First, do not forget to share your creations in the forum!
++ Do you know about jQuery or equivalent libraries that were developed to try to make the DOM easier to manipulate? Some people do not recommend using them now - why is this?
+
+
+#### Optional projects
+
++ The game is not completely finished, as you may have noticed :-) So, try to make "levels": when all good balls have been eaten, let's restart automatically, but this time with one more ball in the initial set!
++ Try to display the level number on the right,
++ Try to use a global variable "gameState" that can be equal to "gameRunning" or to "displayGameOverMenu". Use it in the game loop with a switch statement, to display a game over menu when the player hits a certain number of bad balls (say three bad balls eaten and you're done!)
++ When, in the game over menu, listen to keydown events on the canvas and suggest pressing space to go to restart the game.
++ Add other input fields to further customize the game.
++ Try to draw a small monster instead of a red square for the player, and do the same thing with the balls - make some improvements!
++ Try to make ball movements different depending on their color (random direction that changes along the course of a ball, zigzag movements, etc.)
++ Try to make the balls change their size during the animation.
++ More difficult: try to make your player fire bullets to destroy enemy balls :-)
 
 
 
