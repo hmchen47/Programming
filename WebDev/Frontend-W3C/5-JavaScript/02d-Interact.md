@@ -1,6 +1,8 @@
 # Module 2: Adding interactivity to HTML documents
 
+
 ## 2.4 Handling events
+
 
 ### 2.4.1 Introduction
 
@@ -195,7 +197,7 @@ Note that to remove an event listener, you should have added it with its named f
       + listening to specific DOM elements
         + get a reference of the HTML to detect the event; e.g., `var b = document.querySelector("#myButton");`
         + call the `addEventListener` method on the object; e.g., `b.addEventListener('click', callback);`
-    + ensuring the existence before electing an element w/ `querySelector`
+    + ensuring the existence before selecting an element w/ `querySelector`
     + every DOM object w/ an `addEventListener` method starting listening to event on it, once getting a reference of any HTML element from JS
     + example
 
@@ -212,25 +214,18 @@ Note that to remove an event listener, you should have added it with its named f
     + example: `<button id="myButton" onclick="processClick(event);">Click me!</button>`
   + big project
     + better to separate the HTML, CSS and JS code
-    + recommended putting all event listener definition in a separate JS file
+    + recommended putting all event listener definitions in a separate JS file
     + using `addEventListener` syntax in preference to the "on" attribute syntax
   + removing event listener
     + removing previous registered event listener
     + syntax: `removeEventListener(TypeOfEvent, callBackFunction)`
-    + must pass `callBackFunction` used in `addEventListener` to remote
+    + must pass `callBackFunction` used in `addEventListener` to remove
     + example: `b.removeEventListener('click', processClick);`
 
 + Ways to provide callback function
   + standard function block
   + function expression: common practice w/ small function
-  + examples
-
-    ```js
-    // standard function block
-    function(evt) {
-      console.log("Button clicked!");
-    }
-    ```
+  + example: in HTML file w/ function expression callback 
 
     ```html
     <!-- function expression -->
