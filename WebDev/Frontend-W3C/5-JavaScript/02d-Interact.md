@@ -330,17 +330,17 @@ The most useful common methods are:
         + several element registered for a click on the button
         + a click listener on a button and on the window (the whole page)
         + click on the button, the event listener calling `evt.stopPropagation()`
-        + the click event listener on the window object never be called
+        + the click event listener on the window object never called
     + `evt.preventDefault()`:
-      + default browser behavior not be executed
+      + default browser behavior not executed
       + example: `contextmenu` event listener attached to an object for user's own contextmenu
   + typical specific properties associated w/ the type of the event
-    + `evt.button`: mouse button used in case of a mouse event listerner
+    + `evt.button`: mouse button used in case of a mouse event listener
     + `evt.keyCode`: code of the key been used
     + `evt.pageX`: coordinate of the mouse relative to the page
-  + examples
-    + key related events: `keyup`, `keydown` and `keypress` for key pressed/released
-    + mouse related position: `mouseover` to get mouse postion in the DOM element generated the event
+    + examples
+      + key related events: `keyup`, `keydown` and `keypress` for key pressed/released
+      + mouse related position: `mouseover` to get mouse postion in the DOM element generating the event
 
 + Most useful common properties and methods
   + properties
@@ -401,7 +401,7 @@ There are no particular properties that need to be mentioned here. Usually, the 
 
 #### Examples
 
-##### Example 1: wait until the page is loaded (when the DOM is ready) before doing something
+__Example 1: wait until the page is loaded (when the DOM is ready) before doing something__
 
 This first variant that uses `<body onload="init();">`
 
@@ -416,7 +416,7 @@ This second variant: using `window.onload = init;` in the JavaScript code...
 [Local Demo](src/02d-example11.html)
 
 
-##### Example 2: detect a resize of the window
+__Example 2: detect a resize of the window__
 
 In this example, we're listening to page `load` and page `resize` events. When the window is loaded for the first time, or resized, we call the `resize()` callback function. The `window.innerWidth` and `window.innerHeight` properties are used to display the updated size of the window. We also use `screen.width` and `screen.height` to display the screen size.
 
@@ -425,7 +425,7 @@ In this example, we're listening to page `load` and page `resize` events. When t
 [Local Demo](src/02d-example12.html)
 
 
-##### Example 3: do something as the page is being scrolled up or down
+__Example 3: do something as the page is being scrolled up or down__
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/EWJWMq)
 
@@ -456,7 +456,7 @@ In this example, we're listening to page `load` and page `resize` events. When t
     + displaying the screen size w/ `screen.width` and `screen.height`
 
 
-#### Knowledge check 2.4.2
+#### Knowledge check 2.4.4
 
 ```js
 function init(evt) {
