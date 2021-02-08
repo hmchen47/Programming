@@ -464,7 +464,7 @@ Notice that `identifier`, `tagName` and `className` must be of type String.
     + HTML: `<img src="https://i.imgur.com/Ntvj5rq.png" id="img1" width=200> <img src="https://i.imgur.com/yiU59oi.gif" width=200>`
     + JavaScript
       + initialization: `window.onload = init;`
-      + `init` function executed as soon as the page loaded (DOME ready)
+      + `init` function executed as soon as the page loaded (DOM ready)
 
         ```js
         function init() {
@@ -487,7 +487,7 @@ Notice that `identifier`, `tagName` and `className` must be of type String.
         ```
 
       + manipulate all images
- 
+
         ```js
         function resizeAllImages() {
             var listImages = document.querySelectorAll("img");
@@ -503,24 +503,24 @@ Notice that `identifier`, `tagName` and `className` must be of type String.
     + HTML: `<button onclick="changeBackGroundOfPs('firstDiv');">Change backgrounds of p under a given element known by id</button>`
     + JavaScript: `var paragraphs = document.querySelectorAll("#" + id + " p");`
   + examples: more complex selectors
-    + `var el = document.querySelector('#nav ul li');`: all elements li in ul elements in an element of id=nav
+    + `var el = document.querySelector('#nav ul li');`: all elements `li` in `ul` elements in an element of `id`= `nav`
     + `var els = document.querySelectorAll('ul li:nth-child(even)');`: all li in a ul, but only even elements
-    + `var els = document.querySelectorAll('form.test > tr > td');`: all td directly in tr in a form of class test
+    + `var els = document.querySelectorAll('form.test > tr > td');`: all `td` directly in `tr` in a form of class test
     + `querySelectorAll("p.warning, p.error");`: all paragraphs of class warning or error
-    + `querySelector("#foo, #bar");`: first element of id=foo or id=bar
-    + `var div = document.getElementById("bar"); var p = div.querySelector("p");`: first p in a div
+    + `querySelector("#foo, #bar");`: first element of `id` = `foo` or `id` = `bar`
+    + `var div = document.getElementById("bar"); var p = div.querySelector("p");`: first `p` in a `div`
 
 + The `getElement` APIs
   + able to be replaced by `querySelector` and `querySelectorAll` methods
-  + `document.getElementById(identifier)`
-    + return the element which has the id “identifier”.
+  + `document.getElementById(identifier)` method
+    + return the element which has the `id` “identifier”.
     + equivalent to `document.querySelector("#identifier');`
     + `var elm = document.getElementById('myDiv');` = `document.querySelector('#myDiv');`
-  + `document.getElementsByTagName(tagName)`
+  + `document.getElementsByTagName(tagName)` method
     + return a list of elements which are named “tagName”.
     + equivalent to `document.querySelectorAll(tagName);`
     + example: `var list = document.getElementByTagName('img');` = `document.querySelector('img');`
-  + `document.getElementsByClassName(className)`
+  + `document.getElementsByClassName(className)` method
     + return a list of elements which have the class “className”.
     + equivalent to `document.querySelectorAll('.className');`
     + example: `var list = document.getElementByClassName('important');` = `document.querySelector('.important');`
