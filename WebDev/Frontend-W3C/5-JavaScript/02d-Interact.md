@@ -547,15 +547,14 @@ These are legacy properties, still used by many JavaScript code around the world
 
 #### Examples
 
-
-##### Example #1: use keyup and keydown on the window object
+__Example #1: use keyup and keydown on the window object__
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/wJZJZp)
 
 [Local Demo](src/02d-example14.html)
 
 
-##### Example #2: see  keypress on the window object
+__Example #2: see  keypress on the window object__
 
 See the Pen [keyup and keydown events on window](https://codepen.io/w3devcampus/pen/WpWjey/) by W3Cx ([@w3devcampus](https://codepen.io/w3devcampus)) on [CodePen](https://codepen.io/).
 
@@ -564,7 +563,7 @@ See the Pen [keyup and keydown events on window](https://codepen.io/w3devcampus/
 [Local Demo](src/02d-example15.html)
 
 
-##### Example #3: detect a combination of keys + modifier keys (shift, ctrl, alt)
+__Example #3: detect a combination of keys + modifier keys (shift, ctrl, alt)__
 
 Try to type shift-a for example, ctrl-shift-b or alt-f...
 
@@ -596,7 +595,7 @@ Try to type shift-a for example, ctrl-shift-b or alt-f...
     + `keyup`: releasing a key
     + `keypress` (deprecated): pressing a key or up and release
   + keyboardEvent properties
-    +legacy properties still used by many JS code
+    + legacy properties still used by many JS code
     + not recommended for modern browser
     + `keyCode`
       + more powerful/easy to use
@@ -755,7 +754,7 @@ Please note that the W3C has also published a sibling specification describing t
   + UI Events / DOM level 3 events: a new W3C API
   + both introduced w/ UI Events
   + `key` property
-    + a character in string form as the pressed key a printable character
+    + a character in string form as the pressed key w/ a printable character
     + a multi-character descriptive string as the pressed key not a printable character, e.g., 'Backspace', 'Control', 'Enter', 'Tab'
     + all major browsers implemented
   + `code` property
@@ -765,8 +764,8 @@ Please note that the W3C has also published a sibling specification describing t
     + `evt.code` value: `KeyQ`
     + `evt.key` value: `q`
   + example: pressing `A` key on a AZERTY keyboard
-    + `evt.code` value" `KeyQ`
-    + `evt.key` value:" `a`
+    + `evt.code` value: `KeyQ`
+    + `evt.key` value: `a`
   + `code` property of number keys
     + top digit bar: 'Digit#', eg, `Digit1'
     + numeric pad: 'Numpad#', eg, 'Numpad1'
@@ -974,7 +973,6 @@ __Example #6: create  and attach a right-click context menu to any element__
     + `dblclick`: occurred when the user double-clicks on an element
     + `mousedown`: occurred when the user presses a mouse button
     + `mouseup`: occurred when the user releases a mouse button
-    + `mousemove`: occurred when the pointer is moving while it over an element
     + `mouseenter`: occurred when the pointer is moved onto an element
     + `mouseleave`: occurred when the pointer is moved out of an element
     + `mouseover`: occurred when the pointer is moved onto an element, or onto one of its children
@@ -986,15 +984,15 @@ __Example #6: create  and attach a right-click context menu to any element__
       + relative to the element coordinate system
         + left-top corner: always (0, 0) independent of scroll position
         + coordinates relative to the VIEWPORT (the visualable part of the document page)
+      + values changed when page scrolls down and mouse not moved
     + `pageX` and `pageY`
       + the coordinates of the mouse pointer
       + relative to the complete document/page
       + always relative to the very beginning of the document/page, even if the top of the page not visible
-      + values changed when page scrolls down and mouse not moved
     + `screenX` and `screenY`: the coordinates of the mouse pointer, relative to the screen
     + `altKey`, `ctrlKey` and `shiftKey`: whether the "alt", "ctrl" and "shift" pressed
     + `detail`: a number that indicates how many times the mouse clicked
-  + event received by the listener used for getting the button number or the coordinates if the mouse cursor
+  + event received by the listener used for getting the button number or the coordinates of the mouse cursor
   + examples: listening to `mouseup` and `mousedown` events
 
     ```js
@@ -1017,8 +1015,7 @@ __Example #6: create  and attach a right-click context menu to any element__
     ```js
     window.onload = init;
 
-    function init() {
-      // page has been loaded
+    function init() { // page has been loaded
       canvas = document.querySelector('#myCanvas');
       canvas.addEventListener('mousemove', processMouseMove)
     }
@@ -1487,7 +1484,7 @@ There are no particular properties that need to be mentioned here. Usually, on a
 #### Notes for 2.4.10 Reference tables
 
 + Event management in JS
-  + no input ot output in JS
+  + no input or output in JS
   + treating events caused by user actions as input
   + manipulating DOM structure as output
   + DOM events:
@@ -1498,28 +1495,28 @@ There are no particular properties that need to be mentioned here. Usually, on a
     + declaring an event handler in the HTNL code
       + syntax: `<div id="someDiv" onclick="alert('clicked!')"> content of the div </div>`
       + easy to use but not recommended
-      + probably deplicated
+      + probably duplicated
       + mixing 'visual layer' (HTML) and 'logical layer' (JS) $\to$ a host problems during development
     + attaching an event handler to an HTML element in JS
       + syntax: `document.getElementById('someDiv').onclick = function() { alert('clicked!'); }`
       + unable to attach multiple listener fucntions
     + registering a callback to the event listener w/ the `addEventListener` method
       + syntax: `document.getElementById('someDiv').addEventListener('click', function() { alert('clicked!'); }, false);`
-      + 3rd parameter: whether the _callback_ to be called dueing the captured phase, default as false
+      + 3rd parameter: whether the _callback_ to be called during the captured phase, default as false
   + passing DOM event to the event listener function
     + creating an event listener and attached to an element $\to$ creating an `event` object to describe what happen
-    + event object as a parameetr of the __callback fucntion__
+    + event object as a parameter of the __callback fucntion__
     + callback function: `element.addEventListener('click', function(event) { // able to use event object inside the callback }, false);`
     + obtaining useful info from the `event` object w/ its properties
 
 + Reference table
 
-  <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 50vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+  <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" cellspacing=0 cellpadding=5 border=1 align="center">
     <thead>
     <tr style="border-bottom: double black;">
       <th style="width: 5%; font-size: 1.4em; border-right: double back; text-align: center; background-color: lightslategray; color: white;"> Type </th>
       <th style="width: 5%; font-size: 1.4em; border-right: double back; text-align: center; background-color: lightslategray; color: white;"> Name </th>
-      <th style="width: 40%; text-align: center; font-size: 1.4em; background-color: lightslategray; color: white;"> Description </th>
+      <th style="width: 60%; text-align: center; font-size: 1.4em; background-color: lightslategray; color: white;"> Description </th>
     </tr>
     </thead>
     <tbody>
@@ -1554,7 +1551,7 @@ There are no particular properties that need to be mentioned here. Usually, on a
     </tr>
     <tr>
       <td style="padding: 0.3em; font-weight: bold; color: brown;"> scroll </td>
-      <td style="padding: 0.3em;"> The event occurs when an element's scrollbar is being scrolled. Usually, in the scroll event listener, we use things such as:<br> &nbsp;&nbsp;<code>&var max = document.body.scrollHeight - innerHeight;</code><br>&nbsp;&nbsp;<code>var percent = (pageYOffset / max);<//code><br/>...to know the percentage of the scroll in the page. </td>
+      <td style="padding: 0.3em;"> The event occurs when an element's scrollbar is being scrolled. Usually, in the scroll event listener, we use things such as:<br> &nbsp;&nbsp;<code>&var max = document.body.scrollHeight - innerHeight;</code><br>&nbsp;&nbsp;<code>var percent = (pageYOffset / max);</code><br/>...to know the percentage of the scroll in the page. </td>
     </tr>
     <tr>
       <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Keyboard </td> </tr>

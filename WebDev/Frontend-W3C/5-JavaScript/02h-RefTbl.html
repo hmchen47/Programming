@@ -1,0 +1,189 @@
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> My Web Page Title </title>
+
+  <!-- CSS Usage: link preferred ~ comment for HTML-->
+  <link rel="stylesheet" type="text/css" href="css/my_styles.css">
+  <style>
+    /* CSS will go in this area ~ comment for CSS */
+  </style>
+</head>
+<body>
+  <!-- Contents within this area -->
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 90vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="width: 5%; font-size: 1.4em; border-right: double back; text-align: center; background-color: lightslategray; color: white;"> Type </th>
+    <th style="width: 5%; font-size: 1.4em; border-right: double back; text-align: center; background-color: lightslategray; color: white;"> Name </th>
+    <th style="width: 60%; text-align: center; font-size: 1.4em; background-color: lightslategray; color: white;"> Description </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Event Object </td> </tr>
+    <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Common Properties </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> type </td>
+    <td style="padding: 0.3em;"> Returns the name of the event </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> target </td>
+    <td style="padding: 0.3em;"> Returns the element that triggered the event </td>
+  </tr>
+  <tr>
+    <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Common Methods </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> preventDefault() </td>
+    <td style="padding: 0.3em;"> Cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> stopPropagation() </td>
+    <td style="padding: 0.3em;"> Prevents further propagation of an event during event flow </td>
+  </tr>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Page Lifecycle </td> </tr>
+    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Events </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> load </td>
+    <td style="padding: 0.3em;"> This event occurs when an object has loaded (including all its resources: images, etc.) This event is very useful when you want to run JS code and be sure that the DOM is ready (in other words, be sure that a <code>document.getElementById(...)</code> or <code>ocument.querySelector(...)</code> will not raise an error because the document has not been loaded and elements you are looking for are not ready. </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> resize </td>
+    <td style="padding: 0.3em;"> The event occurs when the document view is resized. Usually we get the new size of the window inside the event listener using <code>var w = window.innerWidth;</code> and <code>var h = window.innerHeight;</code> </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> scroll </td>
+    <td style="padding: 0.3em;"> The event occurs when an element's scrollbar is being scrolled. Usually, in the scroll event listener, we use things such as:<br> &nbsp;&nbsp;<code>&var max = document.body.scrollHeight - innerHeight;</code><br>&nbsp;&nbsp;<code>var percent = (pageYOffset / max);</code><br/>...to know the percentage of the scroll in the page. </td>
+  </tr>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Keyboard </td> </tr>
+    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Events </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> keydown </td>
+    <td style="padding: 0.3em;"> The event occurs when the user is pressing a key </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> keyup </td>
+    <td style="padding: 0.3em;"> The event occurs when the user releases a key </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> keypress </td>
+    <td style="padding: 0.3em;"> The event occurs when the user presses a key (up and release) </td>
+  </tr>
+  <tr>
+    <th rowspan=4 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Properties </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> keyCode </td>
+    <td style="padding: 0.3em;"> Returns the Unicode character code of the key that triggered the onkeypress ,onkeydown or onkeyup event </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> shiftKey </td>
+    <td style="padding: 0.3em;"> Returns whether the "shift" key was pressed when the key event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> ctrlKey </td>
+    <td style="padding: 0.3em;"> Returns whether the "ctrl" key was pressed when the key event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> altKey </td>
+    <td style="padding: 0.3em;"> Returns whether the "alt" key was pressed when the key event was triggered </td>
+  </tr>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Mouse </td> </tr>
+    <th rowspan=9 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Events </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> click </td>
+    <td style="padding: 0.3em;"> The event occurs when the user clicks on an element (presses a button and releases it) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> dblclick </td>
+    <td style="padding: 0.3em;"> The event occurs when the user double-clicks on an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mousedown </td>
+    <td style="padding: 0.3em;"> The event occurs when the user presses a key (up and release) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mouseup </td>
+    <td style="padding: 0.3em;"> The event occurs when a user releases a mouse button over an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mousemove </td>
+    <td style="padding: 0.3em;"> The event occurs when the pointer is moving while it is over an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mouseenter </td>
+    <td style="padding: 0.3em;"> The event occurs when the pointer is moved onto an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mouseleave </td>
+    <td style="padding: 0.3em;"> The event occurs when the pointer is moved out of an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mouseover </td>
+    <td style="padding: 0.3em;"> The event occurs when the pointer is moved onto an element, or onto one of its children </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> contextmenu </td>
+    <td style="padding: 0.3em;"> The event occurs when the user right-clicks on an element to open a context menu </td>
+  </tr>
+  <tr>
+    <th rowspan=6 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Properties </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> button </td>
+    <td style="padding: 0.3em;"> Returns which mouse button was pressed when the mouse event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> clientX and clientY </td>
+    <td style="padding: 0.3em;"> Returns the coordinates of the mouse pointer, relative to the element coordinate system that triggered the event </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> pageX and pageY </td>
+    <td style="padding: 0.3em;"> Returns the coordinates of the mouse pointer, relative to the document, when the mouse event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> screenX and screenY </td>
+    <td style="padding: 0.3em;"> Returns the coordinates of the mouse pointer, relative to the screen, when an event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> altKey, ctrlKey, shiftKey </td>
+    <td style="padding: 0.3em;"> Returns whether the "alt, ctrl and shift" key was pressed when an event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> detail </td>
+    <td style="padding: 0.3em;"> Returns a number that indicates how many times the mouse was clicked </td>
+  </tr>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Forms </td> </tr>
+    <th rowspan=6 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Events </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> input </td>
+    <td style="padding: 0.3em;"> The event occurs when an element gets user input (e.g., a key is typed on an input field, a slider is moved, etc.) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> change </td>
+    <td style="padding: 0.3em;"> The event occurs when the content of a form element, the selection, or the checked state have changed (for &lt;input&gt;, &lt;select&gt;, and &lt;textarea&gt;). A change event listener on a slider will generate an event when the drag/move ended, while input events will be useful to do something as the slider is being moved. </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> focus </td>
+    <td style="padding: 0.3em;"> The event occurs when an element gets focus (e.g., the user clicks in an input field) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> blur </td>
+    <td style="padding: 0.3em;"> The event occurs when an element loses focus (e.g., the user clicks on another element) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> select </td>
+    <td style="padding: 0.3em;"> The event occurs after the user selects some text (for &lt;input&gt; and &lt;textarea&gt;) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> submit </td>
+    <td style="padding: 0.3em;"> The event occurs after the user selects some text (for &lt;input&gt; and &lt;textarea&gt;) </td>
+  </tr>
+  <tr>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Property </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> value </td>
+    <td style="padding: 0.3em;"> The content of the different input fields </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
+
