@@ -4,6 +4,7 @@
 
 ## 2.5 The DOM API
 
+
 ### 2.5.1 Introducing the DOM
 
 When a user clicks on a link or enters a URL in the address of your Web browser, it downloads the page’s HTML text and builds up a model of the document’s structure called the DOM (Document Object Model). This model is used to render the HTML page on the screen.
@@ -124,15 +125,15 @@ You can also use the "DOM inspector" to locate a particular element with the mou
       + handle associated events
     + a propert of the global object `window`
     + implicitly `window.document` = `document`
-  + types of nodes (moste useful ones highlighted)
+  + types of nodes (most useful ones highlighted)
     + __element__, e.g., `<ul></ul>`
     + __text__, e.g., `<p>the text within the element p is a node of type text</p>`
     + Document, DocumentFragment, DocumentType, Comment, ProcessingInstruction
   + viewing DOM w/ devtool
     + Firfox: devtool > console > type "document.body"
     + Chrome: ([devtool video](https://youtu.be/VYyQv0CSZOE))
-      + devtool > console > tyep "window"
-      + devtool > console > type "inspec(document.querySlector("input"));" to focus on 'input' element
+      + devtool > console > type "window"
+      + devtool > console > type "inspec(document.querySelector("input"));" to focus on 'input' element
 
 
 ### 2.5.2 A warning about the DOM API
