@@ -1005,7 +1005,7 @@ When the image is dropped, the `drop()` method is called. As the drop event list
   + example: [drag'n'drop](src/02d-example13.html)
     + HTML: 
       + select element to drag: `<img src="https://.../ABiBCwZ.png" id="cr" ondragstart="drag(this, event)" alt="Logo Chrome">`
-      + destination to place elemen: `<div class="box" ondragover="return false" ondrop="drop(this, event)">`
+      + destination to place element: `<div class="box" ondragover="return false" ondrop="drop(this, event)">`
     + Javascript
 
       ```js
