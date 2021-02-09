@@ -1097,7 +1097,7 @@ In the same example, if you look at the `reset()` JavaScript function, we use th
     ```
 
   + removing all children of an element using the `innerHTML` property
-    
+
     ```js
     function reset() {
       var ul = document.querySelector("#fruits");
