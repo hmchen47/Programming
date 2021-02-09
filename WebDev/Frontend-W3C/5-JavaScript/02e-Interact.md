@@ -828,8 +828,8 @@ This example shows some of the things we can do:
     + used to read the text content or to modify the content
     + only containing the text content
   + example: `<p id="second"><em>second</em> paragraph</p>`
-    + `console.log(secondP.textContent);` $\to$ `<em>second</em> paragraph`
-    + `console.log(secondP.innerHTML);` $\to$ `second paragraph`
+    + `console.log(secondP.innerHTML);` $\to$ `<em>second</em> paragraph`
+    + `console.log(secondP.textContent);` $\to$ `second paragraph`
   + modifying the attributes
     + using `value` property of objects
     + examples: `colorChooser.value = "#00FF00";`, `number.value = 10; number.step = "0.1"; number.max = 11;`, `img.src="n_400x400.jpg"; img.width=250;`
