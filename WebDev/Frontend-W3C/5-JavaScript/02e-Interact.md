@@ -957,7 +957,7 @@ This is the same example, but in an abbreviated form, using the `innerHTML` prop
       + `ul.append(li);`: insert at the end, appendChild() could also be used (old)
       + `ul.prepend(li);`: insert at the beginning
       + `ul.insertBefore(li, another_element_child_of_ul);`: insert in the middle
-      + `document.body.append(img);`: adds the image at the end of the document
+      + `document.body.append(img);`: add the image at the end of the document
 
 
 ### 2.5.7 Moving HTML elements in the DOM
