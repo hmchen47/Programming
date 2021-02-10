@@ -1074,7 +1074,7 @@ This function is called by the `mainLoop`:
         + position of a certain ball: `b.x += b.speedX; b.y += b.speedY;`
         + detect collision w/ walls: `testCollisionBallWithWalls(b);`
         + detect collision btw balls & the player: ` testCollisionWithPlayer(b, index);`
-    + detecting collection btw balls & the player (intersection): `function testCollisionWithPlayer(b, index) {...}`
+    + detecting collision btw balls & the player (intersection): `function testCollisionWithPlayer(b, index) {...}`
       + check overlap w/ given params: `if(circRectsOverlap(player.x, player.y, player.width, player.height, b.x, b.y, b.radius)) {...}`
       + remove collided element (ball): `balls.splice(index, 1);`
     + printing number of alive balls: `function drawNumberOfBallsAlive(balls) {...}`
@@ -1212,7 +1212,7 @@ Here is the `startGame(nb_balls)` function:
       + number of balls: `<label for="nbBalls">Number of balls: </label> <input type="number" min=1 max=30 value=10 id="nbBalls" oninput="changeNbBalls(this.value);">`
       + payer color: `<label for="nbBalls">Player color: </label> <input type="color" value='#FF0000' oninput="changePlayerColor(this.value);">`
       + color of ball to colide: `<label for="nbBalls">Color of ball to eat: </label> <select onchange="changeColorToEat(this.value);"> <option value='red'>red</option> <option value='blue'>blue</option> <option value='green'>green</option> </select>`
-      + ball speed: `<label for="nbBalls">Change ball speed: </label> - <input type="range" value='1' min=0.1 max=3 step=0.1 oninput="changeBallSpeed(this.value);"> +`
+      + ball speed: `<label for="nbBalls">Change ball speed: </label> - <input type="range" value='1' min=0.1 max=3 step=0.1 oninput="changeBallSpeed(this.value);">`
     + global variables in JS
       + number of balls at the beginning: `var initialNumberOfBalls;`
       + ball speed slider: `var globalSpeedMutiplier = 1;`
