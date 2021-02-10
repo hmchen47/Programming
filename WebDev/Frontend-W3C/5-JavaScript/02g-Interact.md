@@ -1,8 +1,158 @@
 # Module 2: Adding interactivity to HTML documents
 
 
-
 ## 2.7 Exercises - Module 2
+
+
+### 2.7.1 Exercises (1-6)
+
+1. Are we all equal?
+
+  ```js
+  var x = 2;
+  var y = '2';
+
+  console.log((x == y));
+  console.log((x === y));
+  ```
+
+  In JavaScript we can make comparisons using `==` or `===`. What will the code above display in the devtool console when executed?
+
+  a. `false` and on the next line `true`<br/>
+  b. `true` and on the next line `false`<br/>
+  c. `true` and on the next line `true`<br/>
+
+  Ans: b<br/>
+  Explanation: 
+    + Equal (`==`), returns true if the operands are strictly equal with type conversion.
+    + Strict equal (`===`) returns true if the operands are strictly equal with no type conversion.
+    + The triple-equals operator never does type coercion. It returns true if both operands reference the same object, or in the case of value types, have the same value. So, with `==`, 2 and '2' are the same object, not with `===`.
+    + The correct answer is `true`, then `false`.
+    + WE RECOMMEND THAT YOU USE `===` when beginning coding in JavaScript, this will save you from making many errors.
+
+
+2. And so...?
+
+  ```js
+  var a = 3;
+  var b = 10;
+  
+  if ((a === 5) && (b === 6))  { 
+      console.log('a is equal to 5 and b is equal to 6');
+  }
+  ```
+
+  When will the expression `(b === 6)` be evaluated?
+
+  a. never<br/>
+  a. before `(a === 5)`<br/>
+  a. after `(a === 5)`<br/>
+
+  Ans: a<br/>
+  Explanation: As a equals 3, the `(a === 5)` expression will be false. With the && binary operator, if the left part is false, then the right part is never evaluated. false && something (an expression) is evaluated to false, and the part to the right of the && operator is not tested.
+
+
+3. Switch me!
+
+  ```js
+  var gear = '';
+  var cloudColor = 'yellow';
+
+  switch(cloudColor) {
+      case 'yellow': gear += 'psychedelic swimmnig suit,';
+      case 'black': gear += ' boots, '; break;
+      case 'grey': gear += ' umbrella, ';
+      case 'white': gear += ' jacket, ';
+      default: gear += ' watch';
+  }
+
+  console.log('gear: ' + gear);
+  ```
+
+Check the gear that will be printed to the devtool console (2 correct answers.)
+
+  a. psychedelic swimming suit<br/>
+  b. boots<br/>
+  c. umbrella<br/>
+  d. jacket<br/>
+  e. watch<br/>
+
+  Ans: ab<br/>
+  Explanation: `cloudColor` is yellow, so the first switch statement will be `true` and 'psychedelic swimming suit' will be added to the gear variable. `gear` will be of type string because of this value. The statement's block of instructions does not end with a `break;` so the next statement will not be tested and 'boots' will be added to the `gear` variable that has not the value 'psychedelic swimming suit, boots'.
+
+
+4. Switch me again!
+
+  ```js
+  var score = 69;
+  var message='';
+  
+  switch(score) {
+    case (score === 69):
+      message += 'Not bad!';
+      break;
+    case (100): 
+        message += 'Great, perfect score!';
+  }
+
+  console.log(message);
+  ```
+
+  Will the message be assigned the value 'Not Bad!'? (No/Yes)
+
+  Ans: No<br/>
+  Explanation:
+    + With the `switch` statement, if the value of an expression equals one of the cases (the equality operator evaluated is `===`), all the statements next to this case block are executed sequentially until the keyword `break` is reached.
+    + Look at the first case: the (`score === 69`) expression will be evaluated to `true`. Then the test (`score === true`) will be performed. And it will be `false` (as score has the value 69), then the block of instruction that assign 'Not Bad!' to message will NEVER be executed.
+
+
+5. This is false!
+
+  ```js
+  var x = ...;
+
+  if(x) { console.log("Evaluated as true!!!"); }
+  ```
+
+  When tested, which of these values for x will be evaluated as true? (3 correct answers.)
+
+  a. `""` (empty string)<br/>
+  b. `"Hello"`<br/>
+  c. `undefined`<br/>
+  d. `"false"`<br/>
+  e. `1`<br/>
+  f. `0`<br/>
+  g. `NaN`<br/>
+
+  Ans: bde<br/>
+  Explanation: The following values will evaluate to `false`: `false`, `undefined`, `null`, `0`, `NaN`, `""` (empty string). All the rest, including the string "false" will be evaluated as `true`.
+
+
+6. Choose the right x
+
+  ```js
+  function choose(x, m1, m2) {
+    return x <= m1 ? m1 : x >= m2 ? m2 : x; 
+  }
+  var result1 = choose(5, 10, 40);
+  console.log("result1 = " + result1);
+
+  var result2 = choose(20, 10, 40);
+  console.log("result2 = " + result2);
+
+  var result3 = choose(70, 10, 40);
+  console.log("result3 = " + result3);
+  ```
+
+  What will be the values of the variables result1, result2 and result3 after the execution of the above code?
+
+  a. 10, 20 and 40<br/>
+  b. 10, 20 and 70<br/>
+  c. 5, 10 and 20<br/>
+
+  Ans: a<br/>
+  Explanation: The `choose` function returns the first parameter if it's >= m1 and <= m2. It returns m1 if x < m1, and it returns m2 if x > m2.
+
 
 
 
