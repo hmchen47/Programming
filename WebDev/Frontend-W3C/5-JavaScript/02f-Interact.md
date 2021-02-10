@@ -801,7 +801,6 @@ Extract from source code:
     + `mouseenter`: mouse moving from the parent element to child element
     + `mouseleave`: mouse leaving the surface of the element
     + `mouseout`: mouse moving to outside the bounds of the original element or a child of the original element
-    + `mousemove`: mouse moving over an element, each time the mouse moves
 
 + Mouse position relative to the canvas
   + viewport coordinate
@@ -812,7 +811,7 @@ Extract from source code:
   + considerations
     + the position of the canvas in the viewport
     + the CSS properties probably effecting the canvas position (margin, etc.)
-  + `getBoundingClientRect()`: a methodfor getting the position and size of any element in the viewport
+  + `getBoundingClientRect()`: a method for getting the position and size of any element in the viewport
   + mouse position in canvas: `function getMousePos(canvas, evt) {...}`
     + get the canvas position: `var rect = canvas.getBoundingClientRect();`
     + the position relative to the canvas: `{x: evt.clientX - rect.left, y: evt.clientY - rect.top}`
