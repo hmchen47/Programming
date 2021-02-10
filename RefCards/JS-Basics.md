@@ -537,5 +537,45 @@
     // returns [1, 2, 3, 4, true, "Michel Buffa"]
     ```
 
++ [Functions](../WebDev/Frontend-W3C/5-JavaScript/02c-Interact.md#23-functions-part2-callbacks)
+  + Syntax: two ways to declare function
+    + standardard function declaration
+
+      ```js
+      function functionName(parameters) {
+      // code to be executed
+      }
+      ```
+
+    + using a function expression
+
+      ```js
+      var varName = function(parameters) {
+        // code to be executed
+      };
+      ```
+
+  + standard declaration
+    + not an executable statement
+    + w/o semicolon at the end of a function declaration
+    + semicolon used to separate executable JS statements
+  + function expression
+    + used a variable to store a function expression
+    + calling the functions using the variable name
+    + adding a semicolon at the end as a JS instruction
+    + giving a value to a variable
+    + an anonymous function
+      + a function w/o function name
+      + representing a value able to be assigned to a variable
+      + variable able to be used to execute the function
+    + 1st class object: manipulated like any other object/value in JS
+
++ [Callback functions](../WebDev/Frontend-W3C/5-JavaScript/02c-Interact.md#23-functions-part2-callbacks)
+  + functions: 1st class objects
+    + used as an argument, a parameter to another function
+    + executing the passed-in function or even returning it to be executed later
+  + a function passed to another function and executed inside the function called
+  + event listerners used callback functions
+
 
 
