@@ -406,7 +406,7 @@ If we now remove `b.speedX` to the `ball.x` position, we return the ball to the 
     + test game state: game over if no life left
     + etc.
   + example: [moving monster](src/02f-example04.html)
-    + global variables: `var canvas, ctx, w, h; var xMonster = 10;var yMonster = 10;var monsterSpeed = 1;`
+    + global variables: `var canvas, ctx, w, h; var xMonster = 10; var yMonster = 10; var monsterSpeed = 1;`
     + `init` function after page loaded: `window.onload = function init() {...}`
       + access element: `canvas = document.querySelector("#myCanvas");`
       + regular used info (no `var` or `let` w/ these variables $\to$ global variables): `w = canvas.width; h = canvas.height;`
@@ -430,8 +430,25 @@ If we now remove `b.speedX` to the `ball.x` position, we return the ball to the 
       + new position of ball: `b.x += b.speedX; b.y += b.speedY;`
       + collision detection: `testCollisionBallWithWalls(b);`
     + collision detection: `function testCollisionBallWithWalls(b) {...}`
-      + collision w/ vertical walls: `if((b.x + b.radius) > w) { b.speedX = -b.speedX; b.x = w - b.radius; } else if((b.x -b.radius) < 0) { b.speedX = -b.speedX; b.x = b.radius; }`
-      + collision w/ horizontal walls: `if((b.y + b.radius) > h) { b.speedY = -b.speedY; b.y = h - b.radius; } else if((b.y -b.radius) < 0) { b.speedY = -b.speedY;b.Y = b.radius; }`
+      + collision w/ vertical walls: 
+
+        ```js
+        if ((b.x + b.radius) > w) { 
+          b.speedX = -b.speedX; b.x = w - b.radius; 
+        } else if ((b.x -b.radius) < 0) { 
+          b.speedX = -b.speedX; b.x = b.radius; 
+        }
+        ```
+
+      + collision w/ horizontal walls: 
+       
+        ```js
+        if ((b.y + b.radius) > h) { 
+          b.speedY = -b.speedY; b.y = h - b.radius; 
+        } else if ((b.y -b.radius) < 0) { 
+          b.speedY = -b.speedY; b.y = b.radius; 
+        }
+        ```
 
 
 ### 2.6.3 Animating multiple objects
