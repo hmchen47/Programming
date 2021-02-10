@@ -136,8 +136,147 @@
     + `(condition) ? 'something' : 'others'`
     + example: `var kindergarten_eligible = (age < 5) ? "Too young" : socially_ready`
 
++ [Logical operators](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#221-boolean-values-and-logical-operators)
+  + `&&` (AND): binary
+  + `||` (OR): binary
+  + `!` (NOT): unary, e.g., `!true // false`
+  + implicit conversion
+    + expression w/ logical operators
+    + non-boolean value implicitly converted to boolean
+  + lazy / short-circuit evaluation
+    + `false &&`: always false, `&&` not tested
+    + `true ||`: always true, `||` not tested
+  + values evaluated as false: `false`, `undefined`, `null`, `0`, `NaN`, the empty string
+  + everything else evaluated as true
+  + `&&` and `||` evaluation rules
+    + `A && B`: return A if A = false, otherwise return B
+    + `A || B`: return A if A = true, otherwise return B
 
-## Syntax: Variables
++ [Comparison operators](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#221-boolean-values-and-logical-operators)
+  + Equal `==`
+  + Not equal `!=`
+  + Greater than `>`
+  + Greater than or equal `>=`
+  + Less than `<`
+  + Less than or equal to `<=`
+  + Strict equal `===`
+  + Strict not equal `!==`
+
++ [Equal vs. strict equal](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#221-boolean-values-and-logical-operators)
+  + Equal `==`: return true if strictly equal __w/ type conversion__
+  + Strict equal `===`: return true if strictly equal __w/o type conversion__
+  + triple-equals operator never doing type coercion
+  + best practice: always use `===` or `!==` for comparisons
+
++ [Expressions](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#222-conditional-statements)
+  + a statement closed w/ semicolon (`;`)
+  + missing semicolon automatically inserted
+  + readability: always recommended adding a semicolon at the end of all statements
+  + flow of program
+    + statement executed sequentially from top to bottom
+    + modified by statements such as conditional statements or iteration statement
+  + conditional statements: used to execute a unit of code only if a condition is evaluated as `true`
+  + loop statement
+    + used to run the block of code several times while a condition satisfied
+    + [slowmoJS](https://toolness.github.io/slowmo-js/): online tool to check how the loop executed
+
++ [Block statement](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#222-conditional-statements)
+  + a simple statement allowing to group a set of statements wrapped in curly braces`{` & `}`
+  + used by other statements including if-statement or for-statement
+  + example: 
+
+    ```js
+    {
+        var i = 0; var result = false;
+        console.log('i = ' + i);
+    }
+    ```
+
+
+## Conditional Statements
+
++ [The `if` statement](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#222-conditional-statements)
+  + syntax:
+    + <code><span style="color: brown; font-weight: bold;">if</span> (Expr1) <span style="color: brown; font-weight: bold;">else</span> (Expr1)</code>
+    + <code><span style="color: brown; font-weight: bold;">if</span> (Expr1)</code>
+  + `Expr1` possibly including
+    + logical operators: `&&`,. `||`, & `!`
+    + comparison expressions: `==`, `===`, `>`, `>=`, `<`, `<=`
+    + any values or expressions able to converted to boolean
+  + curly brace
+    + `Expr1` and `Expr2` possible block statements w/ curly braces
+    + omitted curly braces allowed if only one statement in the block
+    + strongly recommended enclosing if-statement in curly braces
+
++ [The if-then-else ternary operator](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#222-conditional-statements)
+  + ternary operator:
+    + using a syntax w/ "?" and ":"
+    + statement: `(expr1) ? (expr2) : (expr3)`
+  + a shortcut version of `if...then...else`
+  + read as `if (expr1) then (expr2) else (expr3)`
+  + short version not recommended except for very simple statement
+
++ [The switch statement](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#222-conditional-statements)
+  + syntax:
+
+    ```js
+    switch (expression) {
+        case value1:
+            statement;
+            break;
+    
+        case value2:
+            statement;
+            break;
+        
+        ...
+    
+        default:         // if no case tested true
+            statement;
+            break;
+    }
+    ```
+  
+  + the equality operator evaluated w/ `===`
+  + all statements next to the `case` block executed sequentially until `break` keyword reached
+
+
+
+## Loop statements
+
++ [`while` loop](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#223-loop-statements)
+  + `while` statement
+    + a block of code executed repeatedly while the specified condition satisfied
+    + syntax: `while (condition) {statement}`
+      + condition: a logical expression; true to execute the statement, otherwise exit
+      + statement: probably a block statement
+    + checking the condition first before executing the content
+  + `do-while` statement
+    + syntax: `do {statement} while (condition)`
+    + executing the content of the loop once before checking the condition of the while
+    + used for a block of code executed at least once
+    + rarely used
+
++ [`for` loop](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#223-loop-statements)
+  + `for` statement
+    + adding an initialization expression and an incrementing expression to `while` or `do-while` statements
+    + syntax: `for (initialization; condition; increment
+  + `for-in` statement
+    + used to iterate through an object
+    + syntax: `for (variable in expression) statement`
+
++ [Loop interruption sattement](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#223-loop-statements)
+  + `continue` statement
+    + used to stop the execution of a block and starting the next iteration of the loop
+    + syntax: `continue [label]`
+    + label optional
+  + `break` statement
+    + used to stop an iteration, a switch or a labelled statement
+    + syntax: `break [label]`
+
+
+
+## Variables: Syntax
 
 + [Variables](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-151-js-variables-and-values)
   + used to "store values"
@@ -265,6 +404,29 @@
   + mixing assignment
     + binary operator used w/ a shorter syntax when assigning the resulting value to a variable
     + pre operators: `+=`, `-=`, `*=`, `/=`, `%=`
+
+
++ [Special values](../WebDev/Frontend-W3C/5-JavaScript/02b-Interact.md#221-boolean-values-and-logical-operators)
+  + boolean values
+    + two values: `true` and `false`
+    + no quotation marks for these values
+  + undefined
+    + a variable not been assigned
+    + part of the JS language
+    + assigning a variable `undefined` allowed
+    + `var foo;` and `var foo = undefined;`: equivalent but 1st recommended (shorter)
+    + undeclared variable: `bar;`
+      + accessing: raising `ReferenceError` msg
+      + typeof operator: return `undefined`
+  + `NaN` (Not-a-Number)
+    + equal to nothing: `NaN == NaN; // false`, `NaN === NaN; // false`
+    + checking w/ `isNaN(expr)`
+      + examples: `isNaN(0/0); //true`, `isNaN(NaN); // true`, `isNaN(12); // false`
+      + `X = NaN;` $\implies$ `X != X; // true`
+    + possible ways to produce `NaN`
+      + `(0/0) || 0` $\iff$ `NaN || 0` $\iff$ `false || 0`
+      + `parseInt('foo');`: converting a String to a Number
+      + `Math.sqrt(-1);`: returning `NaN`
 
 
 
