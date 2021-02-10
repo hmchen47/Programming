@@ -596,8 +596,8 @@ These two functions use an iterator on the array of balls (using the `forEach` m
       + create n balls w/ for loop: `for (var i = 0; i < n; i++) { ballProperties & toArray }`
       + ball properties: `var b = {x: w/2, y: h/2, radius: -5 + 30*Math.random(), speedX: ..., speedY: ..., color: getARandomColor()}`
       + add ball to array: `ballArray.push(b);`
-    + `function getARandomColor()` function: randomly assign ball color
-      + init color array: `var colors = ['red', 'blue, ..., 'yellow'];`
+    + `function getARandomColor()`: randomly assign ball color
+      + init color array: `var colors = ['red', 'blue', ..., 'yellow'];`
       + randonly assign a color: `var colorIdx = Math.round((colors.length-1)*Math.random()); return colors[colorIdx];`
     + `function drawBalls(ballArray){...}`: `ballArray.forEach(function(b){ drawFilledCircle(b)})`
     + moving balls: `function moveBallsArray(ballArray)`
