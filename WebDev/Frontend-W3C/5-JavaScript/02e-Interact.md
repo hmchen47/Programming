@@ -515,7 +515,7 @@ Notice that `identifier`, `tagName` and `className` must be of type String.
   + `document.getElementById(identifier)` method
     + return the element which has the `id` “identifier”.
     + equivalent to `document.querySelector("#identifier');`
-    + `var elm = document.getElementById('myDiv');` = `document.querySelector('#myDiv');`
+    + example: `var elm = document.getElementById('myDiv');` = `document.querySelector('#myDiv');`
   + `document.getElementsByTagName(tagName)` method
     + return a list of elements which are named “tagName”.
     + equivalent to `document.querySelectorAll(tagName);`
@@ -685,7 +685,7 @@ JavaScript code:
   + typical usage: `var p = document.querySelector('#paragraph1'); p.style.color = 'red';`
   + rule to change syntax of attribute in JS
     + remove the "-" sign in CSS attributes if presented
-    + catptalize the word after the "-" sign
+    + capitalize the word after the "-" sign
     + example: `text-align` $\to$ `style.textAlign`, `margin-left` $\to$ `style.marginLeft`
   + most useful CSS properties
     + `color`: changing the color of the text content of selected element(s)
@@ -831,7 +831,8 @@ This example shows some of the things we can do:
     + `console.log(secondP.innerHTML);` $\to$ `<em>second</em> paragraph`
     + `console.log(secondP.textContent);` $\to$ `second paragraph`
   + modifying the attributes
-    + using `value` property of objects
+    + directly using the name of attribute as the property
+    + `value` property of objects in many cases
     + examples: `colorChooser.value = "#00FF00";`, `number.value = 10; number.step = "0.1"; number.max = 11;`, `img.src="n_400x400.jpg"; img.width=250;`
 
 
@@ -944,7 +945,7 @@ This is the same example, but in an abbreviated form, using the `innerHTML` prop
 #### Notes for 2.5.6 Adding new elements to the DOM
 
 + Adding new node w/ the DOM API
-  + create a new element by calling `createEelement()` method
+  + create a new element by calling `createElement()` method
     + syntax: `var elm = document.createElement(name_of_the_element)`
     + example: `var li = document.createElement('li');`
   + set some attributes / values / styles for this element, e.g.,
@@ -1081,7 +1082,7 @@ In the same example, if you look at the `reset()` JavaScript function, we use th
 #### Notes for 2.5.8 Removing elements from the DOM
 
 + Removing elements
-  + `removeChild()`: remove a chile element fron the DOM document
+  + `removeChild()`: remove a chile element from the DOM document
   + example: [remove selected item](src/02e-example14.html)
 
     ```js
