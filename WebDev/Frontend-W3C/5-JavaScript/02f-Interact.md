@@ -913,7 +913,7 @@ Perhaps it's occurred to you that it might be better to move the player "from it
 + Moving element w/ mouse pointer
   + get mouse position in a canvas: `getMousePos(evt)`
   + the mouse cursor out of canvas: `mousePos === undefined`
-  + mouse positionwithin the canvas: `player.x = mousePos.x; player.y = mousePos.y;`
+  + mouse position within the canvas: `player.x = mousePos.x; player.y = mousePos.y;`
 
 
 
