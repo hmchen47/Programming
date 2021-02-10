@@ -1,9 +1,7 @@
 # Module 2: Adding interactivity to HTML documents
 
 
-
 ## 2.6 Let's write a small game
-
 
 ### 2.6.1 Drawing
 
@@ -238,7 +236,7 @@ Note that we use (_line 30_) `ctx.translate(x, y)` to make it easier to move the
       + red filled/storked circle: `ctx.beginPath(); ctx.arc(60, 60, 10, 0, 2*Math.PI); ctx.fill();` or `ctx.stroke();`
       + purple filled/stroked text: `ctx.fillStyle = "purple"; ctx.font = "20px Arial"; ctx.fillText("Hello!", 60, 20);` or `ctx.strokeText("Hello!", 60, 20);`
   + example: [function w/ save and restore context](src/02f-example02.html)
-    + two functions to draw fille rectangle w/ a given color and filled circle w/ a given color, respectively
+    + two functions to draw filled rectangle w/ a given color and filled circle w/ a given color, respectively
     + function parameters: values for `x`, `y`, `width`, `height`, `radius`, `color`, etc.
     + move the shapes by calling `ctx.translate(x, y)` w/ given (x, y)
   + example: [monster](src/02f-example03.html): `drawMyMonster(x, y)` function:
