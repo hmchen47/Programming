@@ -1543,7 +1543,7 @@ There are no particular properties that need to be mentioned here. Usually, on a
       <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Page Lifecycle </td> </tr>
       <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Events </th>
       <td style="padding: 0.3em; font-weight: bold; color: brown;"> load </td>
-      <td style="padding: 0.3em;"> This event occurs when an object has loaded (including all its resources: images, etc.) This event is very useful when you want to run JS code and be sure that the DOM is ready (in other words, be sure that a <code>document.getElementById(...)</code> or <code>ocument.querySelector(...)</code> will not raise an error because the document has not been loaded and elements you are looking for are not ready. </td>
+      <td style="padding: 0.3em;"> This event occurs when an object has loaded (including all its resources: images, etc.) This event is very useful when you want to run JS code and be sure that the DOM is ready (in other words, be sure that a <code>document.getElementById(...)</code> or <code>document.querySelector(...)</code> will not raise an error because the document has not been loaded and elements you are looking for are not ready. </td>
     </tr>
     <tr>
       <td style="padding: 0.3em; font-weight: bold; color: brown;"> resize </td>
