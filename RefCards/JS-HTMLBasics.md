@@ -26,7 +26,7 @@
     + browser looks at a list of "Event Listerners" and calls the ones corresponding to the type of evenet listening to
 
 
-## Event Management
+#$# Event Management
 
 + [Event management in JS](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#2410-reference-tables)
   + no input or output in JS
@@ -55,7 +55,7 @@
     + obtaining useful info from the `event` object w/ its properties
 
 
-## Reference table
+### Reference table
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" cellspacing=0 cellpadding=5 border=1 align="center">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#2410-reference-tables">Event Reference Table</a></caption>
@@ -230,7 +230,7 @@
 
 
 
-## Event Listening
+### Event Listening
 
 + [Event listerners](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#242-adding-and-removing-event-listeners)
   + `addEventListener` function
@@ -263,7 +263,7 @@
   + function expression: common practice w/ small function
 
 
-## Event Object
+### Event Object
 
 + [Event object](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#243-the-event-object)
   + DOM event object
@@ -295,7 +295,7 @@
     + `stopPropagation()`: preventing further propagation of an event flow
 
 
-## Page Lifecycle
+### Page Lifecycle
 
 + [Page lifecycle events](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#244-page-lifecycle-events)
   + detected when the page loaded and DOM ready
@@ -319,7 +319,7 @@
     + displaying the screen size w/ `screen.width` and `screen.height`
 
 
-## Key Events
+### Key Events
 
 + [Key events](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#245-key-events)
   + related events: `keydown`, `keyup` and `keypress`
@@ -385,7 +385,7 @@
 
 
 
-## Mouse Events
+### Mouse Events
 
 + [Mouse events and properties](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#notes-for-248-mouse-events)
   + events
@@ -420,7 +420,7 @@
 
 
 
-## Form and Input Field Events
+### Form and Input Field Events
 
 + [Form and input field events](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#249-form-and-input-field-events)
   + form related events
@@ -443,6 +443,150 @@
     + [action for moving slider w/ `input` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example27.html)
     + [detect number change w/ `input` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example28.html)
     + [choose a color w/ `change` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example29.html)
+
+
+
+## The DOM API
+
+
+### Overview of the DOM API
+
++ [Overview of DOM](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#251-introducing-the-dom)
+  + Document Object Model (DOM): a modle of the dicument's structure
+  + used to render the HTML page on the screen
+  + a standard describing how a document must be manipulated
+  + defining a "language- and platform natural interface"
+  + all browers offerring the same JS DOM API
+  + DOM API:
+    + a programming interface used to modify the HTML content ot the CSS style of HTML element on the fly
+    + providing the `document` object as a structure object
+  + `document` object
+    + a group of nodes represented as a tree
+    + exposing a large set of methods to access and manipulate the structured document
+    + method capability:
+      + look for nodes (html elements that compose the page)
+      + move nodes
+      + delete nodes
+      + modify nodes (attributes, contents)
+      + handle associated events
+    + a propert of the global object `window`
+    + implicitly `window.document` = `document`
+  + types of nodes (most useful ones highlighted)
+    + __element__, e.g., `<ul></ul>`
+    + __text__, e.g., `<p>the text within the element p is a node of type text</p>`
+    + Document, DocumentFragment, DocumentType, Comment, ProcessingInstruction
+  + viewing DOM w/ devtool
+    + Firfox: devtool > console > type "document.body"
+    + Chrome: ([devtool video](https://youtu.be/VYyQv0CSZOE))
+      + devtool > console > type "window"
+      + devtool > console > type "inspec(document.querySelector("input"));" to focus on 'input' element
+
+
+### Accessing HTML Elements
+
++ [The `selector` API](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#253-accessing-html-elements)
+  + a way of easily accessing elements in the DOM
+  + a way to use CSS selector for requesting the DOM
+  + methdos
+    + `querySelector`: return the 1st element int he DOM that matched the selector
+    + `querySelectorAll`: return a collection of HTML elements of all elements matching the selector
+  + example: [typical usage](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example02.html)
+    + HTML: `<img src="https://i.imgur.com/Ntvj5rq.png" id="img1" width=200> <img src="https://i.imgur.com/yiU59oi.gif" width=200>`
+    + JavaScript
+      + initialization: `window.onload = init;`
+      + `init` function executed as soon as the page loaded (DOM ready)
+  + example: [get all `<li>` directly in a `<ul>` of class nav](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example03.html)
+  + example: [display all checked `<input type="checkbox">` elements](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example04.html)
+  + example: [change the back ground of all paragraphs](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example04.html)
+  + examples: more complex selectors
+    + `var el = document.querySelector('#nav ul li');`: all elements `li` in `ul` elements in an element of `id`= `nav`
+    + `var els = document.querySelectorAll('ul li:nth-child(even)');`: all li in a ul, but only even elements
+    + `var els = document.querySelectorAll('form.test > tr > td');`: all `td` directly in `tr` in a form of class test
+    + `querySelectorAll("p.warning, p.error");`: all paragraphs of class warning or error
+    + `querySelector("#foo, #bar");`: first element of `id` = `foo` or `id` = `bar`
+    + `var div = document.getElementById("bar"); var p = div.querySelector("p");`: first `p` in a `div`
+
++ [The `getElement` APIs](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#253-accessing-html-elements)
+  + able to be replaced by `querySelector` and `querySelectorAll` methods
+  + `document.getElementById(identifier)` method
+    + return the element which has the `id` “identifier”.
+    + equivalent to `document.querySelector("#identifier');`
+  + `document.getElementsByTagName(tagName)` method
+    + return a list of elements which are named “tagName”.
+    + equivalent to `document.querySelectorAll(tagName);`
+  + `document.getElementsByClassName(className)` method
+    + return a list of elements which have the class “className”.
+    + equivalent to `document.querySelectorAll('.className');`
+
+
+### Changing Styles and Attributes
+
++ [The `style` attribute](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#254-changing-the-style-of-selected-html-elements)
+  + most common way to modify the CSS style of one of several elements
+  + typical usage: `var p = document.querySelector('#paragraph1'); p.style.color = 'red';`
+  + rule to change syntax of attribute in JS
+    + remove the "-" sign in CSS attributes if presented
+    + capitalize the word after the "-" sign
+  + most useful CSS properties
+    + `color`: changing the color of the text content of selected element(s)
+    + `background-color`: the background color of the select element(s)
+    + `margin` and `padding`: external and internal space, including `margin-top`, `margin-left`, `margin-bottom`, and `margin-right` and also `padding-top`, etc.
+    + `border` and `border-radius`: chnage the border, type, color, thickness, rounded corners, etc.
+    + `box-shadow`: add shadow to selected elements
+    + `font` and `font-style`: font characters and style (italic, bold, plain)
+    + `text-align`: text alignment
+
++ [The `ClassList` interface](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#254-changing-the-style-of-selected-html-elements)
+  + simplifying to manipulate CSS classes of an HTML element
+  + acting as a container object and providing a set of methods to manipulate its conetnt
+  + applyied to an HTML element and returning a collection of class names
+  + typical usage: `var elem = document.querySelector("#id1"); var allClasses = elem.classList;`
+  + methods usable on a classList objet
+    + methods: `add()`, `remove()`, `toggle()` and `contains()`
+    + typical usages:
+      + `div.classList.add('foo');`: set "foo" as the class by adding it to the classList
+      + `div.classList.contains('foo');`: check that the classList contains the class "foo"
+      + `div.classList.remove('foo');`: remove the class "foo" from the list
+      + `div.classList.toggle('foo');`: add if not existed or remove if existed the class "foo"
+  + example: [add and remove multiple CSS properties](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example07.html)
+
+
+### Manipulating HTMl Elements
+
++ [Value of a selected DOM node](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#255-modifying-selected-html-elements)
+  + the `innerHTML` property
+    + useful when changing all the children of a given element
+    + used to modify the text content of an element or insert a whole set of HTML element inside another one
+    + including all contents and child elements
+    + example: `var elem = document.querySelector('#myElem');`
+      + replace conetnt: `elem.innerHTML = 'Hello ';`
+      + append conetnt: `elem.innerHTML += '<b>Michel Buffa</b>',`
+  + the `textContent` property
+    + used to read the text content or to modify the content
+    + only containing the text content
+  + modifying the attributes:
+    + directly using the name of attribute as the property
+    + `value` property of objects in many cases
+
++ [Adding new node w/ the DOM API](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#256-adding-new-elements-to-the-dom)
+  + create a new element by calling `createElement()` method
+    + syntax: `var elm = document.createElement(name_of_the_element)`
+    + example: `var li = document.createElement('li');`
+  + set some attributes / values / styles for this element, e.g.,
+    + `li.innerHTML = '<b>This is a new list item in bold!</b>';` & `li.textContent = 'Another new list item';`
+    + `li.style.color = 'green';`
+    + `img.src = "https://..../myImage.jpg";` & `img.width = 200;`
+  + add the newly created element to another element in the DOM
+    + using `append()`, `appendChild()`, `insertBefore()` or the `innerHTML` property
+
++ [Moving HTML elements](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#257-moving-html-elements-in-the-dom)
+  + `append()`, `appendChild()`: adding a new element to an existing one
+  + moving from its original location to become a child of the targetElem
+  + example: [drag'n'drop](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example13.html)
+
++ [Removing elements](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#258-removing-elements-from-the-dom)
+  + `removeChild()`: remove a chile element from the DOM document
+  + removing all children of an element using the `innerHTML` property
 
 
 
