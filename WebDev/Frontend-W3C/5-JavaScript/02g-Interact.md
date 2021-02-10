@@ -154,6 +154,72 @@ Check the gear that will be printed to the devtool console (2 correct answers.)
   Explanation: The `choose` function returns the first parameter if it's >= m1 and <= m2. It returns m1 if x < m1, and it returns m2 if x > m2.
 
 
+### 2.7.2 Exercises (7-9)
+
+7. While loop...
+
+  ```js
+  var i = 1, j = 2;
+  
+  while ( i < 4 ) {
+      j += 2;
+      i += 1; 
+  }
+  console.log("i = " + i);
+  console.log("j = " + j);
+  ```
+
+  After the while loop, what are the values of `i` and `j`?
+
+  a. `i = 3` and `j = 5`<br/>
+  b. `i = 4` and `j = 8`<br/>
+  c. `i = 5` and `j = 10`<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+8. Do this question while you have time...
+
+  ```js
+  var i = 10;
+  
+  do {
+    i+=2;
+    console.log(i + " ");
+  } while(i < 20);
+  ```
+
+  What will be printed to the devtool console?
+
+  a. 10 14 18, each one on a different line<br/>
+  b. 12 14 16 18, 20, each one on a different line<br/>
+  c. 12 14 16 18, each one on a different line<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+9. Give these property names!
+
+  ```js
+  var rect1 = {       // rect1 is an object
+      x:10,
+      y: 12,
+      width: 50,
+      height: 100
+  }
+  
+  for(var property XXX rect1) {
+      console.log(property);
+  }
+  ```
+
+  What would you put instead of XXX in the above code, so that it will print the property names of the object rect1?
+
+  Ans: <br/>
+  Explanation: 
+
 
 
 
