@@ -589,6 +589,130 @@
   + removing all children of an element using the `innerHTML` property
 
 
+### Canvas and Animation - Example
+
++ [HTML5 canvas](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
+  + a transparent element useful for drawing and animating
+  + adding canvas in HTML: `<canvas id="myCanvas" width="200" height="200"></canvas>`
+    + not visible: transparent
+    + CSS style border to be visible: `canvas { border: 1px solid black; }`
+  + best practice
+    + use a function called AFTER the page fully loaded, the DOM ready, and select the canvas
+    + get a 2D graph context for this canvas
+      + an object used to draw on the canvas and to set global properties
+      + syntax: `ctx = canvas.getContext('2d');`
+    + draw something
+      + `ctx.fillRect(x, y, width, height)`: draw a filled rectangle
+      + `ctx.strokeRect(x, y, width, height)`: draw a wireframed rectangle
+    + use global variables for the canvas and context objects
+      + `ctx.fillStyle = 'color';`: set filled color
+      + `ctx.strokeStyle = 'color';`: set wireframe color
+      + `ctx.lineWidth = number;`: set framewire line width
+      + `ctx.beginPath();`: lift pen to begin a new draw, no line btw the previous ned point and the current starting point
+      + useful global properties: `w = canvas.width; h = canvas.height;`
+    + typical procedure for function to change the context
+      + change any properties of global context: 
+        + start by saving the content: `ctx.save();`
+        + end by restoring it: `ctx.restore();`
+      + properties including color, line, width, coordinate system, etc.
+      + the change in the function won't effect anything outside the function
+  + coordinate system
+    + origin: top left of the canvas
+    + default: (0, 0)
+    + `ctx.translate(x, y)`: relocate the origin to (x, y) of the canvas
+    + useful to have multiple shapes by translating the origin
+  + example: [simple drawing](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example01.html)
+  + example: [function w/ save and restore context](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example02.html)
+  + example: [monster](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example03.html)
+
++ [Animation](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#262-animating)
+  + ways to animation
+    + `setInterval(func, time)`: execute `func` every `time` ms
+    + `setTimeout(func, time)`: execute only once after the delay `time` ms
+    + `requestAnimationFrame(func)`: request a new frame of animation in 1/60 seconds
+  + best practice: `requestAnimationFrame(func)`
+  + typical animation loop procedure
+    + clear the canvas
+    + draw graphic objects / shapes
+    + move graphic objects / shapes
+    + repeat previous 3 steps
+  + optional steps for animation loop
+    + observe the keyboard / mouse / gamepad to change status
+    + test collisions: decrease one life if player collides
+    + test game state: game over if no life left
+    + etc.
+  + example: [moving monster](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example04.html)
+  + example: [bouncing balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example05.html)
+
++ [Aminating multiple objects](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#notes-for-263-animating-multiple-objects)
+  + `forEach` method: iterate elements in an array
+  + example: [3 bouncing balls and the player](src/02f-example06.html)
+  + example: [arrays for bouncing balls](src/02f-example07.html)
+
++ [Mouse position relative to the canvas](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#264-mouse-interactions)
+  + viewport coordinate
+    + the mouse coordinate `(clientX, clientY)` passed to the listener function
+    + viewport as the visible part of the page
+  + most of the time working w/ the mouse position relative to the canvas, not to the viewport
+  + converting the coordinates btw the viewport and the canvas
+  + considerations
+    + the position of the canvas in the viewport
+    + the CSS properties probably effecting the canvas position (margin, etc.)
+  + `getBoundingClientRect()`: a method for getting the position and size of any element in the viewport
+  + mouse position in canvas: `function getMousePos(canvas, evt) {...}`
+    + get the canvas position: `var rect = canvas.getBoundingClientRect();`
+    + the position relative to the canvas: `{x: evt.clientX - rect.left, y: evt.clientY - rect.top}`
+  + `evt.button` property: the mouse button number
+
++ [Moving element w/ mouse pointer](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#265-moving-a-player-with-the-mouse)
+  + get mouse position in a canvas: `getMousePos(evt)`
+  + the mouse cursor out of canvas: `mousePos === undefined`
+  + mouse position within the canvas: `player.x = mousePos.x; player.y = mousePos.y;`
+
++ [Collision detection - Circle & Rectangle](/WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#266-adding-collision-detection)
+  + [circle-Rectangle collision detection](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
+    + either the circle's center lies insiode the rectangle
+    + one of the edges of the rectangle has a point in the circle
+    + `intersectCircle()`:
+      + check if the foot of the perpendicular from `P` to the line is close enough and btw the endpoints
+      + check endpoint  otherwise
+
+      ```shell
+      def intersect(Circle(P, R), Rectangle(A, B, C, D)):
+        S = Circle(P, R)
+        return (pointInRectangle(P, Rectangle(A, B, C, D)) or
+                intersectCircle(S, (A, B)) or
+                intersectCircle(S, (B, C)) or
+                intersectCircle(S, (C, D)) or
+                intersectCircle(S, (D, A)))
+      ```
+  
+  + JavaScript implementation
+
+    ```js
+    function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {
+      var testX=cx; var testY=cy;
+
+      if (testX < x0) testX=x0;
+      if (testX > (x0+w0)) testX=(x0+w0);
+      if (testY < y0) testY=y0;
+      if (testY > (y0+h0)) testY=(y0+h0);
+
+      return (((cx-testX)*(cx-testX)+(cy-testY)*(cy-testY))< r*r);
+    }
+    ```
+
+  + example: [collision detection btw balls & the player](src/02f-example12.html)
+
+
++ [Changing variable dynamically - game completion](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#267-adding-input-fields)
+  + using `input` fields to change the init variables
+  + example: [game to collide selected color balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example13.html)
+
+
+
+
+
 
 
 ## Web Storage APIs
