@@ -1205,32 +1205,32 @@ Here is the `startGame(nb_balls)` function:
 
 #### Notes for 2.6.7 Adding input fields
 
-+ Changing variable dynamically
++ Changing variable dynamically - game completion
   + using `input` fields to change the init variables
   + example: [game to collide selected color balls](src/02f-example13.html)
-    + HTML input fields
-      + number of balls: `<label for="nbBalls">Number of balls: </label> <input type="number" min=1 max=30 value=10 id="nbBalls" oninput="changeNbBalls(this.value);">`
-      + payer color: `<label for="nbBalls">Player color: </label> <input type="color" value='#FF0000' oninput="changePlayerColor(this.value);">`
-      + color of ball to colide: `<label for="nbBalls">Color of ball to eat: </label> <select onchange="changeColorToEat(this.value);"> <option value='red'>red</option> <option value='blue'>blue</option> <option value='green'>green</option> </select>`
-      + ball speed: `<label for="nbBalls">Change ball speed: </label> - <input type="range" value='1' min=0.1 max=3 step=0.1 oninput="changeBallSpeed(this.value);">`
-    + global variables in JS
-      + number of balls at the beginning: `var initialNumberOfBalls;`
-      + ball speed slider: `var globalSpeedMutiplier = 1;`
-      + color of the "good" balls to eat: `var colorToEat = 'red';`
-      + number of good/bad balls eaten: `var wrongBallsEaten = goodBallsEaten = 0;`
-      + number of good balls in the set: `var numberOfGoodBalls;`
-    + callback functions for input fields
-      + change ball numbers: `function changeNbBalls(nb) { startGame(nb); }`
-      + change ball color to be eaten: `function changeColorToEat(color) { colorToEat = color; startGame(initialNumberOfBalls); }`
-      + change player color: `function changePlayerColor(color) { player.color = color; }`
-      + change ball speed: `function changeBallSpeed(coef) { globalSpeedMutiplier = coef; }`
-    + starting game: `function startGame(nb) {...}`
-      + check good/bad balls left until no good ball: `do {...} while(numberOfGoodBalls === 0);`
-      + count the number of good balls: `balls = createBalls(nb); initialNumberOfBalls = nb; numberOfGoodBalls = countNumberOfGoodBalls(balls, colorToEat);`
-      + initial value of good/bad balls: `wrongBallsEaten = goodBallsEaten = 0;`
-    + count the number ofg good balls: `function countNumberOfGoodBalls(balls, colorToEat) {...}`
-      + iterate to check the existence of balls: ` balls.forEach(function(b) { if(b.color === colorToEat) nb++; });`
-      + return the number of existed balls: `return nb;`
+  + HTML input fields
+    + number of balls: `<label for="nbBalls">Number of balls: </label> <input type="number" min=1 max=30 value=10 id="nbBalls" oninput="changeNbBalls(this.value);">`
+    + payer color: `<label for="nbBalls">Player color: </label> <input type="color" value='#FF0000' oninput="changePlayerColor(this.value);">`
+    + color of ball to colide: `<label for="nbBalls">Color of ball to eat: </label> <select onchange="changeColorToEat(this.value);"> <option value='red'>red</option> <option value='blue'>blue</option> <option value='green'>green</option> </select>`
+    + ball speed: `<label for="nbBalls">Change ball speed: </label> - <input type="range" value='1' min=0.1 max=3 step=0.1 oninput="changeBallSpeed(this.value);"> +`
+  + global variables in JS
+    + number of balls at the beginning: `var initialNumberOfBalls;`
+    + ball speed slider: `var globalSpeedMutiplier = 1;`
+    + color of the "good" balls to eat: `var colorToEat = 'red';`
+    + number of good/bad balls eaten: `var wrongBallsEaten = goodBallsEaten = 0;`
+    + number of good balls in the set: `var numberOfGoodBalls;`
+  + callback functions for input fields
+    + change ball numbers: `function changeNbBalls(nb) { startGame(nb); }`
+    + change ball color to be eaten: `function changeColorToEat(color) { colorToEat = color; startGame(initialNumberOfBalls); }`
+    + change player color: `function changePlayerColor(color) { player.color = color; }`
+    + change ball speed: `function changeBallSpeed(coef) { globalSpeedMutiplier = coef; }`
+  + starting game: `function startGame(nb) {...}`
+    + check good/bad balls left until no good ball: `do {...} while(numberOfGoodBalls === 0);`
+    + count the number of good balls: `balls = createBalls(nb); initialNumberOfBalls = nb; numberOfGoodBalls = countNumberOfGoodBalls(balls, colorToEat);`
+    + initial value of good/bad balls: `wrongBallsEaten = goodBallsEaten = 0;`
+  + count the number of good balls: `function countNumberOfGoodBalls(balls, colorToEat) {...}`
+    + iterate to check the existence of balls: `balls.forEach(function(b) { if(b.color === colorToEat) nb++; });`
+    + return the number of existed balls: `return nb;`
 
 
 ### 2.6.8 Discussion and projects
