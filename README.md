@@ -56,7 +56,7 @@ This repository tracks my learning on different programming languages.
 
 ## Reference Cards
 
-### Web Design
+### Hypertext Markup Language
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 58vw;" cellspacing=0 cellpadding=5 border=1 align="center">
   <thead>
@@ -69,7 +69,7 @@ This repository tracks my learning on different programming languages.
 
   <!-- HTML -->
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Hypertext Markup Language (HTML) </td> </tr>
+  <!-- <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Hypertext Markup Language (HTML) </td> </tr> -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General Info </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/HTML-Basics.md#the-big-three-html5-css-and-javascript"> Big Three </a></td>
@@ -123,7 +123,7 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Tags </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Tags </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Tags.md#definition-and-characteristics-of-tags"> Definition </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Tags.md#comment-tags"> Comment </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Tags.md#list-of-typical-tags"> List </a> </td>
@@ -145,7 +145,7 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hyperlink </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hyperlink </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#characteristics-of-hyperlink"> Characteristics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> Attribute </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML.md#"> </a> </td>
@@ -173,7 +173,7 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Embedded Elements </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Embedded Elements </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#characteristics-of-embedded-elements"> Characteristics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#the-iframe-tag"> iframe Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Elements.md#">  </a> </td>
@@ -237,22 +237,6 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Graphics.md#requestanimationframe-method"> requestAnimationFrame </a> </td>
   </tr>
 
-  <!-- Events -->
-
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Events </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#events"> Basics </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#keyboard-events"> Keyboard </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#keycode-values"> Keycode Values </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#mouse-events"> Mouse </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#responsive-canvas"> Responsive </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
-  </tr>
-
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Forms and related Elements</th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#mdn-form-elements"> Form Elements - MDN </a> </td>
@@ -306,11 +290,11 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Form Validation API </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Form Validation </th>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#visual-feedback"> Visual Feedback </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#title-attribute"> title Attr. </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#javascript-form-validation-api"> JS API </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#form-validation"> JS API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Forms.md#"> </a> </td>
   </tr>
 
 
@@ -329,9 +313,25 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-.md#">  </a> </td>
   </tr>
 
+  </tbody>
+</table>
+
+<br/>
+
+### Cascading Style Sheet (CSS)
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 58vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="width: 10%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
+    <th colspan="4" style="width: 30%; text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
+  </tr>
+  </thead>
+  <tbody>
+
   <!-- CSS -->
 
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Cascading Style Sheet (CSS) </td> </tr>
+  <!-- <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Cascading Style Sheet (CSS) </td> </tr> -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#css-design-principles-css-2-2-"> Design Principles </a></td>
@@ -353,7 +353,7 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> CSS Values & Units </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> CSS Values & Units </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#css-value-types-functions"> Types </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#relative-length"> Relative Length </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#absolute-length"> Absolute Length </a></td>
@@ -389,7 +389,7 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Color </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Color </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#format-of-color"> Format </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#list-of-color-properties"> Properties </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#important-references"> References </a> </td>
@@ -397,7 +397,7 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Box Model </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Box Model </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#model-and-characteristics"> Characteristics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#box-sizing"> Sizing </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#model-properties"> Properties </a> </td>
@@ -405,7 +405,7 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Positioning Properties </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Positioning Properties </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#list-of-positioned-properties"> Positioned Properties </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#characteristics-of-position-property"> Position Property </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#">  </a> </td>
@@ -413,7 +413,7 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Display Flow </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Display Flow </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#display-syntax"> Syntax </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#display-type-of-elements"> Element Type </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#display-characteristics"> Characteristics </a> </td>
@@ -429,12 +429,12 @@ This repository tracks my learning on different programming languages.
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#characteristics-of-overflow"> Overflow </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#list-of-overflow-properties"> Overflow properties </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#values-of-overflow-propery"> Overflow Values </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#values-of-overflow-property"> Overflow Values </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#">  </a> </td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Flexible Box </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Flexible Box </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#basic-concepts-of-flexbox"> Concepts </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#flexbox-property"> Property </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#alignment-properties"> Alignment </a> </td>
@@ -442,27 +442,49 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Grid Layout </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Grid Layout </th>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#concepts-of-css-grid"> Concepts </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#list-of-css-grid-properties"> Properties </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/CSS-Basics.md#">  </a> </td>
   </tr>
 
+  </tbody>
+</table>
+
+<br/>
+
+### JavaScript Programming Language
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 58vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="width: 10%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; color: darkblue;"> Topic </th>
+    <th colspan="4" style="width: 30%; text-align: center; font-size: 1.6em; background-color: #4CAF50; color: darkblue;"> Sub-topics </th>
+  </tr>
+  </thead>
+  <tbody>
   <!-- JavaScript -->
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> JavaScript </td> </tr>
+
+  <!-- <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> JavaScript </td> </tr> -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#general"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#history"> History </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#locations-of-js-code"> Location </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#debugging"> Debugging </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Syntax </th>
+    <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Syntax </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#common-syntax"> Common </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#expressions-and-operators> Expressions & Operators </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#syntax-variables"> Variables </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#expressions-and-operators"> Expressions & Operators </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#conditional-statements"> Conditional </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#loop-statements"> Loop </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#variables-syntax"> Variables </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -479,22 +501,46 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
   </tr>
 
-  <!-- Standard APIs -->
+  <!-- Events -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Standard APIs </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#overview"> Overview </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-html-document"> HTML </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-css-style"> CSS </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#reacting-events"> Events </a></td>
+    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Events </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#events"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#reference-table"> Reference Table </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#event-listening"> Event Listener </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#event-object"> Event Object </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#page-lifecycle"> Page Lifecycle </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#keyboard-events"> Keyboard </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#keycode--key--code-properties"> Key properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#mouse-events"> Mouse </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#form-and-input-field-events"> Form & Input </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#responsive-canvas"> Responsive </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Events.md#">  </a> </td>
   </tr>
 
   <!-- DOM APIs -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM APIs </th>
+    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM API </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#overview"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-html-document"> Access HTML </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#manipulating-html-document"> Manipulate HTML </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-css-style"> Manipulating CSS </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#form-validation"> Form Validation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-video-element"> Video Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-track-element"> Track Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-getusermedia-api---accessing-webcam--microphone"> getUserMedia API </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-mediarecorder-api"> MediaRecorder API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#canvas-and-animation---example"> Canvas & Animation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
   </tr>
 
   <!-- Web Storage API -->
@@ -530,7 +576,7 @@ This repository tracks my learning on different programming languages.
 
   <!-- GeoLocation API -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation APIs </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation APIs </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#geolocation-apis"> Basics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#tracking-position"> Tracking Position </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#reverse-geocoding"> Reverse Geocoding </a> </td>
@@ -575,7 +621,7 @@ This repository tracks my learning on different programming languages.
   <!-- Python Syntax -->
   <tr> <td colspan="5" style="width: 100vw; text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Python Syntax </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/">  </a></td>
@@ -585,7 +631,7 @@ This repository tracks my learning on different programming languages.
   <!--Web Scraping -->
   <tr> <td colspan="5" style="width: 100vw; text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Web Scraping </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Requests </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Requests </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#request-apis"> API </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#request-response-class"> Response </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#">  </a></td>
@@ -605,7 +651,7 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="./RefCards/Python-Crawler.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
@@ -647,31 +693,31 @@ This repository tracks my learning on different programming languages.
     </thead>
     <tbody>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  feat </th>
+      <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  feat </th>
       <td style="padding: 0.3em;"> new feature for the user, not a new feature for build script; introduces a new feature to the codebase </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  fix </th>
+      <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  fix </th>
       <td style="padding: 0.3em;"> fixes (e.g. typos, linter rules, broken links/imports, etc.) </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  docs </th>
+      <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  docs </th>
       <td style="padding: 0.3em;"> changes to the documentation </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  style </th>
+      <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  style </th>
       <td style="padding: 0.3em;"> format, missing semicolons, etc.; no code change </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  refactor </th>
+      <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  refactor </th>
       <td style="padding: 0.3em;"> refactoring production code, eg. renaming a variable, changing algorithm, revising code for performance </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  test </th>
+      <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  test </th>
       <td style="padding: 0.3em;"> add tests, refactoring test; no production code change </td>
     </tr>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  chore </th>
+      <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  chore </th>
       <td style="padding: 0.3em;">  updating build tasks, package manager config, etc.; no production code change </td>
     </tr>
     </tbody>
