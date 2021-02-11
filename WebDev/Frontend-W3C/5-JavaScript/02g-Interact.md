@@ -225,6 +225,149 @@ Check the gear that will be printed to the devtool console (2 correct answers.)
   Explanation: The `for-in` statement is used to iterate through an object. The correct answer is 'in'.
 
 
+### 2.7.3 Exercises (10-15)
+
+
+10. Click me
+
+  ```html
+  function processClick(event) {
+    console.log("Button clicked!");
+  }
+  ```
+
+  Which of these syntaxes is ok for detecting a click on an HTML button?
+
+  a. `<button id="myButton" click="processClick(event);">Click me!</button>`<br/>
+  b. `<button id="myButton" onclick="processClick(event);">Click me!</button>`<br/>
+  c. `<button id="myButton" onClick="processClick(event);">Click me!</button>`<br/>
+
+  Ans: b<br/>
+  Explanation: 
+
+
+11. Click anywhere?
+
+  ```html
+  addEventListener('click', function(evt) {
+      document.body.innerHTML += 'Clicked!';
+  });
+  ```
+
+  The above code:
+
+  a. Adds a click event listener to the whole document (any click on the page will trigger the event)<br>
+  b. Adds a click event listener only to HTML buttons<br>
+
+  Ans: <br/>
+  Explanation: 
+
+
+Source code for the next question (12)
+
+```html
+...
+<head>
+...
+</head>
+<body>
+   <button id="myButton">Click me!</button>
+<script>
+   var b = document.querySelector("#myButton");
+   b.addEventListener('click', function(evt) {
+      alert("Button clicked");
+   });
+</script>
+</body>
+```
+
+12. Alert me!
+
+  The above code will display an HTML page with an HTML button. What will happen when a user clicks on the button?
+
+  a. It will display an alert dialog with the text "Button clicked"<br/>
+  b. It will not work<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+Source code for the next question (13)
+
+```html
+...
+<head>
+   <script>
+       var b = document.querySelector("#myButton");
+       b.addEventListener('click', function(evt) {
+          alert("Button clicked");
+       });
+   </script>
+</head>
+<body>
+   <button id="myButton">Click me!</button>
+</body>
+```
+
+13. Try to click me!
+
+  The above code will display an HTML page with an HTML button. What will happen when a user clicks on the button?
+
+  a. It will do nothing, and there will be an error in the devtool console<br/>
+  b. It will display an alert dialog with the text "Button Clicked"<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+You have used 0 of 1 attemptSome problems have options such as save, reset, hints, or show answer. These options follow the Submit button.
+Source code for the next question (14)
+
+
+```html
+...
+<head>
+   <script>
+       function init() {
+           var b = document.querySelector("#myButton");
+           b.addEventListener('click', function(evt) {
+              alert("Button clicked");
+           });
+       }
+   </script>
+</head>
+<body onload="init();">
+   <button id="myButton">Click me!</button>
+</body>
+```
+
+14. Click me example, third variant!
+
+  The above code will display an HTML page with an HTML button. What will happen when a user clicks on the button?
+
+  a. It will display an alert dialog with the text "Button Clicked"<br/>
+  b. It will do nothing, and there will be an error in the devtool console<br/>
+
+  Ans: <br/>
+  Explanation: 
+
+
+15. Who made this?
+
+  ```js
+  function processClick(evt) {
+      alert("Button clicked!");
+  }
+  ```
+
+  Each event listener callback function gets an event object as a parameter. We can use one property of the event object to get the HTML element that emitted the event. Which property is it?
+
+  a. `evt.target`<br/>
+  a. `evt.element`<br/>
+  a. `evt.source`<br/>
+
+  Ans: <br/>
+  Explanation: 
 
 
 
