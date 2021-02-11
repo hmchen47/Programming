@@ -107,7 +107,7 @@
 
 
 
-## Modifying HTML document
+## Manipulating HTML document
 
 + [Modifying HTML document](../WebDev/Frontend-W3C/5-JavaScript/01f-JSIntro.md#notes-for-163-modifying-an-html-document)
   + selection API:
@@ -215,6 +215,32 @@
       + `div.classList.toggle('foo');`: add if not existed or remove if existed the class "foo"
   + example: [add and remove multiple CSS properties](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example07.html)
 
+
+## Form Validation
+
++ [Customized validation](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#575-changing-the-default-behavior)
+  + changing the default behavior, aggregating error messages, removing bubbles, etc.
+  + browser built-in validation
+    + powerful technique to enhance HTML forms
+    + provide interesting features
+    + criticized by Web developers
+      + not 100% complete, in particular, IE & Safari
+      + not possible to aggregate error message, showing error bubble next to the first invalid
+      + unable to style bubbles
+  + validate API
+    + providing enough power to make own validation behavior
+    + overridden the default when necessary
+    + ref: [Building HTML5 Form Validation Bubble Replacements](https://tinyurl.com/yy85v45z)
+  + example: aggregation of error messages + overriding default behavior
+    + add an empty unnumbered list (`<ul>`...`</ul>`) to the form in style: `<ul class="error-messages"></ul>`
+    + use this class attribute for styling, and hiding by default, the error messages using CSS,: `.error-messages { display: none; ...}`
+    + replace the validation UI for all forms via calling `replaceValidationUI(form)` function in JavaScript
+    + disable all default behavior
+    + add a click listener to the submit button: `submitButton.addEventListener("click", function (event) {...}`
+    + get all invalid input fields for that form: `var invalidFields = form.querySelectorAll("input:invalid");`
+    + get the value of the name attribute of the corresponding label from each invalid field & build a list of `<li>`...`</li>` to the error message container
+    + update the list with the new error messages: `errorMessagesContainer.innerHTML = listHtml;`
+    + give focus to the first invalid field and show the error messages container by setting its CSS property `display=block`
 
 
 ## The `<video>` element

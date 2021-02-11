@@ -609,6 +609,35 @@
     + [choose a color w/ `change` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example29.html)
 
 
+ ## JavaScript form validation API
+
++ [Javascript form validation](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#573-javascript-form-validation-api)
+  + allowing developers to use their own validation algorithm and customize error messages
+  + together w/ some HTML/CSS/JavaScript to make own message bubbles
+  + example: password checking
+
++ [validity property](#574-the-validity-property-of-input-fields)
+  + error details when the field is invalid
+  + test the different types of validation error
+  + typical usage: `var validityState_object = input.validity;`
+  + possible values
+    + `valueMissing`
+    + `typeMismatch`
+    + `patternMismatch`
+    + `tooLong`
+    + `rangeUnderflow`
+    + `rangeOverflow`
+    + `stepMismatch`
+    + `valid`
+    + `customError`
+
++ [validationMessage property](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#the-validationmessage-property)
+  + the validation error messag
+  + useful for making custom error messages
+  + typical usage: `console.log("Validation message = " + input.validationMessage);`
+
+
+
 
 ## Responsive canvas
 
