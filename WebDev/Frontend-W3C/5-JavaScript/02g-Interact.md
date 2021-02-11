@@ -386,8 +386,8 @@ Source code for the next question (14)
   b. `key`<br>
   c. `keyCode`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The correct answer is "key": when the pressed key is a printable character, you get the character in string form. When the pressed key is not a printable character (for example: Backspace, Control, but also Enter or Tab, which actually are printable characters), you get a multi-character descriptive string, like 'Backspace', 'Control', 'Enter', 'Tab'.
 
 
 17. Make my game playable in all countries
@@ -408,8 +408,8 @@ Source code for the next question (14)
   a. It's a reference layout that does not depend on your physical keyboard layout. The `keyCode` property of the key event object will have the value displayed on the keys of this keyboard which does not depend on your physical layout.<br>
   b. It's the reference keyboard only for the QWERTY keyboard layout.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: This reference keyboard does not depend on the layouts used in different countries. If you write a video game and want to use the zqsd or wasd keys, this will depend on the keyboard layout. If you use `keyCode`, then you may assume that in every layout, it will correspond to the same physical position of the keys on the keyboard.
 
 
 18. Many buttons...
@@ -427,8 +427,8 @@ Source code for the next question (14)
   b. `button`<br>
   c. `mouse.button`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: `evt.button` indicates which mouse button was pressed when the mouse event has been triggered.
 
 
 19. Not mouse events
@@ -442,8 +442,8 @@ Source code for the next question (14)
   e. `mousemotion`<br>
   f. `mousedown`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: bce<br>
+  Explanation: `mouseclick`, `doubleclick` and `mousemotion` are not valid mouse event names. The correct ones are `click`, `dblclick` and `mousemove`.
 
 
 
