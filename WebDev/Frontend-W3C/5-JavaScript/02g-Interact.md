@@ -230,7 +230,7 @@ Check the gear that will be printed to the devtool console (2 correct answers.)
 
 10. Click me
 
-  ```html
+  ```js
   function processClick(event) {
     console.log("Button clicked!");
   }
@@ -243,12 +243,12 @@ Check the gear that will be printed to the devtool console (2 correct answers.)
   c. `<button id="myButton" onClick="processClick(event);">Click me!</button>`<br/>
 
   Ans: b<br/>
-  Explanation: 
+  Explanation: When using the "on" syntax for declaring event listeners as attributes of an HTML element, the correct syntax is to use "on" followed by the name of the event, in lowercase. The correct syntax is the one that uses `onclick="processClick(event);"`.
 
 
 11. Click anywhere?
 
-  ```html
+  ```js
   addEventListener('click', function(evt) {
       document.body.innerHTML += 'Clicked!';
   });
@@ -259,8 +259,8 @@ Check the gear that will be printed to the devtool console (2 correct answers.)
   a. Adds a click event listener to the whole document (any click on the page will trigger the event)<br>
   b. Adds a click event listener only to HTML buttons<br>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: This code registers an event listener that listens to "click" events on any part of the window (clicks anywhere on a Web document will be processed by this event handler).
 
 
 Source code for the next question (12)
@@ -288,8 +288,7 @@ Source code for the next question (12)
   a. It will display an alert dialog with the text "Button clicked"<br/>
   b. It will not work<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a
 
 
 Source code for the next question (13)
@@ -316,11 +315,10 @@ Source code for the next question (13)
   a. It will do nothing, and there will be an error in the devtool console<br/>
   b. It will display an alert dialog with the text "Button Clicked"<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: When the `querySelector` call is performed (line 4), the button has not yet been created in the DOM. The value of `b` will be `undefined`, and the execution of line 5 will give an error. It will not work.
 
 
-You have used 0 of 1 attemptSome problems have options such as save, reset, hints, or show answer. These options follow the Submit button.
 Source code for the next question (14)
 
 
@@ -348,8 +346,8 @@ Source code for the next question (14)
   a. It will display an alert dialog with the text "Button Clicked"<br/>
   b. It will do nothing, and there will be an error in the devtool console<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: Because of the `<body onload="init();">`, the init function will be executed after the DOM is ready, after the button has been added to the DOM. It will work and display an alert dialog.
 
 
 15. Who made this?
@@ -363,11 +361,11 @@ Source code for the next question (14)
   Each event listener callback function gets an event object as a parameter. We can use one property of the event object to get the HTML element that emitted the event. Which property is it?
 
   a. `evt.target`<br/>
-  a. `evt.element`<br/>
-  a. `evt.source`<br/>
+  b. `evt.element`<br/>
+  c. `evt.source`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: a<br/>
+  Explanation: `evt.target` is the correct answer: its value is the HTML element that has fired the event. For example, with a click listener on a button, `evt.target` in the event listener is the button itself.
 
 
 
