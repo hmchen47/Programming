@@ -172,7 +172,7 @@ When using indexes, be careful not to leave "holes" in the array:
 <li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="str">"four"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"five"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"six"</span><span class="pun">,</span><span class="pln"> </span><strong><span class="kwd">undefined</span><span class="pln"> </span><span class="pun">×</span><span class="pln"> </span><span class="lit">1</span></strong><span class="pun">,</span><span class="pln"> </span><span class="str">"height"</span><span class="pun">]</span></li>
 </ol></div>
 
-This array is valid, but having a \[6\] equal to "undefined" is often prone to errors. Be careful when using absolute indexes for adding elements. We recommend using the `push` method instead.
+This array is valid, but having a [6] equal to "undefined" is often prone to errors. Be careful when using absolute indexes for adding elements. We recommend using the `push` method instead.
 
 
 ##### Removing elements from an array
@@ -289,6 +289,87 @@ It is possible to have different arrays with different lengths and different typ
 <li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pun">[</span><span class="typ">Array</span><span class="pun">(</span><span class="lit">5</span><span class="pun">),</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">(</span><span class="lit">3</span><span class="pun">)]</span></li>
 </ol></div>
+
+
+#### Notes for 3.2.1 Arrays
+
++ Elements in an array
+  + array: a collection of "things", including strings, integer values, decimal values, boolean values, or any objects
+  + creating an array: putting elements btw "[" abd "]", e.g., `var myarr = ['red', 'blue', 'yellow', 'purple'];`
+  + each element of an array w/ key/index and a value
+  + type of an array: object, e.g., `var a = []; typeof a; // "object"`
+  + index beginning at "0"
+  + properties and methods: `let a = [...];`
+    + size of an array: `a.length`
+    + sort an array: `a.sort([function_that_compares_two_elements]);`
+      + numeric: return array object from lowest to highest
+      + string: return array object w/ element alphabetically
+      + object: depending on `function_that_compares_two_elements`, e.g., 
+
+        ```js
+        var persons = [
+            {givenName: 'Michel', familyName: 'Buffa', age:51},
+            {givenName: 'Pig', familyName: 'Bodine', age:20},
+            {givenName: 'Pirate', familyName: 'Prentice', age:32}
+        ];
+        
+        function compareByAge(a,b) { // comparison function, a and b are persons
+          if (a.age < b.age)         // compare by age
+            return -1;
+          if (a.age > b.age)
+            return 1;
+          return 0;
+        }
+
+        persons.sort(compareByAge);
+        ```
+
+    + remove n elements starting from idx: `a.splice(idx, n);`; e.g., `a.splice(2, 1); // remove 1 elt starting from idx=2 (3rd elt)`
+  + type of elements: different types of element allowed in an array; e.g., `let a = [1, 2, "three"]`
+  
++ Adding element
+  + using a new index
+    + not to leave a hole in the array; e.g., `let a = [1, 2, 3]; a[4] = 4; a; // a = [1, 2, 3, undefined x 1, 4]`
+    + example: `let a = [1, 2, 3]; a[3] = "four"; a[a.length] = "five"; // a = [1, 2, 3, "four", "five"]`
+  + adding a new element at the end w/ `push()` method, e.g., `a.push("five"); // a = [..., "five"]`
+  + recommendation: using `push()` method
+
++ Removing element
+  + `splice` method
+    + syntax:
+      + `array.splice(start)`
+      + `array.splice(start, deleteCount)`
+    + parameters
+      + __start:__ index at which to start changing the array
+      + __deleteCount:__  (optional)
+        + an integer indicating the number of old array elements to remove
+        + `deleteCount` > size of array left (from start to end): remove all elements
+        + `deleteCount` omitted: `deleteCount = array.length - start`, delete all elements starting from `start` to end of array
+    + return value:
+      + an array containing the deleted elements
+      + a one-element array if only one element removed
+      + empty array if no element removed
+    + examples: `a = [1, 2, 3, "four", "five", "six", undefined × 1, "height"];`
+      + remove element at 6th index: `[undefined x 1]` & `a = [1, 2, 3, "four", "five", "six", "height"]`
+      + remove the 1st three elements: `a.splice(0, 3); // [1, 2, 3]` & `a = ["four", "five", "six", "height"]`
+      + remove the last element: `a.splice(a.length-1); // "height"` & `a = ["four", "five", "six"]`
+  + `pop` method
+    + recommended method for removing the last element
+    + example: `a = ["four", "five", "six"]`, `a.pop(); // "six"` & `a = ["four", "five"]`
+  + `delete` method
+    + not good for removing an element from an array
+    + example: `delete a[1]; // true` & `a = ["four", undefined × 1]`
+
++ Arrays of arrays
+  + numerical array
+    + a `n x m` matrix
+    + examples
+      + a matrix w/ 2 rows, 3 columns: `var a = [[1,2,3], [4,5,6]];`
+      + accessing rows: `a[0]; // [1, 2, 3]` & `a[1]; // [4, 5, 6]`
+      + element: `a[0][0]; // top left element` $\to$ 1; ` a[0][1]; // second element, first line` $\to$ 2; `a[1][2]; // third element, second line` $\to$ 6
+  + array w/ differnet types of arrays, e.g., `a[0] = [1, 2, 3, 4, 5]; a[1] = ['michel', 'henri', 'francois']; a; // [Array(5), Array(3)]`
+
+
 
 #### Knowledge check 3.2.1 (not graded)
 
