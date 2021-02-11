@@ -69,7 +69,9 @@ Below is an another example with an array containing three integers. The first e
 <li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="lit">2</span></li>
 </ol></div>
 
-###### JavaScript arrays are objects and have some useful properties and methods
+##### Properties and methods of array objects
+
+JavaScript arrays are objects and have some useful properties and methods
 
 Note that in JavaScript, arrays are "objects" (_lines 2-3_ in the above example), which means that they have properties and methods. You can access/call them using the "." operator. Here are the most common properties and methods.
 
@@ -122,7 +124,9 @@ Explanations:
 
 We will see more methods in the other subsections of this page.
 
-##### Elements can be of different types in a same array
+##### Types of elements in array
+
+Elements can be of different types in a same array
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">];</span></li>
@@ -210,7 +214,9 @@ Examples:
 </ol></div>
 
 
-##### Recommended method for removing the last element: the `pop` method!
+##### Removing element with `pop` method
+
+Recommended method for removing the last element: the `pop` method!
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pun">&gt;</span><span class="pln"> a</span></strong></li>
@@ -235,7 +241,7 @@ Trap: the delete method is not good for removing an element from an array!
 </ol></div>
 
 
-##### Arrays of arrays
+#### Arrays of arrays
 
 It is possible for an array to be an element within an array! This example shows an array made of two arrays of three elements each. It's a 2x3 matrix with two rows and three columns!
 
