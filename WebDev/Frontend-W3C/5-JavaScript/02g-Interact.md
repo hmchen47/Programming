@@ -369,5 +369,81 @@ Source code for the next question (14)
 
 
 
+### 2.7.4 Exercises (16-19)
+
+
+16. Did you get the key?
+
+  ```js
+  window.onkeydown = function(evt) {
+    console.log("key = " + evt.XXX);
+  }
+  ```
+
+  What would you write in the above code to get the key that has been pressed (for ex., if you press 'e' you want "key = e" to be printed by the console.log)??
+
+  a. `code`<br>
+  b. `key`<br>
+  c. `keyCode`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+17. Make my game playable in all countries
+
+  Reference keyboard:
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick="window.open('https://tinyurl.com/2uaxt6lc')"
+      src    ="https://tinyurl.com/559zrbmn"
+      alt    ="the reference keyboard from:https://www.w3.org/TR/uievents-code/#writing-system-keys"
+      title  ="the reference keyboard from:https://www.w3.org/TR/uievents-code/#writing-system-keys"
+    />
+  </figure>
+
+  What is the reference keyboard we talked about in the course, (also shown above), when we are speaking about key events?
+
+  a. It's a reference layout that does not depend on your physical keyboard layout. The `keyCode` property of the key event object will have the value displayed on the keys of this keyboard which does not depend on your physical layout.<br>
+  b. It's the reference keyboard only for the QWERTY keyboard layout.<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+18. Many buttons...
+
+  ```js
+  window.onmousedown = function(evt) {
+    document.body.innerHTML += "button = " + evt.XXX + "<br>";
+
+  }
+  ```
+
+  What is the property name for getting the mouse button number (e.g., what would you write instead of XXX in the above code)?
+
+  a. `code`<br>
+  b. `button`<br>
+  c. `mouse.button`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+19. Not mouse events
+
+  Which of these are NOT mouse events? (3 correct answers.)
+
+  a. `click`<br>
+  b. `mouseclick`<br>
+  c. `doubleclick`<br>
+  d. `mouseup`<br>
+  e. `mousemotion`<br>
+  f. `mousedown`<br>
+
+  Ans: <br>
+  Explanation: 
+
 
 
