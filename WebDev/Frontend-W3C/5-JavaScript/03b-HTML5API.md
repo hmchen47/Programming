@@ -388,5 +388,174 @@ var a = [1, 2, 3, "four", "five", "six", "seven", "height"]
   Explanation: You must use the `splice` method. The arguments are two-fold: the starting index, and the number of elements to remove. "four" is at index 3, the number of elements to remove is 2. The correct answer is `a.splice(3, 2);`.
 
 
+### 3.2.2 Strings are arrays of characters
+
+Yes, they do look like arrays!
+
+JavaScript strings are "like" arrays of characters, but they have some limitations, and some dedicated properties and methods:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"M"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">[</span><span class="lit">1</span><span class="pun">];</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"i"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">6</span></li>
+</ol></div>
+
+Indeed, the string `s` behaves like an array, it has the `length` property like an array, and we can access individual characters using indexes that go from 0 to `length-1`, like arrays...
+
+However... they are not quite the same as arrays!
+
+You cannot add elements to strings using a non-existent index, you cannot use the push/pop methods for adding/removing  characters at the end of the string:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pln">s</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">' Buffa'</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">ERROR</span><span class="pun">:</span><span class="pln"> VM5748</span><span class="pun">:</span><span class="lit">1</span><span class="pln"> </span><span class="typ">Uncaught</span><span class="pln"> </span><span class="typ">TypeError</span><span class="pun">:</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">push </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> a </span><span class="kwd">function</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"> at </span><span class="str">&lt;anonymous&gt;</span><span class="pun">:</span><span class="lit">1</span><span class="pun">:</span><span class="lit">3</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pun">(</span><span class="pln">anonymous</span><span class="pun">)</span><span class="pln"> </span><span class="pun">@</span><span class="pln"> VM5748</span><span class="pun">:</span><span class="lit">1</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">s</span><span class="pun">[</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'B'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// add 'B' at the end?</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"B"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">s</span><span class="pun">[</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'u'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// add 'u' at the end?</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"u"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">s</span><span class="pun">[</span><span class="pln">s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'f'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// add 'f' at the end?</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"f"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s remained UNCHANGED!</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="str">"Michel"</span></strong><span class="pln"> </span></li>
+</ol></div>
+
++ You cannot use push/pop as this raises an error "is not a function" (_lines 1-5_)
++ You can try to put elements out of the range of the string: nothing will happen and the string will remain unchanged (_lines 7-17_)
+
+You can't even modify a character using an index. Strings are "read only" when using brackets to access individual characters!
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"R"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// trying to change the 'M' into an 'R'</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"R"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// no luck!</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"Michel"</span></li>
+</ol></div>
+
+You also can't remove characters using the array's splice method:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">ERROR</span><span class="pun">:</span><span class="pln"> VM716</span><span class="pun">:</span><span class="lit">1</span><span class="pln"> </span><span class="typ">Uncaught</span><span class="pln"> </span><span class="typ">TypeError</span><span class="pun">:</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">splice </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> a </span><span class="kwd">function</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> at </span><span class="str">&lt;anonymous&gt;</span><span class="pun">:</span><span class="lit">1</span><span class="pun">:</span><span class="lit">3</span></li>
+</ol></div>
+
+So: how do we add characters to a string, how can we modify a string? How can we delete elements in a string ?
+
+Strings come with a whole set of methods, which we'll come to in module 4 when we talk about JavaScript objects (in the section titled "JavaScript predefined objects"). Without going into detail just yet, here are some examples:
+
+#### Concatenation with `+` operator
+
+__Adding a string to the beginning of a string using the + operator:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> s</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"Hello Michel"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'O'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> s</span><span class="pun">;</span></strong><span class="pln"> </span><span class="com">// equivalent to push('0') with arrays</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"OHello Michel"</span></li>
+</ol></div>
+
+__Adding a string to the end of another one with the + operator:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pun">&gt;</span><span class="pln">s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"Michel"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> s </span><span class="pun">+=</span><span class="pln"> </span><span class="str">' Buffa'</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"Michel Buffa"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"Michel Buffa"</span></li>
+</ol></div>
+
+
+#### Removing substring
+
+__Removing chars from a string using the `substring` method:__
+
+Removing the last char (equivalent to the pop method from arrays):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln">&nbsp;</span>s = s.substring(0, s.length-1);</strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"Miche"</span></li>
+</ol></div>
+
+
+__Removing a certain number of chars starting from a string, starting at a given index  :__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> removeChars</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln"> startIndex</span><span class="pun">,</span><span class="pln"> numberOfCharsToRemove</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp;return</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> startIndex</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln">&nbsp; &nbsp;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; s</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="pln">startIndex&nbsp;</span><span class="pun">+&nbsp;</span><span class="pln">numberOfCharsToRemove</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// remove 3 consecutive chars from s, starting at index = 1</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">s </span><span class="pun">=</span><span class="pln"> removeChars</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span><span class="pln"> </span><span class="com">// will display "Mel" in the console</span></li>
+</ol></div>
+
+
+__Replacing a char at a given index:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> replaceAt</span><span class="pun">(</span><span class="pln">s</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">,</span><span class="pln"> character</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> character </span><span class="pun">+</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="pln">index</span><span class="pun">+</span><span class="pln">character</span><span class="pun">.</span><span class="pln">length</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> s2 </span><span class="pun">=</span><span class="pln"> </span><span class="str">"JavaScript"</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">s2 </span><span class="pun">=</span><span class="pln"> replaceAt</span><span class="pun">(</span><span class="pln">s2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"o"</span><span class="pun">);</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">s2</span><span class="pun">);</span><span class="pln"> </span><span class="com">// will display "JovaScript"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="com">// it also works with a string instead of a simple char</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">s2 </span><span class="pun">=</span><span class="pln"> replaceAt</span><span class="pun">(</span><span class="pln">s2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Coca"</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">s2</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Will display "CocaScript"</span></strong></li>
+</ol></div>
+
+
+#### Knowledge check 3.2.2
+
+1. What is the name of the function/method for removing a given number of chars from a string, starting at a given index?
+
+  a. There is no built-in method/function for that, we need to build one.<br>
+  b. `splice`, with the same syntax we used with JavaScript arrays<br>
+  c. `substring`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+
+
+
 
 
