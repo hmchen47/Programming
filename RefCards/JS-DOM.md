@@ -2,7 +2,7 @@
 
 
 ## Overview
-
+ 
 + [Standard APIs](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-132-what-can-be-done-with-javascript)
   + API: an application programming interface
   + DOM: an object representing the document
@@ -37,6 +37,75 @@
   + download and upload data from browser to remote Web server
   + __AjaX__ (Asynchronous JAvascript and Xml): term used in JS to download & upload data
 
++ [Overview of DOM](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#251-introducing-the-dom)
+  + Document Object Model (DOM): a modle of the dicument's structure
+  + used to render the HTML page on the screen
+  + a standard describing how a document must be manipulated
+  + defining a "language- and platform natural interface"
+  + all browers offerring the same JS DOM API
+  + DOM API:
+    + a programming interface used to modify the HTML content ot the CSS style of HTML element on the fly
+    + providing the `document` object as a structure object
+  + `document` object
+    + a group of nodes represented as a tree
+    + exposing a large set of methods to access and manipulate the structured document
+    + method capability:
+      + look for nodes (html elements that compose the page)
+      + move nodes
+      + delete nodes
+      + modify nodes (attributes, contents)
+      + handle associated events
+    + a propert of the global object `window`
+    + implicitly `window.document` = `document`
+  + types of nodes (most useful ones highlighted)
+    + __element__, e.g., `<ul></ul>`
+    + __text__, e.g., `<p>the text within the element p is a node of type text</p>`
+    + Document, DocumentFragment, DocumentType, Comment, ProcessingInstruction
+  + viewing DOM w/ devtool
+    + Firfox: devtool > console > type "document.body"
+    + Chrome: ([devtool video](https://youtu.be/VYyQv0CSZOE))
+      + devtool > console > type "window"
+      + devtool > console > type "inspec(document.querySelector("input"));" to focus on 'input' element
+
+
+## Accessing HTML Elements
+
++ [The `selector` API](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#253-accessing-html-elements)
+  + a way of easily accessing elements in the DOM
+  + a way to use CSS selector for requesting the DOM
+  + methdos
+    + `querySelector`: return the 1st element int he DOM that matched the selector
+    + `querySelectorAll`: return a collection of HTML elements of all elements matching the selector
+  + example: [typical usage](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example02.html)
+    + HTML: `<img src="https://i.imgur.com/Ntvj5rq.png" id="img1" width=200> <img src="https://i.imgur.com/yiU59oi.gif" width=200>`
+    + JavaScript
+      + initialization: `window.onload = init;`
+      + `init` function executed as soon as the page loaded (DOM ready)
+  + example: [get all `<li>` directly in a `<ul>` of class nav](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example03.html)
+  + example: [display all checked `<input type="checkbox">` elements](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example04.html)
+  + example: [change the back ground of all paragraphs](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example04.html)
+  + examples: more complex selectors
+    + `var el = document.querySelector('#nav ul li');`: all elements `li` in `ul` elements in an element of `id`= `nav`
+    + `var els = document.querySelectorAll('ul li:nth-child(even)');`: all li in a ul, but only even elements
+    + `var els = document.querySelectorAll('form.test > tr > td');`: all `td` directly in `tr` in a form of class test
+    + `querySelectorAll("p.warning, p.error");`: all paragraphs of class warning or error
+    + `querySelector("#foo, #bar");`: first element of `id` = `foo` or `id` = `bar`
+    + `var div = document.getElementById("bar"); var p = div.querySelector("p");`: first `p` in a `div`
+
++ [The `getElement` APIs](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#253-accessing-html-elements)
+  + able to be replaced by `querySelector` and `querySelectorAll` methods
+  + `document.getElementById(identifier)` method
+    + return the element which has the `id` “identifier”.
+    + equivalent to `document.querySelector("#identifier');`
+  + `document.getElementsByTagName(tagName)` method
+    + return a list of elements which are named “tagName”.
+    + equivalent to `document.querySelectorAll(tagName);`
+  + `document.getElementsByClassName(className)` method
+    + return a list of elements which have the class “className”.
+    + equivalent to `document.querySelectorAll('.className');`
+
+
+
 
 ## Modifying HTML document
 
@@ -50,6 +119,41 @@
   + HTML Table JavaScript API: useful for building tables on the fly; e.g.,
     + add new row to end of the table: `var newRow   = tableBody.insertRow();`
     + add cell for the row: `var firstNameCell  = newRow.insertCell(); firstNameCell.innerHTML = firstName;`
+
++ [Value of a selected DOM node](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#255-modifying-selected-html-elements)
+  + the `innerHTML` property
+    + useful when changing all the children of a given element
+    + used to modify the text content of an element or insert a whole set of HTML element inside another one
+    + including all contents and child elements
+    + example: `var elem = document.querySelector('#myElem');`
+      + replace conetnt: `elem.innerHTML = 'Hello ';`
+      + append conetnt: `elem.innerHTML += '<b>Michel Buffa</b>',`
+  + the `textContent` property
+    + used to read the text content or to modify the content
+    + only containing the text content
+  + modifying the attributes:
+    + directly using the name of attribute as the property
+    + `value` property of objects in many cases
+
++ [Adding new node w/ the DOM API](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#256-adding-new-elements-to-the-dom)
+  + create a new element by calling `createElement()` method
+    + syntax: `var elm = document.createElement(name_of_the_element)`
+    + example: `var li = document.createElement('li');`
+  + set some attributes / values / styles for this element, e.g.,
+    + `li.innerHTML = '<b>This is a new list item in bold!</b>';` & `li.textContent = 'Another new list item';`
+    + `li.style.color = 'green';`
+    + `img.src = "https://..../myImage.jpg";` & `img.width = 200;`
+  + add the newly created element to another element in the DOM
+    + using `append()`, `appendChild()`, `insertBefore()` or the `innerHTML` property
+
++ [Moving HTML elements](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#257-moving-html-elements-in-the-dom)
+  + `append()`, `appendChild()`: adding a new element to an existing one
+  + moving from its original location to become a child of the targetElem
+  + example: [drag'n'drop](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example13.html)
+
++ [Removing elements](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#258-removing-elements-from-the-dom)
+  + `removeChild()`: remove a chile element from the DOM document
+  + removing all children of an element using the `innerHTML` property
 
 
 
@@ -81,6 +185,35 @@
         divElem.style.backgroundPosition  = offset + "px";
       }
       ```
+
++ [The `style` attribute](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#254-changing-the-style-of-selected-html-elements)
+  + most common way to modify the CSS style of one of several elements
+  + typical usage: `var p = document.querySelector('#paragraph1'); p.style.color = 'red';`
+  + rule to change syntax of attribute in JS
+    + remove the "-" sign in CSS attributes if presented
+    + capitalize the word after the "-" sign
+  + most useful CSS properties
+    + `color`: changing the color of the text content of selected element(s)
+    + `background-color`: the background color of the select element(s)
+    + `margin` and `padding`: external and internal space, including `margin-top`, `margin-left`, `margin-bottom`, and `margin-right` and also `padding-top`, etc.
+    + `border` and `border-radius`: chnage the border, type, color, thickness, rounded corners, etc.
+    + `box-shadow`: add shadow to selected elements
+    + `font` and `font-style`: font characters and style (italic, bold, plain)
+    + `text-align`: text alignment
+
++ [The `ClassList` interface](../WebDev/Frontend-W3C/5-JavaScript/02e-Interact.md#254-changing-the-style-of-selected-html-elements)
+  + simplifying to manipulate CSS classes of an HTML element
+  + acting as a container object and providing a set of methods to manipulate its conetnt
+  + applyied to an HTML element and returning a collection of class names
+  + typical usage: `var elem = document.querySelector("#id1"); var allClasses = elem.classList;`
+  + methods usable on a classList objet
+    + methods: `add()`, `remove()`, `toggle()` and `contains()`
+    + typical usages:
+      + `div.classList.add('foo');`: set "foo" as the class by adding it to the classList
+      + `div.classList.contains('foo');`: check that the classList contains the class "foo"
+      + `div.classList.remove('foo');`: remove the class "foo" from the list
+      + `div.classList.toggle('foo');`: add if not existed or remove if existed the class "foo"
+  + example: [add and remove multiple CSS properties](../WebDev/Frontend-W3C/5-JavaScript/src/02e-example07.html)
 
 
 
@@ -363,6 +496,128 @@
   + event
     + listen to these events using `addEventListener()` or by assigning an event listener to the `oneventname` property of this interface
     + `error`: fired when an error occurs, available via the `onerror` property
+
+
+
+## Canvas and Animation - Example
+
++ [HTML5 canvas](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
+  + a transparent element useful for drawing and animating
+  + adding canvas in HTML: `<canvas id="myCanvas" width="200" height="200"></canvas>`
+    + not visible: transparent
+    + CSS style border to be visible: `canvas { border: 1px solid black; }`
+  + best practice
+    + use a function called AFTER the page fully loaded, the DOM ready, and select the canvas
+    + get a 2D graph context for this canvas
+      + an object used to draw on the canvas and to set global properties
+      + syntax: `ctx = canvas.getContext('2d');`
+    + draw something
+      + `ctx.fillRect(x, y, width, height)`: draw a filled rectangle
+      + `ctx.strokeRect(x, y, width, height)`: draw a wireframed rectangle
+    + use global variables for the canvas and context objects
+      + `ctx.fillStyle = 'color';`: set filled color
+      + `ctx.strokeStyle = 'color';`: set wireframe color
+      + `ctx.lineWidth = number;`: set framewire line width
+      + `ctx.beginPath();`: lift pen to begin a new draw, no line btw the previous ned point and the current starting point
+      + useful global properties: `w = canvas.width; h = canvas.height;`
+    + typical procedure for function to change the context
+      + change any properties of global context: 
+        + start by saving the content: `ctx.save();`
+        + end by restoring it: `ctx.restore();`
+      + properties including color, line, width, coordinate system, etc.
+      + the change in the function won't effect anything outside the function
+  + coordinate system
+    + origin: top left of the canvas
+    + default: (0, 0)
+    + `ctx.translate(x, y)`: relocate the origin to (x, y) of the canvas
+    + useful to have multiple shapes by translating the origin
+  + example: [simple drawing](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example01.html)
+  + example: [function w/ save and restore context](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example02.html)
+  + example: [monster](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example03.html)
+
++ [Animation](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#262-animating)
+  + ways to animation
+    + `setInterval(func, time)`: execute `func` every `time` ms
+    + `setTimeout(func, time)`: execute only once after the delay `time` ms
+    + `requestAnimationFrame(func)`: request a new frame of animation in 1/60 seconds
+  + best practice: `requestAnimationFrame(func)`
+  + typical animation loop procedure
+    + clear the canvas
+    + draw graphic objects / shapes
+    + move graphic objects / shapes
+    + repeat previous 3 steps
+  + optional steps for animation loop
+    + observe the keyboard / mouse / gamepad to change status
+    + test collisions: decrease one life if player collides
+    + test game state: game over if no life left
+    + etc.
+  + example: [moving monster](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example04.html)
+  + example: [bouncing balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example05.html)
+
++ [Aminating multiple objects](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#notes-for-263-animating-multiple-objects)
+  + `forEach` method: iterate elements in an array
+  + example: [3 bouncing balls and the player](src/02f-example06.html)
+  + example: [arrays for bouncing balls](src/02f-example07.html)
+
++ [Mouse position relative to the canvas](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#264-mouse-interactions)
+  + viewport coordinate
+    + the mouse coordinate `(clientX, clientY)` passed to the listener function
+    + viewport as the visible part of the page
+  + most of the time working w/ the mouse position relative to the canvas, not to the viewport
+  + converting the coordinates btw the viewport and the canvas
+  + considerations
+    + the position of the canvas in the viewport
+    + the CSS properties probably effecting the canvas position (margin, etc.)
+  + `getBoundingClientRect()`: a method for getting the position and size of any element in the viewport
+  + mouse position in canvas: `function getMousePos(canvas, evt) {...}`
+    + get the canvas position: `var rect = canvas.getBoundingClientRect();`
+    + the position relative to the canvas: `{x: evt.clientX - rect.left, y: evt.clientY - rect.top}`
+  + `evt.button` property: the mouse button number
+
++ [Moving element w/ mouse pointer](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#265-moving-a-player-with-the-mouse)
+  + get mouse position in a canvas: `getMousePos(evt)`
+  + the mouse cursor out of canvas: `mousePos === undefined`
+  + mouse position within the canvas: `player.x = mousePos.x; player.y = mousePos.y;`
+
++ [Collision detection - Circle & Rectangle](/WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#266-adding-collision-detection)
+  + [circle-Rectangle collision detection](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
+    + either the circle's center lies insiode the rectangle
+    + one of the edges of the rectangle has a point in the circle
+    + `intersectCircle()`:
+      + check if the foot of the perpendicular from `P` to the line is close enough and btw the endpoints
+      + check endpoint  otherwise
+
+      ```shell
+      def intersect(Circle(P, R), Rectangle(A, B, C, D)):
+        S = Circle(P, R)
+        return (pointInRectangle(P, Rectangle(A, B, C, D)) or
+                intersectCircle(S, (A, B)) or
+                intersectCircle(S, (B, C)) or
+                intersectCircle(S, (C, D)) or
+                intersectCircle(S, (D, A)))
+      ```
+  
+  + JavaScript implementation
+
+    ```js
+    function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {
+      var testX=cx; var testY=cy;
+
+      if (testX < x0) testX=x0;
+      if (testX > (x0+w0)) testX=(x0+w0);
+      if (testY < y0) testY=y0;
+      if (testY > (y0+h0)) testY=(y0+h0);
+
+      return (((cx-testX)*(cx-testX)+(cy-testY)*(cy-testY))< r*r);
+    }
+    ```
+
+  + example: [collision detection btw balls & the player](src/02f-example12.html)
+
+
++ [Changing variable dynamically - game completion](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#267-adding-input-fields)
+  + using `input` fields to change the init variables
+  + example: [game to collide selected color balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example13.html)
 
 
 
