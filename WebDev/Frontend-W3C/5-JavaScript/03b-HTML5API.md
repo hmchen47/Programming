@@ -371,7 +371,7 @@ It is possible to have different arrays with different lengths and different typ
 
 
 
-#### Knowledge check 3.2.1 (not graded)
+#### Knowledge check 3.2.1
 
 ```js
 var a = [1, 2, 3, "four", "five", "six", "seven", "height"]
@@ -384,8 +384,8 @@ var a = [1, 2, 3, "four", "five", "six", "seven", "height"]
   c. `a.remove(3, 2);`<br>
   d. `a.splice(2, 4);`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: You must use the `splice` method. The arguments are two-fold: the starting index, and the number of elements to remove. "four" is at index 3, the number of elements to remove is 2. The correct answer is `a.splice(3, 2);`.
 
 
 
