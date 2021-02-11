@@ -175,8 +175,10 @@ Check the gear that will be printed to the devtool console (2 correct answers.)
   b. `i = 4` and `j = 8`<br/>
   c. `i = 5` and `j = 10`<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: b<br/>
+  Explanation:
+    + `i` starts with value 1. The while loop will be executed for `i = 1`, `i = 2`, `i = 3`. Then, during the third loop, `i` is incremented once more and becomes equal to 4. The condition (`i < 4`) becomes false and we continue after the loop block of instructions. `i = 4` at the end.
+    + `j` starts with value 2, the loop is executed three times and each time 2 is added to `j`. Final value is `2 + (3 x 2) = 8`.
 
 
 8. Do this question while you have time...
@@ -196,8 +198,10 @@ Check the gear that will be printed to the devtool console (2 correct answers.)
   b. 12 14 16 18, 20, each one on a different line<br/>
   c. 12 14 16 18, each one on a different line<br/>
 
-  Ans: <br/>
-  Explanation: 
+  Ans: <span style="color: brown;">b</span>, xc<br/>
+  Explanation:
+    + `i` has value 10. The block of instruction in the 'do... while' is first executed before testing the condition. 2 is added to `i`. `i` has value 12 before the first call to `console.log`, then the loop is done again. Each time, we add 2 BEFORE testing the condition. So `i` will be equal to 12, 12, 16, 18.
+    + Then it's incremented and it will be equal to 20. That will be displayed in the devtool console by console.log, then the condition (`i < 20`) is `false` (as `i = 20`), and we exit the loop. So... the correct answer is: 12 14 16 18, 20, each one on a different line
 
 
 9. Give these property names!
@@ -217,8 +221,10 @@ Check the gear that will be printed to the devtool console (2 correct answers.)
 
   What would you put instead of XXX in the above code, so that it will print the property names of the object rect1?
 
-  Ans: <br/>
-  Explanation: 
+  Ans: `in`<br/>
+  Explanation: The `for-in` statement is used to iterate through an object. The correct answer is 'in'.
+
+
 
 
 
