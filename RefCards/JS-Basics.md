@@ -110,6 +110,127 @@
   + using concatentate operator `+` w/ `console.log(...)` for variable value
 
 
+## Standard style
+
++ [JavaScript Standard Style](https://tinyurl.com/ymps7k46)
+  + indentation: 2 spaces
+  + single quote (`'`) for strings except to avoid escaping
+  + no unused variables
+  + add a space after keyword
+  + add a space before a functiondeclaration's parentheses
+  + always using `===` instead of `==`, exception: `obj == null` is allowed to check for `null || undefined`
+  + infix operators must be spaced, e.g., `var message = 'hello, ' + name + '!'`
+  + commas should have a space, e.g., `function greet (name, options) { ... }`
+  + keep `else` statements on the same line as their curly braces
+  + for multiline if statement, use curly braces
+  + always handle the `err` function parameter, e.g., `run(function (err) { if (err) throw err window.alert('done') })`
+  + declare browser globals w/ a `/* global */` comment
+    + exceptions: `window`, `document`, and `navigator`
+    + prevent accidental use of poorly-named browser globals, including `open`, `length`, `event` and `name`
+  + multiple blank lines not allowed
+  + ternary operator in a multi-line setting, place `?` and `:` on their own lines
+  + `var` declarations: write each declaration in its own statement
+  + wrap conditional assignments w/ additional parentheses, e.g., `while ((m = text.match(expr))) { // ... }`
+  + add spaces inside a single line blocks, e.g., `function foo () { return true }`
+  + use camelcase when naming variables and functions
+  + trailing commas not allowed, e.g., `var obj = { message: 'hello',   // ✗ avoid }`
+  + commas must be placed at the end of the the current line
+  + dot shout be the same line as property, e.g., `.log('hello')`
+  + files must be end w/ a new line
+  + no space btw function identifiers and their invocations, e.g., `console.log('hello')`
+  + add space btw colon and value in key value pair, e.g., `var obj = { 'key': 'value' }`
+  + constructor names must begin w/ a capital letter, e.g., `var dog = new Animal()`
+  + constructor w/ no arguments must be invoked w/ parentheses, e.g., `var dog = new Animal()`
+  + objects must contain a getter when a setter is defined
+  + constructors of derived classes must be `super`
+  + use array literals instead of array constructore, e.g., `var nums = [1, 2, 3]`
+  + avoid using `arguments.callee` and `argument.caller`
+  + avoid modifying variables of class declarations
+  + avoid modifying variable declared using `const`
+  + avoid using constant expression in conditions (except loops), e.g., `if (false) {...} // ✗ avoid`
+  + no control characters in regular expressions
+  + no debugger statement
+  + no `delete` operator on variables
+  + no duplicated arguments in function definition
+  + no duplicated name in class members
+  + no duplicated keys in object literals
+  + no duplicate `case` labels in `switch` statements
+  + use a single import statement per module, e.g., `import { myFunc1, myFunc2 } from 'module'`
+  + no empty character classes in regular expressions
+  + no empty destructuring patterns, e.g., `const { a: {} } = foo  // ✗ avoid`
+  + no using `eval()`
+  + no reassigning exceptions in `catch` clauses
+  + no extending native objects, e.g., `Object.prototype.age = 21     // ✗ avoid`
+  + avoid unnecessary function binding
+  + avoid unnecessary boolean casts, e.g., `if (!!result) { // ✗ avoid }`
+  + no unnecessary parentheses around function expression, e.g., `const myFunc = function () { }`
+  + use `break` to prevent fallthrough in `switch` cases
+  + no floating decimals. e.g., `const discount = .5  // ✗ avoid`
+  + avoid reassigning function declaration
+  + no reassigning real-only global variables
+  + no implied `eval()`, e.g., `setTimeout("alert('Hello world')")  // ✗ avoid`
+  + no function declarations in nested blocks
+  + no invalid regular expression string in `RegExp` constructors
+  + no irregular whitespace
+  + no using `__iterator__`
+  + no labels that share a name with an in scope variable
+  + no label statements
+  + no unnecessary nested blocks
+  + avoid mixing spaces and tabs for indentation
+  + do not use multiple spaces except for indentation
+  + no multiline strings
+  + no `new` w/o assigning object to a variable
+  + not using the `Function`, `Object`, `Symbol`, constructors
+  + not using `new require`
+  + not using primitive wrapper instances
+  + not calling global object properties as functions, e.g., `const math = Math()   // ✗ avoid`
+  + no octal literals
+  + no octal escape sequences in string literals, e.g., `const copyright = 'Copyright \251'  // ✗ avoid`
+  + avoid string concatenation when using `__dirname` and `__filename`, e.g., `const pathToFile = path.join(__dirname, 'app.js')`
+  + avoid using `__proto__`, using `getPrototypeOf` instead
+  + no redeclaring variables
+  + avoid multiple spaces in regular expression literals, e.g., `const regexp = /test {3}value/`
+  + assignments in return statements must be surrounded by parentheses
+  + avoid assigning a variable to itself, e.g., `name = name    // ✗ avoid`
+  + avoid comparing a variable to itself
+  + avoid using the comma operator, e.g., `if (doSomething(), !!test) {}   // ✗ avoid`
+  + restricted names should not be shadowed
+  + spares arrays not allowed, e.g., `let fruits = ['apple',, 'orange']   // ✗ avoid`
+  + tabs should not be used
+  + regular string must not contain template literal placeholder
+  + `super` must be called before using `this`
+  + only `throw` an `Error` object
+  + white space not allowed at the end of line
+  + initializing to `undefined` not allowed
+  + no unmodified conditions for loop, e.g., `for (let i = 0; i < items.length; j++) {...}    // ✗ avoid`
+  + no ternary operator when simplier alternative exist
+  + no unreachable code after `return`, `throw`, `continue`, and `break` statments
+  + no flow control statements in `finally` blocks
+  + the left operand of relational operators must not be negated
+  + avoid unnecessary use of `.call()` and `.apply()`
+  + avoid using unnecessary computed property keys on objects
+  + no unnecessary constructive
+  + no unnecessary use of escape
+  + renaming import, export, and destructured assignments to the sam ename not allowed
+  + no whitespace before properties
+  + not using `with` statements
+  + maintain consistency of newlines btw object properties
+  + no padding withing blocks
+  + no whitespace btw spread operators and their expressions
+  + semicolon must have a space after and no space before in `for` loop
+  + must have a space before blocks, e.g., `if (admin) {...}`
+  + no space inside parentheses, e.g., `getName(name)`
+  + unary operator must have space after, e.g., `typeof !admin`
+  + use spaces inside comments, e.g., `// comment` & `/* comment */`
+  + no space in template strings, e.g., <code>const message = &grace;Hello, ${name}&grave;</code>
+  + use `isNaN()` when checking for `NaN`
+  + `typeof` must be compared to a valid string, e.g., `typeof name === 'undefimed'   // ✗ avoid`
+  + Immediately Invoked Function Expressions (IIFEs) must be wrapped
+  + the `*` in `yield*` expression must have a space before and after, e.g., `yield * increment()`
+  + avoid Yoda conditions, e.g., `if (42 === age) { }    // ✗ avoid`
+  + never start a line w/ `[`, `(`, `, `+`, `*`, `/`, `-`, &grave;,`, `.`
+
+
 ## Common syntax
 
 + [JavaScript common syntax and devtool console](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-151-js-variables-and-values)
