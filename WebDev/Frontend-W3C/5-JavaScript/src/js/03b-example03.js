@@ -1,6 +1,11 @@
-var a = ['Monday', 'Tuesday', 'Wednesday'];
+window.onload = init();
 
-a.forEach(function(day) {
-  document.body.innerHTML += day + "<br>"; // will display Monday, Tuesday, Wednesday
-});
+function init() {
+  var a = ['Monday', 'Tuesday', 'Wednesday'];
+
+  a.forEach(function(day) {
+    document.body.innerHTML += day + "<br>"; // will display Monday, Tuesday, Wednesday
+  });
+}
+
 
