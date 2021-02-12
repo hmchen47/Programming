@@ -650,9 +650,112 @@ __Replacing a char at a given index:__
   b. `splice`, with the same syntax we used with JavaScript arrays<br>
   c. `substring`<br>
 
-  Ans: <span style="color: brown;">a</span>, c<br>
+  Ans: <span style="color: brown;">a</span>, xc<br>
   Explanation: Indeed, there is no built-in function for that. We presented in the course a `removeChars(s, startIndex, numberOfCharsToRemove)` function that uses the substring method.
 
+
+### 3.2.3 Iterating on array elements
+
+
+#### Live coding video: iterating on arrays
+
+<a href="https://edx-video.net/W3CJSIXX2016-V003300_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/y7dzppcz)
+
+Get the source code of the example shown in the video:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/VWYMNK)
+
+[Local Demo](src/03b-example02.html)
+
+Let's study the different methods for iterating on array elements.
+
+
+#### Method #1: iterating using `forEach`
+
+The `forEach` method takes a single argument that is a function/callback that can have one, two or three parameters:
+
++ The first parameter is the current element of the array,
++ The second parameter (optional) is the index of the current element in the array,
++ The third element is the array itself
+
+__Typical use with only one parameter (the current element):__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Monday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tuesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Wednesday'</span><span class="pun">];</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">a</span><span class="pun">.</span><span class="pln">forEach</span></strong><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">day</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // day is the current element</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> day </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;br&gt;"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// will display Monday, Tuesday, Wednesday</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">})</span></li>
+</ol></div>
+
+This is the most practical way to iterate on each individual element of a collection (array, string);
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/QpRybG)
+
+[Local Demo](src/03b-example03.html)
+
+
+Now, let's iterate on an array of person, and use two parameters in the callback function in order to get the index of the current element:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/rygxpr)
+
+[Local Demo](src/03b-example04.html)
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> persons </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp;{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'Michel'</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="lit">51</span><span class="pun">},</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp;{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'Henri'</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="lit">20</span><span class="pun">},</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp;{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'Francois'</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="lit">29</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">];</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">persons</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><strong><span class="pln">p</span><span class="pun">,</span><span class="pln"> index</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> p</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">", age "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> p</span><span class="pun">.</span><span class="pln">age </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span style="color: #000000;" color="#000000">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>", at index "<span class="pln"> </span><span class="pun">+</span><span class="pln"> index </span><span class="pun">+</span><span class="pln"> </span><span class="str">" in the array&lt;br&gt;"</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+</ol></div>
+
+__Finally, let's use three parameters, the last one being the array itself__
+
+This can be useful if we need to know the length of the array, or do special things within the array (add/change/move elements during the iteration):
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/ZKyMQj)
+
+[Local Demo](src/03b-example05.html)
+
+In this example, we used the third parameter (the array) to access its length inside the iteration loop.
+
+
+#### Method #2: iterating on an array using regular loop statements
+
+You can use any standard loop statement that we saw during in module 2. The most common way to iterate over an array is to use a for loop from 0 to length-1. 
+
+Using this method allows elements to be iterated two by two, or the loop to be broken in the middle using the break instruction, etc.
+
+__Iterating over all elements in an array, using a for loop__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/evaJKL)
+
+[Local Demo](src/03b-example06.html)
+
+Another example where we iterate two by two (just changed the increment in the for loop):
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/zZQrme)
+
+[Local Demo](src/03b-example07.html)
+
+
+#### Knowledge check 3.2.3
+
+1. Can you iterate only on elements that have an odd index using the forEach iterator, without adding a test inside the instructions in the body of the loop? (No/Yes)
+
+  Ans: <br>
+  Explanation: 
 
 
 
