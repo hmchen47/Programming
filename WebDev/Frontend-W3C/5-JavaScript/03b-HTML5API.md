@@ -821,8 +821,10 @@ Another example where we iterate two by two (just changed the increment in the f
 
 1. Can you iterate only on elements that have an odd index using the forEach iterator, without adding a test inside the instructions in the body of the loop? (No/Yes)
 
-  Ans: <br>
-  Explanation: 
+  Ans: No<br>
+  Explanation: No, the forEach method iterates on all the elements of an array. You can use a for loop for iterating on odd indexes, like that: `for(var i = 1; i less than a.length; i += 2) {....}`
+
+
 
 
 
