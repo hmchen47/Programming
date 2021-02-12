@@ -825,9 +825,80 @@ Another example where we iterate two by two (just changed the increment in the f
   Explanation: No, the forEach method iterates on all the elements of an array. You can use a for loop for iterating on odd indexes, like that: `for(var i = 1; i less than a.length; i += 2) {....}`
 
 
+### 3.2.4 Discussion and projects
 
+Please either post your comments/observations/questions or share your creations.
 
+#### Suggested topics
 
++ Which syntax do you prefer for iterating arrays?
++ We decided not to explain all the things you can do with the `splice` method. It's a very powerful method, but showing all its features could be overwhelming. However, if you're curious, please look on the Web for more details. Do you think we've been right not to tell you all the possibilities of splice?
 
+#### optional project: an interactive picture album browser
+
+Let's start with an array variable like that:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">let myPicturesArray = [</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "albumId"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "id"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"accusamus beatae ad facilis cum similique qui sunt"</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "url"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/600/92c952"</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "thumbnailUrl"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/150/92c952"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "albumId"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "id"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"reprehenderit est deserunt velit ipsam"</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "url"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/600/771796"</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "thumbnailUrl"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/150/771796"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "albumId"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "id"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">51</span><span class="pun">,</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"non sunt voluptatem placeat consequuntur rem incidunt"</span><span class="pun">,</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "url"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/600/8e973b"</span><span class="pun">,</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "thumbnailUrl"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/150/8e973b"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "albumId"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "id"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">52</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"eveniet pariatur quia nobis reiciendis laboriosam ea"</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "url"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/600/121fa4"</span><span class="pun">,</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "thumbnailUrl"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/150/121fa4"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "albumId"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "id"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">127</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"magnam quia sed aspernatur"</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "url"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/600/74456b"</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "thumbnailUrl"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/150/74456b"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "albumId"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "id"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">128</span><span class="pun">,</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"est facere ut nam repellat numquam quia quia eos"</span><span class="pun">,</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "url"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/600/b0931d"</span><span class="pun">,</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "thumbnailUrl"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/150/b0931d"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">];</span></li>
+</ol></div>
+
++ It's an array of pictures, each picture having a URL, a URL for a tiny version of the picture, called a thumbnail, a title, and the name of the album it belongs to, that can be used as a picture description (HTML `alt` attribute) but also for displaying it next to the picture.
++ Here is a small example that iterates on the pictures and create `<img>` elements on the fly:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/KqzPOm)
+
+[Local Demo](src/03b-example08.html)
+
+What you will have to do:
+
+1. __Improve the display, by adding margins (CSS), shadows, border, and changing the URLs for real pictures.__ Remember that you need to have a smaller versions of the pictures, i.e., thumbnails. You can use existing images (images.google.com is your friend) or images you upload somewhere.
+1. __Use JavaScript for adding a click event listener on each image,__ then when clicked, you will show a bigger version of each picture. For the moment, just change the value of the src attribute of the clicked image (set it to the URL of the full size image from the array).
+1. __Try to make something nicer: reserve a `<div>` on the right of the document so to display the clicked image with a bigger size.__ In that case, you will need to create an image (only once, after the first click), to set it to the size of the div (use the width and height attributes of the img element), and to append it to the div.
+1. __Try to add more images, and find a way to display them per album.__ Create buttons entitled "album1", "album2", etc., and when clicked, you will only display images from the selected album.
+1. __[Advanced] Add an option for deleting a picture.__ It should be removed from the document and from the array too...
+1. __Feel free to add any interesting feature you think about ;-)__
 
 
