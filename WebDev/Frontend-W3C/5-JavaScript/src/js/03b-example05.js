@@ -1,0 +1,12 @@
+var persons = [
+     {name:'Michel', age:51},
+     {name:'Henri', age:20},
+     {name:'Francois', age:29}
+];
+ 
+persons.forEach(function(p, index, theArray) {
+     document.body.innerHTML += p.name + ", age " + p.age +
+                             ", at index " + index + " in the array of " +
+                            theArray.length + " elements<br>";
+});
+
