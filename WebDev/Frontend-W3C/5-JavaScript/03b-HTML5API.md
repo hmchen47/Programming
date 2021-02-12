@@ -326,7 +326,7 @@ It is possible to have different arrays with different lengths and different typ
 
     + remove n elements starting from idx: `a.splice(idx, n);`; e.g., `a.splice(2, 1); // remove 1 elt starting from idx=2 (3rd elt)`
   + type of elements: different types of element allowed in an array; e.g., `let a = [1, 2, "three"]`
-  
+
 + Adding element
   + using a new index
     + not to leave a hole in the array; e.g., `let a = [1, 2, 3]; a[4] = 4; a; // a = [1, 2, 3, undefined x 1, 4]`
@@ -366,8 +366,67 @@ It is possible to have different arrays with different lengths and different typ
     + examples
       + a matrix w/ 2 rows, 3 columns: `var a = [[1,2,3], [4,5,6]];`
       + accessing rows: `a[0]; // [1, 2, 3]` & `a[1]; // [4, 5, 6]`
-      + element: `a[0][0]; // top left element` $\to$ 1; ` a[0][1]; // second element, first line` $\to$ 2; `a[1][2]; // third element, second line` $\to$ 6
+      + element: `a[0][0]; // top left element` $\to$ 1; `a[0][1]; // second element, first line` $\to$ 2; `a[1][2]; // third element, second line` $\to$ 6
   + array w/ differnet types of arrays, e.g., `a[0] = [1, 2, 3, 4, 5]; a[1] = ['michel', 'henri', 'francois']; a; // [Array(5), Array(3)]`
+
++ [`array.push` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+  + syntax: `arr.push([element1[, ...[, elementN]]])`
+  + docstring: add one or more elements to the end of an array and returns the new length of the array
+  + parameters
+    + `elementN`: The element(s) to add to the end of the array.
+  + return: The `new` length property of the object upon which the method was called.
+
++ [`array.pop` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+  + syntax: `arr.pop()`
+  + docstring:
+    + remove the __last__ element from an array and returns that element
+    + change the length of the array
+  + return: The removed element from the array; `undefined` if the array is empty.
+
++ [`array.sort` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+  + syntax: `arr.sort([compareFunction])`
+  + docstring:
+    + sort the elements of an array in place and return the sorted array
+    + default sort order: ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
+  + parameters
+    + `compareFunction` (optional):
+      + specify a function that defines the sort order.
+      + omitted: the array elements are converted to strings, then sorted according to each character's Unicode code point value.
+  + compare function
+
+    ```js
+    function compare(a, b) {
+      if (a is less than b by some ordering criterion) {
+        return -1;
+      }
+      if (a is greater than b by the ordering criterion) {
+        return 1;
+      }
+      // a must be equal to b
+      return 0;
+    }
+    ```
+
++ [`array.splice` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+  + syntax: `let arrDeletedItems = arr.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+  + docstring: change the contents of an array by removing or replacing existing elements and/or adding new elements in place
+  + parameters
+    + `start`: the index at which to start changing the array
+      + start &lt; array.length: `start` set to the length of the array. No element will be deleted but the method will behave as an adding function, adding as many element as item[n*] provided.
+      + negative: begin that many elements from the end of the array (`-n` is the index of the nth last element)
+      + array.length + start &lt; 0: begin from index `0`
+    + `deleteCount` (optional)
+      + an integer indicating the number of elements in the array to remove from start
+      + omitted, or &gte; array.length - start: all the elements from start to the end of the array will be deleted
+      + &lte; 0: no elements removed
+    + `item1, item2, ...` (optional): 
+      + the elements to add to the array, beginning from start
+      + not specifying any elements: `splice()` will only remove elements from the array.
+  + return: 
+    + An array containing the deleted elements.
+    + If only one element is removed, an array of one element is returned.
+    + If no elements are removed, an empty array is returned.
+
 
 
 
@@ -507,7 +566,7 @@ Removing the last char (equivalent to the pop method from arrays):
 </ol></div>
 
 
-__Removing a certain number of chars starting from a string, starting at a given index  :__
+__Removing a certain number of chars starting from a string, starting at a given index:__
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
@@ -540,6 +599,47 @@ __Replacing a char at a given index:__
 <li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">s2 </span><span class="pun">=</span><span class="pln"> replaceAt</span><span class="pun">(</span><span class="pln">s2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Coca"</span><span class="pun">);</span></strong></li>
 <li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">s2</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Will display "CocaScript"</span></strong></li>
 </ol></div>
+
+
+#### Notes for 3.2.2 Strings are arrays of characters
+
++ String as array
+  + "like" array of characters
+    + behave link an array
+    + w/ `length` property
+    + able to access individual characters w/ indexes
+    + example: `let s = 'Michel'; s[0]; // 'M'`, `s[1] // 'i'` & `s.length; // 6`
+  + limitations
+    + unable to add elements to string using a non-existent index
+    + unable to use `push/pop` methods for adding/removing characters at the end of string
+    + unable to modify a character w/ an index
+    + unable to remove a character w/ `splice` method
+    + examples
+      + using `push` method: `s.push('Buffa); // ERROR: VM5748:1 Uncaught TypeError: s.push is not a function at <anonymous>:1:3 (anonymous) @ VM5748:1`
+      + adding a character at the end but remaining UNCHANGED: `s[s.length] = 'B'; // "B"` but `s; // "Michel"`
+      + changing a character in string: `s[0] = "R"; // "R"` & `s; // "Michel"`
+      + using `splice` method: `s.splice(0, 3); // ERROR: VM716:1 Uncaught TypeError: s.splice is not a function at <anonymous>:1:3`
+
++ String operation
+  + concatenation w/ `+` operator
+    + prepend: `var s = 'Michel'; s = "Hello " + s; // "Hello Michel"`
+    + append: `var s = 'Michel'; s += " Buffa"; // "Michel Buffa"`
+  + removing substring w/ `substring` method
+    + examples:
+      + removing last char (equivalent to `pop` method): `s = s.substring(0, s.length-1); // "Miche"`
+      + removing a certain number of chars: `function removeChars(s, startIndex, numberOfCharsToRemove) { return s.substring(0, startIndex) + s.substring(startIndex + numberOfCharsToRemove); }` & `var s = 'Michel'; s = removeChars(s, 1, 3); console.log(s); // "Mel"`
+  + replacing a char w/ index
+    + `function replaceAt(s, index, character) { return s.substr(0, index) + character + s.substr(index+character.length); }`
+    + `var s2 = "JavaScript"; s2 = replaceAt(s2, 1, "o"); console.log(s2); // "JovaScript"`
+    + `s2 = replaceAt(s2, 0, "Coca"); console.log(s2); // Will display "CocaScript"`
+
++ [`str.substring` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
+  + syntax: `str.substring(indexStart[, indexEnd])`
+  + docstring: return the part of the string between the start and end indexes, or to the end of the string.
+  + parameters
+    + `indexStart`: the index of the first character to include in the returned substring
+    + `indexEnd` (optional): the index of the first character to exclude from the returned substring
+  + return: the part of the string between the start and end indexes, or to the end of the string
 
 
 #### Knowledge check 3.2.2
