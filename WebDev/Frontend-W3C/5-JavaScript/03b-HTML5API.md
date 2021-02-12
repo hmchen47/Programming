@@ -733,9 +733,9 @@ In this example, we used the third parameter (the array) to access its length in
 
 #### Method #2: iterating on an array using regular loop statements
 
-You can use any standard loop statement that we saw during in module 2. The most common way to iterate over an array is to use a for loop from 0 to length-1. 
+You can use any standard loop statement that we saw during in module 2. The most common way to iterate over an array is to use a `for` loop from 0 to length-1. 
 
-Using this method allows elements to be iterated two by two, or the loop to be broken in the middle using the break instruction, etc.
+Using this method allows elements to be iterated two by two, or the loop to be broken in the middle using the `break` instruction, etc.
 
 __Iterating over all elements in an array, using a for loop__
 
@@ -749,6 +749,73 @@ Another example where we iterate two by two (just changed the increment in the f
 
 [Local Demo](src/03b-example07.html)
 
+
+#### Notes for 3.2.3 Iterating on array elements
+
++ Iterating w/ array
+  + iterating w/ `forEach`
+    + parameters of `forEach`
+      + the current element of the array
+      + (optional) the index of the current element in the array
+      + (optional) the array itself
+    + examples:
+  
+      ```js
+      var a = ['Monday', 'Tuesday', 'Wednesday'];
+
+      a.forEach(function(day) { // day is the current element
+          document.body.innerHTML += day + "<br>"; // will display Monday, Tuesday, Wednesday
+      })
+
+      persons.forEach(function(p, index) {
+        document.body.innerHTML += p.name + ", age " + p.age +
+                             ", at index " + index + " in the array<br>";
+      });
+
+      persons.forEach(function(p, index, theArray) {
+        document.body.innerHTML += p.name + ", age " + p.age +
+            ", at index " + index + " in the array of " + theArray.length + " elements<br>";
+      });
+      ```
+
+  + iterate using regular `for` loop
+    + most common way to iterate over an array is to use a `for` loop from 0 to length-1
+    + allowing element to be iterated step  other than 1 or broken in the middle w/ `break` instruction
+    + examples:
+
+      ```js
+      var persons = [
+        {name:'Michel', age:51}, {name:'Henri', age:20}, {name:'Francois', age:29}
+      ];
+
+      for(var i = 0; i < persons.length; i++) {
+        var p = persons[i]; // current element
+        document.body.innerHTML += p.name + "<br>"; 
+      }
+
+      for(var i = 0; i < persons.length; i+=2) {
+        var p = persons[i]; // current element
+        document.body.innerHTML += p.name + "<br>"; 
+      }
+      ```
+
++ [`array.forEach` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+  + syntax:
+
+    ```js
+    arr.forEach(callback(currentValue[, index[, array]]) {
+      // execute something
+    }[, thisArg]);
+    ```
+  
+  + docstring: execute a provided function once for each array element
+  + parameters
+    + `callback`: function to execute on each element. It accepts between one and three arguments:
+      + `currentValue`: The current element being processed in the array.
+      + `index` (optional): The index of `currentValue` in the array.
+      + `array` (optional): The array `forEach()` was called upon.
+    + `thisArg` (optional): Value to use as `this` when executing `callback`.
+  + return: `undefined`
 
 #### Knowledge check 3.2.3
 
