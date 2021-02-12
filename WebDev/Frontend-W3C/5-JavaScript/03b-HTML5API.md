@@ -650,8 +650,8 @@ __Replacing a char at a given index:__
   b. `splice`, with the same syntax we used with JavaScript arrays<br>
   c. `substring`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: <span style="color: brown;">a</span>, c<br>
+  Explanation: Indeed, there is no built-in function for that. We presented in the course a `removeChars(s, startIndex, numberOfCharsToRemove)` function that uses the substring method.
 
 
 
