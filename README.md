@@ -468,11 +468,17 @@ This repository tracks my learning on different programming languages.
 
   <!-- <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> JavaScript </td> </tr> -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#general"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#history"> History </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#locations-of-js-code"> Location </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#debugging"> Debugging </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#standard-style"> Standard Style </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Syntax </th>
