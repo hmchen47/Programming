@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>Video/Canvas Demo 0</title> 
+  <style> 
+video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -180px 0 0 -240px;
+}
+</style> 
+
+</head>
+<body>
+<!-- <video> tag, with the @controls attribute
+     giving it the play/pause/seeker controls. Try removing the controls attribute, 
+     adding autoplay or loop -->
+<video controls="controls" poster="/static/posterVideoSPC.jpg"> 
+	<!-- I have three versions of the video encoded with
+	     different codecs.  The browser will automatically
+	     choose the first one it knows it can play. --> 
+	<source src="http://html5doctor.com/demos/video-canvas-magic/video.webm" type="video/webm" /> 
+	<source src="http://html5doctor.com/demos/video-canvas-magic/video.ogg" type="video/ogg" /> 
+	<source src="http://html5doctor.com/demos/video-canvas-magic/video.mp4" type="video/mp4" /> 
+</video>
+<!-- That's it!  You now have video playing in your browser! --> 
+ 
+
+</body>
+</html>
