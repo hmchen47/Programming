@@ -123,6 +123,55 @@ Notice the other similarities: between the `<audio>...</audio>` tags, we added a
 _Lines 8-12_:  we suggest downloading the audio files if the browser does not support the `<audio>` element. This is also a best practice!
 
 
+#### Notes for 3.3.1 Playing audio and video streams
+
++ `<video>` element
+  + one of the two "Flash  killer" ('<canvas>` as the other)
+  + a DOM member $\implies$ CSS styling applied and maipulating w/ the DOM API
+  + unable to embedded a YouTube and Daily Motion video
+  + typical usage
+
+    ```html
+    <video width="320" height="240" controls="controls">
+      <source src="movie.mp4" type="video/mp4" />
+      <source src="movie.ogg" type="video/ogg" />
+      Your browser does not support the <video> element.
+    </video>
+    ```
+
+    + `control` attribute: displaying a control panel w/ play/stop/volume/progress widget
+    + browser using the 1st format recognized but some browsers probably choose a "preferred" format
+  
+  + example using YouTube: `<iframe width="560" height="315" src="https://www.youtube.com/embed/ZH1XOsv8Oyo" frameborder="0" allowfullscreen></iframe>`
+
++ Audio 
+  + `<audio>` element
+    + useful for embedding an audio player into a Web page
+    + dedicated for _streamed audio_
+    + a DOM member $\implies$ VSS styling applied and manipulating w/ the DOM API
+    + attributes: a reduced version of `<video>` element
+    + typical usage
+
+      ```html
+      <audio controls="controls" crossorigin="anonymous">
+         <source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg" type="audio/ogg" />
+         <source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.mp3" type="audio/mp3" />
+         Your browser does not support the audio element.
+         Download the audio/video in
+         <a href=”https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg”>OGG</a>
+         or<a href=”https://mainline.i3s.unice.fr/mooc/week2p1/horse.mp3”>MP3</a> format.
+      </audio>
+      ```
+
+      + `control` attribute: render the play/stop, time, volume and progress widgets
+      + adding text message of the Wen browser not supporting the `<audio>` element
+      + `<source>...</source>` element: link to different audio formats for the same file
+      + browser using the 1st format recognized
+  + Wen Audio API
+    + designed for musical applications and for adding sound effects to games
+    + manipulation of sund samples (loops. etc.), music synthesis and sound generation (oscillators, etc.)
+    + w/ a set of predefined sound processing modules (reverb, delay, etc.)
+
 
 #### Knowledge check 3.3.1
 
