@@ -177,8 +177,11 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
 
 1. The `<video>` element is like any other HTML element: I can style it using CSS and interact programmatically with it using the JavaScript DOM API. (True/False)
 
-  Ans: <br>
-  Explanation: 
+  Ans: True<br>
+  Explanation: Indeed, the `<video>` element is, like other HTML elements, a first class citizen of the DOM and can be styled using CSS or manipulated using the JavaScript DOM API.
+
+
+
 
 
 
