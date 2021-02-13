@@ -13,7 +13,7 @@ The `<video>` element of HTML5 is one of the two "Flash killers" (the other bein
 
 The new way of doing things is a lot better... (please open this [live example at JS Bin](https://jsbin.com/kimayesazo/edit?html,output)).
 
-[JSBin Demo](https://jsbin.com/kimayesazo/edit?html,output)
+[JS Bin Demo](https://jsbin.com/kimayesazo/edit?html,output)
 
 [Local Demo](src/03c-example01.html)
 
@@ -80,6 +80,10 @@ The attributes, event set and JavaScript API of the `<audio>` element are just a
 The most simple basic example
 
 [Online example from JS Bin](https://jsbin.com/xojobirowo/edit?html,output)
+
+[JS Bin Demo](https://jsbin.com/xojobirowo/edit?html,output)
+
+[Local Demo](src/03c-example02.html)
 
 <p>Press play to stream the neigh&nbsp;of a&nbsp;horse: &nbsp;&nbsp;<audio controls="controls">
  <source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg" type="audio/ogg">
