@@ -126,7 +126,7 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
 #### Notes for 3.3.1 Playing audio and video streams
 
 + `<video>` element
-  + one of the two "Flash  killer" ('<canvas>` as the other)
+  + one of the two "Flash  killer" (`<canvas>` as the other)
   + a DOM member $\implies$ CSS styling applied and maipulating w/ the DOM API
   + unable to embedded a YouTube and Daily Motion video
   + typical usage
@@ -181,6 +181,179 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
   Explanation: Indeed, the `<video>` element is, like other HTML elements, a first class citizen of the DOM and can be styled using CSS or manipulated using the JavaScript DOM API.
 
 
+### 3.3.2 Audio and video player JavaScript API
+
+
+#### Live coding video: the video element JavaScript API
+
+<a href="https://edx-video.net/W3CJSIXX2016-V003400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/2gz2casf)
+
+Source code of the example from the video:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/WOvVPQ?editors=0011)
+
+[Local Demo](src/03c-example03.html)
+
+
+#### Audio and video player JavaScript API
+
+
+##### Control `<audio>` and `<video>` elements from JavaScript
+
+The `<video>` element has methods, properties/attributes and events that can be manipulated with JavaScript. Using the DOM API it's possible to manipulate an audio or video element as a JavaScript object that has:
+
++ __Methods__ for controlling its behavior, such as play(), pause(), etc.;
++ __Properties__ (duration, current position, etc.), either in read/write mode (such as volume), or in read-only mode (such as encoding, duration, etc.);
++ __Events__ generated during the life cycle of the element that can be processed using JavaScript callbacks. It is also possible to send events to control the video player.
+
+Like any HTML element, the `<video>` element can be manipulated/created using the DOM JavaScript API. Here is an example of programmatically creating a `<video>` element:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" value="1"><span class="kwd">var</span><span class="pln">&nbsp;video&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">);</span></li>
+<li class="L1"><span class="pln">video</span><span class="pun">.</span><span class="pln">src&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">'video.mp4'</span><span class="pun">;</span></li>
+<li class="L2"><span class="pln">video</span><span class="pun">.</span><span class="pln">controls&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">true</span><span class="pun">;</span></li>
+<li class="L3"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">video</span><span class="pun">);</span></li>
+</ol></div>
+
+This will create a complete video player for the file "video.mp4", with control buttons, and will add it to the `<body>` element of the page.
+
+#### JavaScript API of the <audio> and <video> elements
+
+##### Methods, properties and events
+
+The JavaScript API gives you powerful tools to manipulate the `<video>`0000000 element, as the video object provides many properties, methods and events.
+
+The complete list of <u>events</u> can be found at in this [specification page](https://html.spec.whatwg.org/multipage/media.html#mediaevents), and numerous examples of each event can be found on many Web sites [such as this one](https://tinyurl.com/56l8978u).
+
+The complete list of <u>properties</u> can be found at [the W3C HTML5 Video Events and API page](https://www.w3.org/2010/05/video/mediaevents.html). This page is interesting for Web developers because it shows an interactive view of the different values and events changing over time while the video is playing within the page.
+
+__Click the picture to see it running online (or try the [direct link](https://www.w3.org/2010/05/video/mediaevents.html)), then play with the different buttons and look at the table of events and properties that will change in real time. The displayed names show the properties, events, and methods from the API.__
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick="window.open('https://www.w3.org/2010/05/video/mediaevents.html')"
+    src    ="https://tinyurl.com/14n0mvdk"
+    alt    ="JavaScript API gives you powerful tools to manipulate the <video> element"
+    title  ="JavaScript API gives you powerful tools to manipulate the <video> element"
+  />
+</figure>
+
+Here is a table that shows the most interesting methods, properties and events provided by the `<video>` element API
+We provide this as a quick reminder - keep in mind that the complete list is much longer!
+
+<table style="max-width: 100%; border-collapse: collapse; border-spacing: 0px; table-layout: auto border: 2px solid #0f0505; background-color: transparent; margin: 0 auto; width: 40vw;" dir="ltr" rules="all" frame="box" cellpadding="10" border="2">
+<tbody id="yui_3_9_1_3_1426254383087_240">
+<tr>
+<td style="text-align: center; background-color: olive; width: 5%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Methods</strong></span></td>
+<td style="text-align: center; background-color: olive; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Properties</strong></span></td>
+<td style="text-align: center; background-color: olive; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Events</strong></span></td>
+</tr>
+<tr>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play()</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentSrc</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play</span></strong></td>
+</tr>
+<tr>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">pause()</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentTime</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">pause</span></strong></td>
+</tr>
+<tr>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">load()</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">startTime (readonly)</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">progress</span></strong></td>
+</tr>
+<tr>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">canPlayType()</strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">videoWidth</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">error</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">videoHeight</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">timeupdate</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">duration (readonly)</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">ended</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">ended (readonly)</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">abort</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">error</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">empty</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">paused (readonly)</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">emptied</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">muted</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">waiting</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">seeking</span></strong></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">loadedmetadata</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">volume</span></strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">height</span></strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">width</span></strong></p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;" face="courier new, courier, monospace">seekable (readonly)</span></strong></p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">played (readonly)</span></strong></p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+Now let's take a look at a set of examples demonstrating how to use the most important of these properties, methods, and events...
+
+
+
+#### Knowledge check 3.3.2
+
+The W3C specification about the JavaScript API associated to `<audio>` and `<video>` elements, proposes an interactive demonstration of the different properties/methods/events; it's a must see for all Web developers interested in multimedia. Try it and guess what properties indicate the length of the video in seconds and the name of a valid event that is sent while the video is being played...
+
+  a. `duration` and `timeupdate`<br/>
+  b. `currentTime` and `play`<br/>
+
+  Ans: <br>
+  Explanation
 
 
 
