@@ -528,9 +528,9 @@ To try this example: use the progress cursor to go near the end of the first vid
 
 ### 3.3.4 Using the Webcam
 
-It's very easy to use the getUserMedia API for accessing the WebCam. 
+It's very easy to use the `getUserMedia` API for accessing the WebCam. 
 
-Here is a version that should work on any recent browser except Apple Safari (which still does not support this API). Note that for security reasons you must host your HTML/CSS/JS page on an HTTPS server for getUserMedia to work.
+Here is a version that should work on any recent browser except Apple Safari (which still does not support this API). Note that for security reasons you must host your HTML/CSS/JS page on an HTTPS server for `getUserMedia` to work.
 
 <span style="color: brown; font-weight: bold;">For security reason, these examples cannot run in the course web pages. Click on "Edit on CodePen" to run them.</span>
 
@@ -553,6 +553,7 @@ This is another way of saying, "Please, browser, try to give me access to the We
 #### Notes for 3.3.4 Using the Webcam
 
 + Accessing Webcam
+  + using `getUserMedia` API for accessing the WebCam
   + example: [callback function](src/03c-example06.html)
     + video element: `<video width=200 height=200 id="video" controls autoplay>`
     + preferred camera resolution: `var constraints = { audio: true, video: { width: 1280, height: 720 } };`
@@ -570,7 +571,7 @@ This is another way of saying, "Please, browser, try to give me access to the We
       .catch(function(err) { console.log(err.name + ": " + err.message); });
       ```
 
-  + example: [promises message](src/03c-example07.html)
+  + example: [promises - after DOM ready](src/03c-example07.html)
     + init after DOM ready: `window.onload = init;`
     + raise error message:
 
@@ -588,18 +589,18 @@ This is another way of saying, "Please, browser, try to give me access to the We
       }
       ```
 
-
-
 #### Knowledge check 3.3.3
 
-1. What is getUserMedia?
+1. What is `getUserMedia`?
 
   a. A JavaScript API that can be used to redirect the webcam video stream to a video element<br>
   b. An API which only works with WebRTC for audio conferencing<br>
   c. An upcoming API that is not available yet on browsers, but can be emulated by the video element<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: `getUserMedia` is part of the `WebRTC` specification, but it's related to the `<video>` element too. Indeed, it can be used to redirect the webcam video stream to a `<video>` element. If this element has the autoplay attribute, it will display the video stream as soon as it is available.
+
+
 
 
 
