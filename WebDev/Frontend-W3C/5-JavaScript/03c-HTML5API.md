@@ -361,7 +361,14 @@ This example shows the first steps towards writing a custom video player. It sho
 
 [Try it online](https://jsbin.com/dayuko/1/edit?html,css,output), and look at the source code. ([Local Demo](src/03c-example04.html))
 
-<p style="font-size: 16px;"><img style="border: 1px solid black; border-margin: 5px;" alt="Snapshot of a video player" src="/assets/courseware/v1/08335c98e028bb987a423898f2519fa3/asset-v1:W3Cx+JS.0x+2T2020+type@asset+block/videoCustomControls.jpg" type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="619" height="558"></p>
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/1s4oij0v')"
+    src    ="https://tinyurl.com/hxxjdjrp"
+    alt    ="Snapshot of a video player"
+    title  ="Snapshot of a video player"
+  />
+</figure>
 
 Source code extract:
 
@@ -482,6 +489,41 @@ To try this example: use the progress cursor to go near the end of the first vid
 + _Line 42_: When the page is loaded, an `init()` function is called.
 + _Lines 32 - 38_: we used the DOM to get the JavaScript object corresponding to the video element, then defined a listener for the ended event. Each time a video ends, the `loadAndPlayNextVideo()` callback will be called. As the video element has no src attribute by default, we also preload the first video (call to `loadNextVideo()` at line 38).
 + _Lines 16 - 20_: the `loadNextVideo()` function uses a variable called `currentVideo` that corresponds to the index of the current video. By setting `myVideo.src = sources [currentVideo % sources.length]`, we set the src of the video element to sources[0], then to sources[1], and as we increment the `currentVideo` index each time (_line 19_). If it becomes greater than 1, the modulo (the "%" symbol is the modulo in JavaScript) will make it "loop" between 0 and the number of videos in the playlist. In other words, when the last video ends, it starts back at the first one.
+
+
+#### Notes for 3.3.3 Examples using the JavaScript API
+
++ Examples for Media API
+  + [control w/ external buttons](src/03c-example04.html)
+    + video and source element
+
+      ```js
+      <video id="vid" controls>
+      <source src=https://html5doctor.com/demos/video-canvas-magic/video.webm
+              type=video/webm>
+      ...
+      </video>
+      ```
+
+    + play button: `<button onclick="playVideo();" style="cursor: pointer;">Play</button>`
+    + pause button: `<button onclick="pauseVideo();" style="cursor: pointer;">Pause</button>`
+    + rewind button: `<button onclick="rewindVideo();" style="cursor: pointer;">Back to beginning</button>`
+    + accessing video element: `var vid = document.querySelector("#vid");`
+    + play JS code: `function playVideo() { vid.play(); }`
+    + pause JS code: `function pauseVideo() { vid.pause(); }`
+    + rewind JS code: `function rewindVideo() { vid.currentTime = 0; }`
+  + playing multiple videos sequentially
+    + add event listener for video end: `vid.addEventListener('ended', playNextVideo, false);`
+    + action for playing next video: `function playNextVideo(e) {...}`
+  + [managing playlists](src/03c-example05.html)
+    + video element: `<video id="myVideo" controls></video>`
+    + initializing JS after page loaded: `function init() {...}`
+      + access video element: `myVideo = document.querySelector("#myVideo");`
+      + add video end listener: `myVideo.addEventListener('ended', loadAndplayNextVideo, false);`
+      + load the first video first time, not playing until play clicked in control panel: `loadNextVideo();`
+    + array of videos: `var sources = ["video1.mp4", "video2.mp4"];`
+    + loading the next video to play repeatedly: `function loadNextVideo() { myVideo.src = sources[currentVideo % sources.length] myVideo.load();currentVideo++; }`
+    + load and play next video (callback): `function loadAndplayNextVideo() { console.log("playing " + sources[currentVideo % sources.length]) loadNextVideo(); myVideo.play(); }`
 
 
 
