@@ -340,13 +340,15 @@ Now let's take a look at a set of examples demonstrating how to use the most imp
 
 #### Knowledge check 3.3.2
 
-The W3C specification about the JavaScript API associated to `<audio>` and `<video>` elements, proposes an interactive demonstration of the different properties/methods/events; it's a must see for all Web developers interested in multimedia. Try it and guess what properties indicate the length of the video in seconds and the name of a valid event that is sent while the video is being played...
+1. The W3C specification about the JavaScript API associated to `<audio>` and `<video>` elements, proposes an interactive demonstration of the different properties/methods/events; it's a must see for all Web developers interested in multimedia. Try it and guess what properties indicate the length of the video in seconds and the name of a valid event that is sent while the video is being played...
 
   a. `duration` and `timeupdate`<br/>
   b. `currentTime` and `play`<br/>
 
-  Ans: <br>
-  Explanation
+  Ans: a<br>
+  Explanation: If you try the intereactive demonstration, and play the example video, you will see that the `duration` property indicates the total length of the video. You will also see that the `timeupdate` event is emitted regularly while the video is being played?
+
+
 
 
 
