@@ -601,6 +601,217 @@ This is another way of saying, "Please, browser, try to give me access to the We
   Explanation: `getUserMedia` is part of the `WebRTC` specification, but it's related to the `<video>` element too. Indeed, it can be used to redirect the webcam video stream to a `<video>` element. If this element has the autoplay attribute, it will display the video stream as soon as it is available.
 
 
+### 3.3.5 Extended examples
+
+In this section, we propose a few examples that use more JavaScript and more complex CSS manipulation. They might be a little hard to understand if you are a JavaScript beginner, but don't be afraid to try and test them, look at the code, etc.
+
+Some examples are given "as is", such as the custom video player that uses SVG (at the end of the page); if you are interested, you may view the code. 
+
+#### Player with CSS transformation
+
+__Example #1: a player showing the use of every type of CSS3 transformation__
+
+Please see this example online, originally written by [Chris Heilmann](https://christianheilmann.com/), and tuned by us ;).
+
+[JS Bin Demo](https://jsbin.com/vaqulep/edit?html,css,output)
+
+[Local Demo](src/03c-example08.html)
+
+Don't forget to click the JavaScript and CSS tabs in JS Bin in order to display the JavaScript code that creates the buttons on the right of the video, and the CSS that processes the different clicks and applies CSS3 transforms.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/1uobo1ta')"
+    src    ="https://tinyurl.com/2p6zs9ns"
+    alt    ="Snapshoot of HTML5 video w/ CSS transformation"
+    title  ="Snapshoot of HTML5 video w/ CSS transformation"
+  />
+</figure>
+
+This example shows a lot:
+
++ It uses the HTML5 elements `<nav>`, `<footer>`, `<header>`.
++ It shows the use of CSS3 2D transformations (scale, translate, and rotate).
++ It shows how to handle DOM events using JavaScript and how to modify CSS properties of the `<video>` element from JavaScript.
+
+
+#### Manipulate events and properties
+
+__Example #2: how to track all possible events and manipulate many properties__
+
+This example also shows how to handle failures. See the code and play with this example online.
+
+[JS Bin Demo](https://jsbin.com/becaref/3/edit?html,output)
+
+[Local Demo](src/03c-example09.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/1uobo1ta')"
+    src    ="https://tinyurl.com/ie7k1cq6"
+    alt    ="Snapshoot of HTML5 video w/ time elasped"
+    title  ="Snapshoot of HTML5 video w/ time elasped"
+  />
+</figure>
+
+
+Here is an example of a piece of code for handling errors during video playback:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" value="1"><span class="pun">...</span></li>
+<li class="L1"><span class="pln"></span></li>
+<li class="L2"><span class="pln">vid</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'error'</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span><span class="pln"></span></li>
+<li class="L2"><span class="pln">&nbsp; &nbsp; logEvent</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">,</span><span class="str">'red'</span><span class="pun">);</span><span class="pln"></span></li>
+<li class="L2"><span class="pun">},</span><span class="pln">&nbsp;</span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L3"><span class="pln"></span></li>
+<li class="L4"><span class="pun">...</span></li>
+<li class="L5"><span class="pln"></span></li>
+<li class="L6"><span class="kwd">function</span><span class="pln">&nbsp;logEvent</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">,</span><span class="pln">&nbsp;color</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
+<li class="L6"><span class="kwd">&nbsp; &nbsp; switch</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">.</span><span class="pln">type</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
+<li class="L9"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
+<li class="L0"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln">&nbsp;</span><span class="str">'error'</span><span class="pun">:</span><span class="pln"></span></li>
+<li class="L1"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;error&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">).</span><span class="pln">error</span><span class="pun">;</span></li>
+<li class="L2"><span class="pln"></span></li>
+<li class="L3"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">switch</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">error</span><span class="pun">.</span><span class="pln">code</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
+<li class="L4"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln">&nbsp;error</span><span class="pun">.</span><span class="pln">MEDIA_ERR_ABORTED</span><span class="pun">:</span></li>
+<li class="L5"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"fetching aborted at the user's request"</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L6"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
+<li class="L7"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln">&nbsp;error</span><span class="pun">.</span><span class="pln">MEDIA_ERR_NETWORK</span><span class="pun">:</span></li>
+<li class="L8"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"a network error caused the browser to stop fetching the media"</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L9"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
+<li class="L0"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln">&nbsp;error</span><span class="pun">.</span><span class="pln">MEDIA_ERR_DECODE</span><span class="pun">:</span></li>
+<li class="L1"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"an error occurred while decoding the media"</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L2"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
+<li class="L3"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln">&nbsp;error</span><span class="pun">.</span><span class="pln">MEDIA_ERR_SRC_NOT_SUPPORTED</span><span class="pun">:</span></li>
+<li class="L4"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"the media indicated by the src</span></li>
+<li class="L4"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; attribute was not suitable"</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L5"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
+<li class="L6"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">default</span><span class="pun">:</span></li>
+<li class="L7"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note</span><span class="pun">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"an error occurred"</span><span class="pun">;</span><span class="pln"></span></li>
+<li class="L8"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
+<li class="L9"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L0"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
+<li class="L1"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L1"><span class="pln">&nbsp;</span><span class="pun">...</span></li>
+<li class="L1">}</li>
+</ol></div>
+
+
+#### Bufferring status
+
+__Example #3: how to display a percentage of buffering when using a slow connection__
+
+See the example online here too.
+
+[JS Bin Demo](https://jsbin.com/xororol/3/edit?html,output)
+
+[Local Demo](src/03c-example10.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/1uobo1ta')"
+    src    ="https://tinyurl.com/2mxcvzx3"
+    alt    ="how to display the percentage of buffering"
+    title  ="how to display the percentage of buffering"
+  />
+</figure>
+
+
+Note that on mobile phones, the video does not start until the user presses the play control or clicks on the video picture. Using the "`canplaythrough`" event is a trick to call a function that starts the video player as soon as the page is loaded on desktop. This event is not supported by mobile devices, so if you try this example on a mobile, the video will not start automatically.
+
+As explained by the [Apple Developer Web site](http://developer.apple.com/):  "The `buffered` property is a `TimeRanges` object: an array of start and stop times, not a single value. Consider what happens if the person watching the media uses the time scrubber to jump forward to a point in the movie that hasn’t loaded yet—the movie stops loading and jumps forward to the new point in time, then starts buffering again from there. So the `buffered` property can contain an array of discontinuous ranges. The example simply seeks the end of the array and reads the last value, so it actually shows the percentage into the movie duration for which there is data. "
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" value="1"><span class="dec">&lt;!doctype html&gt;</span></li>
+<li class="L1"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L2"><span class="tag">&nbsp; &lt;head&gt;</span></li>
+<li class="L3"><span class="tag">&nbsp; &nbsp; &lt;title&gt;</span><span class="pln">JavaScript Progress Monitor</span><span class="tag">&lt;/title&gt;</span><span class="pln"></span></li>
+<li class="L4"><span class="pln">&nbsp;&nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;<br></span></li>
+<li class="L5"><span class="tag">&nbsp; &nbsp; &lt;script</span><span class="tag">&gt;</span></li>
+<li class="L6"><span class="kwd">&nbsp; &nbsp; &nbsp; function</span><span class="pln">&nbsp;getPercentProg</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
+<li class="L7"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;myVideo&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L8"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;endBuf&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;myVideo</span><span class="pun">.</span><span class="pln">buffered</span><span class="pun">.</span><span class="pln">end</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span></li>
+<li class="L9"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;soFar&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;parseInt</span><span class="pun">(((</span><span class="pln">endBuf&nbsp;</span><span class="pun">/</span><span class="pln">&nbsp;myVideo</span><span class="pun">.</span><span class="pln">duration</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">*</span><span class="pln">&nbsp;</span><span class="lit">100</span><span class="pun">));</span></li>
+<li class="L0"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"loadStatus"</span><span class="pun">).</span><span class="pln">innerHTML&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;soFar&nbsp;</span><span class="pun">+</span><span class="pln">&nbsp;</span><span class="str">'%'</span><span class="pun">;</span></li>
+<li class="L1"><span class="pun">&nbsp; &nbsp; &nbsp; }</span></li>
+<li class="L2"><span class="pln"></span></li>
+<li class="L3"><span class="com">&nbsp; &nbsp; &nbsp; // Will be called as soon as the page is ready on desktop computer,</span></li>
+<li class="L4"><span class="com">&nbsp; &nbsp; &nbsp; // Only when a user clicks on play control or image on mobile</span></li>
+<li class="L5"><span class="kwd">&nbsp; &nbsp; &nbsp; function</span><span class="pln">&nbsp;myAutoPlay</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
+<li class="L5"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;myVideo&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L8"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
+<li class="L9"><span class="pun">&nbsp; &nbsp; &nbsp; }</span></li>
+<li class="L9"><span class="kwd"></span></li>
+<li class="L9"><span class="kwd">&nbsp; &nbsp; &nbsp; function</span><span class="pln">&nbsp;addMyListeners</span><span class="pun">(){</span></li>
+<li class="L3"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;myVideo&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'video'</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L4"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'progress'</span><span class="pun">,</span><span class="pln">&nbsp;getPercentProg</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L5"><span class="pln"></span></li>
+<li class="L6"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Calls autoplay only if the device is adapted</span></li>
+<li class="L7"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myVideo</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'canplaythrough'</span><span class="pun">,</span><span class="pln">&nbsp;myAutoPlay</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="kwd">false</span><span class="pun">);</span><span class="pln"></span></li>
+<li class="L8"><span class="pun">&nbsp; &nbsp; &nbsp; }</span></li>
+<li class="L9"><span class="tag">&nbsp; &lt;/script&gt;</span></li>
+<li class="L0"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L0"><span class="tag">&lt;body</span><span class="pln">&nbsp;</span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">addMyListeners</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L0"><span class="tag">&nbsp; &nbsp; &lt;h1&gt;</span><span class="pln">Check progression of buffering before playing a movie. Useful withy</span></li>
+<li class="L0"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; slow&nbsp;</span><span class="pln">connexion (3G, etc.)</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L6"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;div&gt;</span></li>
+<li class="L7"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;video</span><span class="pln">&nbsp;</span><span class="atn">controls</span><span class="tag">&gt;</span></li>
+<li class="L8"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://html5doctor.com/demos/video-canvas-magic/video.webm</span><span class="pln"></span></li>
+<li class="L8"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/webm</span><span class="tag">&gt;</span><span class="pln"></span></li>
+<li class="L9"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://html5doctor.com/demos/video-canvas-magic/video.ogg</span><span class="pln">&nbsp;&nbsp;</span></li>
+<li class="L9"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/ogg</span><span class="tag">&gt;</span><span class="pln"></span></li>
+<li class="L0"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">https://html5doctor.com/demos/video-canvas-magic/video.mp4</span><span class="pln"></span></li>
+<li class="L0"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">video/mp4</span><span class="tag">&gt;</span><span class="pln"></span></li>
+<li class="L1"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/video&gt;</span></li>
+<li class="L2"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p</span><span class="pln">&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"loadStatus"</span><span class="tag">&gt;</span><span class="pln">Buffering...</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L3"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L4"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L5"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+
+#### Control with SVG element
+
+__Example #4: how to use SVG elements as external controllers__
+
+This is the ultimate way of doing a real custom player: redesign your own controls using SVG shapes! This example (try it [online](https://www.w3.org/2010/Talks/0430-www2010-plh/video-player.xhtml)) is given "as is" for those of you who may be curious.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/1uobo1ta')"
+    src    ="https://tinyurl.com/my4r5nli"
+    alt    ="Snapshot of HTML5/SVG video player"
+    title  ="Snapshot of HTML5/SVG video player"
+  />
+</figure>
+
+#### Customized video player
+
+__Example #5: a custom video player written by a previous student__
+
+This is more an example than a tutorial. Maurice, a student who followed the precursor version of this MOOC, had the assignment to write a custom video player with playlist, video thumbnails, custom play/pause/next/previous/volume controls, and present it in a Web page that used a nice layout based on the new structuring elements seen during Week 1.
+
+Here is the online example on JS Bin, by Maurice Buiten. We recommend that you look at the source code.
+
+[JS Bin Demo](https://jsbin.com/noqubut/4/edit?html,js,output)
+
+[Local Demo](src/03c-example11.html)
+
+
+Screenshot:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/1uobo1ta')"
+    src    ="https://tinyurl.com/1ia3vzr4"
+    alt    ="a custom video player in a nice presented html page"
+    title  ="a custom video player in a nice presented html page"
+  />
+</figure>
+
+
+
+
 
 
 
