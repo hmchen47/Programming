@@ -550,6 +550,46 @@ This is another way of saying, "Please, browser, try to give me access to the We
 [Local Demo](src/03c-example07.html)
 
 
+#### Notes for 3.3.4 Using the Webcam
+
++ Accessing Webcam
+  + example: [callback function](src/03c-example06.html)
+    + video element: `<video width=200 height=200 id="video" controls autoplay>`
+    + preferred camera resolution: `var constraints = { audio: true, video: { width: 1280, height: 720 } };`
+    + callback function
+
+      ```js
+      navigator.mediaDevices.getUserMedia(constraints)
+      .then(function(mediaStream) {
+        var video = document.querySelector('video');
+        video.srcObject = mediaStream;
+        video.onloadedmetadata = function(e) {
+          video.play();
+        };
+      })
+      .catch(function(err) { console.log(err.name + ": " + err.message); });
+      ```
+
+  + example: [promises message](src/03c-example07.html)
+    + init after DOM ready: `window.onload = init;`
+    + raise error message:
+
+      ```js
+      function init() {
+        navigator.mediaDevices.getUserMedia({audio: true,video: true})
+          .then(function (stream) {
+              var video = document.querySelector('#video');
+              video.srcObject = stream;
+              video.play();
+          })
+          .catch(function(err) {
+              alert("something went wrong: " + err)
+        });
+      }
+      ```
+
+
+
 #### Knowledge check 3.3.3
 
 1. What is getUserMedia?
