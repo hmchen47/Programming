@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<title>Video/Canvas Demo 0</title> 
+<meta charset="utf-8">
+</head>
+
+<body>
+<!-- <video> tag, with the @controls attribute
+     giving it the play/pause/seeker controls. Try removing the controls attribute, 
+     adding autoplay or loop -->
+<video id="vid" controls> 
+	<!-- I have three versions of the video encoded with
+	     different codecs.  The browser will automatically
+	     choose the first one it knows it can play. --> 
+	<source src=http://html5doctor.com/demos/video-canvas-magic/video.webm type=video/webm> 
+	<source src=http://html5doctor.com/demos/video-canvas-magic/video.ogg type=video/ogg> 
+	<source src=http://html5doctor.com/demos/video-canvas-magic/video.mp4 type=video/mp4> 
+</video> 
+<p>Example of custom controls :</p>
+<button onclick="playVideo();" style="cursor: pointer;">Play</button>
+
+<button onclick="pauseVideo();" style="cursor: pointer;">Pause</button>
+
+<button onclick="rewindVideo();" style="cursor: pointer;">
+  Back to beginning</button>
+  <script>
+    var vid = document.querySelector("#vid");
+  
+function playVideo() {
+  vid.play();
+}
+function pauseVideo() {
+  vid.pause();
+}
+  
+function rewindVideo() {
+  vid.currentTime = 0;
+}
+</script>
+</body>
+</html>
