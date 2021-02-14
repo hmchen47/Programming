@@ -206,7 +206,7 @@ Source code of the example from the video:
 
 The `<video>` element has methods, properties/attributes and events that can be manipulated with JavaScript. Using the DOM API it's possible to manipulate an audio or video element as a JavaScript object that has:
 
-+ __Methods__ for controlling its behavior, such as play(), pause(), etc.;
++ __Methods__ for controlling its behavior, such as `play()`, `pause()`, etc.;
 + __Properties__ (duration, current position, etc.), either in read/write mode (such as volume), or in read-only mode (such as encoding, duration, etc.);
 + __Events__ generated during the life cycle of the element that can be processed using JavaScript callbacks. It is also possible to send events to control the video player.
 
@@ -221,13 +221,13 @@ Like any HTML element, the `<video>` element can be manipulated/created using th
 
 This will create a complete video player for the file "video.mp4", with control buttons, and will add it to the `<body>` element of the page.
 
-#### JavaScript API of the <audio> and <video> elements
+##### JavaScript API of the `<audio>` and `<video>` elements
 
-##### Methods, properties and events
+__Methods, properties and events__
 
-The JavaScript API gives you powerful tools to manipulate the `<video>`0000000 element, as the video object provides many properties, methods and events.
+The JavaScript API gives you powerful tools to manipulate the `<video>` element, as the video object provides many properties, methods and events.
 
-The complete list of <u>events</u> can be found at in this [specification page](https://html.spec.whatwg.org/multipage/media.html#mediaevents), and numerous examples of each event can be found on many Web sites [such as this one](https://tinyurl.com/56l8978u).
+The complete list of <u>events</u> can be found at in this [specification page](https://html.spec.whatwg.org/multipage/media.html#mediaevents), and numerous examples of each event can be found on many Web sites [such as this one](https://www.htmlgoodies.com/html5/tutorials/HTML5-Development-Class-Media-Events-3883356.htm#fbid=rRDjiexm8vR).
 
 The complete list of <u>properties</u> can be found at [the W3C HTML5 Video Events and API page](https://www.w3.org/2010/05/video/mediaevents.html). This page is interesting for Web developers because it shows an interactive view of the different values and events changing over time while the video is playing within the page.
 
@@ -245,104 +245,97 @@ __Click the picture to see it running online (or try the [direct link](https://w
 Here is a table that shows the most interesting methods, properties and events provided by the `<video>` element API
 We provide this as a quick reminder - keep in mind that the complete list is much longer!
 
-<table style="max-width: 100%; border-collapse: collapse; border-spacing: 0px; table-layout: auto border: 2px solid #0f0505; background-color: transparent; margin: 0 auto; width: 40vw;" dir="ltr" rules="all" frame="box" cellpadding="10" border="2">
-<tbody id="yui_3_9_1_3_1426254383087_240">
+<table style="max-width: 100%; border-collapse: collapse; border-spacing: 0px; table-layout: auto border: 2px solid #0f0505; background-color: transparent; margin: 0 auto; width: 50vw;" dir="ltr" rules="all" frame="box" cellpadding="10" border="2">
+<tbody>
 <tr>
-<td style="text-align: center; background-color: olive; width: 5%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Methods</strong></span></td>
-<td style="text-align: center; background-color: olive; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Properties</strong></span></td>
-<td style="text-align: center; background-color: olive; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Events</strong></span></td>
+<td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Methods</strong></span></td>
+<td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Properties</strong></span></td>
+<td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Events</strong></span></td>
 </tr>
-<tr>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play()</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentSrc</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play</span></strong></td>
-</tr>
-<tr>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">pause()</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentTime</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">pause</span></strong></td>
-</tr>
-<tr>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">load()</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">startTime (readonly)</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">progress</span></strong></td>
-</tr>
-<tr>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">canPlayType()</strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">videoWidth</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">error</strong></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">videoHeight</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">timeupdate</strong></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">duration (readonly)</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">ended</strong></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">ended (readonly)</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">abort</strong></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">error</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">empty</strong></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">paused (readonly)</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">emptied</strong></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">muted</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">waiting</strong></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">seeking</span></strong></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">loadedmetadata</strong></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">volume</span></strong></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">height</span></strong></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>
-<p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">width</span></strong></p>
-</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>
-<p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;" face="courier new, courier, monospace">seekable (readonly)</span></strong></p>
-</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>
-<p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">played (readonly)</span></strong></p>
-</td>
-<td></td>
-</tr>
+<tr><td><strong><span style="font-family: 'courier new', courier, monospace;">play()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">currentSrc</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">play</span></strong></td></tr>
+<tr><td><strong><span style="font-family: 'courier new', courier, monospace;">pause()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">currentTime</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">pause</span></strong></td></tr>
+<tr><td><strong><span style="font-family: 'courier new', courier, monospace;">load()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">startTime (readonly)</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">progress</span></strong></td></tr>
+<tr><td><strong>canPlayType()</strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">videoWidth</span></strong></td><td><strong>error</strong></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">videoHeight</span></strong></td><td><strong>timeupdate</strong></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">duration (readonly)</span></strong></td><td><strong>ended</strong></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">ended (readonly)</span></strong></td><td><strong>abort</strong></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">error</span></strong></td><td><strong>empty</strong></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">paused (readonly)</span></strong></td><td><strong>emptied</strong></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">muted</span></strong></td><td><strong>waiting</strong></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">seeking</span></strong></td><td><strong>loadedmetadata</strong></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">volume</span></strong></td><td></td></tr>
+<tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">height</span></strong></td><td></td></tr>
+<tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;">width</span></strong></p></td><td></td></tr>
+<tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;" face="courier new, courier, monospace">seekable (readonly)</span></strong></p>
+</td><td></td></tr>
+<tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;">played (readonly)</span></strong></p>
+</td><td></td></tr>
 </tbody>
 </table>
 
 Now let's take a look at a set of examples demonstrating how to use the most important of these properties, methods, and events...
 
+
+#### Notes for 3.3.2 Audio and video player JavaScript API
+
++ Control `<audio>` & `<video>` elements
+  + elements w/ methods, properties/attributes and events to manipulate w/ JS
+  + the DOM API
+    + methods: controlling behavior, such as `play()`, `pause()`, etc.
+    + properties:
+      + read/write: volume, current time, etc.
+      + read-only mode: encoding, duration, etc.
+    + events: 
+      + generated during the life cycle of the element
+      + processed using JS callback
+      + possible to trigger event to control the player
+  + example: creating a video player w/ control buttons
+
+    ```js
+    var video = document.createElement('video');
+    video.src = 'video.mp4';
+    video.controls = true;
+    document.body.appendChild(video);
+    ```
+
++ JavaScript API for `<video>` and `<audio>` elements
+  + powerful tools to manipulate element
+  + reference: [HTML5 Video Events and API](https://www.w3.org/2010/05/video/mediaevents.html)
+  + [event list](https://html.spec.whatwg.org/multipage/media.html#mediaevents)
+    + network state: `loadstart`, `progress`, `suspend`, `abort`, `error`, `emptied`, `stalled`
+    + ready state: `loadedmetadata`, `loadeddata`, `canplay`, `canplaythrough`, `playing`, `waiting`
+    + searching: `seeking`, `seeked`, `ended`
+    + playing: `durationchange`, `timeupdate`, `play`, `pause`, `ratechange`
+    + element: `resize`, `volumechange`
+  + most interested methods, properties and events for `<video>` element
+
+    <table style="max-width: 100%; border-collapse: collapse; border-spacing: 0px; table-layout: auto border: 2px solid #0f0505; background-color: transparent; margin: 0 auto; width: 50vw;" dir="ltr" rules="all" frame="box" cellpadding="10" border="2">
+    <tbody>
+    <tr>
+    <td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Methods</strong></span></td>
+    <td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Properties</strong></span></td>
+    <td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Events</strong></span></td>
+    </tr>
+    <tr><td><strong><span style="font-family: 'courier new', courier, monospace;">play()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">currentSrc</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">play</span></strong></td></tr>
+    <tr><td><strong><span style="font-family: 'courier new', courier, monospace;">pause()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">currentTime</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">pause</span></strong></td></tr>
+    <tr><td><strong><span style="font-family: 'courier new', courier, monospace;">load()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">startTime (readonly)</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">progress</span></strong></td></tr>
+    <tr><td><strong>canPlayType()</strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">videoWidth</span></strong></td><td><strong>error</strong></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">videoHeight</span></strong></td><td><strong>timeupdate</strong></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">duration (readonly)</span></strong></td><td><strong>ended</strong></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">ended (readonly)</span></strong></td><td><strong>abort</strong></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">error</span></strong></td><td><strong>empty</strong></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">paused (readonly)</span></strong></td><td><strong>emptied</strong></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">muted</span></strong></td><td><strong>waiting</strong></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">seeking</span></strong></td><td><strong>loadedmetadata</strong></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">volume</span></strong></td><td></td></tr>
+    <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">height</span></strong></td><td></td></tr>
+    <tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;">width</span></strong></p></td><td></td></tr>
+    <tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;" face="courier new, courier, monospace">seekable (readonly)</span></strong></p>
+    </td><td></td></tr>
+    <tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;">played (readonly)</span></strong></p>
+    </td><td></td></tr>
+    </tbody>
+    </table>
 
 
 #### Knowledge check 3.3.2
@@ -357,4 +350,151 @@ The W3C specification about the JavaScript API associated to `<audio>` and `<vid
 
 
 
+
+
+
+### Reference Tables
+
+
+<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://html.spec.whatwg.org/multipage/media.html#mediaevents">Events summary for Media Elements</a></caption>
+  <thead>
+  <tr style="font-size: 1.2em; vertical-align:middle">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Event name</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Interface</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Fired when</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Preconditions</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>loadstart</code></dfn></td><td><code id="mediaevents:event"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent begins looking for <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data">media data</a>, as part of the <a href="https://html.spec.whatwg.org/multipage/media.html#concept-media-load-algorithm" id="mediaevents:concept-media-load-algorithm">resource selection algorithm</a>.
+    </td><td><code id="mediaevents:dom-media-networkstate"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-networkstate">networkState</a></code> equals <code id="mediaevents:dom-media-network_loading"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_loading">NETWORK_LOADING</a></code>
+    </td></tr>
+    <tr><td><code>progress</code></td><td><code id="mediaevents:event-2"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent is fetching <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data-2">media data</a>.
+    </td><td><code id="mediaevents:dom-media-networkstate-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-networkstate">networkState</a></code> equals <code id="mediaevents:dom-media-network_loading-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_loading">NETWORK_LOADING</a></code>
+    </td></tr>
+    <tr><td><code>suspend</code></td><td><code id="mediaevents:event-3"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent is intentionally not currently fetching <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data-3">media data</a>.
+    </td><td><code id="mediaevents:dom-media-networkstate-3"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-networkstate">networkState</a></code> equals <code id="mediaevents:dom-media-network_idle"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_idle">NETWORK_IDLE</a></code>
+    </td></tr>
+    <tr><td><code>abort</code></td><td><code id="mediaevents:event-4"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent stops fetching the <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data-4">media data</a> before it is completely
+    downloaded, but not due to an error.
+    </td><td><code id="mediaevents:dom-media-error"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-error">error</a></code> is an object with the code <code id="mediaevents:dom-mediaerror-media_err_aborted"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-mediaerror-media_err_aborted">MEDIA_ERR_ABORTED</a></code>. <code id="mediaevents:dom-media-networkstate-4"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-networkstate">networkState</a></code> equals either <code id="mediaevents:dom-media-network_empty"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_empty">NETWORK_EMPTY</a></code> or <code id="mediaevents:dom-media-network_idle-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_idle">NETWORK_IDLE</a></code>, depending on when the download was aborted.
+    </td></tr>
+    <tr><td><code>error</code></td><td><code id="mediaevents:event-5"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>An error occurs while fetching the <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data-5">media data</a> or the type of the resource
+    is not supported media format.
+    </td><td><code id="mediaevents:dom-media-error-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-error">error</a></code> is an object with the code <code id="mediaevents:dom-mediaerror-media_err_network"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-mediaerror-media_err_network">MEDIA_ERR_NETWORK</a></code> or higher. <code id="mediaevents:dom-media-networkstate-5"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-networkstate">networkState</a></code> equals either <code id="mediaevents:dom-media-network_empty-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_empty">NETWORK_EMPTY</a></code> or <code id="mediaevents:dom-media-network_idle-3"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_idle">NETWORK_IDLE</a></code>, depending on when the download was aborted.
+    </td></tr>
+    <tr><td><code>emptied</code></td><td><code id="mediaevents:event-6"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>A <a href="https://html.spec.whatwg.org/multipage/media.html#media-element" id="mediaevents:media-element-2">media element</a> whose <code id="mediaevents:dom-media-networkstate-6"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-networkstate">networkState</a></code>
+    was previously not in the <code id="mediaevents:dom-media-network_empty-3"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_empty">NETWORK_EMPTY</a></code> state has
+    just switched to that state (either because of a fatal error during load that's about to be
+    reported, or because the <code id="mediaevents:dom-media-load"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-load">load()</a></code> method was invoked while
+    the <a href="https://html.spec.whatwg.org/multipage/media.html#concept-media-load-algorithm" id="mediaevents:concept-media-load-algorithm-2">resource selection algorithm</a> was already
+    running).
+    </td><td><code id="mediaevents:dom-media-networkstate-7"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-networkstate">networkState</a></code> is <code id="mediaevents:dom-media-network_empty-4"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_empty">NETWORK_EMPTY</a></code>; all the IDL attributes are in their
+    initial states.
+    </td></tr>
+    <tr><td><code>stalled</code></td><td><code id="mediaevents:event-7"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent is trying to fetch <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data-6">media data</a>, but data is unexpectedly not
+    forthcoming.
+    </td><td><code id="mediaevents:dom-media-networkstate-8"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-networkstate">networkState</a></code> is <code id="mediaevents:dom-media-network_loading-3"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-network_loading">NETWORK_LOADING</a></code>.
+    </td></tr>
+  </tbody><tbody>
+  <tr><td><code>loadedmetadata</code></td><td><code id="mediaevents:event-8"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent has just determined the duration and dimensions of the <a href="https://html.spec.whatwg.org/multipage/media.html#media-resource" id="mediaevents:media-resource">media
+    resource</a> and <a href="https://html.spec.whatwg.org/multipage/media.html#the-text-tracks-are-ready" id="mediaevents:the-text-tracks-are-ready">the text tracks are ready</a>.
+    </td><td><code id="mediaevents:dom-media-readystate"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-readystate">readyState</a></code> is newly equal to <code id="mediaevents:dom-media-have_metadata"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-have_metadata">HAVE_METADATA</a></code> or greater for the first time.
+    </td></tr>
+    <tr><td><code>loadeddata</code></td><td><code id="mediaevents:event-9"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent can render the <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data-7">media data</a> at the <a href="https://html.spec.whatwg.org/multipage/media.html#current-playback-position" id="mediaevents:current-playback-position">current playback
+    position</a> for the first time.
+    </td><td><code id="mediaevents:dom-media-readystate-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-readystate">readyState</a></code> newly increased to <code id="mediaevents:dom-media-have_current_data"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-have_current_data">HAVE_CURRENT_DATA</a></code> or greater for the first time.
+    </td></tr>
+    <tr><td><code>canplay</code></td><td><code id="mediaevents:event-10"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent can resume playback of the <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data-8">media data</a>, but estimates that if
+    playback were to be started now, the <a href="https://html.spec.whatwg.org/multipage/media.html#media-resource" id="mediaevents:media-resource-2">media resource</a> could not be rendered at the
+    current playback rate up to its end without having to stop for further buffering of content.
+    </td><td><code id="mediaevents:dom-media-readystate-3"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-readystate">readyState</a></code> newly increased to <code id="mediaevents:dom-media-have_future_data"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-have_future_data">HAVE_FUTURE_DATA</a></code> or greater.
+    </td></tr>
+    <tr><td><code>canplaythrough</code></td><td><code id="mediaevents:event-11"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The user agent estimates that if playback were to be started now, the <a href="https://html.spec.whatwg.org/multipage/media.html#media-resource" id="mediaevents:media-resource-3">media
+    resource</a> could be rendered at the current playback rate all the way to its end without
+    having to stop for further buffering.
+    </td><td><code id="mediaevents:dom-media-readystate-4"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-readystate">readyState</a></code> is newly equal to <code id="mediaevents:dom-media-have_enough_data"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-have_enough_data">HAVE_ENOUGH_DATA</a></code>.
+    </td></tr>
+    <tr><td><code>playing</code></td><td><code id="mediaevents:event-12"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>Playback is ready to start after having been paused or delayed due to lack of <a href="https://html.spec.whatwg.org/multipage/media.html#media-data" id="mediaevents:media-data-9">media
+    data</a>.
+    </td><td><code id="mediaevents:dom-media-readystate-5"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-readystate">readyState</a></code> is newly equal to or greater than
+    <code id="mediaevents:dom-media-have_future_data-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-have_future_data">HAVE_FUTURE_DATA</a></code> and <code id="mediaevents:dom-media-paused"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-paused">paused</a></code> is false, or <code id="mediaevents:dom-media-paused-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-paused">paused</a></code> is newly false and <code id="mediaevents:dom-media-readystate-6"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-readystate">readyState</a></code> is equal to or greater than <code id="mediaevents:dom-media-have_future_data-3"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-have_future_data">HAVE_FUTURE_DATA</a></code>. Even if this event fires, the
+    element might still not be <a href="https://html.spec.whatwg.org/multipage/media.html#potentially-playing" id="mediaevents:potentially-playing">potentially playing</a>, e.g. if the element is
+    <a href="https://html.spec.whatwg.org/multipage/media.html#paused-for-user-interaction" id="mediaevents:paused-for-user-interaction">paused for user interaction</a> or <a href="https://html.spec.whatwg.org/multipage/media.html#paused-for-in-band-content" id="mediaevents:paused-for-in-band-content">paused for in-band content</a>.
+    </td></tr>
+    <tr><td><code>waiting</code></td><td><code id="mediaevents:event-13"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>Playback has stopped because the next frame is not available, but the user agent expects
+    that frame to become available in due course.
+    </td><td><code id="mediaevents:dom-media-readystate-7"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-readystate">readyState</a></code> is equal to or less than <code id="mediaevents:dom-media-have_current_data-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-have_current_data">HAVE_CURRENT_DATA</a></code>, and <code id="mediaevents:dom-media-paused-3"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-paused">paused</a></code> is false. Either <code id="mediaevents:dom-media-seeking"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-seeking">seeking</a></code> is true, or the <a href="https://html.spec.whatwg.org/multipage/media.html#current-playback-position" id="mediaevents:current-playback-position-2">current playback position</a>
+    is not contained in any of the ranges in <code id="mediaevents:dom-media-buffered"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-buffered">buffered</a></code>. It
+    is possible for playback to stop for other reasons without <code id="mediaevents:dom-media-paused-4"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-paused">paused</a></code> being false, but those reasons do not fire this event
+    (and when those situations resolve, a separate <code id="mediaevents:event-media-playing"><a href="https://html.spec.whatwg.org/multipage/media.html#event-media-playing">playing</a></code>
+    event is not fired either): e.g., <a href="https://html.spec.whatwg.org/multipage/media.html#ended-playback" id="mediaevents:ended-playback">playback has ended</a>, or
+    playback <a href="https://html.spec.whatwg.org/multipage/media.html#stopped-due-to-errors" id="mediaevents:stopped-due-to-errors">stopped due to errors</a>, or the element has <a href="https://html.spec.whatwg.org/multipage/media.html#paused-for-user-interaction" id="mediaevents:paused-for-user-interaction-2">paused for user
+    interaction</a> or <a href="https://html.spec.whatwg.org/multipage/media.html#paused-for-in-band-content" id="mediaevents:paused-for-in-band-content-2">paused for in-band content</a>.
+    </td></tr>
+  </tbody><tbody>
+    <tr><td><code>seeking</code></td><td><code id="mediaevents:event-14"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The <code id="mediaevents:dom-media-seeking-2"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-seeking">seeking</a></code> IDL attribute changed to true, and the user agent has started seeking to a new position.
+    </td><td>
+    </td></tr>
+    <tr><td><code>seeked</code></td><td><code id="mediaevents:event-15"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The <code id="mediaevents:dom-media-seeking-3"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-seeking">seeking</a></code> IDL attribute changed to false after the <a href="https://html.spec.whatwg.org/multipage/media.html#current-playback-position" id="mediaevents:current-playback-position-3">current playback position</a> was changed.
+    </td><td>
+    </td></tr>
+    <tr><td><code>ended</code></td><td><code id="mediaevents:event-16"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>Playback has stopped because the end of the <a href="https://html.spec.whatwg.org/multipage/media.html#media-resource" id="mediaevents:media-resource-4">media resource</a> was reached.
+    </td><td><code id="mediaevents:dom-media-currenttime"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-currenttime">currentTime</a></code> equals the end of the <a href="https://html.spec.whatwg.org/multipage/media.html#media-resource" id="mediaevents:media-resource-5">media
+    resource</a>; <code id="mediaevents:dom-media-ended"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-ended">ended</a></code> is true.
+    </td></tr>
+  </tbody><tbody>
+    <tr><td><code>durationchange</code></td><td><code id="mediaevents:event-17"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The <code id="mediaevents:dom-media-duration"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-duration">duration</a></code> attribute has just been updated.
+    </td><td>
+    </td></tr>
+    <tr><td><code>timeupdate</code></td><td><code id="mediaevents:event-18"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The <a href="https://html.spec.whatwg.org/multipage/media.html#current-playback-position" id="mediaevents:current-playback-position-4">current playback position</a> changed as part of normal playback or in an especially interesting way, for example discontinuously.
+    </td><td>
+    </td></tr>
+    <tr><td><code>play</code></td><td><code id="mediaevents:event-19"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The element is no longer paused. Fired after the <code id="mediaevents:dom-media-play"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-play">play()</a></code>
+    method has returned, or when the <code id="mediaevents:attr-media-autoplay"><a href="https://html.spec.whatwg.org/multipage/media.html#attr-media-autoplay">autoplay</a></code> attribute
+    has caused playback to begin.
+    </td><td><code id="mediaevents:dom-media-paused-5"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-paused">paused</a></code> is newly false.
+    </td></tr>
+    <tr><td><code>pause</code></td><td><code id="mediaevents:event-20"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>The element has been paused. Fired after the <code id="mediaevents:dom-media-pause"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-pause">pause()</a></code>
+    method has returned.
+    </td><td><code><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-paused">paused</a></code> is newly true.
+    </td></tr>
+    <tr><td><code>ratechange</code></td><td><code id="mediaevents:event-21"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>Either the <code id="mediaevents:dom-media-defaultplaybackrate"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-defaultplaybackrate">defaultPlaybackRate</a></code> or the
+    <code id="mediaevents:dom-media-playbackrate"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-playbackrate">playbackRate</a></code> attribute has just been updated.
+    </td><td>
+    </td></tr>
+  </tbody><tbody>
+    <tr><td><code>resize</code>
+    </td><td><code><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>One or both of the <code id="mediaevents:dom-video-videowidth"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-video-videowidth">videoWidth</a></code> and <code id="mediaevents:dom-video-videoheight"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-video-videoheight">videoHeight</a></code> attributes have just been updated.
+    </td><td><a href="https://html.spec.whatwg.org/multipage/media.html#media-element" id="mediaevents:media-element-3">Media element</a> is a <code id="mediaevents:the-video-element"><a href="https://html.spec.whatwg.org/multipage/media.html#the-video-element">video</a></code> element; <code id="mediaevents:dom-media-readystate-8"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-readystate">readyState</a></code> is not <code id="mediaevents:dom-media-have_nothing"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-have_nothing">HAVE_NOTHING</a></code>
+    </td></tr>
+    <tr><td><code>volumechange</code></td><td><code id="mediaevents:event-23"><a data-x-internal="event" href="https://dom.spec.whatwg.org/#interface-event">Event</a></code>
+    </td><td>Either the <code id="mediaevents:dom-media-volume"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-volume">volume</a></code> attribute or the <code id="mediaevents:dom-media-muted"><a href="https://html.spec.whatwg.org/multipage/media.html#dom-media-muted">muted</a></code> attribute has changed. Fired after the relevant
+    attribute's setter has returned.
+    </td><td>
+  </td></tr></tbody>
+</table>
 
