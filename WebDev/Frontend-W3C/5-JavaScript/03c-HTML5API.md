@@ -526,7 +526,40 @@ To try this example: use the progress cursor to go near the end of the first vid
     + load and play next video (callback): `function loadAndplayNextVideo() { console.log("playing " + sources[currentVideo % sources.length]) loadNextVideo(); myVideo.play(); }`
 
 
+### 3.3.4 Using the Webcam
 
+It's very easy to use the getUserMedia API for accessing the WebCam. 
+
+Here is a version that should work on any recent browser except Apple Safari (which still does not support this API). Note that for security reasons you must host your HTML/CSS/JS page on an HTTPS server for getUserMedia to work.
+
+<span style="color: brown; font-weight: bold;">For security reason, these examples cannot run in the course web pages. Click on "Edit on CodePen" to run them.</span>
+
+__First version that uses callbacks (success/error, see the JS code):__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/OpYNBE)
+
+[Local Demo](src/03c-example06.html)
+
+
+__Second version that uses a new JavaScript syntax called "promises":__
+
+This is another way of saying, "Please, browser, try to give me access to the WebCam, __THEN__ when the Webcam is ready, please tell me so that I can display its stream in a `<video>` element". 
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/EWzKrK)
+
+[Local Demo](src/03c-example07.html)
+
+
+#### Knowledge check 3.3.3
+
+1. What is getUserMedia?
+
+  a. A JavaScript API that can be used to redirect the webcam video stream to a video element<br>
+  b. An API which only works with WebRTC for audio conferencing<br>
+  c. An upcoming API that is not available yet on browsers, but can be emulated by the video element<br>
+  
+  Ans: <br>
+  Explanation: 
 
 
 
