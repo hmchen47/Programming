@@ -912,7 +912,7 @@ Please either post your comments/observations/questions or share your creations.
 
 #### Suggested topics
 
-+ This might be useful: find free videos
++ This might be useful: find [free videos](https://download.blender.org/peach/bigbuckbunny_movies/)
 + Hosting videos is complicated when you want to use them with CodePen or JsBin, do you have some tips to share with others? For this course, we run our own private HTTP server... We are speaking about files that can be used with the `<video>` element directly, not on YouTube, DailyMotion, etc.
 + What tool do you use for encoding your audio and video files?
 
