@@ -635,7 +635,7 @@ This example shows a lot:
 + It shows how to handle DOM events using JavaScript and how to modify CSS properties of the `<video>` element from JavaScript.
 
 
-#### Manipulate events and properties
+#### Display events and properties
 
 __Example #2: how to track all possible events and manipulate many properties__
 
@@ -697,7 +697,7 @@ Here is an example of a piece of code for handling errors during video playback:
 </ol></div>
 
 
-#### Bufferring status
+#### Buffering status
 
 __Example #3: how to display a percentage of buffering when using a slow connection__
 
@@ -810,8 +810,100 @@ Screenshot:
 </figure>
 
 
+#### Notes for 3.3.5 Extended examples
 
++ Examples:
+  + [player w/ CSS transformation](src/03c-example08.html)
+    + elements in HTML: `nav`, `video`, `header` and `footer`
+      + `<video>` element within `<div>` w/ `id = 'stage'`
+      + a `<div>` element w/ `id = 'controls'` to display the buttones for transformation
+      + the buttons created by JS code
+    + global variables for DOM elements by `getEleemntById()` and `getElementByTagName()`: `stage`, `v` (video), and `controls`
+    + array for possible setting for transformation ans set default one: `var properties = ['transform', 'WebkitTransform', 'MozTransform', 'msTransform', 'OTransform'], prop = properties[0];`
+    + find the properties browser support:
 
+      ```js
+      for (var i=0,j=properties.length;i<j;i++) {
+        if (typeof stage.style[properties[i]] !== 'undefined') {
+          prop = properties[i];
+          break;
+        }
+      }
+      ```
+
+    + create control buttons w/ `controls.innerHTML`: `controls.innerHTML =  '<button class="play">play</button>'+ '<div id="change">' + '<button class="zoomin">+</button>' + '<button class="zoomout">-</button>' + ...`
+    + add event listener and switch to related cases: `controls.addEventListener('click', function(e) {...}`
+      + identify which button clicked: `t = e.target; if(t.nodeName.toLowerCase() === 'button'){ switch(t.className) {...}}`
+      + play/pause button toggle btw play and pause: `case 'play': if(v.paused) { v.play(); t.innerHTML = 'pause'; } else { v.pause(); t.innerHTML = 'play'; } break;`
+      + zoom in/out buttons:  `case 'zoomin': zoom = zoom + 0.1; v.style[prop] = 'scale('+zoom+') rotate('+rotate+'deg)'; break;`
+      + rotate right/left buttons: `case 'rotateleft': rotate = rotate + 5; v.style[prop] = 'rotate('+rotate+'deg) scale('+zoom+')'; break;`
+      + shitf buttons: `case 'left': v.style.left = (parseInt(v.style.left,10) - 5) + 'px'; break;`
+      + reset buttons: `case 'reset': zoom = 1; rotate = 0; v.style.top = 0 + 'px'; v.style.left = 0 + 'px'; v.style[prop]='rotate('+rotate+'deg) scale('+zoom+')'; break;`
+    + error handling for default: `e.preventDefault();`
+  + [display events and properties](src/03c-example09.html)
+    + control the display of notes: `<div id="notes"></div>`
+    + the event logs: `<div id="eventslog"></div>`
+    + add event listener: `vid.addEventListener('loadstart', function(evt) { logEvent(evt,'#000099'); }, false); ...`
+    + toggle notes in JS: `function toggleNotes() {...}`
+      + access element: `var notes = document.getElementsByClassName('note');`
+      + variable to control display: `var isShowing = parseInt(window.getComputedStyle(notes[0],null).getPropertyValue("opacity"));`
+      + loop through the notes: `for (var i = 0; i < notes.length; i++) { notes[i].style.opacity = isShowing ? 0 : 1; }`
+      + toggle text to "Show Notes" or "Hide Notes": `document.getElementById('notes').className = isShowing ? 'off' : 'on';`
+    + callback triggered by the event listener: `function logEvent(evt, color) {...}`
+      + current event info: `log.innerHTML = evt.type; log.style.color = color;`
+      + create container for the log and check the displaying status: `var note = document.createElement("span"); note.setAttribute('class', 'note'); note.style.opacity = document.getElementById('notes').className == 'on' ? '1' : '0';`
+      + add note description of each event with switch cases: `switch (evt.type) { case 'loadstart': note.innerHTML = "begin loading media data"; break; ...; case 'error': ...}`
+      + error handler w/ `case 'error'`: `var error = document.querySelector('video').error; switch (error.code) {...}`
+        + media error: `case error.MEDIA_ERR_ABORTED: note.innerHTML = "fetching aborted at the user's request"; break;`
+        + network error: `case error.MEDIA_ERR_NETWORK: note.innerHTML = "a network error caused the browser to stop fetching the media";  break;`
+        + deccoding error: `case error.MEDIA_ERR_DECODE: note.innerHTML = "an error occurred while decoding the media";  break;`
+        + unsupport error: `case error.MEDIA_ERR_SRC_NOT_SUPPORTED: note.innerHTML = "the media indicated by the src attribute was not suitable";  break;`
+        + unspecified error: `default: note.innerHTML = "an error occurred"; break;`
+      + create log and append to event log: `log.appendChild(note); var eventslog = document.getElementById('eventslog'); eventslog.insertBefore(log, eventslog.firstChild);`
+  + [buffering status](src/03c-example10.html)
+    + `canplaythrough` event: a trick to call a function that starts the video player as soon as the page is loaded on desktop
+    + `buffered` property:
+      + a `TimeRanges` object
+      + an array of start and stop times, not a single value
+      + able to contain an array of discountinuous ranges, e.g., jump to a certain point of video and play
+    + contaimner to display the status: `<p id="loadStatus">MOVIE LOADING...</p>`
+    + addd event listener for `<video>` element: `function addMyListeners(){ ...}`
+      + listening `progress` event: `myVideo.addEventListener('progress', getPercentProg, false);`
+      + listening `canplaythrough` event: `myVideo.addEventListener('canplaythrough', myAutoPlay, false);`
+    + callback to calculate rthe percentage of video loaded: `function getPercentProg() {...}`
+      + access `<video>` element: `var myVideo = document.getElementsByTagName('video')[0];`
+      + video loaded so far in time unit: `var endBuf = myVideo.buffered.end(0);`
+      + calculate the percentage of video loaded: `var soFar = parseInt(((endBuf / myVideo.duration) * 100));`
+      + display the percentag: `document.getElementById("loadStatus").innerHTML =  soFar + '%';`
+    + callback to play video: ` function myAutoPlay() {...}`
+      + access `<video>` element: `var myVideo = document.getElementsByTagName('video')[0];`
+      + play video: `myVideo.play();`
+  + [customized player](src/03c-example11.html)
+    + structure design w/ `<main>`, `<section>`, `<aside>`, `<article>`, `<header>`, `<footer>`
+    + video player, buttons, and thumbnails within `<div class="player">` container inside `<section>`
+      + video player: `<video id="myVideo" preload width="640" height="360"> <source src="https://mainline.i3s.unice.fr/mooc/mi5.mp4" /> </video>`
+      + buttons container: `<div> ... </div>`
+      + play button: `<button type="button" id="pl">Play</button>`
+      + previous clip button: `<button type="button" id="pr">Previous</button>`
+      + slider for video progress: `<input id="slide" type="range" value="0" />`
+      + next clip button: `<button type="button" id="nx">Next</button>`
+      + volume buttons: `<button type="button"> <span id="volDown">- &nbsp; </span>Vol<span id="volUp"> &nbsp; +</span></button>`
+      + container for thumbernails: `<div class="thumbs"> <img id="vid1" src="http://i.imgur.com/y6RTkIi.gif" width="128" height="72" alt="video 1"> ...`
+    + add global variables to access various elements and array of sources of video clips
+    + add event listeners
+      + play button: `pl.addEventListener("click", playPause, false);`
+      + preious clip: `pr.addEventListener("click", prevVid, false);`
+      + click to pause/play video: `seek.addEventListener("mousedown", function () { myVid.pause(); pl.innerHTML = "Play"; }); seek.addEventListener("mouseup", function () { myVid.play(); pl.innerHTML = "Pause"; });`
+      + video progress slider event: `seek.addEventListener("input", vidSeek, false);`
+      + timeupdate event: `myVid.addEventListener("timeupdate", vidTime, false);`
+      + video end: `myVid.addEventListener("ended", nextVid, false);`
+      + next video button: `nx.addEventListener("click", nextVid, false);`
+      + volume up button: `volDown.addEventListener("mousedown", volChangeDown, false);`
+      + volume down button: `volUp.addEventListener("mousedown", volChangeUp, false);`
+      + clip 1 thumbernail: `vid1.addEventListener("click", vidChoice1);`
+      + clip 2 thumbernail: `vid2.addEventListener("click", vidChoice2);`
+      + clip 3 thumbernail: `vid3.addEventListener("click", vidChoice3);`
+    + [callback function](src/js/03c-example11.js)
 
 
 
