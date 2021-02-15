@@ -55,7 +55,6 @@ This section presents an example of how to get an interactive map, using [the Le
   />
 </figure>
 
-
 This example is just given "as is", as there are so many possibilities for rendering a map with [the Leaflet API for OpenStreetMaps](https://leafletjs.com/reference-1.6.0.html). However, we think having such a basic example might be useful.
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/LYVgyxE)
@@ -128,6 +127,25 @@ JavaScript part:
 + _Line 6_ uses the [Geolocation API](https://www.w3.org/TR/geolocation-API/) to get the current position, in case of success it calls the success function, passing the location as parameter,
 + _Lines 13 and 14_ show how to get the longitude and latitude properties from the location,
 + The rest is a basic use of the Leaflet API. Notice at _line 17_ that 'map' is the id of the `<div>` from the HTML part of the code.
+
+
+#### Notes for 3.4.2 Geolocation and maps
+
++ The Leaflet API for OpenStreetMap
+  + [Leaflet API reference](https://leafletjs.com/)
+  + example: [centering location on map](src/03d-example01.html)
+    + button to trigger map: `<button class="btn" onclick="getLocation(event)">Click to show your location with OpenStreetMap</button>`
+    + container for map: `<div id="map" class="map"></div>`
+    + get current location: `function getLocation(e) {...}`
+      + avoid default behavior: `e.preventDefault();`
+      + retrieve the position: `if (!navigator.geolocation) { alert("Browser doesn't support geolocation"); } else { navigator.geolocation.getCurrentPosition(success, error); }`
+    + get current position successfully: `function success(position) {...}`
+      + global variables for current position: `var latitude = position.coords.latitude, longitude = position.coords.longitude;`
+      + map instance using leaflet: `map = L.map('map').setView([latitude, longitude], 13);`
+      + tile layer using key api at coludmade.com: `L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { key: '760506895e284217a7442ce2efe97797', styleId: 103288, maxZoom: 16 }).addTo(map);`
+      + add marker: `marker = L.marker([latitude, longitude]).addTo(map);`
+      + popup in leaflet: `marker.bindPopup('<p>Your location</p>').openPopup();`
+    + get error position: `function error() { alert('Get current position fail. Please access codepen to get geolocation.'); }`
 
 
 
