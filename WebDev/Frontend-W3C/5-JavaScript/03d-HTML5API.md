@@ -171,7 +171,6 @@ Google reverse geocoding example (screenshot only) :
     alt    ="Reverse geocoder example"
     title  ="Reverse geocoder example"
   />
-  <figcaption> Fig. 1: ... </figcaption>
 </figure>
 
 
