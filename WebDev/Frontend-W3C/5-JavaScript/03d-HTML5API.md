@@ -22,3 +22,22 @@ It is possible to prompt the user to activate the GPS (this is what most GPS nav
   + on MDN: [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API#Browser_compatibility)
 
 
+#### Notes for 3.4.1 The Geolocation API
+
++ Geolocation HTML5 API
+  + implemented by most modern Web browser
+  + using different means to get the current location, including GPS, GSM/3G triangulation, WiFi, IP address, etc.
+  + possible to promot the user to activate the GPS
+  + possible to track the current position when it changes, e.g., useful for
+    + a navigation application
+    + tracking in real time the position of different participants
+  + [Interfaces](https://tinyurl.com/pjjj7ayq)
+    + [Geolocation](https://tinyurl.com/zeyhput6): containing methods to retrieve the user's current position, watch for changes in their position, and clear a previousdly-set watch
+    + [GeolocationPosition](https://tinyurl.com/w1grzn0k): representing the position of a user
+    + [GeolocationCoordinates](https://tinyurl.com/ky6s9uoo): representing the coordinates of a user's position
+    + [GeolocationPositionError](https://tinyurl.com/y7pldaqo): returned by an unsuccessful call to one of the methods contained inside Geolocation, inside an error callback, and containing an error code and message
+    + [Navigator.geolocation](https://tinyurl.com/2djxdf54): return a Geolocation object instance, from which all other functionality accessed
+
+
+
+
