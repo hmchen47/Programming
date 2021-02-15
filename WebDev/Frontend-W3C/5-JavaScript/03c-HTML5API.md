@@ -906,6 +906,53 @@ Screenshot:
     + [callback function](src/js/03c-example11.js)
 
 
+### 3.3.6 Discussion and projects
+
+Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ This might be useful: find free videos
++ Hosting videos is complicated when you want to use them with CodePen or JsBin, do you have some tips to share with others? For this course, we run our own private HTTP server... We are speaking about files that can be used with the `<video>` element directly, not on YouTube, DailyMotion, etc.
++ What tool do you use for encoding your audio and video files?
+
+
+#### Optional projects
+
+##### Project #1: a custom video player
+
+Here are a few ideas to play with the material learned in this section. Your classmates and the team who prepared the course will be happy to look at them and give feedback. Please post URLs of your work in this discussion forum. These projects are optional, meaning that they won't be graded.
+
+Try to write a video  player with a few custom buttons for play/stop/etc. When your custom player is done, please add a way to play several videos one after another (what we call a playlist), etc.
+
+Examples that can help you, created by students of earlier versions of this MOOC:
+
++ [A custom player with nice CSS and buttons](https://jsbin.com/mayugik/1/edit?html,css,output)
++ [Custom players with a small playlist composed of three songs by Queen](https://jsbin.com/vefiniq/7/edit?html,output)
++ [AWESOME custom player created by GeorgianaB, with playlist, progress bar, CSS3 animations, etc.](https://codepen.io/w3devcampus/pen/reQbow)
+
+
+##### Project #2: a video quiz!
+
+Create a quiz based on videos - here is a proposed story telling:
+
++ a video is playing, then it stops at a given time, and you display a question such as: "who is this actor?" followed by some radio buttons + a proposal (see what we do with quizzes in this course): "Leonardo Di Caprio" or "Harisson Ford"?
++ Once the question is answered, you display "Correct" or "Incorrect"
++ Then the video continues....
++ When the video ends, please show the final score. 
+
+_A few hints:_
+
+1. Use an array with stop times, for example `let stopTimes = [5, 10, 20]`. This will mean "the video should stop at currentTime = 5, currentTime = 10, currentTime = 20". 
+2. You will use a `timeupdate` event listener on the video, like in the example from the live coding video, and the `pause`, `play` and `stop` methods from the video element JavaScript API. And also an `ended` event listener for detecting the end of the video.
+3. Start from one of the example in the course (the one from the live coding video): try to make the video stop at 5s ,for example, and then display a question, and a "continue" button. When the button is pressed, the video goes on and stops a bit further, etc.
+4. When this works (the video plays, then stops, you click, it continues, etc.), try to turn the displayed sentence into a quiz: add HTML radio buttons, and when you click the continue button, you will validate the answer, show "correct" or "incorrect", and maybe increment the score.
+5. Feel free to add any feature(s) you'd like.
+
+As always, do not forget to post the URL of your work in the forum so that we can enjoy your creation. Michel will inevitably give you his advice(s), and also tell you that you are the best ;))
+
+
+<hr>
 
 ### Reference Tables
 
