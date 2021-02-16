@@ -388,6 +388,34 @@ Click on the Codepen logo (on the top right) so to run the online example (for s
     + get physical address as in "showing address"
 
 
+### 3.4.4 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ What features of a Web application do you think could benefit from geolocation?
++ Do you know that you can simulate a position using the dev. tools of some browsers? Try exploring the dev. tools of Google Chrome. Also, there are browser extensions and applications that can help develop interactive maps. Please look for some of them and share your findings in the forum.
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick="window.open('https://tinyurl.com/1iua3l5r')"
+      src    ="https://tinyurl.com/1plnvtiv"
+      alt    ="devtool console geolocation simulation"
+      title  ="devtool console geolocation simulation"
+    />
+  </figure>
+
++ Can you recommend good tutorials about Google Map and about OpenStreetMap, the two main services that propose maps on the fly?
+
+
+#### Optional projects
+
+Here are a few project ideas. Your classmates and the team who prepared the course will be glad to try them and offer feedback. Please post URLs in this discussion forum. These projects are optional, meaning that they won't be graded.
+
++ __Project 1 (easy):__ Add a map showing your location to one of your Web pages. Start with a simple, static map, then try with an interactive map. Reuse the examples from the course.
++ __Project 2 (a bit harder):__ The examples provided in the course used OpenStreetMap, but why don't you try to do the same with GoogleMaps? Some services are free of charge, but they will ask you to get an API key (see [this YouTube tutorial](https://www.youtube.com/watch?v=C3znRXBMYZo) about how to get such a key).
+
 
 
 
