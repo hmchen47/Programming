@@ -139,5 +139,18 @@ The `playSound` function can only be called when the button is enabled (when the
     + play sound: `function playSound() { sound.play(); }`
 
 
+### 3.5.3 Adding music and sound effects
+
+Here is the last version of the game from Module 2 with music and sound effects (when the player eats a ball):
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/EWzgpr)
+
+[local Demo](src/03e-example03.html)
+
+Look at the HTML part: we included the Howler.js library and we also added an `<audio>` player (invisible; we removed the `controls` attribute) for background music.
+
+In the JavaScript code, we start the background music as soon as the page is loaded.
+
+We then used HowlerJS to load a sound sample in background. Only once this sample has been loaded and decoded do we start the animation.
 
 
