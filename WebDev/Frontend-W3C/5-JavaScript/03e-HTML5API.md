@@ -22,5 +22,18 @@ Here is one simple example of background music control from JavaScript:
 [Local Demo](src/03e-example01.html)
 
 
+#### Notes for 3.5.1 Background music (streamed)
+
++ Background music
+  + using `WebAudio` API
+  + audio element: `<audio src = "https://.../humbug.mp3"  id="audioPlayer"  controls> </audio>`
+  + playing music: `function play() {...}`
+    + access element: `var player = document.querySelector("#audioPlayer");`
+    + play streamed music: `player.play();`
+  + pausing music: `function pause() {...}`
+    + access element: `var player = document.querySelector("#audioPlayer");`
+    + paus playing: `player.pause();`
+
+
 
 
