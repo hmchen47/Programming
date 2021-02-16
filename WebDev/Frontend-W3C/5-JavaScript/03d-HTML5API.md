@@ -151,7 +151,7 @@ JavaScript part:
 
 ### 3.4.3 Reverse geocoding
 
-Different Web services can be used to get an address from longitude and latitude. Most are free of charge, but they will ask you to register an API key and enter your credit card number. If you send too many requests, you will be charged.Such a service is the [Google Reverse Geocoding JavaScript API](https://tinyurl.com/pb44te35). For those of you who are really interested to know how this API works, please read the Google documentation and tutorials.
+Different Web services can be used to get an address from longitude and latitude. Most are free of charge, but they will ask you to register an API key and enter your credit card number. If you send too many requests, you will be charged. Such a service is the [Google Reverse Geocoding JavaScript API](https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse). For those of you who are really interested to know how this API works, please read the Google documentation and tutorials.
 
 There is also an interesting Leaflet plugin (an extension to Leaflet) based on the [Gisgraphy](https://www.gisgraphy.com/) (free open source framework) service, that comes with a [nice demo of reverse geocoding](https://services.gisgraphy.com/static/leaflet/index.html).
 
@@ -312,7 +312,80 @@ Click on the Codepen logo (on the top right) so to run the online example (for s
 [Local Demo](src/03d-example04.html)
 
 
+#### Notes for 3.4.3 Reverse geocoding
 
++ Reverse geolocation
+  + used to get an address from longitude and latitude
+  + Web service free charge but limited requests
+    + register required w/ credit card
+    + charged once exceeding limitation
+    + examples:
+      + [Google Reverse Geocoding JavaScript API](https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse)
+      + [Gisgraphy](https://www.gisgraphy.com/): base of Leaflet plugin, free open source framework
+  + example: [get address from longitude and latitude w/ Google service](https://services.gisgraphy.com/static/leaflet/index.html)
+    + mouse click event listener: `<button onclick="getLocation()">Where am I ?</button>`
+    + map container: `<div id="map_canvas" style="width: 500px; height: 300px"></div>`
+    + global variables for Google API: `var geocoder; var map; var infowindow = new google.maps.InfoWindow(); var marker;`
+    + global variables for input/outout: `var displayCoords, myAddress;`
+    + init after the DOM loaded: `function init() {...}`
+      + access elements: `displayCoords=document.getElementById("msg"); myAddress = document.getElementById("address");`
+      + get geocoder object: `geocoder = new google.maps.Geocoder();`
+      + showing demo info before user click: `var latlng = new google.maps.LatLng(34.0144, -6.83);`
+      + map settings: `var mapOptions = { zoom: 8, center: latlng, mapTypeId: 'roadmap' }`
+      + get map object: `map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);`
+    + action for mouse click: `function getLocation() {...}`
+      + show position on map if `navigator.geolocation` exist: `navigator.geolocation.getCurrentPosition(showPosition);`
+      + show err msg: `displayCoords.innerHTML="Geolocation API not supported by your browser.";`
+    + display longitude and latitude if position available: `function showPosition(position) {...}`
+      + add info: `displayCoords.innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;`
+      + display map: `showOnGoogleMap(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));`
+    + disply on google map: `function showOnGoogleMap(latlng) {...}`
+      + ask google decorder for an address and return an array of "guesses" w/ "formatted_address": `geocoder.geocode({'latLng': latlng},reverseGeocoderSuccess);`
+      + callback w/ success: `function reverseGeocoderSuccess(results, status) {...}`
+        + if `status == google.maps.GeocoderStatus.OK` and `result[1]` existed, then parameter seetings: `map.setZoom(11); marker = new google.maps.Marker({ position: latlng, map: map});`
+        + display info w/ `infowindow`: `infowindow.setContent(results[1].formatted_address); infowindow.open(map, marker);`
+        + display text message: `myAddress.innerHTML="Address: " + results[0].formatted_address;`
+        + result failed: `alert('No surface address found');`
+        + geocoder failed: `alert('Geocoder failed due to: ' + status);`
+  + [reverse geolocation](src/03d-example02.html)
+    + map container: `<div id="map"></div>`
+    + global variables: `var map = L.map('map').setView([0, 0], 2); var geocoder = L.Control.Geocoder.nominatim(); var marker;`
+    + searching: `if (URLSearchParams && location.search) {...}`
+      + variables searching: `var params = new URLSearchParams(location.search); var geocoderString = params.get('geocoder');`
+      + both info available: `console.log('Using geocoder', geocoderString); geocoder = L.Control.Geocoder[geocoderString]();`
+      + only `geocoderString` available: ` console.warn('Unsupported geocoder', geocoderString);`
+    + control info: `var control = L.Control.geocoder({ query: 'Moon', placeholder: 'Search here...', geocoder: geocoder }).addTo(map);`
+    + timeout setting: `setTimeout(function() { control.setQuery('Earth'); }, 12000);`
+    + layer setting: `L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);`
+    + mouse click event and processing: `map.on('click', function(e) {...}`
+      + get reverse geolocation: `geocoder.reverse(e.latlng, map.options.crs.scale(map.getZoom()), function(results) {...}`
+        + `result[0]` & `marker` existed: `marker.setLatLng(r.center).setPopupContent(r.html || r.name).openPopup();`
+        + only marker existed: `marker = L.marker(r.center).bindPopup(r.name).addTo(map).openPopup();`
+  + example: [showing address](src/03d-example03.html)
+    + map container: `<div id="map"></div>`
+    + global variables: `var geocoder = L.Control.Geocoder.nominatim(); var map, marker, latitude, longitude;`
+    + get location: `function getLocation() {...}`
+      + `navigator.geolocation` exist: `navigator.geolocation.getCurrentPosition(success, error);`
+      + warning msg if not existed: `alert("Browser doesn't support geolocation");`
+    + current position success: `function success(position) {...}`
+      + variables: `latitude = position.coords.latitude; longitude = position.coords.longitude;`
+      + instance map w/ leaflet: `map = L.map('map').setView([latitude, longitude], 13);`
+      + tile layer using key api at coludmade.com: `L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { key: '760506895e284217a7442ce2efe97797', styleId: 103288, maxZoom: 16 }).addTo(map);`
+      + marker using leaflet: `marker = L.marker([latitude, longitude]).addTo(map);`
+      + popup marker: `marker.bindPopup('<p></p>').openPopup();`
+      + display physical address: ` getPhysicalAddress({lat:latitude, lng:longitude});`
+    + current position failed: `alert('Get current position fail. Please access codepen to get geolocation.');`
+    + get physical address: `function getPhysicalAddress(latlong) {...}` w/ the same function as `map.on('click', function(e) {...}` in "reverse geolocation" example
+    + execute the JS code: `getGeolocation();`
+  + example: [geolocation, map and reverse geoencoder in a HTML form](src/03d-example04.html)
+    + using `<form>` as container for map an address input
+      + map field: `<fieldset><legend>Form example with map and address...</legend> <div id="map" style="width: 500px; height: 300px"></div> </fieldset>`
+      + address entry: `<fieldset> <legend>Surface address</legend> <input id="surfaceAddress" size=110 type="text"> </fieldset>`
+    + global variables: `var geocoder = L.Control.Geocoder.nominatim(); var map, marker, latitude, longitude;`
+    + get location as in "showing address"
+    + current position success as in "showing address"
+    + current position failed as in "showing address"
+    + get physical address as in "showing address"
 
 
 
