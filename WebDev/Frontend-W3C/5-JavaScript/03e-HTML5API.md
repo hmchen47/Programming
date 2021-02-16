@@ -154,3 +154,34 @@ In the JavaScript code, we start the background music as soon as the page is loa
 We then used HowlerJS to load a sound sample in background. Only once this sample has been loaded and decoded do we start the animation.
 
 
+#### Notes for 3.5.3 Adding music and sound effects
+
++ Adding music amd sound effects for bounding ball game
+  + refer to [bounding ball game](src/02f-example13.html)
+  + most JS code remained the same as the previous example
+  + global variable: `let ballEatenSound;`
+  + audio element: `<audio src = "https://.../sounds/humbug.mp3" id="audioPlayer"> </audio>`
+  + init the game after the DOM ready: `window.onload = function init() {...}`
+    + start playing the background music as soon as the page loaded: `playBackgroundMusic();`
+    + load the sound and start the game only when the sound has been loaded
+
+      ```js
+      ballEatenSound = new Howl({
+          urls: ['https://.../sounds/plop.mp3'],
+          onload: function () { // start the animation
+            mainLoop();
+          }
+      });
+      ```
+
+  + play background music: `function playBackgroundMusic() {...}`
+    + access sound element: `let audioPlayer = document.querySelector("#audioPlayer");`
+    + play music: `audioPlayer.play();`
+  + pause background music: `function pausebackgroundMusic() {...}`
+    + access sound element: `let audioPlayer = document.querySelector("#audioPlayer");`
+    + pause music: `audioPlayer.pause();`
+  + collision detection w/ player: `function testCollisionWithPlayer(b, index) {...}`
+    + play a sound: `ballEatenSound.play();`
+
+
+
