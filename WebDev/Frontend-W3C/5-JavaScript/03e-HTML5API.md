@@ -49,7 +49,7 @@ Here is one simple example of background music control from JavaScript:
 
 If you want to play short sounds that can occur very rapidly, streamed sound/music is not a good solution. This is where the WebAudio API, made by W3C and implemented by your browser, comes in handy. This API allows you to download and decode sound samples in memory, and play them on demand, using nearly zero CPU and with no delay when you play the sound (no buffering etc.).
 
-However, this API is a bit complicated to use for beginners. Fortunately there are several JavaScript libraries that simplify the use of the WebAudio API. HowlerJS is one of these.
+However, this API is a bit complicated to use for beginners. Fortunately there are several JavaScript libraries that simplify the use of the WebAudio API. [HowlerJS is one of these.](https://howlerjs.com/)
 
 __Example that uses Howler.js to load a sound sample from a remote server, then decode it in memory, and play it:__
 
@@ -82,24 +82,24 @@ HTML code: this is how we say that we are using an external library:
 JavaScript code:
 
 <div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln" style="color: #000000;">window</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">onload&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;init</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;sound</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;init</span><span class="pun" style="color: #666600;">()</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span><span class="kwd" style="color: #000088;">&nbsp; &nbsp; var</span><span class="pln" style="color: #000000;">&nbsp;button&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;document</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">querySelector</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"#button1"</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;&nbsp;<strong>sound&nbsp;</strong></span><strong><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">new</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="typ" style="color: #660066;">Howl</span><span class="pun" style="color: #666600;">({</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; urls</span><span class="pun" style="color: #666600;">:</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">[ &nbsp;&nbsp;</span><span class="str" style="color: #008800;">'https://.../assets/sounds/plop.mp3'</span><span class="pun" style="color: #666600;">],</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; onload</span><span class="pun" style="color: #666600;">:</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">()</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Loaded asset "</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; button</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">disabled&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">false</span><span class="pun" style="color: #666600;">;</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="com" style="color: #880000;">// enable the play sound button</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;"></span><span class="pun" style="color: #666600;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;"></span><span class="pun" style="color: #666600;">&nbsp; &nbsp; });</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun" style="color: #666600;">.</span><span class="pln">onload&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;init</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd" style="color: #AA0088;">var</span><span class="pln">&nbsp;sound</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #AA0088;">function</span><span class="pln">&nbsp;init</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #AA0088;">&nbsp; &nbsp; var</span><span class="pln">&nbsp;button&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #666600;">.</span><span class="pln">querySelector</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"#button1"</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;<strong>sound&nbsp;</strong></span><strong><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #AA0088;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #660066;">Howl</span><span class="pun" style="color: #666600;">({</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; urls</span><span class="pun" style="color: #666600;">:</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">[ &nbsp;&nbsp;</span><span class="str" style="color: #008800;">'https://.../assets/sounds/plop.mp3'</span><span class="pun" style="color: #666600;">],</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; onload</span><span class="pun" style="color: #666600;">:</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #AA0088;">function</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun" style="color: #666600;">.</span><span class="pln">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Loaded asset "</span><span class="pun" style="color: #666600;">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; button</span><span class="pun" style="color: #666600;">.</span><span class="pln">disabled&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #AA0088;">false</span><span class="pun" style="color: #666600;">;</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// enable the play sound button</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun" style="color: #666600;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun" style="color: #666600;">&nbsp; &nbsp; });</span></strong></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;playSound</span><span class="pun" style="color: #666600;">()</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; sound</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">play</span><span class="pun" style="color: #666600;">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd" style="color: #AA0088;">function</span><span class="pln">&nbsp;playSound</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; sound</span><span class="pun" style="color: #666600;">.</span><span class="pln">play</span><span class="pun" style="color: #666600;">();</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
 </ol></div>
 
@@ -109,6 +109,34 @@ Finally, once the sound is decoded, the `onload` callback is executed. In other 
 
 The `playSound` function can only be called when the button is enabled (when the sound sample has been loaded and decoded). In order to play a sound loaded by Howler.JS, we just call the `play()` method (_line 18_).
 
+
+#### Notes for 3.5.2 Sound effects using howler.js
+
++ Sound effect w/ howler.js
+  + streamed audio not suitable for short sounds
+  + WebAudio API:
+    + allowing to download and decode sound samples in memory and play them on demand
+    + using nearly zero CPU and w/o delay when playing (no buffering)
+    + complicated to use for this purpose
+  + [howler.js](https://howlerjs.com/) simplifying the use of the WebAudio API
+  + example: [sound sample w/ howler.js](src/03e-example02.html)
+    + howler.js library: `<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.min.js"></script>`
+    + button element to trigger sound effect: `<button onclick="playSound();" id="button1" disabled>Play sound sample 1</button>`
+    + init setting after the DOM ready: `function init() {...}`
+      + access button element: `var button = document.querySelector("#button1");`
+      + create object, start downloading the sound in background, and decode it:
+
+        ```js
+        sound = new Howl({
+            urls: ['https://.../assets/sounds/plop.mp3'],
+            onload: function () {
+                console.log("Loaded asset ");
+                button.disabled = false; // enable the play sound button
+            }
+        });
+        ```
+
+    + play sound: `function playSound() { sound.play(); }`
 
 
 
