@@ -184,4 +184,151 @@ We then used HowlerJS to load a sound sample in background. Only once this sampl
     + play a sound: `ballEatenSound.play();`
 
 
+### 3.5.4 [Advanced] a multiple image, sound and music loader
+
+#### Live coding video: a multiple image, sound and music loader
+
+<a href="https://edx-video.net/W3CJSIXX2016-V003600_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/18yk2t33)
+
+
+#### A utility background loader for images, music and sound samples
+
+This comes from the module 2 of the W3Cx [HTML5 Apps and Games](https://www.edx.org/course/html5-apps-and-games) course.
+
+In video games, you very often need to load assets before starting the game:
+
++ Images must be loaded (background image, game logo, sprite sheets, etc.)
++ Sound samples must be loaded and decoded (the previous example used only one single sound sample, but with multiple samples it becomes more difficult to know when they are all ready to be used, as they come asynchronously over the network),
++ For streamed music, you need an `<audio>` player element. If you use different pieces of music, you may use multiple audio elements, and you pause one and start another when you change the music. Alternatively you may use a single audio element, and change its `src` attribute.
+
+So, we wrote a multiple "asset loader" to make all these tasks easy.
+
+Here is a small example that you may use if you like, which takes an array of "assets to be loaded", that can be either an image, a sound sample or streamed background music. You call the `loadAssets(callback)` function, passing as a parameter a single callback function of yours. When all assets are loaded, your callback will be executed, and will get a single parameter: the assets ready to be used!
+
+Example (to hear the music and sound sample, there are two lines to uncomment in the `startGame(...)` function):
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/QpRGrz)
+
+[Local Demo](src/03e-example04.html)
+
+Extract from the JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> init</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> assetsToLoadURLs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; backgroundImage</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://.../assets/images/background.png'</span><span class="pln"> </span><span class="pun">},</span><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; logo1</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://.../assets/images/SkywardWithoutBalls.png"</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; logo2</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://.../assets/images/BoundsWithoutBalls.png"</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; bell</span><span class="pun">:</span><span class="pln">&nbsp;&nbsp;</span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://.../assets/images/bells.png"</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; spriteSheetBunny</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://.../assets/images/bunnySpriteSheet.png'</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; plop</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://.../assets/sounds/plop.mp3'</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; buffer</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,<span style="color: #000000;" color="#000000">&nbsp;</span></span>loop<span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1.0</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; humbug</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://.../assets/sounds/humbug.mp3'</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; buffer</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> loop</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1.0</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; concertino</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://.../assets/sounds/christmas_concertino.mp3'</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; buffer</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> loop</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1.0</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xmas</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://.../assets/sounds/xmas.mp3'</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; buffer</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> loop</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0.6</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol><ol class="linenums">
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> loadedAssets</span><span class="pun">; // above assets, ready to be used</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // Once the page is loaded, we load all assets. We pass the function</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // that will be called when assets are ready. In our case "startGame"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // this call will load all assets</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; loadAssets</span><span class="pun">(</span><span class="pln">startGame</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> startGame</span><span class="pun">(</span><span class="pln">assetsReadyToBeUsed</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // This function is executed once all assets are ready.</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // It is called by the asset loader, and receives as a unique</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // parameter, the assets (sounds, images etc.) ready to be used</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // we store them in the loadedAssets variable</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span style="color: #880000;" color="#880000">&nbsp; &nbsp;&nbsp;</span>loadedAssets <span class="pun">=</span><span class="pln"> assetsReadyToBeUsed</span><span class="pun">;</span><br><span class="pln"></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Now we can use them! e.g., draw the images in a canvas</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawImages</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// or play one of the pieces of background music</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;playHumbug</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// Or use sound samples, for example let's play a plop every second</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;setInterval</span><span class="pun">(</span><span class="pln">playPlop</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> playHumbug</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; loadedAssets</span><span class="pun">.</span><span class="pln">humbug</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> playPlop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; loadedAssets</span><span class="pun">.</span><span class="pln">plop</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> drawImages</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myCanvas'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // background image drawImage can have different syntaxes : </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // drawImage(img, x, y); or</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // drawImage(x, y, width, height), </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // for other syntaxes see HTML5 fundamentals course</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">loadedAssets</span><span class="pun">.</span><span class="pln">backgroundImage</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0<span style="color: #666600;" color="#666600">,</span></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">loadedAssets</span><span class="pun">.</span><span class="pln">bell</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">drawImage</span><span class="pun">(</span><span class="pln">loadedAssets</span><span class="pun">.</span><span class="pln">spriteSheetBunny</span><span class="pun">,</span><span class="pln"> </span><span class="lit">190</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+__Two games that have been written by students from the HTML5 advanced MOOC (which has a module dedicated to game programming):__
+
+These games are not for JavaScript beginners, but it's time to spend some time having fun :-) You can look at the source code: it's been written by students like you who followed the HTML5 advanced course.
+
+1 - Star Warriors, written by two Ukrainian ladies who won the first prize in [a W3C contest we organized in March 2017](https://www.w3.org/2017/WWW26/contests.html):
+
++ [Play it online](https://mainline.i3s.unice.fr/mooc/StarWarriors/), wait until all assets have been loaded (you can follow the loading of assets by opening the devtools console). Use arrows + space bar to fire.
++ [See the source code on CodePen](https://codepen.io/w3devcampus/pen/pemjRj) (also, you can play from there).
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/pemjRj)
+
+[Local Demo](src/03e-example05.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/otpo7jp7')"
+    src    ="https://tinyurl.com/p94pa4t6"
+    alt    ="Star Warrior, an HTML5 games that uses the multiple asset loader"
+    title  ="Star Warrior, an HTML5 games that uses the multiple asset loader"
+  />
+</figure>
+
+2 - Skyward Bounds: written in less than a week by a group of students from the W3Cx HTML5 Apps and Games course W3Cx, during the Christmas 2016 session.
+
+Michel Buffa helped them actively in the forum, and one student rapidly took the lead in developing the game, while another composed the music, another helped with the graphics, etc.
+
+The game runs on phones, tablets (using touch events), can be resized, rotated, etc. It also uses the multiple asset loader presented.
+
++ [Play it online](https://mainline.i3s.unice.fr/mooc/SkywardBound/) (mouse or fingers)
++ Or [download the source code](https://tinyurl.com/1dl608s3) (multiple files). (once unzipped, just double click index.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick="window.open('https://tinyurl.com/otpo7jp7')"
+    src    ="https://tinyurl.com/5ezejsem"
+    alt    ="Skyward Bouds, a HTML5 game written by students, who uses the same asset loader"
+    title  ="Skyward Bouds, a HTML5 game written by students, who uses the same asset loader"
+  />
+</figure>
+
+
 
