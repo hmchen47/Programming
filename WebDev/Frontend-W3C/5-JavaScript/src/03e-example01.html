@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Using the audio element from JS</title>
+  <meta charset="utf-8"/>
+  <script src="js/03e-example01.js"></script>
+</head>
+  <body>
+      <p>  This example shows how we can play/pause a background music from javaScript.</p>
+      <p>This example uses a <code>&lt;audio&gt;</code> element with a <code>control</code> attribute. If you omit it, you will not see the audio player anymore! This is perfect for a game! Look at the functions play() and pause() called by the buttons below.</p>
+   <audio src = "https://mainline.i3s.unice.fr/mooc/SkywardBound/assets/sounds/humbug.mp3" 
+          id="audioPlayer" 
+          controls>
+  </audio>
+  <p></p>
+
+  <button onclick="play();" id="playButton">Play</button>
+  <button onclick="pause();" id="pauseButton">Pause</button>
+</body>
+</html>
