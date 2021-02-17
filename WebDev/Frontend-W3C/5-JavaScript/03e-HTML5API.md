@@ -374,6 +374,24 @@ The game runs on phones, tablets (using touch events), can be resized, rotated, 
       + create 2d object: `var ctx = canvas.getContext('2d');`
       + draw images: `ctx.drawImage(loadedAssets.backgroundImage, 0, 0, canvas.width, canvas.height); ctx.drawImage(loadedAssets.bell, 20, 20); ctx.drawImage(loadedAssets.spriteSheetBunny, 190, 0);`
 
+### 3.5.5 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ Who amongst you is a composer? Would you propose free music or free sound samples that other students can use?
++ HowlerJS is an easy way to manipulate "the real API" that is named WebAudio. If you are curious, look at the [webaudiodemos.appspot.com](https://webaudiodemos.appspot.com/) Web site, look on twitter with the hashtag #webaudio, or on YouTube. This API is really powerful! 
++ Do you know other libraries similar to HowlerJS, useful for manipulating audio (streamed or as sound samples)?
++ Your instructor wrote some open source WebAudio applications.... find which ones! :-)
++ You can also use another funny library for synthesizing 8 bits sound effects, [try this demo](https://jeromeetienne.github.io/webaudiox/examples/jsfx.html)!
 
 
+#### Optional projects
+
++ Try to make nice audio player that will chain background musics, when one is finished the next one starts (use an "`ended`" event listener on the audio element, for example, add `onended="...."`)
++ Add some buttons/menu to the game so that we can choose between 2 or 3 different background musics, or turn the music off.
++ Add a slider for adjusting the volume of the background music
++ [advanced] Use the multiple image/music/sound loader for adding multiple sound effects to your game, make different sounds depending on the color of balls that collide with the player
++ [advanced, harder] try to think about a way to display a progress bar while the multiple image/sound/music loader is loading the files...
 
