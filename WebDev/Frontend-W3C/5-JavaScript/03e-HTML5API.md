@@ -330,5 +330,50 @@ The game runs on phones, tablets (using touch events), can be resized, rotated, 
   />
 </figure>
 
+#### Notes for 3.5.4 [Advanced] a multiple image, sound and music loader
+
++ Background loader
+  + video games usually required to load assets before starting the gam
+    + images: background image, game logo, sprite sheets, etc
+    + sound samples: loaded and decoded
+    + streamed music w/ `<audio>` element
+      + multiple samples elements probably required
+      + pause one and start another when changig music
+      + alternatively, change `src` attribute
+  + example: [asset loader](src/03e-example04.html)
+    + container to display images: `<canvas id="myCanvas" width=400 height=400></canvas>`
+    + list of assets:
+
+      ```js
+      var assetsToLoadURLs = {
+        backgroundImage: { url: 'https://.../assets/images/background.png' }, 
+        logo1: { url: "https://.../assets/images/SkywardWithoutBalls.png" },
+        logo2: { url: "https://.../assets/images/BoundsWithoutBalls.png" },
+        bell:  { url: "https://.../assets/images/bells.png" },
+        spriteSheetBunny: { url: 'https://.../assets/images/bunnySpriteSheet.png' },
+        plop: { url: 'https://.../assets/sounds/plop.mp3', 
+          buffer: false, loop: false, volume: 1.0 },
+        humbug: { url: 'https://.../assets/sounds/humbug.mp3', 
+          buffer: true, loop: true, volume: 1.0 },
+        concertino: { url: 'https://.../assets/sounds/christmas_concertino.mp3', 
+          buffer: true, loop: true, volume: 1.0 },
+        xmas: { url: 'https://.../assets/sounds/xmas.mp3', 
+          buffer: true, loop: true, volume: 0.6 }
+      ```
+
+    + global variable for loaded assets: `var loadedAssets;`
+    + the DOM ready and then load assets: `function init() { loadAssets(startGame); }`
+    + load all assets: `function loadAssets(callback) { loadAssetsUsingHowlerAndNoXhr(assetsToLoadURLs, callback); }`
+    + load assets and decoded w/ howler & NoXhr (setails see the JS code): `loadAssetsUsingHowlerAndNoXhr(assetsToLoadURLs, callback);`
+    + start the game once assets loaded: `function startGame(assetsReadyToBeUsed) {...}`
+      + draw images in canvas: `drawImages();`
+      + play background music: `playHumbug();` $\to$ `loadedAssets.humbug.play();`
+      + play plop every second: `setInterval(playPlop, 1000);`
+    + drawing all images in canvas: `function drawImages() {...}`
+      + access canvas element: `var canvas = document.querySelector('#myCanvas');`
+      + create 2d object: `var ctx = canvas.getContext('2d');`
+      + draw images: `ctx.drawImage(loadedAssets.backgroundImage, 0, 0, canvas.width, canvas.height); ctx.drawImage(loadedAssets.bell, 20, 20); ctx.drawImage(loadedAssets.spriteSheetBunny, 190, 0);`
+
+
 
 
