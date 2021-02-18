@@ -1,5 +1,5 @@
 # Module 3: Playing with HTML5 APIs
-
+ 
 ## 3.2 Arrays (part 2): iterators
 
 ### 3.2.1 Arrays
@@ -20,7 +20,7 @@ The example shown in the video is available at CodePen
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/owgeyJ)
 
-[Local Demo](src/ls/03b-exapmple01.js)
+[Local Demo](src/ls/03b-example01.js)
 
 
 #### JavaScript arrays
@@ -335,7 +335,7 @@ It is possible to have different arrays with different lengths and different typ
   + recommendation: using `push()` method
 
 + Removing element
-  + `splice` method
+  + `splice()` method
     + syntax:
       + `array.splice(start)`
       + `array.splice(start, deleteCount)`
@@ -353,10 +353,10 @@ It is possible to have different arrays with different lengths and different typ
       + remove element at 6th index: `[undefined x 1]` & `a = [1, 2, 3, "four", "five", "six", "height"]`
       + remove the 1st three elements: `a.splice(0, 3); // [1, 2, 3]` & `a = ["four", "five", "six", "height"]`
       + remove the last element: `a.splice(a.length-1); // "height"` & `a = ["four", "five", "six"]`
-  + `pop` method
+  + `pop()` method
     + recommended method for removing the last element
     + example: `a = ["four", "five", "six"]`, `a.pop(); // "six"` & `a = ["four", "five"]`
-  + `delete` method
+  + `delete()` method
     + not good for removing an element from an array
     + example: `delete a[1]; // true` & `a = ["four", undefined × 1]`
 
@@ -369,21 +369,21 @@ It is possible to have different arrays with different lengths and different typ
       + element: `a[0][0]; // top left element` $\to$ 1; `a[0][1]; // second element, first line` $\to$ 2; `a[1][2]; // third element, second line` $\to$ 6
   + array w/ differnet types of arrays, e.g., `a[0] = [1, 2, 3, 4, 5]; a[1] = ['michel', 'henri', 'francois']; a; // [Array(5), Array(3)]`
 
-+ [`array.push` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
++ [`array.push()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
   + syntax: `arr.push([element1[, ...[, elementN]]])`
-  + docstring: add one or more elements to the end of an array and returns the new length of the array
+  + docstring: add one or more elements to the end of an array and return the new length of the array
   + parameters
-    + `elementN`: The element(s) to add to the end of the array.
+    + `elementN`: the element(s) to add to the end of the array.
   + return: The `new` length property of the object upon which the method was called.
 
-+ [`array.pop` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
++ [`array.pop()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
   + syntax: `arr.pop()`
   + docstring:
-    + remove the __last__ element from an array and returns that element
+    + remove the __last__ element from an array and return that element
     + change the length of the array
-  + return: The removed element from the array; `undefined` if the array is empty.
+  + return: the removed element from the array; `undefined` if the array is empty.
 
-+ [`array.sort` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
++ [`array.sort()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
   + syntax: `arr.sort([compareFunction])`
   + docstring:
     + sort the elements of an array in place and return the sorted array
@@ -407,7 +407,7 @@ It is possible to have different arrays with different lengths and different typ
     }
     ```
 
-+ [`array.splice` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
++ [`array.splice()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
   + syntax: `let arrDeletedItems = arr.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
   + docstring: change the contents of an array by removing or replacing existing elements and/or adding new elements in place
   + parameters
@@ -417,15 +417,15 @@ It is possible to have different arrays with different lengths and different typ
       + array.length + start &lt; 0: begin from index `0`
     + `deleteCount` (optional)
       + an integer indicating the number of elements in the array to remove from start
-      + omitted, or &gte; array.length - start: all the elements from start to the end of the array will be deleted
-      + &lte; 0: no elements removed
-    + `item1, item2, ...` (optional): 
-      + the elements to add to the array, beginning from start
-      + not specifying any elements: `splice()` will only remove elements from the array.
-  + return: 
-    + An array containing the deleted elements.
-    + If only one element is removed, an array of one element is returned.
-    + If no elements are removed, an empty array is returned.
+      + omitted, or &ge; array.length - start: all the elements from start to the end of the array will be deleted
+      + &le; 0: no elements removed
+    + `item1, item2, ...` (optional):
+      + the elements to be added to the array, beginning from start
+      + not specifying any elements: only removing elements from the array
+  + return:
+    + an array containing the deleted elements
+    + a one-element array if only one eleemnet removed
+    + an empty array ih noyjing removed
 
 
 
