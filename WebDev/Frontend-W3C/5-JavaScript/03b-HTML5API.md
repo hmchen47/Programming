@@ -605,7 +605,7 @@ __Replacing a char at a given index:__
 
 + String as array
   + "like" array of characters
-    + behave link an array
+    + behave like an array
     + w/ `length` property
     + able to access individual characters w/ indexes
     + example: `let s = 'Michel'; s[0]; // 'M'`, `s[1] // 'i'` & `s.length; // 6`
@@ -624,16 +624,15 @@ __Replacing a char at a given index:__
   + concatenation w/ `+` operator
     + prepend: `var s = 'Michel'; s = "Hello " + s; // "Hello Michel"`
     + append: `var s = 'Michel'; s += " Buffa"; // "Michel Buffa"`
-  + removing substring w/ `substring` method
-    + examples:
-      + removing last char (equivalent to `pop` method): `s = s.substring(0, s.length-1); // "Miche"`
-      + removing a certain number of chars: `function removeChars(s, startIndex, numberOfCharsToRemove) { return s.substring(0, startIndex) + s.substring(startIndex + numberOfCharsToRemove); }` & `var s = 'Michel'; s = removeChars(s, 1, 3); console.log(s); // "Mel"`
+  + removing substring w/ `substring()` method; e.g.,
+    + removing last char (equivalent to `pop` method): `s = s.substring(0, s.length-1); // "Miche"`
+    + removing a certain number of chars: `function removeChars(s, startIndex, numberOfCharsToRemove) { return s.substring(0, startIndex) + s.substring(startIndex + numberOfCharsToRemove); }` & `var s = 'Michel'; s = removeChars(s, 1, 3); console.log(s); // "Mel"`
   + replacing a char w/ index
     + `function replaceAt(s, index, character) { return s.substr(0, index) + character + s.substr(index+character.length); }`
     + `var s2 = "JavaScript"; s2 = replaceAt(s2, 1, "o"); console.log(s2); // "JovaScript"`
     + `s2 = replaceAt(s2, 0, "Coca"); console.log(s2); // Will display "CocaScript"`
 
-+ [`str.substring` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
++ [`str.substring()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
   + syntax: `str.substring(indexStart[, indexEnd])`
   + docstring: return the part of the string between the start and end indexes, or to the end of the string.
   + parameters
