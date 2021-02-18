@@ -1,6 +1,8 @@
 # Module 3: Playing with HTML5 APIs
 
+
 ## 3.3 HTML5 multimedia and JavaScript API
+
 
 ### 3.3.1 Playing audio and video streams
 
@@ -125,7 +127,7 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
 
 #### Notes for 3.3.1 Playing audio and video streams
 
-+ `<video>` element
++ Video and `<video>` element
   + one of the two "Flash  killer" (`<canvas>` as the other)
   + a DOM member $\implies$ CSS styling applied and maipulating w/ the DOM API
   + unable to embedded a YouTube and Daily Motion video
@@ -139,7 +141,7 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
     </video>
     ```
 
-    + `control` attribute: displaying a control panel w/ play/stop/volume/progress widget
+    + `controls` attribute: displaying a control panel w/ play/stop/volume/progress widget
     + browser using the 1st format recognized but some browsers probably choose a "preferred" format
   
   + example using YouTube: `<iframe width="560" height="315" src="https://www.youtube.com/embed/ZH1XOsv8Oyo" frameborder="0" allowfullscreen></iframe>`
@@ -148,7 +150,7 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
   + `<audio>` element
     + useful for embedding an audio player into a Web page
     + dedicated for _streamed audio_
-    + a DOM member $\implies$ VSS styling applied and manipulating w/ the DOM API
+    + a DOM member $\implies$CVSS styling applied and manipulating w/ the DOM API
     + attributes: a reduced version of `<video>` element
     + typical usage
 
@@ -167,7 +169,7 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
       + adding text message of the Wen browser not supporting the `<audio>` element
       + `<source>...</source>` element: link to different audio formats for the same file
       + browser using the 1st format recognized
-  + Wen Audio API
+  + Web Audio API
     + designed for musical applications and for adding sound effects to games
     + manipulation of sund samples (loops. etc.), music synthesis and sound generation (oscillators, etc.)
     + w/ a set of predefined sound processing modules (reverb, delay, etc.)
