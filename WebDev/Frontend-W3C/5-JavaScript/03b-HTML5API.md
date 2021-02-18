@@ -751,7 +751,7 @@ Another example where we iterate two by two (just changed the increment in the f
 
 #### Notes for 3.2.3 Iterating on array elements
 
-+ Iterating w/ array
++ Iteration of array
   + iterating w/ `forEach`
     + parameters of `forEach`
       + the current element of the array
