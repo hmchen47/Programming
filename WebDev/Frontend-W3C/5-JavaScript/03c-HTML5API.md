@@ -311,10 +311,10 @@ Now let's take a look at a set of examples demonstrating how to use the most imp
     + element: `resize`, `volumechange`
   + most interested methods, properties and events for `<video>` element
 
-    <table style="max-width: 100%; border-collapse: collapse; border-spacing: 0px; table-layout: auto border: 2px solid #0f0505; background-color: transparent; margin: 0 auto; width: 50vw;" dir="ltr" rules="all" frame="box" cellpadding="10" border="2">
+    <table style="max-width: 100%; border-collapse: collapse; border-spacing: 0px; table-layout: auto border: 2px solid #0f0505; background-color: transparent; margin: 0 auto; width: 60vw;" dir="ltr" rules="all" frame="box" cellpadding="10" border="2">
     <tbody>
     <tr>
-    <td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Methods</strong></span></td>
+    <td style="text-align: center; background-color: cadetblue; width: 5%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Methods</strong></span></td>
     <td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Properties</strong></span></td>
     <td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Events</strong></span></td>
     </tr>
