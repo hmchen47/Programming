@@ -578,7 +578,7 @@ This is another way of saying, "Please, browser, try to give me access to the We
 
       ```js
       function init() {
-        navigator.mediaDevices.getUserMedia({audio: true,video: true})
+        navigator.mediaDevices.getUserMedia({audio: true, video: true})
           .then(function (stream) {
               var video = document.querySelector('#video');
               video.srcObject = stream;
@@ -590,7 +590,7 @@ This is another way of saying, "Please, browser, try to give me access to the We
       }
       ```
 
-#### Knowledge check 3.3.3
+#### Knowledge check 3.3.4
 
 1. What is `getUserMedia`?
 
