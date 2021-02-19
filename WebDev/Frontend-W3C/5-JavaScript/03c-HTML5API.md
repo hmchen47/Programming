@@ -495,15 +495,14 @@ To try this example: use the progress cursor to go near the end of the first vid
 
 #### Notes for 3.3.3 Examples using the JavaScript API
 
-+ Examples for Media API
++ Examples of Media API
   + [control w/ external buttons](src/03c-example04.html)
     + video and source element
 
       ```js
       <video id="vid" controls>
-      <source src=https://html5doctor.com/demos/video-canvas-magic/video.webm
-              type=video/webm>
-      ...
+        <source src="https://.../video-canvas-magic/video.webm" type="video/webm">
+        ...
       </video>
       ```
 
@@ -522,10 +521,10 @@ To try this example: use the progress cursor to go near the end of the first vid
     + initializing JS after page loaded: `function init() {...}`
       + access video element: `myVideo = document.querySelector("#myVideo");`
       + add video end listener: `myVideo.addEventListener('ended', loadAndplayNextVideo, false);`
-      + load the first video first time, not playing until play clicked in control panel: `loadNextVideo();`
+      + load the first video first time, not playing until clicked in control panel: `loadNextVideo();`
     + array of videos: `var sources = ["video1.mp4", "video2.mp4"];`
-    + loading the next video to play repeatedly: `function loadNextVideo() { myVideo.src = sources[currentVideo % sources.length] myVideo.load();currentVideo++; }`
-    + load and play next video (callback): `function loadAndplayNextVideo() { console.log("playing " + sources[currentVideo % sources.length]) loadNextVideo(); myVideo.play(); }`
+    + loading the next video to play repeatedly: `function loadNextVideo() { myVideo.src = sources[currentVideo % sources.length]; myVideo.load(); currentVideo++; }`
+    + load and play next video (callback): `function loadAndplayNextVideo() { console.log("playing " + sources[currentVideo % sources.length]); loadNextVideo(); myVideo.play(); }`
 
 
 ### 3.3.4 Using the Webcam
