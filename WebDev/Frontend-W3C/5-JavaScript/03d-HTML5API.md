@@ -32,7 +32,7 @@ It is possible to prompt the user to activate the GPS (this is what most GPS nav
     + a navigation application
     + tracking in real time the position of different participants
   + [Interfaces](https://tinyurl.com/pjjj7ayq)
-    + [Geolocation](https://tinyurl.com/zeyhput6): containing methods to retrieve the user's current position, watch for changes in their position, and clear a previousdly-set watch
+    + [Geolocation](https://tinyurl.com/zeyhput6): containing methods to retrieve the user's current position, watch for changes in their position, and clear a previously-set watch
     + [GeolocationPosition](https://tinyurl.com/w1grzn0k): representing the position of a user
     + [GeolocationCoordinates](https://tinyurl.com/ky6s9uoo): representing the coordinates of a user's position
     + [GeolocationPositionError](https://tinyurl.com/y7pldaqo): returned by an unsuccessful call to one of the methods contained inside Geolocation, inside an error callback, and containing an error code and message
