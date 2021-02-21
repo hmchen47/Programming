@@ -156,8 +156,8 @@ We then used HowlerJS to load a sound sample in background. Only once this sampl
 
 #### Notes for 3.5.3 Adding music and sound effects
 
-+ Adding music amd sound effects for bounding ball game
-  + refer to [bounding ball game](src/02f-example13.html)
++ Example: [adding music amd sound effects for bouncing ball game](src/03e-example03.html)
+  + refer to [bouncing ball game](src/02f-example13.html)
   + most JS code remained the same as the previous example
   + global variable: `let ballEatenSound;`
   + audio element: `<audio src = "https://.../sounds/humbug.mp3" id="audioPlayer"> </audio>`
