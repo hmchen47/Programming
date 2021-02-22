@@ -332,7 +332,6 @@
 
 ### Geolocation APIs
 
-
 + [Geolocation API](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#641-introduction)
   + implemented by most modern Web browsers
   + using different means to get the current location: GPS, GSM/3G triangulation, Wifi, IP address, etc.
@@ -370,7 +369,7 @@
   + __speed:__ current speed in meters/second
 
 + [Geolocation error codes](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#643-geolocation-error-codes)
-  + `navigator.geolocation.getCurrentPosition` method possible to pass a second parameter in case of errror
+  + `navigator.geolocation.getCurrentPosition` method possible to pass a second parameter in case of error
   + example: error handler
     + get location: `navigator.geolocation.getCurrentPosition(showPosition, errorPosition);`
     + error handling
@@ -437,7 +436,7 @@
     + after this timeout, call the `onError` callback
 
 
-## Geolocation libraries
+### Geolocation libraries
 
 + [Get a map centered on given longitude and latitude](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#645-geolocation-and-maps)
   + rendering a map with the [Leaflet API for OpenStreetMaps](https://leafletjs.com/reference-1.6.0.html)

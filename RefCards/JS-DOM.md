@@ -298,6 +298,30 @@
         + `myVideo.src = sources [currentVideo % sources.length]`: set the `src` of the video element to `sources[0]`, then to `sources[1]`, and module w/ the length of the list to repeat the playing
 
 
+## The `<audio>` elements
+
++ [Background music](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#351-background-music-streamed)
+  + using `WebAudio` API
+  + audio element: `<audio src = "https://.../humbug.mp3"  id="audioPlayer"  controls> </audio>`
+  + playing music: `function play() {...}`
+    + access element: `var player = document.querySelector("#audioPlayer");`
+    + play streamed music: `player.play();`
+  + pausing music: `function pause() {...}`
+    + access element: `var player = document.querySelector("#audioPlayer");`
+    + pause playing: `player.pause();`
+
+
++ [Sound effect w/ howler.js](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#352-sound-effects-using-howlerjs)
+  + streamed audio not suitable for short sounds
+  + WebAudio API:
+    + allowing to download and decode sound samples in memory and play them on demand
+    + using nearly zero CPU and w/o delay when playing (no buffering)
+    + complicated to use for this purpose
+  + [howler.js](https://howlerjs.com/) simplifying the use of the WebAudio API
+
+
+
+
 
 ## The `<track>` element
 
@@ -595,6 +619,20 @@
     + test game state: game over if no life left
     + etc.
 
+
+## Assets Loading
+
++ [Background loader](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#354-advanced-a-multiple-image-sound-and-music-loader)
+  + video games usually required to load assets before starting the game
+  + assets
+    + images: background image, game logo, sprite sheets, etc
+    + sound samples: loaded and decoded
+    + streamed music w/ `<audio>` element
+      + multiple samples elements probably required
+      + pause one and start another when changig music
+  + alternatively, change `src` attribute
+
+
 ## Example: Canvas and Animation
 
 + Example: [simple drawing](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
@@ -628,7 +666,17 @@
   + example: [game to collide selected color balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example13.html)
 
 
-## Example: Media API
+## Example: Audio
+
++ Example: [sound sample w/ howler.js](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#352-sound-effects-using-howlerjs)
+
++ Example: [adding music amd sound effects for bouncing ball game](/WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#353-adding-music-and-sound-effects)
+
++ Example: [asset loader](/WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#354-advanced-a-multiple-image-sound-and-music-loader)
+
+
+
+## Example: Video
 
 + Example: [control w/ external buttons](/WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#333-examples-using-the-javascript-api)
 
@@ -641,6 +689,8 @@
 + Example: [buffering status](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#335-extended-examples)
 
 + Example: [customized player](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#335-extended-examples)
+
+
 
 
 
