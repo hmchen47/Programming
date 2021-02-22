@@ -370,28 +370,11 @@ It is possible to have different arrays with different lengths and different typ
   + array w/ differnet types of arrays, e.g., `a[0] = [1, 2, 3, 4, 5]; a[1] = ['michel', 'henri', 'francois']; a; // [Array(5), Array(3)]`
 
 + [`array.push()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
-  + syntax: `arr.push([element1[, ...[, elementN]]])`
-  + docstring: add one or more elements to the end of an array and return the new length of the array
-  + parameters
-    + `elementN`: the element(s) to add to the end of the array.
-  + return: The `new` length property of the object upon which the method was called.
 
 + [`array.pop()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
-  + syntax: `arr.pop()`
-  + docstring:
-    + remove the __last__ element from an array and return that element
-    + change the length of the array
-  + return: the removed element from the array; `undefined` if the array is empty.
 
 + [`array.sort()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
   + syntax: `arr.sort([compareFunction])`
-  + docstring:
-    + sort the elements of an array in place and return the sorted array
-    + default sort order: ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
-  + parameters
-    + `compareFunction` (optional):
-      + specify a function that defines the sort order.
-      + omitted: the array elements are converted to strings, then sorted according to each character's Unicode code point value.
   + compare function
 
     ```js
@@ -408,26 +391,6 @@ It is possible to have different arrays with different lengths and different typ
     ```
 
 + [`array.splice()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
-  + syntax: `let arrDeletedItems = arr.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
-  + docstring: change the contents of an array by removing or replacing existing elements and/or adding new elements in place
-  + parameters
-    + `start`: the index at which to start changing the array
-      + start &lt; array.length: `start` set to the length of the array. No element will be deleted but the method will behave as an adding function, adding as many element as item[n*] provided.
-      + negative: begin that many elements from the end of the array (`-n` is the index of the nth last element)
-      + array.length + start &lt; 0: begin from index `0`
-    + `deleteCount` (optional)
-      + an integer indicating the number of elements in the array to remove from start
-      + omitted, or &ge; array.length - start: all the elements from start to the end of the array will be deleted
-      + &le; 0: no elements removed
-    + `item1, item2, ...` (optional):
-      + the elements to be added to the array, beginning from start
-      + not specifying any elements: only removing elements from the array
-  + return:
-    + an array containing the deleted elements
-    + a one-element array if only one eleemnet removed
-    + an empty array ih noyjing removed
-
-
 
 
 #### Knowledge check 3.2.1
@@ -719,6 +682,7 @@ Now, let's iterate on an array of person, and use two parameters in the callback
 <li class="L9" style="margin-bottom: 0px;"><span class="pun">});</span></li>
 </ol></div>
 
+
 __Finally, let's use three parameters, the last one being the array itself__
 
 This can be useful if we need to know the length of the array, or do special things within the array (add/change/move elements during the iteration):
@@ -736,7 +700,7 @@ You can use any standard loop statement that we saw during in module 2. The most
 
 Using this method allows elements to be iterated two by two, or the loop to be broken in the middle using the `break` instruction, etc.
 
-__Iterating over all elements in an array, using a for loop__
+__Iterating over all elements in an array, using a `for` loop__
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/evaJKL)
 
