@@ -16,16 +16,16 @@ __1) Standard function declaration__
 
 We've already seen that functions can be declared using this syntax:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> functionName</span><span class="pun">(</span><span class="pln">parameters</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// code to be executed</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function functionName(parameters) {</li>
+<li style="margin-bottom: 0px;"> // code to be executed</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 A function declared this way can be called like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">functionName</span><span class="pun">(</span><span class="pln">parameters</span><span class="pun">);</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">functionName(parameters);</li>
 </ol></div>
 
 Notice that we do not add a semicolon at the end of a function declaration. Semicolons are used to separate executable JavaScript statements, and a function declaration is not an executable statement.
