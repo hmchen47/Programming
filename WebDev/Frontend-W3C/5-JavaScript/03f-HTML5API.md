@@ -29,14 +29,14 @@ __Source code for the next 3 questions (1, 2 and 3)__
 
 1. Call me back please!
 
-  At _line 15_, we pass the compareByAge function as an argument to the `sort()` method of the array. How do we call such a function, passed as an argument to another function?
+  At _line 16_, we pass the compareByAge function as an argument to the `sort()` method of the array. How do we call such a function, passed as an argument to another function?
 
   a. A 'called back'<br>
   b. A 'callback'<br>
   c. Nothing special, it's just 'a function'<br>
 
-  Ans: <br>
-  Example: 
+  Ans: b<br>
+  Example: The `sort()` method of arrays accepts 'a callback' as an optional argument.
 
 
 2. Print Pirate Prentice's age!
@@ -47,8 +47,8 @@ __Source code for the next 3 questions (1, 2 and 3)__
   b. `persons[2].age;`<br>
   c. `persons.Pirate.Prentice.age;`<br>
 
-  Ans: <br>
-  Example: 
+  Ans: b<br>
+  Example: Index starts at 0. Pirate Prentice is at index 2. Then, as the array contains objects, we use the . operator to access the age property.
 
 
 3. Add a new pirate!
@@ -60,8 +60,8 @@ __Source code for the next 3 questions (1, 2 and 3)__
   c. `persons[persons.length] = {givenName:'Captain', familyName:'Hook', age:43};`<br>
   d. `persons[persons.length-1] = {givenName:'Captain', familyName:'Hook', age:43};`<br>
 
-  Ans: <br>
-  Example: 
+  Ans: ac<br>
+  Example: You can use the `push` method, or you can add an element at the first index after the last element of the array. The last element of an array persons is at position persons.length-1, so a new element inserted at the end of an array persons will be inserted at index equal to `persons.length`.
 
 
 4. Strings and arrays
@@ -77,8 +77,8 @@ __Source code for the next 3 questions (1, 2 and 3)__
   b. The `push` and `pop` methods<br/>
   c. elements/characters can be accessed using the bracket notation and indexes, like in `s[3];`<br/>
 
-  Ans: <br>
-  Example: 
+  Ans: ac<br>
+  Example: Indeed, the string s behaves like an array, it has the `length` property like an array, and we can access individual characters using indexes that go from 0 to length-1, like arrays... But you cannot use the push/pop methods for adding/removing characters to s, like in arrays.
 
 
 5. Classic forEach
@@ -97,8 +97,15 @@ __Source code for the next 3 questions (1, 2 and 3)__
 
   What would you write instead of __XXX__ in the code above, in order to get the current element of the array, while iterating on the elements of the array?
 
-  Ans: <br>
+  Ans: a<br>
   Example: 
+    + The forEach method takes a single argument that is a function/callback that can have one, two or three parameters:
+      + The first parameter is the current element of the array.
+      + The second parameter (optional) is the index of the current element in the array.
+      + The third element is the array itself.
+    + So, the right answer is "a".
+
+
 
 
 
