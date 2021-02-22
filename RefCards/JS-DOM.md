@@ -569,7 +569,7 @@
     + `error`: fired when an error occurs, available via the `onerror` property
 
 
-## Graphic and Animation
+## Graphics and Animation
 
 + [HTML5 canvas](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
   + a transparent element useful for drawing and animating
