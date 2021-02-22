@@ -200,8 +200,8 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#attributes-of-the-track-element-and-webvtt-format"> Track Attributes & WebVTT </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#controls-of-audio-and-video-elements"> Multimedia Controls </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#styling-video-player"> Styling Video Players </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/HTML-Multimedia.md#">  </a> </td>
   </tr>
@@ -530,7 +530,7 @@ This repository tracks my learning on different programming languages.
 
   <!-- DOM APIs -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM API </th>
+    <th rowspan=4 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM API </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#overview"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-html-document"> Access HTML </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#manipulating-html-document"> Manipulate HTML </a> </td>
@@ -544,8 +544,14 @@ This repository tracks my learning on different programming languages.
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-mediarecorder-api"> MediaRecorder API </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#canvas-and-animation---example"> Canvas & Animation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#/JS-DOM.md#graphic-and-animation"> Graphics & Animation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#assets-loading"> Assets </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-canvas-and-animation"> Ex: Canvas & Animation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-audio"> Ex: Audio </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-video"> Ex: Video </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
   </tr>
 
@@ -582,13 +588,33 @@ This repository tracks my learning on different programming languages.
 
   <!-- GeoLocation API -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation APIs </th>
+    <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation APIs </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#geolocation-apis"> Basics </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#tracking-position"> Tracking Position </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#geolocation-libraries"> Libraries </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#reverse-geocoding"> Reverse Geocoding </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#examples"> Examples </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
   </tr>
 
+  <!-- Examples -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Examples </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-canvas-and-animation"> Canvas & Animation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/example-media-api"> Media API </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+  </tr>
 
   <!-- Temporary -->
   
