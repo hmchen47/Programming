@@ -8,23 +8,23 @@
 
 __Source code for the next 3 questions (1, 2 and 3)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> persons </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">givenName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">,</span><span class="pln">&nbsp;familyName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Buffa'</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="lit">51</span><span class="pun">},</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">givenName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Pig'</span><span class="pun">,</span><span class="pln">&nbsp;familyName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Bodine'</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="lit">20</span><span class="pun">},</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">givenName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Pirate'</span><span class="pun">,</span><span class="pln">&nbsp;familyName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Prentice'</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="lit">32</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">];</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> compareByAge</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">// comparison function</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a</span><span class="pun">.</span><span class="pln">age </span><span class="pun">&lt;</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">age</span><span class="pun">)</span><span class="pln"> </span><span class="com">// compare by age</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a</span><span class="pun">.</span><span class="pln">age </span><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">age</span><span class="pun">)</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span color="#666600" style="color: #666600;">console.log(<strong>XXX</strong>);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">persons</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">(</span><span class="pln">compareByAge</span><span class="pun">);</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var persons = [</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; {givenName: 'Michel',&nbsp;familyName: 'Buffa', age:51},</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; {givenName: 'Pig',&nbsp;familyName: 'Bodine', age:20},</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; {givenName: 'Pirate',&nbsp;familyName: 'Prentice', age:32}</li>
+<li style="margin-bottom: 0px;">];</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">function compareByAge(a,b) { // comparison function</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if (a.age &lt; b.age) // compare by age</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; return -1;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if (a.age &gt; b.age)</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; return 1;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; return 0;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;"><span color="#666600" style="color: #666600;">console.log(<strong>XXX</strong>);</span></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">persons.sort(compareByAge);</li>
 </ol></div>
 
 1. Call me back please!
@@ -121,32 +121,32 @@ __Source code for the next 3 questions (1, 2 and 3)__
 
 __Source code for the next 3 questions (7, 8 and 9):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"vid"</span><span class="pln">&nbsp;poster="preview.png"&nbsp;</span><span class="atn">controls</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">="</span><span class="atv">http://html5doctor.com/demos/video-canvas-magic/video.mp4"</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">="</span><span class="atv">video/mp4"</span>&gt;</li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">Example of custom controls :</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">go</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Play</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun"></span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">haveARest</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Pause</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun"></span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">rewind</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Start from beginning</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; vid </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#vid"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> go</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>BBB</strong></span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">function</span><span class="pln"> haveARest</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>CCC</strong></span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> rewind</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>DDD</strong></span><span class="pln">&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;video id="vid"&nbsp;poster="preview.png"&nbsp;controls&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;source src="http://html5doctor.com/demos/video-canvas-magic/video.mp4"</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="video/mp4"&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/video&gt; </li>
+<li style="margin-bottom: 0px;">&lt;p&gt;Example of custom controls :&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;button class="mybutton" onclick="go();"&gt;<span style="line-height: 1.6;">Play</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;">&lt;button class="mybutton" onclick="haveARest();"&gt;<span style="line-height: 1.6;">Pause</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;">&lt;button class="mybutton" onclick="rewind();"&gt;<span style="line-height: 1.6;">Start from beginning</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;script&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; vid = document.querySelector("#vid");</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;function go() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; vid.<strong>BBB</strong>();</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;}</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; function haveARest() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; vid.<strong>CCC</strong>();</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;}</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;function rewind() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; vid.<strong>DDD</strong>&nbsp;= 0;</li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;}</li>
+<li style="margin-bottom: 0px;">&lt;/script&gt;</li>
 </ol></div>
 
 7. Which method?
