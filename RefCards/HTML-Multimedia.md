@@ -328,6 +328,29 @@
 	+ text message btw the `<audio>`...`</audio>` tags: displayed if the Web browser doesn't support the `<audio>` element
 	+ several `<source>`...`</source>` elements: link to different audio formats for the same file
 
++ [Audio](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#331-playing-audio-and-video-streams)
+  + `<audio>` element
+    + useful for embedding an audio player into a Web page
+    + dedicated for _streamed audio_
+    + a DOM member $\implies$ CSS styling applied and manipulating w/ the DOM API
+    + attributes: a reduced version of `<video>` element
+    + typical usage
+
+      ```html
+      <audio controls="controls" crossorigin="anonymous">
+         <source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg" type="audio/ogg" />
+         <source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.mp3" type="audio/mp3" />
+         Your browser does not support the audio element.
+         Download the audio/video in
+         <a href=”https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg”>OGG</a>
+         or<a href=”https://mainline.i3s.unice.fr/mooc/week2p1/horse.mp3”>MP3</a> format.
+      </audio>
+      ```
+
+  + Web Audio API
+    + designed for musical applications and for adding sound effects to games
+    + manipulation of sound samples (loops. etc.), music synthesis and sound generation (oscillators, etc.)
+    + w/ a set of predefined sound processing modules (reverb, delay, etc.)
 
 
 
@@ -486,7 +509,6 @@
   + able to add multiple &lt;track&gt; tags in video element to add multiple subtitle/caption tracks
   + self-closing element
 
-
 + [The `<video>` element](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#221-the-video-element)
 	+ HTML5 Flash Killers: `<video>` and `<canvas>` elements
 	+ `<video>` element: a DOM member
@@ -495,11 +517,11 @@
 	+ example code
 
 		<div><ol>
-		<li style="margin-bottom: 0px;" value="1"><span>&lt;video</span><span> </span><span>width</span><span>=</span><span>"320"</span><span> </span><span>height</span><span>=</span><span>"240"</span><span> </span><span>controls</span><span>=</span><span>"controls"</span><span>&gt;</span></li>
-		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.mp4"</span><span> </span><span>type</span><span>=</span><span>"video/mp4"</span><span> </span><span>/&gt;</span></li>
-		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;</span><span>&lt;source</span><span> </span><span>src</span><span>=</span><span>"movie.ogg"</span><span> </span><span>type</span><span>=</span><span>"video/ogg"</span><span> </span><span>/&gt;</span></li>
-		<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;Your browser does not support the </span><span>&lt;video&gt;</span><span> element.</span></li>
-		<li style="margin-bottom: 0px;"><span>&lt;/video&gt;</span></li>
+		<li style="margin-bottom: 0px;" value="1">&lt;video width="320" height="240" controls="controls"&gt;</li>
+		<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;source src="movie.mp4" type="video/mp4" /&gt;</li>
+		<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;source src="movie.ogg" type="video/ogg" /&gt;</li>
+		<li style="margin-bottom: 0px;">&nbsp; &nbsp;Your browser does not support the &lt;video&gt; element.</li>
+		<li style="margin-bottom: 0px;">&lt;/video&gt;</li>
 		</ol></div><br/>
 
 		+ `controls` attribute: a control panel displayed w/ play/stop/volume/progress widgets
@@ -516,6 +538,26 @@
 		+ `preload=none` to save bandwidth
 	+ `poster` attribute: usually the first non-blank frame of the video if missing
 	+ limiting the use of `autoplay` attribute
+
+
++ [Video and `<video>` element](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#331-playing-audio-and-video-streams)
+  + one of the two "Flash  killer" (`<canvas>` as the other)
+  + a DOM member $\implies$ CSS styling applied and maipulating w/ the DOM API
+  + unable to embedded a YouTube and Daily Motion video
+  + typical usage
+
+    ```html
+    <video width="320" height="240" controls="controls">
+      <source src="movie.mp4" type="video/mp4" />
+      <source src="movie.ogg" type="video/ogg" />
+      Your browser does not support the <video> element.
+    </video>
+    ```
+
+    + `controls` attribute: displaying a control panel w/ play/stop/volume/progress widget
+    + browser using the 1st format recognized but some browsers probably choose a "preferred" format
+  
+  + example using YouTube: `<iframe width="560" height="315" src="https://www.youtube.com/embed/ZH1XOsv8Oyo" frameborder="0" allowfullscreen></iframe>`
 
 
 
