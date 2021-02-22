@@ -115,47 +115,50 @@ __Source code for the next 3 questions (1, 2 and 3)__
   a. They have properties, events and methods that can be manipulated from JavaScript<br>
   b. They are written 100% in JavaScript<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Indeed, it means that, from JavaScript, we are able to call the `play()`, `stop()`, `pause()` methods, access the current time through the `currentTime` property or listen to progress events (for example when synchronizing things when a video is played).
 
 
 __Source code for the next 3 questions (7, 8 and 9):__
 
-```html
-<video id="vid" poster="preview.png" controls>
-    <source src="http://html5doctor.com/demos/video-canvas-magic/video.mp4"
-            type="video/mp4">
-</video>
-<p>Example of custom controls :</p>
- 
-<button class="mybutton" onclick="go();">Play</button>
-<button class="mybutton" onclick="haveARest();">Pause</button>
-<button class="mybutton" onclick="rewind();">Start from beginning</button>
- 
-<script>
-  vid = document.querySelector("#vid");
-  function go() {
-    vid.BBB();
-  }
-  function haveARest() {
-    vid.CCC();
-  }
-  function rewind() {
-    vid.DDD = 0;
-  }
-</script>
-```
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"vid"</span><span class="pln">&nbsp;poster="preview.png"&nbsp;</span><span class="atn">controls</span><span class="tag">&gt;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">="</span><span class="atv">http://html5doctor.com/demos/video-canvas-magic/video.mp4"</span><span class="pln"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">="</span><span class="atv">video/mp4"</span>&gt;</li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span><span class="pln">Example of custom controls :</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">go</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Play</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun"></span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">haveARest</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Pause</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">class</span><span class="pun"></span><span class="pun">=</span><span class="atv">"mybutton"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">rewind</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln" style="line-height: 1.6;">Start from beginning</span><span class="tag" style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; vid </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#vid"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> go</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>BBB</strong></span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">function</span><span class="pln"> haveARest</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>CCC</strong></span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> rewind</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; vid</span><span class="pun">.<strong>DDD</strong></span><span class="pln">&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
 
 7. Which method?
 
-  Which method would you call to start playing the video, instead of BBB?
+  Which method would you call to start playing the video, instead of __BBB__?
 
   a. `go()`<br>
   b. `play()`<br>
   c. `start()`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: There is no `start()` nor `go()` method in the JavaScript API of the video element. The right answer is `play()`.
 
 
 8. Which method? (Part 2)
@@ -166,8 +169,8 @@ __Source code for the next 3 questions (7, 8 and 9):__
   b. `pause()`<br>
   c. `cancel()`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: There is no `cancel()` in the JavaScript API of the video element. The `stop()` method exists but it is for stopping the video (and once stopped, it cannot be resumed). The right answer is the `pause()` method.
 
 
 9. Be kind, rewind!
@@ -179,8 +182,8 @@ __Source code for the next 3 questions (7, 8 and 9):__
   c. `currentTime`<br>
   d. `time`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: c<br>
+  Explanation: The `currentTime` property is in read/write. Its value changes during playback, but if we give it a value, then the video "jumps" to the position that corresponds to its value (in seconds).
 
 
 10. Event for playlists?
@@ -192,8 +195,10 @@ __Source code for the next 3 questions (7, 8 and 9):__
   d. `finished`<br>
   e. `finish`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: c<br>
+  Explanation: The course examples use the `ended` event to detect the end of a video playback. See the code from the example 1 in section 2.2.7 for instance: http://jsbin.com/temupe/1/edit.
+
+
 
 
 
