@@ -199,7 +199,41 @@ __Source code for the next 3 questions (7, 8 and 9):__
   Explanation: The course examples use the `ended` event to detect the end of a video playback. See the code from the example 1 in section 2.2.7 for instance: http://jsbin.com/temupe/1/edit.
 
 
+### 3.6.3 Exercises (11-12)
 
+11. How do you geolocate me?
+
+  How does the HTML5 geolocation API locate the client's browser?
+
+  a. Different methods, including: GPS, GSM/3G triangulation, WIFI, and IP address; are tried to get the current location.<br>
+  b. Using GPS only. If no GPS, it's impossible to geolocate. That's why smartphones often ask the user to turn on the GPS.<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+12. She's the one!
+
+navigator.geolocation.getCurrentPosition(showPosition, onError);
+
+```js
+function showPosition(position) {
+    console.log("latitude is: " + position.coords.latitude);
+    console.log("longitude is: " + position.coords.longitude);
+}
+ 
+function onError(err) {
+    console.log("Could not get the position");
+}
+```
+
+  With the above code, if a position is available, how many times will the showPosition callback be called?
+
+  a. Once.<br>
+  b. Several times: if we move and the position changes, the showPosition method will be called again.<br>
+
+  Ans: <br>
+  Explanation: 
 
 
 
