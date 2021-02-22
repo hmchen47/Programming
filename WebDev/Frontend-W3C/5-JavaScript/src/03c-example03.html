@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<title>HTML5 video element JS API</title>
+	<meta charset="utf-8">
+  <script src="js/03c-example03.js"></script>
+<body>
+<video id="myPlayer" > 
+	<!-- I have three versions of the video encoded with
+	     different codecs.  The browser will automatically
+	     choose the first one it knows it can play. --> 
+	<source src=http://html5doctor.com/demos/video-canvas-magic/video.webm 
+					type=video/webm> 
+	<source src=http://html5doctor.com/demos/video-canvas-magic/video.ogg 
+					type=video/ogg> 
+	<source src=http://html5doctor.com/demos/video-canvas-magic/video.mp4 
+					type=video/mp4> 
+</video> 
+	<br>
+	<button onclick="playVideo();">Play</button>
+	<button onclick="pauseVideo();">Pause</button>
+	<button onclick="rewindVideo();">Rewind</button>
+</body>
+</html>
+

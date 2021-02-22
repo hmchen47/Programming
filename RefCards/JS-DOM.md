@@ -257,74 +257,12 @@
 	+ example:
 
 		<div><ul>
-		<li style="margin-bottom: 0px;"><span>var</span><span> video </span><span>=</span><span> document</span><span>.</span><span>createElement</span><span>(</span><span>'video'</span><span>);</span></li>
-		<li style="margin-bottom: 0px;"><span>video</span><span>.</span><span>src </span><span>=</span><span> </span><span>'video.mp4'</span><span>;</span></li>
-		<li style="margin-bottom: 0px;"><span>video</span><span>.</span><span>controls </span><span>=</span><span> </span><span>true</span><span>;</span></li>
-		<li style="margin-bottom: 0px;"><span>document</span><span>.</span><span>body</span><span>.</span><span>appendChild</span><span>(</span><span>video</span><span>);</span></li>
+		<li style="margin-bottom: 0px;">var video = document.createElement('video');</li>
+		<li style="margin-bottom: 0px;">video.src = 'video.mp4';</li>
+		<li style="margin-bottom: 0px;">video.controls = true;</li>
+		<li style="margin-bottom: 0px;">document.body.appendChild(video);</li>
 		</ul></div>
 
-
-+ [The most interesting methods, properties, and events provided by the `<video>` element API](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#226-the-javascript-api)
-
-	<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 40vw;" cellspacing="0" cellpadding="5" border="1">
-  	<caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.w3.org/2010/05/video/mediaevents.html">HTML5 Video Events and API</a></caption>
-		<thead>
-		<tr style="font-size: 1.2em;">
-			<th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-			<th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
-			<th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Events</th>
-		</tr>
-	<tbody>
-		<tr>
-			<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play()</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentSrc</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">play</span></strong></td>
-		</tr>
-		<tr>
-			<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">pause()</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">currentTime</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">pause</span></strong></td>
-		</tr>
-		<tr>
-			<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">load()</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">startTime (readonly)</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">progress</span></strong></td>
-		</tr>
-		<tr>
-			<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">canPlayType()</strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">videoWidth</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">error</strong></td>
-		</tr>
-		<tr>
-			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">videoHeight</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">timeupdate</strong></td>
-		</tr>
-		<tr>
-			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">duration (readonly)</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">ended</strong></td>
-		</tr>
-		<tr>
-			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">ended (readonly)</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">abort</strong></td>
-		</tr>
-		<tr>
-			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">error</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">empty</strong></td>
-		</tr>
-		<tr>
-			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">paused (readonly)</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">emptied</strong></td>
-		</tr>
-		<tr>
-			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">muted</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">waiting</strong></td>
-		</tr>
-		<tr>
-			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">seeking</span></strong></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">loadedmetadata</strong></td>
-		</tr>
-		<tr>
-			<td></td> <td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">volume</span></strong></td> <td></td>
-		</tr>
-		<tr>
-			<td></td>	<td><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">height</span></strong></td> <td></td>
-		</tr>
-		<tr>
-			<td></td> <td> <p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">width</span></strong></p> </td> <td></td>
-		</tr>
-		<tr>
-			<td></td> <td> <p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;" face="courier new, courier, monospace">seekable (readonly)</span></strong></p> </td> <td></td>
-		</tr>
-		<tr>
-			<td></td> <td> <p style="margin: 0px 0px 10px;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><span style="font-family: 'courier new', courier, monospace;">played (readonly)</span></strong></p> </td> <td></td>
-		</tr>
-	</tbody>
-	</table>
 
 + [The `<video>` element JavaScript API](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#227-the-video-element-javascript-api)
 	+ useful for implementing playlists, making custom user interfaces and many other interesting things
@@ -360,6 +298,31 @@
         + `myVideo.src = sources [currentVideo % sources.length]`: set the `src` of the video element to `sources[0]`, then to `sources[1]`, and module w/ the length of the list to repeat the playing
 
 
+## The `<audio>` elements
+
++ [Background music](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#351-background-music-streamed)
+  + using `WebAudio` API
+  + audio element: `<audio src = "https://.../humbug.mp3"  id="audioPlayer"  controls> </audio>`
+  + playing music: `function play() {...}`
+    + access element: `var player = document.querySelector("#audioPlayer");`
+    + play streamed music: `player.play();`
+  + pausing music: `function pause() {...}`
+    + access element: `var player = document.querySelector("#audioPlayer");`
+    + pause playing: `player.pause();`
+
+
++ [Sound effect w/ howler.js](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#352-sound-effects-using-howlerjs)
+  + streamed audio not suitable for short sounds
+  + WebAudio API:
+    + allowing to download and decode sound samples in memory and play them on demand
+    + using nearly zero CPU and w/o delay when playing (no buffering)
+    + complicated to use for this purpose
+  + [howler.js](https://howlerjs.com/) simplifying the use of the WebAudio API
+
+
+
+
+
 ## The `<track>` element
 
 + [The `<track>` JavaScript API](../WebDev/Frontend-W3C/2-HTML5Coding/02c-Multimedia.md#237-the-track-javascript-api)
@@ -369,6 +332,63 @@
     + displaying all the subtitles/captions at once
     + making an app for creating on the fly subtitles/captions
     + etc.
+
+
+
+## Controls of `<audio>` and `<video>` elements
+
++ [Control `<audio>` & `<video>` elements](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#332-audio-and-video-player-javascript-api)
+  + elements w/ methods, properties/attributes and events to manipulate w/ JS
+  + the DOM API
+    + methods: controlling behavior, such as `play()`, `pause()`, etc.
+    + properties:
+      + read/write: volume, current time, etc.
+      + read-only mode: encoding, duration, etc.
+    + events:
+      + generated during the life cycle of the element
+      + processed using JS callback
+      + possible to trigger event to control the player
+
++ [JavaScript API for `<video>` and `<audio>` elements](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#332-audio-and-video-player-javascript-api)
+  + powerful tools to manipulate element
+  + reference: [HTML5 Video Events and API](https://www.w3.org/2010/05/video/mediaevents.html)
+  + [event list](https://html.spec.whatwg.org/multipage/media.html#mediaevents)
+    + network state: `loadstart`, `progress`, `suspend`, `abort`, `error`, `emptied`, `stalled`
+    + ready state: `loadedmetadata`, `loadeddata`, `canplay`, `canplaythrough`, `playing`, `waiting`
+    + searching: `seeking`, `seeked`, `ended`
+    + playing: `durationchange`, `timeupdate`, `play`, `pause`, `ratechange`
+    + element: `resize`, `volumechange`
+  + [the most interesting methods, properties, and events provided by the `<video>` element API](../WebDev/Frontend-W3C/2-HTML5Coding/02b-Multimedia.md#226-the-javascript-api)
+
+    <table style="max-width: 100%; border-collapse: collapse; border-spacing: 0px; table-layout: auto border: 2px solid #0f0505; background-color: transparent; margin: 0 auto; width: 60vw;" dir="ltr" rules="all" frame="box" cellpadding="10" border="2">
+      <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://www.w3.org/2010/05/video/mediaevents.html">HTML5 Video Events and API</a></caption>
+      <tbody>
+      <tr>
+      <td style="text-align: center; background-color: cadetblue; width: 5%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Methods</strong></span></td>
+      <td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Properties</strong></span></td>
+      <td style="text-align: center; background-color: cadetblue; width: 10%;"><span style="font-family: 'courier new', courier, monospace; font-size: medium;"><strong style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Events</strong></span></td>
+      </tr>
+      <tr><td><strong><span style="font-family: 'courier new', courier, monospace;">play()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">currentSrc</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">play</span></strong></td></tr>
+      <tr><td><strong><span style="font-family: 'courier new', courier, monospace;">pause()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">currentTime</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">pause</span></strong></td></tr>
+      <tr><td><strong><span style="font-family: 'courier new', courier, monospace;">load()</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">startTime (readonly)</span></strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">progress</span></strong></td></tr>
+      <tr><td><strong>canPlayType()</strong></td><td><strong><span style="font-family: 'courier new', courier, monospace;">videoWidth</span></strong></td><td><strong>error</strong></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">videoHeight</span></strong></td><td><strong>timeupdate</strong></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">duration (readonly)</span></strong></td><td><strong>ended</strong></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">ended (readonly)</span></strong></td><td><strong>abort</strong></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">error</span></strong></td><td><strong>empty</strong></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">paused (readonly)</span></strong></td><td><strong>emptied</strong></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">muted</span></strong></td><td><strong>waiting</strong></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">seeking</span></strong></td><td><strong>loadedmetadata</strong></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">volume</span></strong></td><td></td></tr>
+      <tr><td></td><td><strong><span style="font-family: 'courier new', courier, monospace;">height</span></strong></td><td></td></tr>
+      <tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;">width</span></strong></p></td><td></td></tr>
+      <tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;" face="courier new, courier, monospace">seekable (readonly)</span></strong></p>
+      </td><td></td></tr>
+      <tr><td></td><td><p style="margin: 0px 0px 10px;"><strong><span style="font-family: 'courier new', courier, monospace;">played (readonly)</span></strong></p>
+      </td><td></td></tr>
+      </tbody>
+    </table>
+
 
 
 ## The `getUserMedia` API - Accessing Webcam & Microphone
@@ -401,7 +421,6 @@
   + `navigator.getUserMedia({audio:true}, onSuccess, onError)`: capture the microphone input
   + `navigator.getUserMedia({video:true, audio:true}, onSuccess, onError)`: access the video and audio simultaneously
   + [WebRTC](https://www.w3.org/TR/webrtc/): a W3C specification for P2P audio/video/data Real Time Communication
-
 
 + [Webcam resolutions](../WebDev/Frontend-W3C/2-HTML5Coding/02d-Multimedia.md#244-webcam-resolution)
   + "constraint" object: 
@@ -456,6 +475,44 @@
     + `video: {width: 1280, height: 720}` & `video: {width: {min: 1024, ideal: 1280, max: 1920}, height: {min: 576, ideal: 720, max: 1080}}`: request the microphone capabilities w/ additional constraints
     + `{audio: true, video: { facingMode: "user"}}`: prefer the front camera (if one is available) over the rear one
     + `{ audio: true, video: {facingMode: {exact: "environment"}}}`: the rear camera
+
++ [Accessing Webcam](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#334-using-the-webcam)
+  + using `getUserMedia` API for accessing the WebCam
+  + example: [callback function](src/03c-example06.html)
+    + video element: `<video width=200 height=200 id="video" controls autoplay>`
+    + preferred camera resolution: `var constraints = { audio: true, video: { width: 1280, height: 720 } };`
+    + callback function
+
+      ```js
+      navigator.mediaDevices.getUserMedia(constraints)
+      .then(function(mediaStream) {
+        var video = document.querySelector('video');
+        video.srcObject = mediaStream;
+        video.onloadedmetadata = function(e) {
+          video.play();
+        };
+      })
+      .catch(function(err) { console.log(err.name + ": " + err.message); });
+      ```
+
+  + example: [promises - after DOM ready](src/03c-example07.html)
+    + init after DOM ready: `window.onload = init;`
+    + raise error message:
+
+      ```js
+      function init() {
+        navigator.mediaDevices.getUserMedia({audio: true, video: true})
+          .then(function (stream) {
+              var video = document.querySelector('#video');
+              video.srcObject = stream;
+              video.play();
+          })
+          .catch(function(err) {
+              alert("something went wrong: " + err)
+        });
+      }
+      ```
+
 
 
 
@@ -512,8 +569,7 @@
     + `error`: fired when an error occurs, available via the `onerror` property
 
 
-
-## Canvas and Animation - Example
+## Graphics and Animation
 
 + [HTML5 canvas](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
   + a transparent element useful for drawing and animating
@@ -545,9 +601,6 @@
     + default: (0, 0)
     + `ctx.translate(x, y)`: relocate the origin to (x, y) of the canvas
     + useful to have multiple shapes by translating the origin
-  + example: [simple drawing](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example01.html)
-  + example: [function w/ save and restore context](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example02.html)
-  + example: [monster](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example03.html)
 
 + [Animation](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#262-animating)
   + ways to animation
@@ -565,28 +618,38 @@
     + test collisions: decrease one life if player collides
     + test game state: game over if no life left
     + etc.
-  + example: [moving monster](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example04.html)
-  + example: [bouncing balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example05.html)
+
+
+## Assets Loading
+
++ [Background loader](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#354-advanced-a-multiple-image-sound-and-music-loader)
+  + video games usually required to load assets before starting the game
+  + assets
+    + images: background image, game logo, sprite sheets, etc
+    + sound samples: loaded and decoded
+    + streamed music w/ `<audio>` element
+      + multiple samples elements probably required
+      + pause one and start another when changig music
+  + alternatively, change `src` attribute
+
+
+## Example: Canvas and Animation
+
++ Example: [simple drawing](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
+
++ Example: [function w/ save and restore context](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
+
++ Example: [monster](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
+
++ Example: [moving monster](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#262-animating)
+
++ Example: [bouncing balls](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#262-animating)
 
 + [Aminating multiple objects](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#notes-for-263-animating-multiple-objects)
-  + `forEach` method: iterate elements in an array
   + example: [3 bouncing balls and the player](src/02f-example06.html)
   + example: [arrays for bouncing balls](src/02f-example07.html)
 
 + [Mouse position relative to the canvas](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#264-mouse-interactions)
-  + viewport coordinate
-    + the mouse coordinate `(clientX, clientY)` passed to the listener function
-    + viewport as the visible part of the page
-  + most of the time working w/ the mouse position relative to the canvas, not to the viewport
-  + converting the coordinates btw the viewport and the canvas
-  + considerations
-    + the position of the canvas in the viewport
-    + the CSS properties probably effecting the canvas position (margin, etc.)
-  + `getBoundingClientRect()`: a method for getting the position and size of any element in the viewport
-  + mouse position in canvas: `function getMousePos(canvas, evt) {...}`
-    + get the canvas position: `var rect = canvas.getBoundingClientRect();`
-    + the position relative to the canvas: `{x: evt.clientX - rect.left, y: evt.clientY - rect.top}`
-  + `evt.button` property: the mouse button number
 
 + [Moving element w/ mouse pointer](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#265-moving-a-player-with-the-mouse)
   + get mouse position in a canvas: `getMousePos(evt)`
@@ -595,43 +658,41 @@
 
 + [Collision detection - Circle & Rectangle](/WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#266-adding-collision-detection)
   + [circle-Rectangle collision detection](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
-    + either the circle's center lies insiode the rectangle
-    + one of the edges of the rectangle has a point in the circle
-    + `intersectCircle()`:
-      + check if the foot of the perpendicular from `P` to the line is close enough and btw the endpoints
-      + check endpoint  otherwise
-
-      ```shell
-      def intersect(Circle(P, R), Rectangle(A, B, C, D)):
-        S = Circle(P, R)
-        return (pointInRectangle(P, Rectangle(A, B, C, D)) or
-                intersectCircle(S, (A, B)) or
-                intersectCircle(S, (B, C)) or
-                intersectCircle(S, (C, D)) or
-                intersectCircle(S, (D, A)))
-      ```
-  
-  + JavaScript implementation
-
-    ```js
-    function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {
-      var testX=cx; var testY=cy;
-
-      if (testX < x0) testX=x0;
-      if (testX > (x0+w0)) testX=(x0+w0);
-      if (testY < y0) testY=y0;
-      if (testY > (y0+h0)) testY=(y0+h0);
-
-      return (((cx-testX)*(cx-testX)+(cy-testY)*(cy-testY))< r*r);
-    }
-    ```
-
   + example: [collision detection btw balls & the player](src/02f-example12.html)
 
 
 + [Changing variable dynamically - game completion](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#267-adding-input-fields)
   + using `input` fields to change the init variables
   + example: [game to collide selected color balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example13.html)
+
+
+## Example: Audio
+
++ Example: [sound sample w/ howler.js](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#352-sound-effects-using-howlerjs)
+
++ Example: [adding music amd sound effects for bouncing ball game](/WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#353-adding-music-and-sound-effects)
+
++ Example: [asset loader](/WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#354-advanced-a-multiple-image-sound-and-music-loader)
+
+
+
+## Example: Video
+
++ Example: [control w/ external buttons](/WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#333-examples-using-the-javascript-api)
+
++ Example: [playing multiple videos sequentially](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#333-examples-using-the-javascript-api)
+
++ Example: [player w/ CSS transformation](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#335-extended-examples)
+
++ Example: [display events and properties](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#335-extended-examples)
+
++ Example: [buffering status](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#335-extended-examples)
+
++ Example: [customized player](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#335-extended-examples)
+
+
+
+
 
 
 

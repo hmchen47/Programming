@@ -1,0 +1,11 @@
+body{
+  background-color: rgb(25,0,77);
+}
+.center-block{
+  margin:0 auto;
+  max-width: 800px;      
+}
+canvas {
+  width: 100%;
+  border:2px solid rgb(0,168,203);
+}
