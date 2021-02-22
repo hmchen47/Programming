@@ -15,27 +15,27 @@ The HTML5 canvas is a transparent element that is useful for drawing and animati
 
 A typical HTML code for adding a canvas to a Web page:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;title&gt;</span><span class="pln">Draw a monster in a canvas</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"200"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"200"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
+<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &lt;title&gt;Draw a monster in a canvas&lt;/title&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&lt;/head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&lt;body&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &lt;canvas id="myCanvas" width="200" height="200"&gt;&lt;/canvas&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;&lt;/body&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
 </ol></div>
 
 The canvas declaration is at _line 8_. Use attributes to give it a `width` and a `height`, but unless you add some CSS properties, you will not see it on the screen because it's transparent!
 
 Let's use CSS to reveal the canvas, for example, add a 1px black border around it:
 
-<div class="source-code" style="margin: 0px; padding: 0px 30px; border: 1px solid black;"><ol class="linenums">
-<li class="L0" style="font-family: 'Courier New';" value="1"><span class="pln">canvas&nbsp;</span><span class="pun">{</span></li>
-<li class="L1" style="font-family: 'Courier New';"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">1px</span><span class="pln">&nbsp;solid black</span><span class="pun">;</span></li>
-<li class="L2" style="font-family: 'Courier New';"><span class="pun">}</span></li>
+<div style="margin: 0px; padding: 0px 30px; border: 1px solid black;"><ol>
+<li style="font-family: 'Courier New';" value="1">canvas&nbsp;{</li>
+<li style="font-family: 'Courier New';">&nbsp; &nbsp;border:&nbsp;1px&nbsp;solid black;</li>
+<li style="font-family: 'Courier New';">}</li>
 </ol></div>
 
 And here is a reminder of best practices when using the canvas:
@@ -57,38 +57,38 @@ __Example #1: some drawing examples (wireframe and filled rectangle, filled circ
 
 Extract from the JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// useful to have them as global variables</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // called AFTER the page has been loaded</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>canvas </strong></span><strong><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // important, we will draw with this object</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>ctx </strong></span><strong><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // ready to go! We can use the context for drawing</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; // or changing colors, line widths, etc.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // filled rectangle</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // wireframe rectangle</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong> ctx</strong></span><strong><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // fill circle, will use current ctx.fillStyle</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">(); // or ctx.stroke() for a wireframe circle</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // some text</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"purple"</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">"20px Arial"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong> ctx</strong></span><strong><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Hello!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">); // or ctx.strokeText for wireframe</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">// useful to have them as global variables</li>
+<li style="margin-bottom: 0px;">var canvas, ctx;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">window.onload = function init() {</li>
+<li style="margin-bottom: 0px;">&nbsp; // called AFTER the page has been loaded</li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>canvas </strong><strong>= document.querySelector("#myCanvas");</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; // important, we will draw with this object</li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>ctx </strong><strong>= canvas.getContext('2d');</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; // ready to go! We can use the context for drawing</li>
+<li style="margin-bottom: 0px;">&nbsp; // or changing colors, line widths, etc.</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; // filled rectangle</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.fillStyle = 'red';</li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>ctx</strong><strong>.fillRect(10, 10, 30, 30);</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; // wireframe rectangle</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.strokeStyle = 'green';</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.lineWidth = 4;</li>
+<li style="margin-bottom: 0px;">&nbsp;<strong> ctx</strong><strong>.strokeRect(100, 40, 40, 40);</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; // fill circle, will use current ctx.fillStyle</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.beginPath();</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.arc(60, 60, 10, 0, 2*Math.PI);</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.fill(); // or ctx.stroke() for a wireframe circle</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; // some text</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.fillStyle = "purple";</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.font = "20px Arial";</li>
+<li style="margin-bottom: 0px;">&nbsp;<strong> ctx</strong><strong>.fillText("Hello!", 60, 20); // or ctx.strokeText for wireframe</strong></li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 __Explanations:__
@@ -129,57 +129,57 @@ This is where you reap the benefits of your good habits of saving/restoring the 
 
 Here is JavaScript code that implements these best practices:
 
-<div class="source-code" style="padding: 0px 30px; border: 1px solid black; line-height: 1.4em;"><ol class="linenums">
-<li class="L0" style="font-family: 'Courier New';" value="1"><span class="com">// useful to have them as global variables</span></li>
-<li class="L1" style="font-family: 'Courier New';"><span class="kwd">var</span><span class="pln">&nbsp;canvas</span><span class="pun">,</span><span class="pln">&nbsp;<g class="gr_ gr_126 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="126" style=" line-height: 1.4em;" data-gr-id="126">ctx</g></span><span class="pun">,</span><span class="pln">&nbsp;w</span><span class="pun">,</span><span class="pln">&nbsp;h</span><span class="pun">;</span><span class="pln"></span></li>
-<li class="L2" style="font-family: 'Courier New';"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="font-family: 'Courier New';"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">function</span><span class="pln">&nbsp;init</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L5" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Called AFTER the page has been loaded</span></li>
-<li class="L6" style="font-family: 'Courier New';"><span class="pln">&nbsp; canvas&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str" style="color: #008800;">"#myCanvas"</span><span class="pun">);</span></li>
-<li class="L7" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L8" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Often useful</span></li>
-<li class="L9" style="font-family: 'Courier New';list-style-type: decimal !important;"><span class="pln">&nbsp; w&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span><span class="pln"></span></li>
-<li class="L0" style="font-family: 'Courier New';"><span class="pln">&nbsp; h&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span><span class="pln"></span></li>
-<li class="L1" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L2" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Important, we will draw with this object</span></li>
-<li class="L3" style="font-family: 'Courier New';"><span class="pln">&nbsp; ctx&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str" style="color: #008800;">'2d'</span><span class="pun">);</span></li>
-<li class="L4" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L5" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Ready to go!</span></li>
-<li class="L6" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Try to change the parameter values to move</span></li>
-<li class="L7" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the monster</span></li>
-<li class="L8" style="font-family: 'Courier New';"><span class="pln">&nbsp; drawMyMonster</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">); <strong>// try to change that</strong></span></li>
-<li class="L9" style="font-family: 'Courier New';list-style-type: decimal !important;"><span class="pun">};</span></li>
-<li class="L0" style="font-family: 'Courier New';"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="font-family: 'Courier New';"><span class="kwd">function</span><span class="pln">&nbsp;drawMyMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">&nbsp;y</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L2" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Draw a big monster!</span></li>
-<li class="L3" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Head</span></li>
-<li class="L4" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L5" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><strong><span class="com">// BEST practice: save the context, use 2D transformations</span></strong></li>
-<li class="L6" style="font-family: 'Courier New';"><strong><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></strong></li>
-<li class="L7" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L8" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><strong><span class="com">// Translate the coordinate system, draw relative to it</span></strong></li>
-<li class="L9" style="font-family: 'Courier New';list-style-type: decimal !important;"><strong><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">&nbsp;y</span><span class="pun">);</span></strong></li>
-<li class="L0" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L1" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// (0, 0) is the top left corner of the monster.</span></li>
-<li class="L2" style="font-family: 'Courier New';"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><strong><span class="lit">0</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">0</span></strong><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">100</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L3" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L4" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Eyes</span></li>
-<li class="L5" style="font-family: 'Courier New';"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">20</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L6" style="font-family: 'Courier New';"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">65</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">20</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L7" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L8" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Nose</span></li>
-<li class="L9" style="font-family: 'Courier New';list-style-type: decimal !important;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">45</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">40</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">40</span><span class="pun">);</span></li>
-<li class="L0" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L1" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Mouth</span></li>
-<li class="L2" style="font-family: 'Courier New';"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">35</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">84</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">30</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L3" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L4" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Teeth</span></li>
-<li class="L5" style="font-family: 'Courier New';"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">38</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">84</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L6" style="font-family: 'Courier New';"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">52</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">84</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L7" style="font-family: 'Courier New';"><span class="pln"></span></li>
-<li class="L8" style="font-family: 'Courier New';"><span class="pln">&nbsp;&nbsp;</span><strong><span class="com">// BEST practice: restore the context</span></strong></li>
-<li class="L9" style="font-family: 'Courier New';list-style-type: decimal !important;"><span class="pln">&nbsp; <strong>ctx</strong></span><strong><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></strong></li>
-<li class="L0" style="font-family: 'Courier New';"><span class="pun">}</span></li>
+<div style="padding: 0px 30px; border: 1px solid black; line-height: 1.4em;"><ol>
+<li style="font-family: 'Courier New';" value="1">// useful to have them as global variables</li>
+<li style="font-family: 'Courier New';">var&nbsp;canvas,&nbsp;<g id="126" style=" line-height: 1.4em;" data-gr-id="126">ctx</g>,&nbsp;w,&nbsp;h;</li>
+<li style="font-family: 'Courier New';">&nbsp;</li>
+<li style="font-family: 'Courier New';">window.onload&nbsp;=&nbsp;function&nbsp;init()&nbsp;{</li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Called AFTER the page has been loaded</li>
+<li style="font-family: 'Courier New';">&nbsp; canvas&nbsp;=&nbsp;document.querySelector(<span style="color: #008800;">"#myCanvas");</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Often useful</li>
+<li style="font-family: 'Courier New';list-style-type: decimal !important;">&nbsp; w&nbsp;=&nbsp;canvas.width;</li>
+<li style="font-family: 'Courier New';">&nbsp; h&nbsp;=&nbsp;canvas.height;</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Important, we will draw with this object</li>
+<li style="font-family: 'Courier New';">&nbsp; ctx&nbsp;=&nbsp;canvas.getContext(<span style="color: #008800;">'2d'</span>);</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Ready to go!</li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Try to change the parameter values to move</li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// the monster</li>
+<li style="font-family: 'Courier New';">&nbsp; drawMyMonster(10,&nbsp;10); <strong>// try to change that</strong></li>
+<li style="font-family: 'Courier New';list-style-type: decimal !important;">};</li>
+<li style="font-family: 'Courier New';">&nbsp;</li>
+<li style="font-family: 'Courier New';">function&nbsp;drawMyMonster(x,&nbsp;y)&nbsp;{</li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Draw a big monster!</li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Head</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;<strong>// BEST practice: save the context, use 2D transformations</strong></li>
+<li style="font-family: 'Courier New';"><strong>&nbsp; ctx.save();</strong></li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;<strong>// Translate the coordinate system, draw relative to it</strong></li>
+<li style="font-family: 'Courier New';list-style-type: decimal !important;"><strong>&nbsp; ctx.translate(x,&nbsp;y);</strong></li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// (0, 0) is the top left corner of the monster.</li>
+<li style="font-family: 'Courier New';">&nbsp; ctx.strokeRect(<strong>0,&nbsp;0</strong>,&nbsp;100,&nbsp;100);</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Eyes</li>
+<li style="font-family: 'Courier New';">&nbsp; ctx.fillRect(20,&nbsp;20,&nbsp;10,&nbsp;10);</li>
+<li style="font-family: 'Courier New';">&nbsp; ctx.fillRect(65,&nbsp;20,&nbsp;10,&nbsp;10);</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Nose</li>
+<li style="font-family: 'Courier New';list-style-type: decimal !important;">&nbsp; ctx.strokeRect(45,&nbsp;40,&nbsp;10,&nbsp;40);</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Mouth</li>
+<li style="font-family: 'Courier New';">&nbsp; ctx.strokeRect(35,&nbsp;84,&nbsp;30,&nbsp;10);</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;// Teeth</li>
+<li style="font-family: 'Courier New';">&nbsp; ctx.fillRect(38,&nbsp;84,&nbsp;10,&nbsp;10);</li>
+<li style="font-family: 'Courier New';">&nbsp; ctx.fillRect(52,&nbsp;84,&nbsp;10,&nbsp;10);</li>
+<li style="font-family: 'Courier New';"></li>
+<li style="font-family: 'Courier New';">&nbsp;&nbsp;<strong>// BEST practice: restore the context</strong></li>
+<li style="font-family: 'Courier New';list-style-type: decimal !important;">&nbsp; <strong>ctx</strong><strong>.restore();</strong></li>
+<li style="font-family: 'Courier New';">}</li>
 </ol></div>
 
 
@@ -304,44 +304,44 @@ __Explanations:__
 
 This time, we've used "simple objects" for the circle and the rectangles, and we've called them "player" and "ball":
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> ball </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">100</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; color</span><span class="pun">:</span><span class="str">'green'</span><span class="pun">,</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; speedX</span><span class="pun">:</span><span class="lit">2</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; speedY</span><span class="pun">:</span><span class="lit">1</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; width</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; height</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; color</span><span class="pun">:</span><span class="str">'red'</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var ball = {</li>
+<li style="margin-bottom: 0px;">&nbsp; x: 100,</li>
+<li style="margin-bottom: 0px;">&nbsp; y:100,</li>
+<li style="margin-bottom: 0px;">&nbsp; radius: 15,</li>
+<li style="margin-bottom: 0px;">&nbsp; color:'green',</li>
+<li style="margin-bottom: 0px;">&nbsp; speedX:2,</li>
+<li style="margin-bottom: 0px;">&nbsp; speedY:1</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">var player = {</li>
+<li style="margin-bottom: 0px;">&nbsp; x:10,</li>
+<li style="margin-bottom: 0px;">&nbsp; y:10,</li>
+<li style="margin-bottom: 0px;">&nbsp; width:20,</li>
+<li style="margin-bottom: 0px;">&nbsp; height:20,</li>
+<li style="margin-bottom: 0px;">&nbsp; color:'red'</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 With this syntax, it's easier to manipulate "the x pos of the ball" - you just have to use `ball.x`. we added two properties to the ball object: `speedX` and `speedY`. Their value is the number of pixels that will be added to the current `ball.x` and `ball.y` position, at each frame of animation.
 
 Let's look at the animation loop:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // 1 - clear the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; <strong>// draw the ball and the player</strong></span></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; drawFilledRectangle</span><span class="pun">(</span><span class="pln">player</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; drawFilledCircle</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; // animate the ball that is bouncing all over the walls</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; moveBall</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // ask for a new animation frame</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function mainLoop() {</li>
+<li style="margin-bottom: 0px;">&nbsp; // 1 - clear the canvas</li>
+<li style="margin-bottom: 0px;">&nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>// draw the ball and the player</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; drawFilledRectangle(player);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; drawFilledCircle(ball);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp;</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; // animate the ball that is bouncing all over the walls</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; moveBall(ball);</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; // ask for a new animation frame</li>
+<li style="margin-bottom: 0px;">&nbsp; requestAnimationFrame(mainLoop);</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 Now, let's decompose the animation loop in some external functions to make it more readable. At each frame of animation, we will clear the canvas, draw the player as a rectangle, draw the ball as a circle, and move the ball. 
@@ -350,13 +350,13 @@ You can take a look at the new versions of `drawFilledRectangle` that now take o
 
 Let's look at the moveBall function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> moveBall</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function moveBall(b) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; b.x += b.speedX;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; b.y += b.speedY;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; testCollisionBallWithWalls(b);</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 This function is called 60 times per second. So, 60 times per second we modify the `b.x` and `b.y` positions of the ball passed as parameter by adding to them the `b.speedX` and `b.speedY` property values.
@@ -365,19 +365,19 @@ Notice that we call `moveBall(ball)` from `mainLoop`. In the `moveBall` function
 
 Ok, and at _line 5_ we call `testCollisionBallWithWalls(b)`, which will test if the ball `b hits` a vertical or horizontal wall. Let's see an extract of this function now:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // COLLISION WITH VERTICAL WALLS?</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">((</span><span class="pln">b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> w</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // the ball hit the right wall</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // change horizontal direction</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">b</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // put the ball at the collision point</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> w </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span><span class="pln"> </span><span class="pun">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; ...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function testCollisionBallWithWalls(b) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // COLLISION WITH VERTICAL WALLS?</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if((b.x + b.radius) &gt; w) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // the ball hit the right wall</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // change horizontal direction</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.speedX = -b.speedX;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // put the ball at the collision point</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;b.x = w - b.radius;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; } ...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 At _line 3_ you can see the test that checks if the ball b hits the right side of the canvas. The right wall is at `w` (the width of the canvas) on the X-axis. If we compare (`b.x + b.radius`) with `w`, we can check if a part of the ball extends beyond the right wall. 
@@ -461,26 +461,26 @@ Let's animate balls and let's start with 3 the animation of 3 balls: `ball1`, `b
 
 Extract of the source code: the mainLoop function
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // 1 - clear the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // draw the balls and the player</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawFilledRectangle</span><span class="pun">(</span><span class="pln">player</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>drawFilledCircle</strong></span><strong><span class="pun">(</span><span class="pln">ball1</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; drawFilledCircle</span><span class="pun">(</span><span class="pln">ball2</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; drawFilledCircle</span><span class="pun">(</span><span class="pln">ball3</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // animate the balls bouncing all over the walls</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>moveBall</strong></span><strong><span class="pun">(</span><span class="pln">ball1</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; moveBall</span><span class="pun">(</span><span class="pln">ball2</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; moveBall</span><span class="pun">(</span><span class="pln">ball3</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // ask for a new animation frame</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function mainLoop() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // 1 - clear the canvas</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // draw the balls and the player</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; drawFilledRectangle(player);</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>drawFilledCircle</strong><strong>(ball1);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; drawFilledCircle(ball2);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; drawFilledCircle(ball3);</strong></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // animate the balls bouncing all over the walls</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>moveBall</strong><strong>(ball1);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; moveBall(ball2);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; moveBall(ball3);</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // ask for a new animation frame</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 And what if we have 100 balls? We're not going to copy and paste the lines that draw and move the balls 100 times!
@@ -497,27 +497,27 @@ Let's look at the new functions we've added:
 
 __`createBalls(numberOfBalls)`, returns an array of balls:__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> createBalls</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // empty array</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; <strong>var</strong></span><strong><span class="pln"> ballArray </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // create n balls</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; <strong>for</strong></span><strong><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln">w</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln">h</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">30</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span><span class="pln"> </span><span class="com">// between 5 and 35</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedX</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span><span class="pln"> </span><span class="com">// between -5 and + 5</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedY</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span><span class="pln"> </span><span class="com">// between -5 and + 5</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color</span><span class="pun">:&nbsp;</span><span class="pln">getARandomColor</span><span class="pun">(),</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; }</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; // add ball b to the array</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>ballArray</strong></span><strong><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; <strong>}</strong></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // returns the array full of randomly created balls</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; return</span><span class="pln"> ballArray</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function createBalls(n) {</li>
+<li style="margin-bottom: 0px;">&nbsp; // empty array</li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>var</strong><strong> ballArray = [];</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; // create n balls</li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>for</strong><strong>(var i=0; i &lt; n; i++) {</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; var b = {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x:w/2,</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y:h/2,</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; radius: 5 + 30 * Math.random(), // between 5 and 35</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedX: -5 + 10 * Math.random(), // between -5 and + 5</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedY: -5 + 10 * Math.random(), // between -5 and + 5</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color:&nbsp;getARandomColor(),</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; // add ball b to the array</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; <strong>ballArray</strong><strong>.push(b);</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>}</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; // returns the array full of randomly created balls</li>
+<li style="margin-bottom: 0px;">&nbsp; return ballArray;</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 __Explanations:__
@@ -529,19 +529,19 @@ __Explanations:__
 
 The `getARandomColor` function
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getARandomColor</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> colors </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'red'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'blue'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'cyan'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'purple'</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'pink'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'green'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yellow'</span><span class="pun">];</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // a value between 0 and color.length-1</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Math.round = rounded value</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Math.random() a value between 0 and 1</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> colorIndex </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">((</span><span class="pln">colors</span><span class="pun">.</span><span class="pln">length</span><span class="pun">-</span><span class="lit">1</span><span class="pun">)*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>var</strong></span><strong><span class="pln"> c </span><span class="pun">=</span><span class="pln"> colors</span><span class="pun">[</span><span class="pln">colorIndex</span><span class="pun">];</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // return the random color</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>return</strong></span><strong><span class="pln"> c</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function getARandomColor() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; var colors = ['red', 'blue', 'cyan', 'purple', </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'pink', 'green', 'yellow'];</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // a value between 0 and color.length-1</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Math.round = rounded value</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Math.random() a value between 0 and 1</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; var colorIndex = Math.round((colors.length-1)*Math.random()); </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>var</strong><strong> c = colors[colorIndex];</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // return the random color</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>return</strong><strong> c;</strong></li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 __Explanations:__
@@ -552,23 +552,23 @@ __Explanations:__
 
 Functions drawAllBalls and moveAllBalls:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawAllBalls</span><span class="pun">(</span><strong><span class="pln">ballArray</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>ballArray</strong></span><strong><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; drawFilledCircle</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; <strong>});</strong></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> moveAllBalls</span><span class="pun">(</span><strong><span class="pln">ballArray</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // iterate on all balls in array</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong> ballArray</strong></span><strong><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; <strong>});</strong></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function drawAllBalls(<strong>ballArray</strong>) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>ballArray</strong><strong>.forEach(function(b) {</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; drawFilledCircle(b);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>});</strong></li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">function moveAllBalls(<strong>ballArray</strong>) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // iterate on all balls in array</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong> ballArray</strong><strong>.forEach(function(b) {</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.x += b.speedX;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.y += b.speedY;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls(b); </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>});</strong></li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 __Explanations:__
@@ -612,14 +612,14 @@ Detecting mouse events in a canvas is quite straightforward: you add an event li
 
 The example below is about listening to mouseup and mousedown events (when a user presses or releases any mouse button):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // do something with the mousedown event</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">});</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // do something with the mouseup event</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">canvas.addEventListener('mousedown', function (evt) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // do something with the mousedown event</li>
+<li style="margin-bottom: 0px;">});</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">canvas.addEventListener('mousedup', function (evt) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // do something with the mouseup event</li>
+<li style="margin-bottom: 0px;">});</li>
 </ol></div>
 
 The event received by the listener function will be used for getting the button number or the coordinates of the mouse cursor. Before looking at different examples, let's look at the different event types we can listen to.
@@ -657,22 +657,22 @@ Here is an example that shows the problem:
 
 __WRONG code used in this example:__
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun" style="color: #666600;">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'mousemove'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">(</span><span class="pln">evt</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong></span><strong><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #006688;">var</span><span class="pln">&nbsp;message&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">'Mouse position: '</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln">x&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">','</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln">y</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;message</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun" style="color: #666600;">},</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">false</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;<strong>&nbsp;</strong></span><strong><span class="com" style="color: #880000;">//&nbsp;WRONG!!!</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #006688;">return</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong></span><strong><span class="pun" style="color: #666600;">:</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln">clientX</span><span class="pun" style="color: #666600;">,</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong></span><strong><span class="pun" style="color: #666600;">:</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln">clientY</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li style="margin-bottom: 0px;" value="1"><span style="color: #666600;">...</span></li>
+<li style="margin-bottom: 0px;"><strong>canvas<span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousemove'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">);</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'Mouse position: '</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">...</span></li>
+<li style="margin-bottom: 0px;"><strong><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;<strong>&nbsp;</strong><strong><span style="color: #880000;">//&nbsp;WRONG!!!</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX<span style="color: #666600;">,</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
 </ol></div>
 
 Here is the result, when the mouse is approximately at the top left corner of the canvas:
@@ -696,15 +696,15 @@ A good version of the code:
 
 And here is the fixed version of the getMousePos function:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com" style="color: #880000;">// necessary to take into account CSS boundaries</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd" style="color: #006688;">var</span><span class="pln">&nbsp;rect&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln">getBoundingClientRect</span><span class="pun" style="color: #666600;">();</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #006688;">return</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; x</span><span class="pun" style="color: #666600;">:</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln">clientX&nbsp;</span><strong><span class="pun" style="color: #666600;">-</span><span class="pln">&nbsp;rect</span><span class="pun" style="color: #666600;">.</span><span class="pln">left</span><span class="pun" style="color: #666600;">,</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; y</span><span class="pun" style="color: #666600;">:</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln">clientY&nbsp;</span><strong><span class="pun" style="color: #666600;">-</span><span class="pln">&nbsp;rect</span><span class="pun" style="color: #666600;">.</span><span class="pln">top</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li style="margin-bottom: 0px;" value="1"><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong><span style="color: #880000;">// necessary to take into account CSS boundaries</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong><span style="color: #006688;">var</span>&nbsp;rect&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getBoundingClientRect<span style="color: #666600;">();</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; x<span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX&nbsp;<strong><span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>left<span style="color: #666600;">,</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; y<span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY&nbsp;<strong><span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>top</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
 </ol></div>
 
 Result (the cursor is approximately at the top left corner):
@@ -742,48 +742,48 @@ Example:
 
 Extract from source code:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #006688;">var</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;ctx</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;mouseButton</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun" style="color: #666600;">.</span><span class="pln">onload&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;init</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #666600;">.</span><span class="pln">getElementById</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'myCanvas'</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln">getContext</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'2d'</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;<strong>canvas</strong></span><strong><span class="pun" style="color: #666600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'mousemove'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">(</span><span class="pln">evt</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong></span><strong><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #006688;">var</span><span class="pln">&nbsp;message&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">'Mouse position: '</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln">x&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">','</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln">y</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;message</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #666600;">},</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">false</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;<strong>canvas</strong></span><strong><span class="pun" style="color: #666600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'mousedown'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">(</span><span class="pln">evt</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mouseButton&nbsp;</strong></span><strong><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln">button</span><span class="pun" style="color: #666600;">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #006688;">var</span><span class="pln">&nbsp;message&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"Mouse button "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln">button&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">" down at position: "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln">x&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">','</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln">y</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;message</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #666600;">},</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">false</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;<strong>canvas</strong></span><strong><span class="pun" style="color: #666600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'mouseup'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">(</span><span class="pln">evt</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #006688;">var</span><span class="pln">&nbsp;message&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"Mouse up at position: "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln">x&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">','</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;mousePos</span><span class="pun" style="color: #666600;">.</span><span class="pln">y</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;message</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #666600;">},</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #006688;">false</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span>&nbsp;</li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;writeMessage</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;message</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln">save</span><span class="pun" style="color: #666600;">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln">clearRect</span><span class="pun" style="color: #666600;">(</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln">width</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln">height</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln">font&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">'18pt Calibri'</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln">fillStyle&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">'black'</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln">fillText</span><span class="pun" style="color: #666600;">(</span><span class="pln">message</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">25</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #666600;">.</span><span class="pln">restore</span><span class="pun" style="color: #666600;">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd" style="color: #006688;">function</span><span class="pln">&nbsp;getMousePos</span><span class="pun" style="color: #666600;">(</span><span class="pln">canvas</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com" style="color: #880000;">// necessary to take into account CSS boudaries</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;<strong>&nbsp;</strong></span><strong><span class="kwd" style="color: #006688;">var</span><span class="pln">&nbsp;rect&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #666600;">.</span><span class="pln">getBoundingClientRect</span><span class="pun" style="color: #666600;">();</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #006688;">return</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong></span><strong><span class="pun" style="color: #666600;">:</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln">clientX&nbsp;</span><span class="pun" style="color: #666600;">-</span><span class="pln">&nbsp;rect</span><span class="pun" style="color: #666600;">.</span><span class="pln">left</span></strong><span class="pun" style="color: #666600;">,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong></span><strong><span class="pun" style="color: #666600;">:</span><span class="pln">&nbsp;evt</span><span class="pun" style="color: #666600;">.</span><span class="pln">clientY&nbsp;</span><span class="pun" style="color: #666600;">-</span><span class="pln">&nbsp;rect</span><span class="pun" style="color: #666600;">.</span><span class="pln">top</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li style="margin-bottom: 0px;" value="1"><span style="color: #006688;">var</span>&nbsp;canvas<span style="color: #666600;">,</span>&nbsp;ctx<span style="color: #666600;">,</span>&nbsp;mousePos<span style="color: #666600;">,</span>&nbsp;mouseButton<span style="color: #666600;">;</span></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">window<span style="color: #666600;">.</span>onload&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;init<span style="color: #666600;">()</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; canvas&nbsp;<span style="color: #666600;">=</span>&nbsp;document<span style="color: #666600;">.</span>getElementById<span style="color: #666600;">(</span><span style="color: #008800;">'myCanvas'</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getContext<span style="color: #666600;">(</span><span style="color: #008800;">'2d'</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousemove'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">);</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'Mouse position: '</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousedown'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mouseButton&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;evt<span style="color: #666600;">.</span>button<span style="color: #666600;">;</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">"Mouse button "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;evt<span style="color: #666600;">.</span>button&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">" down at position: "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mouseup'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">"Mouse up at position: "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">};</span></li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;</li>
+<li style="margin-bottom: 0px;"><span style="color: #006688;">function</span>&nbsp;writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>save<span style="color: #666600;">();</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>clearRect<span style="color: #666600;">(</span><span style="color: #006666;">0</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">0</span><span style="color: #666600;">,</span>&nbsp;canvas<span style="color: #666600;">.</span>width<span style="color: #666600;">,</span>&nbsp;canvas<span style="color: #666600;">.</span>height<span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>font&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'18pt Calibri'</span><span style="color: #666600;">;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>fillStyle&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'black'</span><span style="color: #666600;">;</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>fillText<span style="color: #666600;">(</span>message<span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">10</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">25</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>restore<span style="color: #666600;">();</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;"><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong><span style="color: #880000;">// necessary to take into account CSS boudaries</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp;&nbsp;<strong>&nbsp;</strong><strong><span style="color: #006688;">var</span>&nbsp;rect&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getBoundingClientRect<span style="color: #666600;">();</span></strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX&nbsp;<span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>left</strong><span style="color: #666600;">,</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY&nbsp;<span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>top</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
 </ol></div>
 
 
@@ -831,34 +831,34 @@ Working example:
 
 Extract from the JavaScript source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">var</span><span class="pln"> mousePos</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// create 10 balls</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;balls </span><span class="pun">=</span><span class="pln"> createBalls</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; <strong>&nbsp;// add a mousemove event listener to the canvas</strong></span></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> mouseMoved</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// ready to go !</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;mainLoop</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> mouseMoved</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;mousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// from the previous section</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp;};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><strong>var mousePos;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">window.onload = function init() {</li>
+<li style="margin-bottom: 0px;"> ... </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;// create 10 balls</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;balls = createBalls(10);</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>&nbsp;// add a mousemove event listener to the canvas</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp;canvas.addEventListener('mousemove', mouseMoved);</strong></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;// ready to go !</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;mainLoop();</li>
+<li style="margin-bottom: 0px;">};</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;"><strong>function mouseMoved(evt) {</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp;mousePos = getMousePos(canvas, evt);</strong></li>
+<li style="margin-bottom: 0px;"><strong>}</strong></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">function getMousePos(canvas, evt) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;// from the previous section</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;var rect = canvas.getBoundingClientRect();</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;return {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; x: evt.clientX - rect.left,</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; y: evt.clientY - rect.top</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;};</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;"></li>
 </ol></div>
 
 _Line 9_ defines a `mousemove` event listener: the `mouseMoved` callback function will be called each time the user moves the mouse on the canvas.
@@ -869,35 +869,35 @@ With this code, as soon as we move the mouse on top of the canvas, we'll have th
 
 And here is the new `mainLoop` function. We added a call to the `mousePlayerWithMouse` function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // 1 - clear the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // draw the ball and the player</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawFilledRectangle</span><span class="pun">(</span><span class="pln">player</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawAllBalls</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // animate the ball that is bouncing all over the walls</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; moveAllBalls</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; movePlayerWithMouse</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // ask for a new animation frame</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function mainLoop() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // 1 - clear the canvas</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // draw the ball and the player</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; drawFilledRectangle(player);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; drawAllBalls(balls);</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // animate the ball that is bouncing all over the walls</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; moveAllBalls(balls);</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; movePlayerWithMouse();</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // ask for a new animation frame</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 
 And here is the code of the movePlayerWithMouse function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> movePlayerWithMouse</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">mousePos </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function movePlayerWithMouse() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if(mousePos !== undefined) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; player.x = mousePos.x;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; player.y = mousePos.y;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 
@@ -948,48 +948,48 @@ First, if you're into game programming, we have a full section about collision d
 
 We have a player that is a rectangle and other objects that are circles. This is cool, as it allows us to find a short function that tests if a circle collides with a rectangle whose sides are aligned to the X-axis and Y-axis (we implemented this after reading this [thread at StackOverflow](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="com">// Collisions between rectangle and circle</span></li>
-<li class="L1"><span class="kwd">function</span><span class="pln">&nbsp;circRectsOverlap</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">,</span><span class="pln">&nbsp;y0</span><span class="pun">,</span><span class="pln">&nbsp;w0</span><span class="pun">,</span><span class="pln">&nbsp;h0</span><span class="pun">,</span><span class="pln">&nbsp;cx</span><span class="pun">,</span><span class="pln">&nbsp;cy</span><span class="pun">,</span><span class="pln">&nbsp;r</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L2"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;testX</span><span class="pun">=</span><span class="pln">cx</span><span class="pun">;</span><span class="pln"></span></li>
-<li class="L3"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;testY</span><span class="pun">=</span><span class="pln">cy</span><span class="pun">;</span><span class="pln"></span></li>
-<li class="L4"><span class="pln"></span></li>
-<li class="L5"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">testX&nbsp;</span><span class="pun">&lt;</span><span class="pln">&nbsp;x0</span><span class="pun">)</span><span class="pln">&nbsp;testX</span><span class="pun">=</span><span class="pln">x0</span><span class="pun">;</span><span class="pln"></span></li>
-<li class="L6"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">testX&nbsp;</span><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">+</span><span class="pln">w0</span><span class="pun">))</span><span class="pln">&nbsp;testX</span><span class="pun">=(</span><span class="pln">x0</span><span class="pun">+</span><span class="pln">w0</span><span class="pun">);</span><span class="pln"></span></li>
-<li class="L7"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">testY&nbsp;</span><span class="pun">&lt;</span><span class="pln">&nbsp;y0</span><span class="pun">)</span><span class="pln">&nbsp;testY</span><span class="pun">=</span><span class="pln">y0</span><span class="pun">;</span><span class="pln"></span></li>
-<li class="L8"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">testY&nbsp;</span><span class="pun">&gt;</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">y0</span><span class="pun">+</span><span class="pln">h0</span><span class="pun">))</span><span class="pln">&nbsp;testY</span><span class="pun">=(</span><span class="pln">y0</span><span class="pun">+</span><span class="pln">h0</span><span class="pun">);</span><span class="pln"></span></li>
-<li class="L9"><span class="pln"></span></li>
-<li class="L0"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln">&nbsp;</span><span class="pun">(((</span><span class="pln">cx</span><span class="pun">-</span><span class="pln">testX</span><span class="pun">)*(</span><span class="pln">cx</span><span class="pun">-</span><span class="pln">testX</span><span class="pun">)+(</span><span class="pln">cy</span><span class="pun">-</span><span class="pln">testY</span><span class="pun">)*(</span><span class="pln">cy</span><span class="pun">-</span><span class="pln">testY</span><span class="pun">))&lt;&nbsp;</span><span class="pln">r</span><span class="pun">*</span><span class="pln">r</span><span class="pun">);</span><span class="pln"></span></li>
-<li class="L1"><span class="pln"></span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Collisions between rectangle and circle</li>
+<li>function&nbsp;circRectsOverlap(x0,&nbsp;y0,&nbsp;w0,&nbsp;h0,&nbsp;cx,&nbsp;cy,&nbsp;r)&nbsp;{</li>
+<li>&nbsp; &nbsp;var&nbsp;testX=cx;</li>
+<li>&nbsp; &nbsp;var&nbsp;testY=cy;</li>
+<li></li>
+<li>&nbsp; &nbsp;if&nbsp;(testX&nbsp;&lt;&nbsp;x0)&nbsp;testX=x0;</li>
+<li>&nbsp; &nbsp;if&nbsp;(testX&nbsp;&gt;&nbsp;(x0+w0))&nbsp;testX=(x0+w0);</li>
+<li>&nbsp; &nbsp;if&nbsp;(testY&nbsp;&lt;&nbsp;y0)&nbsp;testY=y0;</li>
+<li>&nbsp; &nbsp;if&nbsp;(testY&nbsp;&gt;&nbsp;(y0+h0))&nbsp;testY=(y0+h0);</li>
+<li></li>
+<li>&nbsp; &nbsp;return&nbsp;(((cx-testX)*(cx-testX)+(cy-testY)*(cy-testY))&lt;&nbsp;r*r);</li>
+<li>}</li>
 </ol></div>
 
 Let's look at our game! This time, we've added into the loop a collision test between the player and the balls. If the player hits a ball, it's removed from the ball array. We did this test in the moveBalls function, as we were already testing collisions with walls for each ball in the array. Let's look at this new version:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> moveAllBalls</span><span class="pun">(</span><span class="pln">ballArray</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // iterate on all balls in array</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ballArray</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><strong><span class="pln"> index</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; });</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> testCollisionWithPlayer</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">circRectsOverlap</span><span class="pun">(</span><span class="pln">player</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">height</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp;// we remove the element located at index</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp;// from the balls array</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp;// splice: first parameter = starting index</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp;// second parameter = number of elements to remove</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; balls</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">index</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function moveAllBalls(ballArray) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // iterate on all balls in array</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ballArray.forEach(function(b,<strong> index</strong>) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.x += b.speedX;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.y += b.speedY;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls(b); </li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer(b, index);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; });</strong></li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">function testCollisionWithPlayer(b, index) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if(circRectsOverlap(player.x, player.y,</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; player.width, player.height,</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; b.x, b.y, b.radius)) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// we remove the element located at index</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// from the balls array</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// splice: first parameter = starting index</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// second parameter = number of elements to remove</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; balls.splice(index, 1);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 __Explanations:__
@@ -1002,34 +1002,34 @@ __Explanations:__
 
 We've also added a function for displaying the number of balls in the array while we are playing. When this number reaches zero, we display "You Win!":
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawNumberOfBallsAlive</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">font</span><span class="pun">=</span><span class="str">"30px Arial"</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">.</span><span class="pln">length </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"YOU WIN!"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">.</span><span class="pln">length</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function drawNumberOfBallsAlive(balls) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.save();</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.font="30px Arial";</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if(balls.length === 0) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillText("YOU WIN!", 20, 30);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; } else {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillText(balls.length, 20, 30);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.restore();</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 This function is called by the `mainLoop`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // 1 - clear the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; ...</span></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; drawNumberOfBallsAlive</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; ...</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // ask for a new animation frame</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function mainLoop() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // 1 - clear the canvas</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; drawNumberOfBallsAlive(balls);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; ...</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // ask for a new animation frame</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 
@@ -1108,98 +1108,98 @@ __Explanations:__
 
 HTML code: this time we've used an `oninput` in each input field, and an `onchange` attribute on the `<select>` HTML drop down menu:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"nbBalls"</span><span class="tag">&gt;</span><span class="pln">Number of balls: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">1</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">30</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">10</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"nbBalls"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>oninput</strong></span><strong><span class="pun">=</span><span class="atv">"</span><span class="pln">changeNbBalls</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"nbBalls"</span><span class="tag">&gt;</span><span class="pln">Player color: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"color"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'#FF0000'</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong></span><strong><span class="pun">=</span><span class="atv">"</span><span class="pln">changePlayerColor</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"nbBalls"</span><span class="tag">&gt;</span><span class="pln">Color of ball to eat: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;select</span><span class="pln"> </span><strong><span class="atn">onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeColorToEat</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'red'</span><span class="tag">&gt;</span><span class="pln">red</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'blue'</span><span class="tag">&gt;</span><span class="pln">blue</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'green'</span><span class="tag">&gt;</span><span class="pln">green</span><span class="tag">&lt;/option&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;/select&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"nbBalls"</span><span class="tag">&gt;</span><span class="pln">Change ball speed: </span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;- </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'1'</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min</span><span class="pun">=</span><span class="atv">0.1</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">3</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">0.1</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong></span><strong><span class="pun">=</span><span class="atv">"</span><span class="pln">changeBallSpeed</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span><span class="atv">"</span></strong><span class="tag">&gt;</span><span class="pln"> + </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> &lt;div id="controls"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Number of balls: &lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;input type="number" min=1 max=30 </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value=10 id="nbBalls"</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>oninput</strong><strong>="changeNbBalls(this.value);</strong>"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Player color: &lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;input type="color" value='#FF0000'</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong><strong>="changePlayerColor(this.value);</strong>"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Color of ball to eat: &lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;select <strong>onchange="changeColorToEat(this.value);</strong>"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;option value='red'&gt;red&lt;/option&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;option value='blue'&gt;blue&lt;/option&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;option value='green'&gt;green&lt;/option&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/select&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Change ball speed: &lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;- &lt;input type="range" value='1'</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min=0.1 max=3 step=0.1</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong><strong>="changeBallSpeed(this.value);"</strong>&gt; + </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/div&gt;</li>
+<li style="margin-bottom: 0px;"></li>
 </ol></div>
 
 JavaScript code: we've added some new variables in order to get closer to a real game with a goal, levels, game over menu and so on.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> initialNumberOfBalls</span><span class="pun">; // number of balls at the beginning</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> globalSpeedMutiplier </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">; // will change when we move the speed&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // slider</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> colorToEat </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">; &nbsp; &nbsp; &nbsp; // color of the "good" balls to eat</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> wrongBallsEaten </span><span class="pun">=</span><span class="pln"> goodBallsEaten </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">; //number of good/bad balls </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // eaten</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> numberOfGoodBalls</span><span class="pun">; &nbsp; &nbsp; &nbsp; &nbsp;// number of good balls in the set</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var initialNumberOfBalls; // number of balls at the beginning</li>
+<li style="margin-bottom: 0px;">var globalSpeedMutiplier = 1; // will change when we move the speed&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // slider</li>
+<li style="margin-bottom: 0px;">var colorToEat = 'red'; &nbsp; &nbsp; &nbsp; // color of the "good" balls to eat</li>
+<li style="margin-bottom: 0px;">var wrongBallsEaten = goodBallsEaten = 0; //number of good/bad balls </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // eaten</li>
+<li style="margin-bottom: 0px;">var numberOfGoodBalls; &nbsp; &nbsp; &nbsp; &nbsp;// number of good balls in the set</li>
 </ol></div>
 
 And here are the callback functions called when you use the input fields:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> changeNbBalls</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; startGame</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> changeColorToEat</span><span class="pun">(</span><span class="pln">color</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; colorToEat </span><span class="pun">=</span><span class="pln"> color</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; startGame(</span>initialNumberOfBalls);</li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> changePlayerColor</span><span class="pun">(</span><span class="pln">color</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; player</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> color</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> changeBallSpeed</span><span class="pun">(</span><span class="pln">coef</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; globalSpeedMutiplier </span><span class="pun">=</span><span class="pln"> coef</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function changeNbBalls(nb) {</li>
+<li style="margin-bottom: 0px;">&nbsp; startGame(nb);</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">function changeColorToEat(color) {</li>
+<li style="margin-bottom: 0px;">&nbsp; colorToEat = color;</li>
+<li style="margin-bottom: 0px;">&nbsp; startGame(initialNumberOfBalls);</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">function changePlayerColor(color) {</li>
+<li style="margin-bottom: 0px;">&nbsp; player.color = color;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">function changeBallSpeed(coef) {</li>
+<li style="margin-bottom: 0px;">&nbsp; globalSpeedMutiplier = coef;</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 Each time we change the number of balls in the game, or the color of the balls you need to eat, we need to restart the game. 
 
 Here is the `startGame(nb_balls)` function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> startGame</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; do</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;balls </span><span class="pun">=</span><span class="pln"> createBalls</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;initialNumberOfBalls </span><span class="pun">=</span><span class="pln"> nb</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;numberOfGoodBalls </span><span class="pun">=</span><span class="pln"> countNumberOfGoodBalls</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">,</span><span class="pln"> colorToEat</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span><span class="pln"> </span><span class="kwd">while</span><span class="pun">(</span><span class="pln">numberOfGoodBalls </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">); // in case no good ball in the set</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; wrongBallsEaten </span><span class="pun">=</span><span class="pln"> goodBallsEaten </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function startGame(nb) {</li>
+<li style="margin-bottom: 0px;">&nbsp; do {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;balls = createBalls(nb);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;initialNumberOfBalls = nb;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;numberOfGoodBalls = countNumberOfGoodBalls(balls, colorToEat);</li>
+<li style="margin-bottom: 0px;">&nbsp; } while(numberOfGoodBalls === 0); // in case no good ball in the set</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; wrongBallsEaten = goodBallsEaten = 0;</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 ... and here is the function that counts the number of good balls in the newly created set of balls:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> countNumberOfGoodBalls</span><span class="pun">(</span><span class="pln">balls</span><span class="pun">,</span><span class="pln"> colorToEat</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; var</span><span class="pln"> nb </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; balls</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">b</span><span class="pun">.</span><span class="pln">color </span><span class="pun">===</span><span class="pln"> colorToEat</span><span class="pun">) // we count the number of balls</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; nb</span><span class="pun">++; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// of this color in the balls array</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; });</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; return</span><span class="pln"> nb</span><span class="pun">; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // return this number to the caller</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function countNumberOfGoodBalls(balls, colorToEat) {</li>
+<li style="margin-bottom: 0px;">&nbsp; var nb = 0;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; balls.forEach(function(b) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if(b.color === colorToEat) // we count the number of balls</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; nb++; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// of this color in the balls array</li>
+<li style="margin-bottom: 0px;">&nbsp; });</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; return nb; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // return this number to the caller</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 
