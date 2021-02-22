@@ -146,11 +146,11 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
   
   + example using YouTube: `<iframe width="560" height="315" src="https://www.youtube.com/embed/ZH1XOsv8Oyo" frameborder="0" allowfullscreen></iframe>`
 
-+ Audio 
++ Audio
   + `<audio>` element
     + useful for embedding an audio player into a Web page
     + dedicated for _streamed audio_
-    + a DOM member $\implies$CVSS styling applied and manipulating w/ the DOM API
+    + a DOM member $\implies$ CSS styling applied and manipulating w/ the DOM API
     + attributes: a reduced version of `<video>` element
     + typical usage
 
@@ -171,7 +171,7 @@ _Lines 8-12_:  we suggest downloading the audio files if the browser does not su
       + browser using the 1st format recognized
   + Web Audio API
     + designed for musical applications and for adding sound effects to games
-    + manipulation of sund samples (loops. etc.), music synthesis and sound generation (oscillators, etc.)
+    + manipulation of sound samples (loops. etc.), music synthesis and sound generation (oscillators, etc.)
     + w/ a set of predefined sound processing modules (reverb, delay, etc.)
 
 
@@ -895,7 +895,7 @@ Screenshot:
   + add global variables to access various elements and array of sources of video clips
   + add event listeners
     + play button: `pl.addEventListener("click", playPause, false);`
-    + preious clip: `pr.addEventListener("click", prevVid, false);`
+    + previous clip: `pr.addEventListener("click", prevVid, false);`
     + click to pause/play video: `seek.addEventListener("mousedown", function () { myVid.pause(); pl.innerHTML = "Play"; }); seek.addEventListener("mouseup", function () { myVid.play(); pl.innerHTML = "Pause"; });`
     + video progress slider event: `seek.addEventListener("input", vidSeek, false);`
     + timeupdate event: `myVid.addEventListener("timeupdate", vidTime, false);`
@@ -903,9 +903,9 @@ Screenshot:
     + next video button: `nx.addEventListener("click", nextVid, false);`
     + volume down button: `volDown.addEventListener("mousedown", volChangeDown, false);`
     + volume up button: `volUp.addEventListener("mousedown", volChangeUp, false);`
-    + clip 1 thumbernail: `vid1.addEventListener("click", vidChoice1);`
-    + clip 2 thumbernail: `vid2.addEventListener("click", vidChoice2);`
-    + clip 3 thumbernail: `vid3.addEventListener("click", vidChoice3);`
+    + clip 1 thumbnail: `vid1.addEventListener("click", vidChoice1);`
+    + clip 2 thumbnail: `vid2.addEventListener("click", vidChoice2);`
+    + clip 3 thumbnail: `vid3.addEventListener("click", vidChoice3);`
   + [callback function](src/js/03c-example11.js)
 
 
