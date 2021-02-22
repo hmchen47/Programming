@@ -581,6 +581,37 @@
     + `\t` for inserting a tabulation
 
 
++ [String as array](../WebDev/Frontend-W3C/5-JavaScript/03b-HTML5API.md#322-strings-are-arrays-of-characters)
+  + "like" array of characters
+    + behave like an array
+    + w/ `length` property
+    + able to access individual characters w/ indexes
+  + limitations
+    + unable to add elements to string using a non-existent index
+    + unable to use `push/pop` methods for adding/removing characters at the end of string
+    + unable to modify a character w/ an index
+    + unable to remove a character w/ `splice` method
+
++ [String operation](../WebDev/Frontend-W3C/5-JavaScript/03b-HTML5API.md#322-strings-are-arrays-of-characters)
+  + concatenation w/ `+` operator
+    + prepend: `var s = 'Michel'; s = "Hello " + s; // "Hello Michel"`
+    + append: `var s = 'Michel'; s += " Buffa"; // "Michel Buffa"`
+  + removing substring w/ `substring()` method; e.g.,
+    + removing last char (equivalent to `pop` method): `s = s.substring(0, s.length-1); // "Miche"`
+    + removing a certain number of chars: `function removeChars(s, startIndex, numberOfCharsToRemove) { return s.substring(0, startIndex) + s.substring(startIndex + numberOfCharsToRemove); }` & `var s = 'Michel'; s = removeChars(s, 1, 3); console.log(s); // "Mel"`
+  + replacing a char w/ index
+    + `function replaceAt(s, index, character) { return s.substr(0, index) + character + s.substr(index+character.length); }`
+    + `var s2 = "JavaScript"; s2 = replaceAt(s2, 1, "o"); console.log(s2); // "JovaScript"`
+    + `s2 = replaceAt(s2, 0, "Coca"); console.log(s2); // Will display "CocaScript"`
+
++ [`str.substring()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
+  + syntax: `str.substring(indexStart[, indexEnd])`
+  + docstring: return the part of the string between the start and end indexes, or to the end of the string.
+  + parameters
+    + `indexStart`: the index of the first character to include in the returned substring
+    + `indexEnd` (optional): the index of the first character to exclude from the returned substring
+  + return: the part of the string between the start and end indexes, or to the end of the string
+
 
 
 ## Objects
@@ -622,6 +653,141 @@
     + objects
     + w/ length property
     + using index to access individual character
+
++ [Elements in an array](../WebDev/Frontend-W3C/5-JavaScript/03b-HTML5API.md#321-arrays)
+  + array: a collection of "things", including strings, integer values, decimal values, boolean values, or any objects
+  + creating an array: putting elements btw "[" abd "]"
+  + each element of an array w/ key/index and a value
+  + type of an array: object
+  + index beginning at "0"
+  + properties and methods: `let a = [...];`
+    + size of an array: `a.length`
+    + sort an array: `a.sort([function_that_compares_two_elements]);`
+      + numeric: return array object from lowest to highest
+      + string: return array object w/ element alphabetically
+      + object: depending on `function_that_compares_two_elements`
+    + remove n elements starting from idx: `a.splice(idx, n);`; e.g., `a.splice(2, 1); // remove 1 elt starting from idx=2 (3rd elt)`
+  + type of elements: different types of element allowed in an array; e.g., `let a = [1, 2, "three"]`
+
++ [Adding element](../WebDev/Frontend-W3C/5-JavaScript/03b-HTML5API.md#321-arrays)
+  + using a new index
+    + not to leave a hole in the array; e.g., `let a = [1, 2, 3]; a[4] = 4; a; // a = [1, 2, 3, undefined x 1, 4]`
+    + example: `let a = [1, 2, 3]; a[3] = "four"; a[a.length] = "five"; // a = [1, 2, 3, "four", "five"]`
+  + adding a new element at the end w/ `push()` method, e.g., `a.push("five"); // a = [..., "five"]`
+  + recommendation: using `push()` method
+
++ [Removing element](../WebDev/Frontend-W3C/5-JavaScript/03b-HTML5API.md#321-arrays)
+  + `splice()` method
+    + syntax:
+      + `array.splice(start)`
+      + `array.splice(start, deleteCount)`
+    + examples: `a = [1, 2, 3, "four", "five", "six", undefined × 1, "height"];`
+      + remove element at 6th index: `[undefined x 1]` & `a = [1, 2, 3, "four", "five", "six", "height"]`
+      + remove the 1st three elements: `a.splice(0, 3); // [1, 2, 3]` & `a = ["four", "five", "six", "height"]`
+      + remove the last element: `a.splice(a.length-1); // "height"` & `a = ["four", "five", "six"]`
+  + `pop()` method
+    + recommended method for removing the last element
+    + example: `a = ["four", "five", "six"]`, `a.pop(); // "six"` & `a = ["four", "five"]`
+  + `delete()` method
+    + not good for removing an element from an array
+    + example: `delete a[1]; // true` & `a = ["four", undefined × 1]`
+
++ [Arrays of arrays](../WebDev/Frontend-W3C/5-JavaScript/03b-HTML5API.md#321-arrays)
+  + numerical array
+    + a `n x m` matrix
+    + examples
+      + a matrix w/ 2 rows, 3 columns: `var a = [[1,2,3], [4,5,6]];`
+      + accessing rows: `a[0]; // [1, 2, 3]` & `a[1]; // [4, 5, 6]`
+      + element: `a[0][0]; // top left element` $\to$ 1; `a[0][1]; // second element, first line` $\to$ 2; `a[1][2]; // third element, second line` $\to$ 6
+  + array w/ differnet types of arrays, e.g., `a[0] = [1, 2, 3, 4, 5]; a[1] = ['michel', 'henri', 'francois']; a; // [Array(5), Array(3)]`
+
++ [`array.push()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+  + syntax: `arr.push([element1[, ...[, elementN]]])`
+  + docstring: add one or more elements to the end of an array and return the new length of the array
+  + parameters
+    + `elementN`: the element(s) to add to the end of the array.
+  + return: The `new` length property of the object upon which the method was called.
+
++ [`array.pop()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+  + syntax: `arr.pop()`
+  + docstring:
+    + remove the __last__ element from an array and return that element
+    + change the length of the array
+  + return: the removed element from the array; `undefined` if the array is empty.
+
++ [`array.sort()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+  + syntax: `arr.sort([compareFunction])`
+  + docstring:
+    + sort the elements of an array in place and return the sorted array
+    + default sort order: ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
+  + parameters
+    + `compareFunction` (optional):
+      + specify a function that defines the sort order.
+      + omitted: the array elements are converted to strings, then sorted according to each character's Unicode code point value.
+  + compare function
+
+    ```js
+    function compare(a, b) {
+      if (a is less than b by some ordering criterion) {
+        return -1;
+      }
+      if (a is greater than b by the ordering criterion) {
+        return 1;
+      }
+      // a must be equal to b
+      return 0;
+    }
+    ```
+
++ [`array.splice()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+  + syntax: `let arrDeletedItems = arr.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+  + docstring: change the contents of an array by removing or replacing existing elements and/or adding new elements in place
+  + parameters
+    + `start`: the index at which to start changing the array
+      + start &lt; array.length: `start` set to the length of the array. No element will be deleted but the method will behave as an adding function, adding as many element as item[n*] provided.
+      + negative: begin that many elements from the end of the array (`-n` is the index of the nth last element)
+      + array.length + start &lt; 0: begin from index `0`
+    + `deleteCount` (optional)
+      + an integer indicating the number of elements in the array to remove from start
+      + omitted, or &ge; array.length - start: all the elements from start to the end of the array will be deleted
+      + &le; 0: no elements removed
+    + `item1, item2, ...` (optional):
+      + the elements to be added to the array, beginning from start
+      + not specifying any elements: only removing elements from the array
+  + return:
+    + an array containing the deleted elements
+    + a one-element array if only one elemnet removed
+    + an empty array if nothing removed
+
+
++ [Iteration of array](../WebDev/Frontend-W3C/5-JavaScript/03b-HTML5API.md#323-iterating-on-array-elements)
+  + iterating w/ `forEach`
+    + parameters of `forEach`
+      + the current element of the array
+      + (optional) the index of the current element in the array
+      + (optional) the array itself
+  + iterate using regular `for` loop
+    + most common way to iterate over an array is to use a `for` loop from 0 to length-1
+    + allowing element to be iterated step  other than 1 or broken in the middle w/ `break` instruction
+
++ [`array.forEach` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+  + syntax:
+
+    ```js
+    arr.forEach(callback(currentValue[, index[, array]]) {
+      // execute something
+    }[, thisArg]);
+    ```
+  
+  + docstring: execute a provided function once for each array element
+  + parameters
+    + `callback`: function to execute on each element. It accepts between one and three arguments:
+      + `currentValue`: The current element being processed in the array.
+      + `index` (optional): The index of `currentValue` in the array.
+      + `array` (optional): The array `forEach()` was called upon.
+    + `thisArg` (optional): Value to use as `this` when executing `callback`.
+  + return: `undefined`
+
 
 
 
