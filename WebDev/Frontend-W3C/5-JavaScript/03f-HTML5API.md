@@ -208,32 +208,32 @@ __Source code for the next 3 questions (7, 8 and 9):__
   a. Different methods, including: GPS, GSM/3G triangulation, WIFI, and IP address; are tried to get the current location.<br>
   b. Using GPS only. If no GPS, it's impossible to geolocate. That's why smartphones often ask the user to turn on the GPS.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The geolocation HTML5 JavaScript API is implemented by most modern web browsers, and uses different means to get the current location: GPS, GSM/3G triangulation, WIFI, IP address, etc. Sometimes it is not possible to get a location (behind an organization's firewall, for instance).
 
 
 12. She's the one!
 
-navigator.geolocation.getCurrentPosition(showPosition, onError);
+  ```js
+  navigator.geolocation.getCurrentPosition(showPosition, onError);
 
-```js
-function showPosition(position) {
-    console.log("latitude is: " + position.coords.latitude);
-    console.log("longitude is: " + position.coords.longitude);
-}
- 
-function onError(err) {
-    console.log("Could not get the position");
-}
-```
+  function showPosition(position) {
+      console.log("latitude is: " + position.coords.latitude);
+      console.log("longitude is: " + position.coords.longitude);
+  }
+  
+  function onError(err) {
+      console.log("Could not get the position");
+  }
+  ```
 
   With the above code, if a position is available, how many times will the showPosition callback be called?
 
   a. Once.<br>
   b. Several times: if we move and the position changes, the showPosition method will be called again.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: <span style="color: brown;">a</span>, xb<br>
+  Explanation: When a position is available, the showPosition will be called once.
 
 
 
