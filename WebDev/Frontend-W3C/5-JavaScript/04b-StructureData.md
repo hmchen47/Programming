@@ -290,6 +290,24 @@ Example:
 Accessing the embedded object `author` is done by chaining property accesses using the "." operator, like in `book.author.givenName` (here we access the `givenName` property of the object `author`, which is also a property of the `book` object).
 
 
+#### Notes for 4.2.4 An object can contain another object
+
++ Object in object
+  + accessing the embedded object by chaining property using the '.' operator
+  + example:
+
+    ```js
+    var book = {
+      name: 'Catch-22',
+      published: 1961,
+      author: {                 // embedded object!
+          givenName: 'Joseph',
+          familyName: 'Heller'
+      }
+    };
+
+    book.author.givenName;  // "Joseph"
+    ```
 
 
 
