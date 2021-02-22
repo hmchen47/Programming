@@ -46,26 +46,26 @@ By looking at this example (HTML and JS code), you note a few things:
 
 Two lines in the HTML code that correspond to the inclusion in the document of some external JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://d3js.org/d3.v3.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mauriciopoppe.github.io/function-plot/js/function-plot.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;script src="https://d3js.org/d3.v3.min.js"&gt;&lt;/script&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"&gt;&lt;/script&gt;</li>
 </ol></div><br/>
 
 We will examine this soon in a later section of the course, but, in brief, it means that we will use the [d3js plotting library](https://d3js.org/), and another from github (a famous repository for open source contributions), and located in the github account of a person named "mauriciopoppe", the repository is named "function plot" ("[function plot JavaScript library](https://mauriciopoppe.github.io/function-plot/)").
 
 Then, looking at the JavaScript code of the example (click the JS button on the [CodePen example](https://codepen.io/w3devcampus/pen/PpYpjJ)), we see:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">functionPlot</span><span class="pun">(<strong>{</strong></span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;target</span><span class="pun">:</span><span class="pln"> </span><span class="str">'#myFunction'</span><span class="pun">,</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;fn</span><span class="pun">:</span><span class="pln"> </span><span class="str">'sin(x)'</span><span class="pun">,</span><span class="pln"> </span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln"> </span><span class="str">'red'</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }],</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; grid</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; yAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">domain</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">]},</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">domain</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">]}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun"><strong>}</strong>);</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">functionPlot(<strong>{</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp;target: '#myFunction',</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp;data: [{</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp;fn: 'sin(x)', </strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp;color: 'red'</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; }],</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; grid: true,</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; yAxis: {domain: [-1, 1]},</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; xAxis: {domain: [0, 2*Math.PI]}</strong></li>
+<li style="margin-bottom: 0px;"><strong>}</strong>);</li>
 </ol></div><br/>
 
 Ok, the syntax looks strange if you are not used to JavaScript, but I bet that you guessed that the function plotted is "sin(x)", that the color of the curve is "red", that the range of the x values is [0, 2*PI], and the range of the y values is [-1, 1].
@@ -88,8 +88,8 @@ __What can you guess from this example?__
 
 You can think of this code in this way:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">functionPlot</span><span class="pun">(...);</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">functionPlot(...);</li>
 </ol></div><br/>
 
 Where the "..." corresponds to some sort of parameter. When you see a name followed by two parentheses (maybe with something in between) followed by a ";", this is "__a function call__". 
@@ -103,21 +103,21 @@ The "thing" between parentheses is what we call "the parameters of the function"
 
 Let's have a look at the parameters we used in our example (the ones you tweaked). They are in bold in the source code we saw earlier:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>target</strong></span><span class="pun">:</span><span class="pln"> </span><span class="str">'#myFunction'</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>data</strong></span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fn</span><span class="pun">:</span><span class="pln"> </span><span class="str">'sin(x)'</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln"> </span><span class="str">'red'</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }],</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>grid</strong></span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>yAxis</strong></span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;domain</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[-</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">]</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; },</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>xAxis</strong></span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;domain</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">]</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>target</strong>: '#myFunction',</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>data</strong>: [{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fn: 'sin(x)', </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;color: 'red'</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }],</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>grid</strong>: true,</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>yAxis</strong>: {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;domain: [-1, 1]</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; },</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>xAxis</strong>: {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;domain: [0, 2*Math.PI]</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div><br/>
 
 
@@ -127,11 +127,11 @@ In JavaScript you can have simple values like: 2, 5, "hello", "3.14", and you ma
 
 A JavaScript object can be defined by two braces with a set of properties/values inside, separated by a comma. Here is a simple object:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;givenName</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Michel"</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;familyName</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Buffa"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;givenName: "Michel",</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;familyName: "Buffa"</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div><br/>
 
 We use the ":" separator between the property name and its value. We use a comma between two properties, and we omit the comma after the last property (or before the ending brace).
@@ -153,19 +153,19 @@ Notice that after each property (`color`, `grid`, etc.) there is a ",". Notice t
 
 If we look at the values of the `xAxis` and `yAxis` properties, they are also objects.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">xAxis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; domain</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">]</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">xAxis: {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; domain: [0, 2*Math.PI]</li>
+<li style="margin-bottom: 0px;"> }</li>
 </ol></div><br/>
 
 The `data` object is even more complicated:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;fn</span><span class="pun">:</span><span class="pln"> </span><span class="str">'sin(x)'</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln"> </span><span class="str">'red'</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}],</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> data: [{</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;fn: 'sin(x)',</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;color: 'red'</li>
+<li style="margin-bottom: 0px;"> }],</li>
 </ol></div><br/>
 
 Instead of containing another object like `xAxis` or `yAxis`, it contains another sort of object, but inside brackets! __In JavaScript, brackets are used to create *arrays*__ of "things" (multiple, enumerable things). In this example, the array contains one single object that has two properties:
@@ -175,17 +175,17 @@ Instead of containing another object like `xAxis` or `yAxis`, it contains anothe
 
 __In arrays, the different elements are separated by commas.__ Let's try to plot an additional function in our example. We will add f(x) = cos(x) to our example, with a different color:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">data</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&nbsp; &nbsp; {</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;fn</span><span class="pun">:</span><span class="pln"> </span><span class="str">'sin(x)'</span><span class="pun">, &nbsp;// First function</span><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln"> </span><span class="str">'red'</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; },</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;fn</span><span class="pun">:</span><span class="pln"> </span><span class="str">'cos(x)'</span><span class="pun">, &nbsp;// second function</span><span class="pln"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln"> </span><span class="str">'blue'</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">]</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">data: [</li>
+<li style="margin-bottom: 0px;" value="1">&nbsp; &nbsp; {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;fn: 'sin(x)', &nbsp;// First function</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;color: 'red'</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; },</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;fn: 'cos(x)', &nbsp;// second function</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;color: 'blue'</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">]</li>
 </ol></div><br/>
 
 [CodePen Demo - Sine & Cosine functions](https://codepen.io/w3devcampus/pen/KWPyeX)
@@ -333,29 +333,29 @@ This first example used __the selector API__ for selecting a particular element 
 
 It uses __the selector API__ to target a particular part of the DOM (in our case, the main title of the page), the HTML element with an `id` attribute equal to "mainTitle". The selector API uses the same syntax as CSS to select elements in the document. In our case, `"#mainTitle"` is a selector value that means "the element whose `id` is equal to `mainTitle`".
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mainTitle"</span><span class="pun">);</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var title = document.querySelector("#mainTitle");</li>
 </ol></div><br/>
 
 It uses __the DOM API__ to change the HTML content of the selected element:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">title</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"This new title has been changed from JavaScript!"</span><span class="pun">;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">title.innerHTML = "This new title has been changed from JavaScript!";</li>
 </ol></div><br/>
 
 __It listens to click events__ in order to call the `changeTitle()` function when we click on the button:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span style="color: #ff0000;"><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeTitle</span><span class="pun">();</span></strong></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click me to change the title of the page</span><span class="tag">&lt;/button&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;button <span style="color: #ff0000;"><strong>onclick="changeTitle();</strong></span>"&gt;Click me to change the title of the page&lt;/button&gt;</li>
 </ol></div><br/>
 
 And it executes the whole action (changing the title text) in a _function_ (a block of code that is executed only when we call it by adding a parenthesis after its name, followed by a semi colon):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span style="color: #ff0000;"><strong><span class="kwd">function</span><span class="pln"> changeTitle</span><span class="pun">()</span></strong></span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mainTitle"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; title</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"This new title has been changed from JavaScript!"</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><span style="color: #ff0000;"><strong>function changeTitle()</strong></span> {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; var title = document.querySelector("#mainTitle");</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; title.innerHTML = "This new title has been changed from JavaScript!";</li>
+<li style="margin-bottom: 0px;"> }</li>
 </ol></div><hr/>
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/bgwVvN)
@@ -364,13 +364,13 @@ And it executes the whole action (changing the title text) in a _function_ (a bl
 
 The second example is nearly the same except that we changed the name of the function, and instead of using the DOM API to update the text content of the main title, __we use its `style` property to change its look and feel. Using the `style` property is a way of altering the CSS property values of this HTML element.__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> changeTitleCSSStyle</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mainTitle"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>title</strong></span><strong><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; title</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">backgroundColor </span><span class="pun">=</span><span class="pln"> </span><span class="str">"yellow"</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; title</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">border </span><span class="pun">=</span><span class="pln"> </span><span class="str">"5px dashed red"</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function changeTitleCSSStyle() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; var title = document.querySelector("#mainTitle");</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>title</strong><strong>.style.color = 'black';</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; title.style.backgroundColor = "yellow";</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; title.style.border = "5px dashed red";</strong></li>
+<li style="margin-bottom: 0px;"> }</li>
 </ol></div><br/>
 
 `title` is in reality what we call "an object" and `style` is a property of the title object. The `style` is an object as well and has attributes that correspond to the different CSS properties we set. For example, `style.color` returns the color that element has set on it. By calling `title.style.color = "yellow";` you can apply the style change dynamically.
@@ -481,7 +481,7 @@ Here is an example that will display the current and past members of famous rock
 
 #### Foreword
 
-<p class="exampleHTML">Michel Buffa, author of this course: <br><br><em>"When I work locally, with files located on my computer hard drive, I use the Sublime Text source code editor, Visual Studio Code, WebStorm, NetBeans, depending on the size of the project I'm working on. <br>- For testing simple examples, I mainly use the JsBin.com online code editor.<br>- For embedding online examples in this course, I use the CodePen.io online code editor.<br>- For choosing a CSS color, shadow, text-shadow, gradients, etc. I use the LiveWeave online code editor."</em></p>
+<p>Michel Buffa, author of this course: <br><br><em>"When I work locally, with files located on my computer hard drive, I use the Sublime Text source code editor, Visual Studio Code, WebStorm, NetBeans, depending on the size of the project I'm working on. <br>- For testing simple examples, I mainly use the JsBin.com online code editor.<br>- For embedding online examples in this course, I use the CodePen.io online code editor.<br>- For choosing a CSS color, shadow, text-shadow, gradients, etc. I use the LiveWeave online code editor."</em></p>
 
 
 #### Traditional source code editors
@@ -664,18 +664,18 @@ __First variant: in the `<body>..</body>` of the HTML document__
 
 Typically:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">...</span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&nbsp;&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// show a message in the body of the html document</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;b&gt;JavaScript code executed. The value of the variable x is: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/b&gt;"</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// also print a message in the devtool console</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"JavaScript code executed"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp;&lt;/script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;" value="1">...</li>
+<li style="margin-bottom: 0px;" value="1">&nbsp;&lt;script&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;var x = 2;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;// show a message in the body of the html document</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;document.body.innerHTML += "&lt;b&gt;JavaScript code executed. The value of the variable x is: " + x + "&lt;/b&gt;";</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;// also print a message in the devtool console</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log("JavaScript code executed");</li>
+<li style="margin-bottom: 0px;">&nbsp;&lt;/script&gt;</li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
 </ol></div>
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/ZLBPpY)
@@ -693,20 +693,20 @@ In this example, the `<script>...</script>` element is placed in the `<head>..</
 
 This time, we placed a JavaScript function that is invoked (called) when a button is clicked:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; <strong>&lt;script&gt;</strong></span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp;function</span><span class="pln"> addSomeText</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // append a message in the body of the html document</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;br&gt;Function executed!"</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp;}</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="tag">&nbsp; &lt;/script&gt;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">addSomeText</span><span class="pun">();</span><span class="atv">"</span></strong><span class="tag">&gt;</span><span class="pln">Click me to call a JavaScript function that will add </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;some content to this document</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; <strong>&lt;script&gt;</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp;function addSomeText() {</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; // append a message in the body of the html document</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; document.body.innerHTML += "&lt;br&gt;Function executed!";</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp;}</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &lt;/script&gt;</strong></li>
+<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
+<li style="margin-bottom: 0px;">&lt;body&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;button <strong>onclick="addSomeText();"</strong>&gt;Click me to call a JavaScript function that will add </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;some content to this document</li>
+<li style="margin-bottom: 0px;">&lt;/button&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
 </ol></div>
 
 Here is this second example on CodePen:
@@ -726,12 +726,12 @@ Putting JavaScript code in external scripts files is easy, and offers many advan
 
 A typical example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"css/style.css"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;<strong>&lt;script</strong></span><strong><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;link rel="stylesheet" href="css/style.css"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong>&lt;script</strong><strong> src="js/script.js"&gt;&lt;/script&gt;</strong></li>
+<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
 </ol></div><br/>
 
 __To use an external JavaScript file:__
@@ -744,15 +744,15 @@ __To use an external JavaScript file:__
 
 Example that uses more than one JavaScript file:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"css/style.css"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;<strong>&lt;script</strong></span><strong><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/script1.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="tag"><strong>&nbsp; &nbsp;&lt;script</strong><strong style="color: #3c3c3c;"><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/script2.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="tag"><strong style="color: #3c3c3c;"><span class="tag"><strong>&nbsp; &nbsp;&lt;script</strong><strong style="color: #3c3c3c;"><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/anotherOne.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong><br></span></strong></span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="tag"><strong style="color: #3c3c3c;"><span class="tag"><strong style="color: #3c3c3c;"><span class="tag">&nbsp; &nbsp;...</span></strong></span></strong></span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;link rel="stylesheet" href="css/style.css"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong>&lt;script</strong><strong> src="js/script1.js"&gt;&lt;/script&gt;</strong></li>
+<li style="margin-bottom: 0px;"><strong><strong>&nbsp; &nbsp;&lt;script</strong><strong style="color: #3c3c3c;">&nbsp;src="js/script2.js"&gt;&lt;/script&gt;</strong></strong></li>
+<li style="margin-bottom: 0px;"><strong><strong style="color: #3c3c3c;"><strong>&nbsp; &nbsp;&lt;script</strong><strong style="color: #3c3c3c;">&nbsp;src="js/anotherOne.js"&gt;&lt;/script&gt;</strong><br></strong></strong></li>
+<li style="margin-bottom: 0px;"><strong><strong style="color: #3c3c3c;"><strong style="color: #3c3c3c;">&nbsp; &nbsp;...</strong></strong></strong></li>
+<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
 </ol></div><br/>
 
 #### A typical HTML/CSS/JS project folder structure, when working with external local files
@@ -781,34 +781,34 @@ In this example, we have just one CSS file and one JavaScript file:
 
 Content of the index.html file:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="tag">&nbsp; &nbsp;&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"css/style.css"</span><span class="tag">&gt;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h1&gt;</span><span class="pln">Example 3: JavaScript and CSS in local files!</span><span class="tag">&lt;/h1&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">addSomeText</span><span class="pun">();</span></strong><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click me to call a JavaScript function that will add some content to this document</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">...</li>
+<li style="margin-bottom: 0px;"> &lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp;&lt;link rel="stylesheet" href="css/style.css"&gt;</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp;&lt;script src="js/script.js"&gt;&lt;/script&gt;</strong></li>
+<li style="margin-bottom: 0px;"> &lt;/head&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;body&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;h1&gt;Example 3: JavaScript and CSS in local files!&lt;/h1&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;button <strong>onclick="addSomeText();</strong>"&gt;Click me to call a JavaScript function that will add some content to this document&lt;/button&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/body&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
 </ol></div><br/>
 
 Content of the js/script.js file (JavaScript file):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> addSomeText</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;p&gt;Function executed!&lt;/p&gt;"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function addSomeText() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;document.body.innerHTML += "&lt;p&gt;Function executed!&lt;/p&gt;";</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div><br/>
 
 Content of the style.css file:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">p </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln">green</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">p {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;color:green;</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div><br/>
 
 How to run this example:
@@ -823,8 +823,8 @@ __Example #3: use external references to JavaScript files/libraries located on t
 
 External JavaScript libraries (they are just big JS files) can be also referenced with a full URL, like in this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.22/paper.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.22/paper.js"&gt;&lt;/script&gt;</li>
 </ol></div><br/>
 
 Here, we just included in our HTML document the excellent [paperJS](http://paperjs.org/) library that can be used to make fancy animations in the HTML canvas element - we will use it later in the course. 
@@ -910,11 +910,11 @@ For this you will use __the dev. tools of your browser.__ Press _F12_ (or ctrl-s
 
 Let's look at [this example on JS Bin](http://jsbin.com/moqimuz/edit?html,console,output):
 
-<div class="rj_insertcode" style="color: #444444; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; line-height: 25px;">
-<div class="rj_insertcode_html4strict" style="overflow: auto; width: 546.174987792969px; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
-<table class="html4strict" style="max-width: 100%; border-spacing: 0px; width: 545.599975585938px; background-color: transparent;">
+<div style="color: #444444; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; line-height: 25px;">
+<div style="overflow: auto; width: 546.174987792969px; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<table style="max-width: 100%; border-spacing: 0px; width: 545.599975585938px; background-color: transparent;">
 <tbody>
-<tr class="li1">
+<tr>
 <td style="width: 1px; vertical-align: top; color: #676f73; border-right-style: dotted; border-right-color: #dddddd; font-size: 12px; text-align: right; background: #f0f0f0;">
 <pre style="padding: 0px 4px; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12px; color: #333333; border-radius: 4px; margin-top: 0px; margin-bottom: 0px; line-height: 20px; word-break: normal; border: 1px solid rgba(0, 0, 0, 0.14902); vertical-align: top; background: none;">1
 2
@@ -933,7 +933,7 @@ Let's look at [this example on JS Bin](http://jsbin.com/moqimuz/edit?html,consol
 </td>
 <td style="margin-top: 0px; margin-bottom: 0px; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal; background: none;">
 <pre style="padding: 0px 4px; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12px; color: #333333; border-radius: 4px; margin-top: 0px; margin-bottom: 0px; line-height: 20px; word-break: normal; border: 1px solid rgba(0, 0, 0, 0.14902); vertical-align: top; background: none;"><span style="color: #00bbdd;">&lt;!DOCTYPE html&gt;</span>
-<span style="color: #009900;">&lt;<span style="font-weight: bold;"><a style="color: purple;" href="http://december.com/html/4/element/html.html">html</a> lang="en</span>&gt;</span>
+<span style="color: #009900;">&lt;<span style="font-weight: bold;"><a style="color: purple;" href="http://december.com/html/4/element/html.html">html</a> lang="en&gt;
 &nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/head.html"><span style="font-weight: bold;">head</span></a>&gt;</span>
 &nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/meta.html"><span style="font-weight: bold;">meta</span></a> <span style="color: #00CC66;">charset</span><span style="color: #66cc66;">=</span>utf-<span style="color: #cc66cc;">8</span> <span style="color: #66cc66;">/</span>&gt;</span>
 &nbsp; <span style="color: #009900;">&lt;<a style="color: purple;" href="http://december.com/html/4/element/title.html"><span style="font-weight: bold;">title</span></a>&gt;</span>Web Audio API<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a style="color: purple;" href="http://december.com/html/4/element/title.html"><span style="font-weight: bold;">title</span></a>&gt;</span>
