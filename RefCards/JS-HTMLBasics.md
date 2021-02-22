@@ -1,8 +1,6 @@
 # JavaScript Basic HTML APIs
 
 
-
-
 ## Web Storage APIs
 
 ### Web Storage API
@@ -334,7 +332,6 @@
 
 ### Geolocation APIs
 
-
 + [Geolocation API](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#641-introduction)
   + implemented by most modern Web browsers
   + using different means to get the current location: GPS, GSM/3G triangulation, Wifi, IP address, etc.
@@ -359,34 +356,9 @@
     }
     ```
 
-  + example: get location
-    + check if the Web browser supports the `geolocation` API by testing the variable `navigator.geolocation`:
-      + `navigator.geolocation.getCurrentPosition(showPosition)` passing a callback function as a parameter
-      + when a current position available, the callback function called asynchronously
-      + the input parameter of this callback function = the current position
-
-      ```js
-      function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            displayCoords.innerHTML="Geolocation API not supported by your browser.";
-        }
-      }
-      ```
-
-    + position objects w/ a `coords` property: the longitude and the latitude
-
-      ```js
-      function showPosition(position) {
-        displayCoords.innerHTML="Latitude: " + position.coords.latitude +
-                               "<br />Longitude: " + position.coords.longitude;
-      }
-      ```
-
   + [Geolocation API Specification](https://www.w3.org/TR/geolocation-API/)
   + [Geolocation API - WDN](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
-
+ 
 + [coords object properties](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#642-the-coords-object-properties)
   + __latitude:__ the latitude of the position
   + __longitude:__ the longitude of the position
@@ -397,7 +369,7 @@
   + __speed:__ current speed in meters/second
 
 + [Geolocation error codes](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#643-geolocation-error-codes)
-  + `navigator.geolocation.getCurrentPosition` method possible to pass a second parameter in case of errror
+  + `navigator.geolocation.getCurrentPosition` method possible to pass a second parameter in case of error
   + example: error handler
     + get location: `navigator.geolocation.getCurrentPosition(showPosition, errorPosition);`
     + error handling
@@ -423,6 +395,24 @@
       }
       ```
 
++ [Geolocation HTML5 API](../WebDev/Frontend-W3C/5-JavaScript/03d-HTML5API.md#341-the-geolocation-api)
+  + implemented by most modern Web browser
+  + using different means to get the current location, including GPS, GSM/3G triangulation, WiFi, IP address, etc.
+  + possible to promot the user to activate the GPS
+  + possible to track the current position when it changes, e.g., useful for
+    + a navigation application
+    + tracking in real time the position of different participants
+  + [Interfaces](https://tinyurl.com/pjjj7ayq)
+    + [Geolocation](https://tinyurl.com/zeyhput6): containing methods to retrieve the user's current position, watch for changes in their position, and clear a previously-set watch
+    + [GeolocationPosition](https://tinyurl.com/w1grzn0k): representing the position of a user
+    + [GeolocationCoordinates](https://tinyurl.com/ky6s9uoo): representing the coordinates of a user's position
+    + [GeolocationPositionError](https://tinyurl.com/y7pldaqo): returned by an unsuccessful call to one of the methods contained inside Geolocation, inside an error callback, and containing an error code and message
+    + [Navigator.geolocation](https://tinyurl.com/2djxdf54): return a Geolocation object instance, from which all other functionality accessed
+
+
+
+### Tracking Position
+
 + [Tracking position](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#644-tracking-a-position) 
   + syntax: `watchPosition(onSuccess, onError)`
     + get the callback function only when the current position changes
@@ -431,9 +421,6 @@
   + typical usage:
     + get an id of the current tracking: `var watchPosId = navigator.geolocation.watchPosition(showPosition);`
     + stop the tracking: `navigator.geolocation.clearWatch(watchPosId);`
-
-
-### Tracking Position
 
 + [Properties of the coords object for real time tracking](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#options-available-when-using-the-geolocation-api-in-particular-real-time-tracking)
   + __enableHighAccuracy:__ 
@@ -448,15 +435,8 @@
     + prepared to allow the device to try to obtain a Geo location
     + after this timeout, call the `onError` callback
 
-+ [Example: tracking position](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#example-of-use)
-  + ask to turn GPS on, if available: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {enableHighAccuracy:true});`
-  + the position cached for 10 mins useful when in tunnels: `maximumAge = 10 mins` 
-  + when the device tries to get a position, if it does not succeed, then go on error immediately: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:600000, timeout:0});`
-  + position will never come from the cache (maximumAge: 0), and if after 0.1s the position could not be computed, then go on error: `navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:0, timeout:100});`
-  + ask for GPS, cache for 30s, 27s before going on error: `watchId=navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy:true, maximumAge:30000, timeout:27000});`
 
-
-### 
+### Geolocation libraries
 
 + [Get a map centered on given longitude and latitude](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#645-geolocation-and-maps)
   + rendering a map with the [Leaflet API for OpenStreetMaps](https://leafletjs.com/reference-1.6.0.html)
@@ -473,6 +453,24 @@
     + popup in leaflet: `marker.bindPopup('<p>Your location</p>').openPopup();`
   + get current position fail: `alert('Get current position fail. Please access codepen to get geolocation.');`
 
++ [The Leaflet API for OpenStreetMap](../WebDev/Frontend-W3C/5-JavaScript/03d-HTML5API.md#342-geolocation-and-maps)
+  + [Leaflet API reference](https://leafletjs.com/)
+  + example: [centering location on map](src/03d-example01.html)
+    + button to trigger map: `<button class="btn" onclick="getLocation(event)">Click to show your location with OpenStreetMap</button>`
+    + container for map: `<div id="map" class="map"></div>`
+    + get current location: `function getLocation(e) {...}`
+      + avoid default behavior: `e.preventDefault();`
+      + retrieve the position: `if (!navigator.geolocation) { alert("Browser doesn't support geolocation"); } else { navigator.geolocation.getCurrentPosition(success, error); }`
+    + get current position successfully: `function success(position) {...}`
+      + global variables for current position: `var latitude = position.coords.latitude, longitude = position.coords.longitude;`
+      + map instance using leaflet: `map = L.map('map').setView([latitude, longitude], 13);`
+      + tile layer using key api at coludmade.com: `L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { key: '760506895e284217a7442ce2efe97797', styleId: 103288, maxZoom: 16 }).addTo(map);`
+      + add marker: `marker = L.marker([latitude, longitude]).addTo(map);`
+      + popup in leaflet: `marker.bindPopup('<p>Your location</p>').openPopup();`
+    + get error position: `function error() { alert('Get current position fail. Please access codepen to get geolocation.'); }`
+
+
+
 
 
 ### Reverse Geocoding
@@ -485,29 +483,32 @@
     + examples:
       + the [Google Reverse Geocoding JavaScript API](https://tinyurl.com/pdlpfjc)
       + Leaflet plugin (an extension to Leaflet) based on the Gisgraphy (free open source framework)
-  + example: get address from longitude & latitude
-    + access Google API: `<script src="https://maps.googleapis.com/maps/api/js?key=PUT_HERE_YOUR_API_KEY&v=3.exp&sensor=false">`
-    + using the google apis: `var infowindow = new google.maps.InfoWindow();`
-    + initializing JS after page loaded: `function init() {...}`
-      + linking w/ html elements: `displayCoords=document.getElementById("msg"); myAddress = document.getElementById("address");`
-      + access Google map: `geocoder = new google.maps.Geocoder();`
-      + displaying something before click button: `geocoder = new google.maps.Geocoder();`
-      + parameters for Google map: `var mapOptions = { zoom: 8, center: latlng, mapTypeId: 'roadmap' }`
-      + get initial map: `map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);`
-    + button clicked: `navigator.geolocation.getCurrentPosition(showPosition);`
-    + show position as available: `function showPosition(position) {...}`
-      + insert HTML code: `displayCoords.innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;`
-      + display map: `showOnGoogleMap(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));`
-    + ask google geocoder for an address: `function showOnGoogleMap(latlng) {...}`
-      + the reverse geocoder sends back an array of "guesses", i.e. not just one address object, but several
-      + each entry in this array has several properties such as street, city, etc.
-      + using the "formatted_address" one here
-      + probably interesting to get the detailed properties in other applications like a form with street, city, zip code etc.
-      + the reverse geocoder: `geocoder.geocode({'latLng': latlng},reverseGeocoderSuccess);`
-    + process the map: `function reverseGeocoderSuccess(results, status) {...}`
-      + display marker if success: `status == google.maps.GeocoderStatus.OK`
-      + showing warning message: `alert('Geocoder failed due to: ' + status);`
 
++ [Reverse geolocation](../WebDev/Frontend-W3C/5-JavaScript/03d-HTML5API.md#343-reverse-geocoding)
+  + used to get an address from longitude and latitude
+  + Web service free charge but limited requests
+    + register required w/ credit card
+    + charged once exceeding limitation
+    + examples:
+      + [Google Reverse Geocoding JavaScript API](https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse)
+      + [Gisgraphy](https://www.gisgraphy.com/): base of Leaflet plugin, free open source framework
+
+
+### Examples
+
++ Example: [get location](..../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#641-introduction)
+
++ Example: [tracking position](../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#example-of-use)
+
++ Example: [get address from longitude & latitude](..../WebDev/Frontend-W3C/2-HTML5Coding/06d-BasicAPIs.md#646-reverse-geocoding)
+
++ Example: [get address from longitude and latitude w/ Google service](../WebDev/Frontend-W3C/5-JavaScript/03d-HTML5API.md#343-reverse-geocoding)
+
++ Example: [reverse geolocation](../WebDev/Frontend-W3C/5-JavaScript/03d-HTML5API.md#343-reverse-geocoding)
+
++ Example: [showing address](../WebDev/Frontend-W3C/5-JavaScript/03d-HTML5API.md#343-reverse-geocoding)
+
++ Example: [geolocation, map and reverse geoencoder in a HTML form](../WebDev/Frontend-W3C/5-JavaScript/03d-HTML5API.md#343-reverse-geocoding)
 
 
 

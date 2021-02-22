@@ -20,6 +20,7 @@
 + 2.5 [The DOM API](02e-Interact.md)
 + 2.6 [Let's write a small game](02f-Interact.md)
 + 2.7 [Exercises - Module 2](02g-Interact.md)
++ [Events-related Reference Table](02h-RefTbl.html)
 
 
 ## Module 3: Playing with HTML5 APIs

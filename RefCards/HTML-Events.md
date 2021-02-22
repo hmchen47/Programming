@@ -33,6 +33,301 @@
 
     + use different properties from the event object in order to get useful information
 
++ [Interaction w/ events](../WebDev/Frontend-W3C/5-JavaScript/01f-JSIntro.md#notes-for-165-adding-interactivity-with-events)
+  + possible actions able to react to
+    + user interactions (keyboard, mouse, gamepad)
+    + changes in the lifecycle of document, e.g., pages loading or resizing, screen rotation on a mobile device
+    + notified after compeltion of a long process; e.g. loading a large image or source track from the network
+
++ [Interactivity of Web application](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#24-handling-events)
+  + CSS: limited w/ pseudo CSS class, e.g., `.hover`
+  + JavaScript:
+    + extended features
+    + examples: mouse button clicked
+      + which mouse button used
+      + mouse pointer position in button system coordinate
+      + executing more complex tasks
+  + events
+    + interaction created, e.g., button clicked, mouse movement, window resized
+    + timing and order unable to be predicted in advance
+    + asynchronous event processing
+    + event listerners
+      + a.k.a. handlers or callbacks for special event
+      + registered functions
+      + web browser detecting events as they occur
+      + pass these events to JavaScript code
+    + events placed in "queue of events"
+    + browser looks at a list of "Event Listerners" and calls the ones corresponding to the type of evenet listening to
+
+
+
+## Reference table
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 70vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#2410-reference-tables">Event Reference Table</a></caption>
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="width: 5%; font-size: 1.4em; border-right: double back; text-align: center; background-color: lightslategray; color: white;"> Type </th>
+    <th style="width: 5%; font-size: 1.4em; border-right: double back; text-align: center; background-color: lightslategray; color: white;"> Name </th>
+    <th style="width: 60%; text-align: center; font-size: 1.4em; background-color: lightslategray; color: white;"> Description </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Event Object </td> </tr>
+    <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Common Properties </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> type </td>
+    <td style="padding: 0.3em;"> Returns the name of the event </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> target </td>
+    <td style="padding: 0.3em;"> Returns the element that triggered the event </td>
+  </tr>
+  <tr>
+    <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Common Methods </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> preventDefault() </td>
+    <td style="padding: 0.3em;"> Cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> stopPropagation() </td>
+    <td style="padding: 0.3em;"> Prevents further propagation of an event during event flow </td>
+  </tr>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Page Lifecycle </td> </tr>
+    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Events </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> load </td>
+    <td style="padding: 0.3em;"> This event occurs when an object has loaded (including all its resources: images, etc.) This event is very useful when you want to run JS code and be sure that the DOM is ready (in other words, be sure that a <code>document.getElementById(...)</code> or <code>document.querySelector(...)</code> will not raise an error because the document has not been loaded and elements you are looking for are not ready. </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> resize </td>
+    <td style="padding: 0.3em;"> The event occurs when the document view is resized. Usually we get the new size of the window inside the event listener using <code>var w = window.innerWidth;</code> and <code>var h = window.innerHeight;</code> </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> scroll </td>
+    <td style="padding: 0.3em;"> The event occurs when an element's scrollbar is being scrolled. Usually, in the scroll event listener, we use things such as:<br> &nbsp;&nbsp;<code>&var max = document.body.scrollHeight - innerHeight;</code><br>&nbsp;&nbsp;<code>var percent = (pageYOffset / max);</code><br/>...to know the percentage of the scroll in the page. </td>
+  </tr>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Keyboard </td> </tr>
+    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Events </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> keydown </td>
+    <td style="padding: 0.3em;"> The event occurs when the user is pressing a key </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> keyup </td>
+    <td style="padding: 0.3em;"> The event occurs when the user releases a key </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> keypress </td>
+    <td style="padding: 0.3em;"> The event occurs when the user presses a key (up and release) </td>
+  </tr>
+  <tr>
+    <th rowspan=4 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;"> Properties </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> keyCode </td>
+    <td style="padding: 0.3em;"> Returns the Unicode character code of the key that triggered the onkeypress ,onkeydown or onkeyup event </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> shiftKey </td>
+    <td style="padding: 0.3em;"> Returns whether the "shift" key was pressed when the key event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> ctrlKey </td>
+    <td style="padding: 0.3em;"> Returns whether the "ctrl" key was pressed when the key event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> altKey </td>
+    <td style="padding: 0.3em;"> Returns whether the "alt" key was pressed when the key event was triggered </td>
+  </tr>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Mouse </td> </tr>
+    <th rowspan=9 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Events </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> click </td>
+    <td style="padding: 0.3em;"> The event occurs when the user clicks on an element (presses a button and releases it) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> dblclick </td>
+    <td style="padding: 0.3em;"> The event occurs when the user double-clicks on an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mousedown </td>
+    <td style="padding: 0.3em;"> The event occurs when the user presses a key (up and release) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mouseup </td>
+    <td style="padding: 0.3em;"> The event occurs when a user releases a mouse button over an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mousemove </td>
+    <td style="padding: 0.3em;"> The event occurs when the pointer is moving while it is over an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mouseenter </td>
+    <td style="padding: 0.3em;"> The event occurs when the pointer is moved onto an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mouseleave </td>
+    <td style="padding: 0.3em;"> The event occurs when the pointer is moved out of an element </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> mouseover </td>
+    <td style="padding: 0.3em;"> The event occurs when the pointer is moved onto an element, or onto one of its children </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> contextmenu </td>
+    <td style="padding: 0.3em;"> The event occurs when the user right-clicks on an element to open a context menu </td>
+  </tr>
+  <tr>
+    <th rowspan=6 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Properties </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> button </td>
+    <td style="padding: 0.3em;"> Returns which mouse button was pressed when the mouse event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> clientX and clientY </td>
+    <td style="padding: 0.3em;"> Returns the coordinates of the mouse pointer, relative to the element coordinate system that triggered the event </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> pageX and pageY </td>
+    <td style="padding: 0.3em;"> Returns the coordinates of the mouse pointer, relative to the document, when the mouse event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> screenX and screenY </td>
+    <td style="padding: 0.3em;"> Returns the coordinates of the mouse pointer, relative to the screen, when an event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> altKey, ctrlKey, shiftKey </td>
+    <td style="padding: 0.3em;"> Returns whether the "alt, ctrl and shift" key was pressed when an event was triggered </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> detail </td>
+    <td style="padding: 0.3em;"> Returns a number that indicates how many times the mouse was clicked </td>
+  </tr>
+  <tr>
+    <td colspan=3 style="text-align: center; font-weight: bolder; line-height: 1.3; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Forms </td> </tr>
+    <th rowspan=6 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Events </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> input </td>
+    <td style="padding: 0.3em;"> The event occurs when an element gets user input (e.g., a key is typed on an input field, a slider is moved, etc.) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> change </td>
+    <td style="padding: 0.3em;"> The event occurs when the content of a form element, the selection, or the checked state have changed (for &lt;input&gt;, &lt;select&gt;, and &lt;textarea&gt;). A change event listener on a slider will generate an event when the drag/move ended, while input events will be useful to do something as the slider is being moved. </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> focus </td>
+    <td style="padding: 0.3em;"> The event occurs when an element gets focus (e.g., the user clicks in an input field) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> blur </td>
+    <td style="padding: 0.3em;"> The event occurs when an element loses focus (e.g., the user clicks on another element) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> select </td>
+    <td style="padding: 0.3em;"> The event occurs after the user selects some text (for &lt;input&gt; and &lt;textarea&gt;) </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> submit </td>
+    <td style="padding: 0.3em;"> The event occurs after the user selects some text (for &lt;input&gt; and &lt;textarea&gt;) </td>
+  </tr>
+  <tr>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle; font-weight: bold;">  Property </th>
+    <td style="padding: 0.3em; font-weight: bold; color: brown;"> value </td>
+    <td style="padding: 0.3em;"> The content of the different input fields </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+## Event Listening
+
++ [Event listerners](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#242-adding-and-removing-event-listeners)
+  + `addEventListener` function
+    + one possible syntax for registering as function to be called when a given type of event occurs
+    + syntax: `addEventListener(typeOfEvent, callbackFunction)`
+    + able to register more than one event listener
+    + procedure
+      + listening to event on the whole document: `addEventListener` = `window.addEventListener`
+      + listening to specific DOM elements
+        + get a reference of the HTML to detect the event; e.g., `var b = document.querySelector("#myButton");`
+        + call the `addEventListener` method on the object; e.g., `b.addEventListener('click', callback);`
+    + ensuring the existence before selecting an element w/ `querySelector`
+    + every DOM object w/ an `addEventListener` method starting listening to event on it, once getting a reference of any HTML element from JS
+
+  + [`on` attribute](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#242-adding-and-removing-event-listeners)
+    + adding an event listener to an HTML tag of an element directly
+    + syntax in HTML: `onclick='doSomething();`
+    + limited to a single event listener to click on this button
+  + big project
+    + better to separate the HTML, CSS and JS code
+    + recommended putting all event listener definitions in a separate JS file
+    + using `addEventListener` syntax in preference to the "on" attribute syntax
+  + removing event listener
+    + removing previous registered event listener
+    + syntax: `removeEventListener(TypeOfEvent, callBackFunction)`
+    + must pass `callBackFunction` used in `addEventListener` to remove
+
++ [Ways to provide callback function](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#242-adding-and-removing-event-listeners)
+  + standard function block
+  + function expression: common practice w/ small function
+
+
+## Event Object
+
++ [Event object](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#243-the-event-object)
+  + DOM event object
+    + the only parameter passed to event listener
+    + containing various properties and methods
+  + common properties and methods
+    + `evt.type`: the name of the event
+    + `evt.target`: the HTML element fired the event, e.g., `evt.target` = button as the click listeners on the button
+    + `evt.stopPropagation()`:
+      + several elements registered for an event
+      + not propagating the event to all other elements that listen to it
+    + `evt.preventDefault()`:
+      + default browser behavior not executed
+      + example: `contextmenu` event listener attached to an object for user's own contextmenu
+  + typical specific properties associated w/ the type of the event
+    + `evt.button`: mouse button used in case of a mouse event listener
+    + `evt.keyCode`: code of the key been used
+    + `evt.pageX`: coordinate of the mouse relative to the page
+
++[Most useful common properties and methods](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#243-the-event-object)
+  + properties
+    + `type`: returning the name of the event
+    + `target`: returning the element triggering the event
+  + methods
+    + `preventDefault()`:
+      + cancelling the cancelable event
+      + the default action belonging to the event not occuring
+      + useful for cancelling the default browser behavior
+    + `stopPropagation()`: preventing further propagation of an event flow
+
+
+
+
+## Page Lifecycle
+
++ [Page lifecycle events](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#244-page-lifecycle-events)
+  + detected when the page loaded and DOM ready
+  + related events
+    + `load`:
+      + occurred when an object loaded (including all resources)
+      + ensuring DOM ready before executing JS code, in particular, `document.getElementId(...)` or `document.querySelector(...)`
+    + `resize`:
+      + occurred when resizing document view
+      + new size of window: `var w = window.innerWidth;` & `var h = window.innerHeight;`
+    + `scroll`
+      + occurred when scrolling an element's scrollbar
+      + usually knowing the percentage of the scroll in the page: `var max = document.body.scrollHeight - innerHeight; var percent = (pageYOffset / max);`
+  + ways to wait until page loaded
+    + `<body onload="init();">` in HTML
+    + `window.onload = init;` in JS code
+    + `window.addEventListener('load', init);` in JS code
+  + window resizing
+    + calling callback function as the window loaded for the first time or resized; e.g., `resize()`
+    + used to display the updated size of the window w/ `window.innerWidth` and `window.innerHeight`
+    + displaying the screen size w/ `screen.width` and `screen.height`
+
+
+
 
 ## Keyboard events
 
@@ -76,7 +371,37 @@
       + mouse event: `canvas.addEventListener('mouseenter', setFocus, false); canvas.addEventListener('mouseout', unsetFocus, false);`
 
 
-## Keycode Values
++ [Key events](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#245-key-events)
+  + related events: `keydown`, `keyup` and `keypress`
+  + event parameter passed to the listener function containing the code of the key that fired the event
+
+  + key code w/ keyboard keys
+    + [JavaScript Event KeyCode Test Page](http://www.asquare.net/javascript/tests/KeyCode.html)
+    + [list of keycode values](https://css-tricks.com/snippets/javascript/javascript-keycodes/#keycode-values)
+  + key events
+    + `keydown`: pressing a key
+    + `keyup`: releasing a key
+    + `keypress` (deprecated): pressing a key or up and release
+  + keyboardEvent properties
+    + legacy properties still used by many JS code
+    + not recommended for modern browser
+    + `keyCode`
+      + more powerful/easy to use
+      + return the Unicode character code of the key
+      + triggering the onkeypress, onkeydown or onkeyup event
+    + `shiftKey`: return whether the "shift" key pressed when the key event triggered
+    + `ctrlKey`: return whether the "ctrl" key pressed when the key event triggered
+    + `altKey`: return whether the "alt" key pressed when the key event triggered
+
++ [Keyboard layouts](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#246-dealing-with-different-keyboard-layouts)
+  + keyboard layout varying from one country to another
+  + keys not located at the same place on keyboards from different countries
+  + key events & properties
+    + DOM API: `keyup`, `keydown` and `keypress`
+    + `KeyCode` property of the DOM event
+
+
+## Keycode / key / code properties
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 50vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y333tfjx">KeyCode Values from from event.which</a></caption>
@@ -125,6 +450,39 @@
 <tr> <td>back slash</td><td>220</td> <td>close braket</td><td>221</td> <td>single quote</td><td>222</td> </tr>
 </tbody>
 </table>
+
++ [`key` and `code` properties](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#247-key-and-code-properties)
+  + new recommended properties w/ modern browsers
+  + UI Events / DOM level 3 events: a new W3C API
+  + both introduced w/ UI Events
+  + `key` property
+    + a character in string form as the pressed key w/ a printable character
+    + a multi-character descriptive string as the pressed key not a printable character, e.g., 'Backspace', 'Control', 'Enter', 'Tab'
+    + all major browsers implemented
+  + `code` property
+    + the physical key pressed in string form
+    + totally independent of the keyboard layout
+  + example: pressing 'Q' key on a QWERTY keyboard
+    + `evt.code` value: `KeyQ`
+    + `evt.key` value: `q`
+  + example: pressing `A` key on a AZERTY keyboard
+    + `evt.code` value: `KeyQ`
+    + `evt.key` value: `a`
+  + `code` property of number keys
+    + top digit bar: 'Digit#', eg, `Digit1'
+    + numeric pad: 'Numpad#', eg, 'Numpad1'
+  + list of code
+    + [specification of UI Events KeyboardEvent code values](https://www.w3.org/TR/uievents-code/)
+    + [reference alphanumeric keyboard](https://www.w3.org/TR/uievents-code/#keyboard-key-codes)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+        onclick="window.open('https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system')"
+        src    ="https://www.w3.org/TR/uievents-code/images/keyboard-codes-alphanum1.svg"
+        alt    ="Reference alphanumeric keyboard"
+        title  ="Reference alphanumeric keyboard"
+      />
+    </figure>
 
 
 ## Mouse events
@@ -192,6 +550,92 @@
   + example: move mouse as pencil to draw in canvas
   + example: draw only when mouse button pressed
 
++ [Mouse events and properties](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#notes-for-248-mouse-events)
+  + events
+    + `click`: occurred when the user clicks on an element (press and release)
+    + `dblclick`: occurred when the user double-clicks on an element
+    + `mousedown`: occurred when the user presses a mouse button
+    + `mouseup`: occurred when the user releases a mouse button
+    + `mouseenter`: occurred when the pointer is moved onto an element
+    + `mouseleave`: occurred when the pointer is moved out of an element
+    + `mouseover`: occurred when the pointer is moved onto an element, or onto one of its children
+    + `contextmenu`: occurred when the user right-clicks on an element to open a context menu
+  + properties
+    + `button`: which buttom pressed when the mouse event is triggered
+    + `clientX` and `clientY`
+      + the coordinates of the mouse pointer
+      + relative to the element coordinate system
+        + left-top corner: always (0, 0) independent of scroll position
+        + coordinates relative to the VIEWPORT (the visualable part of the document page)
+      + values changed when page scrolls down and mouse not moved
+    + `pageX` and `pageY`
+      + the coordinates of the mouse pointer
+      + relative to the complete document/page
+      + always relative to the very beginning of the document/page, even if the top of the page not visible
+    + `screenX` and `screenY`: the coordinates of the mouse pointer, relative to the screen
+    + `altKey`, `ctrlKey` and `shiftKey`: whether the "alt", "ctrl" and "shift" pressed
+    + `detail`: a number that indicates how many times the mouse clicked
+  + event received by the listener used for getting the button number or the coordinates of the mouse cursor
+  + example: [listening to `mouseup` and `mousedown` events](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example18.html)
+  + example: [mouse position related to an element](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example19.html)
+  + example: [click and drag](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example23.html)
+  + example: [right-click context menu](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example24.html)
+
+
+
+
+## Form and Input Field Events
+
++ [Form and input field events](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#249-form-and-input-field-events)
+  + form related events
+    + `input`: occurred when an element gets user input, e.g., a key is typed on an input field, a slider is moved, etc.
+    + `change`
+      + occurred when the content of a form element, the selection or the checked state have changed
+      + for `<input>`, `<select>` and `<textarea>`
+      + change event on a slider: generating an event when drag/move ends
+      + input event: useful to do something as the slider is being moved
+    + `focus`: occurred when an element gets focus, e.g., the user clicks in an input field
+    + `blur`: occurred when an element loses focus, e.g., the user clicks on another element
+    + `select`: occurred after the user selects some text (for `<input>` and `<textarea>`)
+    + `submit`: occurred when a form is submitted
+  + FormEvent properties
+    + no particular properties required to be mentioned
+    + using `value` property of a form event listener to check the content of the different input fields
+  + examples
+    + [validating the user input w/ `input` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example25.html)
+    + [validating the user typed key w/ `keyup` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example26.html)
+    + [action for moving slider w/ `input` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example27.html)
+    + [detect number change w/ `input` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example28.html)
+    + [choose a color w/ `change` event](../WebDev/Frontend-W3C/5-JavaScript/src/02d-example29.html)
+
+
+ ## JavaScript form validation API
+
++ [Javascript form validation](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#573-javascript-form-validation-api)
+  + allowing developers to use their own validation algorithm and customize error messages
+  + together w/ some HTML/CSS/JavaScript to make own message bubbles
+  + example: password checking
+
++ [validity property](#574-the-validity-property-of-input-fields)
+  + error details when the field is invalid
+  + test the different types of validation error
+  + typical usage: `var validityState_object = input.validity;`
+  + possible values
+    + `valueMissing`
+    + `typeMismatch`
+    + `patternMismatch`
+    + `tooLong`
+    + `rangeUnderflow`
+    + `rangeOverflow`
+    + `stepMismatch`
+    + `valid`
+    + `customError`
+
++ [validationMessage property](../WebDev/Frontend-W3C/2-HTML5Coding/05g-HTMLForms.md#the-validationmessage-property)
+  + the validation error messag
+  + useful for making custom error messages
+  + typical usage: `console.log("Validation message = " + input.validationMessage);`
+
 
 
 
@@ -225,6 +669,40 @@
         }
         ctx.scale(scaleX, scaleY);
         ``
+
+
+
+
+
+
+#$# Event Management
+
++ [Event management in JS](../WebDev/Frontend-W3C/5-JavaScript/02d-Interact.md#2410-reference-tables)
+  + no input or output in JS
+  + treating events caused by user actions as input
+  + manipulating DOM structure as output
+  + DOM events:
+    + retaining variable info, including the key stroke, the mouse button clicks, and the mouse position
+    + the variables referred to determine what action to perform
+  + __event handler__ created by the DOM APIs
+  + ways to manage events 
+    + declaring an event handler in the HTNL code
+      + syntax: `<div id="someDiv" onclick="alert('clicked!')"> content of the div </div>`
+      + easy to use but not recommended
+      + probably duplicated
+      + mixing 'visual layer' (HTML) and 'logical layer' (JS) $\to$ a host problems during development
+    + attaching an event handler to an HTML element in JS
+      + syntax: `document.getElementById('someDiv').onclick = function() { alert('clicked!'); }`
+      + unable to attach multiple listener fucntions
+    + registering a callback to the event listener w/ the `addEventListener` method
+      + syntax: `document.getElementById('someDiv').addEventListener('click', function() { alert('clicked!'); }, false);`
+      + 3rd parameter: whether the _callback_ to be called during the captured phase, default as false
+  + passing DOM event to the event listener function
+    + creating an event listener and attached to an element $\to$ creating an `event` object to describe what happen
+    + event object as a parameter of the __callback fucntion__
+    + callback function: `element.addEventListener('click', function(event) { // able to use event object inside the callback }, false);`
+    + obtaining useful info from the `event` object w/ its properties
+
 
 
 

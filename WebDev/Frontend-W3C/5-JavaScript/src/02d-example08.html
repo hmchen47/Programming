@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <link rel="stylesheet" href="css/02d-example08.css">
+  <script src="js/02d-example08.js"></script>
+</head>
+<body>
+    <div>
+      <nav id="context-menu" class="context-menu">
+        <ul class="context-menu__items">
+          <li class="context-menu__item" id="context-menu-learn" onclick="menuItem1();">
+            Learn
+          </li>
+          <li class="context-menu__item" onclick="menuItem2();">
+            Clear
+          </li>
+          <li class="context-menu__item" onclick="toggleMenuOff();">
+            Close
+          </li>
+        </ul>
+      </nav>
+    </div>
+  <p>Try to right click on this div:</p>
+  <div id="div1" class="div">A Div with a context menu</div>
+<p>  This one does not have a context menu attached, try also a right click:  </p>
+  <div id="div2" class="div">Another Div without a context menu</div>
+</body>
+</html>
+

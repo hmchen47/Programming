@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Simple input field validation using keyup events</title>
+  <script src="js/02d-example26.js"></script>
+</head>
+<body>
+  <h1>Simple input field validation using the 'input' event</h1>
+  <p>Just type a name in the input field and see what happens! <span style="color:red"> TRY TO TYPE A "!" too</span></p>
+<label>
+  <span>Name (required):</span>
+  <input type="text" 
+         name="nom" 
+         maxlength="32" 
+         required
+         onkeyup = "validateName(event)">
+</label>
+  <p>
+  <span id="keyTyped"></span>
+</p>  
+</body>
+</html>

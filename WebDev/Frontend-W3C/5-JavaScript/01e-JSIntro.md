@@ -192,7 +192,7 @@ Here are a set of examples (using the `let` keyword, but they would also work wi
 #### Notes for 1.5.1 JS variables and values
 
 + JavaScript common syntax and devtool console
-  + `//`: comments
+  + `//` and `/* (code block) */`: comments
   + devtools console: able to type and execute JavaScript Code as an interperter
 
 + Variables

@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>WEBBEM - Multimedia</title>
+    <link rel="stylesheet" href="css/03c-example11.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="js/03c-example11.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="top">
+            <h1 class="banner">Project: HTML5</h1>
+            <nav>
+                <h1 class="page"><i>Multimedia</i></h1>
+                <ul class="topNavBar">
+                    <li> <a href="index.html">Home</a> </li>
+                    <li> <a href="microdata.html">Elements and Microdata</a> </li>
+                    <li> <a href="multimedia.html">Multimedia</a> </li>
+                    <li> <a href="canvas.html">Canvas</a> </li>
+                    <li> <a href="forms.html">Form Geo Persist DnD</a> </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside class="leftSide">
+                <h1>Multimedia</h1>
+                <article>
+                    <h1>HTML5 Video element</h1>
+                    <p>The second Assignment was optional, We had to look up some of the "enhanced" HTML5 video players available on the web.</p>
+                    <p> We had to play around with the new video element to discover its functions. For example we could let the video play in a loop, or let video's play one after each other. </p>
+                    <p>We could also try to make a custom videoplayer with custom buttons.</p>
+                    <p>For the more experienced programmers there where options to add subtitles and audiotracks, and they could try out the new WebAudio API.</p>
+                </article>
+            </aside>
+            <section>
+                <h1>Assignment: Week 2</h1>
+                <article>
+                    <h1>Create a custom videoplayer</h1>
+                    <p>Author: Maurice Buiten, student of the W3C HTML5 course at w3devcampus.com, ancestor of this MOOC. Original version at: http://www.webbem.nl/multimedia.html</p>
+                </article>
+                <div class="player">
+                    <video id="myVideo" preload width="640" height="360">
+                        <source src="https://mainline.i3s.unice.fr/mooc/mi5.mp4" />
+                    </video>
+                    <div>
+                        <button type="button" id="pl">Play</button>
+                        <button type="button" id="pr">Previous</button>
+                        <input id="slide" type="range" value="0" />
+                        <button type="button" id="nx">Next</button>
+                        <button type="button"> <span id="volDown">- &nbsp; </span>Vol<span id="volUp"> &nbsp; +</span></button>
+                    </div>
+                    <div class="thumbs">
+                        <img id="vid1" src="http://i.imgur.com/y6RTkIi.gif" width="128" height="72" alt="video 1">
+                        <img id="vid2" src="http://i.imgur.com/MUG6cex.gif" width="128" height="72" alt="video 2">
+                        <img id="vid3" src="http://i.imgur.com/Ey7oJdj.gif" width="128" height="72" alt="video 3">
+                    </div>
+                </div>
+            </section>
+            <aside class="rightSide">
+                <header>
+                    <h1>Under Construction</h1>
+                </header>
+                <article>
+                    <h1>More functions to be added</h1>
+                    <p>I will add more functions to this videoplayer in the future. So this is still work in progress.</p>
+                </article>
+            </aside>
+        </main>
+        <footer>This page was made by
+            <mark>Maurice Buiten</mark> with the Sublime Text 3 editor
+            <mark>©2015</mark>
+        </footer>
+    </div>
+</body>
+
+</html>
+
