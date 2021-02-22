@@ -33,7 +33,7 @@ __Features you will learn:__
 + The relationship between JavaScript objects and arrays,
 + What a "reference" is in a programming language,
 + How to embed methods in your objects (functions inside an object),
-+ The "this" object that you very often encounter in Object Oriented JavaScript code,
++ The "`this`" object that you very often encounter in Object Oriented JavaScript code,
 + How to add methods and properties to your objects,
 + How to make multiple objects of the same class using ES6 classes,
 + The built-in JavaScript objects and classes: `Array`, `String`, `RegExp`, `Date`, `Math`, `Error`, etc. And, we will remind you about objects such as `navigator`, `document`, `window`, `screen`, etc.
@@ -54,8 +54,9 @@ var myBoss = {
   a. A JavaScript object literal<br>
   b. No special name, objects are objects, that's all<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: A JavaScript __object literal__ is a comma-separated list of name-value pairs wrapped in curly braces. Object literals encapsulate data, enclosing it in a tidy package. This minimizes the use of global variables which can cause problems when combining code.
+
 
 
 
