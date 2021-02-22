@@ -68,6 +68,7 @@ var myBoss = {
 
 [Transcript](https://tinyurl.com/myijs29d)
 
+
 __Source code of the example in the above video__
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/XgNdLK?editors=0012)
@@ -144,6 +145,34 @@ We saw that we can use the "." operator, followed by the property name. It's als
 As you can see, if you look at _lines 7-10_ and _13-16_, writing `book.title` or `book['title']` is equivalent!
 
 <span style="color: brown; font-weight: bold">In JavaScript, objects are arrays whose indexes are property names: please remember this!</span>
+
+
+#### Notes for 4.2.2 From objects to arrays
+
++ Objects in JS
+  + object: a table whose keys/indexes defined
+  + __object literal__
+    + a comma-separated list of name-value pairs wrapped in curly braces
+    + encapsulating data, enclosing it in a tidy package
+  + minimizing the use of global variables which can cause problems when combining code
+  + array defined w/ '<span style="color: brown;">[</span>' and '<span style="color: brown;">]</span>'
+  + characteristics
+    + object defined ww/ '<span style="color: brown;">{</span>' and '<span style="color: brown;">}</span>'
+    + elements (properties) of object separated by a comma ','
+    + pairs of keys/values separated by ':'
+    + the last pair of keys/values w/o ',' at the end
+  + accessing properties w/ '.' or brackets followed by the property name
+  + example:
+
+    ```js
+    var darkVador = {
+      job: 'villain',
+      race: 'half human half machine'
+    };
+
+    darkVador.job;      // 'villain'
+    darkVador['job'];   // 'villain'
+    ```
 
 
 #### Knowledge check 4.2.2
