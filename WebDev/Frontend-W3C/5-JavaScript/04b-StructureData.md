@@ -265,5 +265,32 @@ Example:
     ```
 
 
+### 4.2.4 An object can contain another object
+
+Example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> book </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Catch-22'</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; published</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1961</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>author</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="pun">{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // embedded object!</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; givenName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Joseph'</span><span class="pun">,</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; familyName</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Heller'</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> book</span><span class="pun">.</span><span class="pln">author</span><span class="pun">.given</span><span class="pln">Name</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"Joseph"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> book</span><span class="pun">.</span><span class="pln">author</span><span class="pun">.family</span><span class="pln">Name</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"Heller"</span></li>
+</ol></div>
+
+Accessing the embedded object `author` is done by chaining property accesses using the "." operator, like in `book.author.givenName` (here we access the `givenName` property of the object `author`, which is also a property of the `book` object).
+
+
+
+
 
 
