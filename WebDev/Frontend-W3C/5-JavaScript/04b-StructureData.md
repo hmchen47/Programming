@@ -109,7 +109,7 @@ They look a bit similar, don't they?
 + Same name of the variable that contains the object = `darkVador`
 + Instead of '<span style="color: brown;">[</span>' and '<span style="color: brown;">]</span>' that we used for defining an array, we use '<span style="color: brown;">{</span>' and '<span style="color: brown;">}</span>' for defining an object
 + The elements of the object (its <span style="font-weight: bold; text-decoration: underline">properties</span>) are separated by a comma ','
-+ The pairs of keys/values are separated by '<span style="color: brown;">:</span>' as in <code>race<span style="color: brown;">:</span> 'half human, half machine</span>'
++ The pairs of keys/values are separated by '<span style="color: brown;">:</span>' as in <code>race<span style="color: brown;">:</span> 'half human, half machine</span>'</code>
 + The last pair of keys/values has no ',' at the end.
 
 __It is possible to access the object's properties with "." or with brackets__
@@ -162,6 +162,7 @@ As you can see, if you look at _lines 7-10_ and _13-16_, writing `book.title` or
     + pairs of keys/values separated by ':'
     + the last pair of keys/values w/o ',' at the end
   + accessing properties w/ '.' or brackets followed by the property name
+  + objects = arrays w/ indexes as __property names__
   + example:
 
     ```js
@@ -188,6 +189,11 @@ let michel = {
   a. `michel.job` and `michel['job']` are equivalent<br>
   b. `michel.job` and `michel['job']` are NOT equivalent<br>
 
+  Ans: a<br>
+  Explanation: We saw that we can use the "." operator, followed by the property name, like `michel.job`. It's also possible to use the bracket notation, and manipulate the object as an array whose indexes, instead of being 0, 1, 2, etc., are the property names! So `michel.job` and michel followed by brackets with 'job' or "job" as an index are equivalent.
 
+
+
+  
 
 
