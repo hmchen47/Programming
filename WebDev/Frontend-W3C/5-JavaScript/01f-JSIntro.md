@@ -1,6 +1,8 @@
 # Module 1: Introduction to JavaScript
 
+
 ## 1.6 Simple JavaScript examples to play with
+
 
 ### 1.6.1 Introduction
 
@@ -112,10 +114,10 @@ You can click on the button now....
 Instead of just displaying pure string messages, you can also use the "+" operator to concatenate variable values to the pure character strings.
 Example :
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><strong><span class="str">"The value of x is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> </span><span class="str">" and it's ok like that."</span></strong><span class="pun">);</span><span class="pln"> </span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var x = 2;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">console.log(<strong>"The value of x is " + x + " and it's ok like that."</strong>); </li>
 </ol></div>
 
 We typed this code in the devtool console to check what it does:
@@ -133,13 +135,13 @@ You can use as many "+" as you like, the part right after the "+" will be turned
 
 You can also use parentheses in order to display results of simple calculations:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"x = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> x</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"y = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"The value of (x+y) is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x</span><span class="pun">+</span><span class="pln">y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">" and it's ok like that."</span><span class="pun">);</span><span class="pln"> </span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var x = 2;</li>
+<li style="margin-bottom: 0px;">var y = 4;</li>
+<li style="margin-bottom: 0px;">console.log("x = " + x);</li>
+<li style="margin-bottom: 0px;">console.log("y = " + y);</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">console.log("The value of (x+y) is " + (x+y) + " and it's ok like that."); </li>
 </ol></div>
 
 Result:
