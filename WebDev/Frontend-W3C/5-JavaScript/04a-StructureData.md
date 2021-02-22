@@ -19,7 +19,7 @@ In Module 4, we continue exploring JavaScript Object Oriented Programming:
 
 + You will learn new things about JavaScript object properties and methods
 + You will see how to build many instances of objects using ES5 constructor functions and the new ES6 classes
-+ You will learn how to use the "new" keyword for building objects, and about the mysterious "`this`" keyword you already met in some examples
++ You will learn how to use the "`new`" keyword for building objects, and about the mysterious "`this`" keyword you already met in some examples
 + You will learn about "class properties and methods" (vs. "instance properties and methods")
 
 Finally, you will use these new concepts for improving the small game we started to develop in Module 2!
