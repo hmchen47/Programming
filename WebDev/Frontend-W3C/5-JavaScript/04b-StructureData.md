@@ -193,7 +193,52 @@ let michel = {
   Explanation: We saw that we can use the "." operator, followed by the property name, like `michel.job`. It's also possible to use the bracket notation, and manipulate the object as an array whose indexes, instead of being 0, 1, 2, etc., are the property names! So `michel.job` and michel followed by brackets with 'job' or "job" as an index are equivalent.
 
 
+### 4.2.3 Property declaration syntax
 
-  
+#### Property names: different possibilities
+
+We can put single or double quotes around the name of the property, or nothing at all:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">var</span><span class="pln"> louis </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">40</span><span class="pun">}; // WE DO THIS MOST OF THE TIME!</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> louis </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">"age"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">40</span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> louis </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">'age'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">40</span><span class="pun">};</span><span class="pln"> </span></li>
+</ol></div>
+
+
+#### In some cases we have to put quotes around the property name
+
++ When it is a reserved word from JavaScript,
++ Or it contains spaces or special characters,
++ Or it begins with a number.
+
+Examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pln">book</span><span class="pun">.</span><span class="lit">1stPublication</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'6 April 1943'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// begins with a number</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Throws a SyntaxError</strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">book</span><span class="pun">[</span><span class="str">'1stPublication'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'6 April 1943'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// OK</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">book.date of publication =&nbsp;</span>'6 April 1943'<span class="pun">; // spaces not allowed!<br></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">book['date of publication']&nbsp;</span>=&nbsp;'6 April 1943'<span class="pun">; // allowed, but avoid!</span></li>
+</ol></div>
+
+
+#### Another classic case where the name of a property is in a variable
+
+In this case it is necessary  to use the syntax with '[' and ']' ...
+
+Example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> key </span><span class="pun">=</span><span class="pln"> </span><span class="str">'title'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> book</span><span class="pun">[</span><span class="pln">key</span><span class="pun">];</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"Le Petit Prince"</span></li>
+</ol></div>
+
+
+
 
 
