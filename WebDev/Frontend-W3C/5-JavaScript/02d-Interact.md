@@ -83,12 +83,12 @@ Online example used in the above video
 
 Here is one possible syntax for registering an event listener that listens to "click" events on any part of the window (clicks anywhere on a web document will be processed by this event handler):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">&lt;script&gt;</li>
-<li class="L2" style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><strong><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong><br><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>document.body.innerHTML += 'Button clicked!';</strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span></strong><span class="pun"><strong>&nbsp; &nbsp; }</strong>);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;script&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;addEventListener('click', <strong>function(evt) {</strong><br></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;document.body.innerHTML += 'Button clicked!';</strong></li>
+<li style="margin-bottom: 0px;"><strong></strong><strong>&nbsp; &nbsp; }</strong>);</li>
+<li style="margin-bottom: 0px;"> &lt;/script&gt;</li>
 </ol></div>
 
 Try it below by clicking anywhere on the document:
@@ -99,40 +99,40 @@ Try it below by clicking anywhere on the document:
 
 The `addEventListener` function is one possible syntax for registering a function to be called when a given type of event occurs.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">addEventListener</span><span class="pun">(</span><span class="pln">type_of_event</span><span class="pun">,</span><span class="pln"> callback_function</span><span class="pun">)</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">addEventListener(type_of_event, callback_function)</li>
 </ol></div>
 
 In the example below, the type of event is a 'click', and the callback function is the part in bold:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Button clicked!"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function(evt) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log("Button clicked!");</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 When this function is small (a few lines of code), it's common practice to put its body as the second parameter of the `addEventListener` function.
 
 In other words, this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><strong><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong>document.body.innerHTML += 'Button clicked!';</strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong><span class="pun"><strong>}</strong>);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> &lt;script&gt;</li>
+<li style="margin-bottom: 0px;">addEventListener('click', <strong>function(evt) {</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>document.body.innerHTML += 'Button clicked!';</strong></li>
+<li style="margin-bottom: 0px;"><strong> </strong><strong>}</strong>);</li>
+<li style="margin-bottom: 0px;"> &lt;/script&gt;</li>
 </ol></div>
 
 ... is the same as this (the function called when a click occurs has its body "outside" of the `addEventListener` parameters, and we use its name as the second parameter):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><strong><span class="pln"> processClick</span></strong><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><strong><span class="pln"> processClick</span></strong><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Button clicked!"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> &lt;script&gt;</li>
+<li style="margin-bottom: 0px;"> addEventListener('click',<strong> processClick</strong>);</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;"> function<strong> processClick</strong>(evt) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.log("Button clicked!");</li>
+<li style="margin-bottom: 0px;"> }</li>
+<li style="margin-bottom: 0px;"> &lt;/script&gt;</li>
 </ol></div>
 
 
@@ -163,8 +163,8 @@ Instead of using `b.addEventListener('click', callback)`, it's possible to use a
 
 This syntax:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myButton"</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">processClick</span><span class="pun">(</span><span class="pln">event</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Click me!</span><span class="tag">&lt;/button&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> &lt;button id="myButton" <strong>onclick="processClick(event);</strong>"&gt;Click me!&lt;/button&gt;</li>
 </ol></div>
 
 ... is ok when you only need a single event listener to click events for this button, as there can be only one `onclick` attribute per element.
@@ -254,10 +254,10 @@ The event object is the only parameter passed to event listeners.
 
 Typical example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">function<span class="pln"> processClick</span><span class="pun">(</span><strong><span class="pln">evt</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Button clicked!"</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function processClick(<strong>evt</strong>) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; alert("Button clicked!"); </li>
+<li style="margin-bottom: 0px;"> }</li>
 </ol></div>
 
 Each event listener has a single parameter that is  a "DOM event object". It has various properties and methods that can be very useful.
@@ -483,12 +483,12 @@ This has been a bit of a nightmare for years, as different browsers have had dif
 
 When you listen to keyboard related events (`keydown`, `keyup` or `keypressed`), the event parameter passed to the listener function will contain the code of the key that fired the event. Then it is possible to test which key has been pressed or released, like this:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun" style="color: #666600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'keydown'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #666600;">(</span><span class="kwd" style="color: #008888;">event</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">if</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">(</span><strong><span class="kwd" style="color: #008888;">event</span><span class="pun" style="color: #666600;">.</span><span class="pln">keyCode&nbsp;</span><span class="pun" style="color: #666600;">===</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">37</span></strong><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">//left arrow was pressed</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span><span class="pun" style="color: #666600;">);</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li style="margin-bottom: 0px;" value="1">window<span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'keydown'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #666600;">(</span><span style="color: #008888;">event</span><span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #008888;">if</span>&nbsp;<span style="color: #666600;">(</span><strong><span style="color: #008888;">event<span style="color: #666600;">.keyCode&nbsp;<span style="color: #666600;">===</span>&nbsp;<span style="color: #006666;">37</span></strong><span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;<span style="color: #880000;">//left arrow was pressed</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #666600;">}</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span><span style="color: #666600;">);</span></li>
 </ol></div>
 
 At _line 2_, the value "37" is the key code that corresponds to the left arrow. It might be difficult to know which codes represent which real keyboard keys, so here are some handy pointers:
@@ -801,14 +801,14 @@ Detecting mouse events in a canvas is quite straightforward: you add an event li
 
 The example below is about listening to `mouseup` and `mousedown` events (when a user presses or releases any mouse button):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// do something with the mousedown event</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">});</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// do something with the mouseup event</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">canvas.addEventListener('mousedown', function (evt) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;// do something with the mousedown event</li>
+<li style="margin-bottom: 0px;">});</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">canvas.addEventListener('mouseup', function (evt) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;// do something with the mouseup event</li>
+<li style="margin-bottom: 0px;">});</li>
 </ol></div>
 
 The event received by the listener function will be used for getting the button number or the coordinates of the mouse cursor. Before looking at different examples, let's look at the different event types we can listen to.
@@ -935,19 +935,19 @@ Here is another version that uses `clientX/clientY` and the `e.target.getBoundin
 
 JavaScript source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> processMouseMouve</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> mousePositions </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mousePositions'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // adjust mouse position relative to the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">()</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> mouseX </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> mouseY </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; mousePositions</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"mouse pos X: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mouseX </span><span class="pun">+</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" mouse pos Y: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mouseY </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"&lt;br&gt;"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function processMouseMouve(evt) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; var mousePositions = document.querySelector('#mousePositions');</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // adjust mouse position relative to the canvas</li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; var rect = evt.target.getBoundingClientRect()</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; var mouseX = evt.clientX - rect.left;</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; var mouseY = evt.clientY - rect.top;</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; mousePositions.innerHTML = "mouse pos X: " + mouseX +</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" mouse pos Y: " + mouseY + </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"&lt;br&gt;" </li>
+<li style="margin-bottom: 0px;"> }</li>
 </ol></div>
 
 
@@ -1204,18 +1204,18 @@ There are three ways to manage events in the DOM structure. You could attach an 
 
 __Method #1: declare an event handler in the HTML code__
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag" style="color: #008888;">&lt;div</span><span class="pln">&nbsp;</span><span class="atn" style="color: #660066;">id</span><span class="pun" style="color: #666600;">=</span><span class="atv" style="color: #008800;">"someDiv"</span><span class="pln">&nbsp;</span><strong><span class="atn" style="color: #660066;">onclick</span></strong><span class="pun" style="color: #666600;">=</span><span class="atv" style="color: #008800;">"</span><span class="pln">alert</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;"><g class="gr_ gr_70 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="70" data-gr-id="70">'clicked</g>!'</span><span class="pun" style="color: #666600;">)</span><span class="atv" style="color: #008800;">"</span><span class="tag" style="color: #008888;">&gt;</span><span class="pln">&nbsp;content of the div&nbsp;</span><span class="tag" style="color: #008888;">&lt;/div&gt;</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li style="margin-bottom: 0px;" value="1"><span style="color: #008888;">&lt;div</span>&nbsp;<span style="color: #660066;">id</span><span style="color: #666600;">=</span><span style="color: #008800;">"someDiv"</span>&nbsp;<strong><span style="color: #660066;">onclick</span></strong><span style="color: #666600;">=</span><span style="color: #008800;">"</span>alert<span style="color: #666600;">(</span><span style="color: #008800;"><g id="70" data-gr-id="70">'clicked</g>!'</span><span style="color: #666600;">)</span><span style="color: #008800;">"</span><span style="color: #008888;">&gt;</span>&nbsp;content of the div&nbsp;<span style="color: #008888;">&lt;/div&gt;</span></li>
 </ol></div>
 
 This method is very easy to use, but it is not the recommended way to handle events. Indeed, although it currently works, it is deprecated (will probably be abandoned in the future). Mixing 'visual layer' (HTML) and 'logic layer' (JavaScript) in one place is really bad practice and causes a host of problems during development.
 
 __Method #2: attach an event handler to an HTML element in JavaScript__
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun" style="color: #666600;">.</span><span class="pln">getElementById</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'someDiv'</span><span class="pun" style="color: #666600;">).</span><strong><span class="pln">onclick&nbsp;</span></strong><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;alert</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;"><g class="gr_ gr_54 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="54" data-gr-id="54">'clicked</g>!'</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li style="margin-bottom: 0px;" value="1">document<span style="color: #666600;">.</span>getElementById<span style="color: #666600;">(</span><span style="color: #008800;">'someDiv'</span><span style="color: #666600;">).</span><strong>onclick&nbsp;</strong><span style="color: #666600;">=</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #666600;">()</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;alert<span style="color: #666600;">(</span><span style="color: #008800;"><g id="54" data-gr-id="54">'clicked</g>!'</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
 </ol></div>
 
 This method is fine, but  you will not be able to attach multiple listener functions. If you need to do this, use the version shown below.
@@ -1223,10 +1223,10 @@ This method is fine, but  you will not be able to attach multiple listener funct
 
 __Method #3: register a callback to the event listener with the `addEventListener` method (preferred  method)__
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun" style="color: #666600;">.</span><span class="pln">getElementById</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'someDiv'</span><span class="pun" style="color: #666600;">).</span><strong><span class="pln">addEventListener</span></strong><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'click'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;alert</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'clicked!'</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">},</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">false</span><span class="pun" style="color: #666600;">);</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li style="margin-bottom: 0px;" value="1">document<span style="color: #666600;">.</span>getElementById<span style="color: #666600;">(</span><span style="color: #008800;">'someDiv'</span><span style="color: #666600;">).</span><strong>addEventListener</strong><span style="color: #666600;">(</span><span style="color: #008800;">'click'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #666600;">()</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;alert<span style="color: #666600;">(</span><span style="color: #008800;">'clicked!'</span><span style="color: #666600;">);</span></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">},</span>&nbsp;<span style="color: #008888;">false</span><span style="color: #666600;">);</span></li>
 </ol></div>
 
 Note that the third parameter describes whether the _callback_ has to be called during the captured phase. This is not important for now, just set it to false or ignore it (you can even pass only two parameters to the `addEventListener` function call and do not set this boolean parameter at all).
@@ -1236,10 +1236,10 @@ Note that the third parameter describes whether the _callback_ has to be called 
 
 When you create an event listener and attach it to an element, the listener will create an `event` object to describe what happened. This object is provided as a parameter of the _callback function_:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">element</span><span class="pun" style="color: #666600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;"><g class="gr_ gr_64 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="64" data-gr-id="64">'click</g>'</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #666600;">(</span><strong><span class="kwd" style="color: #008888;">event</span></strong><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com" style="color: #880000;">// now you can use event object inside the callback</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">},</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">false</span><span class="pun" style="color: #666600;">);</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li style="margin-bottom: 0px;" value="1">element<span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;"><g id="64" data-gr-id="64">'click</g>'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #666600;">(</span><strong><span style="color: #008888;">event</span></strong><span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong><span style="color: #880000;">// now you can use event object inside the callback</span></strong></li>
+<li style="margin-bottom: 0px;"><span style="color: #666600;">},</span>&nbsp;<span style="color: #008888;">false</span><span style="color: #666600;">);</span></li>
 </ol></div>
 
 Depending on the type of event you are listening to, you will consult different properties from the `event` object in order to obtain useful information such as: "which keys are pressed down?", "what is the location of the mouse cursor?", "which mouse button has been clicked?", etc.
