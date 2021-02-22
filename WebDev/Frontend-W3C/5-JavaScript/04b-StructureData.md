@@ -195,6 +195,7 @@ let michel = {
 
 ### 4.2.3 Property declaration syntax
 
+
 #### Property names: different possibilities
 
 We can put single or double quotes around the name of the property, or nothing at all:
@@ -238,6 +239,30 @@ Example:
 <li class="L4" style="margin-bottom: 0px;"><span class="str">"Le Petit Prince"</span></li>
 </ol></div>
 
+
+#### Notes for 4.2.3 Property declaration syntax
+
++ Property declaration
+  + property name: single or double quotes around the name of the perperty, or nothing at all
+  + recommended: no single or double quotes
+  + exceptions: single or double quotes required
+    + reserved words in JS
+    + containing spaces or special characters
+    + begining w/ a number
+  + the name of property used as a variable
+  + example:
+
+    ```js
+    var louis = {age: 40};
+    var louis = {"age": 40};
+    var louis = {'age': 40};
+
+    book.1stPublication = '6 April 1943';
+    book['1stPublication'] = '6 April 1943';
+
+    var key = 'title';  // title as property name
+    book[key];
+    ```
 
 
 
