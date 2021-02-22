@@ -99,14 +99,101 @@ __Source code for the next 3 questions (1, 2 and 3)__
 
   Ans: a<br>
   Example: 
-    + The forEach method takes a single argument that is a function/callback that can have one, two or three parameters:
+    + The `forEach` method takes a single argument that is a function/callback that can have one, two or three parameters:
       + The first parameter is the current element of the array.
       + The second parameter (optional) is the index of the current element in the array.
       + The third element is the array itself.
     + So, the right answer is "a".
 
 
+### 3.6.2 Exercises (6-10)
 
+6. JavaScript API?
+
+  What do we mean by "audio and video elements have a JavaScript API"?
+
+  a. They have properties, events and methods that can be manipulated from JavaScript<br>
+  b. They are written 100% in JavaScript<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+__Source code for the next 3 questions (7, 8 and 9):__
+
+```html
+<video id="vid" poster="preview.png" controls>
+    <source src="http://html5doctor.com/demos/video-canvas-magic/video.mp4"
+            type="video/mp4">
+</video>
+<p>Example of custom controls :</p>
+ 
+<button class="mybutton" onclick="go();">Play</button>
+<button class="mybutton" onclick="haveARest();">Pause</button>
+<button class="mybutton" onclick="rewind();">Start from beginning</button>
+ 
+<script>
+  vid = document.querySelector("#vid");
+  function go() {
+    vid.BBB();
+  }
+  function haveARest() {
+    vid.CCC();
+  }
+  function rewind() {
+    vid.DDD = 0;
+  }
+</script>
+```
+
+7. Which method?
+
+  Which method would you call to start playing the video, instead of BBB?
+
+  a. `go()`<br>
+  b. `play()`<br>
+  c. `start()`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+8. Which method? (Part 2)
+
+  Which method would you call to pause the video, instead of CCC?
+
+  a. `stop()`<br>
+  b. `pause()`<br>
+  c. `cancel()`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+9. Be kind, rewind!
+
+  Which property would you use to rewind completely the video without stopping it (playback continues as if we jumped to the beginning), instead of the DDD string in the source code above?
+
+  a. `progress`<br>
+  b. `location`<br>
+  c. `currentTime`<br>
+  d. `time`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+10. Event for playlists?
+
+  Which event is used in the course to detect the end of video and implement playlist management?
+  a. `end`<br>
+  b. `chained`<br>
+  c. `ended`<br>
+  d. `finished`<br>
+  e. `finish`<br>
+
+  Ans: <br>
+  Explanation: 
 
 
 
