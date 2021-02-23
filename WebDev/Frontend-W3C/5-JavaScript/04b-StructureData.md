@@ -310,5 +310,187 @@ Accessing the embedded object `author` is done by chaining property accesses usi
     ```
 
 
+### 4.2.5 Elements, properties and methods
+
+#### Live coding video: object methods
+
+<a href="https://edx-video.net/W3CJSIXX2016-V004000_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/347phojc)
+
+
+__Source code of the live video example__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/EXNrjB?editors=0011)
+
+[Local Demo](src/04b-example02.html)
+
+
+#### Elements, properties and methods
+
+__Some vocabulary:__
+
++ For <span style="color: brown; font-weight: bold;">arrays</span>, we speak of <span style="color: brown; font-weight: bold;">elements</span>
++ For <span style="color: cyan; font-weight: bold;">objects</span>, we talk about <span style="color: cyan; font-weight: bold;">properties</span>
++ But <span style="color: lightgreen; font-weight: bold;">a property can also be a function</span>, in which case it is called a <span style="color: lightgreen; font-weight: bold; text-decoration: underline;">method</span>
+
+__Yes, it is possible for an object's property to be a function!__
+
+A very simple example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> medor </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Benji'</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; bark</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">'Ouarf, Ouarf!'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div>
+
+In this example, the bark property's value is a function, so we call bark "a method".
+
+__A method is a special property that corresponds to the object's behavior__
+
+<div class="exampleHTML">
+<p><span style="color: #ff0000;"><strong><span style="color: #3366ff;">Properties</span> <span style="color: #000000;">correspond to <span style="color: #3366ff;">an object's DNA</span> (its characteristics), <br><span style="color: #3366ff;"><span style="color: #000000;">and</span> are nouns</span> (age, name, etc.)</span></strong></span></p>
+<p><span style="color: #ff0000;"><strong><span style="color: #008000;">Methods</span> <span style="color: #000000;">correspond to <span style="color: #008000;">an object's behavior <br></span>and <span style="color: #008000;">are verbs</span> (bark, move, changeSpeed, etc.)</span></strong></span></p>
+</div>
+
+#### Calling a method
+
+Since a method is a property we can use the '.' operator (or brackets with the method's name as a string index).
+
+Let's see some examples:
+
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/RpmzQY)
+
+[Local Demo](src/04b-example02.html)
+
+JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><strong><span class="pln"> darkVador </span></strong><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; race</span><span class="pun">:</span><span class="pln"> </span><span class="str">'human'</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; job</span><span class="pun">:</span><span class="pln"> </span><span class="str">'villain'</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>talk</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="str">'come to the dark side, Luke!'</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> dvSpeak</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'&lt;p&gt;Dark Vador says '</span><span class="pln"> </span><span class="pun">+</span><strong><span class="pln"> darkVador</span><span class="pun">.</span><span class="pln">talk</span><span class="pun">();</span></strong><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'&lt;/p&gt;'</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+In _line 1_, we created a simple object named `darkVador`, that has two properties (`race` and `job`) and a method (`talk`).
+
+In the dvSpeak function, at line 10, we call `darkVador`'s talk method. The syntax is a mix between the one for accessing a property (with the '.' operator), and the one for calling a function (with parentheses and ';' at the end).
+
+When we write darkVador.talk(), we are executing the talk method of the object `darkVador`, but in plain English, we're just asking Dark Vador to talk. We invoke its behavior!
+
+
+__Another example with the player we saw briefly in Module 2__
+
+Here is the last version of the player object we saw in our small game:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/xqNoJX)
+
+[Local Demo](src/04b-example03.html)
+
+JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; x</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; y</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="str">'red'</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// and we also used two other functions for moving the player with the mouse</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">// and for drawing it as a filled rectangle</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> movePlayerWithMouse</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">mousePos </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> drawFilledRectangle</span><span class="pun">(</span><span class="pln">r</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // BEST practice: save the context, use 2D transformations</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // translate the coordinate system, draw relative to it</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">r</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> r</span><span class="pun">.</span><span class="pln">color</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // (0, 0) is the top left corner of the monster</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // BEST practice: restore the context</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+__Now that we've seen that we can include methods into objects, here is a better, more readable and more encapsulated version of our player object:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; x</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; y</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="str">'red'</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>move</strong></span><strong><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // change x and y coordinates of the player</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // TODO!</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; },</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; draw</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // draw the player at its current position</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // with current width, height and color</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // TODO!</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+Assuming that the move and draw methods are fully implemented, we will now be able to call:
+
++ `player.move(mousePos.x, mousePos.y)` to change the position of the player,
++ `player.draw()` to draw the player at its current position, with its current size and color.
+
+Readability is better, it is like asking the player to move, or asking it to draw itself. And we do not need to pass the x, y, width, height, color to the draw method: it is inside the player object, and it can access all its internal property values!
+
+In the next section we will look at how we can access other object's properties from a method or call other methods.
+
+
+
+#### Knowledge check 4.2.3
+
+```js
+let anObject = {
+    propertyName1: propertyValue1,
+    propertyName2: propertyValue2,
+    methodName1: function(...) { 
+              // some code....
+    },    
+    methodName2: function(...) { 
+              // some code....
+    }
+}
+```
+
+1. In a JavaScript object, properties are nouns and methods are verbs. True or false?
+
+  Ans: 
+
+
 
 
