@@ -477,7 +477,7 @@ In the next section we will look at how we can access other object's properties 
   + definitions
     + element for arrays
     + property for objects
-    + method: a property as a function
+    + method: a function as a property in objects
   + properties
     + an objects DNS, its characteristics
     + nouns, e.g., age, name, etc.
@@ -549,7 +549,8 @@ let anObject = {
 
 1. In a JavaScript object, properties are nouns and methods are verbs. True or false?
 
-  Ans: 
+  Ans: True<br/>
+  Explanation: Indeed, properties correspond to an object's DNA (its characteristics), and are nouns (age, name, etc.), and methods correspond to an object's behavior and are verbs (bark, move, changeSpeed, etc.).
 
 
 
