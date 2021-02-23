@@ -769,8 +769,15 @@ pacman.shape: 'pizza';
 
 1. Is the above code correct? (No/Yes)
 
-  Ans: <br>
-  Explanation: 
+  Ans: No<br>
+  Explanation: No, it's not correct! While adding and removing properties after the object has been declared/created (line 1 of the source code), the syntax for declaring properties INSIDE an object (with ":") is no more valid. You must use the "=" operator for the assignment. The correct code is:
+
+  ```js
+  let pacman = {};
+  pacman.color = 'yellow';
+  pacman.shape = 'pizza';
+  ```
+
 
 
 
