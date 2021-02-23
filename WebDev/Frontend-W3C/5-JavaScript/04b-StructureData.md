@@ -779,10 +779,22 @@ pacman.shape: 'pizza';
   ```
 
 
+### 4.2.8 Discussion
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
 
 
+#### Suggested topic of discussion:
 
+We simplified the explanations for "`this`" in this introductory course. Normally, "`this`" is the current object when you use it inside an "object literal" (like in this [CodePen example from the course](https://codepen.io/w3devcampus/pen/JWqgGZ)).
 
+But... we also met "`this`" in event listeners (see in [this example from the course](https://codepen.io/w3devcampus/pen/gmygzV?editors=1000). Look at the <code>onchange = "changePageBackgroundColor(<b>this.value</b>);")</code> ...
+
+In fact, the "`this`" keyword can be confusing in JavaScript. The key thing to remember is that _it is bound to the calling object when the function is called,_ not when the function is created.
+
+And in the case of event listeners, the callbacks are called by the browser... You can conclude that it's a good habit not to have event listeners in your objects: just use methods in which there is no confusion about "`this`".
+
+Let's discuss that (or "this"?) in the forum :-)
 
 
 
