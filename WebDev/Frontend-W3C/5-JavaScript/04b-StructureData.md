@@ -694,6 +694,78 @@ In this example, notice that the `describeYourself` method from the `darkVador` 
     ```
 
 
+### 4.2.7 Adding/deleting properties and methods
+
+Properties and methods can be added/deleted after an object has been defined.
+
+__Unlike other object-oriented languages, it is possible in JavaScript to add or to remove properties after an object has been created.__
+
+Examples:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/WpqeyK)
+
+[Local Demo](src/04b-example07.html)
+
+
+JavaScript code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// empty object with properties/methods</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// add properties after darkVador has been created</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> darkVador</span><span class="pun">.</span><span class="pln">race </span><span class="pun">=</span><span class="pln"> </span><span class="str">'human'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> darkVador</span><span class="pun">.</span><span class="pln">job </span><span class="pun">=</span><span class="pln"> </span><span class="str">'villain'</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">// add some methods</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> darkVador</span><span class="pun">.</span><span class="pln">talk </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> </span><span class="str">'come to the dark side, Luke!'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">breathe</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+</ol></div>
+
+_Lines 5, 6 and 9_: we can add properties and methods after the object has been created empty at _line 2_.
+
+
+#### Deleting a property or a method
+
+You can use the JavaScript keyword "delete" to delete an object's property (it will become `undefined`).
+
+Example:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/RpzNEP)
+
+[Local Demo](src/04b-example08.html)
+
+JavaScript code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> deleteSomeProperties</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; <strong>delete</strong></span><strong><span class="pln"> darkVador</span><span class="pun">.</span><span class="pln">race</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; delete</span><span class="pln"> darkVador</span><span class="pun">.</span><span class="pln">job</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+
+#### Knowledge check 4.2.4
+
+```js
+let pacman = {};
+pacman.color:'yellow';
+pacman.shape: 'pizza';
+```
+
+1. Is the above code correct? (No/Yes)
+
+  Ans: <br>
+  Explanation: 
+
+
+
+
+
+
+
 
 
 
