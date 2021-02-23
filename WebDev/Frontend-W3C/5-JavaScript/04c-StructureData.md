@@ -29,8 +29,8 @@ Let's introduce these two ways of defining "pseudo classes" with ES5's function 
 + Classes
   + singleton objects: objects only occurred once
   + templates w/ same properties and methods
-    + prior ES5: not having such concept but "constructor functions"
-    + since ES5: concept of classes and the syntax developed similar to what other object-oriented programming language
+    + ES5: not having such concept but "constructor functions"
+    + post ES5: concept of classes and the syntax developed similar to what other object-oriented programming language
   + example: balls w/ the same shape (circle), the sam ex,y, radius, and color properties but different values
 
 
@@ -77,7 +77,7 @@ Up to 2015, with JavaScript version 5 (and previous versions), you can define a 
   ```
 
   In a constructor function named "Hero", you will find properties declared like this: this.name this.side; and methods declared like this: this.speak = function() {...}
-5. <span style="color: brown; font-weight: bold;">Very often some properties are initialized using the constructor function parameters,</span> so that the newly constructed objects will get an initial value for their properties. In this case, we use the this keyword to distinguish the property from the constructor function parameter:
+5. <span style="color: brown; font-weight: bold;">Very often some properties are initialized using the constructor function parameters,</span> so that the newly constructed objects will get an initial value for their properties. In this case, we use the `this` keyword to distinguish the property from the constructor function parameter:
 
   Example:
 
@@ -89,8 +89,7 @@ Up to 2015, with JavaScript version 5 (and previous versions), you can define a 
   ```
 
 
-
-__Full interactive example that uses a constructor function__
+#### Full interactive example that uses a constructor function
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/KWjMRw)
 
@@ -100,24 +99,24 @@ __Full interactive example that uses a constructor function__
 JavaScript source code:
 
 <div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="typ" style="color: #660066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">name</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;side</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span><span class="kwd" style="color: #000088;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">name&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;name</span><span class="pun" style="color: #666600;">; // code outside of methods is usually for initializing</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span><span class="kwd" style="color: #000088;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">side&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;side</span><span class="pun" style="color: #666600;">; // the properties. Very often, they match the parameters</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span><span class="kwd" style="color: #000088;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">speak&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">()</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span><span class="kwd" style="color: #000088;">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"&lt;p&gt;My name is "</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">name&nbsp;</span><span class="pun" style="color: #666600;">+</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span><span class="str" style="color: #008800;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", I'm with the "</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">side&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">".&lt;/p&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span><span class="pun" style="color: #666600;">&nbsp; &nbsp; }</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;</span><span class="typ" style="color: #AA0066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="pln">name</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;side</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #008888;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln">name&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;name</span><span class="pun" style="color: #666600;">; // code outside of methods is usually for initializing</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #008888;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln">side&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;side</span><span class="pun" style="color: #666600;">; // the properties. Very often, they match the parameters</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #008888;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln">speak&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #008888;">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;p&gt;My name is "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln">name&nbsp;</span><span class="pun" style="color: #666600;">+</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="str" style="color: #008800;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", I'm with the "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln">side&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">".&lt;/p&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun" style="color: #666600;">&nbsp; &nbsp; }</span></li>
 <li class="L8" style="margin-bottom: 0px;"><strong><span class="pun" style="color: #666600;">}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;darkVador&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">new</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="typ" style="color: #660066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Dark Vador"</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"empire"</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;luke&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">new</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="typ" style="color: #660066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Luke Skywalker"</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"rebels"</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;ianSolo&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">new</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="typ" style="color: #660066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Ian Solo"</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"rebels"</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;makeHeroesSpeak</span><span class="pun" style="color: #666600;">()</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">body</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln" style="color: #000000;">&nbsp;darkVador</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">speak</span><span class="pun" style="color: #666600;">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">body</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln" style="color: #000000;">&nbsp;luke</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">speak</span><span class="pun" style="color: #666600;">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">body</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln" style="color: #000000;">&nbsp;ianSolo</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">speak</span><span class="pun" style="color: #666600;">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;darkVador&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #AA0066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Dark Vador"</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"empire"</span><span class="pun" style="color: #666600;">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;luke&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #AA0066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Luke Skywalker"</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"rebels"</span><span class="pun" style="color: #666600;">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;ianSolo&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #AA0066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Ian Solo"</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"rebels"</span><span class="pun" style="color: #666600;">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;makeHeroesSpeak</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln">body</span><span class="pun" style="color: #666600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln">&nbsp;darkVador</span><span class="pun" style="color: #666600;">.</span><span class="pln">speak</span><span class="pun" style="color: #666600;">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln">body</span><span class="pun" style="color: #666600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln">&nbsp;luke</span><span class="pun" style="color: #666600;">.</span><span class="pln">speak</span><span class="pun" style="color: #666600;">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln">body</span><span class="pun" style="color: #666600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln">&nbsp;ianSolo</span><span class="pun" style="color: #666600;">.</span><span class="pln">speak</span><span class="pun" style="color: #666600;">();</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
 </ol></div>
 
@@ -125,6 +124,54 @@ _Lines 1-9_: see how the constructor function is declared: the function name sta
 
 _Lines 11-13_: creation of three heroes. We use the same constructor function (Hero) along with the `new` keyword. Luke, darkVador and ianSolo ARE each a Hero, and share the same properties (name, side, _lines 2 and 3_) and the same behavior (they can speak, they all have a `speak` method, declared at _line 5_).
 
+
+#### Notes for 4.3.2 The "new" keyword
+
++ The 'new' keyword
+  + constructor functions
+    + ES5 and prior
+    + a pseudo-class template
+  + syntax of constructor functions same as creating a function w/ exceptions
+    + name w/ capitalized on 1st letter
+      + a good practice for readability
+      + a noun: the name of the class of objects to build
+      + examples: `Person`, `Vehicle`, `Enemy`, `Circle`, `Ball`, `Player`, `Hero`. etc.
+    + the `new` keyword for new objects, examples
+      + Car instance: `var car = new Car('Ferrari', 'red');`
+      + Hero instance: `var luke = new Hero('Luke Skywalker', 'rebels");`
+      + Ball instance: `var ball1 = new Ball(10, 10, 20, 'blue'); // x=10, y=10, radius = 20, color = 'blue'`
+    + constructor parameters
+      + the parameters of the function
+      + the new building object w/ parameters as its initial values of properties
+      + example: building a Hero must give a name, a side, etc.
+    + using the `this` keyword to define the property names and method names
+      + syntax not the same as the syntax used for single/simple objects
+      + using "=" and ";" instead of ":" and ","
+      + example:
+
+        ```js
+        function Hero(name, side) {
+          this.name = name;
+          this.side = side;
+          this.speak = function() {
+              console.log("My name is " + this.name + " and I'm with the " + this.side);
+          }
+        }
+        ```
+
+    + properties initialized w/ the constructor function parameters
+      + newly constructed objects given an initial value for their properties
+      + using `this` keyword to distinguish the property from the construction function parameters
+      + example: `function Hero(name) { this.name = name; ... }`
+  + code outside of methods usually for initializing the properties
+
++ Example: [a constructor function](src/04c-example02.html)
+  + declare constructor function: `function Hero(name, side) {...}`
+    + `name` property: `this.name = name;`
+    + `side` property: `this.side = side;`
+    + `speak` method: `this.speak = function() { return "<p>My name is " + this.name + ", I'm with the " + this.side + ".</p>"; } }`  
+  + create instances: `var darkVador = new Hero("Dark Vador", "empire"); var luke = new Hero("Luke Skywalker", "rebels"); ...`
+  + function for heros to speak: `function makeHeroesSpeak() { document.body.innerHTML += darkVador.speak(); ...}`
 
 
 
