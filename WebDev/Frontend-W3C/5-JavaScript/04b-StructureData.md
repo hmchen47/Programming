@@ -354,8 +354,8 @@ In this example, the bark property's value is a function, so we call bark "a met
 __A method is a special property that corresponds to the object's behavior__
 
 <div class="exampleHTML">
-<p><span style="color: #ff0000;"><strong><span style="color: #3366ff;">Properties</span> <span style="color: #000000;">correspond to <span style="color: #3366ff;">an object's DNA</span> (its characteristics), <br><span style="color: #3366ff;"><span style="color: #000000;">and</span> are nouns</span> (age, name, etc.)</span></strong></span></p>
-<p><span style="color: #ff0000;"><strong><span style="color: #008000;">Methods</span> <span style="color: #000000;">correspond to <span style="color: #008000;">an object's behavior <br></span>and <span style="color: #008000;">are verbs</span> (bark, move, changeSpeed, etc.)</span></strong></span></p>
+<p><strong><span style="color: #3366ff;">Properties</span> correspond to <span style="color: #3366ff;">an object's DNA</span> (its characteristics), <br><span style="color: #3366ff;">and are nouns</span> (age, name, etc.)</strong></p>
+<p><strong><span style="color: #008000;">Methods</span> correspond to <span style="color: #008000;">an object's behavior <br></span>and <span style="color: #008000;">are verbs</span> (bark, move, changeSpeed, etc.)</strong></p>
 </div>
 
 #### Calling a method
@@ -367,7 +367,7 @@ Let's see some examples:
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/RpmzQY)
 
-[Local Demo](src/04b-example02.html)
+[Local Demo](src/04b-example03.html)
 
 JavaScript source code:
 
@@ -398,7 +398,7 @@ Here is the last version of the player object we saw in our small game:
 
 [CodePen Demo](https://codepen.io/w3devcampus/pen/xqNoJX)
 
-[Local Demo](src/04b-example03.html)
+[Local Demo](src/04b-example04.html)
 
 JavaScript source code:
 
@@ -469,6 +469,66 @@ Assuming that the move and draw methods are fully implemented, we will now be ab
 Readability is better, it is like asking the player to move, or asking it to draw itself. And we do not need to pass the x, y, width, height, color to the draw method: it is inside the player object, and it can access all its internal property values!
 
 In the next section we will look at how we can access other object's properties from a method or call other methods.
+
+
+#### Notes for 4.2.5 Elements, properties and methods
+
++ Object declaration
+  + definitions
+    + element for arrays
+    + property for objects
+    + method: a property as a function
+  + properties
+    + an objects DNS, its characteristics
+    + nouns, e.g., age, name, etc.
+  + methods
+    + an object's behavior
+    + verb, e.g., bank, move, changeSpeed, etc.
+  + calling a method (similar to a propert) w/ '.' or brackets w/ the method's name as a string index
+  + including methods into object $\to$ more readable and more encapuslated version of an property-only object
+
++ Example: [declare an object](src/04b-example03.html)
+
+  ```js
+  var darkVador = {
+    race: 'human',    // property
+    job: 'villain',   // property
+    talk: function() {    // method
+      return 'come to the dark side, Luke!';
+    },
+    describeYourself: function() {    // method
+      return "I'm a " + this.race + " and I'm a " + this.job + " in a series of movies!";
+    }
+  }
+
+  function dvSpeak() {
+    document.body.innerHTML += '<p>Dark Vador describes himself: ' + 
+        darkVador.describeYourself(); + '</p>';
+    document.body.innerHTML += '<p>Dark Vador says ' + darkVador.talk(); + '</p>';
+  }
+  ```
+
++ Example: [moving player](src/04b-example04.html)
+  + player object declarartion
+
+    ```js
+    var player = {
+        x:10,
+        y:10,
+        width:20,
+        height:20,
+        color:'red',
+        move(x, y) {
+            // change x and y coordinates of the player ...
+        },
+        draw() {
+            // draw the player at its current position
+        }
+    }
+    ```
+
+  + `player.move(mousePos.x, mousePos.y)`: change the position of the player
+  + `player.draw()`: draw the player at its current position
 
 
 
