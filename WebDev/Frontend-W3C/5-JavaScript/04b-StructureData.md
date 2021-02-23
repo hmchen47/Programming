@@ -669,7 +669,10 @@ In this example, notice that the `describeYourself` method from the `darkVador` 
 + `this` keyword
   + accessing an object property or calling another method from an object method
   + meaning "from this object"
-  + followed by '.' operator every time to access current value of an object property or call 
+  + followed by '.' operator every time to access current value of an object property or call
+  + bound to calling object when the function called, not when the function created
+  + confusion: in cases of event listeners, the callbacks called by the browser
+  + best practice: not to have event listeners in an object
   + example: using `this` to access values and methods within an object
 
     ```js
