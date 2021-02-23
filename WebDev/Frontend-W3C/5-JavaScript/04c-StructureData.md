@@ -6,7 +6,7 @@
 
 Let's study what is the concept of "class" in object oriented programming languages.
 
-So far in this course, we've only used singleton objects: objects that only occur once: player, darkVador, etc.dark vador and his friend named pikachu
+So far in this course, we've only used singleton objects: objects that only occur once: player, darkVador, etc.
 
 Ok, this is not quite true, I'd forgotten that we created many balls in the module 2 game. We'll come back to this example further down the page!
 
@@ -22,6 +22,17 @@ Imagine the balls from module 2: they all had the same shape (circle), the same 
 + In modern JavaScript (after 2015),  we have the concept of classes, and the syntax is rather similar to what we find in other object oriented programming languages.
 
 Let's introduce these two ways of defining "pseudo classes" with ES5's function constructors, and with modern JavaScript's classes!
+
+
+#### Notes for 4.3.1 Classes: definition
+
++ Classes
+  + singleton objects: objects only occurred once
+  + templates w/ same properties and methods
+    + prior ES5: not having such concept but "constructor functions"
+    + since ES5: concept of classes and the syntax developed similar to what other object-oriented programming language
+  + example: balls w/ the same shape (circle), the sam ex,y, radius, and color properties but different values
+
 
 
 
