@@ -553,5 +553,118 @@ let anObject = {
   Explanation: Indeed, properties correspond to an object's DNA (its characteristics), and are nouns (age, name, etc.), and methods correspond to an object's behavior and are verbs (bark, move, changeSpeed, etc.).
 
 
+### 4.2.6 "this": accessing properties
+
+#### Live coding video: add methods to the player object from the game
+
+<a href="https://edx-video.net/W3CJSIXX2016-V004100_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/2sgovdkj)
+
+Source code of examples shown in the above video
+
++ Game without methods in the player object (example included in the previous course page),
+  + [CodePen Demo](https://codepen.io/w3devcampus/pen/xqNoJX)
+  + [Local Demo](src/04b-example04.html)
++ Game with methods (example also included in this course page),
+  + [CodePen Demo](https://codepen.io/w3devcampus/pen/oZRrQd/)
+  + [Local Demo](src/04b-example05.html)
+
+
+#### The `this` keyword: accessing properties from a method
+
+__The `this` keyword!__
+
+When one wants to access an object property or wants to call another method from an object method, we must use the `this` keyword. In the code of the player object, `this` means "from this object".
+
+__Let's look at our game again, with a new version of the player object - this time fully functional:__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/oZRrQd/)
+
+[Local Demo](src/04b-example05.html)
+
+
+JavaScript code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; x</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; y</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height</span><span class="pun">:</span><span class="lit">20</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="str">'red'</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; move: function</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>this</strong></span><strong><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> x</span></strong><span class="pun"><strong>;</strong> // this.x is the property of "this object"</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>this</strong></span><strong><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; },</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; draw: function</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // draw the player at its current position</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // with current width, height and color</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; //&nbsp;it's nearly the same code as the old drawFilledRect function</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // translate the coordinate system, draw relative to it</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">y</span></strong><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">color</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // (0, 0) is the top left corner of the monster</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">height</span></strong><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // BEST practice: restore the context</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+Notice that we've used this followed by the '.' operator every time we've had to access the current value of an object's property (_lines 9, 10, 20, 22 and 24_).
+
+We passed the canvas' graphic context as a parameter to the draw method (it's always good not to create dependencies when making objects). Passing the context as a parameter avoids using it as a global variable. If in another project we've got a context named "context" instead of "ctx", then we will just change the parameter when we call `player.draw`, otherwise we would have had to rename all occurrences of `ctx` in the code).
+
+Same with the mouse coordinates we passed to the `move` method.
+
+__Let's see the Dark Vador example with the use of `this` in a method__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/JWqgGZ)
+
+[Local Demo](src/04b-example06.html)
+
+
+JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; race</span><span class="pun">:</span><span class="pln"> </span><span class="str">'human'</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; job</span><span class="pun">:</span><span class="pln"> </span><span class="str">'villain'</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; talk</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="str">'come to the dark side, Luke!'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">breathe</span><span class="pun">();</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; },</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; describeYourself</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="str">"I'm a "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">race </span></strong><span class="pun">+</span><span class="pln"> </span><span class="str">" and I'm a "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">job </span></strong><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" in a series of movies!"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">breathe</span><span class="pun">();</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; },</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; breathe</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="str">".....shhhhhhhhh....."</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> dvSpeak</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'&lt;p&gt;Dark Vador describes himself: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln">&nbsp; &nbsp; &nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; darkVador</span><span class="pun">.</span><span class="pln">describeYourself</span><span class="pun">();</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '&lt;/p&gt;'</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'&lt;p&gt;Dark Vador says: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; darkVador</span><span class="pun">.</span><span class="pln">talk</span><span class="pun">();</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '&lt;/p&gt;'</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+In this example, notice that the `describeYourself` method from the `darkVador` object uses the two properties `name` and `job` using the `this` keyword. We also call the `breathe` method from the two methods `describeYourself` and `talk`, using `this.breathe();`
+
+
+
+
 
 
