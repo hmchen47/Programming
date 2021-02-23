@@ -664,6 +664,35 @@ JavaScript source code:
 In this example, notice that the `describeYourself` method from the `darkVador` object uses the two properties `name` and `job` using the `this` keyword. We also call the `breathe` method from the two methods `describeYourself` and `talk`, using `this.breathe();`
 
 
+#### Notes for 4.2.6 "this": accessing properties
+
++ `this` keyword
+  + accessing an object property or calling another method from an object method
+  + meaning "from this object"
+  + followed by '.' operator every time to access current value of an object property or call 
+  + example: using `this` to access values and methods within an object
+
+    ```js
+    var player = {
+        x:10,
+        y:10,
+        width:20,
+        height:20,
+        color:'red',
+        move: function(x, y) {
+            this.x = x; // this.x is the property of "this object"
+            this.y = y;
+        },
+        draw: function(ctx) {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.fillStyle = this.color;
+            ctx.fillRect(0, 0, this.width, this.height);
+            ctx.restore();
+        }
+    }
+    ```
+
 
 
 
