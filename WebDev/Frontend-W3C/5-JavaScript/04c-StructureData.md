@@ -321,6 +321,27 @@ And here is how you can use this:
 The call to `getMousePos` returns an object that has an `x` and a `y` property.
 
 
+#### Notes for 4.3.5 Creating objects with functions (factories)
+
++ Creating objects
+  + created as "literals", e.g., `var darkVador = { firstName:’Dark’, lastName:’Vador’};`
+  + created w/ keyword `new` and a constructor function as `class` in ES6; e.g., `var darkVador = new Hero(’Dark Vador’, ’empire’);`
+  + created by functions that return objects (factories), example
+
+    ```js
+    function getMousePos(event, canvas) {
+        var rect = canvas.getBoundingClientRect();
+        var mxx = event.clientX - rect.left;
+        var my = event.clientY - rect.top;
+    
+        return { // the getMousePos function returns an object. It’s a factory
+            x: mx,
+            y: my
+        }
+    }
+
+    var mousePos = getMousePos(evt, canvas);
+    ```
 
 
 
