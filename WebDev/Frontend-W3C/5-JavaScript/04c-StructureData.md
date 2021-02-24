@@ -229,7 +229,7 @@ See below an interactive example that uses an ES6 class to create Star Wars' her
 
 #### Notes for 4.3.3 Creating objects using modern JavaScript's classes
 
-+ Creating classes
++ Declare classes
   + ES5 constructor functions: not eay to read and probably not followed name convention
   + ES6 introducing `new` and `constructor` keywords
     + simply define a class using the keyword `class` followed by the nam eof the class
@@ -241,6 +241,7 @@ See below an interactive example that uses an ES6 class to create Star Wars' her
     + method:
       + simply defined by the name followed by its parameters
       + no `function` keyword required
+  + declaring a class before using it, otherwise, throwing a `ReferenceError` message
   
 + Example: [creating class and objects](src/04c-example03.html)
   + declare class: `class Hero {...}`
