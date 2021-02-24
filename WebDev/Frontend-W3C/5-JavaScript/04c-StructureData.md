@@ -344,5 +344,97 @@ The call to `getMousePos` returns an object that has an `x` and a `y` property.
     ```
 
 
+### 4.3.6 Static properties and methods
+
+#### Live coding video: static properties and methods
+
+<a href="https://edx-video.net/W3CJSIXX2016-V004400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/227zv2av)
+
+__Source code from the examples in the above video__
+
++ The first example
+  + [CodePen Demo](https://codepen.io/w3devcampus/pen/NgbVQo?editors=0012)
+  + [Local Demo](src/04c-example05.html)
++ The second example is further in this page, or at CodePen
+  + [CodePen Demo](https://codepen.io/w3devcampus/pen/rmOjrv?editors=0011)
+  + [Local Demo](src/04c-example06.html)
+
+
+#### Class properties and methods vs. instances' properties and methods
+
+Sometimes, there are methods "attached" to a class, not to an instance of a class.
+
+For example, imagine the `Hero` class we've already seen, and we would like to know how many Star Wars's heroes have been created. If zero hero has been created, it's obvious that we could not use this property with an instance of the class such as Dark Vador: `darkVador.getNbHeroes();` this would make no sense.
+
+Instead, object oriented programming languages have the concept of "class properties" and "class methods" that complete the "instance properties" and "instance methods" that we've seen up to this point. `Hero.getNbHeroes()` means "Hey, class Hero, can you tell me how many heroes have been created using your class?". Class methods define the "class behavior", and instance methods define the instances' behavior. `darVador.speak();` means "Hey, Dark Vador, please, tell us something!". I speak to Dark Vador and I'm expecting something creative from him, such as "I'm your father, Luke!".
+
+It's the same for properties. If there is a property named `nbHerosCreated` in the class Hero, it represents the DNA of the class, not of the instances. You can say "the Hero class has the number of heroes it created", and you can say "Dark Vador has a name and belongs to the empire side", but not "Dark Vador has a number of heroes he created". We have class properties and instance properties.
+
+
+#### The static keyword is used for defining class methods
+
+__Class methods__
+
+How do we distinguish them? By using the static keyword. When you see a method preceded by the `static` keyword, it means that you see a class property or a class method.
+
+<p style="border: 1px solid; padding: 20px; margin: 20px; text-align: center;"><span style="color: #ff0000;"><strong>The <span style="font-family: 'courier new', courier;">static</span> keyword defines a static method for a class. <br><br><span style="color: #0000ff;">Static methods are called without instantiating their class <br>and can&nbsp;not&nbsp;be called through a class instance.</span> <br><br><em>Consequence</em>: do not use instance properties in their body!<br><br>Static methods are often used to create utility functions for an application (source: MDN).<br><br></strong></span></p>
+
+
+##### Class properties
+
+Class properties should be defined after the class definition, and declared using the name of the class followed by the . operator and the name of the property.
+
+Example: `Point.nbPointsCreated` in the example below. A best practice is to ALWAYS use them this way.
+
+There is another way to declare Class properties (using static getters and setters -- see next section, for advanced users), but we recommend using this one for beginners.
+
+#### Class methods
+
+__Example of creation and use of class methods and properties using an ES6 class__
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1">class<span class="pln"> </span><span class="typ">Point</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;constructor</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; <strong>// static property</strong></span></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="typ">&nbsp; &nbsp; &nbsp; Point</span><span class="pun">.</span><span class="pln">nbPointsCreated</span><span class="pun">++;</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp;}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// static method</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;<strong>static</strong></span><strong><span class="pln"> distance</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; const</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; const</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">dx</span><span class="pun">*</span><span class="pln">dx </span><span class="pun">+</span><span class="pln"> dy</span><span class="pun">*</span><span class="pln">dy</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp;}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">// static property definition is necessarily outside of the class with ES6</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="typ">Point</span><span class="pun">.</span><span class="pln">nbPointsCreated</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="com">// We create 3 points</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> p1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Point</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> p2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Point</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> p3 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Point</span><span class="pun">(</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">27</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;p&gt;Distance between points (5, 5) and (10, 10) is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="typ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>Point</strong></span><strong><span class="pun">.</span><span class="pln">distance</span><span class="pun">(</span><span class="pln">p1</span><span class="pun">,</span><span class="pln"> p2</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/p&gt;"</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Number of Points created is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="typ">Point</span><span class="pun">.</span><span class="pln">nbPointsCreated</span></strong><span class="pun">;</span></li>
+</ol></div>
+
+Running example:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/rmOjrv)
+
+[Local Demo](src/04c-example06.html)
+
+
+
 
 
