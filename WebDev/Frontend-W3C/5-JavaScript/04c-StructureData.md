@@ -250,6 +250,32 @@ See below an interactive example that uses an ES6 class to create Star Wars' her
   + declare a new instance: `var darkVador = new Hero("Dark Vador", "empire");`
 
 
+### 4.3.4 Declaring a class before using it
+
+
+__You must declare a class before using it!__
+
+Unlike functions, classes must be declared BEFORE using them.
+
+An important difference between function declarations and class declarations is that function declarations are "hoisted" and class declarations are not. This means that you can call a function BEFORE it has been declared in your source code. This is not the case with ES6 classes!
+
+__You first need to declare your class and then access it, otherwise code like the following will throw a ReferenceError:__
+
+Incorrect version => you try to create an instance of a class before it has been declared:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pun">();</span><span class="pln"> </span><span class="com">// ReferenceError</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pln"> </span><span class="pun">{...}</span></li>
+</ol></div>
+
+Correct version $\implies$
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pln"> </span><span class="pun">{...}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pun">();</span><span class="pln"> </span><span class="com">// WORKS !</span></li>
+</ol></div>
 
 
 
