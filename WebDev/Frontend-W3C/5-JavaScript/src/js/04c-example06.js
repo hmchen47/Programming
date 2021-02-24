@@ -1,3 +1,5 @@
+windows.onload = init();
+
 class Point {
   constructor(x, y) {
     this.x = x;
@@ -22,7 +24,12 @@ const p1 = new Point(5, 5);
 const p2 = new Point(10, 10);
 const p3 = new Point(12, 27);
 
-document.body.innerHTML += "<p>Distance between points (5, 5) and (10, 10) is " + 
+
+function init() {
+  document.body.innerHTML += "<p>Distance between points (5, 5) and (10, 10) is " + 
                      Point.distance(p1, p2) + "</p>";
-document.body.innerHTML += "Number of Points created is " + Point.nbPointsCreated;
+  document.body.innerHTML += "Number of Points created is " + Point.nbPointsCreated;
+}
+
+
 
