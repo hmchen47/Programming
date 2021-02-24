@@ -515,6 +515,36 @@ Example at CodePen:
 [Local Demo](src/js/04c-example07.js)
 
 
+#### Notes for 4.3.7 [Advanced] Modern JavaScript's getters and setters
+
++ getters and setters methods
+  + useful for processing properties, doing checks, changing them before returning their values, etc.
+  + setters methods:
+    + making some checks when trying to set a value to a property
+    + declare w/ the keyword `set` followed by the name of the property defined
+    + violation check
+  + getters methods:
+    + doing some processing when accessing the value of a property
+    + declare w/ the keyword `get` followed by the name of the property defined
+    + `get propertyName()` usage:
+      + equivalent to declaring a property named `propertyName`
+      + define an implicit property name `propertyName`
+      + have to use ANOTHER name for the variable used to store the property value
+      + convention: keep the same name but add an underscore at the beginning
+      + example: `get name(n) { this._name = n; }`
+
++ Example: [getters and setters](src/js/04c-example07.js)
+  + declare class: `class Person {...}`
+    + declare constructor: `constructor(givenName, familyName) {...}`
+      + declare `givenName` property: `this.givenName = givenName;`
+      + declare `_familyName` property (start w/ '_'): `this._familyName = familyName;`
+    + access a property w/ uppercase: `get familyName() {return this._familyName.toUpperCase(); }`
+    + set a property checking violation: `set familyName(newName) { this.familyName = newName; }`
+    + walking method: `walk() { return (this.giveName + '' + this._familyName + 'is walking.'); }`
+  + create an object: `p1 = new Person('Michel', 'Buffa');`
+  + display family name capitalized: `console.log(p1.familyName);` $\to$ `BUFFA`
+  + implicit set familyName to 'Smith': `p1.familyName = 'Smith';`
+
 
 
 
