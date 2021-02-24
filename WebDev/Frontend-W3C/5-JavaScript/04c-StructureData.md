@@ -468,4 +468,53 @@ Running example:
   + display the distance btw (5, 5) and (10, 10): `document.body.innerHTML += "<p>Distance between points (5, 5) and (10, 10) is " + Point.distance(p1, p2) + "</p>";`
 
 
+### 4.3.7 [Advanced] Modern JavaScript's getters and setters
+
+It is possible to use special methods that are called __getters__ and __setters__. They allow to make some checks when one is trying to set a value to a property, or to do some processing when accessing it (for example for displaying it in uppercase, even if its value is in lowercase).
+
+These special functions are called "getters" and "setters", and are declared using the keywords `get` and `set` followed by the name of the property they define.
+
+Typical use (_lines 7 and 11_):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Person</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; constructor</span><span class="pun">(</span><span class="pln">givenName</span><span class="pun">,</span><span class="pln"> familyName</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">givenName </span><span class="pun">=</span><span class="pln"> givenName</span><span class="pun">;</span><span class="pln"> </span><span class="com">// "normal name"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>this</strong></span><strong><span class="pun">.</span><span class="pln">_familyName </span><span class="pun">=</span><span class="pln"> familyName</span><span class="pun">;</span><span class="pln"> </span><span class="com">// starts with "_"</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="kwd">&nbsp; &nbsp; get</span><span class="pln"> familyName</span><span class="pun">()</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">_familyName</span></strong><span class="pun">.</span><span class="pln">toUpperCase</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="kwd">&nbsp; &nbsp; set</span><span class="pln"> familyName</span><span class="pun">(</span><span class="pln">newName</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // validation could be checked here such as </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // only allowing non numerical values</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>this</strong></span><strong><span class="pun">.</span><span class="pln">_familyName </span></strong><span class="pun">=</span><span class="pln"> newName</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; walk</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">givenName </span><span class="pun">+</span><span class="pln"> </span><span class="str">' '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">_familyName </span></strong><span class="pun">+</span><span class="pln"> </span><span class="str">' is walking.'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">let p1 = new Person('Michel', 'Buffa');</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">console.log(p1.familyName); // will display BUFFA in the devtool console</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // this will call implicitly get familyName();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">p1.familyName = 'Smith'; &nbsp; &nbsp;// this will call implicitly set familyName('Smith');</span></li>
+</ol></div>
+
+Notice that when you declare `get familyName() {...}` for example, you define implicitly a property whose name is "`familyName`" and that will be accessible using `object.familyName`, where `object` is an instance of the class. See _lines 22-25_ in the example above. Displaying the value of `p1.familyName` will call implicitly `get familyName()`, while `p1.familyName = 'Smith';` will call set `Name('Smith');`
+
+As `get familyName()` defines an implicit property named `familyName`, the convention is to use `this._familyName` for storing its value (the same name preceded by an underscore).
+
+Example at CodePen:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/WOoQgw)
+
+[Local Demo](src/js/04c-example07.js)
+
+
+
+
 
