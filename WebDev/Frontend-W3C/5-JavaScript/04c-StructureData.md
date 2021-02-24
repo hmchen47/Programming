@@ -147,18 +147,6 @@ _Lines 11-13_: creation of three heroes. We use the same constructor function (H
     + using the `this` keyword to define the property names and method names
       + syntax not the same as the syntax used for single/simple objects
       + using "=" and ";" instead of ":" and ","
-      + example:
-
-        ```js
-        function Hero(name, side) {
-          this.name = name;
-          this.side = side;
-          this.speak = function() {
-              console.log("My name is " + this.name + " and I'm with the " + this.side);
-          }
-        }
-        ```
-
     + properties initialized w/ the constructor function parameters
       + newly constructed objects given an initial value for their properties
       + using `this` keyword to distinguish the property from the construction function parameters
@@ -172,6 +160,68 @@ _Lines 11-13_: creation of three heroes. We use the same constructor function (H
     + `speak` method: `this.speak = function() { return "<p>My name is " + this.name + ", I'm with the " + this.side + ".</p>"; } }`  
   + create instances: `var darkVador = new Hero("Dark Vador", "empire"); var luke = new Hero("Luke Skywalker", "rebels"); ...`
   + function for heros to speak: `function makeHeroesSpeak() { document.body.innerHTML += darkVador.speak(); ...}`
+
+
+
+### 4.3.3 Creating objects using modern JavaScript's classes
+
+#### Live coding video: modern JavaScript's classes
+
+<a href="https://edx-video.net/W3CJSIXX2016-V004300_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/f4e664fz)
+
+__Source code from above video examples__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/mwOYWm)
+
+[Local Demo](src/04c-example03.html)
+
+ES5's constructor function syntax is not easy to read. If someone does not respect the "conventions" that we've just discussed (start the class with an uppercase, etc.), then the code may work, but it will be difficult to guess that we are not in front of a regular function. 
+
+Modern JavaScript now provides a `class` keyword and a `constructor` keyword, along with advanced concepts that will be the subject of a future " JavaScript advanced" course. 
+
+Main changes:
+
+1. <span style="color: cyan; font-weight: bold;">A class is simply defined using the keyword <code>class</code> <span style="color: brown;">followed by the name of the class</span></span>
+2. <span style="color: brown; font-weight: bold;">The <span style="color: cyan;">unique constructor</span> is defined using the <code>constructor</code> keyword followed by the parameters</span>
+  + <span style="color: brown; font-weight: bold;">The constructor is executed when an object is created using the keyword <code>new</code></span> <br>Example: `let h1 = new Hero('Ian Solo', 'rebels');`<br>
+  This will call `constructor(name, side)` in the example below.
+3. <span style="color: cyan; font-weight: bold;">A method is simply defined by its name <span style="color: brown;">followed by its parameters</span> (we no more use the keyword "function")</span><br>Example: `speak() {...}` in the source code below.
+
+Here is the new version of the Hero "template", this time with the ES6 class syntax:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">class</span><span class="pln"> </span><span class="typ">Hero</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>constructor</strong></span><strong><span class="pun">(</span><span class="pln">name</span><span class="pun">,</span><span class="pln"> side</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> name</span><span class="pun">; // property</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">side </span><span class="pun">=</span><span class="pln"> side</span><span class="pun">; // property</span><span class="pln"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong> speak</strong></span><strong><span class="pun">()</span><span class="pln"> </span><span class="pun">{ // method, no more "function"</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="str">"&lt;p&gt;My name is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", I'm with the "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">side </span><span class="pun">+</span><span class="pln"> </span><span class="str">".&lt;/p&gt;"</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">(</span><span class="str">"Dark Vador"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"empire"</span><span class="pun">);</span></li>
+</ol></div>
+
++ _Line 1_: a class is simply defined using the keyword `class` followed by the name of the class. Like for constructor functions, the convention is to use a noun, capitalized.
++ _Line 2_: the constructor is defined using the `constructor` keyword. __THERE CAN BE ONLY ONE CONSTRUCTOR in the class.__  A SyntaxError will be thrown if the class contains more than one occurrence of a constructor method. No more use of the `function` keyword. Simply use the `constructor` keyword followed by the parameters.
+
+<span style="color: cyan;">The instructions in the body of the constructor are executed when an object is created using the keyword new followed by the name of the class, with arguments between parentheses. These arguments will be passed to the constructor.</span>
+
++ _Line 7_: a method is simply defined by its name followed by its parameters. <span style="color: cyan; font-weight: bold;">Again, no more use of the <code>function</code> keyword.</span>
+
+See below an interactive example that uses an ES6 class to create Star Wars' heroes.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/PpMpBo)
+
+[Local Demo](src/04c-example03.html)
+
 
 
 
