@@ -27,6 +27,9 @@ Let's introduce these two ways of defining "pseudo classes" with ES5's function 
 #### Notes for 4.3.1 Classes: definition
 
 + Classes
+  + JS not real classes
+    + two types of object-oriented languages: classes-based and prototype-based
+    + JS: a prototype-based language
   + singleton objects: objects only occurred once
   + templates w/ same properties and methods
     + ES5: not having such concept but "constructor functions"
@@ -552,10 +555,11 @@ Here is the discussion forum for this part of the course. Please either post you
 
 #### Suggested topics
 
-+ Did you now that modern JavaScript's classes are just "a syntactic sugar"? In fact they are equivalent to constructor functions from ES5...
++ Did you know that modern JavaScript's classes are just "a syntactic sugar"? In fact they are equivalent to constructor functions from ES5...
 + There are two sorts of object-oriented languages: class-based languages and prototype-based languages.
-JavaScript is a prototype-based language. In this introductory course, we managed to avoid this term! Without getting into too much details, you might be curious about prototypes and maybe read some Web pages related to those. <br>
-And yes, ES6 classes are not "real classes"... They are meant to make developers' lives easier, i.e., for the developers who already know a class-based language such as Java, C#, etc.
+JavaScript is a prototype-based language. In this introductory course, we managed to avoid this term! Without getting into too much details, you might be curious about prototypes and maybe read some Web pages related to those. 
+
+  And yes, ES6 classes are not "real classes"... They are meant to make developers' lives easier, i.e., for the developers who already know a class-based language such as Java, C#, etc.
 
 
 #### Optional projects
@@ -572,7 +576,7 @@ And yes, ES6 classes are not "real classes"... They are meant to make developers
 
   3. It would be cool to also have a `listContact()` function that will generate a list of contacts (create `<ul>...</ul>` with `<li>...</li>` inside, one for each contact).
   4. Now, try to write an ES6 class `ContactManager` (or you could also use an object literal for that..., but let's try  practicing JavaScript classes!), that will have the array of contact as a property.
-  5. Create an instance db of this class: `let db = new ContactManager();`
+  5. Create an instance `db` of this class: `let db = new ContactManager();`
   6. Add in the `ContactManager` class an `add(c)` and a `list()` method (for adding a contact `c` to the array of contacts, and for listing the contacts).
   7. Now, when you press the buttons, the `addContact()` method from step 1 will call `db.addContact(c)` where `db` is the instance of your `ContactManager` class and `c` is an instance of the `Contact` class.
   8. Feel free to customize this project with nice CSS, etc.
