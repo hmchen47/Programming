@@ -318,6 +318,24 @@ And here is the CodePen version of the game that includes these improvements:
       + detect collision: `testCollisionBallWithWalls(b); testCollisionWithPlayer(b, index);`
 
 
+### 4.4.3 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+
+#### Suggested topic
+
+Did you register to [W3C HTML5 Apps and Games MOOC](https://www.edx.org/course/html5-apps-and-games)? There is module about video game programming, and with the knowledge acquired from this JS intro MOOC, you should have no problem following it.
+
+It uses JavaScript object oriented programming and shows many examples that share the concepts seen during the first 4 modules of this course.
+
+
+#### Optional projects
+
++ Try to use ES6 classes as much as you can.
++ Split the project into files!
+  + Try to make a local version on your hard disk and try to split the game into files such as main.js, listeners.js, balls.js, player.js, sound.js, score.js, etc.
+  + Did you manage to use the multiple image loader from Module 2? Try again, ask for help in the discussion forum proposed below!<br> Try to replace the balls by images, use nice graphics, etc.
 
 
 
