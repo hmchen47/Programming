@@ -375,16 +375,16 @@ Instead, object oriented programming languages have the concept of "class proper
 It's the same for properties. If there is a property named `nbHerosCreated` in the class Hero, it represents the DNA of the class, not of the instances. You can say "the Hero class has the number of heroes it created", and you can say "Dark Vador has a name and belongs to the empire side", but not "Dark Vador has a number of heroes he created". We have class properties and instance properties.
 
 
-#### The static keyword is used for defining class methods
+#### Class methods
 
-__Class methods__
+__The `static` keyword is used for defining class methods__
 
 How do we distinguish them? By using the static keyword. When you see a method preceded by the `static` keyword, it means that you see a class property or a class method.
 
 <p style="border: 1px solid; padding: 20px; margin: 20px; text-align: center;"><span style="color: #ff0000;"><strong>The <span style="font-family: 'courier new', courier;">static</span> keyword defines a static method for a class. <br><br><span style="color: #0000ff;">Static methods are called without instantiating their class <br>and can&nbsp;not&nbsp;be called through a class instance.</span> <br><br><em>Consequence</em>: do not use instance properties in their body!<br><br>Static methods are often used to create utility functions for an application (source: MDN).<br><br></strong></span></p>
 
 
-##### Class properties
+#### Class properties
 
 Class properties should be defined after the class definition, and declared using the name of the class followed by the . operator and the name of the property.
 
@@ -392,7 +392,7 @@ Example: `Point.nbPointsCreated` in the example below. A best practice is to ALW
 
 There is another way to declare Class properties (using static getters and setters -- see next section, for advanced users), but we recommend using this one for beginners.
 
-#### Class methods
+#### Example to create class methods
 
 __Example of creation and use of class methods and properties using an ES6 class__
 
@@ -435,6 +435,37 @@ Running example:
 [Local Demo](src/04c-example06.html)
 
 
+#### Notes for 4.3.6 Static properties and methods
+
++ Static properties and methods
+  + some properties and methods attached to class not instance
+  + class properties and class methos: complete the instance properties and instance methods seen up to this point
+  + class and instance
+    + class method: define the class' behavior
+    + instance method: define the instance's behavior
+    + class property: DNA of the class, not of the instances
+    + instance property: DNA of the instance
+  + declare class methods
+    + `static` keyword: used for defining class methods
+    + called w/o instantiating their class and unable to be called through a class instance
+    + often used to create utility functions for an application
+  + declare class properties
+    + defined after the class definition
+    + definition necessarily outside of the class w/ ES6
+    + declare using the name of the class followed by the operator and the name of the property
+    + best practice: ALWAYS using the format `ClassName.property`
+    + alternative: using static setters and getters
+
++ Example: [declare class methods and class properties](src/04c-example06.html)
+  + declare class: `class Point {...}`
+    + declare constructor: ``constructor(x, y) {...}`
+      + instance properties: `this.x = x; this.y = y;`
+      + static/class property: `Point.nbPointsCreated++;`
+    + class method: `static distance(a, b) { const dx = a.x - b.x; const dy = a.y - b.y; return Math.sqrt(dx*dx + dy*dy) }`
+  + <span style="color: brown;">static property definition</span>: `Point.nbPointCreated = 0;`
+  + create points: `const p1 = new Point(5, 5); const p2 = new Point(10, 10); const p3 = new Point(12, 27);`
+  + display number of point created: `document.body.innerHTML += "Number of Points created is " + Point.nbPointsCreated;`
+  + display the distance btw (5, 5) and (10, 10): `document.body.innerHTML += "<p>Distance between points (5, 5) and (10, 10) is " + Point.distance(p1, p2) + "</p>";`
 
 
 
