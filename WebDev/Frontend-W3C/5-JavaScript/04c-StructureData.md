@@ -179,6 +179,8 @@ __Source code from above video examples__
 
 [Local Demo](src/04c-example03.html)
 
+#### Creating classes
+
 ES5's constructor function syntax is not easy to read. If someone does not respect the "conventions" that we've just discussed (start the class with an uppercase, etc.), then the code may work, but it will be difficult to guess that we are not in front of a regular function. 
 
 Modern JavaScript now provides a `class` keyword and a `constructor` keyword, along with advanced concepts that will be the subject of a future " JavaScript advanced" course. 
@@ -187,8 +189,9 @@ Main changes:
 
 1. <span style="color: cyan; font-weight: bold;">A class is simply defined using the keyword <code>class</code> <span style="color: brown;">followed by the name of the class</span></span>
 2. <span style="color: brown; font-weight: bold;">The <span style="color: cyan;">unique constructor</span> is defined using the <code>constructor</code> keyword followed by the parameters</span>
-  + <span style="color: brown; font-weight: bold;">The constructor is executed when an object is created using the keyword <code>new</code></span> <br>Example: `let h1 = new Hero('Ian Solo', 'rebels');`<br>
-  This will call `constructor(name, side)` in the example below.
+
+    + <span style="color: brown; font-weight: bold;">The constructor is executed when an object is created using the keyword <code>new</code></span> <br>Example: `let h1 = new Hero('Ian Solo', 'rebels');`<br>
+    This will call `constructor(name, side)` in the example below.
 3. <span style="color: cyan; font-weight: bold;">A method is simply defined by its name <span style="color: brown;">followed by its parameters</span> (we no more use the keyword "function")</span><br>Example: `speak() {...}` in the source code below.
 
 Here is the new version of the Hero "template", this time with the ES6 class syntax:
@@ -221,6 +224,30 @@ See below an interactive example that uses an ES6 class to create Star Wars' her
 [CodePen Demo](https://codepen.io/w3devcampus/pen/PpMpBo)
 
 [Local Demo](src/04c-example03.html)
+
+
+
+#### Notes for 4.3.3 Creating objects using modern JavaScript's classes
+
++ Creating classes
+  + ES5 constructor functions: not eay to read and probably not followed name convention
+  + ES6 introducing `new` and `constructor` keywords
+    + simply define a class using the keyword `class` followed by the nam eof the class
+    + the `contrustor` keyword followed by the parameters
+      + only one constructor in the class
+      + constructor executed when an object created using the keyword `new`
+      + the instructions in `constructor` block extecuted when an object created
+      + example: `let h1 = new Hero('Ian Solo', 'rebels');` $\to$ calling `constructore(name, side)`
+    + method:
+      + simply defined by the name followed by its parameters
+      + no `function` keyword required
+  
++ Example: [creating class and objects](src/04c-example03.html)
+  + declare class: `class Hero {...}`
+    + declare constructor: `constructor(name, side) {...}`
+    + declare properties within constructor: `this.name = name; this.side = side;`
+    + declare method: `speak( return "<p>My name is " + this.name + ", I'm with the " + this.side + ".</p>"; }`
+  + declare a new instance: `var darkVador = new Hero("Dark Vador", "empire");`
 
 
 
