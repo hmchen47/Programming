@@ -88,5 +88,67 @@ And here is the (so far, incomplete) ES6 class for Ball (continued in the next p
 </ol></div>
 
 
+#### Notes for 4.4.1 Class and constructor
+
++ Example: comparisons of constructor function and class
+  + constructor function: `functioncreateBalls1(n) {...}`
+    + declare an empty array: `let ballArray = [];`
+    + create `n` balls w/ properties by singleton object and add into array
+
+      ```js
+      for(let i=0; i < n; i++) { // let's build multiple times a singleton object
+          let b = { 
+              x:w/2,
+              y:h/2,
+              radius: 5 + 30 * Math.random(), // between 5 and 35
+              speedX: -5 + 10 * Math.random(), // between -5 and + 5
+              speedY: -5 + 10 * Math.random(), // between -5 and + 5
+              color:getARandomColor(),
+          }
+
+        ballArray.push(b);
+      }
+      ```
+
+    + return the array w/ randomly created balls: `return ballArray;`
+  + constructor function w/ `new` keyword: `functioncreateBalls2(n) {...}`
+    + declare an empty array: `let ballArray = [];`
+    + create `n` balls w/ properties by `new` keyword and add into array
+
+      ```js
+      for(let i=0; i < n; i++) {
+        let x = w/2; let y = h/2;
+        let radius = 5 + 30 * Math.random(); // between 5 and 35
+        let speedX = -5 + 10 * Math.random(); // between -5 and + 5
+        let speedY = -5 + 10 * Math.random(); // between -5 and + 5
+        let color = getARandomColor();
+ 
+        // Create the new ball b
+        let b = new Ball(x, y, radius, color, speedX, speedY);
+
+        ballArray.push(b);
+      }
+      ```
+
+    + return the array w/ randomly created balls: `return ballArray;`
+  + ES5 class: `class Ball() {...}`
+    + declare constructor: `constructor(x, y, radius, color, speedX, speedY) {...}`
+    + declare properties:
+
+      ```js
+      this.x = x;            // properties
+      this.y = y;
+      this.radius = radius;
+      this.color = color;
+      this.speedX = speedX;
+      this.speedY = speedY;
+      ```
+
+    + declare methods: `// code for methods`
+
+
+
+
+
 
 
