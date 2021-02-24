@@ -133,7 +133,7 @@ And here is the (so far, incomplete) ES6 class for Ball (continued in the next p
     + return the array w/ randomly created balls: `return ballArray;`
   + ES5 class: `class Ball() {...}`
     + declare constructor: `constructor(x, y, radius, color, speedX, speedY) {...}`
-    + declare properties:
+    + declare properties in constructor:
 
       ```js
       this.x = x;            // properties
@@ -280,6 +280,42 @@ And here is the CodePen version of the game that includes these improvements:
 [CodePen Demo](https://codepen.io/w3devcampus/pen/EWzgpr)
 
 [Local Demo](src/04d-example01.html)
+
+
+#### Notes for 4.4.2 Adding methods classes
+
++ Example: draw and move balls
+  + draw and move balls w/ functions
+    + drawing balls: `function drawFilledCircle(c) {...}`
+      + store context: `ctx.save();`
+      + translate the coordinate system: `ctx.translate(c.x, c.y);`
+      + context property setting: `ctx.fillStyle = c.color;`
+      + lift pen to start a new path: `ctx.beginPath();`
+      + draw a circle; `ctx.arc(0, 0, c.radius, 0, 2+Math.PI); ctx.fill();`
+      + restore the context: `ctx.restore();`
+    + drawing all balls in an array: `function drawAllBalls(ballArray) { ballArray.forEach(function(b) { drawFilledCircle(b); }); }`
+    + moving balls: `function moveAllBalls(ballArray) {...}`
+      + iterate all balls in the array: `balls.forEach(function(b, index) {...});`
+      + set new position of current balls: `b.x += (b.speedX * globalSpeedMultiplier); b.y += (b.speedY * globalSpeedMultiplier);`
+      + detect collisions: `testCollisionBallWithWalls(b); testCollisionWithPlayer(b, index);`
+  + [draw and move balls w/ methods](src/04d-example01.html)
+    + keep class as simple as possible
+    + reusability: prevent the class contents to rely on external, global variables
+    + declare ball class: `class Ball {constructor(x, y, radius, color, speedX, speedY) { // refer to class Ball() properties } ... }`
+    + draw ball in class w/ `this` keyword: `draw(ctx) {...}`
+      + save context: `ctx.save();`
+      + translate context: `ctx.translate(this.x, this.y);`
+      + set context property: `ctx.fillStyle = this.color;`
+      + lift pen to start new draw path: `ctx.beginPath();`
+      + draw a circle: `ctx.arc(0, 0, this.radius, 0, 2*Math.PI); ctx.fill();`
+      + restore context: `ctx.restore();`
+    + move ball method: `move() { this.x += this.speedX; this.y += this.speedY; }`
+    + missing `globalSpeedMultiplier`: not relevant to each ball but all $\to$ existed event no ball $\to$ not a ball property
+    + draw all balls: `function drawAllBalls2(ballArray) { ballArray.forEach(function(b) { b.draw(ctx); }); }`
+    + move all balls: `function moveAllBalls2(ballArray) {...});
+      + iterate through all balls: `balls.forEach(function(b, index) {...}`
+      + move the current ball: `b.move();`
+      + detect collision: `testCollisionBallWithWalls(b); testCollisionWithPlayer(b, index);`
 
 
 
