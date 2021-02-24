@@ -546,5 +546,36 @@ Example at CodePen:
   + implicit set familyName to 'Smith': `p1.familyName = 'Smith';`
 
 
+### 4.3.8 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ Did you now that modern JavaScript's classes are just "a syntactic sugar"? In fact they are equivalent to constructor functions from ES5...
++ There are two sorts of object-oriented languages: class-based languages and prototype-based languages.
+JavaScript is a prototype-based language. In this introductory course, we managed to avoid this term! Without getting into too much details, you might be curious about prototypes and maybe read some Web pages related to those. <br>
+And yes, ES6 classes are not "real classes"... They are meant to make developers' lives easier, i.e., for the developers who already know a class-based language such as Java, C#, etc.
+
+
+#### Optional projects
+
++ Try to write one of the example from the previous modules without using any single time the keyword "function", use only JavaScript classes and instances. In case of problems -> go the the forum and share your experience, this will be very useful for all students to see what sort of problems can occur when moving from a functional approach to an object-oriented approach
++ Build a class-based contact manager!
+  
+  1. Try to build a small database (in a JavaScript array) that will hold your contacts. You will use classes for defining:<br>
+    1) a `Contact` class, with `givenName`, `familyName`, `phoneNumber`, etc. and<br>
+    2) an HTML set of input fields (not inside a form) for creating new contacts + an "Add contact" button. When you click on the button, it calls an `addContact()` callback of your own that will create a new contact and add it to your database (using the push method on arrays).
+  2. [ADVANCED] input fields and buttons inside a form!
+
+    __Beware__: either do not put your input fields and buttons inside a `<form>` or the buttons will submit the form (this is their default behavior, unless you add an attribute `type="button"` to the buttons). Or you might also declare `<form onsubmit = "return processMyForm();">`, this will call the method `processMyForm` (You can change this name if you like) when the form is submitted. In the `processMyForm` method, get the content of the input fields, build a contact, add it to the array etc. And then, do not forget to return `false` to avoid the submission of the HTML form).
+
+  3. It would be cool to also have a `listContact()` function that will generate a list of contacts (create `<ul>...</ul>` with `<li>...</li>` inside, one for each contact).
+  4. Now, try to write an ES6 class `ContactManager` (or you could also use an object literal for that..., but let's try  practicing JavaScript classes!), that will have the array of contact as a property.
+  5. Create an instance db of this class: `let db = new ContactManager();`
+  6. Add in the `ContactManager` class an `add(c)` and a `list()` method (for adding a contact `c` to the array of contacts, and for listing the contacts).
+  7. Now, when you press the buttons, the `addContact()` method from step 1 will call `db.addContact(c)` where `db` is the instance of your `ContactManager` class and `c` is an instance of the `Contact` class.
+  8. Feel free to customize this project with nice CSS, etc.
+
 
 
