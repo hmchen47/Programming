@@ -292,7 +292,7 @@ Accessing the embedded object `author` is done by chaining property accesses usi
 
 #### Notes for 4.2.4 An object can contain another object
 
-+ Object in object
++ Embedded objects in singleton object
   + accessing the embedded object by chaining property using the '.' operator
   + example:
 
@@ -473,21 +473,21 @@ In the next section we will look at how we can access other object's properties 
 
 #### Notes for 4.2.5 Elements, properties and methods
 
-+ Object declaration
++ Singleton object declaration
   + definitions
     + element for arrays
     + property for objects
     + method: a function as a property in objects
   + properties
-    + an objects DNS, its characteristics
+    + an object's DNS, its characteristics
     + nouns, e.g., age, name, etc.
   + methods
     + an object's behavior
     + verb, e.g., bank, move, changeSpeed, etc.
-  + calling a method (similar to a propert) w/ '.' or brackets w/ the method's name as a string index
+  + calling a method (similar to a property) w/ '.' or brackets w/ the method's name as a string index
   + including methods into object $\to$ more readable and more encapuslated version of an property-only object
 
-+ Example: [declare an object](src/04b-example03.html)
++ Example: [declare singleton object](src/04b-example03.html)
 
   ```js
   var darkVador = {
