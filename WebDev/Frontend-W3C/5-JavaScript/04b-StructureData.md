@@ -749,16 +749,16 @@ JavaScript code extract:
 
 + Manipulating properties and methods
   + JS the only object-oriented language able to add or remove properties after an object has been created
-  + example: [adding properties & method](src/04b-example07.html)
+  + example: [add properties & methods](src/04b-example07.html)
     + declare an empty object: `var darkVador = {};`
     + add properties after object created: `darkVador.race = 'human'; darkVador.job = 'villain';`
-    + add methods after object created: `darkVador.talk = function() { return 'come to the dark side, Luke!' + this.breathe(); };`
+    + add methods after object created: `darkVador.talk = function() { return 'come to the dark side, Luke!' + this.breath(); };`
   + example: [delete properties & methods](src/04b-example08.html)
     + delcare and add properties as the previous example
     + delete properties: `function deleteSomeProperties() { delete darkVador.race; delete darkVador.job; }`
 
 
-#### Knowledge check 4.2.4
+#### Knowledge check 4.2.7
 
 ```js
 let pacman = {};
