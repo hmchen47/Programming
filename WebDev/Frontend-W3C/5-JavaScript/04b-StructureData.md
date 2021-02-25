@@ -244,7 +244,7 @@ Example:
 
 + Property declaration
   + property name: single or double quotes around the name of the perperty, or nothing at all
-  + recommended: no single or double quotes
+  + recommendation: no single or double quotes
   + exceptions: single or double quotes required
     + reserved words in JS
     + containing spaces or special characters
@@ -257,7 +257,7 @@ Example:
     var louis = {"age": 40};
     var louis = {'age': 40};
 
-    book.1stPublication = '6 April 1943';
+    book.1stPublication = '6 April 1943';   // throws a SyntaxError
     book['1stPublication'] = '6 April 1943';
 
     var key = 'title';  // title as property name
