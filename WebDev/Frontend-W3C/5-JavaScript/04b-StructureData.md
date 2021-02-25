@@ -149,8 +149,8 @@ As you can see, if you look at _lines 7-10_ and _13-16_, writing `book.title` or
 
 #### Notes for 4.2.2 From objects to arrays
 
-+ Objects in JS
-  + object: a table whose keys/indexes defined
++ Singleton objects
+  + singleton object: a table whose keys/indexes defined
   + __object literal__
     + a comma-separated list of name-value pairs wrapped in curly braces
     + encapsulating data, enclosing it in a tidy package
