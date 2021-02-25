@@ -675,10 +675,8 @@ In this example, notice that the `describeYourself` method from the `darkVador` 
 
     ```js
     var player = {
-        x:10,
-        y:10,
-        width:20,
-        height:20,
+        x:10,       y:10,
+        width:20,   height:20,
         color:'red',
         move: function(x, y) {
             this.x = x; // this.x is the property of "this object"
