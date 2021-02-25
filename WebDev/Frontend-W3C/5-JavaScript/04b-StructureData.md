@@ -513,10 +513,8 @@ In the next section we will look at how we can access other object's properties 
 
     ```js
     var player = {
-        x:10,
-        y:10,
-        width:20,
-        height:20,
+        x:10, y:10,
+        width:20, height:20,
         color:'red',
         move(x, y) {
             // change x and y coordinates of the player ...
@@ -532,7 +530,7 @@ In the next section we will look at how we can access other object's properties 
 
 
 
-#### Knowledge check 4.2.3
+#### Knowledge check 4.2.5
 
 ```js
 let anObject = {
