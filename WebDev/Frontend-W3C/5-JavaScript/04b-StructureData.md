@@ -155,13 +155,13 @@ As you can see, if you look at _lines 7-10_ and _13-16_, writing `book.title` or
     + a comma-separated list of name-value pairs wrapped in curly braces
     + encapsulating data, enclosing it in a tidy package
   + minimizing the use of global variables which can cause problems when combining code
-  + array defined w/ '<span style="color: brown;">[</span>' and '<span style="color: brown;">]</span>'
-  + characteristics
-    + object defined ww/ '<span style="color: brown;">{</span>' and '<span style="color: brown;">}</span>'
-    + elements (properties) of object separated by a comma ','
-    + pairs of keys/values separated by ':'
-    + the last pair of keys/values w/o ',' at the end
-  + accessing properties w/ '.' or brackets followed by the property name
+  + array defined w/ '<span style="color: brown; font-weight: bold;">[</span>' and '<span style="color: brown; font-weight: bold;">]</span>'
+  + characteristics font-weight: bold;
+    + object defined w/ '<span style="color: brown; font-weight: bold;">{</span>' and '<span style="color: brown; font-weight: bold;">}</span>'
+    + elements (properties) of object separated by a comma '<span style="color: brown; font-weight: bold;">,</span>'
+    + pairs of keys/values separated by '<span style="color: brown; font-weight: bold;">:</span>'
+    + the last pair of keys/values w/o '<span style="color: brown; font-weight: bold;">,</span>' at the end
+  + accessing properties w/ '<span style="color: brown; font-weight: bold;">.</span>' or brackets followed by the property name
   + objects = arrays w/ indexes as __property names__
   + example:
 
