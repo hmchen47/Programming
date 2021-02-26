@@ -160,7 +160,7 @@ _Lines 11-13_: creation of three heroes. We use the same constructor function (H
   + declare constructor function: `function Hero(name, side) {...}`
     + `name` property: `this.name = name;`
     + `side` property: `this.side = side;`
-    + `speak` method: `this.speak = function() { return "<p>My name is " + this.name + ", I'm with the " + this.side + ".</p>"; } }`  
+    + `speak` method: `this.speak = function() { return "<p>My name is " + this.name + ", I'm with the " + this.side + ".</p>"; }`  
   + create instances: `var darkVador = new Hero("Dark Vador", "empire"); var luke = new Hero("Luke Skywalker", "rebels"); ...`
   + function for heros to speak: `function makeHeroesSpeak() { document.body.innerHTML += darkVador.speak(); ...}`
 
