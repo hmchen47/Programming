@@ -34,7 +34,7 @@ Let's introduce these two ways of defining "pseudo classes" with ES5's function 
   + templates w/ same properties and methods
     + ES5: not having such concept but "constructor functions"
     + post ES5: concept of classes and the syntax developed similar to what other object-oriented programming language
-  + example: balls w/ the same shape (circle), the sam ex,y, radius, and color properties but different values
+  + example: balls w/ the same shape (circle), the same x, y, radius, and color properties but different values
 
 
 ### 4.3.2 The "new" keyword
