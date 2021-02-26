@@ -15,6 +15,15 @@
 + [Introduction to Mathematical Programming - MIT](https://tinyurl.com/y5kyx76y)
 + [Fundamentals of Program Analysis - MIT](https://tinyurl.com/y632qdmx)
 + [Theory of Computation - MIT](https://tinyurl.com/y64s55ox)
++ Algorithms Specialization - Stanford, Coursera
+  + [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer)
+  + [Graph Search, Shortest Paths, and Data Structures](https://www.coursera.org/learn/algorithms-graphs-data-structures)
+  + [Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming](https://www.coursera.org/learn/algorithms-greedy)
+  + [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them](https://www.coursera.org/learn/algorithms-npcomplete)
++ Algorithm - Princeton, Coursera
+  + [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1)
+  + [Algorithms, Part II](https://www.coursera.org/learn/algorithms-part2)
+  + [Analysis of Algorithms](https://www.coursera.org/learn/analysis-of-algorithms)
 + Elasticsearch
   + [Elasticsearch](https://en.wikipedia.org/wiki/Elasticsearch)
   + [Using elasticsearch, logstash and kibana to create realtime dashboards - slides](https://tinyurl.com/yajg7zs6)
