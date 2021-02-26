@@ -705,7 +705,7 @@ This repository tracks my learning on different programming languages.
 
 + [Reading Notes Indexing](RefCards/ReadingIdx.md)
 
-+ [Reading List](Notes/ReadingList.md)
++ [Reading List](RefCards/ReadingList.md)
 
 
 
