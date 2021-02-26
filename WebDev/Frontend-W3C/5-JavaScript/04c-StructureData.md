@@ -235,7 +235,7 @@ See below an interactive example that uses an ES6 class to create Star Wars' her
 + Declare classes
   + ES5 constructor functions: not eay to read and probably not followed name convention
   + ES6 introducing `new` and `constructor` keywords
-    + simply define a class using the keyword `class` followed by the nam eof the class
+    + simply define a class using the keyword `class` followed by the name of the class
     + the `contrustor` keyword followed by the parameters
       + only one constructor in the class
       + constructor executed when an object created using the keyword `new`
@@ -250,7 +250,7 @@ See below an interactive example that uses an ES6 class to create Star Wars' her
   + declare class: `class Hero {...}`
     + declare constructor: `constructor(name, side) {...}`
     + declare properties within constructor: `this.name = name; this.side = side;`
-    + declare method: `speak( return "<p>My name is " + this.name + ", I'm with the " + this.side + ".</p>"; }`
+    + declare method: `speak() { return "<p>My name is " + this.name + ", I'm with the " + this.side + ".</p>"; }`
   + declare a new instance: `var darkVador = new Hero("Dark Vador", "empire");`
 
 
