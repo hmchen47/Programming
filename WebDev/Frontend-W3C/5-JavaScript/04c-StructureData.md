@@ -441,7 +441,7 @@ Running example:
 
 + Static properties and methods
   + some properties and methods attached to class not instance
-  + class properties and class methos: complete the instance properties and instance methods seen up to this point
+  + class properties and class methods: complete the instance properties and instance methods seen up to this point
   + class and instance
     + class method: define the class' behavior
     + instance method: define the instance's behavior
@@ -460,7 +460,7 @@ Running example:
 
 + Example: [declare class methods and class properties](src/04c-example06.html)
   + declare class: `class Point {...}`
-    + declare constructor: ``constructor(x, y) {...}`
+    + declare constructor: `constructor(x, y) {...}`
       + instance properties: `this.x = x; this.y = y;`
       + static/class property: `Point.nbPointsCreated++;`
     + class method: `static distance(a, b) { const dx = a.x - b.x; const dy = a.y - b.y; return Math.sqrt(dx*dx + dy*dy) }`
