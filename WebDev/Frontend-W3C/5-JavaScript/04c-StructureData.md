@@ -229,7 +229,6 @@ See below an interactive example that uses an ES6 class to create Star Wars' her
 [Local Demo](src/04c-example03.html)
 
 
-
 #### Notes for 4.3.3 Creating objects using modern JavaScript's classes
 
 + Declare classes
@@ -289,13 +288,13 @@ We have already seen three different ways to create objects (literals, construct
 Objects can be created as “literals”:
 
 <div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> firstName</span><span class="pun">:’</span><span class="typ">Dark</span><span class="pun">’,</span><span class="pln"> lastName</span><span class="pun">:</span><span class="typ">’Vador</span><span class="pun">’};</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> firstName</span><span class="pun">:'</span><span class="typ">Dark</span><span class="pun">',</span><span class="pln"> lastName</span><span class="pun">:</span><span class="typ">'Vador</span><span class="pun">'};</span></li>
 </ol></div>
 
 Objects can be created with the keyword `new` and a constructor function or an ES6 class:
 
 <div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">(</span><span class="typ">’Dark</span><span class="pln"> </span><span class="typ">Vador</span><span class="pun">’,</span><span class="pln">&nbsp;</span><span class="pln">’empire</span><span class="pun">’);</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">(</span><span class="typ">'Dark</span><span class="pln"> </span><span class="typ">Vador</span><span class="pun">',</span><span class="pln">&nbsp;</span><span class="pln">'empire</span><span class="pun">');</span></li>
 </ol></div>
 
 Objects can also be created by functions that return objects (factories):
@@ -306,7 +305,7 @@ Objects can also be created by functions that return objects (factories):
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln">&nbsp;mxx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">;</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln">&nbsp;my </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span><span class="pun">;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>return</strong></span><strong><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">// the getMousePos function returns an object. It’s a factory</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>return</strong></span><strong><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">// the getMousePos function returns an object. It's a factory</span></strong></li>
 <li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln">&nbsp;mx</span><span class="pun">,</span></strong></li>
 <li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln">&nbsp;my</span></strong></li>
 <li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
@@ -327,17 +326,17 @@ The call to `getMousePos` returns an object that has an `x` and a `y` property.
 #### Notes for 4.3.5 Creating objects with functions (factories)
 
 + Creating objects
-  + created as "literals", e.g., `var darkVador = { firstName:’Dark’, lastName:’Vador’};`
-  + created w/ keyword `new` and a constructor function as `class` in ES6; e.g., `var darkVador = new Hero(’Dark Vador’, ’empire’);`
+  + created as "literals", e.g., `var darkVador = { firstName:'Dark', lastName:'Vador'};`
+  + created w/ keyword `new` and a constructor function as `class` in ES6; e.g., `var darkVador = new Hero('Dark Vador', 'empire');`
   + created by functions that return objects (factories), example
 
     ```js
     function getMousePos(event, canvas) {
         var rect = canvas.getBoundingClientRect();
-        var mxx = event.clientX - rect.left;
+        var mx = event.clientX - rect.left;
         var my = event.clientY - rect.top;
     
-        return { // the getMousePos function returns an object. It’s a factory
+        return { // the getMousePos function returns an object. It's a factory
             x: mx,
             y: my
         }
