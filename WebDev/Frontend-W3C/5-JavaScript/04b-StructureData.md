@@ -243,7 +243,7 @@ Example:
 #### Notes for 4.2.3 Property declaration syntax
 
 + Property name
-  + single or double quotes around the name of the perperty, or nothing at all
+  + single or double quotes around the name of the property, or nothing at all
   + recommendation: no single or double quotes
   + exceptions: single or double quotes required
     + reserved words in JS
