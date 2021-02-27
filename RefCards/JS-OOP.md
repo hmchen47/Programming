@@ -27,6 +27,24 @@
 
 
 
+## Singleton Object
+
++ [Singleton objects](../WebDev/Frontend-W3C/5-JavaScript/04b-StructureData.md#422-from-objects-to-arrays)
+  + singleton object: a table whose keys/indexes defined
+  + __object literal__
+    + a comma-separated list of name-value pairs wrapped in curly braces
+    + encapsulating data, enclosing it in a tidy package
+  + minimizing the use of global variables which can cause problems when combining code
+  + array defined w/ '<span style="color: brown; font-weight: bold;">[</span>' and '<span style="color: brown; font-weight: bold;">]</span>'
+  + characteristics font-weight: bold;
+    + object defined w/ '<span style="color: brown; font-weight: bold;">{</span>' and '<span style="color: brown; font-weight: bold;">}</span>'
+    + elements (properties) of object separated by a comma '<span style="color: brown; font-weight: bold;">,</span>'
+    + pairs of keys/values separated by '<span style="color: brown; font-weight: bold;">:</span>'
+    + the last pair of keys/values w/o '<span style="color: brown; font-weight: bold;">,</span>' at the end
+  + accessing properties w/ '<span style="color: brown; font-weight: bold;">.</span>' or brackets followed by the property name
+  + objects = arrays w/ indexes as __property names__
+
+
 
 
 
