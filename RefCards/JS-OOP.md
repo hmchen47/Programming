@@ -44,7 +44,19 @@
     }
 
     var mousePos = getMousePos(evt, canvas);
-    ```  
+    ```
+
++ Example: [comparisons of constructor function and class](../WebDev/Frontend-W3C/5-JavaScript/04d-StructureData.md#441-class-and-constructor)
+  + constructor function: `function createBalls1(n) {...}`
+  + constructor function w/ `new` keyword: `function createBalls2(n) {...}`
+  + ES5 class: `class Ball() {...}`
+
++ Example: [draw and move balls w/ functions](../WebDev/Frontend-W3C/5-JavaScript/04d-StructureData.md#442-adding-methods-classes)
+  
++ Example: [draw and move balls w/ methods](../WebDev/Frontend-W3C/5-JavaScript/src/04d-example01.html)
+
+
+
 
 ## Singleton Object
 
@@ -214,6 +226,7 @@
       + convention: keep the same name but add an underscore at the beginning
 
 + Example: [getters and setters](../WebDev/Frontend-W3C/5-JavaScript/src/js/04c-example07.js)
+
 
 
 
