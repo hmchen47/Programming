@@ -26,6 +26,25 @@
   + vendor of browser: `navigator.vender`
 
 
++ [Creating objects](..WebDev/Frontend-W3C/5-JavaScript/04c-StructureData.md#435-creating-objects-with-functions-factories)
+  + created as "literals", e.g., `var darkVador = { firstName:'Dark', lastName:'Vador'};`
+  + created w/ keyword `new` and a constructor function as `class` in ES6; e.g., `var darkVador = new Hero('Dark Vador', 'empire');`
+  + created by functions that return objects (factories), example
+
+    ```js
+    function getMousePos(event, canvas) {
+        var rect = canvas.getBoundingClientRect();
+        var mx = event.clientX - rect.left;
+        var my = event.clientY - rect.top;
+    
+        return { // the getMousePos function returns an object. It's a factory
+            x: mx,
+            y: my
+        }
+    }
+
+    var mousePos = getMousePos(evt, canvas);
+    ```  
 
 ## Singleton Object
 
@@ -79,6 +98,60 @@
 
 
 
+## Classes and Objects
+
++ [Classes](../WebDev/Frontend-W3C/5-JavaScript/04c-StructureData.md#431-classes-definition)
+  + JS not real classes
+    + two types of object-oriented languages: classes-based and prototype-based
+    + JS: a prototype-based language
+  + singleton objects: objects only occurred once
+  + templates w/ same properties and methods
+    + ES5: not having such concept but "constructor functions"
+    + post ES5: concept of classes and the syntax developed similar to what other object-oriented programming language
+
+
++ [Declare classes](../WebDev/Frontend-W3C/5-JavaScript/04c-StructureData.md#433-creating-objects-using-modern-javascripts-classes)
+  + ES5 constructor functions: not eay to read and probably not followed name convention
+  + ES6 introducing `new` and `constructor` keywords
+    + simply define a class using the keyword `class` followed by the name of the class
+    + the `contrustor` keyword followed by the parameters
+      + only one constructor in the class
+      + constructor executed when an object created using the keyword `new`
+      + the instructions in `constructor` block extecuted when an object created
+      + example: `let h1 = new Hero('Ian Solo', 'rebels');` $\to$ calling `constructore(name, side)`
+    + method:
+      + simply defined by the name followed by its parameters
+      + no `function` keyword required
+  + declaring a class before using it, otherwise, throwing a `ReferenceError` message
+
++ Example: [creating class and objects](src/04c-example03.html)
+
+
+
+## Class Properties and Class Methods
+
++ [Static properties and methods](../WebDev/Frontend-W3C/5-JavaScript/04c-StructureData.md#436-static-properties-and-methods)
+  + some properties and methods attached to class not instance
+  + class properties and class methods: complete the instance properties and instance methods seen up to this point
+  + class and instance
+    + class method: define the class' behavior
+    + instance method: define the instance's behavior
+    + class property: DNA of the class, not of the instances
+    + instance property: DNA of the instance
+  + declare class methods
+    + `static` keyword: used for defining class methods
+    + called w/o instantiating their class and unable to be called through a class instance
+    + often used to create utility functions for an application
+  + declare class properties
+    + defined after the class definition
+    + definition necessarily outside of the class w/ ES6
+    + declare using the name of the class followed by the operator and the name of the property
+    + best practice: ALWAYS using the format `ClassName.property`
+    + alternative: using static setters and getters
+
++ Example: [declare class methods and class properties](../WebDev/Frontend-W3C/5-JavaScript/src/04c-example06.html)
+
+
 ## `this` keyword
 
 + [`this` keyword](../WebDev/Frontend-W3C/5-JavaScript/04b-StructureData.md#426-this-accessing-properties)
@@ -88,6 +161,59 @@
   + bound to calling object when the function called, not when the function created
   + confusion: in cases of event listeners, the callbacks called by the browser
   + best practice: not to have event listeners in an object
+
+
+## `new` Keyword
+
++ [The 'new' keyword](../WebDev/Frontend-W3C/5-JavaScript/04c-StructureData.md#432-the-new-keyword)
+  + constructor functions
+    + ES5 and prior
+    + a pseudo-class template
+  + syntax of constructor functions same as creating a function w/ exceptions
+    + name w/ capitalized on 1st letter
+      + a good practice for readability
+      + a noun: the name of the class of objects to build
+    + the `new` keyword for new objects
+    + constructor parameters
+      + the parameters of the function
+      + the new building object w/ parameters as its initial values of properties
+      + example: building a Hero must give a name, a side, etc.
+    + using the `this` keyword to define the property names and method names
+      + syntax not the same as the syntax used for single/simple objects
+      + using "=" and ";" instead of ":" and ","
+    + properties initialized w/ the constructor function parameters
+      + newly constructed objects given an initial value for their properties
+      + using `this` keyword to distinguish the property from the construction function parameters
+  + code outside of methods usually for initializing the properties
+
++ Example: [a constructor function](../WebDev/Frontend-W3C/5-JavaScript/src/04c-example02.html)
+  + declare constructor function: `function Hero(name, side) {...}`
+    + `name` property: `this.name = name;`
+    + `side` property: `this.side = side;`
+    + `speak` method: `this.speak = function() { return "<p>My name is " + this.name + ", I'm with the " + this.side + ".</p>"; }`  
+  + create instances: `var darkVador = new Hero("Dark Vador", "empire"); var luke = new Hero("Luke Skywalker", "rebels"); ...`
+  + function for heros to speak: `function makeHeroesSpeak() { document.body.innerHTML += darkVador.speak(); ...}`
+
+
+
+## Getters and Setts Methids
+
++ [getters and setters methods](../WebDev/Frontend-W3C/5-JavaScript/04c-StructureData.md#437-advanced-modern-javascripts-getters-and-setters)
+  + useful for processing properties, doing checks, changing them before returning their values, etc.
+  + setters methods:
+    + making some checks when trying to set a value to a property
+    + declare w/ the keyword `set` followed by the name of the property defined
+    + violation check
+  + getters methods:
+    + doing some processing when accessing the value of a property
+    + declare w/ the keyword `get` followed by the name of the property defined
+    + `get propertyName()` usage:
+      + equivalent to declaring a property named `propertyName`
+      + define an implicit property name `propertyName`
+      + have to use ANOTHER name for the variable used to store the property value
+      + convention: keep the same name but add an underscore at the beginning
+
++ Example: [getters and setters](../WebDev/Frontend-W3C/5-JavaScript/src/js/04c-example07.js)
 
 
 
