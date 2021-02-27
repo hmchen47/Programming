@@ -541,7 +541,7 @@ Example at CodePen:
       + declare `givenName` property: `this.givenName = givenName;`
       + declare `_familyName` property (start w/ '_'): `this._familyName = familyName;`
     + access a property w/ uppercase: `get familyName() {return this._familyName.toUpperCase(); }`
-    + set a property checking violation: `set familyName(newName) { this.familyName = newName; }`
+    + set a property w/ violation check: `set familyName(newName) { this._familyName = newName; }`
     + walking method: `walk() { return (this.giveName + '' + this._familyName + 'is walking.'); }`
   + create an object: `p1 = new Person('Michel', 'Buffa');`
   + display family name capitalized: `console.log(p1.familyName);` $\to$ `BUFFA`
