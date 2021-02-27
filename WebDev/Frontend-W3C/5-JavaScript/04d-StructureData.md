@@ -91,19 +91,18 @@ And here is the (so far, incomplete) ES6 class for Ball (continued in the next p
 #### Notes for 4.4.1 Class and constructor
 
 + Example: comparisons of constructor function and class
-  + constructor function: `functioncreateBalls1(n) {...}`
+  + constructor function: `function createBalls1(n) {...}`
     + declare an empty array: `let ballArray = [];`
     + create `n` balls w/ properties by singleton object and add into array
 
       ```js
-      for(let i=0; i < n; i++) { // let's build multiple times a singleton object
+      for (let i=0; i < n; i++) { // let's build multiple times a singleton object
           let b = { 
-              x:w/2,
-              y:h/2,
-              radius: 5 + 30 * Math.random(), // between 5 and 35
-              speedX: -5 + 10 * Math.random(), // between -5 and + 5
-              speedY: -5 + 10 * Math.random(), // between -5 and + 5
-              color:getARandomColor(),
+            x: w/2, y: h/2,
+            radius: 5 + 30 * Math.random(), // between 5 and 35
+            speedX: -5 + 10 * Math.random(), // between -5 and + 5
+            speedY: -5 + 10 * Math.random(), // between -5 and + 5
+            color:getARandomColor(),
           }
 
         ballArray.push(b);
@@ -111,7 +110,7 @@ And here is the (so far, incomplete) ES6 class for Ball (continued in the next p
       ```
 
     + return the array w/ randomly created balls: `return ballArray;`
-  + constructor function w/ `new` keyword: `functioncreateBalls2(n) {...}`
+  + constructor function w/ `new` keyword: `function createBalls2(n) {...}`
     + declare an empty array: `let ballArray = [];`
     + create `n` balls w/ properties by `new` keyword and add into array
 
