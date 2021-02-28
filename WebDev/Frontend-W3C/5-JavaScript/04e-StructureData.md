@@ -14,8 +14,8 @@
 
     Is the `darkVador` variable (as defined above) a JavaScript object? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, the type of arrays in JavaScript is "object", arrays are objects.
 
 
 2. I prefer to use a dot!
@@ -24,7 +24,7 @@
   var michel = {
     job: 'Your teacher',
     title: 'Professor',
-    employer: 'University of Côte d'Azur, France'
+    employer: 'University of Côte d\'Azur, France'
   };
   ```
 
@@ -36,8 +36,8 @@
   d. `console.log("Michel's employer: " + michel["employer"]);`<br>
   e. `console.log("Michel's employer: " + michel[2]);`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: abd<br>
+  Explanation: `michel.employer` works, michel with 'employer' between brackets or michel with "employer" between brackets will work too. All the other answers are not correct, and they will either raise an error (michel with employer without quotes around the index between brackets), or will have an undefined value (with index = 2).
 
 
 3. He he..., now what do you propose?
@@ -46,14 +46,14 @@
   var michel = {
     job: 'Your teacher',
     title: 'Professor',
-    employer: 'University of Côte d'Azur, France'
+    employer: 'University of Côte d\'Azur, France'
   };
 
   // We put the name of a property of michel in the variable p
   var p = 'job';
 
   // we call a function that will display the value of the property p of the object
-  // passed as the first agrument
+  // passed as the first argument
   displayPropertyValue(michel, p);
 
   function displayPropertyValue(object, prop) {
@@ -65,31 +65,31 @@
   In the above code, what would you put instead of XXX in the instruction located in the body of the function named displayPropertyValue?
 
   a. `object['prop']`<br>
-  a. `object[prop]`<br>
-  a. `object.prop`<br>
+  b. `object[prop]`<br>
+  c. `object.prop`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: This is a classic case where the name of a property is in a variable. In this situation, it is necessary to use the syntax with brackets and the variable inside without quotes (otherwise, "prop", which is the name of the variable, will be used; whereas what we want here it to use the value of the prop variable).
 
 
 4. Properties and methods
 
-```js
-var medor = {
-    name: 'Benji',
-    bark: function(){
-        alert('Ouarf, Ouarf!');
-    }
-};
-```
+  ```js
+  var medor = {
+      name: 'Benji',
+      bark: function(){
+          alert('Ouarf, Ouarf!');
+      }
+  };
+  ```
 
   In this object (described above), we have one property and one method. Please check what is true below?
 
   a. `name` is the property and `bark` is a property and a method<br>
   b. `name` is the method, `bark` is a property<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: A property can also be a function, in which case it is called a method. `bark` is the method and `name` the property.
 
 
 __Source code for the next 2 questions (5 and 6):__
@@ -129,8 +129,8 @@ __Source code for the next 2 questions (5 and 6):__
 
   Enter below what you would put in the above console.log instruction instead of __XXX__ (you need to type the JavaScript code, not the string result. __If needed, use simple quotes and not double quotes as they confuse the quiz tool__):
 
-  Ans: <br>
-  Explanation: 
+  Ans: `pictures[1].author.name` or `pictures[1].author.name;` or `pictures[1].author['name']` or `pictures[1].author['name'];` or `pictures[1].author[ "name"]` or `pictures[1].author[ "name"];` or `pictures[1]['author']['name']` or `pictures[1]['author']['name'];` or `pictures[1]["author"]["name"]` or `pictures[1]["author"]["name"];` or `pictures[1]['author'].name` or `pictures[1]['author'].name;` or `pictures[1]["author"].name` or `pictures[1]["author"].name;`<br>
+  Explanation: The second picture is at index 1, and `author` is an embedded object that has a property named `name`. The correct answer is "pictures followed by brackets with index 1 inside, followed by .author.name".
 
 
 6. Give me its length!
@@ -142,7 +142,11 @@ __Source code for the next 2 questions (5 and 6):__
   c. `pictures[1].length`<br>
   d. `pictures[1].title.length`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: pictures is an array, and the first picture is at index 0. title is a property, and it's a string, and strings have a length property.
+
+
+
+
 
 
