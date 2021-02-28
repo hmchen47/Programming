@@ -307,8 +307,8 @@ __Source code for the next 2 questions (5 and 6):__
 
   The function `sum` is declared after we called it at the first line of the above code. Is this correct? Will it work? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: In JavaScript, you can call a function BEFORE it has been declared in your source code. This is called "hoisting": it's like if all function declarations were moved to the top before being executed. It works and it's correct.
   
 
 14. Order is important (part 2)
@@ -321,8 +321,11 @@ __Source code for the next 2 questions (5 and 6):__
 
   The class `Person` is declared after being used at the first line of the above code. Is this correct? Will it work? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: No<br>
+  Explanation:
+    + Unlike functions, classes must be declared BEFORE using them.
+    + An important difference between function declarations and class declarations is that function declarations are "hoisted" and class declarations are not. It means that you can call a function BEFORE it has been declared in your source code. This is not the case with ES6 classes!
+    + You first need to declare your class and then access it, otherwise a line of code, such as the one shown in the example, will give a ReferenceError.
   
 
 15. How do you call me?
@@ -343,8 +346,8 @@ __Source code for the next 2 questions (5 and 6):__
   b. A factory<br>
   c. A builder<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: Objects can also be created by functions that return objects, we call them "factories".
   
 
 16. Show me that you read the course!
@@ -357,8 +360,12 @@ __Source code for the next 2 questions (5 and 6):__
   d. You must call the constructor explicitly in order to build objects instances of the Class<br>
   e. The constructor is called when you create objects using the "new" keyword followed by the name of the class<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: bce<br>
+  Explanation:
+    + A class is simply defined using the keyword "class" followed by the name of the class.
+    + The unique constructor is defined using the "constructor" keyword followed by the parameters.
+    + The constructor is executed when an object is created using the keyword "`new`". Example: `let h1 = new Hero('Ian Solo', 'rebels');` It calls `constructor(name, side)`.
+    + A method is simply defined by its name followed by its parameters (we no more use the keyword "`function`").
   
 
 17. Class property vs. instance property
@@ -370,8 +377,10 @@ __Source code for the next 2 questions (5 and 6):__
   c. An ES6 class property can be used only in class methods, not in instance methods<br/>
   d. An ES6 class property is declared in the class, like any other properties, but we use the keyword "static" before declaring it<br/>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation:
+    + Class properties should be defined after the class definition, and declared using the name of the class followed by the . operator and the name of the property.
+    + Example: `Point.nbPointsCreated` in the example below. A best practice is to ALWAYS use them this way.
   
 
 18. Class method vs. instance method
@@ -382,8 +391,12 @@ __Source code for the next 2 questions (5 and 6):__
   b. An ES6 class method is declared in the class, like any other method, but we use the keyword "static" before declaring it<br>
   c. An ES6 class method can work with class properties and with instance properties<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation:
+    + The static keyword defines a static method for a class.
+    + Static methods are called without instantiating their class and cannot be called through a class instance.
+    + Consequence: do not use instance properties in their body!
+    + Static methods are often used to create utility functions for an application (source: MDN).
 
 
 
