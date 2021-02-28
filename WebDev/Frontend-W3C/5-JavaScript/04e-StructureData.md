@@ -293,4 +293,98 @@ __Source code for the next 2 questions (5 and 6):__
   Explanation: JavaScript objects can also be created by functions that return objects (factories), such as the `getHero` function in this example. The returned object has two properties: `name` and `side`, so, the correct answer is `luke.side`.
 
 
+### 4.5.3 Exercises (13-18)
+
+13. Order is important (part 1)
+
+  ```js
+  let x = sum(3, 5);
+
+  function sum(x, y) {
+      return (x + y);
+  }
+  ```
+
+  The function `sum` is declared after we called it at the first line of the above code. Is this correct? Will it work? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+  
+
+14. Order is important (part 2)
+
+  ```js
+  var p = new Person(); 
+  
+  class Person {...}
+  ```
+
+  The class `Person` is declared after being used at the first line of the above code. Is this correct? Will it work? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+  
+
+15. How do you call me?
+
+  ```js
+  function f(name, side) {
+      return { 
+          name: name.toUpperCase(),
+          side: side.toLowerCase()
+      }
+  }
+  let luke = f("Luke Skywalker", "Rebels");
+  ```
+
+  How do we call the above function?
+
+  a. It's just a function that returns an object, nothing special<br>
+  b. A factory<br>
+  c. A builder<br>
+
+  Ans: <br>
+  Explanation: 
+  
+
+16. Show me that you read the course!
+
+  When you create an ES6 class, which of these is true? (3 correct answers.)
+
+  a. You declare methods using the keyword "function" followed by the name of the method<br>
+  b. You must have a unique constructor method<br>
+  c. You declare the class using the keyword "class" followed by the name of the Class<br>
+  d. You must call the constructor explicitly in order to build objects instances of the Class<br>
+  e. The constructor is called when you create objects using the "new" keyword followed by the name of the class<br>
+
+  Ans: <br>
+  Explanation: 
+  
+
+17. Class property vs. instance property
+
+  A class property defines a characteristic of the ES6 class itself, not of the objects instances of this class. Only one of the following is true, check it!
+
+  a. Class properties are useless and should be avoided -- in the course we don't recommend to use them.<br>
+  b. An ES6 class property should be declared after the class, using the name of the class followed by the . operator<br/>
+  c. An ES6 class property can be used only in class methods, not in instance methods<br/>
+  d. An ES6 class property is declared in the class, like any other properties, but we use the keyword "static" before declaring it<br/>
+
+  Ans: <br>
+  Explanation: 
+  
+
+18. Class method vs. instance method
+
+  A class method defines a behavior of the ES6 class itself, not of the objects' instances of this class. Only one of the following is true, check it!
+
+  a. An ES6 class method can be called using the name of an instance followed by the . operator, followed by the name of the method<br>
+  b. An ES6 class method is declared in the class, like any other method, but we use the keyword "static" before declaring it<br>
+  c. An ES6 class method can work with class properties and with instance properties<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+
 
