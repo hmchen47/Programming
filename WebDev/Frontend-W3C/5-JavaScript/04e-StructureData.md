@@ -147,6 +147,141 @@ __Source code for the next 2 questions (5 and 6):__
 
 
 
+### 4.5.2 Exercises (7-12)
+
+7. Is this my property?
+
+  ```js
+  var player = {
+    x:10,
+    y:10,
+    
+    move: function(xNew, yNew) {
+      x = xNew;
+      y = yNew;
+    }
+  }
+  ```
+
+  Will the execution of `player.move(10, 10);` change the values of the player's x and y properties? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+8. I'll do it later...
+
+  ```js
+  var player = {};
+  player.x = 10;
+  player.y = 10;
+  ```
+
+  Is the above code valid? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+9. Make a lot of them!
+
+  ```js
+  function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      this.describe = function() {
+          console.log("I'm " + this.name + ", my age is " + this.age);
+      }
+  }
+
+  var p1 = new Person("Michel", 52);
+  p1.describe();
+  var p2 = new Person("Marie Claire", "unknown, a lady never gives its age");
+  p2.describe();
+  ```
+
+  In the above code, Person is:
+
+  a. A constructor function<br>
+  b. A JavaScript 6/ES6 class<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+10. Marie or John?
+
+  ```js
+  function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      this.describe = function() {
+          console.log("I'm " + name + ", my age is " + this.age);
+      }
+  }
+
+  var p1 = new Person("Michel", 52);
+  var p2 = new Person("Marie-Claire", "unknown, a lady never gives her age");
+  p1.name = "John";
+  p1.age = 22;
+  p2.describe();
+  ```
+
+  In the above code, what will be displayed in the devtool console?
+
+  a. I'm John, my age is 22<br>
+  b. I'm Marie-Claire, my age is unknown, a lady never gives her age<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+11. Please fix me!
+
+  ```js
+  class Hero {
+      this.name = name; // property
+      this.side = side; // property
+
+      function speak() { // method, no more "function"
+          return "<p>My name is " + this.name +
+                ", I'm with the " + this.side + ".</p>";
+      }
+  }
+  
+  var darkVador = new Hero("Dark Vador", "empire");
+  ```
+
+  There are two errors in the code of the class Hero above. Indicate which ones in the list below: (2 correct answers.)
+
+  a. There are no arguments passed to the `speak` method<br>
+  b. The method speak should not be preceded by the keyword `function`<br>
+  c. There is no `constructor`<br>
+  d. There are missing parentheses after the name of the class with two arguments inside: `Hero(name, side)`<br>
+  e. A method cannot return a value<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+12. How do you use me?
+
+  ```js
+  function getHero(name, side) {
+      return { 
+          name: name,
+          side: side
+      }
+  }
+
+  let luke = getHero("Luke", "Rebels");
+  console.log("Luke's side is " + XXX);
+  ```
+
+  In the above code, what would you write instead of __XXX__, to display Luke's side on the devtool console?
+
+  Ans: <br>
+  Explanation: 
 
 
 
