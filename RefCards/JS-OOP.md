@@ -29,22 +29,7 @@
 + [Creating objects](..WebDev/Frontend-W3C/5-JavaScript/04c-StructureData.md#435-creating-objects-with-functions-factories)
   + created as "literals", e.g., `var darkVador = { firstName:'Dark', lastName:'Vador'};`
   + created w/ keyword `new` and a constructor function as `class` in ES6; e.g., `var darkVador = new Hero('Dark Vador', 'empire');`
-  + created by functions that return objects (factories), example
-
-    ```js
-    function getMousePos(event, canvas) {
-        var rect = canvas.getBoundingClientRect();
-        var mx = event.clientX - rect.left;
-        var my = event.clientY - rect.top;
-    
-        return { // the getMousePos function returns an object. It's a factory
-            x: mx,
-            y: my
-        }
-    }
-
-    var mousePos = getMousePos(evt, canvas);
-    ```
+  + created by functions that return objects (factories); e.g., `function getPos(mx, my) { return { x: mx, y: my } }`
 
 + Example: [comparisons of constructor function and class](../WebDev/Frontend-W3C/5-JavaScript/04d-StructureData.md#441-class-and-constructor)
   + constructor function: `function createBalls1(n) {...}`
