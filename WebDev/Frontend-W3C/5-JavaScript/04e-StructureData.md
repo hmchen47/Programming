@@ -165,8 +165,8 @@ __Source code for the next 2 questions (5 and 6):__
 
   Will the execution of `player.move(10, 10);` change the values of the player's x and y properties? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: No<br>
+  Explanation: No, this code is incorrect. From a method such as `move`, we access the properties of an object using the "this" keyword. We should have written `this.x = xNew;` and `this.y = yNew;` instead of `x = xNew;` and `y = yNew;`.
 
 
 8. I'll do it later...
@@ -179,8 +179,15 @@ __Source code for the next 2 questions (5 and 6):__
 
   Is the above code valid? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, unlike other object-oriented languages, it is possible in JavaScript to add or remove properties after an object has been created. The above code is equivalent to:
+
+    ```js
+    var player = {
+        x:10,
+        y:10
+    };
+    ```
 
 
 9. Make a lot of them!
@@ -205,8 +212,10 @@ __Source code for the next 2 questions (5 and 6):__
   a. A constructor function<br>
   b. A JavaScript 6/ES6 class<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation:
+    + With JavaScript version 5 (and previous versions), you can define a pseudo-class template called "a constructor function". The syntax is the same as for creating a function, except that, by convention, its name is Capitalized. The first letter of the function name is in uppercase. It is a good way to know, when you read someone else's code, that this is not a regular function, but a constructor function. Its name is a noun, the name of the class of objects you are going to build. Example: Person, Vehicle, Enemy, Product, Circle, Ball, Player, Hero, etc.
+    + You also build new objects using the `new` keyword.
 
 
 10. Marie or John?
@@ -232,8 +241,8 @@ __Source code for the next 2 questions (5 and 6):__
   a. I'm John, my age is 22<br>
   b. I'm Marie-Claire, my age is unknown, a lady never gives her age<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: p1 and p2 are two different objects, each with its own properties. Changing the name and age of p1 will have no effect on p2's name and age. The correct answer is "I'm Marie-Claire, my age is unknown, a lady never gives her age".
 
 
 11. Please fix me!
@@ -260,8 +269,8 @@ __Source code for the next 2 questions (5 and 6):__
   d. There are missing parentheses after the name of the class with two arguments inside: `Hero(name, side)`<br>
   e. A method cannot return a value<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: bc<br>
+  Explanation: A method in ES6 classes should not be declared with the keyword `function`. In order to set a value to the `name` and `side` properties, the Hero class should have a `constructor`.
 
 
 12. How do you use me?
@@ -280,8 +289,8 @@ __Source code for the next 2 questions (5 and 6):__
 
   In the above code, what would you write instead of __XXX__, to display Luke's side on the devtool console?
 
-  Ans: <br>
-  Explanation: 
+  Ans: `luke.side`<br>
+  Explanation: JavaScript objects can also be created by functions that return objects (factories), such as the `getHero` function in this example. The returned object has two properties: `name` and `side`, so, the correct answer is `luke.side`.
 
 
 
