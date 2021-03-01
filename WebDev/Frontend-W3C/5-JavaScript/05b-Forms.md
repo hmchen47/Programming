@@ -142,6 +142,69 @@ Other examples:
 </ol></div>
 
 
+#### Notes for 5.2.1 References and objects
+
++ References and objects
+  + pointer variable: containing the actual address of an object within the variable
+  + reference variable: an alias to a variable
+  + when modifying a reference variable, the original variable is modified $\gets$ two variables the sam eobject
+  + types of values of a variable
+    + primitive value (number, string, or boolean):
+      + the variable containing the value directly
+      + example: `let x = 10;`, `let name = 'Michel'`
+    + object:
+      + containing the memory address of the object
+      + pointing to an object or reference this object
+      + accessing the variable automatically resolving the reference
+      + the value of the variable is the referenced object
+  + function
+    + primitive values
+      + a "pass by value" language
+      + passing a variable to a function as argument, the value of the variable copied into the argument
+    + objects
+      + reference of object copied into the argument
+      + able to modify the reference object
+      + change of reference: the origin variable (now point to another object) not modified
+  
++ Example: primitive and object
+  + definiting two variables: `var x = 2; var y = {a: 2}`
+  + copying two variables: `var x2 = x; var y2 = y; var y3 = y;`
+  + modifying copied variables: `x2 = 4; y2 = {a: 3}`
+  + `x` not modified: primitive value
+  + `y` not modified: `y` & `y2` pointing to different objects
+  + modifying value of property: `y3.a = 4;`
+  + `y` and `y3`: both modified $\gets$ object reference changing to `{a: 2}`
+
++ Example: properties of objects
+  + defining an object: `var driver = { name: 'Jean' }; var car = {color: 'red', driver: driver };`
+  + modifying drive name: `driver.name = 'Albert';`
+  + car driver modified: `car.driver.name; // 'Albert';`
+
++ Example: function passed by value
+  + defining a variable: `var x = 2;`
+  + defining a function: `function sum(a, b) { a = a + b; return a; }`
+  + calling function `sum`: `sum(x, 3); // 5`
+  + `a` modified within function `sum` but `x` remaining the same: `x; // 2`
+
++ Example: function argument as object
+  + defining object: `var obj = {x: 2 };`
+  + defining function: `function add(a, b) { a.x += b; }`
+  + calling function `add()`: `add(obj, 3);`
+  + the reference object modified: `obj.x; // 5`
+  + defining function: `function addAndSet(a, b) { var addition = a.x + b; a = (x: addition); }`
+  + calling function `addAndSet()`: `addAndSet(obj, 3);`
+  + reference object not modified (`obj` and `a` not pointing to the same object at then end of the function): `obj.x; // 2`
+
++ Example: modifying copied object to modify original object
+  + original object: `var originalObject = { name: 'Michel' };`
+  + copied object: `var copy = originalObject;`
+  + verification: `copy.name; // 'Michel'`
+  + modify copied object: `copy.name = 'Dark Vador';`
+  + original object verification: `originalObject.name; // 'Dark Vador'`
+
+
+
+
 
 
 
