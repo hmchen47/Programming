@@ -227,7 +227,7 @@ Two objects of the same type, with the same property value, that look identical,
 </ol></div>
 
 
-### Notes for 5.2.2 Comparing two objects
+#### Notes for 5.2.2 Comparing two objects
 
 + Object comparison
   + returning boolean value whether w/ the same reference (pointing to the same objects)
@@ -242,6 +242,72 @@ Two objects of the same type, with the same property value, that look identical,
   + comparing original and copied objects: `copy === originalCopy; // true`
   + defining another object: `var anotherObject = { name: 'Michel' };`
   + comparing copied and another objects: `copy === anotherObject; // false`
+
+
+
+### 5.2.3 The "global" window object
+
+It is time to tell you the truth: the JavaScript code is executed by an “environment" (usually a Web browser, but there are some HTTP Web servers that use JavaScript for coding the server side of Web sites of applications, such as the NodeJS HTTP server). 
+
+This environment defines a “global object”.
+
+<div style="border: 1px solid; margin: 20px; padding: 20px; text-align: center;">
+<p><strong>When this environment is a Web server <br>(and this is the case for all examples we have seen in this course),</strong><br><span style="color: #ff0000;"><strong>this global object is named <span style="font-family: 'courier new', courier;">window</span>.</strong></span></p>
+<p><strong>The “global variables” defined with the keyword <span style="font-family: 'courier new', courier;">var</span> are properties of this <span style="font-family: 'courier new', courier;">window</span> object, <br>and we can say the same of predefined functions like prompt, alert, etc.</strong></p>
+<p><strong>However, at the top level of programs and functions, <br><span style="font-family: 'courier new', courier;">let</span>, unlike <span style="font-family: 'courier new', courier;">var</span>, does not create a property on the global <span style="font-family: 'courier new', courier;">window</span> object.</strong></p>
+<p><span style="color: #0000ff;"><strong>TIP: </strong>if you have global variables/objects declared with <span style="font-family: 'courier new', courier;">let</span>,<br>just declare them with <span style="font-family: 'courier new', courier;">var <span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">instead</span></span>, and you will be able to inspect them <br>easily from the devtool console. <br>You can switch back to using <span style="font-family: 'courier new', courier;">let</span>, later.</span></p>
+</div>
+
+Let's see some examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">a</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> window</span><span class="pun">[</span><span class="str">'a'</span><span class="pun">];</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">&gt;&nbsp;</span><strong>let z = 1;</strong> // LET DOES NOT DEFINE properties of the window object</li>
+<li class="L0"><span color="#006666" style="color: #006666;">undefined</span></li>
+<li class="L0"><span color="#006666" style="color: #006666;">&gt; <strong>window.z</strong></span></li>
+<li class="L0"><strong><span color="#006666" style="color: #006666;">undefined</span></strong></li>
+</ol></div>
+
+`a` and `window.a` are the same variable.
+
+`navigator` and `window.navigator` are the same, `document` and `window.document` are the same thing.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> document </span><span class="pun">===</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">document</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> navigator </span><span class="pun">===</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">navigator</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
+</ol></div>
+
+Predefined functions are methods from the global object window:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="str">'10 little children'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="str">'10 little children'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> alert </span><span class="pun">===</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">alert</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> prompt </span><span class="pun">===</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">prompt</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">addEventListener&nbsp;</span><span class="pun">===</span><span class="pln"> addEventListener</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
+</ol></div>
 
 
 
