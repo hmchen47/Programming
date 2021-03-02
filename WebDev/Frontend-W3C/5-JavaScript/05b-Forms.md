@@ -443,6 +443,17 @@ The `ValueOf` method returns the value of an object:
   + inherited from `Object` by all objects
   + example: `var t = [1, 2, 3]; t.valueOf(); // [1, 2, 3]`, `t.toString(); // "1,2,3"`
 
++ [`toString()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
+  + syntax: `obj.toString()`
+  + docstring:
+    + Every object w/ a `toString()` method that automatically called when the object is to be represented as a text value or when an objkject is referred to be in manner in which a string is expected
+    + by default, inherited by every object descent from `Object`
+  + parameter
+    + `radix` (option): $2 \le \text{ radix } \le 36$
+  + return:  a string representing the object
+
+
+
 
 ### 5.2.5 Built-in JS class: Array
 
@@ -564,6 +575,9 @@ If you give to the length property a value less than the array’s number of ele
 <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">]</span></li>
 </ol></div>
+
+
+#### Notes for 5.2.5 Built-in JS class: Array
 
 
 
