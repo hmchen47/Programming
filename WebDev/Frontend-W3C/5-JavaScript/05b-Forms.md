@@ -337,6 +337,92 @@ Predefined functions are methods from the global object window:
   + verify the global variable `z`: `z;` $\to$ 1; `window.z;` $\to$ undefined 
 
 
+### 5.2.4 Built-in JS class: `Object`
+
+#### Live coding video: predefined class - Object
+
+<a href="https://edx-video.net/W3CJSIXX2016-V004600_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/7zkx28y9)
+
+__Source code shown in the above video__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/EXmONY?editors=0012)
+
+[Local Demo](src/js/05b-example02.js)
+
+
+The father of all objects: `Object`. All objects will inherit the properties and methods from the special class named `Object`.
+
+These two lines are equivalent:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> o </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{}; // creation of an empty object</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> o </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Object</span><span class="pun">(); // same thing as in line 1</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+</ol></div>
+
+
+#### The `toString` method
+
+__The `toString` method inherited from `Object` by all objects__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> o</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"[object Object]"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> o</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"Michel"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> o</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"[object Object]"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"1,2,3"</span></li>
+</ol></div>
+
+`toString()` in JavaScript is rather similar to the `Object.toString()` method we find in the Java programming language: __when we try to "display" an object, it is transformed into a string by calling `toString()` implicitly.__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> alert</span><span class="pun">(</span><strong><span class="pln">t</span></strong><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> alert</span><span class="pun">(</span><strong><span class="pln">t</span><span class="pun">.</span><span class="pln">toString</span></strong><span class="pun"><strong>()</strong>);</span><span class="pln"> </span><strong><span class="com">// same as previous line of code</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">"An object into a string : "</span><span class="pln"> </span><strong><span class="pun">+</span><span class="pln"> t </span></strong><span class="com">// same as <strong>t.toString() </strong></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"The object as a String : 1, 2, 3"</span></li>
+</ol></div>
+
+Line 5: using the + operator with a string as the left argument will force the other arguments to convert to string by implicitly calling their toString() method.
+
+
+#### The `valueOf` method
+
+__The `valueOf` method inherited from `Object` by all objects__
+
+The `ValueOf` method returns the value of an object:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">valueOf</span><span class="pun">()</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">"1,2,3"</span></li>
+</ol></div>
+
+
+
+
+
 
 
 
