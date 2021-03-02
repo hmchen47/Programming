@@ -420,6 +420,28 @@ The `ValueOf` method returns the value of an object:
 </ol></div>
 
 
+#### Notes for 5.2.4 Built-in JS class: Object
+
++ `Object` class
+  + father of all objects
+  + all objects inherit the properties and methods from the special class
+  + `var o = {};` equivalent to `var o = new Object();`
+
++ The `toString()` method
+  + inherited from `Object` by all objects
+  + transformed into a string by calling `toString()` implicitly
+  + using `+` operator to concantate string will force the other arguments to convert to string by implicitly calling `toString()` method
+  + example:
+    + declare object: `var o = {}; o.toString(); // "[object Object]`
+    + set property value: `o.name = 'Michel'; o.toString(); // "[object Object]"`
+    + declare numerical object: `var t = [1, 2, 3]; t.toString(); // "1,2,3"`
+    + predefined function: `alert(t); alert(t.toString()); // display '1,2,3' on popup window`
+    + concatate string: `"An object into a string: " + t; // "An object into a string: 1,2,3"`
+
++ The `valueOf()` method
+  + return the value of an object
+  + inherited from `Object` by all objects
+  + example: `var t = [1, 2, 3]; t.valueOf(); // [1, 2, 3]`, `t.toString(); // "1,2,3"`
 
 
 
