@@ -714,7 +714,7 @@ Possible syntaxes:
 </ol></div>
 
 
-#### The `slide()` method
+#### The `splide()` method
 
 __The `splice()` method modifies the array: it removes “a slice” and also adds new elements__
 
@@ -751,6 +751,92 @@ Examples:
 <li class="L3" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
 </ol></div>
 
+
+#### Notes for 5.2.6 The most useful methods of the class Array
+
++ Useful methods of the class Array
+  + `sort`:
+    + sort elements in the array and return it
+    + string elements: alphabetical
+    + numeric elements: ascending
+    + other criteria: usually a special function for objects
+  + `join`: add a string btw each element and return the result as a string
+  + `slice`:
+    + return a sub-array w/o modifying the original way
+    + possible syntaxes:
+      + `arr.slice()`
+      + `arr.slice(begin)`
+      + `arr.slice(begin, end)`: element at index = end bot included in the slice
+    + return a shallow copy of a portion of an array into a new array object selected from begin to end (excluding)
+    + original array not modified
+  + `splice`:
+    + modify array by replacing a slice w/ new elements
+    + possible syntaxes:
+      + `arr.splice(start)`
+      + `arr.splice(start, deleteCount)`
+      + `arr.splice(start, deleteCount, item1, item2, ...)`
+    + parameters
+      + `start`: index at which to start changing the array (w/ origin 0)
+      + `deleteCount`: an integer indicating the number of old array elements to remove
+      + `item1, item2, ...` (optional):
+        + present: elements to add to the array, beginning at the `start` index
+        + ignore: only remove elements from the array
+  + `push`: append an element at the end of the array and return the new length
+  + `pop`: return an array by removing the last element
+
++ Example: use of `push`, `pop`, `sort` and `join`
+  + declare object variable: `var a = [3, 5, 1, 7, 'test'];`
+  + append an element w/ `push` method: `a.push('new'); // 6` and `a; // [3, 5, 1, 7, 'test', 'new']`
+  + remove the last element w/ `pop` method: `var b = a.sort();`, `b; // [1, 3, 5, 7, "test"]` and `a; // [1, 3, 5, 7, "test"]`
+  + concatenate element w/ a given string by `join` method: `a.join(' and '); // "1 and 3 and 5 and 7 and test"`
+
++ Example: `slide` method
+  + object variable: `a = [1, 3, 5, 7, "test"];`
+  + get a slice from array:
+    + remove elements w/ indexes from 1 to 2: `var b = a.slice(1, 3); // [3, 5]`
+    + remove element w/ index 1: `b = a.slice(0, 1); // [1]`
+    + remove elements w/ indexes from 0 to 1: `b = a.slice(0, 2); // [1, 3]`
+  + original array not modified: `a; // [1, 23, 5, 7, "test"]`
+
++ Example: `splice` method
+  + object variable: `a; // [1, 3, 5, 7, "test"]`
+  + replace elements: `b = splice(1, 2, 100, 101, 102); // [3, 5]`
+  + original array modified: `a; // [1, 100, 101, 102, 7, "test"]`
+  + remove elements: `a.splice(1, 3); // [101, 102, 103]`
+  + original array modified: `a; [1, 7, "test"]`
+
++ [The `Array.prototype.join()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+  + docstring:
+    + create and return a new substring by concatenating all of the element in an array (or an array-like object)
+    + sparated by commas or a specified seperator string
+    + no separator idf only on element
+  + syntax: `arr.join([separator])`
+  + parameters:
+    + `separator` (optional):
+      + specify a string to separate each apir of sdjacent of the array
+      + separator coverted to a sting if necessary
+      + omitted: separated w/ a comma (",")
+  + return:
+    + a string w/ all array elements jointed
+    + the empty string if `arr.length = 0`
+
++ [The `Array.prototype.slice()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+  + docstring:
+    + return a shallow copy of a portion of an array into a new array object selected from `start` to `end` (excluded)
+    + original array not modified
+  + syntax: `arr.slice()`, `arr.slice(start)`, and `arr.slice(start, end)`
+  + parameters
+    + `start` (optional)
+      + zero-based index at which to start extraction
+      + negative index: indicating an offset from the end of sequence, e.g., `slice(-2)` extracting the last two elements in the sequence
+      + undefined: start from the index 0
+      + greter than the index range of the sequence: return an empty array
+    + `end` (optional)
+      + zero-based index before which to end extraction
+      + extract uo to but noy including `end`
+      + negative index: indicating an offset from the end of the sequence, e.g., `slice(2, -1)` extracting the 3rd element through the second-to-last element in the sequence
+      + omitted: extract through the end of the sequence (`arr.length`)
+      + greater tha th elength of the sequence: extract through to the end of the sequence
 
 
 
