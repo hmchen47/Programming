@@ -839,6 +839,89 @@ Examples:
       + greater tha th elength of the sequence: extract through to the end of the sequence
 
 
+### 5.2.7 Built-in JS class: `Number`
+
+The `Number` class can be used to transform strings into numbers, but it is recommended that you use `parseInt` or `parseFloat` instead.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="str">'3.1416'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">3.1416</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="str">'3.1416'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// convert a string to an integer number</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="str">'3.1416'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// convert a string to a float number</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="lit">3.1416</span></li>
+</ol></div>
+
+`Number` has useful non-modifiable properties (constants): `MAX_VALUE` and `MIN_VALUE`:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">.</span><span class="pln">MAX_VALUE</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">1.7976931348623157e+308</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">.</span><span class="pln">MIN_VALUE</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">5e-324</span></li>
+</ol></div>
+
+
+#### Methods useful for converting numbers: `toFixed()`, `toExponential()`, `toString()`
+
++ `toFixed`: sets the number of digits for the decimal part of a number. There is also another method, named `toPrecision`, that has a very close behavior, and can also return numbers in scientific notation. 
++ `toExponential`: force a number to use a scientific notation. For example `var a=1000; a.toExponential(); console.log(a);` will give `1e+3`
++ `toString`: converts a number to its string representation. `let n = 10; n.toString()` converts by default to base 10 and will return "10", but you can also pass the base you want to convert to as a unique parameter, `n.toString(2)` will convert the number 10 to base 2 and display "1010";
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">123.456</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">123.456</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toFixed</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// sets the number of digits for the decimal part of the number</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"123.5"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="lit">123.456</span><span class="pun">);</span><span class="pln"> </span><span class="com">// same as n = 123.456</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="typ">Number</span><span class="pln"> </span><span class="pun">{[[</span><span class="typ">PrimitiveValue</span><span class="pun">]]:</span><span class="pln"> </span><span class="lit">123.456</span><span class="pun">}</span><span class="pln"> </span><span class="com">// well, not exactly, but when you use n, it is equivalent</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toFixed</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"123.5"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toExponential</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"1.23456e+2"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">255</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"255"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"255"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="lit">16</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="str">"ff"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="lit">3</span><span class="pun">).</span><span class="pln">toString</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">"11"</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="lit">3</span><span class="pun">).</span><span class="pln">toString</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">"3"</span></li>
+</ol></div>
+
+
+
+
 
 
 
