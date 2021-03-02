@@ -443,7 +443,7 @@ The `ValueOf` method returns the value of an object:
   + inherited from `Object` by all objects
   + example: `var t = [1, 2, 3]; t.valueOf(); // [1, 2, 3]`, `t.toString(); // "1,2,3"`
 
-+ [`toString()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
++ [`toString()` method in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
   + syntax: `obj.toString()`
   + docstring:
     + Every object w/ a `toString()` method that automatically called when the object is to be represented as a text value or when an objkject is referred to be in manner in which a string is expected
@@ -452,7 +452,14 @@ The `ValueOf` method returns the value of an object:
     + `radix` (option): $2 \le \text{ radix } \le 36$
   + return:  a string representing the object
 
-
++ [`valueOf()` method in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)
+  + syntax: `obj.value()`
+  + docstring:
+    + convert an object to a primitive value
+    + rarely invoke by user
+    + automatically invoke by JS when encountering an object where a primitive value is expected
+    + by default, inherited by every object descended from `Object`
+  + return: the primitive value of the specified object
 
 
 ### 5.2.5 Built-in JS class: Array
