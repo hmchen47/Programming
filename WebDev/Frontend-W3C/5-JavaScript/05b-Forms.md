@@ -600,18 +600,21 @@ If you give to the length property a value less than the array’s number of ele
   + array length and elements:
     + length of array bigger that the number of elements: add undefined elements to it
     + length of array less than the number of elements: truncate the array to comply the length
-  + example:
-    + constructor w/ elements: `var a = new Array(); // same as a = [];` and `var b = new Array(1, 2, 3); // [1, 2, 3]`
-    + constructor w/ size: `var myArray = new Array(3); // [undefined x 3]`
-    + `length` property: `var a = []; o = {};`, `a.length;  // 0 - an array` and `o.length; // undefined - a simple object literal`
-  + example: bad practices
-    + declaration and some info: `var a = [1, 2];`, `typeof a; // "object"`, `a.push(3); // 3`, `a; // [1, 2, 3]` and `a.length; //3`
-    + add a name propert into array: `a.name = "I'm an array named a!";`, `a.length; // 3` and `a; // [1, 2, 3, name: "I'm an array named a!"]`
-  + example: reducing and increasing the size of an array
-    + declare array and assign length: `var a = [1, 2]; a.length = 5;`
-    + increased array: `a; // [1, 2, undefined x 3]`
-    + declare array and assign length: `var a = [1, 2, 3, 4]; a.length = 2;`
-    + reduced array: `a; // [1, 2]`
+
++ Example: constructing array and size
+  + constructor w/ elements: `var a = new Array(); // same as a = [];` and `var b = new Array(1, 2, 3); // [1, 2, 3]`
+  + constructor w/ size: `var myArray = new Array(3); // [undefined x 3]`
+  + `length` property: `var a = []; o = {};`, `a.length;  // 0 - an array` and `o.length; // undefined - a simple object literal`
+
++ Example: bad practices
+  + declaration and some info: `var a = [1, 2];`, `typeof a; // "object"`, `a.push(3); // 3`, `a; // [1, 2, 3]` and `a.length; //3`
+  + add a name propert into array: `a.name = "I'm an array named a!";`, `a.length; // 3` and `a; // [1, 2, 3, name: "I'm an array named a!"]`
+
++ Example: reducing and increasing the size of an array
+  + declare array and assign length: `var a = [1, 2]; a.length = 5;`
+  + increased array: `a; // [1, 2, undefined x 3]`
+  + declare array and assign length: `var a = [1, 2, 3, 4]; a.length = 2;`
+  + reduced array: `a; // [1, 2]`
 
 
 + `Array()` constructor
