@@ -1243,7 +1243,7 @@ Distinctions of `slice()`:
 
 + If `start` > `stop`, `slice()` will NOT swap the two arguments.
 + If `start` is negative: sets char from the end of string.
-+ If `stop` is negative: sets stop to: string.length – Math.abs(stop.
++ If `stop` is negative: sets `stop` to `string.length – Math.abs(stop)`.
 
 
 #### The `split()`, `join()` and `concat()` methods
@@ -1290,6 +1290,70 @@ The `split` method returns an array of strings, the parameter is a separator. Th
 <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s changed too</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</span></li>
 </ol></div>
+
+
+#### Notes for 5.2.9 The most useful methods of the class String
+
++ The `slice` and `substring` methods
+  + both used to extract a substring from a string
+  + similarity
+    + two parameters: `start` and `stop` index
+    + excluding element at `stop` index
+    + the original string remaining unchanged
+    + `start = stop`: return an empty string
+    + `stop` omitted: extrace characters tot he end of the string
+    + either arguments > `str.length`: using `str.length` instead
+  + difference
+    + occuring only when the second parameter is negative
+    + recommendation: using `substring` for most common cases
+    + `slice()`
+      + w/ negative `stop`: extract substring starting from index `start` to `length + stop`
+      + `start > stop`: NOT swap these two arguments
+      + `start < 0`: set char from the end of string
+      + `stop < 0`: set stop to
+    + `substring`
+      + w/ negative `stop`: extract substring reverse from index start to `start + stop`
+      + `start > stop`: swap these two parameters
+      + either argument negative or NaN: treated as 0
+
++ Example: similarity of `slice` and `substring`
+  + declare string: `var s = "My name is Bond! James Bond!";`
+  + get substring w/ `slice`: `s.slice(11, 16); // "Bond!"`
+  + get substring w/ `substring`: `s.substring(11, 16); // "Bond!"`
+  + original string remaining unchange: `s; // "My name is Bond! James Bond!";`
+  + reassign value for variable: `s = s.slice(11, 16); // "Bond!"` and `s = s.substring(11, 16); // "Bond!"`
+  + variable pointing to another object: `s; // "Bond!"`
+
++ Example: difference btw `slice` and `substring`
+  + declare string: `var s = "My name is Bond! James Bond!";`
+  + get substring w/ `slice` and negative `stop`: `s.slice(11, -1); // "Bind! James Bond"`
+  + get substring w/ `substring` and negative `stop` as reverse direction: `s.substring(11, -1); // My name is "`
+  + get the first character: `s.substring(1, 01); // "M"`
+
++ The `split()`, `join()` and `concat()` methods
+  + `split()`:
+    + return an array of strings w/ parameter as separator
+    + original string unchanged
+  + `join()`: build a string from an array of strings
+  + `concat`:
+    + return concatenated strings 
+    + original string unchanged
+    + `+` operator same effect but change the original string
+
++ Example: `split()`, `join()` and `concat()` methods
+  + declare string: `var s = "My name is Bond! James Bond!";`
+  + separate string into sinngleton object: `s.split(); // ["My", "name", "is", "Bond!", "James", "Bond!"]`
+  + chaining methods w/ `split` and `join`
+    + `s.split(' ').join('-#-');        // "My-#-name-#-is-#-Bond!-#-James-#-Bond!"`
+    + `s.split(' ').join('.......');    // "My.......name.......is.......Bond!.......James.......Bond!"`
+    + `s.split('Bond!').join('......);  // "My name is ....... James ......."`
+    + `s.split('Bond!').join(' ');      // "My name is James "`
+  + concatenate string:
+    + `s.concat(" And I've made a lot of movies!"); // "My name is Bond! James Bond! And I've made a lot of movies!"`
+    + `s; // "My name is Bond! James Bond!"`
+  + concatenate w/ `+` operator:
+    + `s = s + " And I've made a lot of movies!"; // "My name is Bond! James Bond! And I've made a lot of movies!"`
+    + `s; // "My name is Bond! James Bond! And I've made a lot of movies!"`
 
 
 
