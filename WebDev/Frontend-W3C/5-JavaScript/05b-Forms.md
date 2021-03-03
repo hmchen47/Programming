@@ -1127,7 +1127,7 @@ These methods are all inherited from the String class:
 
 + `String` class
   + used to build new strings
-  + constrctor: `var name = new String('Miche');`
+  + constructor: `var name = new String('Miche');`
   + recommendaton: using the standard syntax, e.g., `var name = 'Michel';`
   + properties and methods: `var name = 'Michel';`
     + `length` property: `name.length; // 6`
@@ -1141,7 +1141,7 @@ These methods are all inherited from the String class:
 
 + Useful methods of `String` class
   + `toUpperCase`: return the string in upper case, not changing the original string
-  + `toLowerCase`: retuen the string in lower case, not changing the original string
+  + `toLowerCase`: return the string in lower case, not changing the original string
   + `indexOf(char[, start])`: 
     + looking for string value `char` starting from `start`
     + return the index of string valuse passed as parameter (`char`)
@@ -1157,9 +1157,139 @@ These methods are all inherited from the String class:
   + parameters:
     + `searchValue`: the string value to search for
     + `fromIndex` (optional): an integer repreenting the index at which to start the search, defaults to 0
-  + return: the index of the first occurrent of `searchValue or `-1` if not found
+  + return: the index of the first occurrent of `searchValue` or `-1` if not found
 
 
+### 5.2.9 The most useful methods of the class String
+
+The most useful methods of the String are: slice, substring, split, join
+
+#### The `slice` and `substring` methods
+
+__Both these methods can be used to extract a substring from a string.__ They take two parameters: the start and end index of the slice (element at end index will NOT be included in the slice): “please cut from this index, to this one, not included!”. 
+
+These two methods are very similar. 
+
+Examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"My name is Bond! James Bond!"</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"Bond!"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><strong><span class="com">// s is unchanged</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6"><span class="pln">s</span><span class="pun">.substring</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">16</span><span class="pun">);</span></li>
+<li class="L7"><span class="str">"Bond!"</span></li>
+<li class="L8"><span class="pln">&nbsp;</span></li>
+<li class="L9"><span class="pun">&gt;</span><span class="pln">&nbsp;s</span><span class="pun">;</span><span class="pln">&nbsp;</span><strong><span class="com">// s is still unchanged</span></strong></li>
+<li class="L0"><span class="str">"My name is Bond! James Bond!"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">"Bond!"</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><strong><span class="com">// this time s has changed, because we did s = s.substring(...), the same&nbsp;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; &nbsp;// could have been done with s = s .slice(...)</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">"Bond!"</span></li>
+</ol></div>
+
+
+#### Difference between `slice` and `substring`
+
+__[Advanced] There is a difference between `slice` and `substring`, when the second parameter is negative__
+
+If you are a beginner, we recommend that you use `substring` for most common cases (as it will behave the same as `slice`) and that you stay away from negative parameters, where `slice` and `substring` show small differences.
+
+Beginners: do not read what follows about slice and substring! There will be no related graded questions at the end of this chapter!
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"My name is Bond! James Bond!"</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// start from index = 11 to length-1, extract the end of the string from 11th element</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"Bond! James Bond"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// the reverse, extract from 0 until 11-1, get the first 10 chars</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"My name is "</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// extract from 0 to 1-1 = 0, get the first char</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"M"</span></li>
+</ol></div>
+
+Actually, here is a summary of the common behaviors and the differences between slice and substring.
+
+
+__[Advanced] slice(start, stop) works like substring(start, stop) with a few different behaviors__
+
+What they have in common:
+
++ If `start` equals `stop`: returns an empty string
++ If `stop` is omitted: extracts characters to the end of the string
++ If either argument is greater than the string's length, the string's length will be used instead.
+
+Distinctions of `substring()`:
+
++ If `start` > `stop`, then substring will swap those two arguments.
++ If either argument is negative or is NaN, it is treated as if it were 0.
+
+
+Distinctions of `slice()`:
+
++ If `start` > `stop`, `slice()` will NOT swap the two arguments.
++ If `start` is negative: sets char from the end of string.
++ If `stop` is negative: sets stop to: string.length – Math.abs(stop.
+
+
+#### The `split()`, `join()` and `concat()` methods
+
+The `split` method returns an array of strings, the parameter is a separator. The `join` method builds a string from an array of strings.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"My name is Bond! James Bond!"</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">" "</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">[</span><span class="str">"My"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"is"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Bond!"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"James"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Bond!"</span><span class="pun">]</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">' '</span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">'-#-'</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"My-#-name-#-is-#-Bond!-#-James-#-Bond!"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">' '</span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">'.......'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"My.......name.......is.......Bond!.......James.......Bond!"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">'Bond!'</span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">'.......'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="str">"My name is ....... James ......."</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">'Bond!'</span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">' '</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">"My name is James "</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s is unchanged </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">concat</span><span class="pun">(</span><span class="str">"And I've made a lot of movies!"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies!"</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s is also unchanged by concat</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> s </span><span class="pun">+</span><span class="pln"> </span><span class="str">"and I've made a lot of movies!"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// this changes s</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies!"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">+=</span><span class="pln"> </span><span class="str">" Action films!"</span><span class="pln"> </span><span class="com">// this too, most common syntax for concatenating strings</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s changed too</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</span></li>
+</ol></div>
 
 
 
