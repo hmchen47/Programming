@@ -920,6 +920,43 @@ The `Number` class can be used to transform strings into numbers, but it is reco
 </ol></div>
 
 
+#### Notes for 5.2.7 Built-in JS class: `Number`
+
++ `Number` class
+  + used to transform strings into numbers
+  + recommendation: using `parseInt` or `parseFloat` instead
+  + constructing w/ `Number` class
+    + `new` keyword, e.g., `var n = Number('3.1416'); n; // 3.1415`
+    + type of variable: `typeof n; // "number"`
+  + convert a string to an integer number: `var n = parseInt('3.1416'); n; // 3`
+  + convert a string to a float number: `var n = parseFloat('3.1416'); n; // 3.1416`
+  + `MAX_VALUE` and `MIN_VALUE`: useful non-modifiable properties (constants)
+    + `Number:MAX_VALUE;`: 1.7976931348623157e+308
+    + `Number.MIN_VALUE;`: 5e-324
+
++ Useful methods for converting numbers
+  + `toFixed()`: set the number of digits for the deccimal part of a number
+  + `toPrecision()`: return numbers in scientific notation
+  + `toExponential()`:
+    + a number to use a scientific notation
+    + example: `var a = 1000; a.toExponential(); console.log(a); // le+3`
+  + `toString([b])`:
+    + convert a number to its string representation
+    + `b`: base, default base 10
+    + example: `let n = 10; n.toString(); // 10` & `n.toString(2); // 1010`
+
++ Example: `toFixed()`, `toExponential()`, and `toString()`
+  + declare floating number: `var n = 123.456`
+  + set the number of digits for the decimal part of the number: `n.toFixed(1); // 123.5`
+  + create number w/ `Number` class: `n = new Number(123.456); // Number {[[PrimitiveValue]]: 123.456}`
+  + set decimal digits and rounded the result: `n.toFixed(1); // "123.5"`
+  + get scientific notation: `n.toExponential();  // "1.23456e+2`
+  + declare integer: `var n = 255;`
+  + convert integer to string: `n.toString(); // "255"`
+  + convert integer to integer w/ different bases: `n.toString(10); // "255"`, `n.toString(16); // "ff"`
+  + convert integer to string: `(3).toString(2); // "11"`, `(3).toString(10); // "3"`
+
+
 
 
 
