@@ -1123,4 +1123,45 @@ These methods are all inherited from the String class:
 </ol></div>
 
 
+#### Notes for 5.2.8 Built-in JS class: String
+
++ `String` class
+  + used to build new strings
+  + constrctor: `var name = new String('Miche');`
+  + recommendaton: using the standard syntax, e.g., `var name = 'Michel';`
+  + properties and methods: `var name = 'Michel';`
+    + `length` property: `name.length; // 6`
+    + string as an array w/ index: `name[0]; // "M"`
+    + not modifiable: `name[0] = 'Z'; // "Z"` and `name; // 'Michel'`
+    + other expression: `'Michel'.length; // 6` and `'Michel[0]; // "M"`
+  + changing character(s)
+    + string not modifiable
+    + build a new string by concatenating substrings
+    + reference to another address in memory
+
++ Useful methods of `String` class
+  + `toUpperCase`: return the string in upper case, not changing the original string
+  + `toLowerCase`: retuen the string in lower case, not changing the original string
+  + `indexOf(char[, start])`: 
+    + looking for string value `char` starting from `start`
+    + return the index of string valuse passed as parameter (`char`)
+    + return `-1` if nothing matched
+  + `charAt`:
+    + return the char at the index passed as parameters
+    + return empty string if index out of bound (< 0 or > str.length )
+  + `lastIndexOf`: return the last index of the string value passed as parameter
+
++ [`String.prototype.indexOf()` method](https://tinyurl.com/n2m66t3p)
+  + syntax: `str.indexOf(searchValue [, fromIndex])`
+  + docstring: return the index within the calling `String` object of the 1st occurrence of the specified value
+  + parameters:
+    + `searchValue`: the string value to search for
+    + `fromIndex` (optional): an integer repreenting the index at which to start the search, defaults to 0
+  + return: the index of the first occurrent of `searchValue or `-1` if not found
+
+
+
+
+
+
 
