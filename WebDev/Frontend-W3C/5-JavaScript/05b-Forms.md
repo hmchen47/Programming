@@ -957,9 +957,138 @@ The `Number` class can be used to transform strings into numbers, but it is reco
   + convert integer to string: `(3).toString(2); // "11"`, `(3).toString(10); // "3"`
 
 
+### 5.2.8 Built-in JS class: `String`
 
 
+#### Live coding video: predefined class - String
 
+<a href="https://edx-video.net/W3CJSIXX2016-V005600_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/af3rcw)
+
+__Source code from the video example__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/pwPGve?editors=0012)
+
+[Local Demo](src/js/05b-example04.js)
+
+
+The `String` class can be used to build new strings, but it’s preferable to use the standard syntax:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><strong><span class="pln"> </span><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// use this rather than&nbsp;using new String(...)</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> name</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"string"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="str">'Michel'</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> name</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"string"</span></li>
+</ol></div>
+
+Some reminders about strings:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> name</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">6</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> name</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"M"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> name</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Z'</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"Z"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> name</span><span class="pun">;</span><span class="pln"> </span><strong><span class="com">// we cannot modify a string using s[index] = value;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"Michel"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">6</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">"M"</span></li>
+</ol></div>
+
+Explanations: 
+
++ _Line 10_: in JavaScript, and in many other programming languages, __a string is not modifiable at all.__
+
+  __When we do `var s = s + "hello"`, in fact, we are building a new string somewhere in memory, and we assign this new value to the variable `s`.__
+
+  We never "modify" the characters of the string s, we just give to s another address in memory to point to. 
+
+#### Useful methods: `toUpperCase`, `toLowerCase`, `indexOf`, `charAt`
+
+These methods are all inherited from the String class:
+
++ `toUpperCase`: returns the string in upper case. Do not change the original string.
++ `toLowerCase`: returns the string in lower case. Do not change the original string.
++ `indexOf`: returns the index of the string value passed as parameter, -1 if the string value is not found in the original string.
++ `charAt`: returns the char at the index passed as parameter. Returns an empty string if the index is out of bounds (less than 0 or greater than the length of the string).
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"I'm the Walrus"</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">toUpperCase</span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s1</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"I'M THE WALRUS"</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s2 </span><span class="pun">=</span><span class="pln"> s1</span><span class="pun">.</span><span class="pln">toLowerCase</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s2</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">"i'm the walrus"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s is unchanged</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">"I'm the Walrus"</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// no ‘w’ in s</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">-</span><span class="lit">1</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s2</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">8</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s2</span><span class="pun">[</span><span class="lit">8</span><span class="pun">];</span><span class="pln"> </span><span class="com">// char at index 8</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"w"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">s2</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="lit">8</span><span class="pun">);</span><span class="pln"> </span><span class="com">// same as s2[8]</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">"w"</span></li>
+</ol></div>
+
+
+#### Other useful methods: lastIndexOf, chaining methods
+
++ `lastIndexOf`: returns the last index of the string value passed as parameter
++ `indexOf` can also be used with two parameters, the second one being the starting index when looking for the string value passed as parameter
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'wow wow wow!'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"wow wow wow!"</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">lastIndexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// start looking at s at index=1, s[0] is ignored</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">2</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">toUpperCase</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s1</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">"WOW WOW WOW!"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s1</span><span class="pun">.</span><span class="pln">toLowerCase</span><span class="pun">().</span><span class="pln">lastIndexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// we can chain method calls using ‘.’</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+</ol></div>
 
 
 
