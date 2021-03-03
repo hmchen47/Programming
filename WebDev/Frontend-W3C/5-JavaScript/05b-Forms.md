@@ -1356,6 +1356,146 @@ The `split` method returns an array of strings, the parameter is a separator. Th
     + `s; // "My name is Bond! James Bond! And I've made a lot of movies!"`
 
 
+### 5.2.10 Built-in JavaScript class: Math
+
+It’s not possible to do `var m = new Math();`
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> m </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">VM5777</span><span class="pun">:</span><span class="lit">1</span><span class="pln"> </span><strong><span class="typ">Uncaught</span><span class="pln"> </span><span class="typ">TypeError</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Math</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> a constructor</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> at </span><span class="str">&lt;anonymous&gt;</span><span class="pun">:</span><span class="lit">1</span><span class="pun">:</span><span class="lit">9</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">(</span><span class="pln">anonymous</span><span class="pun">)</span><span class="pln"> </span><span class="pun">@</span><span class="pln"> VM5777</span><span class="pun">:</span><span class="lit">1</span></li>
+</ol></div>
+
+But the `Math` class has a lot of properties and methods that are useful for arithmetic expressions. __They are all class methods and properties, so you will need to use the name of the class followed by the dot operator to access them.__
+
+Here are some examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">3.141592653589793</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">SQRT2</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">1.4142135623730951</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">E</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Euler constant</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">2.718281828459045</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">LN2</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Neperian log of 2</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">0.6931471805599453</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">LN10</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Neperian log of 10</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">2.302585092994046</span></li>
+</ol></div>
+
+
+#### Random numbers between 0 and 1 with `Math.random()`
+
+`Math.random()` returns a float value between 0 and 1.
+
+Examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">0.6033316111663034</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="lit">100</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span><span class="pln"> </span><span class="com">// between 0 and 100</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">11.780563288516422</span></li>
+</ol></div>
+
+__To get a number between a min and a max value, use this formula: `val = ((max - min) * Math.random()) + min`__
+
+And here is an utility function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getRandomValue</span><span class="pun">(</span><span class="pln">min</span><span class="pun">,</span><span class="pln"> max</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> </span><span class="pun">((</span><span class="pln">max </span><span class="pun">-</span><span class="pln"> min</span><span class="pun">)</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">())</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> min</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> getRandomValue</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="lit">5.064160540161435</span></li>
+</ol></div>
+
+
+#### Math and rounding methods `round()`, `ceil()`, `floor()`
+
+`round`: to get the closest integer value.
+
+For example `Math.round(Math.random());` will return 0 or 1.
+
+Indeed, if `Math.random()` returns a value above 0.5, `Math.round` of this value will return 1, if the value is below 0.5, `Math.round` will return 0:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">0</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+</ol></div>
+
+
+#### Get the min and the max of two values with `Math.min(a, b)` and `Math.max(a, b)`
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">min</span><span class="pun">(</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">4</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">max</span><span class="pun">(</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">12</span></li>
+</ol></div>
+
+A useful function that restricts a value between  min and  max bounds:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">function</span><span class="pln"> restrictValue</span><span class="pun">(</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> min</span><span class="pun">,</span><span class="pln"> max</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">min</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">max</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> value</span><span class="pun">),</span><span class="pln"> max</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> restrictValue</span><span class="pun">(</span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="lit">20</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> restrictValue</span><span class="pun">(-</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> restrictValue</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+</ol></div>
+
+
+#### Math functions for arithmetical computations sin(), cos(), tan(), atan(), atan2(), pow(), sqrt()
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">pow</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">);</span><span class="pln"> </span><span class="com">// 2^8</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">256</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="lit">9</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">3</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sin</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">cos</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="lit">6.123233995736766e-17</span></li>
+</ol></div>
+
+__`Math.atan2(dy, dx)` is useful for getting an angle between a point in a canvas and the mouse cursor__
+
+Here is a typical example of the use of `Math.atan2` in a video game, in order to make an object follow the mouse cursor by moving towards it. Look at the code in the `mainloop` function.
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/aWOJQN)
+
+[Local Demo](src/05b-example05.html)
+
+
+
+
+
 
 
 
