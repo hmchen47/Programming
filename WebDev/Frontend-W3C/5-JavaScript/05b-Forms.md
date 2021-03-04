@@ -1722,7 +1722,14 @@ And here is a full version with input fields and results displayed in an HTML ta
   + display the result: `dayOfTheWeek; // [4, 4, 5, 5, 5, 4, 4]` $\to$ 4 times on Sunnday, Monday, Friday, and Saturday, ...
 
 
+### 5.2.12 Discussion
 
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics
+
++ Did you notice that the Math class has only class methods and properties: you always use `Math.PI`, `Math.cos(...)`, etc. Do class properties and methods make sense to you now? It would be nonsense to create two Math objects such as `m1 = new Math(); m2 = new Math(); var result = m1.cos(0.5); ...`
++ For a long time, we've talked about "predefined JavaScript objects", not "classes" when we talked about `Math`, `Date`, `Array`, etc. This is because JavaScript is not a class-based programming language.<br>ES6/ES2015 in 2015 introduced classes and the class keyword, but in fact there are no "real classes" in JavaScript, like in class-based languages such as Java or C#. ES6 classes are just constructor functions and prototypes (the thing behind Object Oriented JavaScript) disguised. Did you know that?
 
 
 
