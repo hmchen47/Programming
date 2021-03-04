@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>A typical HTML table with simple styling</title>
+  <link rel="stylesheet" href="css/05c-example05.css">
+  <script src="js/05c-example05.js"></script>
+</head>
+<body>
+<table id="myTable">
+ <caption>A typical HTML table</caption>  
+  <tr>
+    <th scope="col">Given Name</th>
+    <th scope="col">Family Name</th> 
+    <th scope="col">Age</th>
+  </tr>
+  <tr>
+    <td>Michel</td>
+    <td>Buffa</td> 
+    <td>52</td>
+  </tr>
+  <tr>
+    <td>Dark</td>
+    <td>Vador</td> 
+    <td>Unknown</td>
+  </tr>
+    <tr>
+    <td>Luke</td>
+    <td>Skywalker</td> 
+    <td>Unknown</td>
+  </tr>
+</table>
+  <p>Click to add a new row</p>
+  <button onclick="insertRow();">Add a new row</button>
+  <p>Click to delete the first row of the table</p>
+  <button onclick="deleteFirstRow();">Delete first row</button>
+</body>
+</html>
+
