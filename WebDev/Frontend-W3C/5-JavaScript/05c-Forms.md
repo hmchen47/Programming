@@ -388,6 +388,187 @@ It's up to you: depending on the HTML that you plan to insert into each cell, on
   + insert cells: `var cell1 = row.insertCell(); cell1.innerHTML = "New cell1"; var cell2 = row.insertCell(); cell2.innerHTML = "New cell2"; var cell3 = row.insertCell(); cell3.innerHTML = "New cell3";` 
 
 
+### 5.3.3 HTML forms: best practices
+
+#### Creating accessible forms
+
+Forms are commonly used to enable user interaction within Web sites and Web applications, for example, for login, registering, commenting, and purchasing.
+
+Since HTML5 provides functionalities to assist with accessibility, developers should make a concerted effort to mark up Web based forms. The following two guidelines are to give you a good start to make your forms accessible:
+
+1. For every form field, ensure that a descriptive __label__ is provided and use the `<label>` element to identify each form control.
+1. For larger or complex forms, use the `<fieldset>` and `<legend>` elements to respectively __group and associate__ related form controls.
+Further reading:
+
+The WAI Web site hosts a [Forms tutorial](https://www.w3.org/WAI/tutorials/forms/) where you will find more guidelines to help make your forms truly accessible: Form Instructions, Validating Input, User Notifications, Multi-Page Forms, and Custom Controls.
+
+
+#### Why is this important?
+
+Forms can be visually and cognitively complex and difficult to use. Accessible forms are easier to use for everyone, including people with disabilities.
+
++ __People with cognitive disabilities__ can more easily understand the form and how to complete it, as making forms accessible improves the layout structure, instructions, and feedback.
++ __People using speech input__ can use the labels via voice commands to activate controls and move the focus to the fields that they need to complete.
++ __People with limited dexterity__ benefit from large clickable areas that include the labels, especially for smaller controls, such as radio buttons and checkboxes.
++ __People using screen readers__ can identify and understand form controls more easily because they are associated with labels, field sets, and other structural elements.
+
+
+#### Labeling controls
+
+Labels need to describe the purpose of the form control
+Form fields and other form controls usually have visible labels, such as "E-mail Address:" as the label for a text field (see figure below).
+
+<p><img class="imgbreathe" src="https://www.w3.org/WAI/images/easychecks/form-label-text.png" type="saveimage" target="[object Object]" alt="Visual of a text input field preceded by the mention &quot;E-mail address:&quot;" width="242" height="29"></p>
+
+When these labels are marked up correctly, people can interact with them using only the keyboard, using voice input, and using screen readers. Also, the label itself becomes clickable, which enables a person who has difficulty clicking on small radio buttons or checkboxes to click anywhere on the label text.
+
+
+#### Associating labels explicitly
+
+Whenever possible, use the label element to explicitly associate text with form elements. The for attribute of the label must exactly match the id of the form control. 
+
+Example #1 (click on the label, not on the input field to see the effect):
+
+<div class="box-content"><form action="#" method="post">
+<p class="exampleHTML"><label class="label" for="first_name">First name: </label> <input name="firstname" id="first_name" type="text"></p>
+</form></div>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="tag">&gt;</span><span class="pln">Your First Name</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">/&gt;</span></li>
+</ol></div>
+
+Alternative example #1:
+
+Note that you can also include the `<input>` element inside the `<label>...</label>` element, and also add a `<span lang="en">` for example, to indicate the language used in the label. Sometimes, [nesting labels and inputs can also make CSS styling easier and produce better results with screen readers](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form).
+
+Source code (with `<input>` inside the `<label>`):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="tag">&gt;&lt;</span></strong><span class="pln"><strong>span lang=en"&gt;</strong>Your First Name</span><strong><span class="tag">&lt;/span&gt;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">/&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="tag">&lt;/label&gt;</span></strong></li>
+</ol></div>
+
+Example #2 (click on the label "Subscribe to newsletter" to see the effect):
+
+<div class="box-content"><form action="#" method="post">
+<p class="exampleHTML"><label class="label" for="firstname">First name: </label> <input name="firstname" id="firstname" type="text"><br><label class="label" for="subscribe">Subscribe to newsletter</label> <input name="subscribe" id="subscribe" type="checkbox"></p>
+</form></div>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="tag">&gt;</span><span class="pln">First name:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="tag">&gt;&lt;br&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln">&nbsp;</span><span class="atn">for</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="tag">&gt;</span><span class="pln">Subscribe to newsletter</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+
+#### Labeling buttons
+
+The label of a `<button>` element is set inside the element and can include markup. This allows advanced accessibility hints to be included, such as marking up language change.
+
+Example: `<button>Mon <span lang="fr">bouton</span></button>`, for a button with a label in French.
+
+When using the `<input>` element to create buttons, the label is set in the value attribute of the element.
+
+Example: `<input type="submit" value="Please submit">`, will be rendered as a button.
+
+Source code for an example of "Submit" and "Cancel" buttons:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="tag">&gt;</span><span class="pln">Cancel</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Cancel"</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+These will produce the same results:
+
+<p class="exampleHTML">Lines 1 and 2 render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>While lines 3 and 4 render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
+
+#### Labeling text areas
+
+<p><label class="label" for="address">Enter your address:</label><br> <textarea name="addresstext" id="address" rows="5" cols="25"></textarea></p>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;</span><span class="pln">Enter your address:</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;br&gt;</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"addresstext"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li>
+</ol></div>
+
+
+#### Grouping controls
+
+Groupings of form controls, typically groups of related checkboxes and radio buttons, sometimes require a higher level description. Grouping related form controls makes forms more understandable for all users, as related controls are easier to identify.
+
+__Associating related controls with `fieldset`__
+
+Grouping needs to be carried out visually and in the code, for example, by using the `<fieldset>` and `<legend>` elements to associate related form controls. The `<fieldset>` identifies the entire grouping and `<legend>` identifies the grouping's descriptive text.
+
+__Example #1: Radio buttons__
+
+In the example below, there are three radio buttons that allow the user to choose an output format. Radio button groups should always be grouped using `<fieldset>`.
+
+<form><fieldset><legend>Output format</legend> <input name="format" id="txt" value="txt" type="radio"> <label class="label" for="txt">Text file<br></label><br> <input name="format" id="csv" value="csv" type="radio"> <label class="label" for="csv">CSV file<br></label><br> <input name="format" id="html" value="HTML" type="radio"> <label class="label" for="html">HTML file</label></fieldset></form>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;fieldset&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;legend&gt;</span><span class="pln">Output format</span><span class="tag">&lt;/legend&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;div&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"format"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"txt"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"txt"</span><span class="pln"> </span><span class="atn">checked</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"txt"</span><span class="tag">&gt;</span><span class="pln">Text file</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;div&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"format"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"csv"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"csv"</span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"csv"</span><span class="tag">&gt;</span><span class="pln">CSV file</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;/div&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> […]</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/fieldset&gt;</span></li>
+</ol></div>
+
+__Example #2: Checkboxes__
+
+In the example below, there are three checkboxes that are all part of an opt-in function for receiving different types of information.
+
+<form action="#" method="post"><fieldset><legend>I want to receive</legend>
+<div><input name="newsletter" id="check_1" type="checkbox"> <label class="label" for="check_1">The weekly newsletter</label></div>
+<div><input name="company_offers" id="check_2" type="checkbox"> <label class="label" for="check_2">Offers from the company</label></div>
+<div><input name="assoc_offers" id="check_3" type="checkbox"> <label class="label" for="check_3">Offers from associated companies</label></div>
+</fieldset></form>
+
+Source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;fieldset&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;legend&gt;</span><span class="pln">I want to receive</span><span class="tag">&lt;/legend&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;div&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"newsletter"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"check_1"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"check_1"</span><span class="tag">&gt;</span><span class="pln">The weekly newsletter</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/div&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;[…]</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/fieldset&gt;</span></li>
+</ol></div>
+
+
+#### [Advanced] Associating related controls with WAI-ARIA
+
+WAI-ARIA provides a grouping role that functions in a similar way to `fieldset` and `legend`. For example, a div element can have `role=group` to indicate that the contained elements are members of a group.
+
+WAI-ARIA roles are very important in the accessibility world, and we invite you to see an example provided in the [associated WAI tutorial](https://www.w3.org/WAI/tutorials/forms/grouping/). Find also another [WAI-ARIA documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
+
+
+
 
 
 
