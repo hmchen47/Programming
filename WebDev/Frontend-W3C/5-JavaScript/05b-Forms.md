@@ -1541,11 +1541,11 @@ Here is a typical example of the use of `Math.atan2` in a video game, in order t
 
 ### 5.2.11 Built-in JS class: Date
 
-Let's see how to get a date by calling the Date constructor.
+Let's see how to get a date by calling the `Date` constructor.
 
 __Without any argument, a call to `new Date()` returns the current date.__
 
-Note: The return value is actually a Dat`e object, which is displayed by calling `toString()` on this object.
+Note: The return value is actually a Date object, which is displayed by calling `toString()` on this object.
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> date </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span></li>
@@ -1673,6 +1673,53 @@ And here is a full version with input fields and results displayed in an HTML ta
 [CodePen Demo](https://codepen.io/w3devcampus/pen/Mmwqgq)
 
 [Local Demo](src/05b-example06.html)
+
+
+#### Notes for 5.2.11 Built-in JS class: Date
+
++ `Date` class
+  + constrctor: `new Date(arg);`
+    + return value acctually a `Date` object but displayed by calling `toString()` on this object
+    + `arg` ommitted: return the current date
+    + `arg`:
+      + a string encoding a date
+      + a set of numeric values separated by a comma for month, day, hour, and so on
+      + a Unix "timestamp" (number of milliseconds elapsed since 1970)
+  + numerical parameters:
+    + order: year, month (0-11), dat (1-31), time (0-23), minutes (0-59), second, milliseconf (0-999)
+    + not always w/ them all
+    + must always be in the order
+  + calling `Date` constructor w/o new: return currrent date
+  + useful instance methods: [`getXXX` and `setXXX`](https://tinyurl.com/htvdv7ep)
+    + set and get `XXX`
+    + `XXX`: `FullYear`, `Month`, `Day`, `Hours`, `Minutes`, `Seconds`, `MilliSeconds`
+
++ Example: constructing `Date` object
+  + current date:
+    + `new Date(); // Wed Apr 12 2017 11:10:28 GMT+0200 (CEST)`
+    + `Date(); // "Sun Apr 16 2017 14:51:47 GMT+0200 (CEST)"`
+  + encoded date:
+    + `new Date('2017 04 28'); // Fri Apr 28 2017 00:00:00 GMT+0200 (CEST)`
+    + `new Date('2017 1 2'); // Mon Jan 02 2017 00:00:00 GMT+0100 (CET)`
+    + `new Date('2017 1 2 8:30'); // Mon Jan 02 2017 08:30:00 GMT+0100 (CET)`
+  + numerical value
+    + `new Date(2017, 3, 16, 14, 43, 10, 120); // Sun Apr 16 2017 14:43:10 GMT+0200 (CEST)`
+    + `new Date(2017, 0, 10, 14); // Tue Jan 10 2017 14:00:00 GMT+0100 (CET)`
+    + `new Date(2017, 1, 28) // Tue Feb 28 2017 00:00:00 GMT+0100 (CET)`
+    + `new Date(2008, 1, 29); Fri Feb 29 2008 00:00:00 GMT+0100 (CET)`
+    + `new Date(2017, 1, 29); // Wed Mar 01 2017 00:00:00 GMT+0100 (CET); No February 29th in 2017! Gives 1st of March`
+    + `new Date(2017, 11, 31); // Sun Dec 31 2017 00:00:00 GMT+0100 (CET)`
+    + `new Date(2017, 11, 32) // Mon Jan 01 2018 00:00:00 GMT+0100 (CET); 32 Dec -> 1st of January!`
+
++ Example: useful instance methods
+  + declare date: `var d = new Date(); // "Sun Apr 16 2017 14:52:52 GMT+0200 (CEST)"`
+  + change month w/ index=2: `d.setMonth(2); // 1489672372092`, `d.tostring(); // "Thu Mar 16 2017 14:52:52 GMT+0100 (CET)"`
+  + get current month index: `d.getMonth(); // 2`
+
++ Example: which day of the week
+  + declare an array for counting: `var dayOfTheWeek = [0, 0, 0, 0, 0, 0, 0]`
+  + iterate a range of years to find which day: for (var year=2007; year <= 2047; year++) { dayOfTheWeek[new Date(year, 4, 16).getDay()]++; }`
+  + display the result: `dayOfTheWeek; // [4, 4, 5, 5, 5, 4, 4]` $\to$ 4 times on Sunnday, Monday, Friday, and Saturday, ...
 
 
 
