@@ -1225,7 +1225,7 @@ Beginners: do not read what follows about slice and substring! There will be no 
 Actually, here is a summary of the common behaviors and the differences between slice and substring.
 
 
-__[Advanced] slice(start, stop) works like substring(start, stop) with a few different behaviors__
+__[Advanced] `slice(start, stop)` works like `substring(start, stop)` with a few different behaviors__
 
 What they have in common:
 
@@ -1537,6 +1537,143 @@ Here is a typical example of the use of `Math.atan2` in a video game, in order t
   + `tan()`: tangent function in radians
   + `atan()`: arctangent function in radians
   + `atant2()`: arctangent fucntion returning in angle in the plane; useful for getting an angle btw a point in a canvas and the mouse cursor
+
+
+### 5.2.11 Built-in JS class: Date
+
+Let's see how to get a date by calling the Date constructor.
+
+__Without any argument, a call to `new Date()` returns the current date.__
+
+Note: The return value is actually a Dat`e object, which is displayed by calling `toString()` on this object.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> date </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> date</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">Wed</span><span class="pln"> </span><span class="typ">Apr</span><span class="pln"> </span><span class="lit">12</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">11</span><span class="pun">:</span><span class="lit">10</span><span class="pun">:</span><span class="lit">28</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
+<li class="L3"><span class="pun"></span></li>
+<li class="L3"><span class="pun">&gt;</span><span class="pln">&nbsp;date.toString()</span><span class="pun">; // same thing!</span></li>
+<li class="L4"><span class="typ">Wed</span><span class="pln">&nbsp;</span><span class="typ">Apr</span><span class="pln">&nbsp;</span><span class="lit">12</span><span class="pln">&nbsp;</span><span class="lit">2017</span><span class="pln">&nbsp;</span><span class="lit">11</span><span class="pun">:</span><span class="lit">10</span><span class="pun">:</span><span class="lit">28</span><span class="pln">&nbsp;GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
+</ol></div>
+
+
+__We can also pass it an argument that can be:__
+
++ A string that encodes a date
++ A set of numeric values separated by a comma for month, day, hour, and so on
++ A Unix "timestamp"  (number of milliseconds elapsed since 1970)
+
+... in this case it returns a date object that corresponds to the encoded date passed as argument.
+
+Examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="str">'2017 04 28'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="typ">Fri</span><span class="pln"> </span><span class="typ">Apr</span><span class="pln"> </span><span class="lit">28</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="str">'2017 1 2'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">Mon</span><span class="pln"> </span><span class="typ">Jan</span><span class="pln"> </span><span class="lit">02</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="str">'2017 1 2 8:30'</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="typ">Mon</span><span class="pln"> </span><span class="typ">Jan</span><span class="pln"> </span><span class="lit">02</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">08</span><span class="pun">:</span><span class="lit">30</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+</ol></div>
+
+Numerical parameters can also be passed in this order: year, month (0-11), day (1-31), time (0-23), minutes (0-59), seconds , milliseconds (0-999). We do not have to pass everything but it should always be in this order.
+
+Examples:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">,</span><span class="pln"> </span><span class="lit">14</span><span class="pun">,</span><span class="pln"> </span><span class="lit">43</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="typ">Sun</span><span class="pln"> </span><span class="typ">Apr</span><span class="pln"> </span><span class="lit">16</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">14</span><span class="pun">:</span><span class="lit">43</span><span class="pun">:</span><span class="lit">10</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">14</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">Tue</span><span class="pln"> </span><span class="typ">Jan</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">14</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">28</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 1 is February! Month indexes start at 0!</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="typ">Tue</span><span class="pln"> </span><span class="typ">Feb</span><span class="pln"> </span><span class="lit">28</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2008</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">29</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="typ">Fri</span><span class="pln"> </span><span class="typ">Feb</span><span class="pln"> </span><span class="lit">29</span><span class="pln"> </span><span class="lit">2008</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">29</span><span class="pun">);</span><span class="pln"> </span><span class="com">// No February 29th in 2017! Gives 1st of March</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="typ">Wed</span><span class="pln"> </span><span class="typ">Mar</span><span class="pln"> </span><span class="lit">01</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">31</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Happy new year!</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="typ">Sun</span><span class="pln"> </span><span class="typ">Dec</span><span class="pln"> </span><span class="lit">31</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 32 Dec -&gt; 1st of January!</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="typ">Mon</span><span class="pln"> </span><span class="typ">Jan</span><span class="pln"> </span><span class="lit">01</span><span class="pln"> </span><span class="lit">2018</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+</ol></div>
+
+Calling `Date()` without "new" returns the current date as a string. It does not matter if we pass parameters:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">"Sun Apr 16 2017 14:51:47 GMT+0200 (CEST)"</span></li>
+</ol></div>
+
+#### Useful methods
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> d </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">"Sun Apr 16 2017 14:52:52 GMT+0200 (CEST)"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">setMonth</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Change for month with index=2</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">1489672372092</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">"Thu Mar 16 2017 14:52:52 GMT+0100 (CET)"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">getMonth</span><span class="pun">();</span><span class="pln"> </span><span class="com">// get current month index</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">2</span></li>
+</ol></div>
+
+__Let's play with my birthday!__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> d </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">1965</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Michel Buffa's birthday</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">getDay</span><span class="pun">();</span><span class="pln"> </span><span class="com">// Sunday is 0</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="lit">5</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">;</span><span class="pln"> </span><span class="com">// let's verify</span></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="typ">Fri</span></strong><span class="pln"> </span><span class="typ">Apr</span><span class="pln"> </span><span class="lit">16</span><span class="pln"> </span><span class="lit">1965</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pun">&gt;</span><span class="pln"> </span><span class="com">// Great, it was a Friday :-)</span></strong></li>
+</ol></div>
+
+Let's write a small piece of code that will guess which days of the week Michel Buffa's birthday will occur, between 2017 and 2047:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> dayOfTheWeek </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> year </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2017</span><span class="pun">;</span><span class="pln"> year </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="lit">2047</span><span class="pun">;</span><span class="pln"> year</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; dayOfTheWeek</span><span class="pun">[</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="pln">year</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">).</span><span class="pln">getDay</span><span class="pun">()]++;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> dayOfTheWeek</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">]</span><span class="pln"> </span><span class="com">// 4 times on a Sunday, Monday, Friday and Saturday, <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 5 times on Tuesday, Wednesday and Thursday</span></li>
+</ol></div>
+
+Explanations:
+
++ _Line 1_ we use an array with each element being the number of times the birthday occurs on a Sunday, Monday, etc.
++ _Line 3_: we iterate using a for loop on every year between 2017 and 2047.
++ _Line 4_: we build a `Date` object using 16 of April, but change the year, we compute the date of each of Michel Buffa's birthdays between 2017 and 2045, and we get the index of the day (using the `getDay()` method). This index is used to increment corresponding elements of the array defined in _line 1_.
++ Finally, _line 7_ displays the content of the array. Remember  that typing a variable name in the devtool console is equivalent to calling the object `toString()` method.
+
+And here is a full version with input fields and results displayed in an HTML table:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/Mmwqgq)
+
+[Local Demo](src/05b-example06.html)
+
 
 
 
