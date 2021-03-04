@@ -94,6 +94,20 @@ Look at the CSS - it's the only part that changed:
 [Local Demo](src/05c-example02.html)
 
 
+#### Notes for 5.3.1 The HTML table basics
+
++ The `<table>` and related elements
+  + `<table>` element: rendering tables in an HTML document
+  + `<tr>` element: table row
+  + `<th>` element: table header, defaults as bold and centered
+  + `<td>` element: a table data/cell
+  + best practice for accessibility
+    + always add a `<caption>` tag inside the `<table>` tag
+    + use a `scope` attribute w/ all `<th scope="row or column">` for identifying whether a table header is a column header or a row header
+
++ Common styles for <`table>` element
+  + rendering cell/row/table border, e.g., `tr, th, td { border: 1px solid; }`
+  + adjusting spacing btw text and in cells and the cell borders, e.g., `td { padding: 10px; }`
 
 
 
