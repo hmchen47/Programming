@@ -325,6 +325,68 @@ So should we use `insertCell()` or just `row.innerHTML="<td>...</td>"`?
 It's up to you: depending on the HTML that you plan to insert into each cell, one version may be more readable than the other.
 
 
+#### Notes for 5.3.2 The HTML table JavaScript API
+
++ The table object
+  + make dynamic table management possible
+  + enable to add or delete a row, a cell, and modify the contents of the cells, etc.
+  + most useful properties
+    + `rows`: a collection of all `<tr>` elements in a table
+    + `caption`: the `<caption>` element of a table
+    + `tFoot`: a reference to the `<tfoot>` element of a table
+    + `tHead`: a reference to the `<thead>` element of a table
+  + most useful methods
+    + `insertRow()`:
+      + create an empty `<tr>` element and add it to the table
+      + insert a new row at the end of the table: `var row = table.insertRow();`
+      + insert at the index = `idx` and push down all the rows after: `var row = table.insertRow(idx);`
+    + `deleteRow()`: remove a row `<tr>` from the table, e.g., `table.deleteRow(0);` delete the row at index 0
+    + `createCaption()`: create an empty `<caption>` element and add it to the table
+    + `deleteCaption()`: remove the first `<caption>` element from the table
+    + `createTHead()`: create an empty `<thead>` element and add it to the table
+    + `deleteTHead()`: remove the `<thead>` element from the table
+    + `createTFoot()`: create an empty `<tfoot>` element and add it to the table
+    + `deleteTFoot()`: remove the `<tfoot>` element from the table
+
++ examples: [table object](src/05c-example04.html)
+  + access table: `var table = document.getElementById("myTable);` and `var table = document.querySelector("#myTable");`
+  + create a new table: `var table = document.createElement("table");`
+  + insert last row: `function insertRow() { var table = document.querySelector("#myTable"); var row = table.insertRow(); row.innerHTML = "<td>New</td><td>New</td><td>New</td>"; }`
+  + delete the first row: `function deleteRow() { var table = document.querySelector("#myTable"); table.deleteRow(1); // o is the header }`
+
++ The tableRow object (`<tr>`)
+  + access a row using the DOM API or the selector API
+  + create a row using the DOM API to get a Row object
+  + most useful properties
+    + `cells`: a collection of all `<td>` ot `<th>` elements in a table row
+    + `rowIndex`: the position of a row in the `rows` collection of a table
+    + `sectionRowINdex`: the position of a row in the `rows` collection of a `<tbody>`, `<thead>` or `<tfoot>`
+  + most useful methods
+    + `insertCell()`:
+      + insert a cell into the current table `row`
+      + no parameters: append a cell after the last cell of the row
+      + index of the the cell as a unique parameter: insert the row and push other cells to the right
+      + `index = 0`: insert at the first position
+      + `index = -1`: insert at the last position
+    + `deleteCell()`:
+      + delete a cell from the current table row
+      + unique parametre: the index of the cell to remove
+      + `index = 0`: delete the first cell
+      + `index = -1`: delete the last cell
+
++ Example: [tableRow object](src/05c-example05.html)
+  + access row: `var row1 = document.getElementById("row1"); var row = document.querySelector("#row1");`
+  + create a new row: `var newRow = document.createElement("row");`
+  + create a table: `var t = document.createElement("table");`
+  + insert 1st row and add cells: `var r1 = t.insertRow(0); r1.innerHTML = "<td>Hello</td>`
+  + append a row w/ cell: `var r2 = t.insertRow(); r2.innerHTML = "<td>Hello 2</td>`
+  + access 1st row of the table: `var row1 = t.rows[0]; row1; // <tr><td>Hello</td></tr>`
+
++ Example: [create new row cells](src/05c-example06.html) `function insertRow() {...}`
+  + access table: `var table = document.querySelector("#myTable");`
+  + append a new row: `var row = table.insertRow();`
+  + insert cells: `var cell1 = row.insertCell(); cell1.innerHTML = "New cell1"; var cell2 = row.insertCell(); cell2.innerHTML = "New cell2"; var cell3 = row.insertCell(); cell3.innerHTML = "New cell3";` 
+
 
 
 
