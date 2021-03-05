@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Form example</title>
+  <link rel="stylesheet" href="css/05c-example07.css">
+</head>
+<body>
+<form id="myForm">
+  <fieldset>
+    <legend>Personal information</legend>
+    
+    <label for="firstName">First name:</label>
+    <input type="text" id="firstName" required name="firstName">
+    
+    <br>
+    
+    <label for="lastName">Last name:</label>
+    <input type="text" id="lastName" required name="lastName">
+    
+    <br>
+     <label for="email">Email:</label>
+    <input type="email" id="email" required name="email">
+    
+     <br>
+     <label for="age">Age:</label>
+    <input type="number" min=0 max=120  step=5 id="age" required name="age">
+ 
+         <br>
+     <label for="date">Birth date:</label>
+    <input type="date"  id="date" required name="date">
+  </fieldset>
+  
+  <button>Submit form</button>
+  </form>
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+input:invalid:required,
+input:invalid {
+	background-color: #FFB6C1;
+	border: 2px solid #FF0000;
+}
+
+form {
+	margin: 20px;
+}
+fieldset {
+	border: none;
+}
+legend {
+	border-bottom: 2px solid #00008B;
+	color: #00008B;
+	font-family: Verdana;
+	font-size:14px;
+	width: 400px;
+}
+label {
+	display: inline-block;
+	padding: 4px;
+	text-align: right;
+	width: 400px;
+}
+input[type=text],
+input[type=password],
+input[type=date],
+input[type=email],
+input[type=search],
+input[list],
+input[type=color],
+input[type=number],
+input[type=submit],
+input[type=button],
+textarea {
+	border: 2px solid #00008B;
+	border-radius: 5px;
+	padding: 7px;
+	width: 300px;
+}
+textarea {
+	height: 100px;
+	vertical-align: top;
+}
+input[type=search] {
+	width: 320px;
+}
+input[type=color] {
+	cursor: pointer;
+	width: 150px;
+}
+input[type=number] {
+	width: 150px;
+}
+input[type=range] {
+	width: 300px;
+}
+meter {
+	height: 20px;
+	width: 100px;
+}
+input[type=submit] {
+	background-color: #BEBEF7;
+	color: #00008B;
+	cursor:pointer;
+	font-weight: bold;
+	margin-left: 420px;
+	width: 320px;
+}
+input[type=button] {
+	background-color: #EFBDB8;
+	border-color: #8B0000;
+	color: #8b0000;
+	cursor:pointer;
+	font-weight: bold;
+	margin-left: 420px;
+	width: 320px;
+}
