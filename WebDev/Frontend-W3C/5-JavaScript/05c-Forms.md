@@ -629,6 +629,76 @@ WAI-ARIA roles are very important in the accessibility world, and we invite you 
   + checkbox and label: `<div> <input type="checkbox" name="newsletter" id="check_1"><label for="check_1">The weekly newsletter</label>`
 
 
+### 5.3.4 HTML forms and JavaScript
+
+
+#### Live coding video: HTML Forms Best Practices
+
+<a href="https://edx-video.net/W3CJSIXX2016-V004900_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript](https://tinyurl.com/rkufhjv4)
+
+__Source code from the example shown in the above video__
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/ZyJXBe)
+
+[Local Demo](src/05c-example07.html)
+
+We highly recommend that you follow the W3Cx [HTML5 Coding essentials and Best Practices](https://www.edx.org/course/html5-coding-essentials-and-best-practices) course that has an entire module dedicated to HTML5 forms. 
+
+Forms are a way to get user input which is either sent to a remote server, or processed locally, or both.
+
+This section of the course only covers local processing and the client-side part, with a focus on JavaScript processing.
+
+Typical example:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/ZKQJBR)
+
+[Local Demo](src/05c-example08.html)
+
+
+#### HTML form input can be sent to a server without JavaScript
+
+If a form's content is sent to a remote server, on the server side, you may have PHP, Java, C#, Ruby, Python, etc. components. There are several ways to collect server-side data from a form in a Web page: REST Web services, servlets, Microsoft ASP pages, etc. 
+
+On the client side, the forms indicate to which server and how the data should be sent,  using the `action` and `method` attributes respectively. A `<button type="submit">` or an `<input type=submit>` field is used to submit the form content.
+
+For example: `<form action="myServerCode.php" method="POST">...</form>`. Here, we set the URL of the server side code (`myServerCode.php`), and the HTTP method that will be used by the browser for sending the form content (`POST`).
+
+Example of HTML5 form that will not be sent if invalid input fields are present. Notice that the JavaScript part is only used for giving feedback while entering the password. No JavaScript is used for sending the form data, or for complex, global validation:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/pPgWoq)
+
+[Local Demo](src/05c-example09.html)
+
+
+#### HTML form input can be sent using Ajax / JavaScript
+
+Another approach is to use JavaScript for sending the form content with Ajax. This will be covered in the JavaScript advanced course, to be be available on W3Cx.
+
+__JavaScript can be used for validating user input "on the fly"__
+
+While one is typing or selecting a color, or moving a slider, JavaScript event listeners can be used to track the user's interactions in real time, and perform some validation steps along with giving visual feedback.
+
+We've already seen how we can track the keys typed in an input field in real time:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/XMQpRa)
+
+[Local Demo](src/05c-example10.html)
+
+__JavaScript can be used for a more global validation before sending a form to a remote server__
+
+Example: checking that a password entered twice is identical in two different input fields, that some values are coherent (e.g. a birthday cannot be in the future), etc.
+
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/gWPxvL)
+
+[Local Demo](src/05c-example11.html)
+
+
+
 
 
 
