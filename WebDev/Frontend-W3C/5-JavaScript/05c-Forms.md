@@ -398,6 +398,7 @@ Since HTML5 provides functionalities to assist with accessibility, developers sh
 
 1. For every form field, ensure that a descriptive __label__ is provided and use the `<label>` element to identify each form control.
 1. For larger or complex forms, use the `<fieldset>` and `<legend>` elements to respectively __group and associate__ related form controls.
+
 Further reading:
 
 The WAI Web site hosts a [Forms tutorial](https://www.w3.org/WAI/tutorials/forms/) where you will find more guidelines to help make your forms truly accessible: Form Instructions, Validating Input, User Notifications, Multi-Page Forms, and Custom Controls.
@@ -415,7 +416,8 @@ Forms can be visually and cognitively complex and difficult to use. Accessible f
 
 #### Labeling controls
 
-Labels need to describe the purpose of the form control
+__Labels need to describe the purpose of the form control__
+
 Form fields and other form controls usually have visible labels, such as "E-mail Address:" as the label for a text field (see figure below).
 
 <p><img class="imgbreathe" src="https://www.w3.org/WAI/images/easychecks/form-label-text.png" type="saveimage" target="[object Object]" alt="Visual of a text input field preceded by the mention &quot;E-mail address:&quot;" width="242" height="29"></p>
@@ -425,7 +427,7 @@ When these labels are marked up correctly, people can interact with them using o
 
 #### Associating labels explicitly
 
-Whenever possible, use the label element to explicitly associate text with form elements. The for attribute of the label must exactly match the id of the form control. 
+Whenever possible, use the `label` element to explicitly associate text with form elements. The `for` attribute of the label must exactly match the `id` of the form control.
 
 Example #1 (click on the label, not on the input field to see the effect):
 
@@ -475,7 +477,7 @@ The label of a `<button>` element is set inside the element and can include mark
 
 Example: `<button>Mon <span lang="fr">bouton</span></button>`, for a button with a label in French.
 
-When using the `<input>` element to create buttons, the label is set in the value attribute of the element.
+When using the `<input>` element to create buttons, the label is set in the `value` attribute of the element.
 
 Example: `<input type="submit" value="Please submit">`, will be rendered as a button.
 
@@ -567,6 +569,64 @@ WAI-ARIA provides a grouping role that functions in a similar way to `fieldset` 
 
 WAI-ARIA roles are very important in the accessibility world, and we invite you to see an example provided in the [associated WAI tutorial](https://www.w3.org/WAI/tutorials/forms/grouping/). Find also another [WAI-ARIA documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
 
+
+#### Notes for 5.3.3 HTML forms: best practices
+
++ Accessible forms
+  + commonly used to enable user interaction within Web sites and Web applications
+  + guidelines
+    + descriptive label: ensure provided and use the `<label>` element to identify each from the control
+    + complex forms: use the `<fieldset>` and `<legend>` elements to respectively group and associate related form controls
+  + reference: [Web Accessibility Tutorials in WIA](https://www.w3.org/WAI/tutorials/forms/)
+    + for instructions
+    + validating input
+    + user notifications
+    + multi-page forms
+    + custom controls
+
++ Label in accessible forms
+  + describe the purpose of the form control `Form` field
+  + label controls
+    + marked up correctly: interact using only keyboard, voice input, and screen readers
+    + clickable: enable a person who has difficulty clicking on small radio buttons or checkboxes to click anywhere on the the label text
+  + associating labels explicitly
+    + explicitly associating text w/ form elements
+    + `for` attribute of the label exactly match the `id` of the form control, e.g. <br>`<label for="first_name">Your First Name</label>  <input id="first_name" type="text" name="fname"/>`
+    + including the `<input>` element inside the `<label>...</label>` and add a `<span lang="en">` to indicate the language used in label, e.g., <br>`<label for="first_name"><span lang="en">Your First Name</span> <input id="first_name" type="text" name="fname"/> </label>`
+  + labeling buttons
+    + set inside the `<button>` element
+    + allow advanced accessibility hints
+    + `<input>` element to create button: set label in the `value` attribute of the element
+    + examples:
+      + a button w/ a label in French: `<button>Mon <span lang="fr">button</span></button>`
+      + a button w/ `<button>` element: `<button type="submit">Submit</button>` and `<button type="button">Cancel</button>`
+      + a button w/ `<input>` element: `<input type="submit" value="Submit">` and `<input type="button" value="Cancel">`
+  + labeling text areas: `<label for="address">Enter your address:</label> <br> <textarea id="address" name="addresstext"></textarea>`
+
++ Grouping controls of accessible forms
+  + typically groups of related checkbox and radio buttons
+  + usually requiring a higher level description
+  + grouping related forms: easier to understandable for all users
+  + associating related controls w/ `fieldset`
+    + grouping carried out visually and in the code
+    + using `<fieldset>` and `<legend>` elements to associate related form controls
+    + `<fieldset>`: identify the entire grouping
+    + `<legend>`: identify the group's descriptive text
+  + [Grouping Controls](https://www.w3.org/WAI/tutorials/forms/grouping/)
+    + approach 1: associating related controls w/ `fieldset`
+    + approach 2: associating related controls w/ WAI-ARIA, `aria-labelledby` attribute
+  
++ Examples: radio buttons
+  + radio buttons allowing the user to choose an output form
+  + radio button group: `<fieldset>...<fieldset>`
+  + description of group: `<legend>Output format</legend>`
+  + radio button and label: `<div><input type="radio" name="format" id="txt" checked> <label for="txt">Text file</label></div>`
+
++ Example: checkboxes
+  + checkboxes are all part of an opt-in function for receiving different types of info
+  + checkbox group: `<fieldset>...</fieldset>`
+  + description of group: `<legend>I want to receive</legdend>`
+  + checkbox and label: `<div> <input type="checkbox" name="newsletter" id="check_1"><label for="check_1">The weekly newsletter</label>`
 
 
 
