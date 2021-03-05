@@ -705,5 +705,49 @@ For example, a contact manager that will work offline, saving data locally, in a
 This is the small project we will build together at the end of the course. :-)
 
 
+#### Notes for 5.3.4 HTML forms and JavaScript
+
++ HTML input submit w/o JavaScript
+  + several ways to collect server-side data from a form in Web page: REST Web service, servlets, MS ASP pages, etc.
+  + client-side forms indicate to which server and how the data sent by `action` and `method` attributes, respectively
+  + `<button type="submit">` and `<input type=submit>` used to submit the form content
+  + example: `<form action="myServerCode.php" method="POST">...</form>`
+    + `myServerCode.php`: set the URL of the server side code
+    + `POST`: the HTTP method used by the browser for sending the form content
+
++ Example: [HTML5 input forms and submit](src/05c-example09.html)
+
++ HTML input submit w/ Ajax/JavaScript
+  + JS used for validating user input "on the fly"
+  + event listeners used for tracking user's interactions in real time, including typing or selecting a color, moving a slide, etc.
+  + perform validation steps along w/ visual feedback
+  + used for more global validation before sending a form to a remote server, e.g., checking password by entering twice in two different fields
+  + used to make a WebApp using form data locally, perhaps w/ some client-side persistence API, e.g. data displayed in a dynamic HTML table w/o remote database but saving data locally
+
++ Example: [validate input on the fly](src/05c-example10.html)
+  + register even listener: `<label> <span>Name (required):</span> <input type="text"  name="nom"  maxlength="32"  required onkeyup = "validateName(event)"> </label>`
+  + container to display key stroke: `<span id="keyTyped"></span>`
+  + validate input name: `function validateName(evt) {...}`
+    + declare variables: `var key = evt.key;`
+    + access display container: `var output = document.querySelector('#keyTyped');`
+    + display key typed: `output.innerHTML = "Valid key: " + key;`
+    + validation function here
+
++ Example: [password consistence check](src/05c-example11.html)
+  + submit form: `<form class="myForm" onsubmit="return submitForm();">`
+  + two input fields: `<label for="password1" >Password:</label> <input type="password" id="password1" oninput="checkPasswords()" required> <br> <label for="password2">Repeat password:</label> <input type="password" id="password2" oninput="checkPasswords()" required>`
+  + password consistence check: `function checkPasswords() {...}`
+    + access two password fields: `var password1 = document.querySelector('#password1'); var password2 = document.querySelector('#password2');`
+    + password consistent check: `if (password1.value !== password2.value) {...}`
+    + invalid: `password2.setCustomValidity('Passwords are different');`
+    + valid: `password2.setCustomValidity('');`
+  + submit form check: `function submitForm() {...}`
+    + append a display info: `document.body.append("We can submit, the form is valid!");`
+    + validation varied w/ the requirements
+
+
+
+
+
 
 
