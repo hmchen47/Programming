@@ -698,6 +698,11 @@ Example: checking that a password entered twice is identical in two different in
 [Local Demo](src/05c-example11.html)
 
 
+__JavaScript can be used to make a WebApp that uses form data locally, perhaps with some client-side persistence API__
+
+For example, a contact manager that will work offline, saving data locally, in a database inside the browser. Data will be displayed in a dynamic HTML table, without the need for a remote database.
+
+This is the small project we will build together at the end of the course. :-)
 
 
 
