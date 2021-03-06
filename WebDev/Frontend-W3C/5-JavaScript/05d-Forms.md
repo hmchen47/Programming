@@ -1,7 +1,7 @@
 # Module 5: Working with forms
 
 
-## 5.4 [The JSON notation
+## 5.4 The JSON notation
 
 ### 5.4.1 What is JSON?
 
@@ -23,7 +23,7 @@ A JavaScript object o in JSON looks a lot like what `o.toString()` returns.
 <p><strong>There are two main methods to know:</strong></p>
 <ol><ol>
 <li><span style="color: #ff0000;">Transform any JavaScript object in JSON</span>: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'courier new', courier;"><strong>var jsonStr =&nbsp;</strong><strong>JSON.stringify(obj);</strong></span></li>
-<li><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif; color: #ff0000;">Transform any JSON string into a JavaScript object: &nbsp; &nbsp;<span style="font-family: 'courier new', courier; color: #000000;"><strong>var jsObj &nbsp;= JSON.parse(jsonStr);</strong></span></span></li>
+<li><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif; color: #ff0000;">Transform any JSON string into a JavaScript object: &nbsp; &nbsp;<span style="font-family: 'courier new', courier; color: #008888;"><strong>var jsObj &nbsp;= JSON.parse(jsonStr);</strong></span></span></li>
 </ol></ol></div>
 
 Let's see some examples:
@@ -38,7 +38,7 @@ Let's see some examples:
 <li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln">&nbsp;simpleObject&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">x</span><span class="pun">:</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">:</span><span class="lit">30</span><span class="pun">};</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(<span style="color: #000000;" color="#000000">simpleObject</span></span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(<span style="color: #008888;" color="#008888">simpleObject</span></span><span class="pun">);</span></strong></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="str">"{"</span><span class="pln">x</span><span class="str">":12,"</span><span class="pln">y</span><span class="str">":30}"</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> anArray&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Monday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tuesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Wednesday'</span><span class="pun">];</span></li>
@@ -55,7 +55,7 @@ Let's see some examples:
 <li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; };</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(<span style="color: #000000;" color="#000000">complexObject</span></span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(<span style="color: #008888;" color="#008888">complexObject</span></span><span class="pun">);</span></strong></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="str">"{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Metallica</span><span class="str">","</span><span class="pln">albums</span><span class="str">":[{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Master</span><span class="pln"> of </span><span class="typ">Puppets</span><span class="str">","</span><span class="pln">year</span><span class="str">":1986},{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Black</span><span class="pln"> </span><span class="typ">Album</span><span class="str">","</span><span class="pln">year</span><span class="str">":1991}]}"</span></li>
 </ol></div>
 
@@ -101,6 +101,82 @@ With the JSON representation of an object you cannot access the original object'
 
 When we parse a JSON string using `JSON.parse()`, we get a real JavaScript object, and we can access its properties (_lines 16 and 19_).
 
+
+#### Notes for 5.4.1 What is JSON?
+
++ JSON (JavaScript Object Notation (JSON)
+  + a standard for transforming nearly any object into a string representation
+  + a standard for exchangig data to/from a remote HTTP server
+  + available for many other languages
+  + developed mainly for replacing XML as a format for exchanging data btw a client and HTTP server
+  + popularity: as the format for exchanging data under Ajax to communicate btw Web Applications and the HTTP server
+  + MS IE 2005: first appearance
+  + Google Maps: one of the first popular Ajax-powered Web application
+  
+
++ JSON objects and JavaScript objects
+  + unable to use JSON object as JS object
+  + JSON representation of JS object: a string
+  + JSON format: only storing the list of object properties (name and value) as a string
+  + main methods
+    + JS object $\to$ JSON: `var jsonStr = JSON.stringify(obj);`
+    + JSON $\to$ JS object: `var jsObj = JSON.parse(jsonStr);`
+  + representations of a simple variable of a predefined type, of an array, of a simple object, of an object containing an array of object
+  + visual: an object created in JS code w/ quote around it and the property name
+  + JSON very practical for storing objects where string are expected
+  + LocalStorage:
+    + a data store in browser to store a small database for Web application
+    + store only pairs of key/values in the string format
+    + convert into JSON object to save a JS object
+
++ Example: JS object $\to$ JSON
+  + number to JSON: `var x = 3; JSON.stringify(x); // "3"`
+  + simple object to JSON: `var simpleObj = {x: 12, y: 30}; JSON.stringify(simpleObj); // "{"x":12,"y":30}"`
+  + array to JSON: `var anArray = ['Monday', 'Tuesday', 'Wednesday']; JSON.stringify(anArray); // "["Monday","Tuesday","Wednesday"]"`
+  + complex object to JSON:
+
+    ```js
+    var complexObject = {name:'Metallica',
+      albums:[
+          {name:"Master of Puppets", year:1986},
+          {name:"Black Album", year:1991}
+      ]
+    };
+
+    JSON.stringify(complexObject); 
+    // "{"name":"Metallica","albums":[{"name":"Master of Puppets","year":1986},
+    //  {"name":"Black Album","year":1991}]}"
+    ```
+
++ Example: JS object $\leftrightarrow$ JSON
+  + declare object: `var metallica = {name:'Metallica', albums:[{name:"Master of Puppets", year:1986}, {name:"Black Album", year:1991}]};`
+  + JS object #\to$ JSON: `var metallicaJSON = JSON.stringify(metallica);`
+  + display JSON: `metallicaJSON; // "{"name":"Metallica","albums":[{"name":"Master of Puppets","year":1986}, {"name":"Black Album","year":1991}]}"`
+  + JSON format not a JS object: `metallica.name; // undefined`
+  + convert back to JS object: `var obj = JSON.parse(metallicaJSON); obj.name; // "Metallica"`
+
++ [`JSON.stringify()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+  + syntax: `JSON.stringify(value[, replacer[, space]])`
+  + docstring: convert a JavaScript object or value to a JSON string
+  + parameters
+    + `value`: the value to convert to a JSOM string
+    + `replacer` (optional):
+      + a function alerts the behavior of the stringification process
+      + an array of `String` and `Number` serves as allowist for selecting/filtering the properties of the value object to be included in the JSON string
+      + `null` or omitted: all properties of the object included in the resulting JSON string
+    + `space (optional):
+      + used to insert white space into the output JSON string for readability purpose
+      + `Number` object: the number os space characters to use as white space
+      + `String` object: use the string as white space
+  + return: a JSON string representing the given value
+
++ [`JSON.parse()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+  + syntax: `JSON.parse(text[, reviver])`
+  + docstring: parse a JSON string, constructing the JS value or object described by the string
+  + parameters
+    + `text`: the string to parse as JSON
+    + `reviver` (optional): a function prescribes how the value originally produced by parsing is transformed
+  + return: the `Object`, `Array`, string, number, boolean, or null value corresponding to the given JSON `text`
 
 
 
