@@ -458,7 +458,19 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
     + Web Storage: may extend to several MBytes
 
 
+### 5.4.4 Discussion and projects
 
+Here is the discussion forum for this part of the course.
+
+#### Suggested topic
+
+Did you know that using XhR2 for getting remote data, you can also monitor the download progression using n `xhr.onprogress =` event listener and a `<progress>` HTML element. See [this example](https://jsbin.com/nuxanaf/edit?html,output)! This is not directly possible using [the new fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (you need to give a look at the streams API that can be used altogether with the fetch API for [monitoring uploads and downloads](https://fetch-progress.anthum.com/)).
+
+
+#### Optional projects
+
++ Please display the data [from this URL](https://tinyurl.com/3j3dy5rn) in a dynamic table.
++ Try to add a "hi-score" table to the game developed during this course. The table will be displayed when you lose, and will show only the 10 best scores.
 
 
 
