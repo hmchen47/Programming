@@ -426,6 +426,39 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
 + [An Overview of Client-Side Storage](https://css-tricks.com/overview-client-side-storage/)
 
 
+#### Notes for 5.4.3 The LocalStorage API
+
++ The Web Storage API
+  + two mechanisms, similar to HTTP session cookies, for storing structured data on the client side
+  + providing two interfaces: `sessionStorage` and `localStorage`
+  + difference btw `sessionStorage` and `localStorage`: longevity
+    + `sessionStorage`: remain until deleted
+    + `localStorage`: erased when tab/browser closed
+  + define an API for persistent data storageof key-valuepair data in Web service
+
++ Key-value stores
+  + keys & values: strings
+  + only one store per domain
+  + functionality: expose through the globally available `localStorage`/`sessionStorage` object
+
++ Example: [store and retrieve store data](src/05d-example04.html)
+  + set `localStore` store data: `localStorage.lastName = "Bunny"; localStorage.firstName = "Bugs"; localStorage.location = "Earth";`
+  + retrieve data: `var lastName = localStorage.lastName; var firstName = localStorage.firstName; var location = localStorage.location;`
+
++ Web Storage vs cookies
+  + cookie:
+    + a popular way to store key-value pair
+    + generate additional HTTP request traffic
+  + Web Storage:
+    + more powerful technique than cookie
+    + managed objects no longer carried on the network and HTTP
+    + easily accessible (read, change, and delete) from JS via API
+  + difference
+    + cookie: limited to a few KBytes
+    + Web Storage: may extend to several MBytes
+
+
+
 
 
 
