@@ -300,6 +300,59 @@ JavaScript source code extract:
 The fetch API will also be covered in an advanced JavaScript course to come. In contrast to XhR2, fetch is based on a concept called "JavaScript promises" (also covered in the advanced course!). You recognize promises when you see ".then..." ".then...".
 
 
+#### Notes for 5.4.2 Consuming JSON remote data
+
++ JSON data w/ REST service
+  + REST API: send/receive data to/from programs over HTTP
+  + JSON format: one of the possible transport formats for the data
+  + [JSONPlaceholder](https://jsonplaceholder.typicode.com/users)
+    + a free online REST service
+    + provide fake data in JSON
+  + Xhr2 (XML HTTP Request 2) API: Ajax requests w/ newly simplied fetch API
+  + [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+    + provide a JS interface for accessing and manipulating parts of th HTTP pipeline
+    + global `fetch()` method:
+      + provide an easy, logical way to fetch resources asynchronous across the network
+      + fetch data from a URL, then processing w/ response
+    + catch error and display error message
+
++ Example: [JSON data w/ Xhr2 API](src/05d-example02.html)
+  + button element" `<button onclick="search();">Get a remote list of users' names and emails</button>`
+  + empty container for display: `<div id="users"></div>`
+  + request function: `function search() {...}`
+    + build an Ajax request using Xhr2: `var queryURL = "https://jsonplaceholder.typicode.com/users"; var xhr = new XMLHttpRequest();`
+    + asynchronously send the request: `xhr.send();`
+    + open the connection: `xhr.open('GET', queryURL, true);`
+    + callback executed to response arrival: `xhr.onload = function(e) {...}`
+      + create object to store response: `var jsonResponse = this.response;`
+      + covert data into JSON: `var users = JSON.parse(jsonResponse);`
+      + display users w/ HTML table: `displayUsersAsTable(users);`
+    + callback for error handling: `xhr.onerror = function(err) { console.log("Error " + err); }`
+  + display info: `function displayUsersAsATable(users) {...}`
+    + empty the container: `var usersDiv = document.querySelector("#users"); usersDiv.innerHTML = "";`
+    + create a table within container: `var table = document.createElement("table");`
+    + iterate to display each row: `users.forEach(function(currentUser)) {...});`
+      + insert row: `var row = table.insertRow();
+      + display HTML data: `row.innerHTML = "<td>"+ currentUser.name+ "</td><td>" + currentUser.email + "</td>";`
+    + append table: `usersDiv.append(table);`
+
++ Example: [JSON data w/ the fetch API](src/05d-example03.html)
+  + request function: `function search() {...}`
+    + specify the URL: `var queryURL = "https://jsonplaceholder.typicode.com/users";`
+    + fetch data:
+
+      ```js
+      fetch(queryURL)
+        .then(function(response) { // convert to a pure JavaScript object
+            return response.json();
+        })
+        .then(function(users) { // users is a JavaScript object here
+          displayUsersAsATable(users)
+        })
+        .catch(function(error) {
+          console.log('Error during fetch: ' + error.message);
+        });
+      ```
 
 
 
