@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Xhr2 and binary files + Web Audio API</title>
+</head>
+<body>
+  <p>Example of using Xhr2 and <code>xhr.responseType = 'arraybuffer';</code> to download a binary sound file
+  and start playing it on user-click using the WebAudio API.</p>
+  
+    <p>
+   <h2>Load file using Ajax / Xhr2 and the arrayBuffer response type</h2>
+  <button onclick="downloadSoundFile('https://mainline.i3s.unice.fr/mooc/LaSueur.mp3');">Download and play example song</button>
+    <button onclick="playSound()" disabled>Start</button>
+  <button onclick="stopSound()" disabled>Stop</button>
+  <progress id="downloadProgress" value=0></progress>
+<script>
+// WebAudio context
+var context = new window.AudioContext();
+var source = null;
+var audioBuffer = null;
+// progress element
+var progress = document.querySelector('#downloadProgress');
+  
+function stopSound() {
+  if (source) {
+    source.stop();
+  }
+}
+
+function playSound() {
+  // Build a source node for the audio graph
+  source = context.createBufferSource();
+  source.buffer = audioBuffer;
+  source.loop = false;
+  // connect to the speakers
+  source.connect(context.destination);
+  source.start(0); // Play immediately.
+}
+
+function initSound(audioFile) {
+  // The audio file may be a mp3, we must decode it before playing it from memory
+  context.decodeAudioData(audioFile, function(buffer) {
+    console.log("Song decoded!");
+    // audioBuffer the decoded audio file we're going to work with
+    audioBuffer = buffer;
+    
+    // Enable all buttons once the audio file is
+    // decoded
+    var buttons = document.querySelectorAll('button');
+    buttons[1].disabled = false; // play
+    buttons[2].disabled = false; // stop
+    alert("Binary file has been loaded and decoded, use play / stop buttons!")
+  }, function(e) {
+    console.log('Error decoding file', e);
+  }); 
+}
+
+  // Load a binary file from a URL as an ArrayBuffer.
+function downloadSoundFile(url) {
+   var xhr = new XMLHttpRequest();
+   xhr.open('GET', url, true);
+
+   xhr.responseType = 'arraybuffer'; // THIS IS NEW WITH HTML5!
+   xhr.onload = function(e) {
+      console.log("Song downloaded, decoding...");
+      initSound(this.response); // this.response is an ArrayBuffer.
+   };
+   xhr.onprogress = function(e) {
+     progress.value = e.loaded;
+     progress.max = e.total;
+   }
+   xhr.onerror = function(e) {
+    console.log("error downloading file");
+   }
+
+   xhr.send();
+   console.log("Ajax request sent... wait until it downloads completely");
+}  
+</script>
+</body>
+</html>
+
