@@ -74,7 +74,7 @@ Then you can print the properties of contact `c1` or `c2` using for example `con
 
 __Explanations:__
 
-+ This is a minimal ES6 class for building a contact manager. It has only one property: the list of contacts, and a method for adding a new contact (_line 8_), one for removing a contact (line 12), that iterate on the list of contacts until the contact passed as a parameter is found (when email properties match), then the contact is removed using the splice method, and we go out from the loop using the `break` statement (_line 22_).
++ This is a minimal ES6 class for building a contact manager. It has only one property: the list of contacts, and a method for adding a new contact (_line 8_), one for removing a contact (_line 12_), that iterate on the list of contacts until the contact passed as a parameter is found (when email properties match), then the contact is removed using the `splice` method, and we go out from the loop using the `break` statement (_line 22_).
 + It also has a utility method for printing to the console the list of contacts (_line 27_).
 
 We can use the contact manager like this:
@@ -106,7 +106,7 @@ Here is the CodePen of this minimal version. Click on the CodePen label on the t
 
 #### Adding a method for sorting the list of contacts by name
 
-Do you remember the sort() method you can use on arrays? We saw it in modules 2 or 3. Since our array contains objects, we must provide a callback for comparing two elements by name. Here is the code for the new sort() method we added to the ContactManager class:
+Do you remember the `sort()` method you can use on arrays? We saw it in modules 2 or 3. Since our array contains objects, we must provide a callback for comparing two elements by name. Here is the code for the new sort() method we added to the ContactManager class:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">sort</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -142,6 +142,78 @@ CodePen that uses this new method:
 
 [Local Demo](src/js/05e-example02.js)
 
+
+#### Notes for 5.5.1 A contact manager (part 1)
+
++ Example: [`Contact` and `ContactManager` classes](src/js/05e-example01.js)
+  + `Contact` class: a person w/ a name and an email
+
+    ```js
+    class Contact {
+      constructor(name, email) {
+        this.name = name;
+        this.email = email;
+      }
+    }
+    ```
+
+  + `ContactManager` class:
+    + a minimal ES6 class to build a contact manager
+    + only one property: the list of contacts
+    + two methods: add and remove contact
+    + 
+
+    ```js
+    class ContactManager {
+      constructor() {   // built the contact manager w/ empty list of contacts
+        this.listOfContacts = [];
+      }
+
+      add(contact) {
+        this.listOfContacts.push(contact);
+      }
+
+      remove(contact) {
+        for (let i = 0; i < this.listOfContacts.length; i++) {
+          var c = this.listOfContacts[i];
+
+          if (c.email === c.email) {
+            this.listOfContacts.splice(i, i);
+            break;
+          }
+        }
+      }
+
+      printContactsToConsole() {
+        this.listOfContacts.forEach(function(c) {
+          console.log(c.name);
+        });
+      }
+    }
+    ```
+
++ Example: [`Contact` and `ContactManager` verification](/src/js/05e-example01.js)
+  + create contacts: `var cm = new ContactManager(); var c1 = new Contact("Jimi Hendrix", "jimi@rip.com"); var c2 = new Contact("Robert Fripp", "robert.fripp@kingcrimson.com"); var c3 = new Contact("Angus Young", "angus@acdc.com"); var c4 = new Contact("Arnold Schwarzenneger", "T2@terminator.com");`
+  + add contacts into contact manager: `cm.add(c1); cm.add(c2); cm.add(c3); cm.add(c4);`
+  + display to verify: `cm.printContactsToConsole();`
+  + delete a contact: `cm.remove(c2);`
+  + display to verify: `cm.printContactsToConsole();`
+
++ Example: [sorting contacts in manager](src/js/05e-example02.js)
+  + define `sort` method in `ContactManager`: `sort() { this.listOfContacts(ContactManager.compareByName); }`
+  + class method for comparing two contacts by name: 
+  
+    ```js
+    static compareName(c1, c2) {
+      if (c1.name < c2.name>)
+        return -1;
+      
+      if (c.name > c2.name)
+        return 1;
+      
+      return 0;
+    }
+    ```
 
 
 
