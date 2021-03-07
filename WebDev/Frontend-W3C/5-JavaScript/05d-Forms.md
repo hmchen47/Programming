@@ -457,6 +457,40 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
     + cookie: limited to a few KBytes
     + Web Storage: may extend to several MBytes
 
++ [`XMLHttpRequest` (XHR) object](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+  + used to interact w/ servers
+  + able to retrieve data from a URL w/o a full page refresh
+  + enable a Web page to update just part of a page w/o disrupting what the user is doing
+  + heavily used in AJAX programming
+
++ [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+  + provide an interface for fetching resources (including across the network)
+  + provide a generic definition of `Request` and `Response` objects
+  + define related concepts such as CORS and the HTTP Origin header semantics, supplanting their separate definition elsewhere
+  
++ `WindowOrWorkerGlobalScope.fetch()` method:
+  + syntax: `const fetchResponsePromise = fetch(resource [, init])`
+  + docstring:
+    + starts the process of fetching a resource from the network
+    + return a `Promise` object (the eventual completion/failure of ab asynchronouse operation) that resolves to the `Response` to the request
+  + parameters
+    + `resource`: define the resource to fetch
+      + a string or any other object w/ a `stringifer`, including a URL object
+      + a `Request` object
+    + `init` (optional): object containing any customer settings applied to the request
+      + `method`: request method, e.g., `GET`, `POST`
+      + `headers`: any headers added to the request contained within a Header object or an object literal w/ ByteString values
+      + `body`: any bod added to the request, including `Blob`, `BufferSource`, `FormData`, `URLSearchParams`, `USVString`, or `ReadableStream` objects
+      + `mode`: mode used for the request, e.g., `1cors`, `no-cors`, or `same-origin`
+      + `credentials`: controle what browsers do w/ credentials (cookies, HTTP authentication entries, and TLS client certificates)
+      + `redirect`: how to handle a `redirect` response, including `follow`, `error`, and `manual`
+      + `referrer`: a `USVString` specifying the referrer of the request
+      + `referrerPolicy`: specify referrer policy to use for the request
+      + `integrity`: contain the subresource integrity value of the request
+      + `keepalive`: used to be used to be used to allow the request to outlive the page
+      + `signal`: an `AbortSignal` object instance to communicate w/ a fetch request and abort it
+  + return: a `Promise` resolving to a `Response` object
+
 
 ### 5.4.4 Discussion and projects
 
@@ -466,6 +500,9 @@ Here is the discussion forum for this part of the course.
 
 Did you know that using XhR2 for getting remote data, you can also monitor the download progression using n `xhr.onprogress =` event listener and a `<progress>` HTML element. See [this example](https://jsbin.com/nuxanaf/edit?html,output)! This is not directly possible using [the new fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (you need to give a look at the streams API that can be used altogether with the fetch API for [monitoring uploads and downloads](https://fetch-progress.anthum.com/)).
 
+[JsBin Demo](https://jsbin.com/nuxanaf/edit?html,output)
+
+[Local Demo](src/05d-example05.html)
 
 #### Optional projects
 
