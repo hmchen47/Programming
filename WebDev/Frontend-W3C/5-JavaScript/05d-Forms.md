@@ -355,6 +355,78 @@ The fetch API will also be covered in an advanced JavaScript course to come. In 
       ```
 
 
+### 5.4.3 The LocalStorage API
+
+Let's look at an example of use: the LocalStorage API as a client-side database for JavaScript objects
+
+#### The Web Storage API (`localStorage`, `sessionStorage`)
+
+The Web storage API (see the [related W3C specification](https://www.w3.org/TR/webstorage/)) introduces "two related mechanisms, similar to HTTP session cookies, for storing structured data on the client side".
+
+Indeed, Web Storage provides two interfaces - `sessionStorage` and `localStorage` - whose main difference is data longevity. This specification defines an API for persistent data storage of key-value pair data in Web clients.
+
+<p style="border: 1px solid red; margin: 20px; padding: 20px;"><strong>With&nbsp;<span style="font-family: 'courier new', courier;">localStorage</span>&nbsp;the data will remain until it is deleted, whereas with&nbsp;<span style="font-family: 'courier new', courier;">sessionStorage</span>&nbsp;the data is erased when the tab/browser is closed.</strong></p>
+
+For convenience, we will mainly illustrate the `localStorage` object. Just change "local" to "session" and it should work (this time with a session lifetime).
+
+
+__Simple key-value stores, one per domain (following the [same origin policy](https://en.wikipedia.org/wiki/Same-origin_policy))!__
+
+`localStorage` is a simple key-value store, in which the keys and values are strings. There is only one store per domain. This functionality is exposed through the globally available `localStorage` object. The same applies to `sessionStorage`.
+
+Example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" value="1"><span class="com">// Using localStorage</span></li>
+<li class="L1"><span class="pln"></span></li>
+<li class="L2"><span class="com">// store data</span></li>
+<li class="L3"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">lastName&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"Bunny"</span><span class="pun">;</span></li>
+<li class="L4"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">firstName&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"Bugs"</span><span class="pun">;</span></li>
+<li class="L5"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">location&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"Earth"</span><span class="pun">;</span></li>
+<li class="L6"><span class="pln"></span></li>
+<li class="L7"><span class="com">// retrieve data</span></li>
+<li class="L8"><span class="kwd">var</span><span class="pln">&nbsp;lastName&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;localStorage</span><span class="pun">.</span><span class="pln">lastName</span><span class="pun">;</span></li>
+<li class="L9"><span class="kwd">var</span><span class="pln">&nbsp;firstName&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;localStorage</span><span class="pun">.</span><span class="pln">firstName</span><span class="pun">;</span></li>
+<li class="L0"><span class="kwd">var</span><span class="pln">&nbsp;location&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;localStorage</span><span class="pun">.</span><span class="pln">location</span><span class="pun">;</span></li>
+</ol></div>
+
+This data is located in a store attached to the origin of the page. We've created a JsBin example in which we've included the above code.
+
+[JsBin Demo](http://jsbin.com/hebino/1/edit?html,output)
+
+[Local Demo](src/05d-example04.html)
+
+Once opened in your browser, the JavaScript code is executed. With the browser dev. tools, we can check what has been stored in the `localStorage` for this domain:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://tinyurl.com/9hy8ejpa" ismap target="_blank">
+    <img style="margin: 0.1em;" height=300
+      src   = "https://tinyurl.com/5hw7z2ea"
+      alt   = "example of localStorage"
+      title = "example of localStorage"
+    >
+    <img style="margin: 0.1em;" height=300
+      src   = "https://tinyurl.com/57a8mhep"
+      alt   = "dev tools can be used to show what is in the local storage"
+      title = "dev tools can be used to show what is in the local storage"
+    >
+  </a>
+</div>
+
+
+#### Differences with cookies?
+
+Cookies are also a popular way to store key-value pairs. Web Storage, however, is a more powerful technique than cookies. The main difference is in size limits: cookies are limited to a few KBytes whereas Web Storage may extend to several MBytes. Also, cookies generate additional HTTP request traffic (whether to request a Web page, an image, a stylesheet, a JavaScript file, etc.).
+
+Objects managed by Web Storage are no longer carried on the network and HTTP, and are easily accessible (read, change and delete) from JavaScript, using the Web Storage API.
+
+#### External resources
+
++ [The W3C Web Storage API recommendation](http://www.w3.org/TR/webstorage/)
++ [An Overview of Client-Side Storage](https://css-tricks.com/overview-client-side-storage/)
+
+
+
 
 
 
