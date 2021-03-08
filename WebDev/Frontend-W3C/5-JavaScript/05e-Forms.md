@@ -486,6 +486,86 @@ Note that we also added a method called `addTestData()` to the ContactManager cl
     + add table to the div: `container.appendChild(table);`
   
 
+### 5.5.4 Use a form to enter new contacts (part 4)
+
+In the previous example, we added a form for entering a new contact, and an "add" button.
+
+Here is the HTML code of the form:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><strong><span class="atn">onsubmit</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> formSubmitted</span><span class="pun">();</span><span class="atv">"</span></strong><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;fieldset&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;legend&gt;</span><span class="pln">Personal informations</span><span class="tag">&lt;/legend&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Name : </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Email : </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;br&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; <strong>&lt;button&gt;</strong></span><strong><span class="pln">Add new Contact</span><span class="tag">&lt;/button&gt;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;/fieldset&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
+</ol></div>
+
+The button at line 13 will submit the form by default (it's equivalent to an <input type="submit">). 
+
+The event listener at line 1: 
+
+`. `<form onsubmit="return formSubmitted();">`
+
+  ... will call the `formSubmitted` function when the form is submitted. It is interesting that we use `onclick="return formSubmitted();"`:
+
++ If the returned value is `true`, the form will be submitted by your browser (this would reload the HTML page).
++ If the returned value is `false`, the form will not be submitted (this is what we want, so we will return `false` in the `formSubmitted` function).
+
+Here is the code of the `formSubmitted` function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> formSubmitted</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Get the values from input fields</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; let</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#name"</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; let</span><span class="pln"> email </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#email"</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>let</strong></span><strong><span class="pln"> newContact </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Contact</span><span class="pun">(</span><span class="pln">name</span><span class="pun">.</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> email</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; cm</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">newContact</span><span class="pun">);</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Empty the input fields</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; name</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; email</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; <strong>// refresh&nbsp;the table</strong></span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; cm</span><span class="pun">.</span><span class="pln">displayContactsAsATable</span><span class="pun">(</span><span class="str">"contacts"</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // do not let your browser submit the form using HTTP</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>return</strong></span><strong><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+__Explanations:__
+
++ _Lines 2-7:_ we get the values entered in the form's input fields, build a new contact and add it to the contact list
++ _Lines 10-11:_ we reset the content of the input fields (we empty them)
++ _Line 14:_ we display the HTML table with the new added contact
++ _Line 17:_ we return false so that the form will not be submitted. This will prevent the browser from reloading the HTML page.
+
+CodePen example:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/awypEg)
+
+[Local Demo](src/05e-example06.html)
+
+Note that we've also added some buttons for playing with the load/save features we implemented in the previous page:
+
++ Add some new contacts to the list using the form,
++ Save them by clicking on the save button,
++ Empty the list, click the empty button,
++ Reload the list... you can see that contacts have been correctly saved and restored!
+
+
+
 
 
 
