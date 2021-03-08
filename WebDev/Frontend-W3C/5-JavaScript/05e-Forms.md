@@ -369,6 +369,94 @@ __Explanations:__
     + `console.log("---Loading contacts from local storage---); cm.load(); cm.printContactsColsole();`
 
 
+### 5.5.3 Display contacts in an HTML5 table (part 3)
+
+We're going to reuse the code from this CodePen (example taken from a previous section of the course, the one about working with remote data), and adapt it to our needs:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/vmLMRN)
+
+[Local Demo](src/05e-example04.html)
+
+This time, we will first add some HTML to the contact manager example (same as in the previous CodePen except that we've renamed "users" as "contacts"):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;title&gt;</span><span class="pln">A contact manager, v3</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;p&gt;</span><span class="pln">List of contacts</span><span class="tag">&lt;/p&gt;</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; <strong>&lt;div</strong></span><strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"contacts"</span><span class="tag">&gt;&lt;/div&gt;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+The div at _line 9_ is where we're going to dynamically insert an HTML table with one row for each contact. We will keep the same minimal CSS for displaying table, row and cell borders (we encourage you to improve this):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">table </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">-</span><span class="pln">top</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20px</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">table</span><span class="pun">,</span><span class="pln"> tr</span><span class="pun">,</span><span class="pln"> td </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+</ol></div>
+
+And here is the method we add in our ContactManager class; an adaptation of the function `displayUsersAsATable(users)` from the previous CodePen:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactManager</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; .....</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; displayContactsAsATable</span><span class="pun">(</span><span class="pln">idOfContainer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // to empty the container that contains the results</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> container </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> idOfContainer</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; container</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; if</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">length </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;p&gt;No contacts to display!&lt;/p&gt;"</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stops the execution of this method</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; }</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // creates and populates the table with users</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln">&nbsp;table </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"table"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // iterates on the array of users</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">currentContact</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // creates a row</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln">&nbsp;row </span><span class="pun">=</span><span class="pln"> table</span><span class="pun">.</span><span class="pln">insertRow</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; row</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> currentContact</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/td&gt;"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +</span><span class="pln"> </span><span class="str">"&lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> currentContact</span><span class="pun">.</span><span class="pln">email </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/td&gt;"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; });</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // adds the table to the div</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; container</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">table</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+__Explanations:__
+
++ __Line 3:__ the method `displayContactsAsATable` takes as a parameter the id of the HTML element in which the table will be inserted after being built. This id is used by the querySelector call at _line 5_.
++ __Lines 9-13:__ if the list of contacts is empty, we just return, but first we display in the HTML container a message: "No contact to display!"
++ __Lines 16-25:__ we create a table, and for each contact we insert and fill a new row in the table. 
++ __Line 28:__ the table is inserted (appended) in the HTML container.
+
+CodePen of this example:
+
+[CodePen Demo](https://codepen.io/w3devcampus/pen/yXoVdp)
+
+[Local Demo](src/05e-example05.html)
+
+Note that we also added a method called `addTestData()` to the ContactManager class, as this is a way to make testing the class easier. The code in this method is similar to all the code we used in previous examples for testing the class by adding four contacts to it and displaying messages in the devtool console.
+
+
 
 
 
