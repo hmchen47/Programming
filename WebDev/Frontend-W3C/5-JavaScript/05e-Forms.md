@@ -457,6 +457,35 @@ CodePen of this example:
 Note that we also added a method called `addTestData()` to the ContactManager class, as this is a way to make testing the class easier. The code in this method is similar to all the code we used in previous examples for testing the class by adding four contacts to it and displaying messages in the devtool console.
 
 
+#### Notes for 5.5.3 Display contacts in an HTML5 table (part 3)
+
++ Example: [display contacts in HTML5 table w/ Xhr2](src/05e-example04.html)
+  + Refer to Xhr2 of [JSON data from a REST Web Service](5-JavaScript/05d-Forms.md#examples)
+  + add container to display contact table: `<div id="contacts"></div>`
+  + add function to display users in table: `function displayUsersAsTable(users) {...}`
+    + empty the container: `var usersDiv = document.querySelector("#users"); usersDiv.innerHTML = "";`
+    + create and populate the table w/ users: `vat table = document.createElement("table");`
+    + iterate to display users of array: `users.forEach(function(currentUser) {...});`
+      + create a row: `var row = table.insertRow();`
+      + insert cells in the row: `var nameCell = row.insertCell(); nameCell.innerHTML = currentUser.name; var cityCell = row.insertCell(); cityCell.innerHTML = currentuser.address.city;`
+    + add the table tot he div: `usersDiv.appendChild(table);`
+
+
++ Example: [display contacts in HTML5 table](src/05e-example05.html)
+  + implementation w/ `class ContactManager` 
+  + add button element: `<button onclick="search();">Get a remote list of users' names and emails</button>`
+  + add empty container for table: `<div id="users"></div>`
+  + specify table styles: `table { margin-top: 20px; }` & `table, tr, td { border: 1px solid; }`
+  + add method to display contacts in table: `displayContactsAsTable(idOfContainer) {...}`
+    + empty the container: `let container = document.querySelector('#' + idOfContainer); container.innerHTML = "";`
+    + no contact: `if (this.listOfContacts.length === 0) { container.innerHTML = "<p>No contacts to sdisplay!>/p>"; return; }`
+    + create and populate the table w/ users: `let table = document.createElement("table");`
+    + iterate the users of the array: `this.listOfContacts.forEach(function(currentContact) {...});`
+      + create row: `let row = table.insertRow();`
+      + add data of the row: `row.innerHTML = "<td>" + currentContact.name + "</td>" + "<td>" + currentComtact.email + "</td>";`
+    + add table to the div: `container.appendChild(table);`
+  
+
 
 
 
