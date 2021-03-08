@@ -265,7 +265,7 @@ Try an example on CodePen, save some contacts...
 In Google Chrome, click the Application tab, then LocalStorage:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://tinyurl.com/5huywey')"
     src    = "https://tinyurl.com/nbh6j5nh"
     alt    = "Chrome local storage inspector"
@@ -277,7 +277,7 @@ In Google Chrome, click the Application tab, then LocalStorage:
 In Firefox, you first need to activate the storage view like this:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://tinyurl.com/5huywey')"
     src    = "https://tinyurl.com/58ye47sk"
     alt    = "FF activate storage view in devtools"
@@ -289,7 +289,7 @@ In Firefox, you first need to activate the storage view like this:
 You will see the list of contacts when you click on the newly appeared "Storage" tab:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://tinyurl.com/5huywey')"
     src    = "https://tinyurl.com/m48665xw"
     alt    = "FF storage inspector"
@@ -299,7 +299,7 @@ You will see the list of contacts when you click on the newly appeared "Storage"
 
 
 
-#### Restoring the list of 
+#### Restoring the list of contacts
 
 This time, we've added a `load()` method that will check if a list of contacts has been saved. If this is the case, it will read it from LocalStorage, convert it back from JSON into a JavaScript object. In order to test this, in the following CodePen, we first save the list, then we empty the list in memory (setting the array to an empty array), print the list of contacts (that displays a message "LIST EMPTY!"), then we load the contacts from LocalStorage and print the list again: it has been restored to its previous value.
 
@@ -348,5 +348,27 @@ __Explanations:__
 + At _line 16_, we check if a previous version has been saved.
 + At _line 19_, we read the string value associated to the key named "contacts", and use `JSON.parse(...)` to turn it into a JavaScript object we can work with.
 + _Lines 26-36_ test the load/save/empty functionalities. You can try this yourself live: click on the CodePen label below, on the top right corner, and once in CodePen, open the CodePen console (or the read devtool console) to see the result of the execution of these tests.
+
+
+#### Notes for 5.5.2 Persistence (part 2)
+
++ Example: [load and save w/ Local Storage](src/js/05e-example03.js)
+  + loading / saving from a key/value pair database located in hard disk
+  + associated to the domain of Web application
+  + add `load` and `save` methods for constructor
+  + convert array of contacts to JSON and save into local storage: `save() { localStorage.contacts = JSON.stringify(this.lostOfContacts); }`
+  + verify `LocalStorage` w/ devtool:
+    + Chrome: devtool > Application > Local Storage (left panel) > https://js.codepen.io > Key/Value pair (right panel)
+    + Firefox: devtool > setting icon on top-right corner > Storage (left panel)
+    + Safari: devtool > Storage (top banner) > Local Storage > https://js.codepen.io > key/value pair
+  + empty list of contacts: `empty() { this.listOfContacts = []; }`
+  + load contacts from `LocalStorage` and convert JSON back into JS object: `load() { if (localStorage.contact != undefined) { this.listOfContacts = JSON.parse(localStorage.contacts); }}`
+  + verify `save()`, `empty()` and `load()` w/ printing in console
+    + `console.log("---Saving contacts to local storage---"); cm.save();`
+    + `console.log("---Empty the list of contacts---"); cm.empty(); cm.printContactsToConsole();`
+    + `console.log("---Loading contacts from local storage---); cm.load(); cm.printContactsColsole();`
+
+
+
 
 
