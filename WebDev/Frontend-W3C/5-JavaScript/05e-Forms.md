@@ -510,11 +510,13 @@ Here is the HTML code of the form:
 <li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
 </ol></div>
 
-The button at line 13 will submit the form by default (it's equivalent to an <input type="submit">). 
+The button at line 13 will submit the form by default (it's equivalent to an `<input type="submit">`).
 
-The event listener at line 1: 
+The event listener at line 1:
 
-`. `<form onsubmit="return formSubmitted();">`
+```html
+<form onsubmit="return formSubmitted();">
+```
 
   ... will call the `formSubmitted` function when the form is submitted. It is interesting that we use `onclick="return formSubmitted();"`:
 
@@ -565,6 +567,21 @@ Note that we've also added some buttons for playing with the load/save features 
 + Reload the list... you can see that contacts have been correctly saved and restored!
 
 
+#### Notes for 5.5.4 Use a form to enter new contacts (part 4)
+
++ Example: [input form to add new contact](src/05e-example06.html)
+  + event listener: `<form onsubmit="return formSubmitted();">...</form>`
+  + grouping inputs fields and submit button: `<fieldset>...</field>`
+    + legend of group: `<legend>Personal information</legend>`
+    + name input form: `<label> Name : <input type="text" id="name" required> </label>`
+    + email input form: `<label> Email : <input type="email" id="email" required> </label>`
+    + submit butt: `<button>Add new Contact</button>`
+  + callback function once button clicked: `function formSubmitted() {...}`
+    + access elements: `let name = document.querySelector("#name"); let email = document.querySelector("#email");`
+    + assign values in a new contact: `let newContact = new Contact(name.value, email.value); cm.add(newContact);`
+    + empty the input fields: `name.value = ""; email.value = "";`
+    + refresh the table: `cm.displayContactsAsATable("contacts");`
+    + prevent from submitting by the browser to reload the HTTP page: `return false;` 
 
 
 
