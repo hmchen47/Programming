@@ -576,12 +576,20 @@ Note that we've also added some buttons for playing with the load/save features 
     + name input form: `<label> Name : <input type="text" id="name" required> </label>`
     + email input form: `<label> Email : <input type="email" id="email" required> </label>`
     + submit butt: `<button>Add new Contact</button>`
+  + add buttons for table displaying: `<div id="contacts"></div>"
+    + empty button: `<button onclick="emptyList();">Empty</button>`
+    + save button: `<button onclick="cm.save();">Save</button>`
+    + reload button: `<button onclick="loadList();"></button>`
   + callback function once button clicked: `function formSubmitted() {...}`
     + access elements: `let name = document.querySelector("#name"); let email = document.querySelector("#email");`
     + assign values in a new contact: `let newContact = new Contact(name.value, email.value); cm.add(newContact);`
     + empty the input fields: `name.value = ""; email.value = "";`
     + refresh the table: `cm.displayContactsAsATable("contacts");`
-    + prevent from submitting by the browser to reload the HTTP page: `return false;` 
+    + prevent from submitting by the browser to reload the HTTP page: `return false;`
+  + empty list: `function emptyList() { cm.empty(); cm.displayContactsAsATable("contacts"); }`
+  + load list: `function loadList() { cm.load(); cm.displayContactsAsATable("contacts"); }`
+  + save strings in Local Storage: `localStorage.contacts = JSON.stringify(this.listOfContacts);`
+
 
 
 
