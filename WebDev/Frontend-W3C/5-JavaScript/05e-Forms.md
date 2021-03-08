@@ -600,7 +600,7 @@ Here is the discussion forum for this part of the course. Please either post you
 
 + Improve the CSS of the contact manager table.
 + Add more complicated features to the contact manager:
-  + Add an extra column with a trash bin icon in it (you can use this [one](https://i.imgur.com/yHyDPio.png), do right click and "save link as"). When you click on this icon, delete the contact.
+  + Add an extra column with a trash bin icon in it (you can use this [trash icon](https://i.imgur.com/yHyDPio.png), do right click and "save link as"). When you click on this icon, delete the contact.
 
     _Hint_: find a way to get the index of the current row in the click event listener, so that you can easily delete the contact from the array. You can add a "HTML data attribute" using `trashbin.dataset.contactId = 3;` for example, when you create the `img` element of the trash bin, do something like this:
 
