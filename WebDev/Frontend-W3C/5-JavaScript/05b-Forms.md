@@ -232,16 +232,16 @@ Two objects of the same type, with the same property value, that look identical,
 + Object comparison
   + returning boolean value whether w/ the same reference (pointing to the same objects)
   + identical objects but unequal
-    + returning `false`
+    + returning `false` (`===` or `==`)
     + objects w/ same type, same property values
-    + w/ difference references
-    + pointing to difference places in memory
+    + w/ different references
+    + pointing to different places in memory
   
 + Example: comapring objects
-  + defining objects: `var originalObject = { name: 'Michel' }; var copy = originalObject;`
-  + comparing original and copied objects: `copy === originalCopy; // true`
-  + defining another object: `var anotherObject = { name: 'Michel' };`
-  + comparing copied and another objects: `copy === anotherObject; // false`
+  + declare objects: `var originalObject = { name: 'Michel' }; var copy = originalObject;`
+  + compare original and copied objects: `copy === originalCopy; // true`
+  + declare another object: `var anotherObject = { name: 'Michel' };`
+  + compare copied and another objects: `copy === anotherObject; // false`
 
 
 
