@@ -323,14 +323,14 @@ Predefined functions are methods from the global object window:
     + global variable created w/ keyword `let`: not part of the `window` object
     + top-level of programs and functions: not part of the `window` object
   + best practice: global variables declared w/ `let`
-    + declared the w/ `var` instead to inspect from the devtool console
-    + switching back to using `let`, later
+    + declared w/ `var` instead to inspect from the devtool console
+    + switching back to use `let`, later
   + predefined objects: `navigator === window.navigator` & `document === window.document`
   + predefined functions and methods:
     + functions: `parseInt('10 little children'); // 10` & `window.parseInt('10 little children'); // 10`
     + methods: `alert === window.alert;  prompt === window.prompt`
 
-+ Example: global variables declared w/ `var` and 'let`
++ Example: global variables declared w/ `var` and `let`
   + declare global variable w/ `var`: `var a = 1;`
   + verify the global variable `a`: `a;` $\to$ 1, `window.a;` $\to$ 1, `window['a'];` $\to$ 1
   + declare global variable w/ `'et`: `let z = 1;`
