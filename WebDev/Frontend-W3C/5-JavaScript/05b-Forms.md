@@ -1,7 +1,7 @@
 # Module 5: Working with forms
 
 
-## 5.2 [Built-in JavaScript objects
+## 5.2 Built-in JavaScript objects
 
 
 ### 5.2.1 References and objects
@@ -147,17 +147,17 @@ Other examples:
 + References and objects
   + pointer variable: containing the actual address of an object within the variable
   + reference variable: an alias to a variable
-  + when modifying a reference variable, the original variable is modified $\gets$ two variables the sam eobject
+  + when modifying a reference variable, the original variable is modified $\gets$ two variables w/ the same object
   + types of values of a variable
     + primitive value (number, string, or boolean):
       + the variable containing the value directly
       + example: `let x = 10;`, `let name = 'Michel'`
     + object:
       + containing the memory address of the object
-      + pointing to an object or reference this object
+      + pointing to an object or reference of this object
       + accessing the variable automatically resolving the reference
-      + the value of the variable is the referenced object
-  + function
+      + the value of the variable = the referenced object
+  + arguments of function
     + primitive values
       + a "pass by value" language
       + passing a variable to a function as argument, the value of the variable copied into the argument
@@ -167,33 +167,33 @@ Other examples:
       + change of reference: the origin variable (now point to another object) not modified
   
 + Example: primitive and object
-  + definiting two variables: `var x = 2; var y = {a: 2}`
-  + copying two variables: `var x2 = x; var y2 = y; var y3 = y;`
-  + modifying copied variables: `x2 = 4; y2 = {a: 3}`
-  + `x` not modified: primitive value
-  + `y` not modified: `y` & `y2` pointing to different objects
-  + modifying value of property: `y3.a = 4;`
-  + `y` and `y3`: both modified $\gets$ object reference changing to `{a: 2}`
+  + declare two variables: `var x = 2; var y = {a: 2};`
+  + copy two variables: `var x2 = x; var y2 = y; var y3 = y;`
+  + modify copied variables: `x2 = 4; y2 = {a: 3}`
+    + `x` not modified: primitive value
+    + `y` not modified: `y` & `y2` pointing to different objects
+  + modify value of property: `y3.a = 4;`
+    + `y` and `y3`: both modified $\gets$ object reference changing to `{a: 2}`
 
 + Example: properties of objects
-  + defining an object: `var driver = { name: 'Jean' }; var car = {color: 'red', driver: driver };`
-  + modifying drive name: `driver.name = 'Albert';`
+  + declare an object: `var driver = { name: 'Jean' }; var car = {color: 'red', driver: driver };`
+  + modify drive name: `driver.name = 'Albert';`
   + car driver modified: `car.driver.name; // 'Albert';`
 
 + Example: function passed by value
-  + defining a variable: `var x = 2;`
-  + defining a function: `function sum(a, b) { a = a + b; return a; }`
-  + calling function `sum`: `sum(x, 3); // 5`
+  + declare a variable: `var x = 2;`
+  + declare a function: `function sum(a, b) { a = a + b; return a; }`
+  + call function `sum`: `sum(x, 3); // 5`
   + `a` modified within function `sum` but `x` remaining the same: `x; // 2`
 
 + Example: function argument as object
-  + defining object: `var obj = {x: 2 };`
-  + defining function: `function add(a, b) { a.x += b; }`
-  + calling function `add()`: `add(obj, 3);`
+  + declare object: `var obj = {x: 2 };`
+  + declare function: `function add(a, b) { a.x += b; }`
+  + call function `add()`: `add(obj, 3);`
   + the reference object modified: `obj.x; // 5`
-  + defining function: `function addAndSet(a, b) { var addition = a.x + b; a = (x: addition); }`
-  + calling function `addAndSet()`: `addAndSet(obj, 3);`
-  + reference object not modified (`obj` and `a` not pointing to the same object at then end of the function): `obj.x; // 2`
+  + declare function: `function addAndSet(a, b) { var addition = a.x + b; a = {x: addition}; }`
+  + call function `addAndSet()`: `addAndSet(obj, 3);`
+  + reference object not modified (`obj` and `a` not pointing to the same object at the end of the function): `obj.x; // 2`
 
 + Example: modifying copied object to modify original object
   + original object: `var originalObject = { name: 'Michel' };`
