@@ -597,9 +597,9 @@ If you give to the length property a value less than the array’s number of ele
   + arrays as "special" objects
     + property names: numerical indexes starting from 0
     + `length` property: representing the length/number of elements
-    + other built-in properties besides the inherited ones from `Object`, including, `sort()`, `join()`, `slide()`, `splice()`,`push()` and `pop()`
+    + other built-in properties besides the inherited ones from `Object`, including, `sort()`, `join()`, `slice()`, `splice()`,`push()` and `pop()`
   + array length and elements:
-    + length of array bigger that the number of elements: add undefined elements to it
+    + length of array bigger than the number of elements: add undefined elements to it
     + length of array less than the number of elements: truncate the array to comply the length
 
 + Example: constructing array and size
@@ -609,14 +609,13 @@ If you give to the length property a value less than the array’s number of ele
 
 + Example: bad practices
   + declaration and some info: `var a = [1, 2];`, `typeof a; // "object"`, `a.push(3); // 3`, `a; // [1, 2, 3]` and `a.length; //3`
-  + add a name propert into array: `a.name = "I'm an array named a!";`, `a.length; // 3` and `a; // [1, 2, 3, name: "I'm an array named a!"]`
+  + add a name property into array: `a.name = "I'm an array named a!";`, `a.length; // 3` and `a; // [1, 2, 3, name: "I'm an array named a!"]`
 
 + Example: reducing and increasing the size of an array
   + declare array and assign length: `var a = [1, 2]; a.length = 5;`
   + increased array: `a; // [1, 2, undefined x 3]`
   + declare array and assign length: `var a = [1, 2, 3, 4]; a.length = 2;`
   + reduced array: `a; // [1, 2]`
-
 
 + `Array()` constructor
   + syntax:
@@ -683,7 +682,7 @@ The most useful methods you can use on arrays are: `sort()`, `join()`, `slice()`
 </ol></div>
 
 
-#### The `slide()` method
+#### The `slice()` method
 
 __The `slice()` method returns a sub-array without modifying the original array__
 
@@ -791,7 +790,7 @@ Examples:
   + remove the last element w/ `pop` method: `var b = a.sort();`, `b; // [1, 3, 5, 7, "test"]` and `a; // [1, 3, 5, 7, "test"]`
   + concatenate element w/ a given string by `join` method: `a.join(' and '); // "1 and 3 and 5 and 7 and test"`
 
-+ Example: `slide` method
++ Example: `slice` method
   + object variable: `a = [1, 3, 5, 7, "test"];`
   + get a slice from array:
     + remove elements w/ indexes from 1 to 2: `var b = a.slice(1, 3); // [3, 5]`
