@@ -931,8 +931,8 @@ The `Number` class can be used to transform strings into numbers, but it is reco
   + convert a string to an integer number: `var n = parseInt('3.1416'); n; // 3`
   + convert a string to a float number: `var n = parseFloat('3.1416'); n; // 3.1416`
   + `MAX_VALUE` and `MIN_VALUE`: useful non-modifiable properties (constants)
-    + `Number:MAX_VALUE;`: 1.7976931348623157e+308
-    + `Number.MIN_VALUE;`: 5e-324
+    + `Number.MAX_VALUE`: 1.7976931348623157e+308
+    + `Number.MIN_VALUE`: 5e-324
 
 + Useful methods for converting numbers
   + `toFixed()`: set the number of digits for the deccimal part of a number
@@ -953,33 +953,33 @@ The `Number` class can be used to transform strings into numbers, but it is reco
   + get scientific notation: `n.toExponential();  // "1.23456e+2`
   + declare integer: `var n = 255;`
   + convert integer to string: `n.toString(); // "255"`
-  + convert integer to integer w/ different bases: `n.toString(10); // "255"`, `n.toString(16); // "ff"`
+  + convert integer to string w/ different bases: `n.toString(10); // "255"`, `n.toString(16); // "ff"`
   + convert integer to string: `(3).toString(2); // "11"`, `(3).toString(10); // "3"`
 
 + [`Number()` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/Number)
   + syntax: `new Number(value)`
-  + docstring: creates a `Number` object
-  + parameters
+  + docstring: create a `Number` object
+  + parameter
     + `value`: the numeric value of the object being created
 
 + [`Number.prototype.toFixed()` method](https://tinyurl.com/txz2hs)
   + syntax: `numObj.toFixed([digits])`
   + dicstring: format a number using fixed-point notation
-  + parametres
+  + parametre
     + `digits` (optional):
       + the number of digits to apprear after the decimal point
       + range: [0, 20]
       + default: 0
-  + return: a string represnting the given number using fixed-point notation
+  + return: a string representing the given number using fixed-point notation
 
 + [`Number.prototype.toExponential()` method](https://tinyurl.com/kdj6z78b)
   + syntax: `numObj.toExponential([fractionDigits])`
   + docstring: return a string representing the `Number` object in exponential notation
   + parameter
     + `fractionDigits` (optional):
-      + specify the number opf digits after the decimal point
+      + specify the number of digits after the decimal point
       + default: as many digits as necessary to specify the number
-  + return: a string representing the given `Number` object in exponential notation w/ one difit before the decimal point, rounded to `fractionDigits` digits after the decimal point
+  + return: a string representing the given `Number` object in exponential notation w/ one digit before the decimal point, rounded to `fractionDigits` digits after the decimal point
 
 + `Number.prototype.toString()` method
   + syntax: `numObj.toString([radix])`
