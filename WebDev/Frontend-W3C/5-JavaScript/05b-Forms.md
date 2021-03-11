@@ -1133,7 +1133,7 @@ These methods are all inherited from the String class:
     + `length` property: `name.length; // 6`
     + string as an array w/ index: `name[0]; // "M"`
     + not modifiable: `name[0] = 'Z'; // "Z"` and `name; // 'Michel'`
-    + other expression: `'Michel'.length; // 6` and `'Michel[0]; // "M"`
+    + other expression: `'Michel'.length; // 6` and `'Michel'[0]; // "M"`
   + changing character(s)
     + string not modifiable
     + build a new string by concatenating substrings
