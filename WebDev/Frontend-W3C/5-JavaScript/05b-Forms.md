@@ -429,35 +429,36 @@ The `ValueOf` method returns the value of an object:
 
 + The `toString()` method
   + inherited from `Object` by all objects
-  + transformed into a string by calling `toString()` implicitly
+  + transformed into a string by calling `toString()` implicitly when trying to display an object
   + using `+` operator to concantate string will force the other arguments to convert to string by implicitly calling `toString()` method
-  + example:
-    + declare object: `var o = {}; o.toString(); // "[object Object]`
-    + set property value: `o.name = 'Michel'; o.toString(); // "[object Object]"`
-    + declare numerical object: `var t = [1, 2, 3]; t.toString(); // "1,2,3"`
-    + predefined function: `alert(t); alert(t.toString()); // display '1,2,3' on popup window`
-    + concatate string: `"An object into a string: " + t; // "An object into a string: 1,2,3"`
+
++ Example: `toString`method of an object
+  + declare object: `var o = {}; o.toString(); // "[object Object]`
+  + set property value: `o.name = 'Michel'; o.toString(); // "[object Object]"`
+  + declare numerical object: `var t = [1, 2, 3]; t.toString(); // "1,2,3"`
+  + predefined function: `alert(t); alert(t.toString()); // display '1,2,3' on popup window`
+  + concatate string: `"An object into a string: " + t; // "An object into a string: 1,2,3"`
 
 + The `valueOf()` method
   + return the value of an object
   + inherited from `Object` by all objects
   + example: `var t = [1, 2, 3]; t.valueOf(); // [1, 2, 3]`, `t.toString(); // "1,2,3"`
 
-+ [`toString()` method in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
++ [`toString()` method: specification](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
   + syntax: `obj.toString()`
   + docstring:
-    + Every object w/ a `toString()` method that automatically called when the object is to be represented as a text value or when an objkject is referred to be in manner in which a string is expected
+    + every object w/ a `toString()` method that automatically called when the object is to be represented as a text value or when an objkject is referred to be in manner in which a string is expected
     + by default, inherited by every object descent from `Object`
   + parameter
     + `radix` (option): $2 \le \text{ radix } \le 36$
   + return:  a string representing the object
 
-+ [`valueOf()` method in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)
++ [`valueOf()` method: specification](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)
   + syntax: `obj.value()`
   + docstring:
     + convert an object to a primitive value
-    + rarely invoke by user
-    + automatically invoke by JS when encountering an object where a primitive value is expected
+    + rarely invoked by user
+    + automatically invoked by JS when encountering an object where a primitive value is expected
     + by default, inherited by every object descended from `Object`
   + return: the primitive value of the specified object
 
