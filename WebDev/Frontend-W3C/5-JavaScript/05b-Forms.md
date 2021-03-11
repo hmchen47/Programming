@@ -785,35 +785,35 @@ Examples:
   + `pop`: return an array by removing the last element
 
 + Example: use of `push`, `pop`, `sort` and `join`
-  + declare object variable: `var a = [3, 5, 1, 7, 'test'];`
+  + declare object: `var a = [3, 5, 1, 7, 'test'];`
   + append an element w/ `push` method: `a.push('new'); // 6` and `a; // [3, 5, 1, 7, 'test', 'new']`
   + remove the last element w/ `pop` method: `var b = a.sort();`, `b; // [1, 3, 5, 7, "test"]` and `a; // [1, 3, 5, 7, "test"]`
   + concatenate element w/ a given string by `join` method: `a.join(' and '); // "1 and 3 and 5 and 7 and test"`
 
 + Example: `slice` method
-  + object variable: `a = [1, 3, 5, 7, "test"];`
+  + declare object: `a = [1, 3, 5, 7, "test"];`
   + get a slice from array:
     + remove elements w/ indexes from 1 to 2: `var b = a.slice(1, 3); // [3, 5]`
     + remove element w/ index 1: `b = a.slice(0, 1); // [1]`
     + remove elements w/ indexes from 0 to 1: `b = a.slice(0, 2); // [1, 3]`
-  + original array not modified: `a; // [1, 23, 5, 7, "test"]`
+  + original array not modified: `a; // [1, 3, 5, 7, "test"]`
 
 + Example: `splice` method
-  + object variable: `a; // [1, 3, 5, 7, "test"]`
+  + declare object: `a; // [1, 3, 5, 7, "test"]`
   + replace elements: `b = splice(1, 2, 100, 101, 102); // [3, 5]`
   + original array modified: `a; // [1, 100, 101, 102, 7, "test"]`
   + remove elements: `a.splice(1, 3); // [101, 102, 103]`
-  + original array modified: `a; [1, 7, "test"]`
+  + original array modified: `a; // [1, 7, "test"]`
 
 + [The `Array.prototype.join()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+  + syntax: `arr.join([separator])`
   + docstring:
     + create and return a new substring by concatenating all of the element in an array (or an array-like object)
     + sparated by commas or a specified seperator string
-    + no separator idf only on element
-  + syntax: `arr.join([separator])`
+    + no separator if only one element
   + parameters:
     + `separator` (optional):
-      + specify a string to separate each apir of sdjacent of the array
+      + specify a string to separate each pair of adjacent of the array
       + separator coverted to a sting if necessary
       + omitted: separated w/ a comma (",")
   + return:
@@ -821,10 +821,10 @@ Examples:
     + the empty string if `arr.length = 0`
 
 + [The `Array.prototype.slice()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+  + syntax: `arr.slice()`, `arr.slice(start)`, and `arr.slice(start, end)`
   + docstring:
     + return a shallow copy of a portion of an array into a new array object selected from `start` to `end` (excluded)
     + original array not modified
-  + syntax: `arr.slice()`, `arr.slice(start)`, and `arr.slice(start, end)`
   + parameters
     + `start` (optional)
       + zero-based index at which to start extraction
@@ -833,10 +833,10 @@ Examples:
       + greter than the index range of the sequence: return an empty array
     + `end` (optional)
       + zero-based index before which to end extraction
-      + extract uo to but noy including `end`
+      + extract up to but not including `end`
       + negative index: indicating an offset from the end of the sequence, e.g., `slice(2, -1)` extracting the 3rd element through the second-to-last element in the sequence
       + omitted: extract through the end of the sequence (`arr.length`)
-      + greater tha th elength of the sequence: extract through to the end of the sequence
+      + greater than the length of the sequence: extract through to the end of the sequence
 
 
 ### 5.2.7 Built-in JS class: `Number`
