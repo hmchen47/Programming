@@ -1301,7 +1301,7 @@ The `split` method returns an array of strings, the parameter is a separator. Th
     + excluding element at `stop` index
     + the original string remaining unchanged
     + `start = stop`: return an empty string
-    + `stop` omitted: extrace characters tot he end of the string
+    + `stop` omitted: extract characters to the end of the string
     + either arguments > `str.length`: using `str.length` instead
   + difference
     + occuring only when the second parameter is negative
@@ -1310,7 +1310,7 @@ The `split` method returns an array of strings, the parameter is a separator. Th
       + w/ negative `stop`: extract substring starting from index `start` to `length + stop`
       + `start > stop`: NOT swap these two arguments
       + `start < 0`: set char from the end of string
-      + `stop < 0`: set stop to
+      + `stop < 0`: set stop to `length + stop`
     + `substring`
       + w/ negative `stop`: extract substring reverse from index start to `start + stop`
       + `start > stop`: swap these two parameters
@@ -1328,7 +1328,7 @@ The `split` method returns an array of strings, the parameter is a separator. Th
   + declare string: `var s = "My name is Bond! James Bond!";`
   + get substring w/ `slice` and negative `stop`: `s.slice(11, -1); // "Bind! James Bond"`
   + get substring w/ `substring` and negative `stop` as reverse direction: `s.substring(11, -1); // My name is "`
-  + get the first character: `s.substring(1, 01); // "M"`
+  + get the first character: `s.substring(1, -1); // "M"`
 
 + The `split()`, `join()` and `concat()` methods
   + `split()`:
