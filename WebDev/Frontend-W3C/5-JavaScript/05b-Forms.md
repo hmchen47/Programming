@@ -1512,7 +1512,7 @@ Here is a typical example of the use of `Math.atan2` in a video game, in order t
   + get a number btw a min and max value: `val = ((max - min) * Math.random()) + min;`
   + examples:
     + random number in [0, 1]: `Math.random(); // 0.6033316111663034`
-    + random number in [0, 100]: `Math.random(); // 11.780563288516422`
+    + random number in [0, 100]: `Math.random() * 100; // 11.780563288516422`
     + function to generate random number in [min, max]: `function getRandomValue(min, max) { return ((max - min) * Math.random()) + min; }`
     + rndom number in [5, 10]: `getRandomValue(5, 10); // 5.064160540161435`
 
@@ -1520,10 +1520,10 @@ Here is a typical example of the use of `Math.atan2` in a video game, in order t
   + `round`: get the closest integer value
   + `ceil`: always round a number up to the next largest integer
   + `floor`: return the largest integer less than or equal to a given number
-  + example: rounding a number: `Math.round(Math.random()); // 0 or 1`
+  + example - rounding a number: `Math.round(Math.random()); // 0 or 1`
 
-+ The `max()`, and `min()` methods
-  + get max and min values w/ `Math.max(a, b)` aand `Math.min(a, b)`
++ The `max()` and `min()` methods
+  + get max and min values w/ `Math.max(a, b)` and `Math.min(a, b)`
   + useful for restrict a value btw minimum and maximum bounds
   + examples
     + min of two values: `Math.min(12, 4); // 4`
@@ -1536,7 +1536,7 @@ Here is a typical example of the use of `Math.atan2` in a video game, in order t
   + `cos()`: cosine function in radians
   + `tan()`: tangent function in radians
   + `atan()`: arctangent function in radians
-  + `atant2()`: arctangent fucntion returning in angle in the plane; useful for getting an angle btw a point in a canvas and the mouse cursor
+  + `atan2()`: arctangent fucntion returning in angle in the plane; useful for getting an angle btw a point in a canvas and the mouse cursor
 
 
 ### 5.2.11 Built-in JS class: Date
