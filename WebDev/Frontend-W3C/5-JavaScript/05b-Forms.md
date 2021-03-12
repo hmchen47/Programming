@@ -732,6 +732,7 @@ Parameters:
 + `deleteCount`: An integer indicating the number of old array elements to remove.
 + `item1, item2, ...`: these are optional. They are the elements to add to the array, beginning at the `start` index. If you don't specify any elements, `splice()` will only remove elements from the array.
 
+
 Examples:
 
 <div class="source-code"><ol class="linenums">
@@ -830,7 +831,7 @@ Examples:
       + zero-based index at which to start extraction
       + negative index: indicating an offset from the end of sequence, e.g., `slice(-2)` extracting the last two elements in the sequence
       + undefined: start from the index 0
-      + greter than the index range of the sequence: return an empty array
+      + greater than the index range of the sequence: return an empty array
     + `end` (optional)
       + zero-based index before which to end extraction
       + extract up to but not including `end`
@@ -964,7 +965,7 @@ The `Number` class can be used to transform strings into numbers, but it is reco
 
 + [`Number.prototype.toFixed()` method](https://tinyurl.com/txz2hs)
   + syntax: `numObj.toFixed([digits])`
-  + dicstring: format a number using fixed-point notation
+  + docstring: format a number using fixed-point notation
   + parametre
     + `digits` (optional):
       + the number of digits to apprear after the decimal point
@@ -985,7 +986,7 @@ The `Number` class can be used to transform strings into numbers, but it is reco
   + syntax: `numObj.toString([radix])`
   + docstring: return a string representing the specified `Number` object
   + parameter
-    + `radix` (optinal): specify the base to use for representing numeric values, [0, 36]
+    + `radix` (optional): specify the base to use for representing numeric values, [0, 36]
   + return: a string representing the specified `Number` object
 
 
@@ -1142,7 +1143,7 @@ These methods are all inherited from the String class:
 + Useful methods of `String` class
   + `toUpperCase`: return the string in upper case, not changing the original string
   + `toLowerCase`: return the string in lower case, not changing the original string
-  + `indexOf(char[, start])`: 
+  + `indexOf(char[, start])`:
     + looking for string value `char` starting from `start`
     + return the index of string valuse passed as parameter (`char`)
     + return `-1` if nothing matched
@@ -1156,7 +1157,7 @@ These methods are all inherited from the String class:
   + docstring: return the index within the calling `String` object of the 1st occurrence of the specified value
   + parameters:
     + `searchValue`: the string value to search for
-    + `fromIndex` (optional): an integer repreenting the index at which to start the search, defaults to 0
+    + `fromIndex` (optional): an integer representing the index at which to start the search, defaults to 0
   + return: the index of the first occurrent of `searchValue` or `-1` if not found
 
 
@@ -1166,9 +1167,9 @@ The most useful methods of the String are: slice, substring, split, join
 
 #### The `slice` and `substring` methods
 
-__Both these methods can be used to extract a substring from a string.__ They take two parameters: the start and end index of the slice (element at end index will NOT be included in the slice): “please cut from this index, to this one, not included!”. 
+__Both these methods can be used to extract a substring from a string.__ They take two parameters: the start and end index of the slice (element at end index will NOT be included in the slice): “please cut from this index, to this one, not included!”.
 
-These two methods are very similar. 
+These two methods are very similar.
 
 Examples:
 
@@ -1320,7 +1321,7 @@ The `split` method returns an array of strings, the parameter is a separator. Th
   + declare string: `var s = "My name is Bond! James Bond!";`
   + get substring w/ `slice`: `s.slice(11, 16); // "Bond!"`
   + get substring w/ `substring`: `s.substring(11, 16); // "Bond!"`
-  + original string remaining unchange: `s; // "My name is Bond! James Bond!";`
+  + original string remaining unchanged: `s; // "My name is Bond! James Bond!";`
   + reassign value for variable: `s = s.slice(11, 16); // "Bond!"` and `s = s.substring(11, 16); // "Bond!"`
   + variable pointing to another object: `s; // "Bond!"`
 
@@ -1342,7 +1343,7 @@ The `split` method returns an array of strings, the parameter is a separator. Th
 
 + Example: `split()`, `join()` and `concat()` methods
   + declare string: `var s = "My name is Bond! James Bond!";`
-  + separate string into sinngleton object: `s.split(); // ["My", "name", "is", "Bond!", "James", "Bond!"]`
+  + separate string into singleton object: `s.split(); // ["My", "name", "is", "Bond!", "James", "Bond!"]`
   + chaining methods w/ `split` and `join`
     + `s.split(' ').join('-#-');        // "My-#-name-#-is-#-Bond!-#-James-#-Bond!"`
     + `s.split(' ').join('.......');    // "My.......name.......is.......Bond!.......James.......Bond!"`
@@ -1514,7 +1515,7 @@ Here is a typical example of the use of `Math.atan2` in a video game, in order t
     + random number in [0, 1]: `Math.random(); // 0.6033316111663034`
     + random number in [0, 100]: `Math.random() * 100; // 11.780563288516422`
     + function to generate random number in [min, max]: `function getRandomValue(min, max) { return ((max - min) * Math.random()) + min; }`
-    + rndom number in [5, 10]: `getRandomValue(5, 10); // 5.064160540161435`
+    + random number in [5, 10]: `getRandomValue(5, 10); // 5.064160540161435`
 
 + Math and rounding methods
   + `round`: get the closest integer value
@@ -1529,14 +1530,14 @@ Here is a typical example of the use of `Math.atan2` in a video game, in order t
     + min of two values: `Math.min(12, 4); // 4`
     + max of two values: `Math.max(14, 4); // 14`
     + function to set restrict values: `function restrictValue(value, min, max) { return Math.min(Math.max(1, value), max) }`
-    + apply restrict fucntion: `restrictValue(40, 1, 20); // 20`, `restrictValue(-10, 1, 20); // 1`, and `restrictValue(10, 1, 20); // 10`
+    + apply restrict function: `restrictValue(40, 1, 20); // 20`, `restrictValue(-10, 1, 20); // 1`, and `restrictValue(10, 1, 20); // 10`
 
 + Some arithmetical methods
   + `sin()`: sine function in radians
   + `cos()`: cosine function in radians
   + `tan()`: tangent function in radians
   + `atan()`: arctangent function in radians
-  + `atan2()`: arctangent fucntion returning in angle in the plane; useful for getting an angle btw a point in a canvas and the mouse cursor
+  + `atan2()`: arctangent function returning in angle in the plane; useful for getting an angle btw a point in a canvas and the mouse cursor
 
 
 ### 5.2.11 Built-in JS class: Date
@@ -1678,7 +1679,7 @@ And here is a full version with input fields and results displayed in an HTML ta
 #### Notes for 5.2.11 Built-in JS class: Date
 
 + `Date` class
-  + constrctor: `new Date(arg);`
+  + constructor: `new Date(arg);`
     + return value actually a `Date` object but displayed by calling `toString()` on this object
     + `arg` omitted: return the current date
     + `arg`:
