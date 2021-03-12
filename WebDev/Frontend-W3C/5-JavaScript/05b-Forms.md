@@ -1679,8 +1679,8 @@ And here is a full version with input fields and results displayed in an HTML ta
 
 + `Date` class
   + constrctor: `new Date(arg);`
-    + return value acctually a `Date` object but displayed by calling `toString()` on this object
-    + `arg` ommitted: return the current date
+    + return value actually a `Date` object but displayed by calling `toString()` on this object
+    + `arg` omitted: return the current date
     + `arg`:
       + a string encoding a date
       + a set of numeric values separated by a comma for month, day, hour, and so on
@@ -1697,19 +1697,19 @@ And here is a full version with input fields and results displayed in an HTML ta
 + Example: constructing `Date` object
   + current date:
     + `new Date(); // Wed Apr 12 2017 11:10:28 GMT+0200 (CEST)`
-    + `Date(); // "Sun Apr 16 2017 14:51:47 GMT+0200 (CEST)"`
+    + `Date(); // "Wed A"pr 12 2017 11:10:28 GMT+0200 (CEST)""`
   + encoded date:
-    + `new Date('2017 04 28'); // Fri Apr 28 2017 00:00:00 GMT+0200 (CEST)`
-    + `new Date('2017 1 2'); // Mon Jan 02 2017 00:00:00 GMT+0100 (CET)`
-    + `new Date('2017 1 2 8:30'); // Mon Jan 02 2017 08:30:00 GMT+0100 (CET)`
+    + `new Date('2017 04 28'); // "Fri Apr 28 2017 00:00:00 GMT+0200 (CEST)"`
+    + `new Date('2017 1 2'); // "Mon Jan 02 2017 00:00:00 GMT+0100 (CEST)"`
+    + `new Date('2017 1 2 8:30'); // "Mon Jan 02 2017 08:30:00 GMT+0100 (CEST)"`
   + numerical value
-    + `new Date(2017, 3, 16, 14, 43, 10, 120); // Sun Apr 16 2017 14:43:10 GMT+0200 (CEST)`
-    + `new Date(2017, 0, 10, 14); // Tue Jan 10 2017 14:00:00 GMT+0100 (CET)`
-    + `new Date(2017, 1, 28) // Tue Feb 28 2017 00:00:00 GMT+0100 (CET)`
-    + `new Date(2008, 1, 29); Fri Feb 29 2008 00:00:00 GMT+0100 (CET)`
-    + `new Date(2017, 1, 29); // Wed Mar 01 2017 00:00:00 GMT+0100 (CET); No February 29th in 2017! Gives 1st of March`
-    + `new Date(2017, 11, 31); // Sun Dec 31 2017 00:00:00 GMT+0100 (CET)`
-    + `new Date(2017, 11, 32) // Mon Jan 01 2018 00:00:00 GMT+0100 (CET); 32 Dec -> 1st of January!`
+    + `new Date(2017, 3, 16, 14, 43, 10, 120); // "Sun Apr 16 2017 14:43:10 GMT+0200 (CEST)"`
+    + `new Date(2017, 0, 10, 14); // "Tue Jan 10 2017 14:00:00 GMT+0100 (CET)"`
+    + `new Date(2017, 1, 28) // "Tue Feb 28 2017 00:00:00 GMT+0100 (CET)"`
+    + `new Date(2008, 1, 29); // "Fri Feb 29 2008 00:00:00 GMT+0100 (CET)"`
+    + `new Date(2017, 1, 29); // "Wed Mar 01 2017 00:00:00 GMT+0100 (CET); No February 29th in 2017! Gives 1st of March"`
+    + `new Date(2017, 11, 31); // "Sun Dec 31 2017 00:00:00 GMT+0100 (CET)"`
+    + `new Date(2017, 11, 32) // "Mon Jan 01 2018 00:00:00 GMT+0100 (CET); 32 Dec -> 1st of January!"`
 
 + Example: useful instance methods
   + declare date: `var d = new Date(); // "Sun Apr 16 2017 14:52:52 GMT+0200 (CEST)"`
@@ -1718,7 +1718,7 @@ And here is a full version with input fields and results displayed in an HTML ta
 
 + Example: which day of the week
   + declare an array for counting: `var dayOfTheWeek = [0, 0, 0, 0, 0, 0, 0]`
-  + iterate a range of years to find which day: for (var year=2007; year <= 2047; year++) { dayOfTheWeek[new Date(year, 4, 16).getDay()]++; }`
+  + iterate a range of years to find which day: `for (var year=2007; year <= 2047; year++) { dayOfTheWeek[new Date(year, 4, 16).getDay()]++; }`
   + display the result: `dayOfTheWeek; // [4, 4, 5, 5, 5, 4, 4]` $\to$ 4 times on Sunnday, Monday, Friday, and Saturday, ...
 
 
