@@ -1,7 +1,7 @@
 # Module 5: Working with forms
 
 
-## 5.3 [HTML5 tables, forms and input fields
+## 5.3 HTML5 tables, forms and input fields
 
 
 #### 5.3.1 The HTML table basics
@@ -105,9 +105,9 @@ Look at the CSS - it's the only part that changed:
     + always add a `<caption>` tag inside the `<table>` tag
     + use a `scope` attribute w/ all `<th scope="row or column">` for identifying whether a table header is a column header or a row header
 
-+ Common styles for <`table>` element
++ Common styles for `<table>` element
   + rendering cell/row/table border, e.g., `tr, th, td { border: 1px solid; }`
-  + adjusting spacing btw text and in cells and the cell borders, e.g., `td { padding: 10px; }`
+  + adjusting spacing btw text in cells and the cell borders, e.g., `td { padding: 10px; }`
 
 
 ### 5.3.2 The HTML table JavaScript API
