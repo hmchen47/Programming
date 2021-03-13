@@ -728,14 +728,14 @@ This is the small project we will build together at the end of the course. :-)
   + register even listener: `<label> <span>Name (required):</span> <input type="text"  name="nom"  maxlength="32"  required onkeyup = "validateName(event)"> </label>`
   + container to display key stroke: `<span id="keyTyped"></span>`
   + validate input name: `function validateName(evt) {...}`
-    + declare variables: `var key = evt.key;`
+    + declare variable: `var key = evt.key;`
     + access display container: `var output = document.querySelector('#keyTyped');`
     + display key typed: `output.innerHTML = "Valid key: " + key;`
     + validation function here
 
 + Example: [password consistence check](src/05c-example11.html)
   + submit form: `<form class="myForm" onsubmit="return submitForm();">`
-  + two input fields: `<label for="password1" >Password:</label> <input type="password" id="password1" oninput="checkPasswords()" required> <br> <label for="password2">Repeat password:</label> <input type="password" id="password2" oninput="checkPasswords()" required>`
+  + two input fields: `<label for="password1">Password:</label> <input type="password" id="password1" oninput="checkPasswords()" required> <br> <label for="password2">Repeat password:</label> <input type="password" id="password2" oninput="checkPasswords()" required>`
   + password consistence check: `function checkPasswords() {...}`
     + access two password fields: `var password1 = document.querySelector('#password1'); var password2 = document.querySelector('#password2');`
     + password consistent check: `if (password1.value !== password2.value) {...}`
