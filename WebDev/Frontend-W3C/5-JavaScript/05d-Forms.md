@@ -104,7 +104,7 @@ When we parse a JSON string using `JSON.parse()`, we get a real JavaScript objec
 
 #### Notes for 5.4.1 What is JSON?
 
-+ JSON (JavaScript Object Notation (JSON)
++ JavaScript Object Notation (JSON)
   + a standard for transforming nearly any object into a string representation
   + a standard for exchangig data to/from a remote HTTP server
   + available for many other languages
@@ -150,7 +150,7 @@ When we parse a JSON string using `JSON.parse()`, we get a real JavaScript objec
 
 + Example: JS object $\leftrightarrow$ JSON
   + declare object: `var metallica = {name:'Metallica', albums:[{name:"Master of Puppets", year:1986}, {name:"Black Album", year:1991}]};`
-  + JS object #\to$ JSON: `var metallicaJSON = JSON.stringify(metallica);`
+  + JS object $\to$ JSON: `var metallicaJSON = JSON.stringify(metallica);`
   + display JSON: `metallicaJSON; // "{"name":"Metallica","albums":[{"name":"Master of Puppets","year":1986}, {"name":"Black Album","year":1991}]}"`
   + JSON format not a JS object: `metallica.name; // undefined`
   + convert back to JS object: `var obj = JSON.parse(metallicaJSON); obj.name; // "Metallica"`
@@ -164,9 +164,9 @@ When we parse a JSON string using `JSON.parse()`, we get a real JavaScript objec
       + a function alerts the behavior of the stringification process
       + an array of `String` and `Number` serves as allowist for selecting/filtering the properties of the value object to be included in the JSON string
       + `null` or omitted: all properties of the object included in the resulting JSON string
-    + `space (optional):
+    + `space` (optional):
       + used to insert white space into the output JSON string for readability purpose
-      + `Number` object: the number os space characters to use as white space
+      + `Number` object: the number or space characters to use as white space
       + `String` object: use the string as white space
   + return: a JSON string representing the given value
 
