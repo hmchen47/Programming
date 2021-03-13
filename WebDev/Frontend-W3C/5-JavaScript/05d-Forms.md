@@ -317,7 +317,7 @@ The fetch API will also be covered in an advanced JavaScript course to come. In 
     + catch error and display error message
 
 + Example: [JSON data w/ Xhr2 API](src/05d-example02.html)
-  + button element" `<button onclick="search();">Get a remote list of users' names and emails</button>`
+  + button element: `<button onclick="search();">Get a remote list of users' names and emails</button>`
   + empty container for display: `<div id="users"></div>`
   + request function: `function search() {...}`
     + build an Ajax request using Xhr2: `var queryURL = "https://jsonplaceholder.typicode.com/users"; var xhr = new XMLHttpRequest();`
@@ -332,7 +332,7 @@ The fetch API will also be covered in an advanced JavaScript course to come. In 
     + empty the container: `var usersDiv = document.querySelector("#users"); usersDiv.innerHTML = "";`
     + create a table within container: `var table = document.createElement("table");`
     + iterate to display each row: `users.forEach(function(currentUser)) {...});`
-      + insert row: `var row = table.insertRow();
+      + insert row: `var row = table.insertRow();`
       + display HTML data: `row.innerHTML = "<td>"+ currentUser.name+ "</td><td>" + currentUser.email + "</td>";`
     + append table: `usersDiv.append(table);`
 
