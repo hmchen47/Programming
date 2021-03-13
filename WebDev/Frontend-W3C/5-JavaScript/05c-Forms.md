@@ -348,7 +348,7 @@ It's up to you: depending on the HTML that you plan to insert into each cell, on
     + `createTFoot()`: create an empty `<tfoot>` element and add it to the table
     + `deleteTFoot()`: remove the `<tfoot>` element from the table
 
-+ examples: [table object](src/05c-example04.html)
++ Examples: [table object](src/05c-example04.html)
   + access table: `var table = document.getElementById("myTable);` and `var table = document.querySelector("#myTable");`
   + create a new table: `var table = document.createElement("table");`
   + insert last row: `function insertRow() { var table = document.querySelector("#myTable"); var row = table.insertRow(); row.innerHTML = "<td>New</td><td>New</td><td>New</td>"; }`
@@ -360,12 +360,12 @@ It's up to you: depending on the HTML that you plan to insert into each cell, on
   + most useful properties
     + `cells`: a collection of all `<td>` ot `<th>` elements in a table row
     + `rowIndex`: the position of a row in the `rows` collection of a table
-    + `sectionRowINdex`: the position of a row in the `rows` collection of a `<tbody>`, `<thead>` or `<tfoot>`
+    + `sectionRowIndex`: the position of a row in the `rows` collection of a `<tbody>`, `<thead>` or `<tfoot>`
   + most useful methods
     + `insertCell()`:
       + insert a cell into the current table `row`
       + no parameters: append a cell after the last cell of the row
-      + index of the the cell as a unique parameter: insert the row and push other cells to the right
+      + index of the cell as a unique parameter: insert the row and push other cells to the right
       + `index = 0`: insert at the first position
       + `index = -1`: insert at the last position
     + `deleteCell()`:
