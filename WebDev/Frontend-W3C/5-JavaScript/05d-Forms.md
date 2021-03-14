@@ -434,14 +434,14 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
   + difference btw `sessionStorage` and `localStorage`: longevity
     + `sessionStorage`: remain until deleted
     + `localStorage`: erased when tab/browser closed
-  + define an API for persistent data storageof key-valuepair data in Web service
+  + define an API for persistent data storage of key-value pair data in Web service
 
 + Key-value stores
   + keys & values: strings
   + only one store per domain
   + functionality: expose through the globally available `localStorage`/`sessionStorage` object
 
-+ Example: [store and retrieve store data](src/05d-example04.html)
++ Example: [store and retrieve data](src/05d-example04.html)
   + set `localStore` store data: `localStorage.lastName = "Bunny"; localStorage.firstName = "Bugs"; localStorage.location = "Earth";`
   + retrieve data: `var lastName = localStorage.lastName; var firstName = localStorage.firstName; var location = localStorage.location;`
 
@@ -482,12 +482,12 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
       + `headers`: any headers added to the request contained within a Header object or an object literal w/ ByteString values
       + `body`: any bod added to the request, including `Blob`, `BufferSource`, `FormData`, `URLSearchParams`, `USVString`, or `ReadableStream` objects
       + `mode`: mode used for the request, e.g., `1cors`, `no-cors`, or `same-origin`
-      + `credentials`: controle what browsers do w/ credentials (cookies, HTTP authentication entries, and TLS client certificates)
+      + `credentials`: control what browsers do w/ credentials (cookies, HTTP authentication entries, and TLS client certificates)
       + `redirect`: how to handle a `redirect` response, including `follow`, `error`, and `manual`
       + `referrer`: a `USVString` specifying the referrer of the request
       + `referrerPolicy`: specify referrer policy to use for the request
       + `integrity`: contain the subresource integrity value of the request
-      + `keepalive`: used to be used to be used to allow the request to outlive the page
+      + `keepalive`: used to allow the request to outlive the page
       + `signal`: an `AbortSignal` object instance to communicate w/ a fetch request and abort it
   + return: a `Promise` resolving to a `Response` object
 
