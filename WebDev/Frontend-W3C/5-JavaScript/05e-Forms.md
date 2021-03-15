@@ -357,9 +357,9 @@ __Explanations:__
   + add `load` and `save` methods for constructor
   + convert array of contacts to JSON and save into local storage: `save() { localStorage.contacts = JSON.stringify(this.lostOfContacts); }`
   + verify `LocalStorage` w/ devtool:
-    + Chrome: devtool > Application > Local Storage (left panel) > https://js.codepen.io > Key/Value pair (right panel)
+    + Chrome: devtool > Application > Local Storage (left panel) > `https://js.codepen.io` > Key/Value pair (right panel)
     + Firefox: devtool > setting icon on top-right corner > Storage (left panel)
-    + Safari: devtool > Storage (top banner) > Local Storage > https://js.codepen.io > key/value pair
+    + Safari: devtool > Storage (top banner) > Local Storage > `https://js.codepen.io` > key/value pair
   + empty list of contacts: `empty() { this.listOfContacts = []; }`
   + load contacts from `LocalStorage` and convert JSON back into JS object: `load() { if (localStorage.contact != undefined) { this.listOfContacts = JSON.parse(localStorage.contacts); }}`
   + verify `save()`, `empty()` and `load()` w/ printing in console
