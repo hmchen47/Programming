@@ -161,7 +161,6 @@ CodePen that uses this new method:
     + a minimal ES6 class to build a contact manager
     + only one property: the list of contacts
     + two methods: add and remove contact
-    + 
 
     ```js
     class ContactManager {
