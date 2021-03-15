@@ -463,11 +463,11 @@ Note that we also added a method called `addTestData()` to the ContactManager cl
   + add container to display contact table: `<div id="contacts"></div>`
   + add function to display users in table: `function displayUsersAsTable(users) {...}`
     + empty the container: `var usersDiv = document.querySelector("#users"); usersDiv.innerHTML = "";`
-    + create and populate the table w/ users: `vat table = document.createElement("table");`
-    + iterate to display users of array: `users.forEach(function(currentUser) {...});`
+    + create and populate the table w/ users: `var table = document.createElement("table");`
+    + iterate to display users of array: `usersDiv.forEach(function(currentUser) {...});`
       + create a row: `var row = table.insertRow();`
       + insert cells in the row: `var nameCell = row.insertCell(); nameCell.innerHTML = currentUser.name; var cityCell = row.insertCell(); cityCell.innerHTML = currentuser.address.city;`
-    + add the table tot he div: `usersDiv.appendChild(table);`
+    + add the table to the container: `usersDiv.appendChild(table);`
 
 
 + Example: [display contacts in HTML5 table](src/05e-example05.html)
@@ -482,7 +482,7 @@ Note that we also added a method called `addTestData()` to the ContactManager cl
     + iterate the users of the array: `this.listOfContacts.forEach(function(currentContact) {...});`
       + create row: `let row = table.insertRow();`
       + add data of the row: `row.innerHTML = "<td>" + currentContact.name + "</td>" + "<td>" + currentComtact.email + "</td>";`
-    + add table to the div: `container.appendChild(table);`
+    + add table to the div container: `container.appendChild(table);`
   
 
 ### 5.5.4 Use a form to enter new contacts (part 4)
