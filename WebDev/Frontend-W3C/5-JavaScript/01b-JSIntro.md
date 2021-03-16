@@ -32,17 +32,17 @@ There are many ways to markup a document, but HTML borrows a technique from an a
 For example, consider the following chunk of HTML code (note: you can edit the source code and see the resulting Web page updating in real time): [Local Example - tags](src/01b-example01.html)
 
 <div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li style="margin-bottom: 0px;" value="1">&nbsp; &nbsp;&lt;body&gt;</li>
-<li style="margin-bottom: 0px; font-family: 'Courier New'; list-style-type: none; background: #eeeeee;">&nbsp; &nbsp; &nbsp; &lt;h1&gt;A Tale of Two Cities&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: cyan;">&lt;p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It was the best of times, it was the worst of times, . . . .</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: cyan;">&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &nbsp; . . .</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: cyan;">&lt;p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; . . . it is a far, far better rest</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; that I go to than I have ever known.</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: cyan;">&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"><span style="color: cyan;">&nbsp;&nbsp; &lt;/body&gt;</li>
+<li" value="1">&nbsp; &nbsp;&lt;body&gt;</li>
+<li font-family: 'Courier New'; list-style-type: none; background: #eeeeee;">&nbsp; &nbsp; &nbsp; &lt;h1&gt;A Tale of Two Cities&lt;/h1&gt;</li>
+<li">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: cyan;">&lt;p&gt;</li>
+<li">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It was the best of times, it was the worst of times, . . . .</li>
+<li">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: cyan;">&lt;/p&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &nbsp; . . .</li>
+<li">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: cyan;">&lt;p&gt;</li>
+<li">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; . . . it is a far, far better rest</li>
+<li">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; that I go to than I have ever known.</li>
+<li">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: cyan;">&lt;/p&gt;</li>
+<li"><span style="color: cyan;">&nbsp;&nbsp; &lt;/body&gt;</li>
 </ol></div><br/>
 
 If you eliminated everything in between the angle brackets from the text, for most purposes it would still read the same:
@@ -60,23 +60,23 @@ _Notes:_
 
 <br/>
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;!DOCTYPE html&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp;&lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp; &lt;title&gt;Your first HTML page&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp; &lt;meta charset="utf-8"/&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;h1&gt;My home page&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;h2&gt;Who am I?&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &lt;p&gt;Hi! Welcome to my Home Page! My name is Michel Buffa, I'm a professor at the University of Nice, in France, and I'm also the author of two MOOCS about HTML5 on W3Cx.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &lt;p&gt;I also play electric guitar and love coding WebAudio applications...&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &lt;img src="https://pbs.twimg.com/profile_images/110455194/n666194627_2302_400x400.jpg" width=200</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp; alt="Michel Buffa plays rock and roll"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;h2&gt;My Hobbies&lt;/h2&gt;</li>
-<li style="margin-bottom: 0px;"> Music, Movies, Video Games, Travelling, Family, etc.</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/html&gt;</li>
+<li" value="1"> &lt;!DOCTYPE html&gt; </li>
+<li">&nbsp;&lt;html lang="en"&gt;</li>
+<li">&nbsp;&nbsp; &lt;head&gt;</li>
+<li">&nbsp;&nbsp; &nbsp; &lt;title&gt;Your first HTML page&lt;/title&gt;</li>
+<li">&nbsp;&nbsp; &nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li">&nbsp;&nbsp; &lt;/head&gt;</li>
+<li">&nbsp; &lt;body&gt;</li>
+<li">&nbsp; &lt;h1&gt;My home page&lt;/h1&gt;</li>
+<li">&nbsp;&nbsp; &lt;h2&gt;Who am I?&lt;/h2&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &lt;p&gt;Hi! Welcome to my Home Page! My name is Michel Buffa, I'm a professor at the University of Nice, in France, and I'm also the author of two MOOCS about HTML5 on W3Cx.&lt;/p&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &lt;p&gt;I also play electric guitar and love coding WebAudio applications...&lt;/p&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &lt;img src="https://pbs.twimg.com/profile_images/110455194/n666194627_2302_400x400.jpg" width=200</li>
+<li">&nbsp;&nbsp;&nbsp;&nbsp; alt="Michel Buffa plays rock and roll"&gt;</li>
+<li">&nbsp;&nbsp; &lt;h2&gt;My Hobbies&lt;/h2&gt;</li>
+<li"> Music, Movies, Video Games, Travelling, Family, etc.</li>
+<li">&nbsp;&nbsp; &lt;/body&gt;</li>
+<li">&nbsp; &lt;/html&gt;</li>
 </ol></div><br/>
 
 #### Coding Tools
@@ -109,17 +109,17 @@ If you are sitting at a coffee shop next to a table of Web developers, you will 
 As an example, let's look at a simplified version of the last HTML code we presented earlier: 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;title&gt;Your first HTML page&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;h1&gt;My home page&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;p&gt;Hi! Welcome to my Home Page! My name is Michel Buffa, I'm a professor at the University of Côte d'Azur, in France, and I'm also the author of three W3Cx MOOCS.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/html&gt;</li>
+<li" value="1">&lt;!DOCTYPE html&gt;</li>
+<li"> &lt;html lang="en"&gt;</li>
+<li">&nbsp; &lt;head&gt;</li>
+<li">&nbsp;&nbsp; &lt;title&gt;Your first HTML page&lt;/title&gt;</li>
+<li">&nbsp;&nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li">&nbsp; &lt;/head&gt;</li>
+<li">&nbsp; &lt;body&gt;</li>
+<li">&nbsp;&nbsp; &lt;h1&gt;My home page&lt;/h1&gt;</li>
+<li">&nbsp;&nbsp; &lt;p&gt;Hi! Welcome to my Home Page! My name is Michel Buffa, I'm a professor at the University of Côte d'Azur, in France, and I'm also the author of three W3Cx MOOCS.&lt;/p&gt;</li>
+<li">&nbsp;&nbsp; &lt;/body&gt;</li>
+<li"> &lt;/html&gt;</li>
 </ol></div><br/>
 
 Click the red circle next to HTML to unfold this HTML document structure (we can also say "see its DOM structure"): ([Demo File - DOM Structure](src/01b-example03.html))
@@ -176,8 +176,8 @@ These elements, without a "/" at the end, are called "void elements". They are :
 Most of what you can learn about HTML attributes is presented in [the three W3Cx MOOCs about HTML5](https://www.edx.org/school/w3cx) (fundamentals, coding essentials, and advanced techniques), but we can introduce the idea briefly in this JavaScript course. Basically, a given element on your Web page can be distinguished by any number of unique or common attributes. For example, we've already seen how an image can be inserted in your Web page, and in that example we used the `width` attribute of the `<img>` tag in order to constrain the `width` of the image:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;img src="https://pbs.twimg.com/profile_images/110455194/n666194627_2302_400x400.jpg"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;width=200 alt="Michel Buffa plays rock&amp;roll"&gt;</li>
+<li" value="1">&lt;img src="https://pbs.twimg.com/profile_images/110455194/n666194627_2302_400x400.jpg"</li>
+<li">&nbsp; &nbsp; &nbsp;width=200 alt="Michel Buffa plays rock&amp;roll"&gt;</li>
 </ol></div>
 
 As you might guess, the `<img>` tag also has a height attribute, as well as others. Different HTML tags share some common attributes that we'll meet in the next section, which are particularly useful when coupled with CSS (id and class) for applying graphic styles (color, shadow, etc.), but  can also have specific attributes (for example: the src attribute can be found in the `<video>`, `<audio>`, `<img>` tags but not on a `<p>` or on an `<h1>` tag!)
@@ -354,14 +354,14 @@ Now, we can add some "CSS rules" to the HTML, and see that the appearance of the
 If you click on the CSS button on the top left of the previous codepen example, you see the CSS rules that have been applied to the HTML document. Let's look at the first one:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">h1 {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color:red;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; background-color:lightGreen;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; border:12px solid violet;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding: 5px; &nbsp;&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; border-radius: 15px;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; text-align: center;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">h1 {</li>
+<li">&nbsp; &nbsp; color:red;</li>
+<li">&nbsp; &nbsp; background-color:lightGreen;</li>
+<li">&nbsp; &nbsp; border:12px solid violet;</li>
+<li">&nbsp; &nbsp; padding: 5px; &nbsp;&nbsp;</li>
+<li">&nbsp; &nbsp; border-radius: 15px;</li>
+<li">&nbsp; &nbsp; text-align: center;</li>
+<li">}</li>
 </ol></div><br/>
 
 This rule turns all the `h1s` in the document into red text, centered horizontally, on a light green background, with a violet border of 12 pixels (a solid border, not a dashed one), and this border has rounded corners made of arcs of a circle whose radius is 15 pixels.
@@ -380,9 +380,9 @@ After the previous rule is applied, then the second rule is taken into account, 
 The third rule uses what is called "a multiple selector":
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">p, h1, h2 {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;font-family: cursive </li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">p, h1, h2 {</li>
+<li">&nbsp; &nbsp;font-family: cursive </li>
+<li">}</li>
 </ol></div><br/>
 
 This one says that all `p`, `h1` and `h2` uses a cursive font character. The "," means "and also".
@@ -394,9 +394,9 @@ This is also how we indicate in the last rule that images and paragraphs should 
 Basically, any given element on your Web page can be identified uniquely with an '`id`' attribute, or grouped with a class of other elements by setting the '`class`' attribute.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;p id="paragraph-1" class="regular-paragraphs"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; Call me Ishmael . . .</li>
-<li style="margin-bottom: 0px;"> &lt;/p&gt;</li>
+<li" value="1">&lt;p id="paragraph-1" class="regular-paragraphs"&gt;</li>
+<li">&nbsp; &nbsp; Call me Ishmael . . .</li>
+<li"> &lt;/p&gt;</li>
 </ol></div><br/>
 
 The paragraph above has a unique identifier: the id attribute whose value is "paragraph-1" and is part of a class of "regular-paragraphs". The letters inside the quotes have no meaning to the computer, they just need to be consistent. They are actually strings. 
@@ -408,17 +408,17 @@ Let's look at a modified version of Michel Buffa's home page example: [Demo - Mo
 The last two rules first target the element whose id is 'hobbyTitle', in our case it's the second h2 element:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;h2 <span style="color: #ff0000;"><strong>id</span>="hobbyTitle"</strong>&gt;My Hobbies&lt;/h2&gt;</li>
+<li" value="1">&lt;h2 <span style="color: #ff0000;"><strong>id</span>="hobbyTitle"</strong>&gt;My Hobbies&lt;/h2&gt;</li>
 </ol></div><br/>
 
 And here is the CSS rule:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong>#hobbyTitle</strong> {</li>
-<li style="margin-bottom: 0px;">&nbsp; font-family: 'caveat';</li>
-<li style="margin-bottom: 0px;">&nbsp; font-size:40px;</li>
-<li style="margin-bottom: 0px;">&nbsp; text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1"><strong>#hobbyTitle</strong> {</li>
+<li">&nbsp; font-family: 'caveat';</li>
+<li">&nbsp; font-size:40px;</li>
+<li">&nbsp; text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);</li>
+<li">}</li>
 </ol></div><br/>
 
 _Line 1_ uses the "#" character in the selector, meaning that we're going to select an element by its `id` attribute. In this case, the selector equal to `#hobbyTitle`, selects the element that has an attribute `id="hobbyTitle"`.
@@ -426,31 +426,31 @@ _Line 1_ uses the "#" character in the selector, meaning that we're going to sel
 In that case, we use a funny char font called 'caveat' we took from the Google font service (see [fonts.google.com](https://fonts.google.com/)), and in order to be able to use it in a font-family CSS property, we included its definition using a `<link>` tag in the HTML part of the document:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;title&gt;Your first HTML page&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&lt;meta charset="utf-8"/&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>&lt;link</strong><strong> href="https://fonts.googleapis.com/css?family=Caveat" </strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; rel="stylesheet"&gt;</strong></li>
-<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
+<li" value="1">&lt;head&gt;</li>
+<li">&nbsp; &lt;title&gt;Your first HTML page&lt;/title&gt;</li>
+<li">&nbsp;&nbsp;&lt;meta charset="utf-8"/&gt;</li>
+<li">&nbsp; <strong>&lt;link</strong><strong> href="https://fonts.googleapis.com/css?family=Caveat" </strong></li>
+<li"><strong>&nbsp; &nbsp; &nbsp; &nbsp; rel="stylesheet"&gt;</strong></li>
+<li">&lt;/head&gt;</li>
 </ol></div><br/>
 
 The last rule targets all elements that have an attribute `class="funny"`. Notice they can be different elements, we can have a p and an h3 element that have the `class="funny"` attribute:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong>.funny </strong>{</li>
-<li style="margin-bottom: 0px;">&nbsp; color:purple;</li>
-<li style="margin-bottom: 0px;">&nbsp; font-family: 'caveat';</li>
-<li style="margin-bottom: 0px;">&nbsp; font-size:40px;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1"><strong>.funny </strong>{</li>
+<li">&nbsp; color:purple;</li>
+<li">&nbsp; font-family: 'caveat';</li>
+<li">&nbsp; font-size:40px;</li>
+<li">}</li>
 </ol></div><br/>
 
 This rule changes the color, font family and size of two out of three paragraphs in the HTML element:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">...</li>
-<li style="margin-bottom: 0px;">&lt;p class="funny"&gt;I also play electric guitar and love coding WebAudio applications...&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;"> &lt;p class="funny"&gt;Music, Movies, Video Games, Traveling, Family, etc.&lt;/p&gt;</li>
+<li" value="1">...</li>
+<li">&lt;p class="funny"&gt;I also play electric guitar and love coding WebAudio applications...&lt;/p&gt;</li>
+<li">...</li>
+<li"> &lt;p class="funny"&gt;Music, Movies, Video Games, Traveling, Family, etc.&lt;/p&gt;</li>
 </ol></div><br/>
 
 There are many, many, many different CSS properties in existence, and many different ways to select elements. We recommend that you follow the W3Cx [CSS Basics](https://www.edx.org/course/css-basics) and [HTML5&CSS Fundamentals](https://www.edx.org/course/html5-and-css-fundamentals) courses to learn more about CSS and about HTML5 basics.
