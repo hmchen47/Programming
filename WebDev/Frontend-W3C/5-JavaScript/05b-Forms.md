@@ -32,25 +32,25 @@ When you define a variable (such as `var x = 10;` or `let name = "Michel";` or `
 Examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">// Defining two variables</li>
-<li style="margin-bottom: 0px;">var x = 2; // the variable x contains the primitive datum 2</li>
-<li style="margin-bottom: 0px;">var y = { a: 2 } // The variable y references the object {a: 2}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// "Copying" two variables</li>
-<li style="margin-bottom: 0px;">var x2 = x;</li>
-<li style="margin-bottom: 0px;">var y2 = y;</li>
-<li style="margin-bottom: 0px;">var y3 = y;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Modifying copied variables</li>
-<li style="margin-bottom: 0px;">x2 = 3;</li>
-<li style="margin-bottom: 0px;">y2 = { a: 3 };</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Check</li>
-<li style="margin-bottom: 0px;">x; // 2 &lt;- x is not modified because it contains a primitive value</li>
-<li style="margin-bottom: 0px;">y; // { a: 2 } &lt;- y is not modified because y2 does not point to same object</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">y3.a = 4;</li>
-<li style="margin-bottom: 0px;">y; // { a: 4 } &lt;- The object referenced by "y" and "y3" is modified</li>
+<li value="1">// Defining two variables</li>
+<li>var x = 2; // the variable x contains the primitive datum 2</li>
+<li>var y = { a: 2 } // The variable y references the object {a: 2}</li>
+<li> </li>
+<li>// "Copying" two variables</li>
+<li>var x2 = x;</li>
+<li>var y2 = y;</li>
+<li>var y3 = y;</li>
+<li> </li>
+<li>// Modifying copied variables</li>
+<li>x2 = 3;</li>
+<li>y2 = { a: 3 };</li>
+<li> </li>
+<li>// Check</li>
+<li>x; // 2 &lt;- x is not modified because it contains a primitive value</li>
+<li>y; // { a: 2 } &lt;- y is not modified because y2 does not point to same object</li>
+<li></li>
+<li>y3.a = 4;</li>
+<li>y; // { a: 4 } &lt;- The object referenced by "y" and "y3" is modified</li>
 </ol></div>
 
 Of course, these rules also apply to the properties of objects.
@@ -58,17 +58,17 @@ Of course, these rules also apply to the properties of objects.
 Example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var driver = {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; name: 'Jean'</li>
-<li style="margin-bottom: 0px;">};</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">var car = {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color: 'red',</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; driver: driver</li>
-<li style="margin-bottom: 0px;">};</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">driver.name = 'Albert';</li>
-<li style="margin-bottom: 0px;">car.driver.name; // 'Albert'</li>
+<li value="1">var driver = {</li>
+<li>&nbsp; &nbsp; name: 'Jean'</li>
+<li>};</li>
+<li> </li>
+<li>var car = {</li>
+<li>&nbsp; &nbsp; color: 'red',</li>
+<li>&nbsp; &nbsp; driver: driver</li>
+<li>};</li>
+<li></li>
+<li>driver.name = 'Albert';</li>
+<li>car.driver.name; // 'Albert'</li>
 </ol></div>
 
 JavaScript is a "pass by value" language, unlike some other languages, which are "pass by reference" languages. This means that when you pass a variable to a function as argument, the value of the variable is copied into the argument.
@@ -76,15 +76,15 @@ JavaScript is a "pass by value" language, unlike some other languages, which are
 Example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var x = 2;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">function sum(a, b) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; a = a + b;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; return a;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">sum(x, 3); // returns 5</li>
-<li style="margin-bottom: 0px;">x; // 2 &lt;- but x equals 2</li>
+<li value="1">var x = 2;</li>
+<li> </li>
+<li>function sum(a, b) {</li>
+<li>&nbsp; &nbsp; a = a + b;</li>
+<li>&nbsp; &nbsp; return a;</li>
+<li>}</li>
+<li> </li>
+<li>sum(x, 3); // returns 5</li>
+<li>x; // 2 &lt;- but x equals 2</li>
 </ol></div>
 
 When working with objects, the reference of the object is copied into the argument. That means you can modify the referenced object. But if you change the reference (for example by assigning a new object), the original variable (which now points to another object) will not be modified.
@@ -92,53 +92,53 @@ When working with objects, the reference of the object is copied into the argume
 Example 1:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var obj = { x: 2 }</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">function add(a, b) {</li>
-<li style="margin-bottom: 0px;"> a.x += b;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">add(obj, 3);</li>
-<li style="margin-bottom: 0px;">obj.x; // 5 &lt;- The referenced object is modified</li>
+<li value="1">var obj = { x: 2 }</li>
+<li> </li>
+<li>function add(a, b) {</li>
+<li> a.x += b;</li>
+<li>}</li>
+<li> </li>
+<li>add(obj, 3);</li>
+<li>obj.x; // 5 &lt;- The referenced object is modified</li>
 </ol></div>
 
 Example 2:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var obj = { x: 2 };</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">function addAndSet(a, b) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var addition = a.x + b;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; a = { x: addition };</li>
-<li style="margin-bottom: 0px;">};</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">addAndSet(obj, 3);</li>
-<li style="margin-bottom: 0px;">obj.x; /* 2 &lt;- The referenced object is not modified</li>
-<li style="margin-bottom: 0px;">because at the end of the function the variable "obj"</li>
-<li style="margin-bottom: 0px;"> and the variable "a" are not referencing the same object.*/</li>
+<li value="1">var obj = { x: 2 };</li>
+<li> </li>
+<li>function addAndSet(a, b) {</li>
+<li>&nbsp; &nbsp; var addition = a.x + b;</li>
+<li>&nbsp; &nbsp; a = { x: addition };</li>
+<li>};</li>
+<li> </li>
+<li>addAndSet(obj, 3);</li>
+<li>obj.x; /* 2 &lt;- The referenced object is not modified</li>
+<li>because at the end of the function the variable "obj"</li>
+<li> and the variable "a" are not referencing the same object.*/</li>
 </ol></div>
 
 Other examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var originalObject = {name:'Michel'};</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var copy = originalObject;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; copy.name;</li>
-<li style="margin-bottom: 0px;">"Michel"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; copy.name = 'Dark Vador';</li>
-<li style="margin-bottom: 0px;">"Dark Vador"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; originalObject.name</li>
-<li style="margin-bottom: 0px;">"Dark Vador"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// They are the same. originalObject and copy are two "references" of the same object in memory</li>
-<li style="margin-bottom: 0px;">// If we change the name, we change the value in memory, but copy and originalObject "point to" the</li>
-<li style="margin-bottom: 0px;">// same place, to the same object. They are just "pointers" or "reference" to the same object</li>
+<li value="1">&gt; var originalObject = {name:'Michel'};</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; var copy = originalObject;</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; copy.name;</li>
+<li>"Michel"</li>
+<li>&nbsp;</li>
+<li>&gt; copy.name = 'Dark Vador';</li>
+<li>"Dark Vador"</li>
+<li>&nbsp;</li>
+<li>&gt; originalObject.name</li>
+<li>"Dark Vador"</li>
+<li>&nbsp;</li>
+<li>// They are the same. originalObject and copy are two "references" of the same object in memory</li>
+<li>// If we change the name, we change the value in memory, but copy and originalObject "point to" the</li>
+<li>// same place, to the same object. They are just "pointers" or "reference" to the same object</li>
 </ol></div>
 
 
@@ -210,20 +210,20 @@ Comparing two objects will only return true if they point to the same object (i.
 Two objects of the same type, with the same property value, that look identical, will not be equal one to another if they don’t have the same reference (if they point to different places in memory).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var originalObject = {name:'Michel'};</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var copy = originalObject;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; copy === originalObject</li>
-<li style="margin-bottom: 0px;">true</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var anotherObject = {name:'Michel'};</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; copy === anotherObject</li>
-<li style="margin-bottom: 0px;">false</li>
+<li value="1">&gt; var originalObject = {name:'Michel'};</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; var copy = originalObject;</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; copy === originalObject</li>
+<li>true</li>
+<li>&nbsp;</li>
+<li>&gt; var anotherObject = {name:'Michel'};</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; copy === anotherObject</li>
+<li>false</li>
 </ol></div>
 
 
@@ -261,18 +261,18 @@ This environment defines a “global object”.
 Let's see some examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = 1;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; window.a;</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; window['a'];</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&gt;&nbsp;<strong>let z = 1;</strong> // LET DOES NOT DEFINE properties of the window object</li>
+<li value="1">&gt; var a = 1;</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>1</li>
+<li>&nbsp;</li>
+<li>&gt; window.a;</li>
+<li>1</li>
+<li>&nbsp;</li>
+<li>&gt; window['a'];</li>
+<li>1</li>
+<li>&gt;&nbsp;<strong>let z = 1;</strong> // LET DOES NOT DEFINE properties of the window object</li>
 <li><span color="#006666" style="color: #006666;">undefined</li>
 <li><span color="#006666" style="color: #006666;">&gt; <strong>window.z</strong></li>
 <li><strong><span color="#006666" style="color: #006666;">undefined</strong></li>
@@ -283,30 +283,30 @@ Let's see some examples:
 `navigator` and `window.navigator` are the same, `document` and `window.document` are the same thing.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; document === window.document</li>
-<li style="margin-bottom: 0px;">true</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; navigator === window.navigator</li>
-<li style="margin-bottom: 0px;">true</li>
+<li value="1">&gt; document === window.document</li>
+<li>true</li>
+<li>&nbsp;</li>
+<li>&gt; navigator === window.navigator</li>
+<li>true</li>
 </ol></div>
 
 Predefined functions are methods from the global object window:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; parseInt('10 little children');</li>
-<li style="margin-bottom: 0px;">10</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; window.parseInt('10 little children');</li>
-<li style="margin-bottom: 0px;">10</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; alert === window.alert</li>
-<li style="margin-bottom: 0px;">true</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; prompt === window.prompt</li>
-<li style="margin-bottom: 0px;">true</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; window.addEventListener&nbsp;=== addEventListener</li>
-<li style="margin-bottom: 0px;">true</li>
+<li value="1">&gt; parseInt('10 little children');</li>
+<li>10</li>
+<li>&nbsp;</li>
+<li>&gt; window.parseInt('10 little children');</li>
+<li>10</li>
+<li>&nbsp;</li>
+<li>&gt; alert === window.alert</li>
+<li>true</li>
+<li>&nbsp;</li>
+<li>&gt; prompt === window.prompt</li>
+<li>true</li>
+<li>&nbsp;</li>
+<li>&gt; window.addEventListener&nbsp;=== addEventListener</li>
+<li>true</li>
 </ol></div>
 
 
@@ -359,11 +359,11 @@ The father of all objects: `Object`. All objects will inherit the properties and
 These two lines are equivalent:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var o = {}; // creation of an empty object</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var o = new Object(); // same thing as in line 1</li>
-<li style="margin-bottom: 0px;">undefined</li>
+<li value="1">&gt; var o = {}; // creation of an empty object</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; var o = new Object(); // same thing as in line 1</li>
+<li>undefined</li>
 </ol></div>
 
 
@@ -372,31 +372,31 @@ These two lines are equivalent:
 __The `toString` method inherited from `Object` by all objects__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; o.toString();</li>
-<li style="margin-bottom: 0px;">"[object Object]"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; o.name = 'Michel';</li>
-<li style="margin-bottom: 0px;">"Michel"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; o.toString();</li>
-<li style="margin-bottom: 0px;">"[object Object]"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var t = [1, 2, 3];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; t.toString();</li>
-<li style="margin-bottom: 0px;">"1,2,3"</li>
+<li value="1">&gt; o.toString();</li>
+<li>"[object Object]"</li>
+<li>&nbsp;</li>
+<li>&gt; o.name = 'Michel';</li>
+<li>"Michel"</li>
+<li>&nbsp;</li>
+<li>&gt; o.toString();</li>
+<li>"[object Object]"</li>
+<li>&nbsp;</li>
+<li>&gt; var t = [1, 2, 3];</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; t.toString();</li>
+<li>"1,2,3"</li>
 </ol></div>
 
 `toString()` in JavaScript is rather similar to the `Object.toString()` method we find in the Java programming language: __when we try to "display" an object, it is transformed into a string by calling `toString()` implicitly.__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; alert(<strong>t</strong>);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; alert(<strong>t.toString</strong><strong>()</strong>); <strong>// same as previous line of code</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; "An object into a string : " <strong>+ t </strong>// same as <strong>t.toString() </strong></li>
-<li style="margin-bottom: 0px;"> "The object as a String : 1, 2, 3"</li>
+<li value="1">&gt; alert(<strong>t</strong>);</li>
+<li>&nbsp;</li>
+<li>&gt; alert(<strong>t.toString</strong><strong>()</strong>); <strong>// same as previous line of code</strong></li>
+<li>&nbsp;</li>
+<li>&gt; "An object into a string : " <strong>+ t </strong>// same as <strong>t.toString() </strong></li>
+<li> "The object as a String : 1, 2, 3"</li>
 </ol></div>
 
 Line 5: using the + operator with a string as the left argument will force the other arguments to convert to string by implicitly calling their toString() method.
@@ -409,14 +409,14 @@ __The `valueOf` method inherited from `Object` by all objects__
 The `ValueOf` method returns the value of an object:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var t = [1, 2, 3];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; t.valueOf()</li>
-<li style="margin-bottom: 0px;">[1, 2, 3]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; t.toString();</li>
-<li style="margin-bottom: 0px;">"1,2,3"</li>
+<li value="1">&gt; var t = [1, 2, 3];</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; t.valueOf()</li>
+<li>[1, 2, 3]</li>
+<li>&nbsp;</li>
+<li>&gt; t.toString();</li>
+<li>"1,2,3"</li>
 </ol></div>
 
 
@@ -468,24 +468,24 @@ __Source code from the above video__
 The `Array` class can be used for creating arrays (however, we recommend that you use the other methods presented instead):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; <strong>var a = new Array();</strong> // <strong>same as a = []; use this instead!</strong></li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; <strong>var b = new Array(1, 2, 3);</strong></li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b;</li>
-<li style="margin-bottom: 0px;">[1, 2, 3]</li>
+<li value="1">&gt; <strong>var a = new Array();</strong> // <strong>same as a = []; use this instead!</strong></li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; <strong>var b = new Array(1, 2, 3);</strong></li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; b;</li>
+<li>[1, 2, 3]</li>
 </ol></div>
 
 Attention: if only one element, this corresponds to the initial size of the array.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var myArray = new Array(3);</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; myArray;</li>
-<li style="margin-bottom: 0px;">[undefined × 3]</li>
+<li value="1">&gt; var myArray = new Array(3);</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; myArray;</li>
+<li>[undefined × 3]</li>
 </ol></div>
 
 
@@ -498,44 +498,44 @@ Arrays are objects, but they are “special” objects
 + They have other built-in properties in addition to the ones inherited from Object (`toString`, `valueOf`)
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = [], o = {};</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.length; // a is an array</li>
-<li style="margin-bottom: 0px;">0</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; o.length; // o is a simple literal object</li>
-<li style="margin-bottom: 0px;">undefined</li>
+<li value="1">&gt; var a = [], o = {};</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; a.length; // a is an array</li>
+<li>0</li>
+<li>&nbsp;</li>
+<li>&gt; o.length; // o is a simple literal object</li>
+<li>undefined</li>
 </ol></div>
 
 Some horrible things we can do with arrays (TO AVOID!):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = [1, 2];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; typeof a</li>
-<li style="margin-bottom: 0px;">"object"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.push(3);</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a</li>
-<li style="margin-bottom: 0px;">[1, 2, 3]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.length</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>// Now let’s add a name property to the array. Yes, we can do that!</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>&gt; a.name = "I'm an array named a!";</strong></li>
-<li style="margin-bottom: 0px;"><strong>"I'm an array named a!"</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp;</strong></li>
-<li style="margin-bottom: 0px;"><strong>&gt; a.length;</strong></li>
-<li style="margin-bottom: 0px;"><strong>3</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp;</strong></li>
-<li style="margin-bottom: 0px;"><strong>&gt; a;</strong></li>
-<li style="margin-bottom: 0px;"><strong>[1, 2, 3, name: "I'm an array named a!"]</strong></li>
+<li value="1">&gt; var a = [1, 2];</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; typeof a</li>
+<li>"object"</li>
+<li>&nbsp;</li>
+<li>&gt; a.push(3);</li>
+<li>3</li>
+<li>&nbsp;</li>
+<li>&gt; a</li>
+<li>[1, 2, 3]</li>
+<li>&nbsp;</li>
+<li>&gt; a.length</li>
+<li>3</li>
+<li>&nbsp;</li>
+<li><strong>// Now let’s add a name property to the array. Yes, we can do that!</strong></li>
+<li>&nbsp;</li>
+<li><strong>&gt; a.name = "I'm an array named a!";</strong></li>
+<li><strong>"I'm an array named a!"</strong></li>
+<li><strong>&nbsp;</strong></li>
+<li><strong>&gt; a.length;</strong></li>
+<li><strong>3</strong></li>
+<li><strong>&nbsp;</strong></li>
+<li><strong>&gt; a;</strong></li>
+<li><strong>[1, 2, 3, name: "I'm an array named a!"]</strong></li>
 </ol></div>
 
 <p style="border: 1px solid; padding: 20px; text-align: center;"><span style="color: #ff0000;"><strong>With arrays, only properties with a numerical index are taken into account by the <span style="font-family: 'courier new', courier;">length property!</strong></p>
@@ -547,27 +547,27 @@ __The `length` property can be modified: reducing or increasing the size of an a
 If you give to the `length` property a value bigger than the number of elements in an array, it adds undefined elements to it:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = [1, 2];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.length = 5;</li>
-<li style="margin-bottom: 0px;">5</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">[1, 2, undefined × 3]</li>
+<li value="1">&gt; var a = [1, 2];</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; a.length = 5;</li>
+<li>5</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>[1, 2, undefined × 3]</li>
 </ol></div>
 
 If you give to the length property a value less than the array’s number of elements, it reduces the size of the array:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = [1, 2, 3];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.length = 2;</li>
-<li style="margin-bottom: 0px;">2</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">[1, 2]</li>
+<li value="1">&gt; var a = [1, 2, 3];</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; a.length = 2;</li>
+<li>2</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>[1, 2]</li>
 </ol></div>
 
 
@@ -635,36 +635,36 @@ The most useful methods you can use on arrays are: `sort()`, `join()`, `slice()`
 #### Typical uses of `push`, `pop`, `sort`, `join`
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = [3, 5, 1, 7, 'test'];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.push('new') // appends at the end and returns the new length</li>
-<li style="margin-bottom: 0px;">6</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">[3, 5, 1, 7, "test", "new"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.pop(); // removes the last element and returns it</li>
-<li style="margin-bottom: 0px;">"new"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">[3, 5, 1, 7, "test"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var b = a.sort();</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b;</li>
-<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// a is also sorted. The sort method sorts the array + returns it</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.join(' and ');</li>
-<li style="margin-bottom: 0px;">"1 and 3 and 5 and 7 and test"</li>
-<li style="margin-bottom: 0px;"></li>
+<li value="1">&gt; var a = [3, 5, 1, 7, 'test'];</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; a.push('new') // appends at the end and returns the new length</li>
+<li>6</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>[3, 5, 1, 7, "test", "new"]</li>
+<li>&nbsp;</li>
+<li>&gt; a.pop(); // removes the last element and returns it</li>
+<li>"new"</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>[3, 5, 1, 7, "test"]</li>
+<li>&nbsp;</li>
+<li>&gt; var b = a.sort();</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; b;</li>
+<li>[1, 3, 5, 7, "test"]</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>[1, 3, 5, 7, "test"]</li>
+<li>&nbsp;</li>
+<li>// a is also sorted. The sort method sorts the array + returns it</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; a.join(' and ');</li>
+<li>"1 and 3 and 5 and 7 and test"</li>
+<li></li>
 </ol></div>
 
 
@@ -681,22 +681,22 @@ Possible syntaxes:
 + `arr.slice(begin, end) // ELEMENT AT INDEX=end will not be included in the slice!`
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; a;</li>
-<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b = a.slice(1, 3); // elements of indexes = 1 and 2</li>
-<li style="margin-bottom: 0px;">[3, 5]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b = a.slice(0, 1); // element of index = 0</li>
-<li style="margin-bottom: 0px;">[1]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b = a.slice(0, 2); // elements o indexes = 0 and 1</li>
-<li style="margin-bottom: 0px;">[1, 3]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// a is unchanged by calls to a.slice(...)</li>
+<li value="1">&gt; a;</li>
+<li>[1, 3, 5, 7, "test"]</li>
+<li>&nbsp;</li>
+<li>&gt; b = a.slice(1, 3); // elements of indexes = 1 and 2</li>
+<li>[3, 5]</li>
+<li>&nbsp;</li>
+<li>&gt; b = a.slice(0, 1); // element of index = 0</li>
+<li>[1]</li>
+<li>&nbsp;</li>
+<li>&gt; b = a.slice(0, 2); // elements o indexes = 0 and 1</li>
+<li>[1, 3]</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>[1, 3, 5, 7, "test"]</li>
+<li>&nbsp;</li>
+<li>// a is unchanged by calls to a.slice(...)</li>
 </ol></div>
 
 
@@ -722,20 +722,20 @@ Parameters:
 Examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; a;</li>
-<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b = a.splice(1, 2, 100, 101, 102);</li>
-<li style="margin-bottom: 0px;">[3, 5]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">[1, 100, 101, 102, 7, "test"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a.splice(1, 3);</li>
-<li style="margin-bottom: 0px;">[100, 101, 102]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">[1, 7, "test"]</li>
+<li value="1">&gt; a;</li>
+<li>[1, 3, 5, 7, "test"]</li>
+<li>&nbsp;</li>
+<li>&gt; b = a.splice(1, 2, 100, 101, 102);</li>
+<li>[3, 5]</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>[1, 100, 101, 102, 7, "test"]</li>
+<li>&nbsp;</li>
+<li>&gt; a.splice(1, 3);</li>
+<li>[100, 101, 102]</li>
+<li>&nbsp;</li>
+<li>&gt; a;</li>
+<li>[1, 7, "test"]</li>
 </ol></div>
 
 
@@ -831,36 +831,36 @@ Examples:
 The `Number` class can be used to transform strings into numbers, but it is recommended that you use `parseInt` or `parseFloat` instead.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var n = Number('3.1416');</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n;</li>
-<li style="margin-bottom: 0px;">3.1416</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; typeof n;</li>
-<li style="margin-bottom: 0px;">"number"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var n = parseInt('3.1416'); // convert a string to an integer number</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n;</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var n = parseFloat('3.1416'); // convert a string to a float number</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n;</li>
-<li style="margin-bottom: 0px;">3.1416</li>
+<li value="1">&gt; var n = Number('3.1416');</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; n;</li>
+<li>3.1416</li>
+<li>&nbsp;</li>
+<li>&gt; typeof n;</li>
+<li>"number"</li>
+<li>&nbsp;</li>
+<li>&gt; var n = parseInt('3.1416'); // convert a string to an integer number</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; n;</li>
+<li>3</li>
+<li>&nbsp;</li>
+<li>&gt; var n = parseFloat('3.1416'); // convert a string to a float number</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; n;</li>
+<li>3.1416</li>
 </ol></div>
 
 `Number` has useful non-modifiable properties (constants): `MAX_VALUE` and `MIN_VALUE`:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; Number.MAX_VALUE;</li>
-<li style="margin-bottom: 0px;">1.7976931348623157e+308</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; Number.MIN_VALUE;</li>
-<li style="margin-bottom: 0px;">5e-324</li>
+<li value="1">&gt; Number.MAX_VALUE;</li>
+<li>1.7976931348623157e+308</li>
+<li>&nbsp;</li>
+<li>&gt; Number.MIN_VALUE;</li>
+<li>5e-324</li>
 </ol></div>
 
 
@@ -871,39 +871,39 @@ The `Number` class can be used to transform strings into numbers, but it is reco
 + `toString`: converts a number to its string representation. `let n = 10; n.toString()` converts by default to base 10 and will return "10", but you can also pass the base you want to convert to as a unique parameter, `n.toString(2)` will convert the number 10 to base 2 and display "1010";
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var n = 123.456;</li>
-<li style="margin-bottom: 0px;">123.456</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n.toFixed(1); // sets the number of digits for the decimal part of the number</li>
-<li style="margin-bottom: 0px;">"123.5"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n = new Number(123.456); // same as n = 123.456</li>
-<li style="margin-bottom: 0px;">Number {[[PrimitiveValue]]: 123.456} // well, not exactly, but when you use n, it is equivalent</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n.toFixed(1);</li>
-<li style="margin-bottom: 0px;">"123.5"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n.toExponential();</li>
-<li style="margin-bottom: 0px;">"1.23456e+2"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var n = 255;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n.toString();</li>
-<li style="margin-bottom: 0px;">"255"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n.toString(10);</li>
-<li style="margin-bottom: 0px;">"255"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; n.toString(16);</li>
-<li style="margin-bottom: 0px;">"ff"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; (3).toString(2);</li>
-<li style="margin-bottom: 0px;">"11"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; (3).toString(10);</li>
-<li style="margin-bottom: 0px;">"3"</li>
+<li value="1">&gt; var n = 123.456;</li>
+<li>123.456</li>
+<li>&nbsp;</li>
+<li>&gt; n.toFixed(1); // sets the number of digits for the decimal part of the number</li>
+<li>"123.5"</li>
+<li>&nbsp;</li>
+<li>&gt; n = new Number(123.456); // same as n = 123.456</li>
+<li>Number {[[PrimitiveValue]]: 123.456} // well, not exactly, but when you use n, it is equivalent</li>
+<li>&nbsp;</li>
+<li>&gt; n.toFixed(1);</li>
+<li>"123.5"</li>
+<li>&nbsp;</li>
+<li>&gt; n.toExponential();</li>
+<li>"1.23456e+2"</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>&gt; var n = 255;</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; n.toString();</li>
+<li>"255"</li>
+<li>&nbsp;</li>
+<li>&gt; n.toString(10);</li>
+<li>"255"</li>
+<li>&nbsp;</li>
+<li>&gt; n.toString(16);</li>
+<li>"ff"</li>
+<li>&nbsp;</li>
+<li>&gt; (3).toString(2);</li>
+<li>"11"</li>
+<li>&nbsp;</li>
+<li>&gt; (3).toString(10);</li>
+<li>"3"</li>
 </ol></div>
 
 
@@ -998,42 +998,42 @@ __Source code from the video example__
 The `String` class can be used to build new strings, but it’s preferable to use the standard syntax:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt;<strong> var name = 'Michel'; // use this rather than&nbsp;using new String(...)</strong></li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; typeof name;</li>
-<li style="margin-bottom: 0px;">"string"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var name = new String('Michel');</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; typeof name;</li>
-<li style="margin-bottom: 0px;">"string"</li>
+<li value="1">&gt;<strong> var name = 'Michel'; // use this rather than&nbsp;using new String(...)</strong></li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; typeof name;</li>
+<li>"string"</li>
+<li>&nbsp;</li>
+<li>&gt; var name = new String('Michel');</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; typeof name;</li>
+<li>"string"</li>
 </ol></div>
 
 Some reminders about strings:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var name = 'Michel';</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; name.length;</li>
-<li style="margin-bottom: 0px;">6</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; name[0];</li>
-<li style="margin-bottom: 0px;">"M"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; name[0] = 'Z';</li>
-<li style="margin-bottom: 0px;">"Z"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; name; <strong>// we cannot modify a string using s[index] = value;</strong></li>
-<li style="margin-bottom: 0px;">"Michel"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; 'Michel'.length;</li>
-<li style="margin-bottom: 0px;">6</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; 'Michel'[0];</li>
-<li style="margin-bottom: 0px;">"M"</li>
+<li value="1">&gt; var name = 'Michel';</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; name.length;</li>
+<li>6</li>
+<li>&nbsp;</li>
+<li>&gt; name[0];</li>
+<li>"M"</li>
+<li>&nbsp;</li>
+<li>&gt; name[0] = 'Z';</li>
+<li>"Z"</li>
+<li>&nbsp;</li>
+<li>&gt; name; <strong>// we cannot modify a string using s[index] = value;</strong></li>
+<li>"Michel"</li>
+<li>&nbsp;</li>
+<li>&gt; 'Michel'.length;</li>
+<li>6</li>
+<li>&nbsp;</li>
+<li>&gt; 'Michel'[0];</li>
+<li>"M"</li>
 </ol></div>
 
 Explanations: 
@@ -1054,34 +1054,34 @@ These methods are all inherited from the String class:
 + `charAt`: returns the char at the index passed as parameter. Returns an empty string if the index is out of bounds (less than 0 or greater than the length of the string).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var s = "I'm the Walrus";</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var s1 = s.toUpperCase();</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s1;</li>
-<li style="margin-bottom: 0px;">"I'M THE WALRUS"</li>
-<li style="margin-bottom: 0px;">&gt; var s2 = s1.toLowerCase();</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s2;</li>
-<li style="margin-bottom: 0px;">"i'm the walrus"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s; // s is unchanged</li>
-<li style="margin-bottom: 0px;">"I'm the Walrus"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.indexOf('w'); // no ‘w’ in s</li>
-<li style="margin-bottom: 0px;">-1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s2.indexOf('w');</li>
-<li style="margin-bottom: 0px;">8</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s2[8]; // char at index 8</li>
-<li style="margin-bottom: 0px;">"w"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">s2.charAt(8); // same as s2[8]</li>
-<li style="margin-bottom: 0px;">"w"</li>
+<li value="1">&gt; var s = "I'm the Walrus";</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; var s1 = s.toUpperCase();</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; s1;</li>
+<li>"I'M THE WALRUS"</li>
+<li>&gt; var s2 = s1.toLowerCase();</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; s2;</li>
+<li>"i'm the walrus"</li>
+<li>&nbsp;</li>
+<li>&gt; s; // s is unchanged</li>
+<li>"I'm the Walrus"</li>
+<li>&nbsp;</li>
+<li>&gt; s.indexOf('w'); // no ‘w’ in s</li>
+<li>-1</li>
+<li>&nbsp;</li>
+<li>&gt; s2.indexOf('w');</li>
+<li>8</li>
+<li>&nbsp;</li>
+<li>&gt; s2[8]; // char at index 8</li>
+<li>"w"</li>
+<li>&nbsp;</li>
+<li>s2.charAt(8); // same as s2[8]</li>
+<li>"w"</li>
 </ol></div>
 
 
@@ -1091,23 +1091,23 @@ These methods are all inherited from the String class:
 + `indexOf` can also be used with two parameters, the second one being the starting index when looking for the string value passed as parameter
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; s = 'wow wow wow!';</li>
-<li style="margin-bottom: 0px;">"wow wow wow!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.lastIndexOf('w');</li>
-<li style="margin-bottom: 0px;">10</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.indexOf('w', 1); // start looking at s at index=1, s[0] is ignored</li>
-<li style="margin-bottom: 0px;">2</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var s1 = s.toUpperCase();</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s1;</li>
-<li style="margin-bottom: 0px;">"WOW WOW WOW!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s1.toLowerCase().lastIndexOf('w'); // we can chain method calls using ‘.’</li>
-<li style="margin-bottom: 0px;">10</li>
+<li value="1">&gt; s = 'wow wow wow!';</li>
+<li>"wow wow wow!"</li>
+<li>&nbsp;</li>
+<li>&gt; s.lastIndexOf('w');</li>
+<li>10</li>
+<li>&nbsp;</li>
+<li>&gt; s.indexOf('w', 1); // start looking at s at index=1, s[0] is ignored</li>
+<li>2</li>
+<li>&nbsp;</li>
+<li>&gt; var s1 = s.toUpperCase();</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; s1;</li>
+<li>"WOW WOW WOW!"</li>
+<li>&nbsp;</li>
+<li>&gt; s1.toLowerCase().lastIndexOf('w'); // we can chain method calls using ‘.’</li>
+<li>10</li>
 </ol></div>
 
 
@@ -1161,30 +1161,30 @@ These two methods are very similar.
 Examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s;</li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.slice(11, 16);</li>
-<li style="margin-bottom: 0px;">"Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s; <strong>// s is unchanged</strong></li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
+<li value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; s;</li>
+<li>"My name is Bond! James Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt; s.slice(11, 16);</li>
+<li>"Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt; s; <strong>// s is unchanged</strong></li>
+<li>"My name is Bond! James Bond!"</li>
+<li>&nbsp;</li>
 <li>s.substring(11,&nbsp;16);</li>
 <li>"Bond!"</li>
 <li>&nbsp;</li>
 <li>&gt;&nbsp;s;&nbsp;<strong>// s is still unchanged</strong></li>
 <li>"My name is Bond! James Bond!"</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&gt; s = s.substring(11, 16);</li>
-<li style="margin-bottom: 0px;">"Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s; <strong>// this time s has changed, because we did s = s.substring(...), the same&nbsp;</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp;// could have been done with s = s .slice(...)</strong></li>
-<li style="margin-bottom: 0px;">"Bond!"</li>
+<li></li>
+<li>&gt; s = s.substring(11, 16);</li>
+<li>"Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt; s; <strong>// this time s has changed, because we did s = s.substring(...), the same&nbsp;</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;// could have been done with s = s .slice(...)</strong></li>
+<li>"Bond!"</li>
 </ol></div>
 
 
@@ -1197,17 +1197,17 @@ If you are a beginner, we recommend that you use `substring` for most common cas
 Beginners: do not read what follows about slice and substring! There will be no related graded questions at the end of this chapter!
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.slice(11, -1); // start from index = 11 to length-1, extract the end of the string from 11th element</li>
-<li style="margin-bottom: 0px;">"Bond! James Bond"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.substring(11, -1); // the reverse, extract from 0 until 11-1, get the first 10 chars</li>
-<li style="margin-bottom: 0px;">"My name is "</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.substring(1, -1); // extract from 0 to 1-1 = 0, get the first char</li>
-<li style="margin-bottom: 0px;">"M"</li>
+<li value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; s.slice(11, -1); // start from index = 11 to length-1, extract the end of the string from 11th element</li>
+<li>"Bond! James Bond"</li>
+<li>&nbsp;</li>
+<li>&gt; s.substring(11, -1); // the reverse, extract from 0 until 11-1, get the first 10 chars</li>
+<li>"My name is "</li>
+<li>&nbsp;</li>
+<li>&gt; s.substring(1, -1); // extract from 0 to 1-1 = 0, get the first char</li>
+<li>"M"</li>
 </ol></div>
 
 Actually, here is a summary of the common behaviors and the differences between slice and substring.
@@ -1239,44 +1239,44 @@ Distinctions of `slice()`:
 The `split` method returns an array of strings, the parameter is a separator. The `join` method builds a string from an array of strings.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.split(" ");</li>
-<li style="margin-bottom: 0px;">["My", "name", "is", "Bond!", "James", "Bond!"]</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s;</li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.split(' ').join('-#-');</li>
-<li style="margin-bottom: 0px;">"My-#-name-#-is-#-Bond!-#-James-#-Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.split(' ').join('.......');</li>
-<li style="margin-bottom: 0px;">"My.......name.......is.......Bond!.......James.......Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.split('Bond!').join('.......');</li>
-<li style="margin-bottom: 0px;">"My name is ....... James ......."</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.split('Bond!').join(' ');</li>
-<li style="margin-bottom: 0px;">"My name is James "</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s; // s is unchanged </li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s.concat("And I've made a lot of movies!");</li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond! And I've made a lot of movies!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s; // s is also unchanged by concat</li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s = s + "and I've made a lot of movies!"; // this changes s</li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond! And I've made a lot of movies!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s += " Action films!" // this too, most common syntax for concatenating strings</li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s; // s changed too</li>
-<li style="margin-bottom: 0px;">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</li>
+<li value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; s.split(" ");</li>
+<li>["My", "name", "is", "Bond!", "James", "Bond!"]</li>
+<li>&nbsp;</li>
+<li>&gt; s;</li>
+<li>"My name is Bond! James Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt; s.split(' ').join('-#-');</li>
+<li>"My-#-name-#-is-#-Bond!-#-James-#-Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt; s.split(' ').join('.......');</li>
+<li>"My.......name.......is.......Bond!.......James.......Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt; s.split('Bond!').join('.......');</li>
+<li>"My name is ....... James ......."</li>
+<li>&nbsp;</li>
+<li>&gt; s.split('Bond!').join(' ');</li>
+<li>"My name is James "</li>
+<li>&nbsp;</li>
+<li>&gt; s; // s is unchanged </li>
+<li>"My name is Bond! James Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt; s.concat("And I've made a lot of movies!");</li>
+<li>"My name is Bond! James Bond! And I've made a lot of movies!"</li>
+<li>&nbsp;</li>
+<li>&gt; s; // s is also unchanged by concat</li>
+<li>"My name is Bond! James Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt; s = s + "and I've made a lot of movies!"; // this changes s</li>
+<li>"My name is Bond! James Bond! And I've made a lot of movies!"</li>
+<li>&nbsp;</li>
+<li>&gt; s += " Action films!" // this too, most common syntax for concatenating strings</li>
+<li>"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</li>
+<li>&nbsp;</li>
+<li>&gt; s; // s changed too</li>
+<li>"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</li>
 </ol></div>
 
 
@@ -1349,10 +1349,10 @@ The `split` method returns an array of strings, the parameter is a separator. Th
 It’s not possible to do `var m = new Math();`
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var m = new Math();</li>
-<li style="margin-bottom: 0px;">VM5777:1 <strong>Uncaught TypeError: Math is not a constructor</strong></li>
-<li style="margin-bottom: 0px;"> at &lt;anonymous&gt;:1:9</li>
-<li style="margin-bottom: 0px;">(anonymous) @ VM5777:1</li>
+<li value="1">&gt; var m = new Math();</li>
+<li>VM5777:1 <strong>Uncaught TypeError: Math is not a constructor</strong></li>
+<li> at &lt;anonymous&gt;:1:9</li>
+<li>(anonymous) @ VM5777:1</li>
 </ol></div>
 
 But the `Math` class has a lot of properties and methods that are useful for arithmetic expressions. __They are all class methods and properties, so you will need to use the name of the class followed by the dot operator to access them.__
@@ -1360,20 +1360,20 @@ But the `Math` class has a lot of properties and methods that are useful for ari
 Here are some examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; <strong>Math.PI;</strong></li>
-<li style="margin-bottom: 0px;">3.141592653589793</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; <strong>Math.SQRT2;</strong></li>
-<li style="margin-bottom: 0px;">1.4142135623730951</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; <strong>Math.E; // Euler constant</strong></li>
-<li style="margin-bottom: 0px;">2.718281828459045</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; <strong>Math.LN2; // Neperian log of 2</strong></li>
-<li style="margin-bottom: 0px;">0.6931471805599453</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; <strong>Math.LN10; // Neperian log of 10</strong></li>
-<li style="margin-bottom: 0px;">2.302585092994046</li>
+<li value="1">&gt; <strong>Math.PI;</strong></li>
+<li>3.141592653589793</li>
+<li>&nbsp;</li>
+<li>&gt; <strong>Math.SQRT2;</strong></li>
+<li>1.4142135623730951</li>
+<li>&nbsp;</li>
+<li>&gt; <strong>Math.E; // Euler constant</strong></li>
+<li>2.718281828459045</li>
+<li>&nbsp;</li>
+<li>&gt; <strong>Math.LN2; // Neperian log of 2</strong></li>
+<li>0.6931471805599453</li>
+<li>&nbsp;</li>
+<li>&gt; <strong>Math.LN10; // Neperian log of 10</strong></li>
+<li>2.302585092994046</li>
 </ol></div>
 
 
@@ -1384,11 +1384,11 @@ Here are some examples:
 Examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; <strong>Math.random();</strong></li>
-<li style="margin-bottom: 0px;">0.6033316111663034</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; <strong>100 * Math.random(); // between 0 and 100</strong></li>
-<li style="margin-bottom: 0px;">11.780563288516422</li>
+<li value="1">&gt; <strong>Math.random();</strong></li>
+<li>0.6033316111663034</li>
+<li>&nbsp;</li>
+<li>&gt; <strong>100 * Math.random(); // between 0 and 100</strong></li>
+<li>11.780563288516422</li>
 </ol></div>
 
 __To get a number between a min and a max value, use this formula: `val = ((max - min) * Math.random()) + min`__
@@ -1396,12 +1396,12 @@ __To get a number between a min and a max value, use this formula: `val = ((max 
 And here is an utility function:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function getRandomValue(min, max) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; return ((max - min) * Math.random()) + min;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; getRandomValue(5, 10);</li>
-<li style="margin-bottom: 0px;">5.064160540161435</li>
+<li value="1">function getRandomValue(min, max) {</li>
+<li>&nbsp; &nbsp; return ((max - min) * Math.random()) + min;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>&gt; getRandomValue(5, 10);</li>
+<li>5.064160540161435</li>
 </ol></div>
 
 
@@ -1414,62 +1414,62 @@ For example `Math.round(Math.random());` will return 0 or 1.
 Indeed, if `Math.random()` returns a value above 0.5, `Math.round` of this value will return 1, if the value is below 0.5, `Math.round` will return 0:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; Math.round(Math.random());</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; Math.round(Math.random());</li>
-<li style="margin-bottom: 0px;">0</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; Math.round(Math.random());</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; Math.round(Math.random());</li>
-<li style="margin-bottom: 0px;">1</li>
+<li value="1">&gt; Math.round(Math.random());</li>
+<li>1</li>
+<li>&nbsp;</li>
+<li>&gt; Math.round(Math.random());</li>
+<li>0</li>
+<li>&nbsp;</li>
+<li>&gt; Math.round(Math.random());</li>
+<li>1</li>
+<li>&nbsp;</li>
+<li>&gt; Math.round(Math.random());</li>
+<li>1</li>
 </ol></div>
 
 
 #### Get the min and the max of two values with `Math.min(a, b)` and `Math.max(a, b)`
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; Math.min(12, 4);</li>
-<li style="margin-bottom: 0px;">4</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; Math.max(12, 4);</li>
-<li style="margin-bottom: 0px;">12</li>
+<li value="1">&gt; Math.min(12, 4);</li>
+<li>4</li>
+<li>&nbsp;</li>
+<li>&gt; Math.max(12, 4);</li>
+<li>12</li>
 </ol></div>
 
 A useful function that restricts a value between  min and  max bounds:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong>function restrictValue(value, min, max) {</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; return Math.min(Math.max(1, value), max);</strong></li>
-<li style="margin-bottom: 0px;"><strong>}</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; restrictValue(40, 1, 20);</li>
-<li style="margin-bottom: 0px;">20</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; restrictValue(-10, 1, 20);</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; restrictValue(10, 1, 20);</li>
-<li style="margin-bottom: 0px;">10</li>
+<li value="1"><strong>function restrictValue(value, min, max) {</strong></li>
+<li><strong>&nbsp; &nbsp; return Math.min(Math.max(1, value), max);</strong></li>
+<li><strong>}</strong></li>
+<li>&nbsp;</li>
+<li>&gt; restrictValue(40, 1, 20);</li>
+<li>20</li>
+<li>&nbsp;</li>
+<li>&gt; restrictValue(-10, 1, 20);</li>
+<li>1</li>
+<li>&nbsp;</li>
+<li>&gt; restrictValue(10, 1, 20);</li>
+<li>10</li>
 </ol></div>
 
 
 #### Math functions for arithmetical computations sin(), cos(), tan(), atan(), atan2(), pow(), sqrt()
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; Math.pow(2, 8); // 2^8</li>
-<li style="margin-bottom: 0px;">256</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; Math.sqrt(9);</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; Math.sin(Math.PI/2);</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; Math.cos(Math.PI/2);</li>
-<li style="margin-bottom: 0px;">6.123233995736766e-17</li>
+<li value="1">&gt; Math.pow(2, 8); // 2^8</li>
+<li>256</li>
+<li>&nbsp;</li>
+<li>&gt; Math.sqrt(9);</li>
+<li>3</li>
+<li>&nbsp;</li>
+<li>&gt; Math.sin(Math.PI/2);</li>
+<li>1</li>
+<li>&nbsp;</li>
+<li>&gt; Math.cos(Math.PI/2);</li>
+<li>6.123233995736766e-17</li>
 </ol></div>
 
 __`Math.atan2(dy, dx)` is useful for getting an angle between a point in a canvas and the mouse cursor__
@@ -1536,11 +1536,11 @@ __Without any argument, a call to `new Date()` returns the current date.__
 Note: The return value is actually a Date object, which is displayed by calling `toString()` on this object.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var date = new Date();</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; date;</li>
-<li style="margin-bottom: 0px;">Wed Apr 12 2017 11:10:28 GMT+0200 (CEST)</li>
+<li value="1">&gt; var date = new Date();</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; date;</li>
+<li>Wed Apr 12 2017 11:10:28 GMT+0200 (CEST)</li>
 <li></li>
 <li>&gt;&nbsp;date.toString(); // same thing!</li>
 <li>Wed&nbsp;Apr&nbsp;12&nbsp;2017&nbsp;11:10:28&nbsp;GMT+0200&nbsp;(CEST)</li>
@@ -1558,14 +1558,14 @@ __We can also pass it an argument that can be:__
 Examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; new Date('2017 04 28');</li>
-<li style="margin-bottom: 0px;">Fri Apr 28 2017 00:00:00 GMT+0200 (CEST)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; new Date('2017 1 2');</li>
-<li style="margin-bottom: 0px;">Mon Jan 02 2017 00:00:00 GMT+0100 (CET)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; new Date('2017 1 2 8:30');</li>
-<li style="margin-bottom: 0px;">Mon Jan 02 2017 08:30:00 GMT+0100 (CET)</li>
+<li value="1">&gt; new Date('2017 04 28');</li>
+<li>Fri Apr 28 2017 00:00:00 GMT+0200 (CEST)</li>
+<li>&nbsp;</li>
+<li>&gt; new Date('2017 1 2');</li>
+<li>Mon Jan 02 2017 00:00:00 GMT+0100 (CET)</li>
+<li>&nbsp;</li>
+<li>&gt; new Date('2017 1 2 8:30');</li>
+<li>Mon Jan 02 2017 08:30:00 GMT+0100 (CET)</li>
 </ol></div>
 
 Numerical parameters can also be passed in this order: year, month (0-11), day (1-31), time (0-23), minutes (0-59), seconds , milliseconds (0-999). We do not have to pass everything but it should always be in this order.
@@ -1573,80 +1573,80 @@ Numerical parameters can also be passed in this order: year, month (0-11), day (
 Examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; new Date(2017, 3, 16, 14, 43, 10, 120);</li>
-<li style="margin-bottom: 0px;">Sun Apr 16 2017 14:43:10 GMT+0200 (CEST)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; new Date(2017, 0, 10, 14);</li>
-<li style="margin-bottom: 0px;">Tue Jan 10 2017 14:00:00 GMT+0100 (CET)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; new Date(2017, 1, 28) // 1 is February! Month indexes start at 0!</li>
-<li style="margin-bottom: 0px;">Tue Feb 28 2017 00:00:00 GMT+0100 (CET)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; new Date(2008, 1, 29);</li>
-<li style="margin-bottom: 0px;">Fri Feb 29 2008 00:00:00 GMT+0100 (CET)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; new Date(2017, 1, 29); // No February 29th in 2017! Gives 1st of March</li>
-<li style="margin-bottom: 0px;">Wed Mar 01 2017 00:00:00 GMT+0100 (CET)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; new Date(2017, 11, 31); // Happy new year!</li>
-<li style="margin-bottom: 0px;">Sun Dec 31 2017 00:00:00 GMT+0100 (CET)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; new Date(2017, 11, 32) // 32 Dec -&gt; 1st of January!</li>
-<li style="margin-bottom: 0px;">Mon Jan 01 2018 00:00:00 GMT+0100 (CET)</li>
+<li value="1">&gt; new Date(2017, 3, 16, 14, 43, 10, 120);</li>
+<li>Sun Apr 16 2017 14:43:10 GMT+0200 (CEST)</li>
+<li>&nbsp;</li>
+<li>&gt; new Date(2017, 0, 10, 14);</li>
+<li>Tue Jan 10 2017 14:00:00 GMT+0100 (CET)</li>
+<li>&nbsp;</li>
+<li>&gt; new Date(2017, 1, 28) // 1 is February! Month indexes start at 0!</li>
+<li>Tue Feb 28 2017 00:00:00 GMT+0100 (CET)</li>
+<li>&nbsp;</li>
+<li>&gt; new Date(2008, 1, 29);</li>
+<li>Fri Feb 29 2008 00:00:00 GMT+0100 (CET)</li>
+<li>&nbsp;</li>
+<li>&gt; new Date(2017, 1, 29); // No February 29th in 2017! Gives 1st of March</li>
+<li>Wed Mar 01 2017 00:00:00 GMT+0100 (CET)</li>
+<li>&nbsp;</li>
+<li>&gt; new Date(2017, 11, 31); // Happy new year!</li>
+<li>Sun Dec 31 2017 00:00:00 GMT+0100 (CET)</li>
+<li>&nbsp;</li>
+<li>&gt; new Date(2017, 11, 32) // 32 Dec -&gt; 1st of January!</li>
+<li>Mon Jan 01 2018 00:00:00 GMT+0100 (CET)</li>
 </ol></div>
 
 Calling `Date()` without "new" returns the current date as a string. It does not matter if we pass parameters:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; Date();</li>
-<li style="margin-bottom: 0px;">"Sun Apr 16 2017 14:51:47 GMT+0200 (CEST)"</li>
+<li value="1">&gt; Date();</li>
+<li>"Sun Apr 16 2017 14:51:47 GMT+0200 (CEST)"</li>
 </ol></div>
 
 #### Useful methods
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var d = new Date();</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; d.toString();</li>
-<li style="margin-bottom: 0px;">"Sun Apr 16 2017 14:52:52 GMT+0200 (CEST)"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; d.setMonth(2); // Change for month with index=2</li>
-<li style="margin-bottom: 0px;">1489672372092</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; d.toString();</li>
-<li style="margin-bottom: 0px;">"Thu Mar 16 2017 14:52:52 GMT+0100 (CET)"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; d.getMonth(); // get current month index</li>
-<li style="margin-bottom: 0px;">2</li>
+<li value="1">&gt; var d = new Date();</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; d.toString();</li>
+<li>"Sun Apr 16 2017 14:52:52 GMT+0200 (CEST)"</li>
+<li>&nbsp;</li>
+<li>&gt; d.setMonth(2); // Change for month with index=2</li>
+<li>1489672372092</li>
+<li>&nbsp;</li>
+<li>&gt; d.toString();</li>
+<li>"Thu Mar 16 2017 14:52:52 GMT+0100 (CET)"</li>
+<li>&nbsp;</li>
+<li>&gt; d.getMonth(); // get current month index</li>
+<li>2</li>
 </ol></div>
 
 __Let's play with my birthday!__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var d = new Date(1965, 3, 16); // Michel Buffa's birthday</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; d.getDay(); // Sunday is 0</li>
-<li style="margin-bottom: 0px;">5</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; d; // let's verify</li>
-<li style="margin-bottom: 0px;"><strong>Fri</strong> Apr 16 1965 00:00:00 GMT+0200 (CEST)</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>&gt; // Great, it was a Friday :-)</strong></li>
+<li value="1">&gt; var d = new Date(1965, 3, 16); // Michel Buffa's birthday</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; d.getDay(); // Sunday is 0</li>
+<li>5</li>
+<li>&nbsp;</li>
+<li>&gt; d; // let's verify</li>
+<li><strong>Fri</strong> Apr 16 1965 00:00:00 GMT+0200 (CEST)</li>
+<li>&nbsp;</li>
+<li><strong>&gt; // Great, it was a Friday :-)</strong></li>
 </ol></div>
 
 Let's write a small piece of code that will guess which days of the week Michel Buffa's birthday will occur, between 2017 and 2047:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var dayOfTheWeek = [0,0,0,0,0,0,0];</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">for (var year = 2017; year &lt;= 2047; year++) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; dayOfTheWeek[new Date(year, 4, 16).getDay()]++;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; dayOfTheWeek</li>
-<li style="margin-bottom: 0px;">[4, 4, 5, 5, 5, 4, 4] // 4 times on a Sunday, Monday, Friday and Saturday, <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 5 times on Tuesday, Wednesday and Thursday</li>
+<li value="1">&gt; var dayOfTheWeek = [0,0,0,0,0,0,0];</li>
+<li>&nbsp;</li>
+<li>for (var year = 2017; year &lt;= 2047; year++) {</li>
+<li>&nbsp; &nbsp; dayOfTheWeek[new Date(year, 4, 16).getDay()]++;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>&gt; dayOfTheWeek</li>
+<li>[4, 4, 5, 5, 5, 4, 4] // 4 times on a Sunday, Monday, Friday and Saturday, <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 5 times on Tuesday, Wednesday and Thursday</li>
 </ol></div>
 
 Explanations:
