@@ -16,7 +16,7 @@ For example, imagine Luke Skywalker, Ian Solo and Dark Vador. What do they have 
 
 Imagine the balls from module 2: they all had the same shape (circle), the same x, y, radius and color properties, but they were all different. They all belonged to the same class of object (ball), but they were all different in terms of their properties' values.
 
-<span style="color: brown; font-weight: bold;">In many programming languages, these templates are called "classes".</span>
+<span style="color: brown; font-weight: bold;">In many programming languages, these templates are called "classes".
 
 + Before 2015, in JavaScript 5 (also called ES5), we did not have such a concept, instead we had "constructor functions".
 + In modern JavaScript (after 2015),  we have the concept of classes, and the syntax is rather similar to what we find in other object oriented programming languages.
@@ -101,26 +101,26 @@ Up to 2015, with JavaScript version 5 (and previous versions), you can define a 
 
 JavaScript source code:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;</span><span class="typ" style="color: #AA0066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="pln">name</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;side</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #008888;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln">name&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;name</span><span class="pun" style="color: #666600;">; // code outside of methods is usually for initializing</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #008888;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln">side&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;side</span><span class="pun" style="color: #666600;">; // the properties. Very often, they match the parameters</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #008888;">&nbsp; &nbsp; this</span><span class="pun" style="color: #666600;">.</span><span class="pln">speak&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd" style="color: #008888;">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;p&gt;My name is "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln">name&nbsp;</span><span class="pun" style="color: #666600;">+</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="str" style="color: #008800;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", I'm with the "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln">side&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">".&lt;/p&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun" style="color: #666600;">&nbsp; &nbsp; }</span></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pun" style="color: #666600;">}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;darkVador&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #AA0066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Dark Vador"</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"empire"</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;luke&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #AA0066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Luke Skywalker"</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"rebels"</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;ianSolo&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #AA0066;">Hero</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"Ian Solo"</span><span class="pun" style="color: #666600;">,</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"rebels"</span><span class="pun" style="color: #666600;">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;makeHeroesSpeak</span><span class="pun" style="color: #666600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln">body</span><span class="pun" style="color: #666600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln">&nbsp;darkVador</span><span class="pun" style="color: #666600;">.</span><span class="pln">speak</span><span class="pun" style="color: #666600;">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln">body</span><span class="pun" style="color: #666600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln">&nbsp;luke</span><span class="pun" style="color: #666600;">.</span><span class="pln">speak</span><span class="pun" style="color: #666600;">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun" style="color: #666600;">.</span><span class="pln">body</span><span class="pun" style="color: #666600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln">&nbsp;ianSolo</span><span class="pun" style="color: #666600;">.</span><span class="pln">speak</span><span class="pun" style="color: #666600;">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><strong><span style="color: #008888;">function</span><span>&nbsp;</span><span style="color: #AA0066;">Hero</span><span style="color: #666600;">(</span><span>name</span><span style="color: #666600;">,</span><span>&nbsp;side</span><span style="color: #666600;">)</span><span>&nbsp;</span><span style="color: #666600;">{</span></strong></li>
+<li><span></span><span style="color: #008888;">&nbsp; &nbsp; this</span><span style="color: #666600;">.</span><span>name&nbsp;</span><span style="color: #666600;">=</span><span>&nbsp;name</span><span style="color: #666600;">; // code outside of methods is usually for initializing</span></li>
+<li><span></span><span style="color: #008888;">&nbsp; &nbsp; this</span><span style="color: #666600;">.</span><span>side&nbsp;</span><span style="color: #666600;">=</span><span>&nbsp;side</span><span style="color: #666600;">; // the properties. Very often, they match the parameters</span></li>
+<li><span></span></li>
+<li><span></span><span style="color: #008888;">&nbsp; &nbsp; this</span><span style="color: #666600;">.</span><span>speak&nbsp;</span><span style="color: #666600;">=</span><span>&nbsp;</span><span style="color: #008888;">function</span><span style="color: #666600;">()</span><span>&nbsp;</span><span style="color: #666600;">{</span></li>
+<li><span></span><span style="color: #008888;">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span>&nbsp;</span><span style="color: #008800;">"&lt;p&gt;My name is "</span><span>&nbsp;</span><span style="color: #666600;">+</span><span>&nbsp;</span><span style="color: #008888;">this</span><span style="color: #666600;">.</span><span>name&nbsp;</span><span style="color: #666600;">+</span></li>
+<li><span></span><span style="color: #008800;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", I'm with the "</span><span>&nbsp;</span><span style="color: #666600;">+</span><span>&nbsp;</span><span style="color: #008888;">this</span><span style="color: #666600;">.</span><span>side&nbsp;</span><span style="color: #666600;">+</span><span>&nbsp;</span><span style="color: #008800;">".&lt;/p&gt;"</span><span style="color: #666600;">;</span></li>
+<li><span></span><span style="color: #666600;">&nbsp; &nbsp; }</span></li>
+<li><strong><span style="color: #666600;">}</span></strong></li>
+<li><span>&nbsp;</span></li>
+<li><strong><span style="color: #008888;">var</span><span>&nbsp;darkVador&nbsp;</span><span style="color: #666600;">=</span><span>&nbsp;</span><span style="color: #008888;">new</span><span>&nbsp;</span><span style="color: #AA0066;">Hero</span><span style="color: #666600;">(</span><span style="color: #008800;">"Dark Vador"</span><span style="color: #666600;">,</span><span>&nbsp;</span><span style="color: #008800;">"empire"</span><span style="color: #666600;">);</span></strong></li>
+<li><strong><span style="color: #008888;">var</span><span>&nbsp;luke&nbsp;</span><span style="color: #666600;">=</span><span>&nbsp;</span><span style="color: #008888;">new</span><span>&nbsp;</span><span style="color: #AA0066;">Hero</span><span style="color: #666600;">(</span><span style="color: #008800;">"Luke Skywalker"</span><span style="color: #666600;">,</span><span>&nbsp;</span><span style="color: #008800;">"rebels"</span><span style="color: #666600;">);</span></strong></li>
+<li><strong><span style="color: #008888;">var</span><span>&nbsp;ianSolo&nbsp;</span><span style="color: #666600;">=</span><span>&nbsp;</span><span style="color: #008888;">new</span><span>&nbsp;</span><span style="color: #AA0066;">Hero</span><span style="color: #666600;">(</span><span style="color: #008800;">"Ian Solo"</span><span style="color: #666600;">,</span><span>&nbsp;</span><span style="color: #008800;">"rebels"</span><span style="color: #666600;">);</span></strong></li>
+<li><span>&nbsp;</span></li>
+<li><span style="color: #008888;">function</span><span>&nbsp;makeHeroesSpeak</span><span style="color: #666600;">()</span><span>&nbsp;</span><span style="color: #666600;">{</span></li>
+<li><span>&nbsp; &nbsp; document</span><span style="color: #666600;">.</span><span>body</span><span style="color: #666600;">.</span><span>innerHTML&nbsp;</span><span style="color: #666600;">+=</span><span>&nbsp;darkVador</span><span style="color: #666600;">.</span><span>speak</span><span style="color: #666600;">();</span></li>
+<li><span>&nbsp; &nbsp; document</span><span style="color: #666600;">.</span><span>body</span><span style="color: #666600;">.</span><span>innerHTML&nbsp;</span><span style="color: #666600;">+=</span><span>&nbsp;luke</span><span style="color: #666600;">.</span><span>speak</span><span style="color: #666600;">();</span></li>
+<li><span>&nbsp; &nbsp; document</span><span style="color: #666600;">.</span><span>body</span><span style="color: #666600;">.</span><span>innerHTML&nbsp;</span><span style="color: #666600;">+=</span><span>&nbsp;ianSolo</span><span style="color: #666600;">.</span><span>speak</span><span style="color: #666600;">();</span></li>
+<li><span style="color: #666600;">}</span></li>
 </ol></div>
 
 _Lines 1-9_: see how the constructor function is declared: the function name starts with an uppercase letter 'Hero'. The parameters have the same name as the properties they correspond to (`name`, `side`). And in the first source code lines after the function declaration, we initialize some properties using these parameters (_lines 2 and 3_). We use the `this` keyword to distinguish the property and the parameter. You will often see things like: `this.name = name; this.age = age;` etc.
@@ -199,20 +199,20 @@ Main changes:
 
 Here is the new version of the Hero "template", this time with the ES6 class syntax:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">class</span><span class="pln"> </span><span class="typ">Hero</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>constructor</strong></span><strong><span class="pun">(</span><span class="pln">name</span><span class="pun">,</span><span class="pln"> side</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> name</span><span class="pun">; // property</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">side </span><span class="pun">=</span><span class="pln"> side</span><span class="pun">; // property</span><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong> speak</strong></span><strong><span class="pun">()</span><span class="pln"> </span><span class="pun">{ // method, no more "function"</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="str">"&lt;p&gt;My name is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", I'm with the "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">side </span><span class="pun">+</span><span class="pln"> </span><span class="str">".&lt;/p&gt;"</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">(</span><span class="str">"Dark Vador"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"empire"</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"><strong>class Hero {</strong></li>
+<li>&nbsp; &nbsp; <strong>constructor</strong><strong>(name, side) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.name = name; // property</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.side = side; // property</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong> speak</strong><strong>() { // method, no more "function"</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; return "&lt;p&gt;My name is " + this.name +</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", I'm with the " + this.side + ".&lt;/p&gt;";</li>
+<li>&nbsp; &nbsp; }</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>var darkVador = new Hero("Dark Vador", "empire");</li>
 </ol></div>
 
 + _Line 1_: a class is simply defined using the keyword `class` followed by the name of the class. Like for constructor functions, the convention is to use a noun, capitalized.
@@ -266,18 +266,18 @@ __You first need to declare your class and then access it, otherwise code like t
 
 Incorrect version => you try to create an instance of a class before it has been declared:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pun">();</span><span class="pln"> </span><span class="com">// ReferenceError</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pln"> </span><span class="pun">{...}</span></li>
+<div><ol>
+<li value="1">var p = new Rectangle(); // ReferenceError</li>
+<li>&nbsp;</li>
+<li>class Rectangle {...}</li>
 </ol></div>
 
 Correct version $\implies$
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pln"> </span><span class="pun">{...}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pun">();</span><span class="pln"> </span><span class="com">// WORKS !</span></li>
+<div><ol>
+<li value="1">class Rectangle {...}</li>
+<li>&nbsp;</li>
+<li>var p = new Rectangle(); // WORKS !</li>
 </ol></div>
 
 
@@ -287,37 +287,37 @@ We have already seen three different ways to create objects (literals, construct
 
 Objects can be created as “literals”:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> firstName</span><span class="pun">:'</span><span class="typ">Dark</span><span class="pun">',</span><span class="pln"> lastName</span><span class="pun">:</span><span class="typ">'Vador</span><span class="pun">'};</span></li>
+<div><ol>
+<li value="1">var darkVador = { firstName:'Dark', lastName:'Vador'};</li>
 </ol></div>
 
 Objects can be created with the keyword `new` and a constructor function or an ES6 class:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> darkVador </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Hero</span><span class="pun">(</span><span class="typ">'Dark</span><span class="pln"> </span><span class="typ">Vador</span><span class="pun">',</span><span class="pln">&nbsp;</span><span class="pln">'empire</span><span class="pun">');</span></li>
+<div><ol>
+<li value="1">var darkVador = new Hero('Dark Vador',&nbsp;'empire');</li>
 </ol></div>
 
 Objects can also be created by functions that return objects (factories):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas.getBoundingClientRect</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln">&nbsp;mxx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln">&nbsp;my </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>return</strong></span><strong><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">// the getMousePos function returns an object. It's a factory</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln">&nbsp;mx</span><span class="pun">,</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln">&nbsp;my</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function getMousePos(event, canvas) {</li>
+<li>&nbsp; &nbsp; var rect = canvas.getBoundingClientRect();</li>
+<li>&nbsp; &nbsp; var&nbsp;mxx = event.clientX - rect.left;</li>
+<li>&nbsp; &nbsp; var&nbsp;my = event.clientY - rect.top;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; <strong>return</strong><strong> { // the getMousePos function returns an object. It's a factory</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; x:&nbsp;mx,</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; y:&nbsp;my</strong></li>
+<li><strong>&nbsp; &nbsp; }</strong></li>
+<li>}</li>
 </ol></div>
 
 And here is how you can use this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Mouse position x = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">" y = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">var mousePos = getMousePos(evt, canvas);</li>
+<li>&nbsp;</li>
+<li>console.log("Mouse position x = " + mousePos.x + " y = " + mousePos.y);</li>
 </ol></div>
 
 The call to `getMousePos` returns an object that has an `x` and a `y` property.
@@ -400,34 +400,34 @@ __Example of creation and use of class methods and properties using an ES6 class
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">class<span class="pln"> </span><span class="typ">Point</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;constructor</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; <strong>// static property</strong></span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="typ">&nbsp; &nbsp; &nbsp; Point</span><span class="pun">.</span><span class="pln">nbPointsCreated</span><span class="pun">++;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp;}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp;// static method</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;<strong>static</strong></span><strong><span class="pln"> distance</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; const</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; const</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">dx</span><span class="pun">*</span><span class="pln">dx </span><span class="pun">+</span><span class="pln"> dy</span><span class="pun">*</span><span class="pln">dy</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp;}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">// static property definition is necessarily outside of the class with ES6</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="typ">Point</span><span class="pun">.</span><span class="pln">nbPointsCreated</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com">// We create 3 points</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> p1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Point</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> p2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Point</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> p3 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Point</span><span class="pun">(</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">27</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"&lt;p&gt;Distance between points (5, 5) and (10, 10) is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="typ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>Point</strong></span><strong><span class="pun">.</span><span class="pln">distance</span><span class="pun">(</span><span class="pln">p1</span><span class="pun">,</span><span class="pln"> p2</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/p&gt;"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Number of Points created is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="typ">Point</span><span class="pun">.</span><span class="pln">nbPointsCreated</span></strong><span class="pun">;</span></li>
+<div><ol>
+<li value="1">class Point {</li>
+<li>&nbsp; &nbsp;constructor(x, y) {</li>
+<li>&nbsp; &nbsp; &nbsp; this.x = x;</li>
+<li>&nbsp; &nbsp; &nbsp; this.y = y;</li>
+<li>&nbsp; &nbsp; &nbsp; <strong>// static property</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; Point.nbPointsCreated++;</strong></li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// static method</li>
+<li>&nbsp; &nbsp;<strong>static</strong><strong> distance(a, b) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; const dx = a.x - b.x;</li>
+<li>&nbsp; &nbsp; &nbsp; const dy = a.y - b.y;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; return Math.sqrt(dx*dx + dy*dy);</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}</li>
+<li><strong>// static property definition is necessarily outside of the class with ES6</strong></li>
+<li><strong>Point.nbPointsCreated=0;</strong></li>
+<li>&nbsp;</li>
+<li>// We create 3 points</li>
+<li>const p1 = new Point(5, 5);</li>
+<li>const p2 = new Point(10, 10);</li>
+<li>const p3 = new Point(12, 27);</li>
+<li>&nbsp;</li>
+<li>document.body.innerHTML += "&lt;p&gt;Distance between points (5, 5) and (10, 10) is " + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>Point</strong><strong>.distance(p1, p2)</strong> + "&lt;/p&gt;";</li>
+<li>document.body.innerHTML += "Number of Points created is " + <strong>Point.nbPointsCreated</strong>;</li>
 </ol></div>
 
 Running example:
@@ -478,32 +478,32 @@ These special functions are called "getters" and "setters", and are declared usi
 
 Typical use (_lines 7 and 11_):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Person</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; constructor</span><span class="pun">(</span><span class="pln">givenName</span><span class="pun">,</span><span class="pln"> familyName</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">givenName </span><span class="pun">=</span><span class="pln"> givenName</span><span class="pun">;</span><span class="pln"> </span><span class="com">// "normal name"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>this</strong></span><strong><span class="pun">.</span><span class="pln">_familyName </span><span class="pun">=</span><span class="pln"> familyName</span><span class="pun">;</span><span class="pln"> </span><span class="com">// starts with "_"</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="kwd">&nbsp; &nbsp; get</span><span class="pln"> familyName</span><span class="pun">()</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">_familyName</span></strong><span class="pun">.</span><span class="pln">toUpperCase</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="kwd">&nbsp; &nbsp; set</span><span class="pln"> familyName</span><span class="pun">(</span><span class="pln">newName</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // validation could be checked here such as </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // only allowing non numerical values</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>this</strong></span><strong><span class="pun">.</span><span class="pln">_familyName </span></strong><span class="pun">=</span><span class="pln"> newName</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; walk</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">givenName </span><span class="pun">+</span><span class="pln"> </span><span class="str">' '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">_familyName </span></strong><span class="pun">+</span><span class="pln"> </span><span class="str">' is walking.'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">let p1 = new Person('Michel', 'Buffa');</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">console.log(p1.familyName); // will display BUFFA in the devtool console</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // this will call implicitly get familyName();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">p1.familyName = 'Smith'; &nbsp; &nbsp;// this will call implicitly set familyName('Smith');</span></li>
+<div><ol>
+<li value="1">class Person {</li>
+<li>&nbsp; &nbsp; constructor(givenName, familyName) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.givenName = givenName; // "normal name"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>this</strong><strong>._familyName = familyName; // starts with "_"</strong></li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li><strong>&nbsp; &nbsp; get familyName()</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; return <strong>this._familyName</strong>.toUpperCase();</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li><strong>&nbsp; &nbsp; set familyName(newName)</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // validation could be checked here such as </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // only allowing non numerical values</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>this</strong><strong>._familyName </strong>= newName; </li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; walk() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; return (this.givenName + ' ' + <strong>this._familyName </strong>+ ' is walking.');</li>
+<li>&nbsp; &nbsp; }</li>
+<li>}</li>
+<li></li>
+<li>let p1 = new Person('Michel', 'Buffa');</li>
+<li>console.log(p1.familyName); // will display BUFFA in the devtool console</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // this will call implicitly get familyName();</li>
+<li>p1.familyName = 'Smith'; &nbsp; &nbsp;// this will call implicitly set familyName('Smith');</li>
 </ol></div>
 
 Notice that when you declare `get familyName() {...}` for example, you define implicitly a property whose name is "`familyName`" and that will be accessible using `object.familyName`, where `object` is an instance of the class. See _lines 22-25_ in the example above. Displaying the value of `p1.familyName` will call implicitly `get familyName()`, while `p1.familyName = 'Smith';` will call set `Name('Smith');`
