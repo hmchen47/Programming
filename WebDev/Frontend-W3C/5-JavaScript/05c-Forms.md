@@ -4,7 +4,7 @@
 ## 5.3 HTML5 tables, forms and input fields
 
 
-#### 5.3.1 The HTML table basics
+### 5.3.1 The HTML table basics
 
 The `<table>` element helps with rendering tables in an HTML document.  
 
@@ -615,7 +615,7 @@ WAI-ARIA roles are very important in the accessibility world, and we invite you 
   + [Grouping Controls](https://www.w3.org/WAI/tutorials/forms/grouping/)
     + approach 1: associating related controls w/ `fieldset`
     + approach 2: associating related controls w/ WAI-ARIA, `aria-labelledby` attribute
-  
+
 + Examples: radio buttons
   + radio buttons allowing the user to choose an output form
   + radio button group: `<fieldset>...<fieldset>`
