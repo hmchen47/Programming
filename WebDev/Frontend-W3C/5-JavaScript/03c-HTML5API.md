@@ -22,11 +22,11 @@ The new way of doing things is a lot better... (please open this [live example a
 The source code of this example shows the typical usage of the `<video>` element:
 
 <div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li style="margin-bottom: 0px;" value="1"><span style="color: #008888;">&lt;video</span>&nbsp;<span style="color: #AA0066;">width</span><span style="color: #666600;">=</span><span style="color: #008800;">"320"</span>&nbsp;<span style="color: #AA0066;">height</span><span style="color: #666600;">=</span><span style="color: #008800;">"240"</span>&nbsp;<span style="color: #AA0066;">controls</span><span style="color: #666600;">=</span><span style="color: #008800;">"controls"</span><span style="color: #008888;">&gt;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #008888;">&lt;source</span><span>&nbsp;</span><span style="color: #AA0066;">src</span><span style="color: #666600;">=</span><span style="color: #008800;">"movie.mp4"</span>&nbsp;<span style="color: #AA0066;">type</span><span style="color: #666600;">=</span><span style="color: #008800;">"video/mp4"</span>&nbsp;<span style="color: #008888;">/&gt;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #008888;">&lt;source</span>&nbsp;<span style="color: #AA0066;">src</span><span style="color: #666600;">=</span><span style="color: #008800;">"movie.ogg"</span>&nbsp;<span style="color: #AA0066;">type</span><span style="color: #666600;">=</span><span style="color: #008800;">"video/ogg"</span>&nbsp;<span style="color: #008888;">/&gt;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;Your browser does not support the&nbsp;<span style="color: #008888;">&lt;video&gt;</span>&nbsp;element.</li>
-<li style="margin-bottom: 0px;"><span style="color: #008888;">&lt;/video&gt;</span></li>
+<li" value="1"><span style="color: #008888;">&lt;video</span>&nbsp;<span style="color: #AA0066;">width</span><span style="color: #666600;">=</span><span style="color: #008800;">"320"</span>&nbsp;<span style="color: #AA0066;">height</span><span style="color: #666600;">=</span><span style="color: #008800;">"240"</span>&nbsp;<span style="color: #AA0066;">controls</span><span style="color: #666600;">=</span><span style="color: #008800;">"controls"</span><span style="color: #008888;">&gt;</span></li>
+<li">&nbsp; &nbsp;<span style="color: #008888;">&lt;source</span><span>&nbsp;</span><span style="color: #AA0066;">src</span><span style="color: #666600;">=</span><span style="color: #008800;">"movie.mp4"</span>&nbsp;<span style="color: #AA0066;">type</span><span style="color: #666600;">=</span><span style="color: #008800;">"video/mp4"</span>&nbsp;<span style="color: #008888;">/&gt;</span></li>
+<li">&nbsp; &nbsp;<span style="color: #008888;">&lt;source</span>&nbsp;<span style="color: #AA0066;">src</span><span style="color: #666600;">=</span><span style="color: #008800;">"movie.ogg"</span>&nbsp;<span style="color: #AA0066;">type</span><span style="color: #666600;">=</span><span style="color: #008800;">"video/ogg"</span>&nbsp;<span style="color: #008888;">/&gt;</span></li>
+<li">&nbsp; &nbsp;Your browser does not support the&nbsp;<span style="color: #008888;">&lt;video&gt;</span>&nbsp;element.</li>
+<li"><span style="color: #008888;">&lt;/video&gt;</span></li>
 </ol></div>
 
 Please note that:
@@ -55,7 +55,7 @@ __An example using YouTube:__
 Here is the HTML code you need to copy and paste in order to embed a video (in this case, a tutorial that tells you how to embed a YouTube video):
 
 <div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li style="margin-bottom: 0px;" value="1"><span style="color: #008888;">&lt;iframe</span>&nbsp;<span style="color: #AA0066;">width</span><span style="color: #666600;">=</span><span style="color: #008800;">"560"</span>&nbsp;<span style="color: #AA0066;">height</span><span style="color: #666600;">=</span><span style="color: #008800;">"315"</span>&nbsp;<span style="color: #AA0066;">src</span><span style="color: #666600;">=</span><span style="color: #008800;">"https://www.youtube.com/embed/ZH1XOsv8Oyo"</span>&nbsp;<span style="color: #AA0066;">frameborder</span><span style="color: #666600;">=</span><span style="color: #008800;">"0"</span>&nbsp;<span style="color: #AA0066;">allowfullscreen</span><span style="color: #008888;">&gt;&lt;/iframe&gt;</span></li>
+<li" value="1"><span style="color: #008888;">&lt;iframe</span>&nbsp;<span style="color: #AA0066;">width</span><span style="color: #666600;">=</span><span style="color: #008800;">"560"</span>&nbsp;<span style="color: #AA0066;">height</span><span style="color: #666600;">=</span><span style="color: #008800;">"315"</span>&nbsp;<span style="color: #AA0066;">src</span><span style="color: #666600;">=</span><span style="color: #008800;">"https://www.youtube.com/embed/ZH1XOsv8Oyo"</span>&nbsp;<span style="color: #AA0066;">frameborder</span><span style="color: #666600;">=</span><span style="color: #008800;">"0"</span>&nbsp;<span style="color: #AA0066;">allowfullscreen</span><span style="color: #008888;">&gt;&lt;/iframe&gt;</span></li>
 </ol></div>
 
 Below is the YouTube video embedded in this page using the above code: it's HTML5 but it's not a `<video>` element directly inserted in the HTML of this page - it's an `<iframe>`.
@@ -96,26 +96,26 @@ The most simple basic example
 As you can see, the code is very similar to the basic `<video>` element usage.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Draw a monster in a canvas&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;audio controls="controls" crossorigin="anonymous"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg"</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; type="audio/ogg" /&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.mp3"</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; type="audio/mp3" /&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Your browser does not support the audio element.</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Download the audio/video in</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;a href=”https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg”&gt;OGG&lt;/a&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; or&lt;a href=”https://mainline.i3s.unice.fr/mooc/week2p1/horse.mp3”&gt;MP3&lt;/a&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; format.</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &nbsp;&nbsp; &lt;/audio&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/html&gt;</li>
+<li" value="1">&lt;!DOCTYPE html&gt;</li>
+<li">&lt;html lang="en"&gt;</li>
+<li">&nbsp;&nbsp; &lt;head&gt;</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &lt;title&gt;Draw a monster in a canvas&lt;/title&gt;</li>
+<li">&nbsp;&nbsp; &lt;/head&gt;</li>
+<li">&nbsp;&nbsp; &lt;body&gt;</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &lt;audio controls="controls" crossorigin="anonymous"&gt;</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg"</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; type="audio/ogg" /&gt;</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/week2p1/horse.mp3"</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; type="audio/mp3" /&gt;</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Your browser does not support the audio element.</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Download the audio/video in</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;a href=”https://mainline.i3s.unice.fr/mooc/week2p1/horse.ogg”&gt;OGG&lt;/a&gt;</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; or&lt;a href=”https://mainline.i3s.unice.fr/mooc/week2p1/horse.mp3”&gt;MP3&lt;/a&gt; </li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; format.</li>
+<li">&nbsp;&nbsp; &nbsp;&nbsp; &lt;/audio&gt;</li>
+<li">&nbsp;&nbsp; &lt;/body&gt;</li>
+<li"> &lt;/html&gt;</li>
 </ol></div>
 
 In this example, just as for the `<video>` element, we used the `controls` attribute in order to render the play/stop, time, volume and progress widgets.
