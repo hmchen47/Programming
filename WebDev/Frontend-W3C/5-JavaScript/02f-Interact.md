@@ -16,16 +16,16 @@ The HTML5 canvas is a transparent element that is useful for drawing and animati
 A typical HTML code for adding a canvas to a Web page:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;meta charset="utf-8"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;title&gt;Draw a monster in a canvas&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;canvas id="myCanvas" width="200" height="200"&gt;&lt;/canvas&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&lt;/body&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+<li" value="1">&lt;!DOCTYPE html&gt;</li>
+<li">&lt;html lang="en"&gt;</li>
+<li">&nbsp;&lt;head&gt;</li>
+<li">&nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li">&nbsp; &lt;title&gt;Draw a monster in a canvas&lt;/title&gt;</li>
+<li">&nbsp;&lt;/head&gt;</li>
+<li">&nbsp;&lt;body&gt;</li>
+<li">&nbsp; &lt;canvas id="myCanvas" width="200" height="200"&gt;&lt;/canvas&gt;</li>
+<li">&nbsp;&lt;/body&gt;</li>
+<li">&lt;/html&gt;</li>
 </ol></div>
 
 The canvas declaration is at _line 8_. Use attributes to give it a `width` and a `height`, but unless you add some CSS properties, you will not see it on the screen because it's transparent!
@@ -58,37 +58,37 @@ __Example #1: some drawing examples (wireframe and filled rectangle, filled circ
 Extract from the JavaScript code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">// useful to have them as global variables</li>
-<li style="margin-bottom: 0px;">var canvas, ctx;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">window.onload = function init() {</li>
-<li style="margin-bottom: 0px;">&nbsp; // called AFTER the page has been loaded</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>canvas </strong><strong>= document.querySelector("#myCanvas");</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; // important, we will draw with this object</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>ctx </strong><strong>= canvas.getContext('2d');</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; // ready to go! We can use the context for drawing</li>
-<li style="margin-bottom: 0px;">&nbsp; // or changing colors, line widths, etc.</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; // filled rectangle</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.fillStyle = 'red';</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>ctx</strong><strong>.fillRect(10, 10, 30, 30);</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; // wireframe rectangle</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.strokeStyle = 'green';</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.lineWidth = 4;</li>
-<li style="margin-bottom: 0px;">&nbsp;<strong> ctx</strong><strong>.strokeRect(100, 40, 40, 40);</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; // fill circle, will use current ctx.fillStyle</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.beginPath();</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.arc(60, 60, 10, 0, 2*Math.PI);</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.fill(); // or ctx.stroke() for a wireframe circle</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; // some text</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.fillStyle = "purple";</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.font = "20px Arial";</li>
-<li style="margin-bottom: 0px;">&nbsp;<strong> ctx</strong><strong>.fillText("Hello!", 60, 20); // or ctx.strokeText for wireframe</strong></li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">// useful to have them as global variables</li>
+<li">var canvas, ctx;</li>
+<li">&nbsp;</li>
+<li">window.onload = function init() {</li>
+<li">&nbsp; // called AFTER the page has been loaded</li>
+<li">&nbsp; <strong>canvas </strong><strong>= document.querySelector("#myCanvas");</strong></li>
+<li">&nbsp; // important, we will draw with this object</li>
+<li">&nbsp; <strong>ctx </strong><strong>= canvas.getContext('2d');</strong></li>
+<li"> </li>
+<li">&nbsp; // ready to go! We can use the context for drawing</li>
+<li">&nbsp; // or changing colors, line widths, etc.</li>
+<li"></li>
+<li">&nbsp; // filled rectangle</li>
+<li">&nbsp; ctx.fillStyle = 'red';</li>
+<li">&nbsp; <strong>ctx</strong><strong>.fillRect(10, 10, 30, 30);</strong></li>
+<li"> </li>
+<li">&nbsp; // wireframe rectangle</li>
+<li">&nbsp; ctx.strokeStyle = 'green';</li>
+<li">&nbsp; ctx.lineWidth = 4;</li>
+<li">&nbsp;<strong> ctx</strong><strong>.strokeRect(100, 40, 40, 40);</strong></li>
+<li"> </li>
+<li">&nbsp; // fill circle, will use current ctx.fillStyle</li>
+<li">&nbsp; ctx.beginPath();</li>
+<li">&nbsp; ctx.arc(60, 60, 10, 0, 2*Math.PI);</li>
+<li">&nbsp; ctx.fill(); // or ctx.stroke() for a wireframe circle</li>
+<li"> </li>
+<li">&nbsp; // some text</li>
+<li">&nbsp; ctx.fillStyle = "purple";</li>
+<li">&nbsp; ctx.font = "20px Arial";</li>
+<li">&nbsp;<strong> ctx</strong><strong>.fillText("Hello!", 60, 20); // or ctx.strokeText for wireframe</strong></li>
+<li">}</li>
 </ol></div>
 
 __Explanations:__
@@ -305,22 +305,22 @@ __Explanations:__
 This time, we've used "simple objects" for the circle and the rectangles, and we've called them "player" and "ball":
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var ball = {</li>
-<li style="margin-bottom: 0px;">&nbsp; x: 100,</li>
-<li style="margin-bottom: 0px;">&nbsp; y:100,</li>
-<li style="margin-bottom: 0px;">&nbsp; radius: 15,</li>
-<li style="margin-bottom: 0px;">&nbsp; color:'green',</li>
-<li style="margin-bottom: 0px;">&nbsp; speedX:2,</li>
-<li style="margin-bottom: 0px;">&nbsp; speedY:1</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">var player = {</li>
-<li style="margin-bottom: 0px;">&nbsp; x:10,</li>
-<li style="margin-bottom: 0px;">&nbsp; y:10,</li>
-<li style="margin-bottom: 0px;">&nbsp; width:20,</li>
-<li style="margin-bottom: 0px;">&nbsp; height:20,</li>
-<li style="margin-bottom: 0px;">&nbsp; color:'red'</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">var ball = {</li>
+<li">&nbsp; x: 100,</li>
+<li">&nbsp; y:100,</li>
+<li">&nbsp; radius: 15,</li>
+<li">&nbsp; color:'green',</li>
+<li">&nbsp; speedX:2,</li>
+<li">&nbsp; speedY:1</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">var player = {</li>
+<li">&nbsp; x:10,</li>
+<li">&nbsp; y:10,</li>
+<li">&nbsp; width:20,</li>
+<li">&nbsp; height:20,</li>
+<li">&nbsp; color:'red'</li>
+<li">}</li>
 </ol></div>
 
 With this syntax, it's easier to manipulate "the x pos of the ball" - you just have to use `ball.x`. we added two properties to the ball object: `speedX` and `speedY`. Their value is the number of pixels that will be added to the current `ball.x` and `ball.y` position, at each frame of animation.
@@ -328,20 +328,20 @@ With this syntax, it's easier to manipulate "the x pos of the ball" - you just h
 Let's look at the animation loop:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function mainLoop() {</li>
-<li style="margin-bottom: 0px;">&nbsp; // 1 - clear the canvas</li>
-<li style="margin-bottom: 0px;">&nbsp; ctx.clearRect(0, 0, w, h);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>// draw the ball and the player</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; drawFilledRectangle(player);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; drawFilledCircle(ball);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp;</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; // animate the ball that is bouncing all over the walls</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; moveBall(ball);</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; // ask for a new animation frame</li>
-<li style="margin-bottom: 0px;">&nbsp; requestAnimationFrame(mainLoop);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function mainLoop() {</li>
+<li">&nbsp; // 1 - clear the canvas</li>
+<li">&nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li"> </li>
+<li">&nbsp; <strong>// draw the ball and the player</strong></li>
+<li"><strong>&nbsp; drawFilledRectangle(player);</strong></li>
+<li"><strong>&nbsp; drawFilledCircle(ball);</strong></li>
+<li"><strong>&nbsp;</strong></li>
+<li"><strong>&nbsp; // animate the ball that is bouncing all over the walls</strong></li>
+<li"><strong>&nbsp; moveBall(ball);</strong></li>
+<li"> </li>
+<li">&nbsp; // ask for a new animation frame</li>
+<li">&nbsp; requestAnimationFrame(mainLoop);</li>
+<li">}</li>
 </ol></div>
 
 Now, let's decompose the animation loop in some external functions to make it more readable. At each frame of animation, we will clear the canvas, draw the player as a rectangle, draw the ball as a circle, and move the ball. 
@@ -351,12 +351,12 @@ You can take a look at the new versions of `drawFilledRectangle` that now take o
 Let's look at the moveBall function:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function moveBall(b) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; b.x += b.speedX;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; b.y += b.speedY;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; testCollisionBallWithWalls(b);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function moveBall(b) {</li>
+<li">&nbsp; &nbsp; b.x += b.speedX;</li>
+<li">&nbsp; &nbsp; b.y += b.speedY;</li>
+<li"> </li>
+<li">&nbsp; &nbsp; testCollisionBallWithWalls(b);</li>
+<li">}</li>
 </ol></div>
 
 This function is called 60 times per second. So, 60 times per second we modify the `b.x` and `b.y` positions of the ball passed as parameter by adding to them the `b.speedX` and `b.speedY` property values.
@@ -366,18 +366,18 @@ Notice that we call `moveBall(ball)` from `mainLoop`. In the `moveBall` function
 Ok, and at _line 5_ we call `testCollisionBallWithWalls(b)`, which will test if the ball `b hits` a vertical or horizontal wall. Let's see an extract of this function now:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function testCollisionBallWithWalls(b) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // COLLISION WITH VERTICAL WALLS?</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if((b.x + b.radius) &gt; w) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // the ball hit the right wall</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // change horizontal direction</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.speedX = -b.speedX;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // put the ball at the collision point</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;b.x = w - b.radius;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; } ...</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function testCollisionBallWithWalls(b) {</li>
+<li">&nbsp; &nbsp; // COLLISION WITH VERTICAL WALLS?</li>
+<li">&nbsp; &nbsp; if((b.x + b.radius) &gt; w) {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // the ball hit the right wall</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // change horizontal direction</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; b.speedX = -b.speedX;</li>
+<li"> </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // put the ball at the collision point</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp;b.x = w - b.radius;</li>
+<li">&nbsp; &nbsp; } ...</li>
+<li">&nbsp; &nbsp; ...</li>
+<li">}</li>
 </ol></div>
 
 At _line 3_ you can see the test that checks if the ball b hits the right side of the canvas. The right wall is at `w` (the width of the canvas) on the X-axis. If we compare (`b.x + b.radius`) with `w`, we can check if a part of the ball extends beyond the right wall. 
@@ -462,25 +462,25 @@ Let's animate balls and let's start with 3 the animation of 3 balls: `ball1`, `b
 Extract of the source code: the mainLoop function
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function mainLoop() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // 1 - clear the canvas</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // draw the balls and the player</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; drawFilledRectangle(player);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>drawFilledCircle</strong><strong>(ball1);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; drawFilledCircle(ball2);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; drawFilledCircle(ball3);</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // animate the balls bouncing all over the walls</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>moveBall</strong><strong>(ball1);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; moveBall(ball2);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; moveBall(ball3);</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // ask for a new animation frame</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function mainLoop() {</li>
+<li">&nbsp; &nbsp; // 1 - clear the canvas</li>
+<li">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li"> </li>
+<li">&nbsp; &nbsp; // draw the balls and the player</li>
+<li">&nbsp; &nbsp; drawFilledRectangle(player);</li>
+<li"> </li>
+<li">&nbsp; &nbsp; <strong>drawFilledCircle</strong><strong>(ball1);</strong></li>
+<li"><strong>&nbsp; &nbsp; drawFilledCircle(ball2);</strong></li>
+<li"><strong>&nbsp; &nbsp; drawFilledCircle(ball3);</strong></li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp; // animate the balls bouncing all over the walls</li>
+<li">&nbsp; &nbsp; <strong>moveBall</strong><strong>(ball1);</strong></li>
+<li"><strong>&nbsp; &nbsp; moveBall(ball2);</strong></li>
+<li"><strong>&nbsp; &nbsp; moveBall(ball3);</strong></li>
+<li"> </li>
+<li">&nbsp; &nbsp; // ask for a new animation frame</li>
+<li">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li">}</li>
 </ol></div>
 
 And what if we have 100 balls? We're not going to copy and paste the lines that draw and move the balls 100 times!
@@ -498,26 +498,26 @@ Let's look at the new functions we've added:
 __`createBalls(numberOfBalls)`, returns an array of balls:__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function createBalls(n) {</li>
-<li style="margin-bottom: 0px;">&nbsp; // empty array</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>var</strong><strong> ballArray = [];</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; // create n balls</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>for</strong><strong>(var i=0; i &lt; n; i++) {</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; var b = {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x:w/2,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y:h/2,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; radius: 5 + 30 * Math.random(), // between 5 and 35</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedX: -5 + 10 * Math.random(), // between -5 and + 5</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedY: -5 + 10 * Math.random(), // between -5 and + 5</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color:&nbsp;getARandomColor(),</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; // add ball b to the array</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; <strong>ballArray</strong><strong>.push(b);</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>}</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; // returns the array full of randomly created balls</li>
-<li style="margin-bottom: 0px;">&nbsp; return ballArray;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function createBalls(n) {</li>
+<li">&nbsp; // empty array</li>
+<li">&nbsp; <strong>var</strong><strong> ballArray = [];</strong></li>
+<li"> </li>
+<li">&nbsp; // create n balls</li>
+<li">&nbsp; <strong>for</strong><strong>(var i=0; i &lt; n; i++) {</strong></li>
+<li">&nbsp; &nbsp; &nbsp; var b = {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x:w/2,</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y:h/2,</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; radius: 5 + 30 * Math.random(), // between 5 and 35</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedX: -5 + 10 * Math.random(), // between -5 and + 5</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedY: -5 + 10 * Math.random(), // between -5 and + 5</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color:&nbsp;getARandomColor(),</li>
+<li">&nbsp; &nbsp; &nbsp; }</li>
+<li">&nbsp; &nbsp; &nbsp; // add ball b to the array</li>
+<li">&nbsp; &nbsp; &nbsp; <strong>ballArray</strong><strong>.push(b);</strong></li>
+<li">&nbsp; <strong>}</strong></li>
+<li">&nbsp; // returns the array full of randomly created balls</li>
+<li">&nbsp; return ballArray;</li>
+<li">}</li>
 </ol></div>
 
 __Explanations:__
@@ -530,18 +530,18 @@ __Explanations:__
 The `getARandomColor` function
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function getARandomColor() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var colors = ['red', 'blue', 'cyan', 'purple', </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'pink', 'green', 'yellow'];</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // a value between 0 and color.length-1</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Math.round = rounded value</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Math.random() a value between 0 and 1</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var colorIndex = Math.round((colors.length-1)*Math.random()); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>var</strong><strong> c = colors[colorIndex];</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // return the random color</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>return</strong><strong> c;</strong></li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function getARandomColor() {</li>
+<li">&nbsp; &nbsp; var colors = ['red', 'blue', 'cyan', 'purple', </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'pink', 'green', 'yellow'];</li>
+<li">&nbsp; &nbsp; // a value between 0 and color.length-1</li>
+<li">&nbsp; &nbsp; // Math.round = rounded value</li>
+<li">&nbsp; &nbsp; // Math.random() a value between 0 and 1</li>
+<li">&nbsp; &nbsp; var colorIndex = Math.round((colors.length-1)*Math.random()); </li>
+<li">&nbsp; &nbsp; <strong>var</strong><strong> c = colors[colorIndex];</strong></li>
+<li"> </li>
+<li">&nbsp; &nbsp; // return the random color</li>
+<li">&nbsp; &nbsp; <strong>return</strong><strong> c;</strong></li>
+<li">}</li>
 </ol></div>
 
 __Explanations:__
@@ -553,22 +553,22 @@ __Explanations:__
 Functions drawAllBalls and moveAllBalls:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function drawAllBalls(<strong>ballArray</strong>) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>ballArray</strong><strong>.forEach(function(b) {</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; drawFilledCircle(b);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>});</strong></li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function moveAllBalls(<strong>ballArray</strong>) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // iterate on all balls in array</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong> ballArray</strong><strong>.forEach(function(b) {</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.x += b.speedX;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.y += b.speedY;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls(b); </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>});</strong></li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function drawAllBalls(<strong>ballArray</strong>) {</li>
+<li">&nbsp; &nbsp; <strong>ballArray</strong><strong>.forEach(function(b) {</strong></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; drawFilledCircle(b);</li>
+<li">&nbsp; &nbsp; <strong>});</strong></li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">function moveAllBalls(<strong>ballArray</strong>) {</li>
+<li">&nbsp; &nbsp; // iterate on all balls in array</li>
+<li">&nbsp; &nbsp;<strong> ballArray</strong><strong>.forEach(function(b) {</strong></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; b.x += b.speedX;</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; b.y += b.speedY;</li>
+<li"> </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls(b); </li>
+<li">&nbsp; &nbsp; <strong>});</strong></li>
+<li">}</li>
 </ol></div>
 
 __Explanations:__
@@ -613,13 +613,13 @@ Detecting mouse events in a canvas is quite straightforward: you add an event li
 The example below is about listening to mouseup and mousedown events (when a user presses or releases any mouse button):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">canvas.addEventListener('mousedown', function (evt) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // do something with the mousedown event</li>
-<li style="margin-bottom: 0px;">});</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">canvas.addEventListener('mousedup', function (evt) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // do something with the mouseup event</li>
-<li style="margin-bottom: 0px;">});</li>
+<li" value="1">canvas.addEventListener('mousedown', function (evt) {</li>
+<li">&nbsp; &nbsp; // do something with the mousedown event</li>
+<li">});</li>
+<li">&nbsp;</li>
+<li">canvas.addEventListener('mousedup', function (evt) {</li>
+<li">&nbsp; &nbsp; // do something with the mouseup event</li>
+<li">});</li>
 </ol></div>
 
 The event received by the listener function will be used for getting the button number or the coordinates of the mouse cursor. Before looking at different examples, let's look at the different event types we can listen to.
@@ -658,21 +658,21 @@ Here is an example that shows the problem:
 __WRONG code used in this example:__
 
 <div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li style="margin-bottom: 0px;" value="1"><span style="color: #666600;">...</span></li>
-<li style="margin-bottom: 0px;"><strong>canvas<span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousemove'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">);</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'Mouse position: '</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">...</span></li>
-<li style="margin-bottom: 0px;"><strong><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;<strong>&nbsp;</strong><strong><span style="color: #880000;">//&nbsp;WRONG!!!</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX<span style="color: #666600;">,</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
+<li" value="1"><span style="color: #666600;">...</span></li>
+<li"><strong>canvas<span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousemove'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li">&nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">);</span></strong></li>
+<li">&nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'Mouse position: '</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
+<li">&nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
+<li"><span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
+<li">&nbsp;</li>
+<li"><span style="color: #666600;">...</span></li>
+<li"><strong><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li">&nbsp;&nbsp;<strong>&nbsp;</strong><strong><span style="color: #880000;">//&nbsp;WRONG!!!</span></strong></li>
+<li">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX<span style="color: #666600;">,</span></strong></li>
+<li">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY</strong></li>
+<li">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
+<li"><span style="color: #666600;">}</span></li>
 </ol></div>
 
 Here is the result, when the mouse is approximately at the top left corner of the canvas:
@@ -697,14 +697,14 @@ A good version of the code:
 And here is the fixed version of the getMousePos function:
 
 <div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li style="margin-bottom: 0px;" value="1"><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong><span style="color: #880000;">// necessary to take into account CSS boundaries</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong><span style="color: #006688;">var</span>&nbsp;rect&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getBoundingClientRect<span style="color: #666600;">();</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; x<span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX&nbsp;<strong><span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>left<span style="color: #666600;">,</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; y<span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY&nbsp;<strong><span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>top</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
+<li" value="1"><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li">&nbsp; &nbsp;<strong><span style="color: #880000;">// necessary to take into account CSS boundaries</span></strong></li>
+<li">&nbsp; &nbsp;<strong><span style="color: #006688;">var</span>&nbsp;rect&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getBoundingClientRect<span style="color: #666600;">();</span></strong></li>
+<li">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li">&nbsp; &nbsp; &nbsp; x<span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX&nbsp;<strong><span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>left<span style="color: #666600;">,</span></strong></li>
+<li">&nbsp; &nbsp; &nbsp; y<span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY&nbsp;<strong><span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>top</strong></li>
+<li">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
+<li"><span style="color: #666600;">}</span></li>
 </ol></div>
 
 Result (the cursor is approximately at the top left corner):
@@ -743,47 +743,47 @@ Example:
 Extract from source code:
 
 <div style="padding-left: 30px; padding-right: 30px; border: 1px solid black;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li style="margin-bottom: 0px;" value="1"><span style="color: #006688;">var</span>&nbsp;canvas<span style="color: #666600;">,</span>&nbsp;ctx<span style="color: #666600;">,</span>&nbsp;mousePos<span style="color: #666600;">,</span>&nbsp;mouseButton<span style="color: #666600;">;</span></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">window<span style="color: #666600;">.</span>onload&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;init<span style="color: #666600;">()</span>&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; canvas&nbsp;<span style="color: #666600;">=</span>&nbsp;document<span style="color: #666600;">.</span>getElementById<span style="color: #666600;">(</span><span style="color: #008800;">'myCanvas'</span><span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getContext<span style="color: #666600;">(</span><span style="color: #008800;">'2d'</span><span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousemove'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">);</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'Mouse position: '</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousedown'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mouseButton&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;evt<span style="color: #666600;">.</span>button<span style="color: #666600;">;</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">"Mouse button "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;evt<span style="color: #666600;">.</span>button&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">" down at position: "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mouseup'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">"Mouse up at position: "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">};</span></li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;</li>
-<li style="margin-bottom: 0px;"><span style="color: #006688;">function</span>&nbsp;writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>save<span style="color: #666600;">();</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>clearRect<span style="color: #666600;">(</span><span style="color: #006666;">0</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">0</span><span style="color: #666600;">,</span>&nbsp;canvas<span style="color: #666600;">.</span>width<span style="color: #666600;">,</span>&nbsp;canvas<span style="color: #666600;">.</span>height<span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>font&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'18pt Calibri'</span><span style="color: #666600;">;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>fillStyle&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'black'</span><span style="color: #666600;">;</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>fillText<span style="color: #666600;">(</span>message<span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">10</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">25</span><span style="color: #666600;">);</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>restore<span style="color: #666600;">();</span></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong><span style="color: #880000;">// necessary to take into account CSS boudaries</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;<strong>&nbsp;</strong><strong><span style="color: #006688;">var</span>&nbsp;rect&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getBoundingClientRect<span style="color: #666600;">();</span></strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX&nbsp;<span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>left</strong><span style="color: #666600;">,</span></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY&nbsp;<span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>top</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;">}</span></li>
+<li" value="1"><span style="color: #006688;">var</span>&nbsp;canvas<span style="color: #666600;">,</span>&nbsp;ctx<span style="color: #666600;">,</span>&nbsp;mousePos<span style="color: #666600;">,</span>&nbsp;mouseButton<span style="color: #666600;">;</span></li>
+<li">&nbsp;</li>
+<li">window<span style="color: #666600;">.</span>onload&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;init<span style="color: #666600;">()</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li">&nbsp; &nbsp; canvas&nbsp;<span style="color: #666600;">=</span>&nbsp;document<span style="color: #666600;">.</span>getElementById<span style="color: #666600;">(</span><span style="color: #008800;">'myCanvas'</span><span style="color: #666600;">);</span></li>
+<li">&nbsp; &nbsp; ctx&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getContext<span style="color: #666600;">(</span><span style="color: #008800;">'2d'</span><span style="color: #666600;">);</span></li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousemove'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mousePos&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">);</span></strong></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'Mouse position: '</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
+<li">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mousedown'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>mouseButton&nbsp;</strong><strong><span style="color: #666600;">=</span>&nbsp;evt<span style="color: #666600;">.</span>button<span style="color: #666600;">;</span></strong></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">"Mouse button "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;evt<span style="color: #666600;">.</span>button&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">" down at position: "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
+<li">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp;&nbsp;<strong>canvas</strong><strong><span style="color: #666600;">.</span>addEventListener<span style="color: #666600;">(</span><span style="color: #008800;">'mouseup'</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006688;">function</span>&nbsp;<span style="color: #666600;">(</span>evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></strong></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #006688;">var</span>&nbsp;message&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">"Mouse up at position: "</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>x&nbsp;<span style="color: #666600;">+</span>&nbsp;<span style="color: #008800;">','</span>&nbsp;<span style="color: #666600;">+</span>&nbsp;mousePos<span style="color: #666600;">.</span>y<span style="color: #666600;">;</span></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">);</span></li>
+<li">&nbsp; &nbsp;&nbsp;<span style="color: #666600;">},</span>&nbsp;<span style="color: #006688;">false</span><span style="color: #666600;">);</span></li>
+<li"><span style="color: #666600;">};</span></li>
+<li">&nbsp;&nbsp;</li>
+<li"><span style="color: #006688;">function</span>&nbsp;writeMessage<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;message<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>save<span style="color: #666600;">();</span></li>
+<li">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>clearRect<span style="color: #666600;">(</span><span style="color: #006666;">0</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">0</span><span style="color: #666600;">,</span>&nbsp;canvas<span style="color: #666600;">.</span>width<span style="color: #666600;">,</span>&nbsp;canvas<span style="color: #666600;">.</span>height<span style="color: #666600;">);</span></li>
+<li">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>font&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'18pt Calibri'</span><span style="color: #666600;">;</span></li>
+<li">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>fillStyle&nbsp;<span style="color: #666600;">=</span>&nbsp;<span style="color: #008800;">'black'</span><span style="color: #666600;">;</span></li>
+<li">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>fillText<span style="color: #666600;">(</span>message<span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">10</span><span style="color: #666600;">,</span>&nbsp;<span style="color: #006666;">25</span><span style="color: #666600;">);</span></li>
+<li">&nbsp; &nbsp;ctx<span style="color: #666600;">.</span>restore<span style="color: #666600;">();</span></li>
+<li"><span style="color: #666600;">}</span></li>
+<li">&nbsp;</li>
+<li"><span style="color: #006688;">function</span>&nbsp;getMousePos<span style="color: #666600;">(</span>canvas<span style="color: #666600;">,</span>&nbsp;evt<span style="color: #666600;">)</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li">&nbsp; &nbsp;<strong><span style="color: #880000;">// necessary to take into account CSS boudaries</span></strong></li>
+<li">&nbsp;&nbsp;<strong>&nbsp;</strong><strong><span style="color: #006688;">var</span>&nbsp;rect&nbsp;<span style="color: #666600;">=</span>&nbsp;canvas<span style="color: #666600;">.</span>getBoundingClientRect<span style="color: #666600;">();</span></strong></li>
+<li">&nbsp; &nbsp;<span style="color: #006688;">return</span>&nbsp;<span style="color: #666600;">{</span></li>
+<li">&nbsp; &nbsp; &nbsp;&nbsp;<strong>x</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientX&nbsp;<span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>left</strong><span style="color: #666600;">,</span></li>
+<li">&nbsp; &nbsp; &nbsp;&nbsp;<strong>y</strong><strong><span style="color: #666600;">:</span>&nbsp;evt<span style="color: #666600;">.</span>clientY&nbsp;<span style="color: #666600;">-</span>&nbsp;rect<span style="color: #666600;">.</span>top</strong></li>
+<li">&nbsp; &nbsp;<span style="color: #666600;">};</span></li>
+<li"><span style="color: #666600;">}</span></li>
 </ol></div>
 
 
@@ -832,33 +832,33 @@ Working example:
 Extract from the JavaScript source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong>var mousePos;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">window.onload = function init() {</li>
-<li style="margin-bottom: 0px;"> ... </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;// create 10 balls</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;balls = createBalls(10);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>&nbsp;// add a mousemove event listener to the canvas</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp;canvas.addEventListener('mousemove', mouseMoved);</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;// ready to go !</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;mainLoop();</li>
-<li style="margin-bottom: 0px;">};</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>function mouseMoved(evt) {</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp;mousePos = getMousePos(canvas, evt);</strong></li>
-<li style="margin-bottom: 0px;"><strong>}</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function getMousePos(canvas, evt) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;// from the previous section</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;var rect = canvas.getBoundingClientRect();</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;return {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; x: evt.clientX - rect.left,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; y: evt.clientY - rect.top</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;};</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"></li>
+<li" value="1"><strong>var mousePos;</strong></li>
+<li">&nbsp;</li>
+<li">window.onload = function init() {</li>
+<li"> ... </li>
+<li">&nbsp; &nbsp;// create 10 balls</li>
+<li">&nbsp; &nbsp;balls = createBalls(10);</li>
+<li"> </li>
+<li">&nbsp; <strong>&nbsp;// add a mousemove event listener to the canvas</strong></li>
+<li"><strong>&nbsp; &nbsp;canvas.addEventListener('mousemove', mouseMoved);</strong></li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp;// ready to go !</li>
+<li">&nbsp; &nbsp;mainLoop();</li>
+<li">};</li>
+<li">&nbsp;</li>
+<li"><strong>function mouseMoved(evt) {</strong></li>
+<li"><strong>&nbsp; &nbsp;mousePos = getMousePos(canvas, evt);</strong></li>
+<li"><strong>}</strong></li>
+<li">&nbsp;</li>
+<li">function getMousePos(canvas, evt) {</li>
+<li">&nbsp; &nbsp;// from the previous section</li>
+<li">&nbsp; &nbsp;var rect = canvas.getBoundingClientRect();</li>
+<li">&nbsp; &nbsp;return {</li>
+<li">&nbsp; &nbsp; &nbsp; x: evt.clientX - rect.left,</li>
+<li">&nbsp; &nbsp; &nbsp; y: evt.clientY - rect.top</li>
+<li">&nbsp; &nbsp;};</li>
+<li">}</li>
+<li"></li>
 </ol></div>
 
 _Line 9_ defines a `mousemove` event listener: the `mouseMoved` callback function will be called each time the user moves the mouse on the canvas.
@@ -870,34 +870,34 @@ With this code, as soon as we move the mouse on top of the canvas, we'll have th
 And here is the new `mainLoop` function. We added a call to the `mousePlayerWithMouse` function:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function mainLoop() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // 1 - clear the canvas</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // draw the ball and the player</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; drawFilledRectangle(player);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; drawAllBalls(balls);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // animate the ball that is bouncing all over the walls</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; moveAllBalls(balls);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; movePlayerWithMouse();</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // ask for a new animation frame</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function mainLoop() {</li>
+<li">&nbsp; &nbsp; // 1 - clear the canvas</li>
+<li">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li"> </li>
+<li">&nbsp; &nbsp; // draw the ball and the player</li>
+<li">&nbsp; &nbsp; drawFilledRectangle(player);</li>
+<li">&nbsp; &nbsp; drawAllBalls(balls);</li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp; // animate the ball that is bouncing all over the walls</li>
+<li">&nbsp; &nbsp; moveAllBalls(balls);</li>
+<li"> </li>
+<li"><strong>&nbsp; &nbsp; movePlayerWithMouse();</strong></li>
+<li"> </li>
+<li">&nbsp; &nbsp; // ask for a new animation frame</li>
+<li">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li">}</li>
 </ol></div>
 
 
 And here is the code of the movePlayerWithMouse function:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function movePlayerWithMouse() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if(mousePos !== undefined) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; player.x = mousePos.x;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; player.y = mousePos.y;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function movePlayerWithMouse() {</li>
+<li">&nbsp; &nbsp; if(mousePos !== undefined) {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; player.x = mousePos.x;</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; player.y = mousePos.y;</li>
+<li">&nbsp; &nbsp; }</li>
+<li">}</li>
 </ol></div>
 
 
@@ -966,30 +966,30 @@ We have a player that is a rectangle and other objects that are circles. This is
 Let's look at our game! This time, we've added into the loop a collision test between the player and the balls. If the player hits a ball, it's removed from the ball array. We did this test in the moveBalls function, as we were already testing collisions with walls for each ball in the array. Let's look at this new version:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function moveAllBalls(ballArray) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // iterate on all balls in array</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ballArray.forEach(function(b,<strong> index</strong>) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.x += b.speedX;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; b.y += b.speedY;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls(b); </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer(b, index);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; });</strong></li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function testCollisionWithPlayer(b, index) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if(circRectsOverlap(player.x, player.y,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; player.width, player.height,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; b.x, b.y, b.radius)) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// we remove the element located at index</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// from the balls array</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// splice: first parameter = starting index</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;// second parameter = number of elements to remove</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; balls.splice(index, 1);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function moveAllBalls(ballArray) {</li>
+<li">&nbsp; &nbsp; // iterate on all balls in array</li>
+<li">&nbsp; &nbsp; ballArray.forEach(function(b,<strong> index</strong>) {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; b.x += b.speedX;</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; b.y += b.speedY;</li>
+<li"> </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls(b); </li>
+<li"> </li>
+<li"><strong>&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer(b, index);</strong></li>
+<li"><strong>&nbsp; &nbsp; });</strong></li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">function testCollisionWithPlayer(b, index) {</li>
+<li">&nbsp; &nbsp; if(circRectsOverlap(player.x, player.y,</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; player.width, player.height,</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; b.x, b.y, b.radius)) {</li>
+<li">&nbsp; &nbsp; &nbsp;// we remove the element located at index</li>
+<li">&nbsp; &nbsp; &nbsp;// from the balls array</li>
+<li">&nbsp; &nbsp; &nbsp;// splice: first parameter = starting index</li>
+<li">&nbsp; &nbsp; &nbsp;// second parameter = number of elements to remove</li>
+<li">&nbsp; &nbsp; balls.splice(index, 1);</li>
+<li">&nbsp; &nbsp; }</li>
+<li">}</li>
 </ol></div>
 
 __Explanations:__
@@ -1003,33 +1003,33 @@ __Explanations:__
 We've also added a function for displaying the number of balls in the array while we are playing. When this number reaches zero, we display "You Win!":
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function drawNumberOfBallsAlive(balls) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.save();</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.font="30px Arial";</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if(balls.length === 0) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillText("YOU WIN!", 20, 30);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; } else {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillText(balls.length, 20, 30);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.restore();</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function drawNumberOfBallsAlive(balls) {</li>
+<li">&nbsp; &nbsp; ctx.save();</li>
+<li">&nbsp; &nbsp; ctx.font="30px Arial";</li>
+<li"> </li>
+<li">&nbsp; &nbsp; if(balls.length === 0) {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillText("YOU WIN!", 20, 30);</li>
+<li">&nbsp; &nbsp; } else {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillText(balls.length, 20, 30);</li>
+<li">&nbsp; &nbsp; }</li>
+<li">&nbsp; &nbsp; ctx.restore();</li>
+<li">}</li>
 </ol></div>
 
 This function is called by the `mainLoop`:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function mainLoop() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // 1 - clear the canvas</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; drawNumberOfBallsAlive(balls);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; ...</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // ask for a new animation frame</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function mainLoop() {</li>
+<li">&nbsp; &nbsp; // 1 - clear the canvas</li>
+<li">&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li"> </li>
+<li">&nbsp; &nbsp; ...</li>
+<li"><strong>&nbsp; &nbsp; drawNumberOfBallsAlive(balls);</strong></li>
+<li"><strong>&nbsp; &nbsp; ...</strong></li>
+<li"> </li>
+<li">&nbsp; &nbsp; // ask for a new animation frame</li>
+<li">&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li">}</li>
 </ol></div>
 
 
@@ -1109,66 +1109,66 @@ __Explanations:__
 HTML code: this time we've used an `oninput` in each input field, and an `onchange` attribute on the `<select>` HTML drop down menu:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;div id="controls"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Number of balls: &lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;input type="number" min=1 max=30 </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value=10 id="nbBalls"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>oninput</strong><strong>="changeNbBalls(this.value);</strong>"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Player color: &lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;input type="color" value='#FF0000'</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong><strong>="changePlayerColor(this.value);</strong>"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Color of ball to eat: &lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;select <strong>onchange="changeColorToEat(this.value);</strong>"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;option value='red'&gt;red&lt;/option&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;option value='blue'&gt;blue&lt;/option&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;option value='green'&gt;green&lt;/option&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/select&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Change ball speed: &lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;- &lt;input type="range" value='1'</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min=0.1 max=3 step=0.1</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong><strong>="changeBallSpeed(this.value);"</strong>&gt; + </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/div&gt;</li>
-<li style="margin-bottom: 0px;"></li>
+<li" value="1"> &lt;div id="controls"&gt;</li>
+<li">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Number of balls: &lt;/label&gt;</li>
+<li">&nbsp; &nbsp;&lt;input type="number" min=1 max=30 </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value=10 id="nbBalls"</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>oninput</strong><strong>="changeNbBalls(this.value);</strong>"&gt;</li>
+<li">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
+<li"> </li>
+<li">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Player color: &lt;/label&gt;</li>
+<li">&nbsp; &nbsp;&lt;input type="color" value='#FF0000'</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong><strong>="changePlayerColor(this.value);</strong>"&gt;</li>
+<li">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
+<li"> </li>
+<li">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Color of ball to eat: &lt;/label&gt;</li>
+<li">&nbsp; &nbsp;&lt;select <strong>onchange="changeColorToEat(this.value);</strong>"&gt;</li>
+<li">&nbsp; &nbsp; &nbsp; &lt;option value='red'&gt;red&lt;/option&gt;</li>
+<li">&nbsp; &nbsp; &nbsp; &lt;option value='blue'&gt;blue&lt;/option&gt;</li>
+<li">&nbsp; &nbsp; &nbsp; &lt;option value='green'&gt;green&lt;/option&gt;</li>
+<li">&nbsp; &nbsp;&lt;/select&gt;</li>
+<li">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp;&lt;label for="nbBalls"&gt;Change ball speed: &lt;/label&gt;</li>
+<li">&nbsp; &nbsp;- &lt;input type="range" value='1'</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min=0.1 max=3 step=0.1</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>oninput</strong><strong>="changeBallSpeed(this.value);"</strong>&gt; + </li>
+<li">&nbsp; &nbsp;&lt;p&gt;&lt;/p&gt;</li>
+<li"> &lt;/div&gt;</li>
+<li"></li>
 </ol></div>
 
 JavaScript code: we've added some new variables in order to get closer to a real game with a goal, levels, game over menu and so on.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var initialNumberOfBalls; // number of balls at the beginning</li>
-<li style="margin-bottom: 0px;">var globalSpeedMutiplier = 1; // will change when we move the speed&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // slider</li>
-<li style="margin-bottom: 0px;">var colorToEat = 'red'; &nbsp; &nbsp; &nbsp; // color of the "good" balls to eat</li>
-<li style="margin-bottom: 0px;">var wrongBallsEaten = goodBallsEaten = 0; //number of good/bad balls </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // eaten</li>
-<li style="margin-bottom: 0px;">var numberOfGoodBalls; &nbsp; &nbsp; &nbsp; &nbsp;// number of good balls in the set</li>
+<li" value="1">var initialNumberOfBalls; // number of balls at the beginning</li>
+<li">var globalSpeedMutiplier = 1; // will change when we move the speed&nbsp;</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // slider</li>
+<li">var colorToEat = 'red'; &nbsp; &nbsp; &nbsp; // color of the "good" balls to eat</li>
+<li">var wrongBallsEaten = goodBallsEaten = 0; //number of good/bad balls </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // eaten</li>
+<li">var numberOfGoodBalls; &nbsp; &nbsp; &nbsp; &nbsp;// number of good balls in the set</li>
 </ol></div>
 
 And here are the callback functions called when you use the input fields:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function changeNbBalls(nb) {</li>
-<li style="margin-bottom: 0px;">&nbsp; startGame(nb);</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function changeColorToEat(color) {</li>
-<li style="margin-bottom: 0px;">&nbsp; colorToEat = color;</li>
-<li style="margin-bottom: 0px;">&nbsp; startGame(initialNumberOfBalls);</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function changePlayerColor(color) {</li>
-<li style="margin-bottom: 0px;">&nbsp; player.color = color;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function changeBallSpeed(coef) {</li>
-<li style="margin-bottom: 0px;">&nbsp; globalSpeedMutiplier = coef;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function changeNbBalls(nb) {</li>
+<li">&nbsp; startGame(nb);</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">function changeColorToEat(color) {</li>
+<li">&nbsp; colorToEat = color;</li>
+<li">&nbsp; startGame(initialNumberOfBalls);</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">function changePlayerColor(color) {</li>
+<li">&nbsp; player.color = color;</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">function changeBallSpeed(coef) {</li>
+<li">&nbsp; globalSpeedMutiplier = coef;</li>
+<li">}</li>
 </ol></div>
 
 Each time we change the number of balls in the game, or the color of the balls you need to eat, we need to restart the game. 
@@ -1176,30 +1176,30 @@ Each time we change the number of balls in the game, or the color of the balls y
 Here is the `startGame(nb_balls)` function:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function startGame(nb) {</li>
-<li style="margin-bottom: 0px;">&nbsp; do {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;balls = createBalls(nb);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;initialNumberOfBalls = nb;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;numberOfGoodBalls = countNumberOfGoodBalls(balls, colorToEat);</li>
-<li style="margin-bottom: 0px;">&nbsp; } while(numberOfGoodBalls === 0); // in case no good ball in the set</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; wrongBallsEaten = goodBallsEaten = 0;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function startGame(nb) {</li>
+<li">&nbsp; do {</li>
+<li">&nbsp; &nbsp; &nbsp;balls = createBalls(nb);</li>
+<li">&nbsp; &nbsp; &nbsp;initialNumberOfBalls = nb;</li>
+<li">&nbsp; &nbsp; &nbsp;numberOfGoodBalls = countNumberOfGoodBalls(balls, colorToEat);</li>
+<li">&nbsp; } while(numberOfGoodBalls === 0); // in case no good ball in the set</li>
+<li"> </li>
+<li">&nbsp; wrongBallsEaten = goodBallsEaten = 0;</li>
+<li">}</li>
 </ol></div>
 
 ... and here is the function that counts the number of good balls in the newly created set of balls:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function countNumberOfGoodBalls(balls, colorToEat) {</li>
-<li style="margin-bottom: 0px;">&nbsp; var nb = 0;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; balls.forEach(function(b) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if(b.color === colorToEat) // we count the number of balls</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; nb++; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// of this color in the balls array</li>
-<li style="margin-bottom: 0px;">&nbsp; });</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; return nb; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // return this number to the caller</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function countNumberOfGoodBalls(balls, colorToEat) {</li>
+<li">&nbsp; var nb = 0;</li>
+<li"> </li>
+<li">&nbsp; balls.forEach(function(b) {</li>
+<li">&nbsp; &nbsp; if(b.color === colorToEat) // we count the number of balls</li>
+<li">&nbsp; &nbsp; nb++; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// of this color in the balls array</li>
+<li">&nbsp; });</li>
+<li"> </li>
+<li">&nbsp; return nb; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // return this number to the caller</li>
+<li">}</li>
 </ol></div>
 
 
