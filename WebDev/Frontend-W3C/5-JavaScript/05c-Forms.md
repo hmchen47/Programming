@@ -16,30 +16,30 @@ __Second best practice for accessibility:__ use a scope attribute with all `<th 
 
 Typical example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;table&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; <strong>&lt;caption&gt;</strong></span><strong><span class="pln">A typical HTML table</span><span class="tag">&lt;/caption&gt;</span></strong><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;tr&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th</span><span class="pln"> </span><strong><span class="atn">scope</span><span class="pun">=</span><span class="atv">"col"</span></strong><span class="tag">&gt;</span><span class="pln">Given Name</span><span class="tag">&lt;/th&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th</span><span class="pln"> </span><strong><span class="atn">scope</span><span class="pun">=</span><span class="atv">"col"</span></strong><span class="tag">&gt;</span><span class="pln">Family Name</span><span class="tag">&lt;/th&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th</span><span class="pln"> </span><strong><span class="atn">scope</span><span class="pun">=</span><span class="atv">"col"</span></strong><span class="tag">&gt;</span><span class="pln">Age</span><span class="tag">&lt;/th&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;/tr&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;tr&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">Michel</span><span class="tag">&lt;/td&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">Buffa</span><span class="tag">&lt;/td&gt;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">52</span><span class="tag">&lt;/td&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;/tr&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;tr&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">Dark</span><span class="tag">&lt;/td&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">Vador</span><span class="tag">&lt;/td&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">Unknown</span><span class="tag">&lt;/td&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;/tr&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;tr&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">Luke</span><span class="tag">&lt;/td&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">Skywalker</span><span class="tag">&lt;/td&gt;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;</span><span class="pln">Unknown</span><span class="tag">&lt;/td&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;/tr&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/table&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;table&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>&lt;caption&gt;</strong><strong>A typical HTML table&lt;/caption&gt;</strong> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;tr&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Given Name&lt;/th&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Family Name&lt;/th&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Age&lt;/th&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/tr&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;tr&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Michel&lt;/td&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Buffa&lt;/td&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;52&lt;/td&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/tr&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;tr&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Dark&lt;/td&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Vador&lt;/td&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Unknown&lt;/td&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/tr&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;tr&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Luke&lt;/td&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Skywalker&lt;/td&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Unknown&lt;/td&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/tr&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/table&gt;</li>
 </ol></div>
 
 Most of the time, we add some CSS rules for rendering cell/row/table borders and for adjusting spacing between the text in the cells and the cell borders. Let's look at some examples.
@@ -54,23 +54,23 @@ __Example #1: HTML table with a very light CSS styling__
 
 This is a static table. You can look at the CSS code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">table </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">tr</span><span class="pun">,</span><span class="pln"> th</span><span class="pun">,</span><span class="pln"> td </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; font</span><span class="pun">-</span><span class="pln">family</span><span class="pun">:</span><span class="pln">courier</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">td </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln">center</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; padding</span><span class="pun">:</span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">table {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; width:100%;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; border:1px solid;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">tr, th, td {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; border:1px solid;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; font-family:courier;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">td {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; text-align:center;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding:10px;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 Explanations:
@@ -136,12 +136,12 @@ We've already seen some examples in the course, but we have not completely cover
 
 When you look for a table using the DOM API or the selector API, or when you create a table using the DOM API, you get a Table object:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> table </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"myTable"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> table </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myTable"</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> table </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"table"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// creates a new table</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var table = document.getElementById("myTable");</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">var table = document.querySelector("#myTable");</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">var table = document.createElement("table"); // creates a new table</li>
 </ol></div>
 
 Like all objects, an instance of Table will have properties and methods:
@@ -223,37 +223,37 @@ Notice the use of row.innerHTML= here to add some cells to the row. We will soon
 
 When you look for a row using the DOM API or the selector API, or when you create a row using the DOM API, you get a Row object:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="kwd">var</span><span class="pln">&nbsp;row1&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"row1"</span><span class="pun">);</span></li>
-<li class="L1"><span class="pln">&nbsp;</span></li>
-<li class="L2"><span class="kwd">var</span><span class="pln">&nbsp;row1&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#row1"</span><span class="pun">);</span></li>
-<li class="L3"><span class="pln">&nbsp;</span></li>
-<li class="L4"><span class="kwd">var</span><span class="pln">&nbsp;newRow&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"row"</span><span class="pun">);</span><span class="pln">&nbsp;</span><span class="com">// creates a new&nbsp;row</span></li>
+<div><ol>
+<li value="1">var&nbsp;row1&nbsp;=&nbsp;document.getElementById("row1");</li>
+<li>&nbsp;</li>
+<li>var&nbsp;row1&nbsp;=&nbsp;document.querySelector("#row1");</li>
+<li>&nbsp;</li>
+<li>var&nbsp;newRow&nbsp;=&nbsp;document.createElement("row");&nbsp;// creates a new&nbsp;row</li>
 </ol></div>
 
 You can also access a row from the rows property of a table:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"table"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> r1 </span><span class="pun">=</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">insertRow</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> r1</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"&lt;td&gt;Hello&lt;/td&gt;"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"&lt;td&gt;Hello&lt;/td&gt;"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> r2 </span><span class="pun">=</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">insertRow</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> r2</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"&lt;td&gt;Hello 2&lt;/td&gt;"</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"&lt;td&gt;Hello 2&lt;/td&gt;"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="kwd">var</span><span class="pln"> row1 </span><span class="pun">=</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">rows</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> row1</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">&lt;tr&gt;</span><span class="pun">&lt;</span><span class="pln">td</span><span class="pun">&gt;</span><span class="typ">Hello</span><span class="pun">&lt;</span><span class="str">/td&gt;&lt;/</span><span class="pln">tr</span><span class="pun">&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var t = document.createElement("table");</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var r1 = t.insertRow(0);</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; r1.innerHTML="&lt;td&gt;Hello&lt;/td&gt;";</li>
+<li style="margin-bottom: 0px;">"&lt;td&gt;Hello&lt;/td&gt;"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var r2 = t.insertRow();</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; r2.innerHTML="&lt;td&gt;Hello 2&lt;/td&gt;";</li>
+<li style="margin-bottom: 0px;">"&lt;td&gt;Hello 2&lt;/td&gt;"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; <strong>var row1 = t.rows[0];</strong></li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; row1;</li>
+<li style="margin-bottom: 0px;">&lt;tr&gt;&lt;td&gt;Hello&lt;/td&gt;&lt;/tr&gt;</li>
 </ol></div>
 
 Like all objects, a `tableRow` object has properties and methods. Here are the most useful ones:
@@ -303,21 +303,21 @@ Below are new versions of the previous examples, but instead of using the `inner
 
 Notice how we've created the new row cells:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> insertRow</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> table </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myTable"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // without parameters, insert at the end,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // otherwise parameter = index where the row will be inserted</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> row </span><span class="pun">=</span><span class="pln"> table</span><span class="pun">.</span><span class="pln">insertRow</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>var</strong></span><strong><span class="pln"> cell1 </span><span class="pun">=</span><span class="pln"> row</span><span class="pun">.</span><span class="pln">insertCell</span><span class="pun">();</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; cell1</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"New cell1"</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>var</strong></span><strong><span class="pln"> cell2 </span><span class="pun">=</span><span class="pln"> row</span><span class="pun">.</span><span class="pln">insertCell</span><span class="pun">();</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; cell2</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"New cell2"</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> cell3 </span><span class="pun">=</span><span class="pln"> row</span><span class="pun">.</span><span class="pln">insertCell</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; cell3</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"New cell3"</span><span class="pun">;&nbsp;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function insertRow() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; var table = document.querySelector("#myTable");</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // without parameters, insert at the end,</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // otherwise parameter = index where the row will be inserted</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; var row = table.insertRow();</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>var</strong><strong> cell1 = row.insertCell();</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cell1.innerHTML = "New cell1";</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>var</strong><strong> cell2 = row.insertCell();</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cell2.innerHTML = "New cell2";</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; var cell3 = row.insertCell();</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cell3.innerHTML = "New cell3";&nbsp;</strong></li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 So should we use `insertCell()` or just `row.innerHTML="<td>...</td>"`?
@@ -420,7 +420,7 @@ __Labels need to describe the purpose of the form control__
 
 Form fields and other form controls usually have visible labels, such as "E-mail Address:" as the label for a text field (see figure below).
 
-<p><img class="imgbreathe" src="https://www.w3.org/WAI/images/easychecks/form-label-text.png" type="saveimage" target="[object Object]" alt="Visual of a text input field preceded by the mention &quot;E-mail address:&quot;" width="242" height="29"></p>
+<p><img src="https://www.w3.org/WAI/images/easychecks/form-label-text.png" type="saveimage" target="[object Object]" alt="Visual of a text input field preceded by the mention &quot;E-mail address:&quot;" width="242" height="29"></p>
 
 When these labels are marked up correctly, people can interact with them using only the keyboard, using voice input, and using screen readers. Also, the label itself becomes clickable, which enables a person who has difficulty clicking on small radio buttons or checkboxes to click anywhere on the label text.
 
@@ -431,15 +431,15 @@ Whenever possible, use the `label` element to explicitly associate text with for
 
 Example #1 (click on the label, not on the input field to see the effect):
 
-<div class="box-content"><form action="#" method="post">
-<p class="exampleHTML"><label class="label" for="first_name">First name: </label> <input name="firstname" id="first_name" type="text"></p>
+<div><form action="#" method="post">
+<p><label for="first_name">First name: </label> <input name="firstname" id="first_name" type="text"></p>
 </form></div>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="tag">&gt;</span><span class="pln">Your First Name</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">/&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;label for="first_name"&gt;Your First Name&lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&lt;input id="first_name" type="text" name="fname"/&gt;</li>
 </ol></div>
 
 Alternative example #1:
@@ -448,26 +448,26 @@ Note that you can also include the `<input>` element inside the `<label>...</lab
 
 Source code (with `<input>` inside the `<label>`):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="tag">&gt;&lt;</span></strong><span class="pln"><strong>span lang=en"&gt;</strong>Your First Name</span><strong><span class="tag">&lt;/span&gt;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"first_name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"fname"</span><span class="tag">/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="tag">&lt;/label&gt;</span></strong></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><strong>&lt;label for="first_name"&gt;&lt;</strong><strong>span lang=en"&gt;</strong>Your First Name<strong>&lt;/span&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;input id="first_name" type="text" name="fname"/&gt;</li>
+<li style="margin-bottom: 0px;"><strong>&lt;/label&gt;</strong></li>
 </ol></div>
 
 Example #2 (click on the label "Subscribe to newsletter" to see the effect):
 
-<div class="box-content"><form action="#" method="post">
-<p class="exampleHTML"><label class="label" for="firstname">First name: </label> <input name="firstname" id="firstname" type="text"><br><label class="label" for="subscribe">Subscribe to newsletter</label> <input name="subscribe" id="subscribe" type="checkbox"></p>
+<div><form action="#" method="post">
+<p><label for="firstname">First name: </label> <input name="firstname" id="firstname" type="text"><br><label for="subscribe">Subscribe to newsletter</label> <input name="subscribe" id="subscribe" type="checkbox"></p>
 </form></div>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="tag">&gt;</span><span class="pln">First name:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"firstname"</span><span class="tag">&gt;&lt;br&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;label</span><span class="pln">&nbsp;</span><span class="atn">for</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="tag">&gt;</span><span class="pln">Subscribe to newsletter</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"subscribe"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;label for="firstname"&gt;First name:&lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&lt;input type="text" name="firstname" id="firstname"&gt;&lt;br&gt;</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&lt;label&nbsp;for="subscribe"&gt;Subscribe to newsletter&lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&lt;input type="checkbox" name="subscribe" id="subscribe"&gt;</li>
 </ol></div>
 
 
@@ -475,7 +475,7 @@ Source code:
 
 The label of a `<button>` element is set inside the element and can include markup. This allows advanced accessibility hints to be included, such as marking up language change.
 
-Example: `<button>Mon <span lang="fr">bouton</span></button>`, for a button with a label in French.
+Example: `<button>Mon <span lang="fr">bouton</button>`, for a button with a label in French.
 
 When using the `<input>` element to create buttons, the label is set in the `value` attribute of the element.
 
@@ -483,28 +483,28 @@ Example: `<input type="submit" value="Please submit">`, will be rendered as a bu
 
 Source code for an example of "Submit" and "Cancel" buttons:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="tag">&gt;</span><span class="pln">Submit</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="tag">&gt;</span><span class="pln">Cancel</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Submit"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"button"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"Cancel"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;button type="submit"&gt;Submit&lt;/button&gt;</li>
+<li style="margin-bottom: 0px;">&lt;button type="button"&gt;Cancel&lt;/button&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&lt;input type="submit" value="Submit"&gt;</li>
+<li style="margin-bottom: 0px;">&lt;input type="button" value="Cancel"&gt;</li>
 </ol></div>
 
 These will produce the same results:
 
-<p class="exampleHTML">Lines 1 and 2 render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>While lines 3 and 4 render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
+<p>Lines 1 and 2 render as:<br><button type="submit">Submit</button> <button type="button">Cancel</button><br><br>While lines 3 and 4 render as:<br> <input value="Submit" type="submit"> <input value="Cancel" type="button"></p>
 
 #### Labeling text areas
 
-<p><label class="label" for="address">Enter your address:</label><br> <textarea name="addresstext" id="address" rows="5" cols="25"></textarea></p>
+<p><label for="address">Enter your address:</label><br> <textarea name="addresstext" id="address" rows="5" cols="25"></textarea></p>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;</span><span class="pln">Enter your address:</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;br&gt;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"addresstext"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;label for="address"&gt;Enter your address:&lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&lt;br&gt; </li>
+<li style="margin-bottom: 0px;">&lt;textarea id="address" name="addresstext"&gt;&lt;/textarea&gt;</li>
 </ol></div>
 
 
@@ -520,23 +520,23 @@ __Example #1: Radio buttons__
 
 In the example below, there are three radio buttons that allow the user to choose an output format. Radio button groups should always be grouped using `<fieldset>`.
 
-<form><fieldset><legend>Output format</legend> <input name="format" id="txt" value="txt" type="radio"> <label class="label" for="txt">Text file<br></label><br> <input name="format" id="csv" value="csv" type="radio"> <label class="label" for="csv">CSV file<br></label><br> <input name="format" id="html" value="HTML" type="radio"> <label class="label" for="html">HTML file</label></fieldset></form>
+<form><fieldset><legend>Output format</legend> <input name="format" id="txt" value="txt" type="radio"> <label for="txt">Text file<br></label><br> <input name="format" id="csv" value="csv" type="radio"> <label for="csv">CSV file<br></label><br> <input name="format" id="html" value="HTML" type="radio"> <label for="html">HTML file</label></fieldset></form>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;legend&gt;</span><span class="pln">Output format</span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;div&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"format"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"txt"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"txt"</span><span class="pln"> </span><span class="atn">checked</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"txt"</span><span class="tag">&gt;</span><span class="pln">Text file</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;div&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"format"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"csv"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"csv"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"csv"</span><span class="tag">&gt;</span><span class="pln">CSV file</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;/div&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> […]</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/fieldset&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;fieldset&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;legend&gt;Output format&lt;/legend&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;div&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;input type="radio" name="format" id="txt" value="txt" checked&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label for="txt"&gt;Text file&lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;div&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;input type="radio" name="format" id="csv" value="csv"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;label for="csv"&gt;CSV file&lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/div&gt;</li>
+<li style="margin-bottom: 0px;"> […]</li>
+<li style="margin-bottom: 0px;">&lt;/fieldset&gt;</li>
 </ol></div>
 
 __Example #2: Checkboxes__
@@ -544,22 +544,22 @@ __Example #2: Checkboxes__
 In the example below, there are three checkboxes that are all part of an opt-in function for receiving different types of information.
 
 <form action="#" method="post"><fieldset><legend>I want to receive</legend>
-<div><input name="newsletter" id="check_1" type="checkbox"> <label class="label" for="check_1">The weekly newsletter</label></div>
-<div><input name="company_offers" id="check_2" type="checkbox"> <label class="label" for="check_2">Offers from the company</label></div>
-<div><input name="assoc_offers" id="check_3" type="checkbox"> <label class="label" for="check_3">Offers from associated companies</label></div>
+<div><input name="newsletter" id="check_1" type="checkbox"> <label for="check_1">The weekly newsletter</label></div>
+<div><input name="company_offers" id="check_2" type="checkbox"> <label for="check_2">Offers from the company</label></div>
+<div><input name="assoc_offers" id="check_3" type="checkbox"> <label for="check_3">Offers from associated companies</label></div>
 </fieldset></form>
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;fieldset&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;legend&gt;</span><span class="pln">I want to receive</span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;div&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"newsletter"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"check_1"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp; &lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"check_1"</span><span class="tag">&gt;</span><span class="pln">The weekly newsletter</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/div&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;[…]</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/fieldset&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;fieldset&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;legend&gt;I want to receive&lt;/legend&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;div&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;input type="checkbox" name="newsletter" id="check_1"&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;label for="check_1"&gt;The weekly newsletter&lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/div&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;[…]</li>
+<li style="margin-bottom: 0px;">&lt;/fieldset&gt;</li>
 </ol></div>
 
 
@@ -592,7 +592,7 @@ WAI-ARIA roles are very important in the accessibility world, and we invite you 
   + associating labels explicitly
     + explicitly associating text w/ form elements
     + `for` attribute of the label exactly match the `id` of the form control, e.g. <br>`<label for="first_name">Your First Name</label>  <input id="first_name" type="text" name="fname"/>`
-    + including the `<input>` element inside the `<label>...</label>` and add a `<span lang="en">` to indicate the language used in label, e.g., <br>`<label for="first_name"><span lang="en">Your First Name</span> <input id="first_name" type="text" name="fname"/> </label>`
+    + including the `<input>` element inside the `<label>...</label>` and add a `<span lang="en">` to indicate the language used in label, e.g., <br>`<label for="first_name"><span lang="en">Your First Name <input id="first_name" type="text" name="fname"/> </label>`
   + labeling buttons
     + set inside the `<button>` element
     + allow advanced accessibility hints
@@ -734,7 +734,7 @@ This is the small project we will build together at the end of the course. :-)
     + validation function here
 
 + Example: [password consistence check](src/05c-example11.html)
-  + submit form: `<form class="myForm" onsubmit="return submitForm();">`
+  + submit form: `<form onsubmit="return submitForm();">`
   + two input fields: `<label for="password1">Password:</label> <input type="password" id="password1" oninput="checkPasswords()" required> <br> <label for="password2">Repeat password:</label> <input type="password" id="password2" oninput="checkPasswords()" required>`
   + password consistence check: `function checkPasswords() {...}`
     + access two password fields: `var password1 = document.querySelector('#password1'); var password2 = document.querySelector('#password2');`
