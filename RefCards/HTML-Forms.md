@@ -572,6 +572,45 @@
     + the `div` element has `role=group` to indicate that the contained elements are members of a group and the `aria-labelledby` attribute references the `id` for text
 
 
++ [Accessible forms](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#533-html-forms-best-practices)
+  + commonly used to enable user interaction within Web sites and Web applications
+  + guidelines
+    + descriptive label: ensure provided and use the `<label>` element to identify each from the control
+    + complex forms: use the `<fieldset>` and `<legend>` elements to respectively group and associate related form controls
+  + reference: [Web Accessibility Tutorials in WIA](https://www.w3.org/WAI/tutorials/forms/)
+    + for instructions
+    + validating input
+    + user notifications
+    + multi-page forms
+    + custom controls
+
++ [Label in accessible forms](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#533-html-forms-best-practices)
+  + describe the purpose of the form control `Form` field
+  + label controls
+    + marked up correctly: interact using only keyboard, voice input, and screen readers
+    + clickable: enable a person who has difficulty clicking on small radio buttons or checkboxes to click anywhere on the the label text
+  + associating labels explicitly
+    + explicitly associating text w/ form elements
+    + `for` attribute of the label exactly match the `id` of the form control
+    + including the `<input>` element inside the `<label>...</label>` and add a `<span lang="en">` to indicate the language used in label
+  + labeling buttons
+    + set inside the `<button>` element
+    + allow advanced accessibility hints
+    + `<input>` element to create button: set label in the `value` attribute of the element
+  + labeling text areas: `<label for="address">Enter your address:</label> <br> <textarea id="address" name="addresstext"></textarea>`
+
++ [Grouping controls of accessible forms](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#533-html-forms-best-practices)
+  + typically groups of related checkbox and radio buttons
+  + usually requiring a higher level description
+  + grouping related forms: easier to understandable for all users
+  + associating related controls w/ `fieldset`
+    + grouping carried out visually and in the code
+    + using `<fieldset>` and `<legend>` elements to associate related form controls
+    + `<fieldset>`: identify the entire grouping
+    + `<legend>`: identify the group's descriptive text
+  
+
+
 
 ## Input types
 

@@ -522,6 +522,65 @@
     + `XXX`: `FullYear`, `Month`, `Day`, `Hours`, `Minutes`, `Seconds`, `MilliSeconds`
 
 
+## The `table` object
+
++ [The table object](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#532-the-html-table-javascript-api)
+  + make dynamic table management possible
+  + enable to add or delete a row, a cell, and modify the contents of the cells, etc.
+  + most useful properties
+    + `rows`: a collection of all `<tr>` elements in a table
+    + `caption`: the `<caption>` element of a table
+    + `tFoot`: a reference to the `<tfoot>` element of a table
+    + `tHead`: a reference to the `<thead>` element of a table
+  + most useful methods
+    + `insertRow()`:
+      + create an empty `<tr>` element and add it to the table
+      + insert a new row at the end of the table: `var row = table.insertRow();`
+      + insert at the index = `idx` and push down all the rows after: `var row = table.insertRow(idx);`
+    + `deleteRow()`: remove a row `<tr>` from the table, e.g., `table.deleteRow(0);` delete the row at index 0
+    + `createCaption()`: create an empty `<caption>` element and add it to the table
+    + `deleteCaption()`: remove the first `<caption>` element from the table
+    + `createTHead()`: create an empty `<thead>` element and add it to the table
+    + `deleteTHead()`: remove the `<thead>` element from the table
+    + `createTFoot()`: create an empty `<tfoot>` element and add it to the table
+    + `deleteTFoot()`: remove the `<tfoot>` element from the table
+
++ [The tableRow object (`<tr>`)](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#532-the-html-table-javascript-api)
+  + access a row using the DOM API or the selector API
+  + create a row using the DOM API to get a Row object
+  + most useful properties
+    + `cells`: a collection of all `<td>` ot `<th>` elements in a table row
+    + `rowIndex`: the position of a row in the `rows` collection of a table
+    + `sectionRowIndex`: the position of a row in the `rows` collection of a `<tbody>`, `<thead>` or `<tfoot>`
+  + most useful methods
+    + `insertCell()`:
+      + insert a cell into the current table `row`
+      + no parameters: append a cell after the last cell of the row
+      + index of the cell as a unique parameter: insert the row and push other cells to the right
+      + `index = 0`: insert at the first position
+      + `index = -1`: insert at the last position
+    + `deleteCell()`:
+      + delete a cell from the current table row
+      + unique parametre: the index of the cell to remove
+      + `index = 0`: delete the first cell
+      + `index = -1`: delete the last cell
+
+
+## Accessible forms
+
++ [HTML input submit w/o JavaScript](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#534-html-forms-and-javascript)
+  + several ways to collect server-side data from a form in Web page: REST Web service, servlets, MS ASP pages, etc.
+  + client-side forms indicate to which server and how the data sent by `action` and `method` attributes, respectively
+  + `<button type="submit">` and `<input type=submit>` used to submit the form content
+
++ [HTML input submit w/ Ajax/JavaScript](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#534-html-forms-and-javascript)
+  + JS used for validating user input "on the fly"
+  + event listeners used for tracking user's interactions in real time, including typing or selecting a color, moving a slide, etc.
+  + perform validation steps along w/ visual feedback
+  + used for more global validation before sending a form to a remote server, e.g., checking password by entering twice in two different fields
+  + used to make a WebApp using form data locally, perhaps w/ some client-side persistence API, e.g. data displayed in a dynamic HTML table w/o remote database but saving data locally
+
++ Example: [validate input on the fly](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#534-html-forms-and-javascript)
 
 
 
