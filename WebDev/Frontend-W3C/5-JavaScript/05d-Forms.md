@@ -113,7 +113,6 @@ When we parse a JSON string using `JSON.parse()`, we get a real JavaScript objec
   + MS IE 2005: first appearance
   + Google Maps: one of the first popular Ajax-powered Web application
   
-
 + JSON objects and JavaScript objects
   + unable to use JSON object as JS object
   + JSON representation of JS object: a string
@@ -156,27 +155,8 @@ When we parse a JSON string using `JSON.parse()`, we get a real JavaScript objec
   + convert back to JS object: `var obj = JSON.parse(metallicaJSON); obj.name; // "Metallica"`
 
 + [`JSON.stringify()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
-  + syntax: `JSON.stringify(value[, replacer[, space]])`
-  + docstring: convert a JavaScript object or value to a JSON string
-  + parameters
-    + `value`: the value to convert to a JSOM string
-    + `replacer` (optional):
-      + a function alerts the behavior of the stringification process
-      + an array of `String` and `Number` serves as allowist for selecting/filtering the properties of the value object to be included in the JSON string
-      + `null` or omitted: all properties of the object included in the resulting JSON string
-    + `space` (optional):
-      + used to insert white space into the output JSON string for readability purpose
-      + `Number` object: the number or space characters to use as white space
-      + `String` object: use the string as white space
-  + return: a JSON string representing the given value
 
 + [`JSON.parse()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
-  + syntax: `JSON.parse(text[, reviver])`
-  + docstring: parse a JSON string, constructing the JS value or object described by the string
-  + parameters
-    + `text`: the string to parse as JSON
-    + `reviver` (optional): a function prescribes how the value originally produced by parsing is transformed
-  + return: the `Object`, `Array`, string, number, boolean, or null value corresponding to the given JSON `text`
 
 
 ### 5.4.2 Consuming JSON remote data
@@ -468,7 +448,7 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
   + provide a generic definition of `Request` and `Response` objects
   + define related concepts such as CORS and the HTTP Origin header semantics, supplanting their separate definition elsewhere
   
-+ `WindowOrWorkerGlobalScope.fetch()` method:
++ [`WindowOrWorkerGlobalScope.fetch()` method](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
   + syntax: `const fetchResponsePromise = fetch(resource [, init])`
   + docstring:
     + starts the process of fetching a resource from the network
