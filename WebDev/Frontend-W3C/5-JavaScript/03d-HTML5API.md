@@ -66,18 +66,18 @@ Source code extract:
 HTML part :
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;html&gt;</li>
-<li style="margin-bottom: 0px;">&lt;head&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;meta charset="utf-8"&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;title&gt;OpenStreetMap Example&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"&gt;&lt;/script&gt; </li>
-<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;button class="btn" onclick="getLocation(event)"&gt;Click to show your location with OpenStreetMap&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;div id="map" class="map"&gt;&lt;/div&gt; </li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+<li" value="1">&lt;html&gt;</li>
+<li">&lt;head&gt;</li>
+<li"> &lt;meta charset="utf-8"&gt;</li>
+<li"> &lt;title&gt;OpenStreetMap Example&lt;/title&gt;</li>
+<li"> &lt;link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"&gt;</li>
+<li"> &lt;script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"&gt;&lt;/script&gt; </li>
+<li">&lt;/head&gt;</li>
+<li">&lt;body&gt;</li>
+<li"> &lt;button class="btn" onclick="getLocation(event)"&gt;Click to show your location with OpenStreetMap&lt;/button&gt;</li>
+<li"> &lt;div id="map" class="map"&gt;&lt;/div&gt; </li>
+<li">&lt;/body&gt;</li>
+<li">&lt;/html&gt;</li>
 </ol></div>
 
 + _Lines 5 and 6_ are the required files to use the Leaflet API (this is the official name of the OpenStreetMaps API),
@@ -86,42 +86,42 @@ HTML part :
 JavaScript part:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function getLocation(e) { </li>
-<li style="margin-bottom: 0px;"> e.preventDefault();</li>
-<li style="margin-bottom: 0px;"> if (!navigator.geolocation) {</li>
-<li style="margin-bottom: 0px;"> alert("Browser doesn't support geolocation");</li>
-<li style="margin-bottom: 0px;"> } else {</li>
-<li style="margin-bottom: 0px;"> navigator.geolocation.getCurrentPosition(success, error);</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Get current position successfully</li>
-<li style="margin-bottom: 0px;">function success(position) {</li>
-<li style="margin-bottom: 0px;"> var map, marker,</li>
-<li style="margin-bottom: 0px;"> latitude = position.coords.latitude,</li>
-<li style="margin-bottom: 0px;"> longitude = position.coords.longitude;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Instance map using leaflet</li>
-<li style="margin-bottom: 0px;"> map = L.map('map').setView([latitude, longitude], 13);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Tile layer using key api at cloudmade.com</li>
-<li style="margin-bottom: 0px;"> L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {</li>
-<li style="margin-bottom: 0px;"> key: '760506895e284217a7442ce2efe97797',</li>
-<li style="margin-bottom: 0px;"> styleId: 103288,</li>
-<li style="margin-bottom: 0px;"> maxZoom: 16</li>
-<li style="margin-bottom: 0px;"> }).addTo(map);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Marker using leaflet</li>
-<li style="margin-bottom: 0px;"> marker = L.marker([latitude, longitude]).addTo(map);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Popup in leaflet</li>
-<li style="margin-bottom: 0px;"> marker.bindPopup('&lt;p&gt;Your location&lt;/p&gt;').openPopup();</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Get current position fail</li>
-<li style="margin-bottom: 0px;">function error() {</li>
-<li style="margin-bottom: 0px;"> alert('Get current position fail. Please access codepen to get geolocation.');</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function getLocation(e) { </li>
+<li"> e.preventDefault();</li>
+<li"> if (!navigator.geolocation) {</li>
+<li"> alert("Browser doesn't support geolocation");</li>
+<li"> } else {</li>
+<li"> navigator.geolocation.getCurrentPosition(success, error);</li>
+<li"> }</li>
+<li">}</li>
+<li"> </li>
+<li">// Get current position successfully</li>
+<li">function success(position) {</li>
+<li"> var map, marker,</li>
+<li"> latitude = position.coords.latitude,</li>
+<li"> longitude = position.coords.longitude;</li>
+<li"> </li>
+<li"> // Instance map using leaflet</li>
+<li"> map = L.map('map').setView([latitude, longitude], 13);</li>
+<li"> </li>
+<li"> // Tile layer using key api at cloudmade.com</li>
+<li"> L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {</li>
+<li"> key: '760506895e284217a7442ce2efe97797',</li>
+<li"> styleId: 103288,</li>
+<li"> maxZoom: 16</li>
+<li"> }).addTo(map);</li>
+<li"> </li>
+<li"> // Marker using leaflet</li>
+<li"> marker = L.marker([latitude, longitude]).addTo(map);</li>
+<li"> </li>
+<li"> // Popup in leaflet</li>
+<li"> marker.bindPopup('&lt;p&gt;Your location&lt;/p&gt;').openPopup();</li>
+<li">}</li>
+<li"> </li>
+<li">// Get current position fail</li>
+<li">function error() {</li>
+<li"> alert('Get current position fail. Please access codepen to get geolocation.');</li>
+<li">}</li>
 </ol></div>
 
 + _Line 6_ uses the [Geolocation API](https://www.w3.org/TR/geolocation-API/) to get the current position, in case of success it calls the success function, passing the location as parameter,
@@ -177,100 +177,100 @@ Google reverse geocoding example (screenshot only) :
 Source code of this example (in order to run it, you need a Google API key, used at _line 6_).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&lt;meta charset="utf-8"&gt;</li>
-<li style="margin-bottom: 0px;">&lt;title&gt;Js bin &lt;/title&gt; </li>
-<li style="margin-bottom: 0px;"> &lt;script src="https://maps.googleapis.com/maps/api/js?key=PUT_HERE_YOUR_API_KEY&amp;v=3.exp&amp;sensor=false"&gt;&lt;/script&gt; </li>
-<li style="margin-bottom: 0px;"> &lt;script&gt;</li>
-<li style="margin-bottom: 0px;"> // p elements for displaying lat / long and address</li>
-<li style="margin-bottom: 0px;"> var displayCoords, myAddress; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // used with the google apis</li>
-<li style="margin-bottom: 0px;"> var geocoder;</li>
-<li style="margin-bottom: 0px;"> var map;</li>
-<li style="margin-bottom: 0px;"> var infowindow = new google.maps.InfoWindow();</li>
-<li style="margin-bottom: 0px;"> var marker;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Called when the page is loaded</li>
-<li style="margin-bottom: 0px;"> function init() {</li>
-<li style="margin-bottom: 0px;"> displayCoords=document.getElementById("msg");</li>
-<li style="margin-bottom: 0px;"> myAddress = document.getElementById("address");</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> geocoder = new google.maps.Geocoder();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // In order to show something even before a user clicks on the button</li>
-<li style="margin-bottom: 0px;"> var latlng = new google.maps.LatLng(34.0144, -6.83);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> var mapOptions = {</li>
-<li style="margin-bottom: 0px;"> zoom: 8,</li>
-<li style="margin-bottom: 0px;"> center: latlng,</li>
-<li style="margin-bottom: 0px;"> mapTypeId: 'roadmap'</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"> map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions); </li>
-<li style="margin-bottom: 0px;"> } // end of init()</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Called when the button is clicked</li>
-<li style="margin-bottom: 0px;"> function getLocation() {</li>
-<li style="margin-bottom: 0px;"> if (navigator.geolocation) {</li>
-<li style="margin-bottom: 0px;"> navigator.geolocation.getCurrentPosition(showPosition);</li>
-<li style="margin-bottom: 0px;"> } else {</li>
-<li style="margin-bottom: 0px;"> displayCoords.innerHTML="Geolocation API not supported by your browser.";</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Called when a position is available</li>
-<li style="margin-bottom: 0px;"> function showPosition(position) {</li>
-<li style="margin-bottom: 0px;"> displayCoords.innerHTML="Latitude: " + position.coords.latitude + </li>
-<li style="margin-bottom: 0px;"> "&lt;br /&gt;Longitude: " + position.coords.longitude; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Display the map</li>
-<li style="margin-bottom: 0px;"> showOnGoogleMap(new google.maps.LatLng(position.coords.latitude, </li>
-<li style="margin-bottom: 0px;"> position.coords.longitude));</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"> function showOnGoogleMap(latlng) {</li>
-<li style="margin-bottom: 0px;"> // Ask google geocoder for an address once we get a longitude and </li>
-<li style="margin-bottom: 0px;"> // a latitude. In fact, the reverse geocoder sends back an array of "guesses"</li>
-<li style="margin-bottom: 0px;"> // i.e. not just one address object, but several. Each entry in this array</li>
-<li style="margin-bottom: 0px;"> // has several properties such as street, city, etc. We use the "formatted_address"</li>
-<li style="margin-bottom: 0px;"> // one here, but it might be interesting to get the detailed properties in other</li>
-<li style="margin-bottom: 0px;"> // applications like a form with street, city, zip code etc.</li>
-<li style="margin-bottom: 0px;"> geocoder.geocode({'latLng': latlng},reverseGeocoderSuccess);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> function reverseGeocoderSuccess(results, status) {</li>
-<li style="margin-bottom: 0px;"> if (status == google.maps.GeocoderStatus.OK) {</li>
-<li style="margin-bottom: 0px;"> if (results[1]) {</li>
-<li style="margin-bottom: 0px;"> map.setZoom(11);</li>
-<li style="margin-bottom: 0px;"> marker = new google.maps.Marker({</li>
-<li style="margin-bottom: 0px;"> position: latlng,</li>
-<li style="margin-bottom: 0px;"> map: map</li>
-<li style="margin-bottom: 0px;"> });</li>
-<li style="margin-bottom: 0px;"> infowindow.setContent(results[1].formatted_address);</li>
-<li style="margin-bottom: 0px;"> infowindow.open(map, marker);</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> // Display address as text in the page</li>
-<li style="margin-bottom: 0px;"> myAddress.innerHTML="Adress: " + results[0].formatted_address;</li>
-<li style="margin-bottom: 0px;"> } else {</li>
-<li style="margin-bottom: 0px;"> alert('No surface address found');</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"> } else {</li>
-<li style="margin-bottom: 0px;"> alert('Geocoder failed due to: ' + status);</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"> } // end of reverseGeocoderSuccess</li>
-<li style="margin-bottom: 0px;"> } // end of showOnGoogleMap</li>
-<li style="margin-bottom: 0px;"> &lt;/script&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/head&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;body onload="init()"&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;title&gt;HTML5 + Geolocalisation + Google Maps API Reverse Geocoding&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> &lt;p id="msg"&gt;Click the button to get your coordinates:&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p id="address"&gt;&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> &lt;button onclick="getLocation()"&gt;Where am I ?&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;div id="map_canvas" style="width: 500px; height: 300px"&gt;&lt;/div&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/body&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+<li" value="1">&lt;!DOCTYPE html&gt;</li>
+<li">&lt;html lang="en"&gt;</li>
+<li"> &lt;head&gt;</li>
+<li">&lt;meta charset="utf-8"&gt;</li>
+<li">&lt;title&gt;Js bin &lt;/title&gt; </li>
+<li"> &lt;script src="https://maps.googleapis.com/maps/api/js?key=PUT_HERE_YOUR_API_KEY&amp;v=3.exp&amp;sensor=false"&gt;&lt;/script&gt; </li>
+<li"> &lt;script&gt;</li>
+<li"> // p elements for displaying lat / long and address</li>
+<li"> var displayCoords, myAddress; </li>
+<li"> </li>
+<li"> // used with the google apis</li>
+<li"> var geocoder;</li>
+<li"> var map;</li>
+<li"> var infowindow = new google.maps.InfoWindow();</li>
+<li"> var marker;</li>
+<li"> </li>
+<li"> // Called when the page is loaded</li>
+<li"> function init() {</li>
+<li"> displayCoords=document.getElementById("msg");</li>
+<li"> myAddress = document.getElementById("address");</li>
+<li"> </li>
+<li"> geocoder = new google.maps.Geocoder();</li>
+<li"> </li>
+<li"> // In order to show something even before a user clicks on the button</li>
+<li"> var latlng = new google.maps.LatLng(34.0144, -6.83);</li>
+<li"> </li>
+<li"> var mapOptions = {</li>
+<li"> zoom: 8,</li>
+<li"> center: latlng,</li>
+<li"> mapTypeId: 'roadmap'</li>
+<li"> }</li>
+<li"> map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions); </li>
+<li"> } // end of init()</li>
+<li"> </li>
+<li"> // Called when the button is clicked</li>
+<li"> function getLocation() {</li>
+<li"> if (navigator.geolocation) {</li>
+<li"> navigator.geolocation.getCurrentPosition(showPosition);</li>
+<li"> } else {</li>
+<li"> displayCoords.innerHTML="Geolocation API not supported by your browser.";</li>
+<li"> }</li>
+<li"> }</li>
+<li"> </li>
+<li"> // Called when a position is available</li>
+<li"> function showPosition(position) {</li>
+<li"> displayCoords.innerHTML="Latitude: " + position.coords.latitude + </li>
+<li"> "&lt;br /&gt;Longitude: " + position.coords.longitude; </li>
+<li"> </li>
+<li"> // Display the map</li>
+<li"> showOnGoogleMap(new google.maps.LatLng(position.coords.latitude, </li>
+<li"> position.coords.longitude));</li>
+<li"> }</li>
+<li"> function showOnGoogleMap(latlng) {</li>
+<li"> // Ask google geocoder for an address once we get a longitude and </li>
+<li"> // a latitude. In fact, the reverse geocoder sends back an array of "guesses"</li>
+<li"> // i.e. not just one address object, but several. Each entry in this array</li>
+<li"> // has several properties such as street, city, etc. We use the "formatted_address"</li>
+<li"> // one here, but it might be interesting to get the detailed properties in other</li>
+<li"> // applications like a form with street, city, zip code etc.</li>
+<li"> geocoder.geocode({'latLng': latlng},reverseGeocoderSuccess);</li>
+<li"> </li>
+<li"> function reverseGeocoderSuccess(results, status) {</li>
+<li"> if (status == google.maps.GeocoderStatus.OK) {</li>
+<li"> if (results[1]) {</li>
+<li"> map.setZoom(11);</li>
+<li"> marker = new google.maps.Marker({</li>
+<li"> position: latlng,</li>
+<li"> map: map</li>
+<li"> });</li>
+<li"> infowindow.setContent(results[1].formatted_address);</li>
+<li"> infowindow.open(map, marker);</li>
+<li"> </li>
+<li"> // Display address as text in the page</li>
+<li"> myAddress.innerHTML="Adress: " + results[0].formatted_address;</li>
+<li"> } else {</li>
+<li"> alert('No surface address found');</li>
+<li"> }</li>
+<li"> } else {</li>
+<li"> alert('Geocoder failed due to: ' + status);</li>
+<li"> }</li>
+<li"> } // end of reverseGeocoderSuccess</li>
+<li"> } // end of showOnGoogleMap</li>
+<li"> &lt;/script&gt;</li>
+<li"> &lt;/head&gt;</li>
+<li"> &lt;body onload="init()"&gt;</li>
+<li"> &lt;title&gt;HTML5 + Geolocalisation + Google Maps API Reverse Geocoding&lt;/title&gt;</li>
+<li"> </li>
+<li"> &lt;p id="msg"&gt;Click the button to get your coordinates:&lt;/p&gt;</li>
+<li"> &lt;p id="address"&gt;&lt;/p&gt;</li>
+<li"> </li>
+<li"> &lt;button onclick="getLocation()"&gt;Where am I ?&lt;/button&gt;</li>
+<li"> &lt;div id="map_canvas" style="width: 500px; height: 300px"&gt;&lt;/div&gt;</li>
+<li"> &lt;/body&gt;</li>
+<li">&lt;/html&gt;</li>
 </ol></div>
 
 
