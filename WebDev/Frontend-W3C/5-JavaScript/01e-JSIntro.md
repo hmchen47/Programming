@@ -27,8 +27,8 @@ JavaScript is weakly typed. Each variable is declared with the keyword `var` or 
 Example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var myVar;</li>
-<li style="margin-bottom: 0px;">let x;</li>
+<li" value="1">var myVar;</li>
+<li">let x;</li>
 </ol></div><br/>
 
 The first letter of a variable can only be "$", "_", "a" to "z", or "A" to "Z". The other characters in a name must be any of these, or numeric digits. The name is case sensitive. __So variables "myVar" and "MyVar" are different variables.__
@@ -45,11 +45,11 @@ Example:
 (notice at _line 4_ one way to introduce comments in your code: start a line with "//"!)
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var myValue;</li>
-<li style="margin-bottom: 0px;">myValue = 78;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// With the ES2015 syntax. BTW, lines staring with // are comments!</li>
-<li style="margin-bottom: 0px;">let myNumber = 1.34;</li>
+<li" value="1">var myValue;</li>
+<li">myValue = 78;</li>
+<li">&nbsp;</li>
+<li">// With the ES2015 syntax. BTW, lines staring with // are comments!</li>
+<li">let myNumber = 1.34;</li>
 </ol></div><br/>
 
 At _line 2_, we are not saying that "myValue" and "78" are the same, we're saying "hey, I want to store the value 78, and I'm putting it in a variable whose name is "myValue". It's like giving an id to a location somewhere in the memory of the computer.
@@ -61,10 +61,10 @@ You can also declare many variables at once by separating them with a comma. Alw
 Example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var myNumber1, myNumber2 = 34, myNumber3;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// Or with the ES2015 syntax, you can also use "let"</li>
-<li style="margin-bottom: 0px;">let x = 1, y = 3, z = 12;</li>
+<li" value="1">var myNumber1, myNumber2 = 34, myNumber3;</li>
+<li">&nbsp;</li>
+<li">// Or with the ES2015 syntax, you can also use "let"</li>
+<li">let x = 1, y = 3, z = 12;</li>
 </ol></div><br/>
 
 
@@ -75,25 +75,25 @@ Reminder: you can always open the devtool console using F12 on windows, or ctrl-
 If we copy and paste the variable declarations from the previous example, and type myNumber2 in the devtool console, it will display 34 (while `myNumber1` will have an undefined value):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var myNumber1, myNumber2 = 34, myNumber3;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; // Or with the ES6 syntax you can also use "let"</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; let x=1, y=3, z=12;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; x;</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; z;</li>
-<li style="margin-bottom: 0px;">12</li>
-<li style="margin-bottom: 0px;">&gt; myNumber2;</li>
-<li style="margin-bottom: 0px;">34</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; myNumber1;</li>
-<li style="margin-bottom: 0px;">undefined</li>
+<li" value="1">&gt; var myNumber1, myNumber2 = 34, myNumber3;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; // Or with the ES6 syntax you can also use "let"</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; let x=1, y=3, z=12;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; x;</li>
+<li">1</li>
+<li">&nbsp;</li>
+<li">&gt; z;</li>
+<li">12</li>
+<li">&gt; myNumber2;</li>
+<li">34</li>
+<li">&nbsp;</li>
+<li">&gt; myNumber1;</li>
+<li">undefined</li>
 </ol></div>
 
 Below is an image that explains how you can try JavaScript code in the devtools console:
@@ -128,9 +128,9 @@ The JavaScript community has some conventions about naming variables:
 Example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var&nbsp;myModel;</li>
-<li style="margin-bottom: 0px;"><span style="color: #000000;" color="#000000">// ES2015 syntax</span></li>
-<li style="margin-bottom: 0px;">let michelBuffaAge = 51;</li>
+<li" value="1">var&nbsp;myModel;</li>
+<li"><span style="color: #000000;" color="#000000">// ES2015 syntax</span></li>
+<li">let michelBuffaAge = 51;</li>
 </ol></div><br/>
 
 Most JavaScript examples you will find are written in the camelCase format. For harmony in the code source, it is a good idea to keep this convention. Sometimes, you will see the snake_case naming convention, which separates each word of a variable with an underscore.
@@ -153,10 +153,10 @@ With ES2015/2016 it is recommended that you use the keyword `const` instead of `
 Example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var TIME_LIMIT;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// ES2015 Syntax</li>
-<li style="margin-bottom: 0px;">const MAX_GRADE = 20;</li>
+<li" value="1">var TIME_LIMIT;</li>
+<li">&nbsp;</li>
+<li">// ES2015 Syntax</li>
+<li">const MAX_GRADE = 20;</li>
 </ol></div><br/>
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -174,19 +174,19 @@ Example:
 Here are a set of examples (using the `let` keyword, but they would also work with `var`):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">let a;</li>
-<li style="margin-bottom: 0px;">let thisIsAVariable;</li>
-<li style="margin-bottom: 0px;">let and_this_too; // but <strong>does not respect the usual naming convention</strong></li>
-<li style="margin-bottom: 0px;">let mix12three;</li>
-<li style="margin-bottom: 0px;">// invalid!</li>
-<li style="margin-bottom: 0px;">let 2three4five; // <strong>can't start with a digit!</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">let a = 1</li>
-<li style="margin-bottom: 0px;">let v1, v2, v3 = 'hello', v4 = 4, v5;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// Beware with lowercase / uppercase</li>
-<li style="margin-bottom: 0px;">let case_matters = 'lower';</li>
-<li style="margin-bottom: 0px;">let CASE_MATTERS = 'upper';</li>
+<li" value="1">let a;</li>
+<li">let thisIsAVariable;</li>
+<li">let and_this_too; // but <strong>does not respect the usual naming convention</strong></li>
+<li">let mix12three;</li>
+<li">// invalid!</li>
+<li">let 2three4five; // <strong>can't start with a digit!</strong></li>
+<li">&nbsp;</li>
+<li">let a = 1</li>
+<li">let v1, v2, v3 = 'hello', v4 = 4, v5;</li>
+<li">&nbsp;</li>
+<li">// Beware with lowercase / uppercase</li>
+<li">let case_matters = 'lower';</li>
+<li">let CASE_MATTERS = 'upper';</li>
 </ol></div><br/>
 
 #### Notes for 1.5.1 JS variables and values
@@ -485,26 +485,26 @@ Number values can be:
   Examples of integer and decimals:
 
   <div><ol style="list-style-type: decimal;">
-  <li style="margin-bottom: 0px;" value="1">&gt; var n=1;</li>
-  <li style="margin-bottom: 0px;">undefined</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof n;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; n=1234;</li>
-  <li style="margin-bottom: 0px;">1234</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof n;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; n=1.23;</li>
-  <li style="margin-bottom: 0px;">1.23</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof n;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof 123;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
+  <li" value="1">&gt; var n=1;</li>
+  <li">undefined</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof n;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; n=1234;</li>
+  <li">1234</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof n;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; n=1.23;</li>
+  <li">1.23</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof n;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof 123;</li>
+  <li">"number"</li>
   </ol></div>
 
 + __Scientific notation:__ `3.46e4`, `5.3e+6`, `5344000e-5`
@@ -514,26 +514,26 @@ Number values can be:
   Examples:
 
   <div><ol style="list-style-type: decimal;">
-  <li style="margin-bottom: 0px;" value="1">&gt; 1e1;</li>
-  <li style="margin-bottom: 0px;">10</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; 1e+1;</li>
-  <li style="margin-bottom: 0px;">10</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; 2e+3;</li>
-  <li style="margin-bottom: 0px;">2000</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof 2e+3;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; 2e-3;</li>
-  <li style="margin-bottom: 0px;">0.002</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; 123.456E-3;</li>
-  <li style="margin-bottom: 0px;">0.123456</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof 2e-3;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
+  <li" value="1">&gt; 1e1;</li>
+  <li">10</li>
+  <li">&nbsp;</li>
+  <li">&gt; 1e+1;</li>
+  <li">10</li>
+  <li">&nbsp;</li>
+  <li">&gt; 2e+3;</li>
+  <li">2000</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof 2e+3;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; 2e-3;</li>
+  <li">0.002</li>
+  <li">&nbsp;</li>
+  <li">&gt; 123.456E-3;</li>
+  <li">0.123456</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof 2e-3;</li>
+  <li">"number"</li>
   </ol></div>
 
 + __Octal:__ `010`
@@ -559,32 +559,32 @@ Number values can be:
   Examples of octal and hexadecimal data types:
 
   <div><ol style="list-style-type: decimal;">
-  <li style="margin-bottom: 0px;" value="1">&gt; var n3 = 0377;</li>
-  <li style="margin-bottom: 0px;">undefined</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof n3;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; n3;</li>
-  <li style="margin-bottom: 0px;">255</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; var n4 = 0x00;</li>
-  <li style="margin-bottom: 0px;">undefined</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof n4;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; n4;</li>
-  <li style="margin-bottom: 0px;">0</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; var n5 = 0xFF;</li>
-  <li style="margin-bottom: 0px;">undefined</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof n5;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; n5;</li>
-  <li style="margin-bottom: 0px;">255</li>
+  <li" value="1">&gt; var n3 = 0377;</li>
+  <li">undefined</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof n3;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; n3;</li>
+  <li">255</li>
+  <li">&nbsp;</li>
+  <li">&gt; var n4 = 0x00;</li>
+  <li">undefined</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof n4;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; n4;</li>
+  <li">0</li>
+  <li">&nbsp;</li>
+  <li">&gt; var n5 = 0xFF;</li>
+  <li">undefined</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof n5;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; n5;</li>
+  <li">255</li>
   </ol></div>
 
 + __Special values:__
@@ -597,11 +597,11 @@ The value `Infinity` (or `+Infinity`) represents all number values greater than 
 Finally, `Nan` represents _not-a-number_ values, for example if you try to divide 0 by 0 (type 0/0 in the devtool console).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; 0 / 0;</li>
-<li style="margin-bottom: 0px;">NaN</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; 3 / 0;</li>
-<li style="margin-bottom: 0px;">Infinity</li>
+<li" value="1">&gt; 0 / 0;</li>
+<li">NaN</li>
+<li">&nbsp;</li>
+<li">&gt; 3 / 0;</li>
+<li">Infinity</li>
 </ol></div>
 
 Examples:
@@ -609,54 +609,54 @@ Examples:
   Any operation with Infinity gives Infinity as a result:
 
   <div><ol style="list-style-type: decimal;">
-  <li style="margin-bottom: 0px;" value="1">&gt; Infinity;</li>
-  <li style="margin-bottom: 0px;">Infinity</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof Infinity;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; 1e309;</li>
-  <li style="margin-bottom: 0px;">Infinity</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; 1e308;</li>
-  <li style="margin-bottom: 0px;">1e+308</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; var a = 6 / 0;</li>
-  <li style="margin-bottom: 0px;">undefined</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; a;</li>
-  <li style="margin-bottom: 0px;">Infinity</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; var i = -Infinity;</li>
-  <li style="margin-bottom: 0px;">undefined</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; i;</li>
-  <li style="margin-bottom: 0px;">-Infinity</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; typeof i;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
+  <li" value="1">&gt; Infinity;</li>
+  <li">Infinity</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof Infinity;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; 1e309;</li>
+  <li">Infinity</li>
+  <li">&nbsp;</li>
+  <li">&gt; 1e308;</li>
+  <li">1e+308</li>
+  <li">&nbsp;</li>
+  <li">&gt; var a = 6 / 0;</li>
+  <li">undefined</li>
+  <li">&nbsp;</li>
+  <li">&gt; a;</li>
+  <li">Infinity</li>
+  <li">&nbsp;</li>
+  <li">&gt; var i = -Infinity;</li>
+  <li">undefined</li>
+  <li">&nbsp;</li>
+  <li">&gt; i;</li>
+  <li">-Infinity</li>
+  <li">&nbsp;</li>
+  <li">&gt; typeof i;</li>
+  <li">"number"</li>
   </ol></div><br/>
 
   <div><ol style="list-style-type: decimal;">
-  <li style="margin-bottom: 0px;" value="1">&gt; Infinity - Infinity;</li>
-  <li style="margin-bottom: 0px;">NaN</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; -Infinity + Infinity;</li>
-  <li style="margin-bottom: 0px;">NaN</li>
+  <li" value="1">&gt; Infinity - Infinity;</li>
+  <li">NaN</li>
+  <li">&nbsp;</li>
+  <li">&gt; -Infinity + Infinity;</li>
+  <li">NaN</li>
   </ol></div><br/>
 
   <div><ol style="list-style-type: decimal;">
-  <li style="margin-bottom: 0px;" value="1">&gt; Infinity - 20;</li>
-  <li style="margin-bottom: 0px;">Infinity</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; -Infinity * 3;</li>
-  <li style="margin-bottom: 0px;">-Infinity</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; Infinity / 2;</li>
-  <li style="margin-bottom: 0px;">Infinity</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; Infinity - 9999999999999;</li>
-  <li style="margin-bottom: 0px;">Infinity</li>
+  <li" value="1">&gt; Infinity - 20;</li>
+  <li">Infinity</li>
+  <li">&nbsp;</li>
+  <li">&gt; -Infinity * 3;</li>
+  <li">-Infinity</li>
+  <li">&nbsp;</li>
+  <li">&gt; Infinity / 2;</li>
+  <li">Infinity</li>
+  <li">&nbsp;</li>
+  <li">&gt; Infinity - 9999999999999;</li>
+  <li">Infinity</li>
   </ol></div>
 
 Examples with `NaN`:
@@ -664,25 +664,25 @@ Examples with `NaN`:
   `NaN` is a special value and its type is "Number"!
 
   <div><ol style="list-style-type: decimal;">
-  <li style="margin-bottom: 0px;" value="1">&gt; typeof NaN;</li>
-  <li style="margin-bottom: 0px;">"number"</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; var a = NaN;</li>
-  <li style="margin-bottom: 0px;">undefined</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; a;</li>
-  <li style="margin-bottom: 0px;">NaN</li>
+  <li" value="1">&gt; typeof NaN;</li>
+  <li">"number"</li>
+  <li">&nbsp;</li>
+  <li">&gt; var a = NaN;</li>
+  <li">undefined</li>
+  <li">&nbsp;</li>
+  <li">&gt; a;</li>
+  <li">NaN</li>
   </ol></div><br/>
 
   <div><ol style="list-style-type: decimal;">
-  <li style="margin-bottom: 0px;" value="1">&gt; var a = 10 * "f";</li>
-  <li style="margin-bottom: 0px;">undefined</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; a;</li>
-  <li style="margin-bottom: 0px;">NaN</li>
-  <li style="margin-bottom: 0px;">&nbsp;</li>
-  <li style="margin-bottom: 0px;">&gt; 1 + 2 + a;</li>
-  <li style="margin-bottom: 0px;">NaN</li>
+  <li" value="1">&gt; var a = 10 * "f";</li>
+  <li">undefined</li>
+  <li">&nbsp;</li>
+  <li">&gt; a;</li>
+  <li">NaN</li>
+  <li">&nbsp;</li>
+  <li">&gt; 1 + 2 + a;</li>
+  <li">NaN</li>
   </ol></div>
 
 #### [ADVANCED] Optional explanations about numbers
@@ -721,8 +721,8 @@ What does it mean?
 First, each number is represented as a float. For example, `1` equals `1.0`. But there are approximation errors that are well-known in float calculations. One common example of errors due to the approximation of floating point numbers is that `0.1 + 0.2` does not equal `0.3`.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; 0.1 + 0.2;</li>
-<li style="margin-bottom: 0px;">0.30000000000000004</li>
+<li" value="1">&gt; 0.1 + 0.2;</li>
+<li">0.30000000000000004</li>
 </ol></div>
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -807,7 +807,7 @@ In JavaScript, __an operator__ can be unary or binary (plus one ternary operator
 __Unary operator example:__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">typeof 'world';</li>
+<li" value="1">typeof 'world';</li>
 </ol></div>
 
 A binary operator is applied to two different expressions, and is both prefixed and suffixed.
@@ -815,7 +815,7 @@ A binary operator is applied to two different expressions, and is both prefixed 
 __Binary operator example:__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var x = 45 / 32;</li>
+<li" value="1">var x = 45 / 32;</li>
 </ol></div>
 
 The division operator is binary.
@@ -884,80 +884,80 @@ And there are also __unary__ operators:
 __Example #1: simple operator use__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; 1 + 2;</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var a = 1;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var b = 2;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a + 1;</li>
-<li style="margin-bottom: 0px;">2</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b + 2;</li>
-<li style="margin-bottom: 0px;">4</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a + b;</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var c = a + b;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; c;</li>
-<li style="margin-bottom: 0px;">3</li>
+<li" value="1">&gt; 1 + 2;</li>
+<li">3</li>
+<li">&nbsp;</li>
+<li">&gt; var a = 1;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; var b = 2;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; a + 1;</li>
+<li">2</li>
+<li">&nbsp;</li>
+<li">&gt; b + 2;</li>
+<li">4</li>
+<li">&nbsp;</li>
+<li">&gt; a + b;</li>
+<li">3</li>
+<li">&nbsp;</li>
+<li">&gt; var c = a + b;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; c;</li>
+<li">3</li>
 </ol></div>
 
 __Example #2: more operators__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; 1 + 2;</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; 99.99 - 11;</li>
-<li style="margin-bottom: 0px;">88.99</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; 2 * 3;</li>
-<li style="margin-bottom: 0px;">6</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; 6 / 4;</li>
-<li style="margin-bottom: 0px;">1.5</li>
+<li" value="1">&gt; 1 + 2;</li>
+<li">3</li>
+<li">&nbsp;</li>
+<li">&gt; 99.99 - 11;</li>
+<li">88.99</li>
+<li">&nbsp;</li>
+<li">&gt; 2 * 3;</li>
+<li">6</li>
+<li">&nbsp;</li>
+<li">&gt; 6 / 4;</li>
+<li">1.5</li>
 </ol></div>
 
 __Example #3: pre and post increments__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var m = 0;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; m;</li>
-<li style="margin-bottom: 0px;">0</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; // regular use of the + operator</li>
-<li style="margin-bottom: 0px;">m = m + 1;</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; m;</li>
-<li style="margin-bottom: 0px;">1</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; m = m + 1;</li>
-<li style="margin-bottom: 0px;">2</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; m;</li>
-<li style="margin-bottom: 0px;">2</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; // post increment</li>
-<li style="margin-bottom: 0px;">m++;</li>
-<li style="margin-bottom: 0px;">2</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; m;</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&gt; console.log(m++); // will display 3 but after that m is incremented</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; m;</li>
-<li style="margin-bottom: 0px;">4</li>
+<li" value="1">&gt; var m = 0;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; m;</li>
+<li">0</li>
+<li">&nbsp;</li>
+<li">&gt; // regular use of the + operator</li>
+<li">m = m + 1;</li>
+<li">1</li>
+<li">&nbsp;</li>
+<li">&gt; m;</li>
+<li">1</li>
+<li">&nbsp;</li>
+<li">&gt; m = m + 1;</li>
+<li">2</li>
+<li">&nbsp;</li>
+<li">&gt; m;</li>
+<li">2</li>
+<li">&nbsp;</li>
+<li">&gt; // post increment</li>
+<li">m++;</li>
+<li">2</li>
+<li">&nbsp;</li>
+<li">&gt; m;</li>
+<li">3</li>
+<li">&gt; console.log(m++); // will display 3 but after that m is incremented</li>
+<li">3</li>
+<li">&nbsp;</li>
+<li">&gt; m;</li>
+<li">4</li>
 </ol></div>
 
 Below is snapshot with explanations:
@@ -975,32 +975,32 @@ Below is snapshot with explanations:
 __Example #4: other versions of post and pre increments__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = 123; var b = a++;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b;</li>
-<li style="margin-bottom: 0px;">123</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">124</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var a = 123; var b = ++a;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b;</li>
-<li style="margin-bottom: 0px;">124</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">124</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var a = 123; var b = a--;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; b;</li>
-<li style="margin-bottom: 0px;">123</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a;</li>
-<li style="margin-bottom: 0px;">122</li>
+<li" value="1">&gt; var a = 123; var b = a++;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; b;</li>
+<li">123</li>
+<li">&nbsp;</li>
+<li">&gt; a;</li>
+<li">124</li>
+<li">&nbsp;</li>
+<li">&gt; var a = 123; var b = ++a;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; b;</li>
+<li">124</li>
+<li">&nbsp;</li>
+<li">&gt; a;</li>
+<li">124</li>
+<li">&nbsp;</li>
+<li">&gt; var a = 123; var b = a--;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; b;</li>
+<li">123</li>
+<li">&nbsp;</li>
+<li">&gt; a;</li>
+<li">122</li>
 </ol></div>
 
 __Example #5: short variant that mixes assignment and execution of an operator__
@@ -1010,10 +1010,10 @@ Binary operators can be used with a shorter syntax when we want to assign the re
 Code below (try it in the devtool console of your browser):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt;&nbsp;var a = 10;</li>
-<li style="margin-bottom: 0px;">&gt;&nbsp;a *= 5; // equivalent to a = a * 5;</li>
-<li style="margin-bottom: 0px;">&gt;&nbsp;console.log(a);</li>
-<li style="margin-bottom: 0px;">&gt;&nbsp;50</li>
+<li" value="1">&gt;&nbsp;var a = 10;</li>
+<li">&gt;&nbsp;a *= 5; // equivalent to a = a * 5;</li>
+<li">&gt;&nbsp;console.log(a);</li>
+<li">&gt;&nbsp;50</li>
 </ol></div>
 
 __Example #6: more with pre operators +=, -=, *=, /=__
@@ -1021,25 +1021,25 @@ __Example #6: more with pre operators +=, -=, *=, /=__
 There are good chances you will encounter such code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = 5;</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a += 3 // equivalent to a = a + 3;</li>
-<li style="margin-bottom: 0px;">8</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a -= 2; // equivalent to a = a - 2;</li>
-<li style="margin-bottom: 0px;">6</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a *= 10; // equivalent to a = a * 10;</li>
-<li style="margin-bottom: 0px;">60</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a /= 5; // equivalent to a = a / 5;</li>
-<li style="margin-bottom: 0px;">12</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; a %= 2; // equivalent to a = a % 2;</li>
-<li style="margin-bottom: 0px;">0</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; // this is normal, as a is even</li>
+<li" value="1">&gt; var a = 5;</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; a += 3 // equivalent to a = a + 3;</li>
+<li">8</li>
+<li">&nbsp;</li>
+<li">&gt; a -= 2; // equivalent to a = a - 2;</li>
+<li">6</li>
+<li">&nbsp;</li>
+<li">&gt; a *= 10; // equivalent to a = a * 10;</li>
+<li">60</li>
+<li">&nbsp;</li>
+<li">&gt; a /= 5; // equivalent to a = a / 5;</li>
+<li">12</li>
+<li">&nbsp;</li>
+<li">&gt; a %= 2; // equivalent to a = a % 2;</li>
+<li">0</li>
+<li">&nbsp;</li>
+<li">&gt; // this is normal, as a is even</li>
 </ol></div>
 
 
@@ -1072,17 +1072,17 @@ To declare or manipulate strings you must write them with __single quotes ' or d
 And finally, you cannot start a string with a single and end with a double quotes, or the opposite.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; "Hello World";</li>
-<li style="margin-bottom: 0px;">"Hello World"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; "JavaScript Course";</li>
-<li style="margin-bottom: 0px;">"JavaScript Course"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; 'With simple quotes';</li>
-<li style="margin-bottom: 0px;">"With simple quotes"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; "Do not mix double and simple quotes'; // here we opened the string with double and closed with simple quotes</li>
-<li style="margin-bottom: 0px;">VM24763:1 Uncaught SyntaxError: Invalid or unexpected token</li>
+<li" value="1">&gt; "Hello World";</li>
+<li">"Hello World"</li>
+<li">&nbsp;</li>
+<li">&gt; "JavaScript Course";</li>
+<li">"JavaScript Course"</li>
+<li">&nbsp;</li>
+<li">&gt; 'With simple quotes';</li>
+<li">"With simple quotes"</li>
+<li">&nbsp;</li>
+<li">&gt; "Do not mix double and simple quotes'; // here we opened the string with double and closed with simple quotes</li>
+<li">VM24763:1 Uncaught SyntaxError: Invalid or unexpected token</li>
 </ol></div>
 
 Image from the devtool console, from the above example:
@@ -1145,16 +1145,16 @@ There are many reasons to use simple quotes when possible:
 The operator (`+`) used with strings is called the concatenation operator, and it allows you to concatenate strings.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">//the operator (+)</li>
-<li style="margin-bottom: 0px;">var s1 = 'one';</li>
-<li style="margin-bottom: 0px;">var s2= 'two';</li>
-<li style="margin-bottom: 0px;">var s = s1 + s2;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">s;</li>
-<li style="margin-bottom: 0px;">// returns 'onetwo'</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">typeof s; </li>
-<li style="margin-bottom: 0px;">//'string'</li>
+<li" value="1">//the operator (+)</li>
+<li">var s1 = 'one';</li>
+<li">var s2= 'two';</li>
+<li">var s = s1 + s2;</li>
+<li"> </li>
+<li">s;</li>
+<li">// returns 'onetwo'</li>
+<li"> </li>
+<li">typeof s; </li>
+<li">//'string'</li>
 </ol></div>
 
 ##### The shorthand assignment operator (`+=`)
@@ -1162,12 +1162,12 @@ The operator (`+`) used with strings is called the concatenation operator, and i
 The shorthand assignment operator (`+=`) can also be used to concatenate strings.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">//the assignment operator (+=)</li>
-<li style="margin-bottom: 0px;">var s1 = 'one';</li>
-<li style="margin-bottom: 0px;">var s2 = 'two';</li>
-<li style="margin-bottom: 0px;">s1+= s2; // or directly s1+='two'</li>
-<li style="margin-bottom: 0px;">s1; </li>
-<li style="margin-bottom: 0px;">//returns 'onetwo'</li>
+<li" value="1">//the assignment operator (+=)</li>
+<li">var s1 = 'one';</li>
+<li">var s2 = 'two';</li>
+<li">s1+= s2; // or directly s1+='two'</li>
+<li">s1; </li>
+<li">//returns 'onetwo'</li>
 </ol></div>
 
 
@@ -1176,27 +1176,27 @@ The shorthand assignment operator (`+=`) can also be used to concatenate strings
 Another way to concatenate strings is the method `concat()`.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">//the 'concat' method</li>
-<li style="margin-bottom: 0px;">var s1 = 'one';</li>
-<li style="margin-bottom: 0px;">var s2 ='two';</li>
-<li style="margin-bottom: 0px;">var s = s1.concat(s2); </li>
-<li style="margin-bottom: 0px;">s;</li>
-<li style="margin-bottom: 0px;">//returns 'onetwo'</li>
+<li" value="1">//the 'concat' method</li>
+<li">var s1 = 'one';</li>
+<li">var s2 ='two';</li>
+<li">var s = s1.concat(s2); </li>
+<li">s;</li>
+<li">//returns 'onetwo'</li>
 </ol></div>
 
 All the methods shown above can be used with a variable number of arguments:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var s1 = 'Hello'; </li>
-<li style="margin-bottom: 0px;">s1 = s1 + ' World' + ' JavaScript'; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">var s2 = 'Hello'; </li>
-<li style="margin-bottom: 0px;">s2+= ' World' + ' JavaScript'; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">var s3 = 'Hello'; </li>
-<li style="margin-bottom: 0px;">s3.concat(' World' , ' JavaScript' );</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">//s1,s2 and s3 return 'Hello World JavaScript'</li>
+<li" value="1">var s1 = 'Hello'; </li>
+<li">s1 = s1 + ' World' + ' JavaScript'; </li>
+<li"> </li>
+<li">var s2 = 'Hello'; </li>
+<li">s2+= ' World' + ' JavaScript'; </li>
+<li"> </li>
+<li">var s3 = 'Hello'; </li>
+<li">s3.concat(' World' , ' JavaScript' );</li>
+<li"> </li>
+<li">//s1,s2 and s3 return 'Hello World JavaScript'</li>
 </ol></div>
 
 #### Converting strings
@@ -1204,32 +1204,32 @@ All the methods shown above can be used with a variable number of arguments:
 A String number in an arithmetic expression is converted to Number, unless the formula is a pure addition.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var s = '1'; s = 3 * s; typeof s;</li>
-<li style="margin-bottom: 0px;">"number"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s;</li>
-<li style="margin-bottom: 0px;">3</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var s = '1'; s++; typeof s;</li>
-<li style="margin-bottom: 0px;">"number"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s;</li>
-<li style="margin-bottom: 0px;">2</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var s = "100"; typeof s;</li>
-<li style="margin-bottom: 0px;">"string"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; s = s * 1;</li>
-<li style="margin-bottom: 0px;">100</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; typeof s;</li>
-<li style="margin-bottom: 0px;">"number"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var d = "101 dalmatians";</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; d * 1;</li>
-<li style="margin-bottom: 0px;">NaN</li>
+<li" value="1">&gt; var s = '1'; s = 3 * s; typeof s;</li>
+<li">"number"</li>
+<li">&nbsp;</li>
+<li">&gt; s;</li>
+<li">3</li>
+<li">&nbsp;</li>
+<li">&gt; var s = '1'; s++; typeof s;</li>
+<li">"number"</li>
+<li">&nbsp;</li>
+<li">&gt; s;</li>
+<li">2</li>
+<li">&nbsp;</li>
+<li">&gt; var s = "100"; typeof s;</li>
+<li">"string"</li>
+<li">&nbsp;</li>
+<li">&gt; s = s * 1;</li>
+<li">100</li>
+<li">&nbsp;</li>
+<li">&gt; typeof s;</li>
+<li">"number"</li>
+<li">&nbsp;</li>
+<li">&gt; var d = "101 dalmatians";</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; d * 1;</li>
+<li">NaN</li>
 </ol></div>
 
 The above example is shown in the devtools console:
@@ -1249,13 +1249,13 @@ The above example is shown in the devtools console:
 There is trick for converting a Number into a String: we concatenate with an empty string, at the beginning of expression (type this in the devtools):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var n = 1;</li>
-<li style="margin-bottom: 0px;">typeof n;</li>
-<li style="margin-bottom: 0px;">// returns "number"</li>
-<li style="margin-bottom: 0px;">n = "" + n;</li>
-<li style="margin-bottom: 0px;">// returns "1"</li>
-<li style="margin-bottom: 0px;">typeof n;</li>
-<li style="margin-bottom: 0px;">// returns "string"</li>
+<li" value="1">var n = 1;</li>
+<li">typeof n;</li>
+<li">// returns "number"</li>
+<li">n = "" + n;</li>
+<li">// returns "1"</li>
+<li">typeof n;</li>
+<li">// returns "string"</li>
 </ol></div>
 
 
@@ -1266,19 +1266,19 @@ There is trick for converting a Number into a String: we concatenate with an emp
 The `\` is useful for "escaping" special characters. Here are a few examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var s = 'I don\'t know';</li>
-<li style="margin-bottom: 0px;">var s = "I don\'t know"; // here the&nbsp;\ is useless</li>
-<li style="margin-bottom: 0px;">var s = "I don't know"; &nbsp;// same result as previous line</li>
-<li style="margin-bottom: 0px;">var s = '"Hello", he said.'; // ok, double quotes inside single one will be displayed</li>
-<li style="margin-bottom: 0px;">var s = "\"Hello\", he said."; // double quotes inside double quotes need to be escaped</li>
+<li" value="1">var s = 'I don\'t know';</li>
+<li">var s = "I don\'t know"; // here the&nbsp;\ is useless</li>
+<li">var s = "I don't know"; &nbsp;// same result as previous line</li>
+<li">var s = '"Hello", he said.'; // ok, double quotes inside single one will be displayed</li>
+<li">var s = "\"Hello\", he said."; // double quotes inside double quotes need to be escaped</li>
 </ol></div>
 
 
 ##### Escaping the escape! Use a double "\\"
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var s = "1\\2"; s;</li>
-<li style="margin-bottom: 0px;">// returns "1\2"</li>
+<li" value="1">var s = "1\\2"; s;</li>
+<li">// returns "1\2"</li>
 </ol></div>
 
 ##### Special characters starting with "\\"
@@ -1286,32 +1286,32 @@ The `\` is useful for "escaping" special characters. Here are a few examples:
 __"\n" for "next line":__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var s = '\n1\n2\n3\n';</li>
-<li style="margin-bottom: 0px;">s</li>
-<li style="margin-bottom: 0px;">// returns "</li>
-<li style="margin-bottom: 0px;"> 1</li>
-<li style="margin-bottom: 0px;"> 2</li>
-<li style="margin-bottom: 0px;"> 3</li>
-<li style="margin-bottom: 0px;"> "</li>
+<li" value="1">var s = '\n1\n2\n3\n';</li>
+<li">s</li>
+<li">// returns "</li>
+<li"> 1</li>
+<li"> 2</li>
+<li"> 3</li>
+<li"> "</li>
 </ol></div>
 
 __"\r" for "carriage return":__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var s = '1\r2';</li>
-<li style="margin-bottom: 0px;">var s = '1\n\r2';</li>
-<li style="margin-bottom: 0px;">var s = '1\r\n2';</li>
-<li style="margin-bottom: 0px;">// the three previous lines give :</li>
-<li style="margin-bottom: 0px;"> "1</li>
-<li style="margin-bottom: 0px;"> 2"</li>
+<li" value="1">var s = '1\r2';</li>
+<li">var s = '1\n\r2';</li>
+<li">var s = '1\r\n2';</li>
+<li">// the three previous lines give :</li>
+<li"> "1</li>
+<li"> 2"</li>
 </ol></div>
 
 __"\t" for "insert a tabulation":__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var s = "1\t2"</li>
-<li style="margin-bottom: 0px;">// s is equal to</li>
-<li style="margin-bottom: 0px;"> "1 2"</li>
+<li" value="1">var s = "1\t2"</li>
+<li">// s is equal to</li>
+<li"> "1 2"</li>
 </ol></div>
 
 
@@ -1395,12 +1395,12 @@ Try looking at the vendor of your browser: type `"navigator.vendor"`, try lookin
 We will study these objects later, but for the moment, just play with objects :-)
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; window.innerHeight</li>
-<li style="margin-bottom: 0px;">217</li>
-<li style="margin-bottom: 0px;">&gt; window.innerWidth</li>
-<li style="margin-bottom: 0px;">1704</li>
-<li style="margin-bottom: 0px;">&gt; navigator.vendor</li>
-<li style="margin-bottom: 0px;">"Google Inc."</li>
+<li" value="1">&gt; window.innerHeight</li>
+<li">217</li>
+<li">&gt; window.innerWidth</li>
+<li">1704</li>
+<li">&gt; navigator.vendor</li>
+<li">"Google Inc."</li>
 </ol></div>
 
 
@@ -1409,28 +1409,28 @@ We will study these objects later, but for the moment, just play with objects :-
 There are many ways to create your own JavaScript objects. For the moment, let's stick to the simplest one, "singleton objects", and for now all you need to know is that they can have properties that hold values. We will return to objects in Week 4 and cover them in further detail.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var student1 = {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; fullName:'John Doe',</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; age: 23,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; city: 'New York',</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ssn: "11-22-33-44" // no comma at the end of the last property</li>
-<li style="margin-bottom: 0px;">} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// declaration</li>
+<li" value="1">var student1 = {</li>
+<li">&nbsp; &nbsp; fullName:'John Doe',</li>
+<li">&nbsp; &nbsp; age: 23,</li>
+<li">&nbsp; &nbsp; city: 'New York',</li>
+<li">&nbsp; &nbsp; ssn: "11-22-33-44" // no comma at the end of the last property</li>
+<li">} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// declaration</li>
 </ol></div>
 
 Accessing an object's properties: we use the operator "."
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; student1.ssn</li>
-<li style="margin-bottom: 0px;">"11-22-33-44"</li>
-<li style="margin-bottom: 0px;">&gt; student1.age</li>
-<li style="margin-bottom: 0px;">23</li>
-<li style="margin-bottom: 0px;">&gt; student1</li>
-<li style="margin-bottom: 0px;">[object Object] {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; age: 23,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; city: "New York",</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; fullName: "John Doe",</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ssn: "11-22-33-44"</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">&gt; student1.ssn</li>
+<li">"11-22-33-44"</li>
+<li">&gt; student1.age</li>
+<li">23</li>
+<li">&gt; student1</li>
+<li">[object Object] {</li>
+<li">&nbsp; &nbsp; age: 23,</li>
+<li">&nbsp; &nbsp; city: "New York",</li>
+<li">&nbsp; &nbsp; fullName: "John Doe",</li>
+<li">&nbsp; &nbsp; ssn: "11-22-33-44"</li>
+<li">}</li>
 </ol></div>
 
 
@@ -1499,14 +1499,14 @@ Accessing an object's properties: we use the operator "."
 Arrays are a special datatype. You declare arrays using brackets, like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var daysOfWeek = [];</li>
+<li" value="1">var daysOfWeek = [];</li>
 </ol></div>
 
 You can fill them at declaration time:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];</li>
-<li style="margin-bottom: 0px;">var gradesInMaths = [12, 7, 14, 18, 9, 11];</li>
+<li" value="1">var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];</li>
+<li">var gradesInMaths = [12, 7, 14, 18, 9, 11];</li>
 </ol></div>
 
 #### Elements in an array can be accessed using indexes
@@ -1516,25 +1516,25 @@ Each element in an array has an index. <span style="color: brown; font-weight: b
 To access an element, you use the array variable and "[" followed by the index value followed by "]", as shown in these examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek[0]</li>
-<li style="margin-bottom: 0px;">"Monday"</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek[1]</li>
-<li style="margin-bottom: 0px;">"Tuesday"</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek[2]</li>
-<li style="margin-bottom: 0px;">"Wednesday"</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek.length</li>
-<li style="margin-bottom: 0px;">7</li>
+<li" value="1">&gt; var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];</li>
+<li">undefined</li>
+<li">&gt; daysOfWeek[0]</li>
+<li">"Monday"</li>
+<li">&gt; daysOfWeek[1]</li>
+<li">"Tuesday"</li>
+<li">&gt; daysOfWeek[2]</li>
+<li">"Wednesday"</li>
+<li">&gt; daysOfWeek.length</li>
+<li">7</li>
 </ol></div>
 
 #### Use the length property of an array to know its length
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday', 'Sunday'];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek.<strong>length</strong></li>
-<li style="margin-bottom: 0px;"><strong>7</strong></li>
+<li" value="1">&gt; var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday', 'Sunday'];</li>
+<li">undefined</li>
+<li">&gt; daysOfWeek.<strong>length</strong></li>
+<li"><strong>7</strong></li>
 </ol></div>
 
 Indeed, there are seven days in a week and the daysOfWeek array has seven elements, indexed from 0 to __daysOfWeek.length -1__
@@ -1547,18 +1547,18 @@ Indeed, there are seven days in a week and the daysOfWeek array has seven elemen
 If you want to add a new element at the end of an array, use the index equal to the length of the array
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek.length</li>
-<li style="margin-bottom: 0px;">6</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek[6]</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">// NO ELEMENT AT INDEX 6 in an array of 6 elements, first index is 0 // last 6-1 = 5</li>
-<li style="margin-bottom: 0px;"><span style="color: #000088;" color="#000088">&gt;&nbsp;</span>daysOfWeek[6] = 'Sunday'</li>
-<li style="margin-bottom: 0px;">"Sunday"</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek.length</li>
-<li style="margin-bottom: 0px;">7</li>
-<li style="margin-bottom: 0px;">// Sunday, the 7th day of week is at index 6 !</li>
+<li" value="1">&gt; var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];</li>
+<li">undefined</li>
+<li">&gt; daysOfWeek.length</li>
+<li">6</li>
+<li">&gt; daysOfWeek[6]</li>
+<li">undefined</li>
+<li">// NO ELEMENT AT INDEX 6 in an array of 6 elements, first index is 0 // last 6-1 = 5</li>
+<li"><span style="color: #000088;" color="#000088">&gt;&nbsp;</span>daysOfWeek[6] = 'Sunday'</li>
+<li">"Sunday"</li>
+<li">&gt; daysOfWeek.length</li>
+<li">7</li>
+<li">// Sunday, the 7th day of week is at index 6 !</li>
 </ol></div>
 
 
@@ -1567,16 +1567,16 @@ If you want to add a new element at the end of an array, use the index equal to 
 Well, this is not so important for the moment, but look:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var a = [];</li>
-<li style="margin-bottom: 0px;">&gt;&nbsp;<strong>typeof a;</strong></li>
-<li style="margin-bottom: 0px;"> <strong>"object"</strong></li>
-<li style="margin-bottom: 0px;">&gt; var a = [1,2,3];</li>
-<li style="margin-bottom: 0px;">&gt;&nbsp;a</li>
-<li style="margin-bottom: 0px;"> [1, 2, 3]</li>
-<li style="margin-bottom: 0px;">&gt;&nbsp;a[0]</li>
-<li style="margin-bottom: 0px;"> 1</li>
-<li style="margin-bottom: 0px;">&gt; a[1]</li>
-<li style="margin-bottom: 0px;"> 2</li>
+<li" value="1">&gt; var a = [];</li>
+<li">&gt;&nbsp;<strong>typeof a;</strong></li>
+<li"> <strong>"object"</strong></li>
+<li">&gt; var a = [1,2,3];</li>
+<li">&gt;&nbsp;a</li>
+<li"> [1, 2, 3]</li>
+<li">&gt;&nbsp;a[0]</li>
+<li"> 1</li>
+<li">&gt; a[1]</li>
+<li"> 2</li>
 </ol></div>
 
 And indeed, when you write daysOfWeek.length, you are using the array as an object, and you are using the length property of array objects.
@@ -1587,16 +1587,16 @@ And indeed, when you write daysOfWeek.length, you are using the array as an obje
 Since arrays are objects, we can do much more with them - in particular, they have more properties and more methods than the push method. You will learn more about this in a later lesson (Arrays part 2), but for the moment, let's focus on the most useful features...
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek.length</li>
-<li style="margin-bottom: 0px;">6</li>
-<li style="margin-bottom: 0px;"><strong>&gt; daysOfWeek.push('Sunday');</strong></li>
-<li style="margin-bottom: 0px;">7</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek</li>
-<li style="margin-bottom: 0px;">["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]</li>
-<li style="margin-bottom: 0px;">&gt; daysOfWeek.length</li>
-<li style="margin-bottom: 0px;">7</li>
+<li" value="1">&gt; var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];</li>
+<li">undefined</li>
+<li">&gt; daysOfWeek.length</li>
+<li">6</li>
+<li"><strong>&gt; daysOfWeek.push('Sunday');</strong></li>
+<li">7</li>
+<li">&gt; daysOfWeek</li>
+<li">["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]</li>
+<li">&gt; daysOfWeek.length</li>
+<li">7</li>
 </ol></div>
 
 
@@ -1673,19 +1673,19 @@ Functions always return a value:
 #### Declaring a function
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function sum(a, b) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var c = a + b;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; return c;</li>
-<li style="margin-bottom: 0px;">} </li>
+<li" value="1">function sum(a, b) {</li>
+<li">&nbsp; &nbsp; var c = a + b;</li>
+<li">&nbsp; &nbsp; return c;</li>
+<li">} </li>
 </ol></div>
 
 #### Calling a function
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> var result = sum(1, 2);</li>
-<li style="margin-bottom: 0px;">//result is equal to&nbsp;3</li>
-<li style="margin-bottom: 0px;">console.log(result)</li>
-<li style="margin-bottom: 0px;">&gt; 3</li>
+<li" value="1"> var result = sum(1, 2);</li>
+<li">//result is equal to&nbsp;3</li>
+<li">console.log(result)</li>
+<li">&gt; 3</li>
 </ol></div>
 
 
@@ -1694,8 +1694,8 @@ Functions always return a value:
 If parameters are omitted during the call, JavaScript gives them the value undefined:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; sum(1)</li>
-<li style="margin-bottom: 0px;"> NaN </li>
+<li" value="1">&gt; sum(1)</li>
+<li"> NaN </li>
 </ol></div>
 
 
@@ -1704,34 +1704,34 @@ If parameters are omitted during the call, JavaScript gives them the value undef
 An array named "arguments" is created automatically in each function, it contains all the call parameters of the function:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function f() { </li>
-<li style="margin-bottom: 0px;" value="1">&nbsp; &nbsp;return arguments; </li>
-<li style="margin-bottom: 0px;" value="1">}</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;"> f();</li>
-<li style="margin-bottom: 0px;">// returns []</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;"> f( 1, 2, 3, 4, true, 'Michel Buffa');</li>
-<li style="margin-bottom: 0px;">// returns [1, 2, 3, 4, true, "Michel Buffa"]</li>
+<li" value="1">function f() { </li>
+<li" value="1">&nbsp; &nbsp;return arguments; </li>
+<li" value="1">}</li>
+<li">...</li>
+<li"> f();</li>
+<li">// returns []</li>
+<li">...</li>
+<li"> f( 1, 2, 3, 4, true, 'Michel Buffa');</li>
+<li">// returns [1, 2, 3, 4, true, "Michel Buffa"]</li>
 </ol></div>
 
 
 ##### Example of the sum with a variable number of arguments
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function newSum() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var i, res = 0;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var&nbsp;numberOfParameters&nbsp;= arguments.length;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; for (i = 0; i &lt;&nbsp;numberOfParameters; i++) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;res += arguments[i];</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; return res;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;">&gt;&gt;&gt;&nbsp;newSum(1, 1, 1);</li>
-<li style="margin-bottom: 0px;"> 3</li>
-<li style="margin-bottom: 0px;">&gt;&gt;&gt;&nbsp;newSum(1, 2, 3, 4);</li>
-<li style="margin-bottom: 0px;">10</li>
+<li" value="1">function newSum() {</li>
+<li">&nbsp; &nbsp; var i, res = 0;</li>
+<li">&nbsp; &nbsp; var&nbsp;numberOfParameters&nbsp;= arguments.length;</li>
+<li">&nbsp; &nbsp; for (i = 0; i &lt;&nbsp;numberOfParameters; i++) {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp;res += arguments[i];</li>
+<li">&nbsp; &nbsp; }</li>
+<li">&nbsp; &nbsp; return res;</li>
+<li">}</li>
+<li">...</li>
+<li">&gt;&gt;&gt;&nbsp;newSum(1, 1, 1);</li>
+<li"> 3</li>
+<li">&gt;&gt;&gt;&nbsp;newSum(1, 2, 3, 4);</li>
+<li">10</li>
 </ol></div>
 
 
