@@ -227,7 +227,7 @@
 
 
 
-## Getters and Setts Methids
+## Getters and Setters Methids
 
 + [getters and setters methods](../WebDev/Frontend-W3C/5-JavaScript/04c-StructureData.md#437-advanced-modern-javascripts-getters-and-setters)
   + useful for processing properties, doing checks, changing them before returning their values, etc.
@@ -456,7 +456,7 @@
   + return: the index of the first occurrent of `searchValue` or `-1` if not found
 
 
-## Built-in JavaScript class: Math
+## Built-in JS class: Math
 
 + [`Math` class](../WebDev/Frontend-W3C/5-JavaScript/05b-Forms.md#5210-built-in-javascript-class-math)
   + many properties and methods useful for arithmetic expressions
