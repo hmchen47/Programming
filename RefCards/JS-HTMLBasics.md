@@ -136,29 +136,6 @@
     + avoid data loss when using the same service from multiple devices at once
 
 
-### JavaScript Object Notation (JSON)
-
-+ [JSON to structure key-value pairs](../WebDev/Frontend-W3C/2-HTML5Coding/06b-BasicAPIs.md#626-size-limitations-etc)
-  + `JSON.stringify()` and `JSON.parse() methods`: manipulate minimal record format to store complex data
-  + JSON (JavaScript Object Notation)
-    + a lightweight data-interchange format
-    + easy for machines to parse and generate.
-    + a text format completely programming language independent
-    + providing a great way of encoding and decoding data
-    + a really good match for JavaScript
-    + careful not to use circular data structures or non-serializable objects
-    + straightforward plugging yo support local store in vast majority of cases
-    + two structures:
-      + a collection of name/value pairs
-      + an ordered list of values
-  + typical usage:
-    + `locaStorage.key = JSON.stringify(object);`
-    + `localStorage.setItem(key, JSON.stringify(object));`
-  + example:
-    + store the object as a JSON String: `localStorage.setItem('testObject', JSON.stringify(personObject));`
-    + retrieve the object from storage: `retrievedObject = JSON.parse(localStorage.getItem('testObject'));`
-
-
 
 ## File APIs
 
