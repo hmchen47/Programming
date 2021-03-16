@@ -762,6 +762,36 @@
     + `thisArg` (optional): Value to use as `this` when executing `callback`.
   + return: `undefined`
 
++ `Array` class
+  + used for creating arrays
+  + recommendation: used '[' and ']' to create arrays
+  + a global object that is used in the construction of arrays
+  + constructor
+    + list of elements: `new Array(element0, element1[, ...[, elementN]])`
+    + empty array w/ reserved space: `new Array(arrayLength)`
+  + arrays as "special" objects
+    + property names: numerical indexes starting from 0
+    + `length` property: representing the length/number of elements
+    + other built-in properties besides the inherited ones from `Object`, including, `sort()`, `join()`, `slice()`, `splice()`,`push()` and `pop()`
+  + array length and elements:
+    + length of array bigger than the number of elements: add undefined elements to it
+    + length of array less than the number of elements: truncate the array to comply the length
+
++ Example: constructing array and size
+  + constructor w/ elements: `var a = new Array(); // same as a = [];` and `var b = new Array(1, 2, 3); // [1, 2, 3]`
+  + constructor w/ size: `var myArray = new Array(3); // [undefined x 3]`
+  + `length` property: `var a = []; o = {};`, `a.length;  // 0 - an array` and `o.length; // undefined - a simple object literal`
+
++ Example: bad practices
+  + declaration and some info: `var a = [1, 2];`, `typeof a; // "object"`, `a.push(3); // 3`, `a; // [1, 2, 3]` and `a.length; //3`
+  + add a name property into array: `a.name = "I'm an array named a!";`, `a.length; // 3` and `a; // [1, 2, 3, name: "I'm an array named a!"]`
+
++ Example: reducing and increasing the size of an array
+  + declare array and assign length: `var a = [1, 2]; a.length = 5;`
+  + increased array: `a; // [1, 2, undefined x 3]`
+  + declare array and assign length: `var a = [1, 2, 3, 4]; a.length = 2;`
+  + reduced array: `a; // [1, 2]`
+
 
 
 
