@@ -94,31 +94,31 @@
 
 __Source code for the next 2 questions (5 and 6):__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> pictures </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; {</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "albumId"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "id"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; author: {</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; "name":"michel",</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; "job": "Professor"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; },</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Holidays in Roma"</span><span class="pun">,</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "url"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/600/92c952"</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "thumbnailUrl"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/150/92c952"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; },</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; {</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "albumId"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "id"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span></li>
-<li class="L3"><span class="pun">&nbsp; &nbsp; author: {</span></li>
-<li class="L3"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; "name":"Marie Claire",</span></li>
-<li class="L3"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; "job": "Michel's Boss!"</span></li>
-<li class="L3"><span class="pun">&nbsp; &nbsp; },</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Eating an ice cream at the Coliseum"</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "url"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/600/771796"</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="str">&nbsp; &nbsp; "thumbnailUrl"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://placehold.it/150/771796"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">];</span></li>
+<div><ol>
+<li value="1">var pictures = [</li>
+<li>&nbsp; {</li>
+<li>&nbsp; &nbsp; "albumId": 1,</li>
+<li>&nbsp; &nbsp; "id": 1,</li>
+<li>&nbsp; &nbsp; author: {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; "name":"michel",</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; "job": "Professor"</li>
+<li>&nbsp; &nbsp; },</li>
+<li>&nbsp; &nbsp; "title": "Holidays in Roma",</li>
+<li>&nbsp; &nbsp; "url": "https://placehold.it/600/92c952",</li>
+<li>&nbsp; &nbsp; "thumbnailUrl": "https://placehold.it/150/92c952"</li>
+<li>&nbsp; },</li>
+<li>&nbsp; {</li>
+<li>&nbsp; &nbsp; "albumId": 1,</li>
+<li>&nbsp; &nbsp; "id": 2,</li>
+<li>&nbsp; &nbsp; author: {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; "name":"Marie Claire",</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; "job": "Michel's Boss!"</li>
+<li>&nbsp; &nbsp; },</li>
+<li>&nbsp; &nbsp; "title": "Eating an ice cream at the Coliseum",</li>
+<li>&nbsp; &nbsp; "url": "https://placehold.it/600/771796",</li>
+<li>&nbsp; &nbsp; "thumbnailUrl": "https://placehold.it/150/771796"</li>
+<li>&nbsp; }</li>
+<li>];</li>
 </ol></div>
 
 5. Who took this picture?
