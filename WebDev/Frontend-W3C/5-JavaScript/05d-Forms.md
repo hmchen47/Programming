@@ -449,27 +449,6 @@ Objects managed by Web Storage are no longer carried on the network and HTTP, an
   + define related concepts such as CORS and the HTTP Origin header semantics, supplanting their separate definition elsewhere
   
 + [`WindowOrWorkerGlobalScope.fetch()` method](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)
-  + syntax: `const fetchResponsePromise = fetch(resource [, init])`
-  + docstring:
-    + starts the process of fetching a resource from the network
-    + return a `Promise` object (the eventual completion/failure of ab asynchronouse operation) that resolves to the `Response` to the request
-  + parameters
-    + `resource`: define the resource to fetch
-      + a string or any other object w/ a `stringifer`, including a URL object
-      + a `Request` object
-    + `init` (optional): object containing any customer settings applied to the request
-      + `method`: request method, e.g., `GET`, `POST`
-      + `headers`: any headers added to the request contained within a Header object or an object literal w/ ByteString values
-      + `body`: any bod added to the request, including `Blob`, `BufferSource`, `FormData`, `URLSearchParams`, `USVString`, or `ReadableStream` objects
-      + `mode`: mode used for the request, e.g., `1cors`, `no-cors`, or `same-origin`
-      + `credentials`: control what browsers do w/ credentials (cookies, HTTP authentication entries, and TLS client certificates)
-      + `redirect`: how to handle a `redirect` response, including `follow`, `error`, and `manual`
-      + `referrer`: a `USVString` specifying the referrer of the request
-      + `referrerPolicy`: specify referrer policy to use for the request
-      + `integrity`: contain the subresource integrity value of the request
-      + `keepalive`: used to allow the request to outlive the page
-      + `signal`: an `AbortSignal` object instance to communicate w/ a fetch request and abort it
-  + return: a `Promise` resolving to a `Response` object
 
 
 ### 5.4.4 Discussion and projects
