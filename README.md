@@ -507,6 +507,35 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Basics.md#">  </a></td>
   </tr>
 
+  <!-- OOP -->
+  
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> OOP </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#objects---overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#singleton-object"> Singleton </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#classes-and-objects"> Class & Object </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#class-properties-and-class-methods"> Class Properties & Methods </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#this-keyword"> <code>this</code> keyword </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#new-keyword"> <code>new</code> keyword </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#getters-and-setters-methids"> Getters & Setters </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#the-global-window-object"> <code>window</code> object </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#built-in-js-class-object"> <code>Object</code> object </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#built-in-js-class-array"> <code>Array</code> object </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#built-in-js-class-number"> <code>Number</code> object </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#built-in-js-class-string"> <code>String</code> object </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#built-in-js-class-math"> <code>Math</code> object </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#built-in-js-class-date"> <code>Date</code> object </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#the-table-object"> <code>table</code> object </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md#accessible-forms"> Forms </a> </td>
+  </tr>
+
+
   <!-- Events -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Events </th>
@@ -565,9 +594,18 @@ This repository tracks my learning on different programming languages.
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#size-of-web-storage"> Size </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#javascript-object-notation-json"> JSON </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-HTMLBasics.md#">  </a> </td>
+  </tr>
+
+  <!-- JSON -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> JSON </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-JSON.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-JSON.md#json-and-js-objects"> JSON & JS Object </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-JSON.md#remote-data"> Remote Data </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-JSON.md#local-storage-api"> Local Storage API </a> </td>
   </tr>
 
   <!-- File API -->
@@ -606,7 +644,7 @@ This repository tracks my learning on different programming languages.
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Examples </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-canvas-and-animation"> Canvas & Animation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/example-media-api"> Media API </a></td>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-OOP.md.md#example-a-contact-manager"> Contact Manager </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -617,7 +655,6 @@ This repository tracks my learning on different programming languages.
   </tr>
 
   <!-- Temporary -->
-  
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
