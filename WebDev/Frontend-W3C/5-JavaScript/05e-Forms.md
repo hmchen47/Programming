@@ -574,8 +574,8 @@ Note that we've also added some buttons for playing with the load/save features 
     + legend of group: `<legend>Personal information</legend>`
     + name input form: `<label> Name : <input type="text" id="name" required> </label>`
     + email input form: `<label> Email : <input type="email" id="email" required> </label>`
-    + submit butt: `<button>Add new Contact</button>`
-  + add buttons for table displaying: `<div id="contacts"></div>"
+    + submit button: `<button>Add new Contact</button>`
+  + add buttons for table displaying: `<div id="contacts"></div>`
     + empty button: `<button onclick="emptyList();">Empty</button>`
     + save button: `<button onclick="cm.save();">Save</button>`
     + reload button: `<button onclick="loadList();"></button>`
