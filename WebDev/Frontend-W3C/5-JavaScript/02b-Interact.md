@@ -31,15 +31,15 @@ The __boolean__ type represents a logical entity having two values: `true` and `
 Use of the keywords true and false:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var b = true;&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">var b = false;</li>
+<li" value="1">var b = true;&nbsp;</li>
+<li">&nbsp;</li>
+<li">var b = false;</li>
 </ol></div>
 
 A boolean variable should not be enclosed in quotation marks, otherwise it becomes a string variable:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var b = 'true'; // b is not a boolean but a string</li>
+<li" value="1">var b = 'true'; // b is not a boolean but a string</li>
 </ol></div>
 
 #### Undefined and null values
@@ -49,17 +49,17 @@ __Undefined__
 undefined is returned when a variable has not been assigned:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var foo;</li>
-<li style="margin-bottom: 0px;">&gt; foo</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; typeof foo;</li>
-<li style="margin-bottom: 0px;">'undefined'</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt;if (foo === undefined) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.log('The variable foo has no value and is undefined');</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">'The variable foo has no value and is undefined'</li>
+<li" value="1">var foo;</li>
+<li">&gt; foo</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; typeof foo;</li>
+<li">'undefined'</li>
+<li">&nbsp;</li>
+<li">&gt;if (foo === undefined) {</li>
+<li">&nbsp; &nbsp; console.log('The variable foo has no value and is undefined');</li>
+<li">}</li>
+<li">'The variable foo has no value and is undefined'</li>
 </ol></div>
 
 The above example shows how we can test whether a variable has a value (_line 8_ uses a conditional statement).
@@ -67,11 +67,11 @@ The above example shows how we can test whether a variable has a value (_line 8_
 The keyword "__undefined__" is part of the JavaScript language, so you can assign the `undefined` value to a variable:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var foo = undefined; // equivalent to var foo; without giving any value</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; foo;</li>
-<li style="margin-bottom: 0px;">undefined</li>
+<li" value="1">&gt; var foo = undefined; // equivalent to var foo; without giving any value</li>
+<li">undefined</li>
+<li">&nbsp;</li>
+<li">&gt; foo;</li>
+<li">undefined</li>
 </ol></div>
 
 `var foo;` and `var foo = undefined;` are equivalent but we recommend that you use the first version to declare the variable (it is shorter, and that reduces the code).
@@ -79,11 +79,11 @@ The keyword "__undefined__" is part of the JavaScript language, so you can assig
 If you try to access a variable that has not been declared before, a `ReferenceError` will be raised. But the typeof operator will return "`undefined`":
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; bar;</li>
-<li style="margin-bottom: 0px;">ReferenceError</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; typeof bar;</li>
-<li style="margin-bottom: 0px;">'undefined'</li>
+<li" value="1">&gt; bar;</li>
+<li">ReferenceError</li>
+<li">&nbsp;</li>
+<li">&gt; typeof bar;</li>
+<li">'undefined'</li>
 </ol></div>
 
 
@@ -118,17 +118,17 @@ The logical operators are:
 + `&&`, `||` operators are binary, `!` is unary.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var b = !true;&nbsp;</li>
-<li style="margin-bottom: 0px;">b; //false</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">var b = !!true;</li>
-<li style="margin-bottom: 0px;">b; //true</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">var b = "one";&nbsp;</li>
-<li style="margin-bottom: 0px;">!b; &nbsp; false // implicit conversion of "one" to a boolean value</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">var b = "one"; // implicit conversion of "one" to a boolean value</li>
-<li style="margin-bottom: 0px;">!!b; //true</li>
+<li" value="1">var b = !true;&nbsp;</li>
+<li">b; //false</li>
+<li">&nbsp;</li>
+<li">var b = !!true;</li>
+<li">b; //true</li>
+<li">&nbsp;</li>
+<li">var b = "one";&nbsp;</li>
+<li">!b; &nbsp; false // implicit conversion of "one" to a boolean value</li>
+<li">&nbsp;</li>
+<li">var b = "one"; // implicit conversion of "one" to a boolean value</li>
+<li">!!b; //true</li>
 </ol></div>
 
 In an expression with logical operators, as shown in _lines 8_ and _11_ of the previous example, non-boolean values are implicitly converted to boolean.
@@ -144,22 +144,22 @@ Logical expressions are evaluated from left to right. JavaScript uses a mechanis
 Examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var b = 5;</li>
-<li style="margin-bottom: 0px;">var c = 6;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">if ((b === 5) || (b === 6)) &nbsp;{ //the second part is never tested</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.log('b is equal to 5 or equal to 6');</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">if ((b === 5)&nbsp;&amp;&amp; (c === 6)) { &nbsp;// second part is evaluated</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.log('b &nbsp;is equal to 5 and c is equal to 6');</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">if ((b === 15)&nbsp;&amp;&amp; (c === 6)) { &nbsp;// second part is&nbsp;never evaluated</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.log('b &nbsp;is equal to 5 and c is equal to 6');</li>
-<li style="margin-bottom: 0px;">} else {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.log('b not equal to&nbsp;15 or c not equal&nbsp;to 6');</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">var b = 5;</li>
+<li">var c = 6;</li>
+<li">&nbsp;</li>
+<li">if ((b === 5) || (b === 6)) &nbsp;{ //the second part is never tested</li>
+<li">&nbsp; &nbsp; console.log('b is equal to 5 or equal to 6');</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">if ((b === 5)&nbsp;&amp;&amp; (c === 6)) { &nbsp;// second part is evaluated</li>
+<li">&nbsp; &nbsp; console.log('b &nbsp;is equal to 5 and c is equal to 6');</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">if ((b === 15)&nbsp;&amp;&amp; (c === 6)) { &nbsp;// second part is&nbsp;never evaluated</li>
+<li">&nbsp; &nbsp; console.log('b &nbsp;is equal to 5 and c is equal to 6');</li>
+<li">} else {</li>
+<li">&nbsp; &nbsp; console.log('b not equal to&nbsp;15 or c not equal&nbsp;to 6');</li>
+<li">}</li>
 </ol></div>
 
 ##### Implicit conversions of non boolean values in expressions
@@ -178,7 +178,7 @@ Used with logical operators or within statements, __non-boolean values are impli
 <span style="color: brown; font-weight: bold;">Everything else is evaluated as true!</span>
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var boo = 'hello' &amp;&amp; 'world'; // boo is equal to 'world' that is 'true'.</li>
+<li" value="1">var boo = 'hello' &amp;&amp; 'world'; // boo is equal to 'world' that is 'true'.</li>
 </ol></div>
 
 In the above example, `'hello' && 'world'` is evaluated as `true` but will return a value! Indeed, `boo` will equal `'world'` because `'hello'` is a string value that is evaluated as `true`. And 'world' is in also true as it's not one of the value cited in the previous paragraph. If we do : if (boo) then.... we will enter the if statement.
@@ -193,7 +193,7 @@ External resource: [The && and || Operators in JavaScript](https://mariusschulz.
 __TO SUM UP: it works "normally" if you just think true/false, but the real value affected is not true false, it's one of the operands, that can be seen as true/false.__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong>var boo2 = (0/0) || 43.2 ;</strong></li>
+<li" value="1"><strong>var boo2 = (0/0) || 43.2 ;</strong></li>
 </ol></div>
 
 `boo2` equals 43.2 because the expression 0/0 equals NaN, which is evaluated as `false`.
@@ -203,13 +203,13 @@ __Question:__
 What is the value of the variable myNumber after the execution of this code?
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var myNumber = !1;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">if(myNumber == null){</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; myNumber = 3;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">myNumber = myNumber || 2;</li>
+<li" value="1">var myNumber = !1;</li>
+<li">&nbsp;</li>
+<li">if(myNumber == null){</li>
+<li">&nbsp;&nbsp; myNumber = 3;</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">myNumber = myNumber || 2;</li>
 </ol></div>
 
 __Explanation:__ after the first line, myNumber equals false. In the if statement, at line 3, false does not equal null. Therefore, the value 3 is not assigned to the var myNumber. In the last line, myNumber is evaluated as false, then the value 2 is given to the variable myNumber.
@@ -239,26 +239,26 @@ The triple-equals operator never does type coercion. It returns `true` if both o
 Some examples:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">1 == 1 ;</li>
-<li style="margin-bottom: 0px;">//true</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">1 == 2 ; </li>
-<li style="margin-bottom: 0px;">//false</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">/* Here, the interpreter will try to convert the string ‘1’ </li>
-<li style="margin-bottom: 0px;"> into a number before doing the comparison */</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">1 == '1';</li>
-<li style="margin-bottom: 0px;">//true : </li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">//with strict equal, no conversion:</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">1 === 1;</li>
-<li style="margin-bottom: 0px;">//true</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">1 === '1';</li>
-<li style="margin-bottom: 0px;">//false</li>
+<li" value="1">1 == 1 ;</li>
+<li">//true</li>
+<li">&nbsp;</li>
+<li">1 == 2 ; </li>
+<li">//false</li>
+<li">&nbsp;</li>
+<li">/* Here, the interpreter will try to convert the string ‘1’ </li>
+<li"> into a number before doing the comparison */</li>
+<li">&nbsp;</li>
+<li">1 == '1';</li>
+<li">//true : </li>
+<li">&nbsp;</li>
+<li">&nbsp;</li>
+<li">//with strict equal, no conversion:</li>
+<li">&nbsp;</li>
+<li">1 === 1;</li>
+<li">//true</li>
+<li"> </li>
+<li">1 === '1';</li>
+<li">//false</li>
 </ol></div>
 
 <div style="border: 1px solid; margin: 20px; padding: 20px; text-align: center;">
@@ -279,11 +279,11 @@ As we have already seen, JavaScript has some special values. One of them is `NaN
 `NaN` has this special property:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">NaN == NaN;</li>
-<li style="margin-bottom: 0px;">// false</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">NaN === NaN;</li>
-<li style="margin-bottom: 0px;">// false</li>
+<li" value="1">NaN == NaN;</li>
+<li">// false</li>
+<li">&nbsp;</li>
+<li">NaN === NaN;</li>
+<li">// false</li>
 </ol></div>
 
 __`Nan` is equal to nothing - not even to itself!__ But you do have a function to check the `NaN` value: `isNaN(expr)`
@@ -291,17 +291,17 @@ __`Nan` is equal to nothing - not even to itself!__ But you do have a function t
 + `isNaN`: returns true if the argument coerces to NaN, and otherwise returns false.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">isNaN(NaN);</li>
-<li style="margin-bottom: 0px;">// true </li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">isNaN(0/0);</li>
-<li style="margin-bottom: 0px;">// true</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">isNaN(12);</li>
-<li style="margin-bottom: 0px;">// false</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">isNaN('foo');</li>
-<li style="margin-bottom: 0px;">// true</li>
+<li" value="1">isNaN(NaN);</li>
+<li">// true </li>
+<li">&nbsp;</li>
+<li">isNaN(0/0);</li>
+<li">// true</li>
+<li">&nbsp;</li>
+<li">isNaN(12);</li>
+<li">// false</li>
+<li">&nbsp;</li>
+<li">isNaN('foo');</li>
+<li">// true</li>
 </ol></div>
 
 "A reliable way for ECMAScript code to test if a value X is a `NaN`, is an expression of the form `X !== X`. The result will be `true` if, and only if, X is a `NaN`. " (see [the `isNan` documentation](https://www.ecma-international.org/ecma-262/5.1/#sec-15.1.2.4)).
@@ -309,26 +309,26 @@ __`Nan` is equal to nothing - not even to itself!__ But you do have a function t
 __A complete example with isNaN:__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var num =0/0;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">if(isNaN(num)){</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; num = 0;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">//shortened version with the conditional operator</li>
-<li style="margin-bottom: 0px;">var num = isNaN(num) ? 0 : num</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">//version with logical operator (implicit conversion) </li>
-<li style="margin-bottom: 0px;">var num = num || 0; </li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">/*</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;=&gt; num = NaN || 0 </li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;=&gt; num = false || 0</li>
-<li style="margin-bottom: 0px;">*/</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">num;</li>
-<li style="margin-bottom: 0px;">//returns 0 in this three cases</li>
+<li" value="1">var num =0/0;</li>
+<li">&nbsp;</li>
+<li">if(isNaN(num)){</li>
+<li">&nbsp;&nbsp; num = 0;</li>
+<li">}</li>
+<li"> </li>
+<li">//shortened version with the conditional operator</li>
+<li">var num = isNaN(num) ? 0 : num</li>
+<li">&nbsp;</li>
+<li">//version with logical operator (implicit conversion) </li>
+<li">var num = num || 0; </li>
+<li">&nbsp;</li>
+<li">/*</li>
+<li">&nbsp;&nbsp; &lt;=&gt; num = NaN || 0 </li>
+<li">&nbsp;</li>
+<li">&nbsp;&nbsp; &lt;=&gt; num = false || 0</li>
+<li">*/</li>
+<li">&nbsp;</li>
+<li">num;</li>
+<li">//returns 0 in this three cases</li>
 </ol></div>
 
 Of course 0/0 rarely happens, but there are other cases where `NaN` can appear, for example:
@@ -439,17 +439,17 @@ if ((a === 5) || (a === 6))  {
 JavaScript source code is a set of statements. There are a couple of different statement types. We have already seen one of them, the variable statement:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var myVar = 'hello ' + 'world';</li>
+<li" value="1">var myVar = 'hello ' + 'world';</li>
 </ol></div>
 
 We've also seen the expression statement:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">3 + 4;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// more often like this</li>
-<li style="margin-bottom: 0px;">var x = (3 + 4);</li>
-<li style="margin-bottom: 0px;">var y = (5 + x);</li>
+<li" value="1">3 + 4;</li>
+<li">&nbsp;</li>
+<li">// more often like this</li>
+<li">var x = (3 + 4);</li>
+<li">var y = (5 + x);</li>
 </ol></div>
 
 A statement closes with a semicolon, but we will see later that missing semicolons are automatically inserted (for readability reasons, we highly recommend systematically adding a semicolon at the end of all statements).
@@ -464,11 +464,11 @@ The block statement is a simple statement which allows us to group a set of stat
 Block statement:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var i = 0;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var result = false;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; console.log('i = ' + i);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">{</li>
+<li">&nbsp; &nbsp; var i = 0;</li>
+<li">&nbsp; &nbsp; var result = false;</li>
+<li">&nbsp; &nbsp; console.log('i = ' + i);</li>
+<li">}</li>
 </ol></div>
 
 The block statement is used by other statements such as the if-statement or for-statement. We will see these statements below.
@@ -506,28 +506,28 @@ __The expression may include:__
 __Example #1: if-statement__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> num </span><span>=</span><span> </span><span>10</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>if</span></strong><span> </span><span>(</span><span>num </span><span>===</span><span> </span><span>10</span><span>)</span><span> </span><strong><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; num </span><span>=</span><span> </span><span>20</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>}</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>// num equals 20</span></li>
+<li" value="1"><span>var</span><span> num </span><span>=</span><span> </span><span>10</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><strong><span>if</span></strong><span> </span><span>(</span><span>num </span><span>===</span><span> </span><span>10</span><span>)</span><span> </span><strong><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; num </span><span>=</span><span> </span><span>20</span><span>;</span></li>
+<li"><strong><span>}</span></strong></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>// num equals 20</span></li>
 </ol></div>
 
 
 __Example #2: if-else statement__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> num </span><span>=</span><span> </span><span>10</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>if</span></strong><span> </span><span>(</span><span>num </span><span>&gt;</span><span> </span><span>10</span><span>)</span><span> </span><strong><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; num </span><span>=</span><span> </span><span>20</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>}</span></strong><span> </span><strong><span>else</span></strong><span> </span><strong><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; num </span><span>=</span><span> </span><span>0</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>}</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>// num equals 0</span></li>
+<li" value="1"><span>var</span><span> num </span><span>=</span><span> </span><span>10</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><strong><span>if</span></strong><span> </span><span>(</span><span>num </span><span>&gt;</span><span> </span><span>10</span><span>)</span><span> </span><strong><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; num </span><span>=</span><span> </span><span>20</span><span>;</span></li>
+<li"><strong><span>}</span></strong><span> </span><strong><span>else</span></strong><span> </span><strong><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; num </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li"><strong><span>}</span></strong></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>// num equals 0</span></li>
 </ol></div>
 
 
@@ -551,22 +551,22 @@ This ternary operator is a shortcut version of `if...then...else`.
 Let's look at this code example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> max</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>var</span><span> min </span><span>=</span><span> </span><span>2</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>if</span><span> </span><span>(</span><span>min </span><span>&lt;</span><span> </span><span>10</span><span>)</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; max </span><span>=</span><span> min </span><span>+</span><span> </span><span>10</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>}</span><span> </span><span>else</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; max </span><span>=</span><span> min</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>}</span></li>
+<li" value="1"><span>var</span><span> max</span><span>;</span></li>
+<li"><span>var</span><span> min </span><span>=</span><span> </span><span>2</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>if</span><span> </span><span>(</span><span>min </span><span>&lt;</span><span> </span><span>10</span><span>)</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp; max </span><span>=</span><span> min </span><span>+</span><span> </span><span>10</span><span>;</span></li>
+<li"><span>}</span><span> </span><span>else</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp; max </span><span>=</span><span> min</span><span>;</span></li>
+<li"><span>}</span></li>
 </ol></div>
 
 _Explanation_: You can replace this "if-then-else" statement with the ternary operator that uses a syntax with "?" and ":"
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> max</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>var</span><span> min</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>max </span><span>=</span><span> </span><span>(</span><span>min </span><span>&lt;</span><span> </span><span>10</span><span>)?</span><span> min</span><span>+</span><span>10</span><span> </span><span>:</span><span> min</span><span>;</span></li>
+<li" value="1"><span>var</span><span> max</span><span>;</span></li>
+<li"><span>var</span><span> min</span><span>;</span></li>
+<li"><span>max </span><span>=</span><span> </span><span>(</span><span>min </span><span>&lt;</span><span> </span><span>10</span><span>)?</span><span> min</span><span>+</span><span>10</span><span> </span><span>:</span><span> min</span><span>;</span></li>
 </ol></div>
 
 
@@ -584,20 +584,20 @@ Here are two versions of the same code.
 __Version 1:__ `no curly` braces
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong><span>if</span></strong><span> </span><span>(</span><span>a </span><span>&gt;</span><span> </span><span>2</span><span>)</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; result </span><span>=</span><span> </span><span>'a is bigger than 2'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>else</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; result </span><span>=</span><span> </span><span>'a is not bigger than 2'</span><span>;</span></li>
+<li" value="1"><strong><span>if</span></strong><span> </span><span>(</span><span>a </span><span>&gt;</span><span> </span><span>2</span><span>)</span></li>
+<li"><span>&nbsp; &nbsp; result </span><span>=</span><span> </span><span>'a is bigger than 2'</span><span>;</span></li>
+<li"><strong><span>else</span></strong></li>
+<li"><span>&nbsp; &nbsp; result </span><span>=</span><span> </span><span>'a is not bigger than 2'</span><span>;</span></li>
 </ol></div>
 
 __Version 2:__ with curly braces for delimiting the "then" and "else" blocks
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong><span>if</span></strong><span> </span><span>(</span><span>a </span><span>&gt;</span><span> </span><span>2</span><span>)</span><span> </span><strong><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; result </span><span>=</span><span> </span><span>'a is bigger than 2'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>}</span><span> </span><span>else</span><span> </span><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; result </span><span>=</span><span> </span><span>'a is not bigger than 2'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>}</span></strong></li>
+<li" value="1"><strong><span>if</span></strong><span> </span><span>(</span><span>a </span><span>&gt;</span><span> </span><span>2</span><span>)</span><span> </span><strong><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; result </span><span>=</span><span> </span><span>'a is bigger than 2'</span><span>;</span></li>
+<li"><strong><span>}</span><span> </span><span>else</span><span> </span><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; result </span><span>=</span><span> </span><span>'a is not bigger than 2'</span><span>;</span></li>
+<li"><strong><span>}</span></strong></li>
 </ol></div>
 
 Version 1 and version 2 are equivalent. Indeed, version 1 is correct: you can omit curly braces if the "then" or "else" blocks are made of only one statement (one line of code).
@@ -609,7 +609,7 @@ But version 2 is cleaner and more readable, and, in particular, it is much bette
 Of course, one-line if-statements like this :
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>if</span><span> </span><span>(</span><span>true</span><span>)</span><span> doSomething</span><span>();</span></li>
+<li" value="1"><span>if</span><span> </span><span>(</span><span>true</span><span>)</span><span> doSomething</span><span>();</span></li>
 </ol></div>
 
 ...are really fast to write, but if you want to add a second statement later it will become more time consuming.
@@ -624,26 +624,26 @@ In order to avoid having a series of ifs and elses, it is possible to use a __`s
 The syntax of the `switch` statement is:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong><span>switch</span></strong><span> </span><span>(</span><span>expression</span><span>)</span><span> </span><strong><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> value1</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>; &nbsp; &nbsp; &nbsp; // break can be omitted in that case</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the second test case will be executed</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// most of the time we add a break; at the end</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// of a "case"</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> value2</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> value3</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>default</span></strong><span>: &nbsp; &nbsp; &nbsp; &nbsp; // if no case tested true</span><span></span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>}</span></li>
+<li" value="1"><strong><span>switch</span></strong><span> </span><span>(</span><span>expression</span><span>)</span><span> </span><strong><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> value1</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>; &nbsp; &nbsp; &nbsp; // break can be omitted in that case</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the second test case will be executed</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// most of the time we add a break; at the end</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// of a "case"</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> value2</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> value3</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>default</span></strong><span>: &nbsp; &nbsp; &nbsp; &nbsp; // if no case tested true</span><span></span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; statement</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>;</span></li>
+<li"><span>}</span></li>
 </ol></div>
 
 If the value of an expression equals one of the cases (the equality operator evaluated is ===), all the statements next to this case block are executed sequentially until the keyword break is reached.
@@ -651,30 +651,30 @@ If the value of an expression equals one of the cases (the equality operator eva
 __Example #1: a common switch/case/default example__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> gear </span><span>=</span><span> </span><span>''</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>switch</span></strong><span> </span><span>(</span><span>cloudColor</span><span>)</span><span> </span><strong><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'green'</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'spacesuit'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'black'</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'boots'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'grey'</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'umbrella'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'white'</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'jacket'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>default</span></strong><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'watch'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span>;</span><span> </span><span>// useless if in the last case</span></li>
-<li style="margin-bottom: 0px;"><span><strong>}</strong> // end of the switch statement</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li" value="1"><span>var</span><span> gear </span><span>=</span><span> </span><span>''</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><strong><span>switch</span></strong><span> </span><span>(</span><span>cloudColor</span><span>)</span><span> </span><strong><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'green'</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'spacesuit'</span><span>;</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span>break</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'black'</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'boots'</span><span>;</span></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'grey'</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'umbrella'</span><span>;</span></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'white'</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'jacket'</span><span>;</span></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>default</span></strong><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>=</span><span> </span><span>'watch'</span><span>;</span></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; <strong>break</strong></span><span>;</span><span> </span><span>// useless if in the last case</span></li>
+<li"><span><strong>}</strong> // end of the switch statement</span></li>
+<li"><span>&nbsp;</span></li>
 </ol></div>
 
 In this example, if the clouds are grey, then my gear will be just an umbrella. If they are white, I'll wear only a jacket, if they are black I'll be nude with just boots (!), and if they are green I'll get a spacesuit. And if the cloud color is none of these, then I'll only wear a watch. The presence of the __`break`__ keyword at the end of the different cases make the choices 100% exclusive. Only one case can be executed!
@@ -682,26 +682,26 @@ In this example, if the clouds are grey, then my gear will be just an umbrella. 
 __Example 2#: a switch without "breaks" at the end of each cas__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> gear </span><span>=</span><span> </span><span>''</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>switch</span></strong><span> </span><span>(</span><span>cloudColor</span><span>)</span><span> </span><strong><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'green'</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'spacesuit'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'black'</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'boots, '</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'grey'</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'umbrella, '</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'white'</span><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'jacket, '</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><strong><span>default</span></strong><span>:</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'watch'</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span><strong>}</strong> // end of the switch statement</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
+<li" value="1"><span>var</span><span> gear </span><span>=</span><span> </span><span>''</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><strong><span>switch</span></strong><span> </span><span>(</span><span>cloudColor</span><span>)</span><span> </span><strong><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'green'</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'spacesuit'</span><span>;</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><strong><span>break</span></strong><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'black'</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'boots, '</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'grey'</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'umbrella, '</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>case</span></strong><span> </span><span>'white'</span><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'jacket, '</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; </span><strong><span>default</span></strong><span>:</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; gear </span><span>+=</span><span> </span><span>'watch'</span><span>;</span></li>
+<li"><span><strong>}</strong> // end of the switch statement</span></li>
+<li"><span>&nbsp;</span></li>
 </ol></div>
 
 
@@ -873,7 +873,7 @@ With a `while` statement, a block of code is executed repeatedly while the speci
 Syntax:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>while</span><span> </span><span>(</span><span> condition </span><span>)</span><span> statement</span></li>
+<li" value="1"><span>while</span><span> </span><span>(</span><span> condition </span><span>)</span><span> statement</span></li>
 </ol></div>
 
 The condition is an expression, and the statement can be a block statement.
@@ -881,13 +881,13 @@ The condition is an expression, and the statement can be a block statement.
 Typical example of a while statement:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> i </span><span>=</span><span> </span><span>1</span><span>,</span><span> j </span><span>=</span><span> </span><span>1</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>while</span><span> </span><span>(</span><span> i </span><span>&lt;</span><span> </span><span>4</span><span> </span><span>)</span><span> </span><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; j </span><span>+=</span><span> i</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; i +</span><span>=</span><span> </span><span>1</span><span>;</span><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>}</span></strong></li>
-<li style="margin-bottom: 0px;"><span style="color: #666600;" color="#666600">...</span></li>
+<li" value="1"><span>var</span><span> i </span><span>=</span><span> </span><span>1</span><span>,</span><span> j </span><span>=</span><span> </span><span>1</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><strong><span>while</span><span> </span><span>(</span><span> i </span><span>&lt;</span><span> </span><span>4</span><span> </span><span>)</span><span> </span><span>{</span></strong></li>
+<li"><span>&nbsp; &nbsp; j </span><span>+=</span><span> i</span><span>;</span></li>
+<li"><span>&nbsp; &nbsp; i +</span><span>=</span><span> </span><span>1</span><span>;</span><span>&nbsp;</span></li>
+<li"><strong><span>}</span></strong></li>
+<li"><span style="color: #666600;" color="#666600">...</span></li>
 </ol></div>
 
 The block inside the while (_lines 4 and 5_) will be executed three times:
@@ -916,20 +916,20 @@ Try this example now with [slowmoJS](https://tinyurl.com/y56ntfz4)!
 The do-while statement is very similar to the while statement, but its syntax is different:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>do</span><span> statement </span><span>while</span><span> </span><span>(</span><span> condition </span><span>)</span></li>
+<li" value="1"><span>do</span><span> statement </span><span>while</span><span> </span><span>(</span><span> condition </span><span>)</span></li>
 </ol></div>
 
 Typical example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> i </span><span>=</span><span> </span><span>0</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>do</span><span> </span><span>{</span></strong></li>
-<li style="margin-bottom: 0px;"><strong><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'i = '</span><span> </span><span>+</span><span> i</span><span>);</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; i</span><span>++;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>}</span><span> </span><span>while</span><span>(</span><span>i </span><span>&lt;</span><span> </span><span>20</span><span>);</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>console</span><span>.</span><span>log</span><span>(</span><span>'Value of i after the do-while statement: '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
+<li" value="1"><span>var</span><span> i </span><span>=</span><span> </span><span>0</span><span>;</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><strong><span>do</span><span> </span><span>{</span></strong></li>
+<li"><strong><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'i = '</span><span> </span><span>+</span><span> i</span><span>);</span></strong></li>
+<li"><span>&nbsp; &nbsp; i</span><span>++;</span></li>
+<li"><strong><span>}</span><span> </span><span>while</span><span>(</span><span>i </span><span>&lt;</span><span> </span><span>20</span><span>);</span></strong></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>console</span><span>.</span><span>log</span><span>(</span><span>'Value of i after the do-while statement: '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
 </ol></div>
 
 The <span style="color: brown; font-weight: bold;">do-while statement executes the content of the loop once before checking the condition of the while</span>, whereas a <span style="color: cyan; font-weight: bold;">while statement will check the condition first before executing the content.</span>
@@ -946,7 +946,7 @@ This statement adds some things to the while and do-while statements: an initial
 Its syntax is:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>for</span><span> </span><span>(</span><span>initialization</span><span>;</span><span> condition</span><span>;</span><span> incrementation</span><span>)</span><span> statement</span></li>
+<li" value="1"><span>for</span><span> </span><span>(</span><span>initialization</span><span>;</span><span> condition</span><span>;</span><span> incrementation</span><span>)</span><span> statement</span></li>
 </ol></div>
 
 The three expressions within the parentheses are optional. If the condition is omitted, it is replaced by true (infinite loop).
@@ -954,17 +954,17 @@ The three expressions within the parentheses are optional. If the condition is o
 Typical example (counting from 0 to 10):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>for</span><span> </span><span>(</span><span>var</span><span> i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;=</span><span> </span><span>10</span><span>;</span><span> i</span><span>++)</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp;console</span><span>.</span><span>log</span><span>(</span><span>'i = '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
-<li style="margin-bottom: 0px;"><span>}</span></li>
+<li" value="1"><span>for</span><span> </span><span>(</span><span>var</span><span> i </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;=</span><span> </span><span>10</span><span>;</span><span> i</span><span>++)</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp;console</span><span>.</span><span>log</span><span>(</span><span>'i = '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
+<li"><span>}</span></li>
 </ol></div>
 
 We can have more than one instruction in the "initialization part" (var i = 0), and more than one instruction in the "incrementation part" (i++). Here is another example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>for</span><span> </span><span>(</span><strong><span>var</span><span> i </span><span>=</span><span> </span><span>1</span><span>,</span><span> j </span><span>=</span><span> </span><span>1</span><span>;</span></strong><span> i </span><span>&lt;=</span><span> </span><span>10</span><span>;</span><strong><span> i</span><span>++,</span><span>&nbsp;j</span><span>+=</span><span>2</span></strong><span>)</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'i = '</span><span> </span><span>+</span><span> i </span><span>+</span><span> </span><span>' j = '</span><span> </span><span>+</span><span> j</span><span>);</span></li>
-<li style="margin-bottom: 0px;"><span>}</span></li>
+<li" value="1"><span>for</span><span> </span><span>(</span><strong><span>var</span><span> i </span><span>=</span><span> </span><span>1</span><span>,</span><span> j </span><span>=</span><span> </span><span>1</span><span>;</span></strong><span> i </span><span>&lt;=</span><span> </span><span>10</span><span>;</span><strong><span> i</span><span>++,</span><span>&nbsp;j</span><span>+=</span><span>2</span></strong><span>)</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'i = '</span><span> </span><span>+</span><span> i </span><span>+</span><span> </span><span>' j = '</span><span> </span><span>+</span><span> j</span><span>);</span></li>
+<li"><span>}</span></li>
 </ol></div>
 
 In this example, two variables are defined and assigned within the initialization expression. Before each execution of the block statement, the condition is checked; here we need `i <=10`. After each execution of the block statement, the @@incrementation expression is executed to increment the variables `i` by 1 and `j` by 2.
@@ -979,27 +979,27 @@ The for-in statement is used to iterate through an object (or through an array, 
 Its syntax is:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>for</span><span> </span><span>(</span><span> variable </span><span>in</span><span> expression </span><span>)</span><span> statement</span></li>
+<li" value="1"><span>for</span><span> </span><span>(</span><span> variable </span><span>in</span><span> expression </span><span>)</span><span> statement</span></li>
 </ol></div>
 
 Typical example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> michel </span><span>=</span><span> </span><span>{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// michel&nbsp;is an object</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; familyName</span><span>:</span><span>'Buffa'</span><span>, &nbsp; &nbsp; // familyName, givenName, age </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // are its properties</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; givenName</span><span>:</span><span> </span><span>'Michel'</span><span>,</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; age</span><span>:</span><span> </span><span>51</span></li>
-<li style="margin-bottom: 0px;"><span>}</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><strong><span>for</span><span>(</span><span>var</span><span> </span><span>property</span><span> </span><span>in</span><span> michel</span><span>)</span><span> </span></strong><span><strong>{</strong> &nbsp; // the for-in will </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // enumerate properties</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; console.log(property); &nbsp; &nbsp; &nbsp;// will print "familyName", </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // "givenName", </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // "age"</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>michel</span><span>[</span><span>property</span><span>]);</span><span>&nbsp; // michel['givenName'] same&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // as michel.givenName</span></li>
-<li style="margin-bottom: 0px;"><strong><span>}</span></strong></li>
+<li" value="1"><span>var</span><span> michel </span><span>=</span><span> </span><span>{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// michel&nbsp;is an object</span></li>
+<li"><span>&nbsp; &nbsp; familyName</span><span>:</span><span>'Buffa'</span><span>, &nbsp; &nbsp; // familyName, givenName, age </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // are its properties</span></li>
+<li"><span>&nbsp; &nbsp; givenName</span><span>:</span><span> </span><span>'Michel'</span><span>,</span></li>
+<li"><span>&nbsp; &nbsp; age</span><span>:</span><span> </span><span>51</span></li>
+<li"><span>}</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><strong><span>for</span><span>(</span><span>var</span><span> </span><span>property</span><span> </span><span>in</span><span> michel</span><span>)</span><span> </span></strong><span><strong>{</strong> &nbsp; // the for-in will </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // enumerate properties</span></li>
+<li"><span>&nbsp; &nbsp; console.log(property); &nbsp; &nbsp; &nbsp;// will print "familyName", </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // "givenName", </span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // "age"</span></li>
+<li"><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>michel</span><span>[</span><span>property</span><span>]);</span><span>&nbsp; // michel['givenName'] same&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // as michel.givenName</span></li>
+<li"><strong><span>}</span></strong></li>
 </ol></div>
 
 Before each execution of the block statement, the variable named "property" is assigned with the name of one of the properties (the keys) of the object.
@@ -1017,7 +1017,7 @@ The `continue` statement is used to stop the execution of a block and start the 
 Syntax:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>continue</span><span> </span><span>[</span><span>label</span><span>]</span></li>
+<li" value="1"><span>continue</span><span> </span><span>[</span><span>label</span><span>]</span></li>
 </ol></div>
 
 The label is optional.
@@ -1025,15 +1025,15 @@ The label is optional.
 Typical example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>for</span><span>(</span><span>var</span><span> i </span><span>=</span><span> </span><span>1</span><span>,</span><span> k </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> </span><span>5</span><span>;</span><span> i</span><span>++)</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><span>if</span><span> </span><span>(</span><span>i </span><span>===</span><span> </span><span>3</span><span>)</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>continue</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; </span><span>}</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; k </span><span>+=</span><span> </span><span>2</span><span>*</span><span>i</span><span>;</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;&nbsp;&nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'k += '</span><span> </span><span>+</span><span> </span><span>(</span><span>2</span><span>*</span><span>i</span><span>));</span></li>
-<li style="margin-bottom: 0px;"><span>}</span></li>
-<li style="margin-bottom: 0px;"><span>console</span><span>.</span><span>log</span><span>(</span><span>'Final k value:'</span><span> </span><span>+</span><span> k</span><span>)</span></li>
+<li" value="1"><span>for</span><span>(</span><span>var</span><span> i </span><span>=</span><span> </span><span>1</span><span>,</span><span> k </span><span>=</span><span> </span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> </span><span>5</span><span>;</span><span> i</span><span>++)</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp; </span><span>if</span><span> </span><span>(</span><span>i </span><span>===</span><span> </span><span>3</span><span>)</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span>continue</span><span>;</span></li>
+<li"><span>&nbsp; &nbsp; </span><span>}</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>&nbsp; &nbsp; k </span><span>+=</span><span> </span><span>2</span><span>*</span><span>i</span><span>;</span></li>
+<li"><span>&nbsp;&nbsp;&nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'k += '</span><span> </span><span>+</span><span> </span><span>(</span><span>2</span><span>*</span><span>i</span><span>));</span></li>
+<li"><span>}</span></li>
+<li"><span>console</span><span>.</span><span>log</span><span>(</span><span>'Final k value:'</span><span> </span><span>+</span><span> k</span><span>)</span></li>
 </ol></div>
 
 
@@ -1049,32 +1049,32 @@ The `break` statement is used to stop an iteration, a switch or a labelled state
 Syntax:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>break</span><span> </span><span>[</span><span>label</span><span>]</span></li>
+<li" value="1"><span>break</span><span> </span><span>[</span><span>label</span><span>]</span></li>
 </ol></div>
 
 Typical example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>var</span><span> tab </span><span>=</span><span> </span><span>[</span><span>'michel'</span><span>,</span><span> </span><span>'john'</span><span>,</span><span> </span><span>'donald'</span><span>,<span style="color: #000000;" color="#000000">&nbsp;</span></span><span>'paul'</span><span>]; // johh at index = 1</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>function</span><span> isNameInTheArray</span><span>(</span><span>name</span><span>,</span><span> theArray</span><span>)</span><span> </span><span>{</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"Number of elements in the array : "</span><span> </span><span>+</span><span> theArray</span><span>.</span><span>length</span><span>);</span></li>
-<li style="margin-bottom: 0px;"><span> </span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; for</span><span>(</span><span>var</span><span> i</span><span>=</span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> theArray</span><span>.</span><span>length</span><span>;</span><span> i</span><span>++)</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'comparing with element in the array at pos '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; if</span><span>(</span><span>theArray</span><span>[</span><span>i</span><span>]</span><span> </span><span>===</span><span> name</span><span>)</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span>.</span><span>log</span><span>(</span><span>'the name '</span><span> </span><span>+</span><span> name </span><span>+</span><span> </span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' is in the array at pos: '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>break</strong></span><strong><span>;</span></strong></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span><span> </span><span>else</span><span> </span><span>{</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span>.</span><span>log</span><span>(</span><span>name </span><span>+</span><span> </span><span>' is not at pos '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &nbsp; }</span></li>
-<li style="margin-bottom: 0px;"><span>}</span></li>
-<li style="margin-bottom: 0px;"><span>&nbsp;</span></li>
-<li style="margin-bottom: 0px;"><span>// Execute the function</span></li>
-<li style="margin-bottom: 0px;"><span>isNameInTheArray</span><span>(</span><span>'john'</span><span>,</span><span> tab</span><span>);</span></li>
+<li" value="1"><span>var</span><span> tab </span><span>=</span><span> </span><span>[</span><span>'michel'</span><span>,</span><span> </span><span>'john'</span><span>,</span><span> </span><span>'donald'</span><span>,<span style="color: #000000;" color="#000000">&nbsp;</span></span><span>'paul'</span><span>]; // johh at index = 1</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>function</span><span> isNameInTheArray</span><span>(</span><span>name</span><span>,</span><span> theArray</span><span>)</span><span> </span><span>{</span><span> </span></li>
+<li"><span>&nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>"Number of elements in the array : "</span><span> </span><span>+</span><span> theArray</span><span>.</span><span>length</span><span>);</span></li>
+<li"><span> </span></li>
+<li"><span></span><span>&nbsp; &nbsp; for</span><span>(</span><span>var</span><span> i</span><span>=</span><span>0</span><span>;</span><span> i </span><span>&lt;</span><span> theArray</span><span>.</span><span>length</span><span>;</span><span> i</span><span>++)</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; console</span><span>.</span><span>log</span><span>(</span><span>'comparing with element in the array at pos '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; if</span><span>(</span><span>theArray</span><span>[</span><span>i</span><span>]</span><span> </span><span>===</span><span> name</span><span>)</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span>.</span><span>log</span><span>(</span><span>'the name '</span><span> </span><span>+</span><span> name </span><span>+</span><span> </span></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' is in the array at pos: '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>break</strong></span><strong><span>;</span></strong></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span><span> </span><span>else</span><span> </span><span>{</span></li>
+<li"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span>.</span><span>log</span><span>(</span><span>name </span><span>+</span><span> </span><span>' is not at pos '</span><span> </span><span>+</span><span> i</span><span>);</span></li>
+<li"><span></span><span>&nbsp; &nbsp; &nbsp; &nbsp; }</span></li>
+<li"><span></span><span>&nbsp; &nbsp; }</span></li>
+<li"><span>}</span></li>
+<li"><span>&nbsp;</span></li>
+<li"><span>// Execute the function</span></li>
+<li"><span>isNameInTheArray</span><span>(</span><span>'john'</span><span>,</span><span> tab</span><span>);</span></li>
 </ol></div>
 
 Copy and paste in the devtool console. You'll see that the function that compares each element in the array passed as the second parameter with the name 'john', will stop looping after 'john' has been found at index = 1.
