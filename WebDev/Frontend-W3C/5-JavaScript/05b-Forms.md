@@ -31,114 +31,114 @@ When you define a variable (such as `var x = 10;` or `let name = "Michel";` or `
 
 Examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Defining two variables</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="com">// the variable x contains the primitive datum 2</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> a</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="com">// The variable y references the object {a: 2}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">// "Copying" two variables</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> x2 </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> y2 </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> y3 </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">// Modifying copied variables</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">x2 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">y2 </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> a</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">// Check</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">x</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 2 &lt;- x is not modified because it contains a primitive value</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">y</span><span class="pun">;</span><span class="pln"> </span><span class="com">// { a: 2 } &lt;- y is not modified because y2 does not point to same object</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">y3</span><span class="pun">.</span><span class="pln">a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">y</span><span class="pun">;</span><span class="pln"> </span><span class="com">// { a: 4 } &lt;- The object referenced by "y" and "y3" is modified</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">// Defining two variables</li>
+<li style="margin-bottom: 0px;">var x = 2; // the variable x contains the primitive datum 2</li>
+<li style="margin-bottom: 0px;">var y = { a: 2 } // The variable y references the object {a: 2}</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">// "Copying" two variables</li>
+<li style="margin-bottom: 0px;">var x2 = x;</li>
+<li style="margin-bottom: 0px;">var y2 = y;</li>
+<li style="margin-bottom: 0px;">var y3 = y;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">// Modifying copied variables</li>
+<li style="margin-bottom: 0px;">x2 = 3;</li>
+<li style="margin-bottom: 0px;">y2 = { a: 3 };</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">// Check</li>
+<li style="margin-bottom: 0px;">x; // 2 &lt;- x is not modified because it contains a primitive value</li>
+<li style="margin-bottom: 0px;">y; // { a: 2 } &lt;- y is not modified because y2 does not point to same object</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">y3.a = 4;</li>
+<li style="margin-bottom: 0px;">y; // { a: 4 } &lt;- The object referenced by "y" and "y3" is modified</li>
 </ol></div>
 
 Of course, these rules also apply to the properties of objects.
 
 Example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> driver </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Jean'</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> car </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; driver</span><span class="pun">:</span><span class="pln"> driver</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">driver</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Albert'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">car</span><span class="pun">.</span><span class="pln">driver</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 'Albert'</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var driver = {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; name: 'Jean'</li>
+<li style="margin-bottom: 0px;">};</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">var car = {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; color: 'red',</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; driver: driver</li>
+<li style="margin-bottom: 0px;">};</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">driver.name = 'Albert';</li>
+<li style="margin-bottom: 0px;">car.driver.name; // 'Albert'</li>
 </ol></div>
 
 JavaScript is a "pass by value" language, unlike some other languages, which are "pass by reference" languages. This means that when you pass a variable to a function as argument, the value of the variable is copied into the argument.
 
 Example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> sum</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; a </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">sum</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span><span class="pln"> </span><span class="com">// returns 5</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">x</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 2 &lt;- but x equals 2</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var x = 2;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">function sum(a, b) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; a = a + b;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; return a;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">sum(x, 3); // returns 5</li>
+<li style="margin-bottom: 0px;">x; // 2 &lt;- but x equals 2</li>
 </ol></div>
 
 When working with objects, the reference of the object is copied into the argument. That means you can modify the referenced object. But if you change the reference (for example by assigning a new object), the original variable (which now points to another object) will not be modified.
 
 Example 1:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> obj </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> add</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> a</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">add</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">obj</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 5 &lt;- The referenced object is modified</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var obj = { x: 2 }</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">function add(a, b) {</li>
+<li style="margin-bottom: 0px;"> a.x += b;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">add(obj, 3);</li>
+<li style="margin-bottom: 0px;">obj.x; // 5 &lt;- The referenced object is modified</li>
 </ol></div>
 
 Example 2:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> obj </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> addAndSet</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> addition </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> x</span><span class="pun">:</span><span class="pln"> addition </span><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">addAndSet</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">obj</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* 2 &lt;- The referenced object is not modified</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">because at the end of the function the variable "obj"</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com"> and the variable "a" are not referencing the same object.*/</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var obj = { x: 2 };</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">function addAndSet(a, b) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; var addition = a.x + b;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; a = { x: addition };</li>
+<li style="margin-bottom: 0px;">};</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">addAndSet(obj, 3);</li>
+<li style="margin-bottom: 0px;">obj.x; /* 2 &lt;- The referenced object is not modified</li>
+<li style="margin-bottom: 0px;">because at the end of the function the variable "obj"</li>
+<li style="margin-bottom: 0px;"> and the variable "a" are not referencing the same object.*/</li>
 </ol></div>
 
 Other examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> originalObject </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'Michel'</span><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> copy </span><span class="pun">=</span><span class="pln"> originalObject</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> copy</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"Michel"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> copy</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Dark Vador'</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"Dark Vador"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> originalObject</span><span class="pun">.</span><span class="pln">name</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"Dark Vador"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">// They are the same. originalObject and copy are two "references" of the same object in memory</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">// If we change the name, we change the value in memory, but copy and originalObject "point to" the</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">// same place, to the same object. They are just "pointers" or "reference" to the same object</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var originalObject = {name:'Michel'};</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var copy = originalObject;</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; copy.name;</li>
+<li style="margin-bottom: 0px;">"Michel"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; copy.name = 'Dark Vador';</li>
+<li style="margin-bottom: 0px;">"Dark Vador"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; originalObject.name</li>
+<li style="margin-bottom: 0px;">"Dark Vador"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">// They are the same. originalObject and copy are two "references" of the same object in memory</li>
+<li style="margin-bottom: 0px;">// If we change the name, we change the value in memory, but copy and originalObject "point to" the</li>
+<li style="margin-bottom: 0px;">// same place, to the same object. They are just "pointers" or "reference" to the same object</li>
 </ol></div>
 
 
@@ -209,21 +209,21 @@ Comparing two objects will only return true if they point to the same object (i.
 
 Two objects of the same type, with the same property value, that look identical, will not be equal one to another if they don’t have the same reference (if they point to different places in memory).
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> originalObject </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'Michel'</span><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> copy </span><span class="pun">=</span><span class="pln"> originalObject</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> copy </span><span class="pun">===</span><span class="pln"> originalObject</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> anotherObject </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'Michel'</span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> copy </span><span class="pun">===</span><span class="pln"> anotherObject</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">false</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var originalObject = {name:'Michel'};</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var copy = originalObject;</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; copy === originalObject</li>
+<li style="margin-bottom: 0px;">true</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var anotherObject = {name:'Michel'};</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; copy === anotherObject</li>
+<li style="margin-bottom: 0px;">false</li>
 </ol></div>
 
 
@@ -252,7 +252,7 @@ It is time to tell you the truth: the JavaScript code is executed by an “envir
 This environment defines a “global object”.
 
 <div style="border: 1px solid; margin: 20px; padding: 20px; text-align: center;">
-<p><strong>When this environment is a Web server <br>(and this is the case for all examples we have seen in this course),</strong><br><span style="color: #ff0000;"><strong>this global object is named <span style="font-family: 'courier new', courier;">window</span>.</strong></span></p>
+<p><strong>When this environment is a Web server <br>(and this is the case for all examples we have seen in this course),</strong><br><span style="color: #ff0000;"><strong>this global object is named <span style="font-family: 'courier new', courier;">window.</strong></span></p>
 <p><strong>The “global variables” defined with the keyword <span style="font-family: 'courier new', courier;">var</span> are properties of this <span style="font-family: 'courier new', courier;">window</span> object, <br>and we can say the same of predefined functions like prompt, alert, etc.</strong></p>
 <p><strong>However, at the top level of programs and functions, <br><span style="font-family: 'courier new', courier;">let</span>, unlike <span style="font-family: 'courier new', courier;">var</span>, does not create a property on the global <span style="font-family: 'courier new', courier;">window</span> object.</strong></p>
 <p><span style="color: #0000ff;"><strong>TIP: </strong>if you have global variables/objects declared with <span style="font-family: 'courier new', courier;">let</span>,<br>just declare them with <span style="font-family: 'courier new', courier;">var <span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">instead</span></span>, and you will be able to inspect them <br>easily from the devtool console. <br>You can switch back to using <span style="font-family: 'courier new', courier;">let</span>, later.</span></p>
@@ -260,53 +260,53 @@ This environment defines a “global object”.
 
 Let's see some examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">1</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">a</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">1</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> window</span><span class="pun">[</span><span class="str">'a'</span><span class="pun">];</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="lit">1</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="lit">&gt;&nbsp;</span><strong>let z = 1;</strong> // LET DOES NOT DEFINE properties of the window object</li>
-<li class="L0"><span color="#006666" style="color: #006666;">undefined</span></li>
-<li class="L0"><span color="#006666" style="color: #006666;">&gt; <strong>window.z</strong></span></li>
-<li class="L0"><strong><span color="#006666" style="color: #006666;">undefined</span></strong></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var a = 1;</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">1</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; window.a;</li>
+<li style="margin-bottom: 0px;">1</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; window['a'];</li>
+<li style="margin-bottom: 0px;">1</li>
+<li style="margin-bottom: 0px;">&gt;&nbsp;<strong>let z = 1;</strong> // LET DOES NOT DEFINE properties of the window object</li>
+<li><span color="#006666" style="color: #006666;">undefined</li>
+<li><span color="#006666" style="color: #006666;">&gt; <strong>window.z</strong></li>
+<li><strong><span color="#006666" style="color: #006666;">undefined</strong></li>
 </ol></div>
 
 `a` and `window.a` are the same variable.
 
 `navigator` and `window.navigator` are the same, `document` and `window.document` are the same thing.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> document </span><span class="pun">===</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">document</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> navigator </span><span class="pun">===</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">navigator</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; document === window.document</li>
+<li style="margin-bottom: 0px;">true</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; navigator === window.navigator</li>
+<li style="margin-bottom: 0px;">true</li>
 </ol></div>
 
 Predefined functions are methods from the global object window:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="str">'10 little children'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">10</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="str">'10 little children'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">10</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> alert </span><span class="pun">===</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">alert</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> prompt </span><span class="pun">===</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">prompt</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">addEventListener&nbsp;</span><span class="pun">===</span><span class="pln"> addEventListener</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">true</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; parseInt('10 little children');</li>
+<li style="margin-bottom: 0px;">10</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; window.parseInt('10 little children');</li>
+<li style="margin-bottom: 0px;">10</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; alert === window.alert</li>
+<li style="margin-bottom: 0px;">true</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; prompt === window.prompt</li>
+<li style="margin-bottom: 0px;">true</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; window.addEventListener&nbsp;=== addEventListener</li>
+<li style="margin-bottom: 0px;">true</li>
 </ol></div>
 
 
@@ -358,12 +358,12 @@ The father of all objects: `Object`. All objects will inherit the properties and
 
 These two lines are equivalent:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> o </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{}; // creation of an empty object</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> o </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Object</span><span class="pun">(); // same thing as in line 1</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var o = {}; // creation of an empty object</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var o = new Object(); // same thing as in line 1</li>
+<li style="margin-bottom: 0px;">undefined</li>
 </ol></div>
 
 
@@ -371,32 +371,32 @@ These two lines are equivalent:
 
 __The `toString` method inherited from `Object` by all objects__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> o</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">"[object Object]"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> o</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"Michel"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> o</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"[object Object]"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"1,2,3"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; o.toString();</li>
+<li style="margin-bottom: 0px;">"[object Object]"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; o.name = 'Michel';</li>
+<li style="margin-bottom: 0px;">"Michel"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; o.toString();</li>
+<li style="margin-bottom: 0px;">"[object Object]"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var t = [1, 2, 3];</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; t.toString();</li>
+<li style="margin-bottom: 0px;">"1,2,3"</li>
 </ol></div>
 
 `toString()` in JavaScript is rather similar to the `Object.toString()` method we find in the Java programming language: __when we try to "display" an object, it is transformed into a string by calling `toString()` implicitly.__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> alert</span><span class="pun">(</span><strong><span class="pln">t</span></strong><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> alert</span><span class="pun">(</span><strong><span class="pln">t</span><span class="pun">.</span><span class="pln">toString</span></strong><span class="pun"><strong>()</strong>);</span><span class="pln"> </span><strong><span class="com">// same as previous line of code</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">"An object into a string : "</span><span class="pln"> </span><strong><span class="pun">+</span><span class="pln"> t </span></strong><span class="com">// same as <strong>t.toString() </strong></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"The object as a String : 1, 2, 3"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; alert(<strong>t</strong>);</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; alert(<strong>t.toString</strong><strong>()</strong>); <strong>// same as previous line of code</strong></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; "An object into a string : " <strong>+ t </strong>// same as <strong>t.toString() </strong></li>
+<li style="margin-bottom: 0px;"> "The object as a String : 1, 2, 3"</li>
 </ol></div>
 
 Line 5: using the + operator with a string as the left argument will force the other arguments to convert to string by implicitly calling their toString() method.
@@ -408,15 +408,15 @@ __The `valueOf` method inherited from `Object` by all objects__
 
 The `ValueOf` method returns the value of an object:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">valueOf</span><span class="pun">()</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">"1,2,3"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var t = [1, 2, 3];</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; t.valueOf()</li>
+<li style="margin-bottom: 0px;">[1, 2, 3]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; t.toString();</li>
+<li style="margin-bottom: 0px;">"1,2,3"</li>
 </ol></div>
 
 
@@ -467,25 +467,25 @@ __Source code from the above video__
 
 The `Array` class can be used for creating arrays (however, we recommend that you use the other methods presented instead):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">();</span></strong><span class="pln"> </span><span class="com">// <strong>same as a = []; use this instead!</strong></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; <strong>var a = new Array();</strong> // <strong>same as a = []; use this instead!</strong></li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; <strong>var b = new Array(1, 2, 3);</strong></li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; b;</li>
+<li style="margin-bottom: 0px;">[1, 2, 3]</li>
 </ol></div>
 
 Attention: if only one element, this corresponds to the initial size of the array.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> myArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> myArray</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">[</span><span class="kwd">undefined</span><span class="pln"> </span><span class="pun">×</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var myArray = new Array(3);</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; myArray;</li>
+<li style="margin-bottom: 0px;">[undefined × 3]</li>
 </ol></div>
 
 
@@ -497,48 +497,48 @@ Arrays are objects, but they are “special” objects
 + They have a special `length` property that represents their length/number of elements
 + They have other built-in properties in addition to the ones inherited from Object (`toString`, `valueOf`)
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[],</span><span class="pln"> o </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span><span class="com">// a is an array</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">0</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> o</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span><span class="com">// o is a simple literal object</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var a = [], o = {};</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.length; // a is an array</li>
+<li style="margin-bottom: 0px;">0</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; o.length; // o is a simple literal object</li>
+<li style="margin-bottom: 0px;">undefined</li>
 </ol></div>
 
 Some horrible things we can do with arrays (TO AVOID!):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> a</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"object"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">3</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">length</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">3</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="com">// Now let’s add a name property to the array. Yes, we can do that!</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"I'm an array named a!"</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="str">"I'm an array named a!"</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="lit">3</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"I'm an array named a!"</span><span class="pun">]</span></strong></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var a = [1, 2];</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; typeof a</li>
+<li style="margin-bottom: 0px;">"object"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.push(3);</li>
+<li style="margin-bottom: 0px;">3</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a</li>
+<li style="margin-bottom: 0px;">[1, 2, 3]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.length</li>
+<li style="margin-bottom: 0px;">3</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;"><strong>// Now let’s add a name property to the array. Yes, we can do that!</strong></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;"><strong>&gt; a.name = "I'm an array named a!";</strong></li>
+<li style="margin-bottom: 0px;"><strong>"I'm an array named a!"</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp;</strong></li>
+<li style="margin-bottom: 0px;"><strong>&gt; a.length;</strong></li>
+<li style="margin-bottom: 0px;"><strong>3</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp;</strong></li>
+<li style="margin-bottom: 0px;"><strong>&gt; a;</strong></li>
+<li style="margin-bottom: 0px;"><strong>[1, 2, 3, name: "I'm an array named a!"]</strong></li>
 </ol></div>
 
-<p style="border: 1px solid; padding: 20px; text-align: center;"><span style="color: #ff0000;"><strong>With arrays, only properties with a numerical index are taken into account by the <span style="font-family: 'courier new', courier;">length</span> property!</strong></span></p>
+<p style="border: 1px solid; padding: 20px; text-align: center;"><span style="color: #ff0000;"><strong>With arrays, only properties with a numerical index are taken into account by the <span style="font-family: 'courier new', courier;">length property!</strong></p>
 
 #### Reducing and increasing the size of an array
 
@@ -546,28 +546,28 @@ __The `length` property can be modified: reducing or increasing the size of an a
 
 If you give to the `length` property a value bigger than the number of elements in an array, it adds undefined elements to it:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">5</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pln"> </span><span class="pun">×</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var a = [1, 2];</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.length = 5;</li>
+<li style="margin-bottom: 0px;">5</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">[1, 2, undefined × 3]</li>
 </ol></div>
 
 If you give to the length property a value less than the array’s number of elements, it reduces the size of the array:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">2</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">]</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var a = [1, 2, 3];</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.length = 2;</li>
+<li style="margin-bottom: 0px;">2</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">[1, 2]</li>
 </ol></div>
 
 
@@ -634,37 +634,37 @@ The most useful methods you can use on arrays are: `sort()`, `join()`, `slice()`
 
 #### Typical uses of `push`, `pop`, `sort`, `join`
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">'test'</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="str">'new'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// appends at the end and returns the new length</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">6</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"new"</span><span class="pun">]</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">pop</span><span class="pun">();</span><span class="pln"> </span><span class="com">// removes the last element and returns it</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"new"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">// a is also sorted. The sort method sorts the array + returns it</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">join</span><span class="pun">(</span><span class="str">' and '</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="str">"1 and 3 and 5 and 7 and test"</span></li>
-<li class="L9" style="margin-bottom: 0px;"></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var a = [3, 5, 1, 7, 'test'];</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.push('new') // appends at the end and returns the new length</li>
+<li style="margin-bottom: 0px;">6</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">[3, 5, 1, 7, "test", "new"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.pop(); // removes the last element and returns it</li>
+<li style="margin-bottom: 0px;">"new"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">[3, 5, 1, 7, "test"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var b = a.sort();</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; b;</li>
+<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">// a is also sorted. The sort method sorts the array + returns it</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.join(' and ');</li>
+<li style="margin-bottom: 0px;">"1 and 3 and 5 and 7 and test"</li>
+<li style="margin-bottom: 0px;"></li>
 </ol></div>
 
 
@@ -680,23 +680,23 @@ Possible syntaxes:
 + `arr.slice(begin)`
 + `arr.slice(begin, end) // ELEMENT AT INDEX=end will not be included in the slice!`
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span><span class="pln"> </span><span class="com">// elements of indexes = 1 and 2</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">]</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// element of index = 0</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span><span class="pln"> </span><span class="com">// elements o indexes = 0 and 1</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">// a is unchanged by calls to a.slice(...)</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; a;</li>
+<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; b = a.slice(1, 3); // elements of indexes = 1 and 2</li>
+<li style="margin-bottom: 0px;">[3, 5]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; b = a.slice(0, 1); // element of index = 0</li>
+<li style="margin-bottom: 0px;">[1]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; b = a.slice(0, 2); // elements o indexes = 0 and 1</li>
+<li style="margin-bottom: 0px;">[1, 3]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">// a is unchanged by calls to a.slice(...)</li>
 </ol></div>
 
 
@@ -721,21 +721,21 @@ Parameters:
 
 Examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">101</span><span class="pun">,</span><span class="pln"> </span><span class="lit">102</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">]</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">101</span><span class="pun">,</span><span class="pln"> </span><span class="lit">102</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">101</span><span class="pun">,</span><span class="pln"> </span><span class="lit">102</span><span class="pun">]</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> a</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">]</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; a;</li>
+<li style="margin-bottom: 0px;">[1, 3, 5, 7, "test"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; b = a.splice(1, 2, 100, 101, 102);</li>
+<li style="margin-bottom: 0px;">[3, 5]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">[1, 100, 101, 102, 7, "test"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a.splice(1, 3);</li>
+<li style="margin-bottom: 0px;">[100, 101, 102]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; a;</li>
+<li style="margin-bottom: 0px;">[1, 7, "test"]</li>
 </ol></div>
 
 
@@ -830,37 +830,37 @@ Examples:
 
 The `Number` class can be used to transform strings into numbers, but it is recommended that you use `parseInt` or `parseFloat` instead.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="str">'3.1416'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">3.1416</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"number"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="str">'3.1416'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// convert a string to an integer number</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">3</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="str">'3.1416'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// convert a string to a float number</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="lit">3.1416</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var n = Number('3.1416');</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n;</li>
+<li style="margin-bottom: 0px;">3.1416</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; typeof n;</li>
+<li style="margin-bottom: 0px;">"number"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var n = parseInt('3.1416'); // convert a string to an integer number</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n;</li>
+<li style="margin-bottom: 0px;">3</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var n = parseFloat('3.1416'); // convert a string to a float number</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n;</li>
+<li style="margin-bottom: 0px;">3.1416</li>
 </ol></div>
 
 `Number` has useful non-modifiable properties (constants): `MAX_VALUE` and `MIN_VALUE`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">.</span><span class="pln">MAX_VALUE</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">1.7976931348623157e+308</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">.</span><span class="pln">MIN_VALUE</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">5e-324</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; Number.MAX_VALUE;</li>
+<li style="margin-bottom: 0px;">1.7976931348623157e+308</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; Number.MIN_VALUE;</li>
+<li style="margin-bottom: 0px;">5e-324</li>
 </ol></div>
 
 
@@ -870,40 +870,40 @@ The `Number` class can be used to transform strings into numbers, but it is reco
 + `toExponential`: force a number to use a scientific notation. For example `var a=1000; a.toExponential(); console.log(a);` will give `1e+3`
 + `toString`: converts a number to its string representation. `let n = 10; n.toString()` converts by default to base 10 and will return "10", but you can also pass the base you want to convert to as a unique parameter, `n.toString(2)` will convert the number 10 to base 2 and display "1010";
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">123.456</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">123.456</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toFixed</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// sets the number of digits for the decimal part of the number</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"123.5"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="lit">123.456</span><span class="pun">);</span><span class="pln"> </span><span class="com">// same as n = 123.456</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="typ">Number</span><span class="pln"> </span><span class="pun">{[[</span><span class="typ">PrimitiveValue</span><span class="pun">]]:</span><span class="pln"> </span><span class="lit">123.456</span><span class="pun">}</span><span class="pln"> </span><span class="com">// well, not exactly, but when you use n, it is equivalent</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toFixed</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"123.5"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toExponential</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"1.23456e+2"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">255</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"255"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"255"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="lit">16</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="str">"ff"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="lit">3</span><span class="pun">).</span><span class="pln">toString</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">"11"</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="lit">3</span><span class="pun">).</span><span class="pln">toString</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">"3"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var n = 123.456;</li>
+<li style="margin-bottom: 0px;">123.456</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n.toFixed(1); // sets the number of digits for the decimal part of the number</li>
+<li style="margin-bottom: 0px;">"123.5"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n = new Number(123.456); // same as n = 123.456</li>
+<li style="margin-bottom: 0px;">Number {[[PrimitiveValue]]: 123.456} // well, not exactly, but when you use n, it is equivalent</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n.toFixed(1);</li>
+<li style="margin-bottom: 0px;">"123.5"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n.toExponential();</li>
+<li style="margin-bottom: 0px;">"1.23456e+2"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var n = 255;</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n.toString();</li>
+<li style="margin-bottom: 0px;">"255"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n.toString(10);</li>
+<li style="margin-bottom: 0px;">"255"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; n.toString(16);</li>
+<li style="margin-bottom: 0px;">"ff"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; (3).toString(2);</li>
+<li style="margin-bottom: 0px;">"11"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; (3).toString(10);</li>
+<li style="margin-bottom: 0px;">"3"</li>
 </ol></div>
 
 
@@ -997,43 +997,43 @@ __Source code from the video example__
 
 The `String` class can be used to build new strings, but it’s preferable to use the standard syntax:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><strong><span class="pln"> </span><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// use this rather than&nbsp;using new String(...)</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> name</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"string"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="str">'Michel'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">typeof</span><span class="pln"> name</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"string"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt;<strong> var name = 'Michel'; // use this rather than&nbsp;using new String(...)</strong></li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; typeof name;</li>
+<li style="margin-bottom: 0px;">"string"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var name = new String('Michel');</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; typeof name;</li>
+<li style="margin-bottom: 0px;">"string"</li>
 </ol></div>
 
 Some reminders about strings:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> name</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">6</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> name</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"M"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> name</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Z'</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"Z"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> name</span><span class="pun">;</span><span class="pln"> </span><strong><span class="com">// we cannot modify a string using s[index] = value;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"Michel"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="lit">6</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">"M"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var name = 'Michel';</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; name.length;</li>
+<li style="margin-bottom: 0px;">6</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; name[0];</li>
+<li style="margin-bottom: 0px;">"M"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; name[0] = 'Z';</li>
+<li style="margin-bottom: 0px;">"Z"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; name; <strong>// we cannot modify a string using s[index] = value;</strong></li>
+<li style="margin-bottom: 0px;">"Michel"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; 'Michel'.length;</li>
+<li style="margin-bottom: 0px;">6</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; 'Michel'[0];</li>
+<li style="margin-bottom: 0px;">"M"</li>
 </ol></div>
 
 Explanations: 
@@ -1053,35 +1053,35 @@ These methods are all inherited from the String class:
 + `indexOf`: returns the index of the string value passed as parameter, -1 if the string value is not found in the original string.
 + `charAt`: returns the char at the index passed as parameter. Returns an empty string if the index is out of bounds (less than 0 or greater than the length of the string).
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"I'm the Walrus"</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">toUpperCase</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s1</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"I'M THE WALRUS"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s2 </span><span class="pun">=</span><span class="pln"> s1</span><span class="pun">.</span><span class="pln">toLowerCase</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s2</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">"i'm the walrus"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s is unchanged</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="str">"I'm the Walrus"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// no ‘w’ in s</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">-</span><span class="lit">1</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s2</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">8</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s2</span><span class="pun">[</span><span class="lit">8</span><span class="pun">];</span><span class="pln"> </span><span class="com">// char at index 8</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"w"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">s2</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="lit">8</span><span class="pun">);</span><span class="pln"> </span><span class="com">// same as s2[8]</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"w"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var s = "I'm the Walrus";</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var s1 = s.toUpperCase();</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s1;</li>
+<li style="margin-bottom: 0px;">"I'M THE WALRUS"</li>
+<li style="margin-bottom: 0px;">&gt; var s2 = s1.toLowerCase();</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s2;</li>
+<li style="margin-bottom: 0px;">"i'm the walrus"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s; // s is unchanged</li>
+<li style="margin-bottom: 0px;">"I'm the Walrus"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.indexOf('w'); // no ‘w’ in s</li>
+<li style="margin-bottom: 0px;">-1</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s2.indexOf('w');</li>
+<li style="margin-bottom: 0px;">8</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s2[8]; // char at index 8</li>
+<li style="margin-bottom: 0px;">"w"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">s2.charAt(8); // same as s2[8]</li>
+<li style="margin-bottom: 0px;">"w"</li>
 </ol></div>
 
 
@@ -1090,24 +1090,24 @@ These methods are all inherited from the String class:
 + `lastIndexOf`: returns the last index of the string value passed as parameter
 + `indexOf` can also be used with two parameters, the second one being the starting index when looking for the string value passed as parameter
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">'wow wow wow!'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">"wow wow wow!"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">lastIndexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">10</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// start looking at s at index=1, s[0] is ignored</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">2</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s1 </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">toUpperCase</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s1</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"WOW WOW WOW!"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s1</span><span class="pun">.</span><span class="pln">toLowerCase</span><span class="pun">().</span><span class="pln">lastIndexOf</span><span class="pun">(</span><span class="str">'w'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// we can chain method calls using ‘.’</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; s = 'wow wow wow!';</li>
+<li style="margin-bottom: 0px;">"wow wow wow!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.lastIndexOf('w');</li>
+<li style="margin-bottom: 0px;">10</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.indexOf('w', 1); // start looking at s at index=1, s[0] is ignored</li>
+<li style="margin-bottom: 0px;">2</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; var s1 = s.toUpperCase();</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s1;</li>
+<li style="margin-bottom: 0px;">"WOW WOW WOW!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s1.toLowerCase().lastIndexOf('w'); // we can chain method calls using ‘.’</li>
+<li style="margin-bottom: 0px;">10</li>
 </ol></div>
 
 
@@ -1160,31 +1160,31 @@ These two methods are very similar.
 
 Examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"My name is Bond! James Bond!"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"Bond!"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><strong><span class="com">// s is unchanged</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6"><span class="pln">s</span><span class="pun">.substring</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">16</span><span class="pun">);</span></li>
-<li class="L7"><span class="str">"Bond!"</span></li>
-<li class="L8"><span class="pln">&nbsp;</span></li>
-<li class="L9"><span class="pun">&gt;</span><span class="pln">&nbsp;s</span><span class="pun">;</span><span class="pln">&nbsp;</span><strong><span class="com">// s is still unchanged</span></strong></li>
-<li class="L0"><span class="str">"My name is Bond! James Bond!"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">"Bond!"</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><strong><span class="com">// this time s has changed, because we did s = s.substring(...), the same&nbsp;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; &nbsp;// could have been done with s = s .slice(...)</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">"Bond!"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s;</li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.slice(11, 16);</li>
+<li style="margin-bottom: 0px;">"Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s; <strong>// s is unchanged</strong></li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li>s.substring(11,&nbsp;16);</li>
+<li>"Bond!"</li>
+<li>&nbsp;</li>
+<li>&gt;&nbsp;s;&nbsp;<strong>// s is still unchanged</strong></li>
+<li>"My name is Bond! James Bond!"</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&gt; s = s.substring(11, 16);</li>
+<li style="margin-bottom: 0px;">"Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s; <strong>// this time s has changed, because we did s = s.substring(...), the same&nbsp;</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp;// could have been done with s = s .slice(...)</strong></li>
+<li style="margin-bottom: 0px;">"Bond!"</li>
 </ol></div>
 
 
@@ -1196,18 +1196,18 @@ If you are a beginner, we recommend that you use `substring` for most common cas
 
 Beginners: do not read what follows about slice and substring! There will be no related graded questions at the end of this chapter!
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"My name is Bond! James Bond!"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// start from index = 11 to length-1, extract the end of the string from 11th element</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"Bond! James Bond"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// the reverse, extract from 0 until 11-1, get the first 10 chars</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"My name is "</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln"> </span><span class="com">// extract from 0 to 1-1 = 0, get the first char</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"M"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.slice(11, -1); // start from index = 11 to length-1, extract the end of the string from 11th element</li>
+<li style="margin-bottom: 0px;">"Bond! James Bond"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.substring(11, -1); // the reverse, extract from 0 until 11-1, get the first 10 chars</li>
+<li style="margin-bottom: 0px;">"My name is "</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.substring(1, -1); // extract from 0 to 1-1 = 0, get the first char</li>
+<li style="margin-bottom: 0px;">"M"</li>
 </ol></div>
 
 Actually, here is a summary of the common behaviors and the differences between slice and substring.
@@ -1238,45 +1238,45 @@ Distinctions of `slice()`:
 
 The `split` method returns an array of strings, the parameter is a separator. The `join` method builds a string from an array of strings.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"My name is Bond! James Bond!"</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">" "</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">[</span><span class="str">"My"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"is"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Bond!"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"James"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Bond!"</span><span class="pun">]</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">' '</span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">'-#-'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"My-#-name-#-is-#-Bond!-#-James-#-Bond!"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">' '</span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">'.......'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"My.......name.......is.......Bond!.......James.......Bond!"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">'Bond!'</span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">'.......'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="str">"My name is ....... James ......."</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">'Bond!'</span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">' '</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">"My name is James "</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s is unchanged </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">concat</span><span class="pun">(</span><span class="str">"And I've made a lot of movies!"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies!"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s is also unchanged by concat</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond!"</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> s </span><span class="pun">+</span><span class="pln"> </span><span class="str">"and I've made a lot of movies!"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// this changes s</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies!"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s </span><span class="pun">+=</span><span class="pln"> </span><span class="str">" Action films!"</span><span class="pln"> </span><span class="com">// this too, most common syntax for concatenating strings</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> s</span><span class="pun">;</span><span class="pln"> </span><span class="com">// s changed too</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var s = "My name is Bond! James Bond!"; </li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.split(" ");</li>
+<li style="margin-bottom: 0px;">["My", "name", "is", "Bond!", "James", "Bond!"]</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s;</li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.split(' ').join('-#-');</li>
+<li style="margin-bottom: 0px;">"My-#-name-#-is-#-Bond!-#-James-#-Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.split(' ').join('.......');</li>
+<li style="margin-bottom: 0px;">"My.......name.......is.......Bond!.......James.......Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.split('Bond!').join('.......');</li>
+<li style="margin-bottom: 0px;">"My name is ....... James ......."</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.split('Bond!').join(' ');</li>
+<li style="margin-bottom: 0px;">"My name is James "</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s; // s is unchanged </li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s.concat("And I've made a lot of movies!");</li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond! And I've made a lot of movies!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s; // s is also unchanged by concat</li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s = s + "and I've made a lot of movies!"; // this changes s</li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond! And I've made a lot of movies!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s += " Action films!" // this too, most common syntax for concatenating strings</li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; s; // s changed too</li>
+<li style="margin-bottom: 0px;">"My name is Bond! James Bond! And I've made a lot of movies! Action films!"</li>
 </ol></div>
 
 
@@ -1348,32 +1348,32 @@ The `split` method returns an array of strings, the parameter is a separator. Th
 
 It’s not possible to do `var m = new Math();`
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> m </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">VM5777</span><span class="pun">:</span><span class="lit">1</span><span class="pln"> </span><strong><span class="typ">Uncaught</span><span class="pln"> </span><span class="typ">TypeError</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Math</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> a constructor</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> at </span><span class="str">&lt;anonymous&gt;</span><span class="pun">:</span><span class="lit">1</span><span class="pun">:</span><span class="lit">9</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">(</span><span class="pln">anonymous</span><span class="pun">)</span><span class="pln"> </span><span class="pun">@</span><span class="pln"> VM5777</span><span class="pun">:</span><span class="lit">1</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var m = new Math();</li>
+<li style="margin-bottom: 0px;">VM5777:1 <strong>Uncaught TypeError: Math is not a constructor</strong></li>
+<li style="margin-bottom: 0px;"> at &lt;anonymous&gt;:1:9</li>
+<li style="margin-bottom: 0px;">(anonymous) @ VM5777:1</li>
 </ol></div>
 
 But the `Math` class has a lot of properties and methods that are useful for arithmetic expressions. __They are all class methods and properties, so you will need to use the name of the class followed by the dot operator to access them.__
 
 Here are some examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">3.141592653589793</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">SQRT2</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">1.4142135623730951</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">E</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Euler constant</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">2.718281828459045</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">LN2</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Neperian log of 2</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="lit">0.6931471805599453</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">LN10</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Neperian log of 10</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">2.302585092994046</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; <strong>Math.PI;</strong></li>
+<li style="margin-bottom: 0px;">3.141592653589793</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; <strong>Math.SQRT2;</strong></li>
+<li style="margin-bottom: 0px;">1.4142135623730951</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; <strong>Math.E; // Euler constant</strong></li>
+<li style="margin-bottom: 0px;">2.718281828459045</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; <strong>Math.LN2; // Neperian log of 2</strong></li>
+<li style="margin-bottom: 0px;">0.6931471805599453</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; <strong>Math.LN10; // Neperian log of 10</strong></li>
+<li style="margin-bottom: 0px;">2.302585092994046</li>
 </ol></div>
 
 
@@ -1383,25 +1383,25 @@ Here are some examples:
 
 Examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">0.6033316111663034</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><strong><span class="lit">100</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span><span class="pln"> </span><span class="com">// between 0 and 100</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">11.780563288516422</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; <strong>Math.random();</strong></li>
+<li style="margin-bottom: 0px;">0.6033316111663034</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; <strong>100 * Math.random(); // between 0 and 100</strong></li>
+<li style="margin-bottom: 0px;">11.780563288516422</li>
 </ol></div>
 
 __To get a number between a min and a max value, use this formula: `val = ((max - min) * Math.random()) + min`__
 
 And here is an utility function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getRandomValue</span><span class="pun">(</span><span class="pln">min</span><span class="pun">,</span><span class="pln"> max</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> </span><span class="pun">((</span><span class="pln">max </span><span class="pun">-</span><span class="pln"> min</span><span class="pun">)</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">())</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> min</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> getRandomValue</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="lit">5.064160540161435</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function getRandomValue(min, max) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; return ((max - min) * Math.random()) + min;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; getRandomValue(5, 10);</li>
+<li style="margin-bottom: 0px;">5.064160540161435</li>
 </ol></div>
 
 
@@ -1413,63 +1413,63 @@ For example `Math.round(Math.random());` will return 0 or 1.
 
 Indeed, if `Math.random()` returns a value above 0.5, `Math.round` of this value will return 1, if the value is below 0.5, `Math.round` will return 0:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">1</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">0</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">1</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">());</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="lit">1</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; Math.round(Math.random());</li>
+<li style="margin-bottom: 0px;">1</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; Math.round(Math.random());</li>
+<li style="margin-bottom: 0px;">0</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; Math.round(Math.random());</li>
+<li style="margin-bottom: 0px;">1</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; Math.round(Math.random());</li>
+<li style="margin-bottom: 0px;">1</li>
 </ol></div>
 
 
 #### Get the min and the max of two values with `Math.min(a, b)` and `Math.max(a, b)`
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">min</span><span class="pun">(</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">4</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">max</span><span class="pun">(</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">12</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; Math.min(12, 4);</li>
+<li style="margin-bottom: 0px;">4</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; Math.max(12, 4);</li>
+<li style="margin-bottom: 0px;">12</li>
 </ol></div>
 
 A useful function that restricts a value between  min and  max bounds:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">function</span><span class="pln"> restrictValue</span><span class="pun">(</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> min</span><span class="pun">,</span><span class="pln"> max</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">min</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">max</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> value</span><span class="pun">),</span><span class="pln"> max</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> restrictValue</span><span class="pun">(</span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="lit">20</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> restrictValue</span><span class="pun">(-</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="lit">1</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> restrictValue</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">10</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"><strong>function restrictValue(value, min, max) {</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; return Math.min(Math.max(1, value), max);</strong></li>
+<li style="margin-bottom: 0px;"><strong>}</strong></li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; restrictValue(40, 1, 20);</li>
+<li style="margin-bottom: 0px;">20</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; restrictValue(-10, 1, 20);</li>
+<li style="margin-bottom: 0px;">1</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; restrictValue(10, 1, 20);</li>
+<li style="margin-bottom: 0px;">10</li>
 </ol></div>
 
 
 #### Math functions for arithmetical computations sin(), cos(), tan(), atan(), atan2(), pow(), sqrt()
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">pow</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">);</span><span class="pln"> </span><span class="com">// 2^8</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">256</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="lit">9</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">3</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sin</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">1</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">cos</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="lit">6.123233995736766e-17</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; Math.pow(2, 8); // 2^8</li>
+<li style="margin-bottom: 0px;">256</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; Math.sqrt(9);</li>
+<li style="margin-bottom: 0px;">3</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; Math.sin(Math.PI/2);</li>
+<li style="margin-bottom: 0px;">1</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; Math.cos(Math.PI/2);</li>
+<li style="margin-bottom: 0px;">6.123233995736766e-17</li>
 </ol></div>
 
 __`Math.atan2(dy, dx)` is useful for getting an angle between a point in a canvas and the mouse cursor__
@@ -1535,15 +1535,15 @@ __Without any argument, a call to `new Date()` returns the current date.__
 
 Note: The return value is actually a Date object, which is displayed by calling `toString()` on this object.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> date </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> date</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="typ">Wed</span><span class="pln"> </span><span class="typ">Apr</span><span class="pln"> </span><span class="lit">12</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">11</span><span class="pun">:</span><span class="lit">10</span><span class="pun">:</span><span class="lit">28</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
-<li class="L3"><span class="pun"></span></li>
-<li class="L3"><span class="pun">&gt;</span><span class="pln">&nbsp;date.toString()</span><span class="pun">; // same thing!</span></li>
-<li class="L4"><span class="typ">Wed</span><span class="pln">&nbsp;</span><span class="typ">Apr</span><span class="pln">&nbsp;</span><span class="lit">12</span><span class="pln">&nbsp;</span><span class="lit">2017</span><span class="pln">&nbsp;</span><span class="lit">11</span><span class="pun">:</span><span class="lit">10</span><span class="pun">:</span><span class="lit">28</span><span class="pln">&nbsp;GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var date = new Date();</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; date;</li>
+<li style="margin-bottom: 0px;">Wed Apr 12 2017 11:10:28 GMT+0200 (CEST)</li>
+<li></li>
+<li>&gt;&nbsp;date.toString(); // same thing!</li>
+<li>Wed&nbsp;Apr&nbsp;12&nbsp;2017&nbsp;11:10:28&nbsp;GMT+0200&nbsp;(CEST)</li>
 </ol></div>
 
 
@@ -1557,96 +1557,96 @@ __We can also pass it an argument that can be:__
 
 Examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="str">'2017 04 28'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="typ">Fri</span><span class="pln"> </span><span class="typ">Apr</span><span class="pln"> </span><span class="lit">28</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="str">'2017 1 2'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="typ">Mon</span><span class="pln"> </span><span class="typ">Jan</span><span class="pln"> </span><span class="lit">02</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="str">'2017 1 2 8:30'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="typ">Mon</span><span class="pln"> </span><span class="typ">Jan</span><span class="pln"> </span><span class="lit">02</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">08</span><span class="pun">:</span><span class="lit">30</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; new Date('2017 04 28');</li>
+<li style="margin-bottom: 0px;">Fri Apr 28 2017 00:00:00 GMT+0200 (CEST)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; new Date('2017 1 2');</li>
+<li style="margin-bottom: 0px;">Mon Jan 02 2017 00:00:00 GMT+0100 (CET)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; new Date('2017 1 2 8:30');</li>
+<li style="margin-bottom: 0px;">Mon Jan 02 2017 08:30:00 GMT+0100 (CET)</li>
 </ol></div>
 
 Numerical parameters can also be passed in this order: year, month (0-11), day (1-31), time (0-23), minutes (0-59), seconds , milliseconds (0-999). We do not have to pass everything but it should always be in this order.
 
 Examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">,</span><span class="pln"> </span><span class="lit">14</span><span class="pun">,</span><span class="pln"> </span><span class="lit">43</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="typ">Sun</span><span class="pln"> </span><span class="typ">Apr</span><span class="pln"> </span><span class="lit">16</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">14</span><span class="pun">:</span><span class="lit">43</span><span class="pun">:</span><span class="lit">10</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">14</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="typ">Tue</span><span class="pln"> </span><span class="typ">Jan</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">14</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">28</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 1 is February! Month indexes start at 0!</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="typ">Tue</span><span class="pln"> </span><span class="typ">Feb</span><span class="pln"> </span><span class="lit">28</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2008</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">29</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="typ">Fri</span><span class="pln"> </span><span class="typ">Feb</span><span class="pln"> </span><span class="lit">29</span><span class="pln"> </span><span class="lit">2008</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">29</span><span class="pun">);</span><span class="pln"> </span><span class="com">// No February 29th in 2017! Gives 1st of March</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="typ">Wed</span><span class="pln"> </span><span class="typ">Mar</span><span class="pln"> </span><span class="lit">01</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">31</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Happy new year!</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="typ">Sun</span><span class="pln"> </span><span class="typ">Dec</span><span class="pln"> </span><span class="lit">31</span><span class="pln"> </span><span class="lit">2017</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">2017</span><span class="pun">,</span><span class="pln"> </span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 32 Dec -&gt; 1st of January!</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="typ">Mon</span><span class="pln"> </span><span class="typ">Jan</span><span class="pln"> </span><span class="lit">01</span><span class="pln"> </span><span class="lit">2018</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0100</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CET</span><span class="pun">)</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; new Date(2017, 3, 16, 14, 43, 10, 120);</li>
+<li style="margin-bottom: 0px;">Sun Apr 16 2017 14:43:10 GMT+0200 (CEST)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; new Date(2017, 0, 10, 14);</li>
+<li style="margin-bottom: 0px;">Tue Jan 10 2017 14:00:00 GMT+0100 (CET)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; new Date(2017, 1, 28) // 1 is February! Month indexes start at 0!</li>
+<li style="margin-bottom: 0px;">Tue Feb 28 2017 00:00:00 GMT+0100 (CET)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; new Date(2008, 1, 29);</li>
+<li style="margin-bottom: 0px;">Fri Feb 29 2008 00:00:00 GMT+0100 (CET)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; new Date(2017, 1, 29); // No February 29th in 2017! Gives 1st of March</li>
+<li style="margin-bottom: 0px;">Wed Mar 01 2017 00:00:00 GMT+0100 (CET)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; new Date(2017, 11, 31); // Happy new year!</li>
+<li style="margin-bottom: 0px;">Sun Dec 31 2017 00:00:00 GMT+0100 (CET)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; new Date(2017, 11, 32) // 32 Dec -&gt; 1st of January!</li>
+<li style="margin-bottom: 0px;">Mon Jan 01 2018 00:00:00 GMT+0100 (CET)</li>
 </ol></div>
 
 Calling `Date()` without "new" returns the current date as a string. It does not matter if we pass parameters:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">"Sun Apr 16 2017 14:51:47 GMT+0200 (CEST)"</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; Date();</li>
+<li style="margin-bottom: 0px;">"Sun Apr 16 2017 14:51:47 GMT+0200 (CEST)"</li>
 </ol></div>
 
 #### Useful methods
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> d </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"Sun Apr 16 2017 14:52:52 GMT+0200 (CEST)"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">setMonth</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Change for month with index=2</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">1489672372092</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"Thu Mar 16 2017 14:52:52 GMT+0100 (CET)"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">getMonth</span><span class="pun">();</span><span class="pln"> </span><span class="com">// get current month index</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">2</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var d = new Date();</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; d.toString();</li>
+<li style="margin-bottom: 0px;">"Sun Apr 16 2017 14:52:52 GMT+0200 (CEST)"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; d.setMonth(2); // Change for month with index=2</li>
+<li style="margin-bottom: 0px;">1489672372092</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; d.toString();</li>
+<li style="margin-bottom: 0px;">"Thu Mar 16 2017 14:52:52 GMT+0100 (CET)"</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; d.getMonth(); // get current month index</li>
+<li style="margin-bottom: 0px;">2</li>
 </ol></div>
 
 __Let's play with my birthday!__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> d </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="lit">1965</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Michel Buffa's birthday</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">getDay</span><span class="pun">();</span><span class="pln"> </span><span class="com">// Sunday is 0</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">5</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> d</span><span class="pun">;</span><span class="pln"> </span><span class="com">// let's verify</span></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="typ">Fri</span></strong><span class="pln"> </span><span class="typ">Apr</span><span class="pln"> </span><span class="lit">16</span><span class="pln"> </span><span class="lit">1965</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pln"> GMT</span><span class="pun">+</span><span class="lit">0200</span><span class="pln"> </span><span class="pun">(</span><span class="pln">CEST</span><span class="pun">)</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pun">&gt;</span><span class="pln"> </span><span class="com">// Great, it was a Friday :-)</span></strong></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var d = new Date(1965, 3, 16); // Michel Buffa's birthday</li>
+<li style="margin-bottom: 0px;">undefined</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; d.getDay(); // Sunday is 0</li>
+<li style="margin-bottom: 0px;">5</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; d; // let's verify</li>
+<li style="margin-bottom: 0px;"><strong>Fri</strong> Apr 16 1965 00:00:00 GMT+0200 (CEST)</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;"><strong>&gt; // Great, it was a Friday :-)</strong></li>
 </ol></div>
 
 Let's write a small piece of code that will guess which days of the week Michel Buffa's birthday will occur, between 2017 and 2047:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> dayOfTheWeek </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> year </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2017</span><span class="pun">;</span><span class="pln"> year </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="lit">2047</span><span class="pun">;</span><span class="pln"> year</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; dayOfTheWeek</span><span class="pun">[</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="pln">year</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">).</span><span class="pln">getDay</span><span class="pun">()]++;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> dayOfTheWeek</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">]</span><span class="pln"> </span><span class="com">// 4 times on a Sunday, Monday, Friday and Saturday, <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 5 times on Tuesday, Wednesday and Thursday</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&gt; var dayOfTheWeek = [0,0,0,0,0,0,0];</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">for (var year = 2017; year &lt;= 2047; year++) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; dayOfTheWeek[new Date(year, 4, 16).getDay()]++;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&gt; dayOfTheWeek</li>
+<li style="margin-bottom: 0px;">[4, 4, 5, 5, 5, 4, 4] // 4 times on a Sunday, Monday, Friday and Saturday, <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 5 times on Tuesday, Wednesday and Thursday</li>
 </ol></div>
 
 Explanations:
