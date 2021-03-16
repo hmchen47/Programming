@@ -445,22 +445,8 @@ The `ValueOf` method returns the value of an object:
   + example: `var t = [1, 2, 3]; t.valueOf(); // [1, 2, 3]`, `t.toString(); // "1,2,3"`
 
 + [`toString()` method: specification](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
-  + syntax: `obj.toString()`
-  + docstring:
-    + every object w/ a `toString()` method that automatically called when the object is to be represented as a text value or when an objkject is referred to be in manner in which a string is expected
-    + by default, inherited by every object descent from `Object`
-  + parameter
-    + `radix` (option): $2 \le \text{ radix } \le 36$
-  + return:  a string representing the object
 
 + [`valueOf()` method: specification](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)
-  + syntax: `obj.value()`
-  + docstring:
-    + convert an object to a primitive value
-    + rarely invoked by user
-    + automatically invoked by JS when encountering an object where a primitive value is expected
-    + by default, inherited by every object descended from `Object`
-  + return: the primitive value of the specified object
 
 
 ### 5.2.5 Built-in JS class: Array
@@ -963,7 +949,7 @@ The `Number` class can be used to transform strings into numbers, but it is reco
   + parameter
     + `value`: the numeric value of the object being created
 
-+ [`Number.prototype.toFixed()` method](https://tinyurl.com/txz2hs)
++ [`Number.prototype.toFixed()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
   + syntax: `numObj.toFixed([digits])`
   + docstring: format a number using fixed-point notation
   + parametre
@@ -973,7 +959,7 @@ The `Number` class can be used to transform strings into numbers, but it is reco
       + default: 0
   + return: a string representing the given number using fixed-point notation
 
-+ [`Number.prototype.toExponential()` method](https://tinyurl.com/kdj6z78b)
++ [`Number.prototype.toExponential()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential)
   + syntax: `numObj.toExponential([fractionDigits])`
   + docstring: return a string representing the `Number` object in exponential notation
   + parameter
@@ -982,12 +968,13 @@ The `Number` class can be used to transform strings into numbers, but it is reco
       + default: as many digits as necessary to specify the number
   + return: a string representing the given `Number` object in exponential notation w/ one digit before the decimal point, rounded to `fractionDigits` digits after the decimal point
 
-+ `Number.prototype.toString()` method
++ [`Number.prototype.toString()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
   + syntax: `numObj.toString([radix])`
   + docstring: return a string representing the specified `Number` object
   + parameter
     + `radix` (optional): specify the base to use for representing numeric values, [0, 36]
   + return: a string representing the specified `Number` object
+
 
 
 ### 5.2.8 Built-in JS class: `String`
