@@ -115,9 +115,9 @@ Instead of just displaying pure string messages, you can also use the "+" operat
 Example :
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var x = 2;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">console.log(<strong>"The value of x is " + x + " and it's ok like that."</strong>); </li>
+<li" value="1">var x = 2;</li>
+<li">&nbsp;</li>
+<li">console.log(<strong>"The value of x is " + x + " and it's ok like that."</strong>); </li>
 </ol></div>
 
 We typed this code in the devtool console to check what it does:
@@ -136,12 +136,12 @@ You can use as many "+" as you like, the part right after the "+" will be turned
 You can also use parentheses in order to display results of simple calculations:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var x = 2;</li>
-<li style="margin-bottom: 0px;">var y = 4;</li>
-<li style="margin-bottom: 0px;">console.log("x = " + x);</li>
-<li style="margin-bottom: 0px;">console.log("y = " + y);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">console.log("The value of (x+y) is " + (x+y) + " and it's ok like that."); </li>
+<li" value="1">var x = 2;</li>
+<li">var y = 4;</li>
+<li">console.log("x = " + x);</li>
+<li">console.log("y = " + y);</li>
+<li">&nbsp;</li>
+<li">console.log("The value of (x+y) is " + (x+y) + " and it's ok like that."); </li>
 </ol></div>
 
 Result:
