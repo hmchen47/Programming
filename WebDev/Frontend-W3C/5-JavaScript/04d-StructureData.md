@@ -12,28 +12,28 @@ We have built balls in order to fill the array of balls.
 
 #### OLD VERSION
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> createBalls</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // empty array</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; let</span><span class="pln"> ballArray </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // create n balls</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; for</span><span class="pun">(</span><span class="kwd">let</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{&nbsp;</span><strong>// let's build multiple times a singleton object</strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>let</strong></span><strong><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{&nbsp;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln">w</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln">h</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">30</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span><span class="pln"> </span><span class="com">// between 5 and 35</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedX</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span><span class="pln"> </span><span class="com">// between -5 and + 5</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedY</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span><span class="pln"> </span><span class="com">// between -5 and + 5</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">getARandomColor</span><span class="pun">(),</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; }</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // add ball b to the array</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ballArray</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; } // end of for loop</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // returns the array full of randomly created balls</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> ballArray</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function createBalls(n) {</li>
+<li>&nbsp; &nbsp; // empty array</li>
+<li>&nbsp; &nbsp; let ballArray = [];</li>
+<li> </li>
+<li>&nbsp; &nbsp; // create n balls</li>
+<li>&nbsp; &nbsp; for(let i=0; i &lt; n; i++) {&nbsp;<strong>// let's build multiple times a singleton object</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>let</strong><strong> b = {&nbsp;</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x:w/2,</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y:h/2,</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; radius: 5 + 30 * Math.random(), // between 5 and 35</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedX: -5 + 10 * Math.random(), // between -5 and + 5</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedY: -5 + 10 * Math.random(), // between -5 and + 5</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color:getARandomColor(),</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; }</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // add ball b to the array</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ballArray.push(b);</li>
+<li>&nbsp; &nbsp; } // end of for loop</li>
+<li></li>
+<li>&nbsp; &nbsp; // returns the array full of randomly created balls</li>
+<li>&nbsp; &nbsp; return ballArray;</li>
+<li>}</li>
 </ol></div>
 
 In the code above, in order to build `n` balls, we created a singleton ball object multiple times. This worked, but if we have misspelled a property name within the code, or forgot one of the properties that had to be initialized, we would have received no warnings. We will replace these lines with something like `let b = new Ball(...);`
@@ -42,30 +42,30 @@ In the code above, in order to build `n` balls, we created a singleton ball obje
 
 Using the `new` keyword and an ES6 class
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> createBalls2</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // empty array</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; let</span><span class="pln"> ballArray </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // create n balls</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; for</span><span class="pun">(</span><span class="kwd">let</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // Create some random values...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> w</span><span class="pun">/</span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> h</span><span class="pun">/</span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> radius </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">30</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span><span class="pln"> </span><span class="com">// between 5 and 35</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> speedX </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span><span class="pln"> </span><span class="com">// between -5 and + 5</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> speedY </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">5</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span><span class="pln"> </span><span class="com">// between -5 and + 5</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> color </span><span class="pun">=</span><span class="pln"> getARandomColor</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; <strong>// Create the new ball b</strong></span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Ball</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">,</span><span class="pln"> color</span><span class="pun">,</span><span class="pln"> speedX</span><span class="pun">,</span><span class="pln"> speedY</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // add ball b to the array</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ballArray</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // returns the array full of randomly created balls</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> ballArray</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function createBalls2(n) {</li>
+<li>&nbsp; &nbsp; // empty array</li>
+<li>&nbsp; &nbsp; let ballArray = [];</li>
+<li> </li>
+<li>&nbsp; &nbsp; // create n balls</li>
+<li>&nbsp; &nbsp; for(let i=0; i &lt; n; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // Create some random values...</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; let x = w/2;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; let y = h/2;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; let radius = 5 + 30 * Math.random(); // between 5 and 35</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; let speedX = -5 + 10 * Math.random(); // between -5 and + 5</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; let speedY = -5 + 10 * Math.random(); // between -5 and + 5</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; let color = getARandomColor();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>// Create the new ball b</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; let b = new Ball(x, y, radius, color, speedX, speedY);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // add ball b to the array</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ballArray.push(b);</li>
+<li>&nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; // returns the array full of randomly created balls</li>
+<li>&nbsp; &nbsp; return ballArray;</li>
+<li>}</li>
 </ol></div>
 
 
@@ -73,18 +73,18 @@ Ok, not a very big change here, except that we are no longer manipulating the pr
 
 And here is the (so far, incomplete) ES6 class for Ball (continued in the next page of this course):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">class</span><span class="pln"> </span><span class="typ">Ball</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>constructor</strong></span><strong><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">,</span><span class="pln"> color</span><span class="pun">,</span><span class="pln"> speedX</span><span class="pun">,</span><span class="pln"> speedY</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// properties</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span><span class="pln"> radius</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> color</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">=</span><span class="pln"> speedX</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">speedY </span><span class="pun">=</span><span class="pln"> speedY</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="com">// code to come for methods</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1"><strong>class Ball {</strong></li>
+<li>&nbsp; &nbsp; <strong>constructor</strong><strong>(x, y, radius, color, speedX, speedY) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.x = x; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// properties</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.y = y;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.radius = radius;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.color = color;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.speedX = speedX;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.speedY = speedY;</li>
+<li>&nbsp; &nbsp; }</li>
+<li> ... // code to come for methods</li>
+<li>}</li>
 </ol></div>
 
 
@@ -154,46 +154,46 @@ It is time to add some behaviors: a `draw` and a `move` method. Indeed, all ball
 
 Here's how we were drawing a ball in the previous version of the game:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawFilledCircle</span><span class="pun">(</span><strong>c</strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // GOOD practice: save the context, use 2D trasnformations</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // translate the coordinate system, draw relative to it</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><strong><span class="pln">c</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">y</span></strong><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><strong><span class="pln"> c</span><span class="pun">.</span><span class="pln">color</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // (0, 0) is the top left corner of the monster.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><strong><span class="pln"> c</span><span class="pun">.</span><span class="pln">radius</span></strong><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// GOOD practice: restore the context</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function drawFilledCircle(<strong>c</strong>) {</li>
+<li>&nbsp; &nbsp; // GOOD practice: save the context, use 2D trasnformations</li>
+<li>&nbsp; &nbsp; ctx.save();</li>
+<li> </li>
+<li>&nbsp; &nbsp; // translate the coordinate system, draw relative to it</li>
+<li>&nbsp; &nbsp; ctx.translate(<strong>c.x, c.y</strong>);</li>
+<li> </li>
+<li>&nbsp; &nbsp; ctx.fillStyle =<strong> c.color;</strong></li>
+<li>&nbsp; &nbsp; // (0, 0) is the top left corner of the monster.</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li>&nbsp; &nbsp; ctx.arc(0, 0,<strong> c.radius</strong>, 0, 2*Math.PI);</li>
+<li>&nbsp; &nbsp; ctx.fill();</li>
+<li> </li>
+<li> // GOOD practice: restore the context</li>
+<li> ctx.restore();</li>
+<li>}</li>
 </ol></div>
 
 And this how we were drawing and moving all the balls:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawAllBalls</span><span class="pun">(</span><span class="pln">ballArray</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ballArray</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; drawFilledCircle</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; });</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> moveAllBalls</span><span class="pun">(</span><span class="pln">ballArray</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // iterate on all balls in array</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; balls</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">b</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">*</span><span class="pln"> globalSpeedMutiplier</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; b</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">b</span><span class="pun">.</span><span class="pln">speedY </span><span class="pun">*</span><span class="pln"> globalSpeedMutiplier</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">});</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function drawAllBalls(ballArray) {</li>
+<li>&nbsp; &nbsp; ballArray.forEach(function(b) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; drawFilledCircle(b);</li>
+<li>&nbsp; &nbsp; });</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function moveAllBalls(ballArray) {</li>
+<li>&nbsp; &nbsp; // iterate on all balls in array</li>
+<li>&nbsp; &nbsp; balls.forEach(function(b, index) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; b.x += (b.speedX * globalSpeedMutiplier);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; b.y += (b.speedY * globalSpeedMutiplier);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls(b); </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer(b, index);</li>
+<li> });</li>
+<li>}</li>
 </ol></div>
 
 
@@ -207,34 +207,34 @@ Anyway, if you plan to use your balls in another game, it is recommended that yo
 
 __New version__ of the ES6 Ball class with draw and move methods:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Ball</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; constructor</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> radius</span><span class="pun">,</span><span class="pln"> color</span><span class="pun">,</span><span class="pln"> speedX</span><span class="pun">,</span><span class="pln"> speedY</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // see previous section for the code</li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; draw</span><span class="pun">(</span><strong><span class="pln">ctx</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // Nearly the same as the old drawFilledCircle function</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // BEST practice: save the context, use 2D transformations</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // translate the coordinate system, draw relative to it</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">y</span></strong><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">color</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // (0, 0) is the top left corner of the monster.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><strong><span class="kwd">this</span><span class="pun">.</span><span class="pln">radius</span></strong><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // BEST practice: restore the context</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; move</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">class Ball {</li>
+<li>&nbsp; &nbsp; constructor(x, y, radius, color, speedX, speedY) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // see previous section for the code</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; draw(<strong>ctx</strong>) { // Nearly the same as the old drawFilledCircle function</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // BEST practice: save the context, use 2D transformations</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.save();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // translate the coordinate system, draw relative to it</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.translate(<strong>this.x, this.y</strong>);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fillStyle = <strong>this.color;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // (0, 0) is the top left corner of the monster.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.beginPath();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.arc(0, 0, <strong>this.radius</strong>, 0, 2*Math.PI);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.fill();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // BEST practice: restore the context</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ctx.restore(); </li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; move() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.x += this.speedX;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.y += this.speedY; </li>
+<li>&nbsp; &nbsp; }</li>
+<li>}</li>
 </ol></div>
 
 Explanations:
@@ -242,7 +242,7 @@ Explanations:
 + _Line 6_: the `draw` function's content is nearly the same as the `drawFilledCircle` function we previously used. We replaced all `c.x`, `c.y` etc. by `this.x`, `this.y`, to use the properties of the current object. This means that when we create a ball with `var b = new Ball(...);` and when we draw it using `b.draw(ctx)`, then `this.x` will be the value of the x property of the ball b, etc.
 + _Line 23_: the move function takes no parameter as it will add the value of the speedX/speedY properties to the current `x` and `y` value of the current ball.
 
-<span style="color: brown;">Notice that we did not take into account the <code>globalSpeedMultiplier</code> we had in the old moveAllBalls function, as this is not something that is individually relevant to each ball: it is more something that affect ALL balls. <b>This should raise an alert: use an ES6 class property for that!</b></span>
+<span style="color: brown;">Notice that we did not take into account the <code>globalSpeedMultiplier</code> we had in the old moveAllBalls function, as this is not something that is individually relevant to each ball: it is more something that affect ALL balls. <b>This should raise an alert: use an ES6 class property for that!</b>
 
 In other words, even if zero ball has been created, this `globalSpeedMultiplier` is set and can be modified using a slider in the graphic user interface. Consequently, it is not a ball property, __more a property of the Ball class itself.__
 
@@ -253,24 +253,24 @@ This setting could be created using a class property, as seen in a previous sect
 
 And here is how we can now move and draw ALL balls
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawAllBalls2</span><span class="pun">(</span><span class="pln">ballArray</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ballArray</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong> b</strong></span><strong><span class="pun">.</span><span class="pln">draw</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; });</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> moveAllBalls2</span><span class="pun">(</span><span class="pln">ballArray</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // iterate on all balls in array</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; balls</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong> b</strong></span><strong><span class="pun">.</span><span class="pln">move</span><span class="pun">();</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer</span><span class="pun">(</span><span class="pln">b</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">});</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function drawAllBalls2(ballArray) {</li>
+<li>&nbsp; &nbsp; ballArray.forEach(function(b) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong> b</strong><strong>.draw(ctx);</strong></li>
+<li>&nbsp; &nbsp; });</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function moveAllBalls2(ballArray) {</li>
+<li>&nbsp; &nbsp; // iterate on all balls in array</li>
+<li>&nbsp; &nbsp; balls.forEach(function(b, index) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // b is the current ball in the array</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong> b</strong><strong>.move();</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; testCollisionBallWithWalls(b); </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; testCollisionWithPlayer(b, index);</li>
+<li> });</li>
+<li>}</li>
 </ol></div>
 
 
