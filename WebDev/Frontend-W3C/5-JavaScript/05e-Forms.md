@@ -15,20 +15,20 @@ This is a play project that you can easily improve:
 
 __Let's start with a simple skeleton (no GUI), beginning with the `Contact` class__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Contact</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;constructor</span><span class="pun">(</span><span class="pln">name</span><span class="pun">,</span><span class="pln"> email</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> name</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">email </span><span class="pun">=</span><span class="pln"> email</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp;}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">class Contact {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;constructor(name, email) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; this.name = name;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; this.email = email;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;}</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 As you can see, a contact is just a name and an email. We will use the above class like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> c1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Contact</span><span class="pun">(</span><span class="str">"Jimi Hendrix"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"jimi@rip.com"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> c2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Contact</span><span class="pun">(</span><span class="str">"Robert Fripp"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"robert.fripp@kingcrimson.com"</span><span class="pun">);</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var c1 = new Contact("Jimi Hendrix", "jimi@rip.com");</li>
+<li style="margin-bottom: 0px;">var c2 = new Contact("Robert Fripp", "robert.fripp@kingcrimson.com");</li>
 </ol></div>
 
 Then you can print the properties of contact `c1` or `c2` using for example `console.log(c1.name)`, `console.log(c2.email)`, etc.
@@ -36,39 +36,39 @@ Then you can print the properties of contact `c1` or `c2` using for example `con
 
 #### A minimal ContactManager class
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactManager</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; constructor</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; add</span><span class="pun">(</span><span class="pln">contact</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">contact</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; remove</span><span class="pun">(</span><span class="pln">contact</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; // we iterate on the list of contacts until we find the contact</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; // passed as a parameter (we say that they are equal if emails match)</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; for</span><span class="pun">(</span><span class="kwd">let</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">c</span><span class="pun">.</span><span class="pln">email </span><span class="pun">===</span><span class="pln"> contact</span><span class="pun">.</span><span class="pln">email</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // remove the contact at index i</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stop/exit the loop</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; printContactsToConsole</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">c</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">c</span><span class="pun">.</span><span class="pln">name</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; });</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; };</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">class ContactManager {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; constructor() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; add(contact) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.push(contact);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; remove(contact) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // we iterate on the list of contacts until we find the contact</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // passed as a parameter (we say that they are equal if emails match)</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; for(let i = 0; i &lt; this.listOfContacts.length; i++) { </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var c = this.listOfContacts[i];</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(c.email === contact.email) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // remove the contact at index i</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.splice(i, i);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stop/exit the loop</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; printContactsToConsole() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.forEach(function(c) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(c.name);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; });</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; };</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 
@@ -79,20 +79,20 @@ __Explanations:__
 
 We can use the contact manager like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> cm </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactManager</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> c1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Contact</span><span class="pun">(</span><span class="str">"Jimi Hendrix"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"jimi@rip.com"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> c2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Contact</span><span class="pun">(</span><span class="str">"Robert Fripp"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"robert.fripp@kingcrimson.com"</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> c3 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Contact</span><span class="pun">(</span><span class="str">"Angus Young"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"angus@acdc.com"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> c4 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Contact</span><span class="pun">(</span><span class="str">"Arnold Schwarzenneger"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"T2@terminator.com"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"--- Adding 4 contacts ---"</span><span class="pun">)</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">c1</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">c2</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">c3</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">c4</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">printContactsToConsole</span><span class="pun">();</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">var cm = new ContactManager();</li>
+<li style="margin-bottom: 0px;">var c1 = new Contact("Jimi Hendrix", "jimi@rip.com");</li>
+<li style="margin-bottom: 0px;">var c2 = new Contact("Robert Fripp", "robert.fripp@kingcrimson.com");</li>
+<li style="margin-bottom: 0px;">var c3 = new Contact("Angus Young", "angus@acdc.com");</li>
+<li style="margin-bottom: 0px;">var c4 = new Contact("Arnold Schwarzenneger", "T2@terminator.com");</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">console.log("--- Adding 4 contacts ---")</li>
+<li style="margin-bottom: 0px;">cm.add(c1);</li>
+<li style="margin-bottom: 0px;">cm.add(c2);</li>
+<li style="margin-bottom: 0px;">cm.add(c3);</li>
+<li style="margin-bottom: 0px;">cm.add(c4);</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">cm.printContactsToConsole();</li>
 </ol></div>
 
 As you can see, this is a very minimal version. It's always a good idea to start with very simple structures/classes, and a few methods. Then type the code on CodePen or JSBin and use the devtool console. Check that there are no syntax errors, that everything runs smoothly.
@@ -108,30 +108,30 @@ Here is the CodePen of this minimal version. Click on the CodePen label on the t
 
 Do you remember the `sort()` method you can use on arrays? We saw it in modules 2 or 3. Since our array contains objects, we must provide a callback for comparing two elements by name. Here is the code for the new sort() method we added to the ContactManager class:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">sort</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // As our array contains objects, we need to pass as argument</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // a method that can compare two contacts.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // we use a class method, which is similar to the distance(p1, p2)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // method we saw in the ES6 Point class in module 4</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // We always call such methods using the name of the class followed</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // by the dot operator</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp;<strong> this</strong></span><strong><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">(</span><span class="typ">ContactManager</span><span class="pun">.</span><span class="pln">compareByName</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="com">// class method for comparing two contacts by name</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="kwd">static</span><span class="pln"> compareByName</span></strong><span class="pun">(</span><span class="pln">c1</span><span class="pun">,</span><span class="pln"> c2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // JavaScript has built in capabilities for comparing strings</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // in alphabetical order</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">c1</span><span class="pun">.</span><span class="pln">name </span><span class="pun">&lt;</span><span class="pln"> c2</span><span class="pun">.</span><span class="pln">name</span><span class="pun">)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">c1</span><span class="pun">.</span><span class="pln">name </span><span class="pun">&gt;</span><span class="pln"> c2</span><span class="pun">.</span><span class="pln">name</span><span class="pun">)</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">; // c1.name = c2.name</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">sort() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // As our array contains objects, we need to pass as argument</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // a method that can compare two contacts.</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // we use a class method, which is similar to the distance(p1, p2)</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // method we saw in the ES6 Point class in module 4</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // We always call such methods using the name of the class followed</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // by the dot operator</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong> this</strong><strong>.listOfContacts.sort(ContactManager.compareByName);</strong></li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;"> <strong>// class method for comparing two contacts by name</strong></li>
+<li style="margin-bottom: 0px;"> <strong>static compareByName</strong>(c1, c2) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // JavaScript has built in capabilities for comparing strings</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // in alphabetical order</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if (c1.name &lt; c2.name)</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; return -1;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; if (c1.name &gt; c2.name)</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; return 1;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; return 0; // c1.name = c2.name</li>
+<li style="margin-bottom: 0px;"> }</li>
+<li style="margin-bottom: 0px;"> </li>
 </ol></div>
 
 The important thing here is to notice that we declared the `compareByName` method as a class method (using the `static` keyword). This is similar to what we did in the `Point` class example from module 4, when we explained the "class properties and methods". This method compareByName does not depend on any instance of the contact manager, consequently: it's a class method.
@@ -228,22 +228,22 @@ __Saving the list of contacts in JSON, checking the saved value using the devtoo
 
 Here is the code we added to the ES6 class for saving the list of contacts in JSON:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactManager</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; constructor</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L6" style="margin-bottom: 0px;"></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; ...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>save</strong></span><strong><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // We can only save strings in local storage. So, let's convert</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // our array of contacts to JSON</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; localStorage</span><span class="pun">.</span><span class="pln">contacts </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp;}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> class ContactManager {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; constructor() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>save</strong><strong>() {</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; // We can only save strings in local storage. So, let's convert</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; // our array of contacts to JSON</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; localStorage.contacts = JSON.stringify(this.listOfContacts);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp;}</strong></li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 
@@ -302,44 +302,44 @@ You will see the list of contacts when you click on the newly appeared "Storage"
 
 This time, we've added a `load()` method that will check if a list of contacts has been saved. If this is the case, it will read it from LocalStorage, convert it back from JSON into a JavaScript object. In order to test this, in the following CodePen, we first save the list, then we empty the list in memory (setting the array to an empty array), print the list of contacts (that displays a message "LIST EMPTY!"), then we load the contacts from LocalStorage and print the list again: it has been restored to its previous value.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactManager</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; constructor</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Will erase all contacts</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; empty</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; ...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; load</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; if</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">contacts </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the array of contacts is saved in JSON, let's convert</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // it back to a reak JavaScript object.</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">contacts</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; }</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"--- Saving contacts to local storage ---"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"--- Emptying the list of contacts ---"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">empty</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">printContactsToConsole</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"--- Loading contacts from local storage ---"</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">load</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">cm</span><span class="pun">.</span><span class="pln">printContactsToConsole</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Do you notice: contacts have all been restored!"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1"> class ContactManager {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; constructor() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Will erase all contacts</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; empty() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; load() {</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; if(localStorage.contacts !== undefined) {</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the array of contacts is saved in JSON, let's convert</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // it back to a reak JavaScript object.</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = JSON.parse(localStorage.contacts);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; }</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; }</strong></li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">...</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">console.log("--- Saving contacts to local storage ---");</li>
+<li style="margin-bottom: 0px;">cm.save();</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">console.log("--- Emptying the list of contacts ---");</li>
+<li style="margin-bottom: 0px;">cm.empty();</li>
+<li style="margin-bottom: 0px;">cm.printContactsToConsole();</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">console.log("--- Loading contacts from local storage ---");</li>
+<li style="margin-bottom: 0px;">cm.load();</li>
+<li style="margin-bottom: 0px;">cm.printContactsToConsole();</li>
+<li style="margin-bottom: 0px;">console.log("Do you notice: contacts have all been restored!");</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
 </ol></div>
 
 __Explanations:__
@@ -378,65 +378,65 @@ We're going to reuse the code from this CodePen (example taken from a previous s
 
 This time, we will first add some HTML to the contact manager example (same as in the previous CodePen except that we've renamed "users" as "contacts"):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;title&gt;</span><span class="pln">A contact manager, v3</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">/&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;p&gt;</span><span class="pln">List of contacts</span><span class="tag">&lt;/p&gt;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; <strong>&lt;div</strong></span><strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"contacts"</span><span class="tag">&gt;&lt;/div&gt;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
+<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
+<li style="margin-bottom: 0px;">&lt;head&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;title&gt;A contact manager, v3&lt;/title&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
+<li style="margin-bottom: 0px;">&lt;body&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;p&gt;List of contacts&lt;/p&gt; </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>&lt;div</strong><strong> id="contacts"&gt;&lt;/div&gt;</strong></li>
+<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
 </ol></div>
 
 The div at _line 9_ is where we're going to dynamically insert an HTML table with one row for each contact. We will keep the same minimal CSS for displaying table, row and cell borders (we encourage you to improve this):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">table </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">-</span><span class="pln">top</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20px</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">table</span><span class="pun">,</span><span class="pln"> tr</span><span class="pun">,</span><span class="pln"> td </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">table {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;margin-top: 20px;</li>
+<li style="margin-bottom: 0px;">}</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;">table, tr, td {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp;border: 1px solid;</li>
+<li style="margin-bottom: 0px;">} </li>
 </ol></div>
 
 And here is the method we add in our ContactManager class; an adaptation of the function `displayUsersAsATable(users)` from the previous CodePen:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactManager</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; .....</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; displayContactsAsATable</span><span class="pun">(</span><span class="pln">idOfContainer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // to empty the container that contains the results</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln"> container </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> idOfContainer</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; container</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; if</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">length </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;p&gt;No contacts to display!&lt;/p&gt;"</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stops the execution of this method</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; }</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // creates and populates the table with users</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln">&nbsp;table </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"table"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // iterates on the array of users</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">listOfContacts</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">currentContact</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // creates a row</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; let</span><span class="pln">&nbsp;row </span><span class="pun">=</span><span class="pln"> table</span><span class="pun">.</span><span class="pln">insertRow</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; row</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> currentContact</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/td&gt;"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +</span><span class="pln"> </span><span class="str">"&lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> currentContact</span><span class="pun">.</span><span class="pln">email </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/td&gt;"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; });</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // adds the table to the div</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; container</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">table</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">class ContactManager {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; .....</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; displayContactsAsATable(idOfContainer) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // to empty the container that contains the results</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; let container = document.querySelector("#" + idOfContainer);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; container.innerHTML = "";</li>
+<li style="margin-bottom: 0px;">&nbsp;</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; if(this.listOfContacts.length === 0) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container.innerHTML = "&lt;p&gt;No contacts to display!&lt;/p&gt;";</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stops the execution of this method</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; } </li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // creates and populates the table with users</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; let&nbsp;table = document.createElement("table");</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // iterates on the array of users</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.forEach(function(currentContact) {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // creates a row</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; let&nbsp;row = table.insertRow();</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; row.innerHTML = "&lt;td&gt;" + currentContact.name + "&lt;/td&gt;"</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + "&lt;td&gt;" + currentContact.email + "&lt;/td&gt;"</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; });</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // adds the table to the div</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; container.appendChild(table);</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 
@@ -491,22 +491,22 @@ In the previous example, we added a form for entering a new contact, and an "add
 
 Here is the HTML code of the form:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;form</span><span class="pln"> </span><strong><span class="atn">onsubmit</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> formSubmitted</span><span class="pun">();</span><span class="atv">"</span></strong><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;fieldset&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;legend&gt;</span><span class="pln">Personal informations</span><span class="tag">&lt;/legend&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Name : </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Email : </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;br&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; <strong>&lt;button&gt;</strong></span><strong><span class="pln">Add new Contact</span><span class="tag">&lt;/button&gt;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;/fieldset&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/form&gt;</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">&lt;form <strong>onsubmit="return formSubmitted();"</strong>&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;fieldset&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;legend&gt;Personal informations&lt;/legend&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Name : </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" id="name" required&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Email : </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="email" id="email" required&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;br&gt;</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; <strong>&lt;button&gt;</strong><strong>Add new Contact&lt;/button&gt;</strong></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/fieldset&gt;</li>
+<li style="margin-bottom: 0px;"> &lt;/form&gt;</li>
 </ol></div>
 
 The button at line 13 will submit the form by default (it's equivalent to an `<input type="submit">`).
@@ -524,25 +524,25 @@ The event listener at line 1:
 
 Here is the code of the `formSubmitted` function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> formSubmitted</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Get the values from input fields</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; let</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#name"</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; let</span><span class="pln"> email </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#email"</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>let</strong></span><strong><span class="pln"> newContact </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Contact</span><span class="pun">(</span><span class="pln">name</span><span class="pun">.</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> email</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; cm</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">newContact</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Empty the input fields</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; name</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; email</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; <strong>// refresh&nbsp;the table</strong></span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; cm</span><span class="pun">.</span><span class="pln">displayContactsAsATable</span><span class="pun">(</span><span class="str">"contacts"</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // do not let your browser submit the form using HTTP</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; <strong>return</strong></span><strong><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li style="margin-bottom: 0px;" value="1">function formSubmitted() {</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Get the values from input fields</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; let name = document.querySelector("#name");</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; let email = document.querySelector("#email");</li>
+<li style="margin-bottom: 0px;"></li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>let</strong><strong> newContact = new Contact(name.value, email.value);</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cm.add(newContact);</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Empty the input fields</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; name.value = "";</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; email.value = "";</li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>// refresh&nbsp;the table</strong></li>
+<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cm.displayContactsAsATable("contacts");</strong></li>
+<li style="margin-bottom: 0px;"> </li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; // do not let your browser submit the form using HTTP</li>
+<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>return</strong><strong> false;</strong></li>
+<li style="margin-bottom: 0px;">}</li>
 </ol></div>
 
 __Explanations:__
