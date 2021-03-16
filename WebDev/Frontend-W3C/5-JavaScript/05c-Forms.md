@@ -17,29 +17,29 @@ __Second best practice for accessibility:__ use a scope attribute with all `<th 
 Typical example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;table&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>&lt;caption&gt;</strong><strong>A typical HTML table&lt;/caption&gt;</strong> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;tr&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Given Name&lt;/th&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Family Name&lt;/th&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Age&lt;/th&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/tr&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;tr&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Michel&lt;/td&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Buffa&lt;/td&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;52&lt;/td&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/tr&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;tr&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Dark&lt;/td&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Vador&lt;/td&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Unknown&lt;/td&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/tr&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;tr&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Luke&lt;/td&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Skywalker&lt;/td&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Unknown&lt;/td&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/tr&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/table&gt;</li>
+<li value="1">&lt;table&gt;</li>
+<li>&nbsp; &nbsp; <strong>&lt;caption&gt;</strong><strong>A typical HTML table&lt;/caption&gt;</strong> </li>
+<li>&nbsp; &nbsp; &lt;tr&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Given Name&lt;/th&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Family Name&lt;/th&gt; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;th <strong>scope="col"</strong>&gt;Age&lt;/th&gt;</li>
+<li>&nbsp; &nbsp; &lt;/tr&gt;</li>
+<li>&nbsp; &nbsp; &lt;tr&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Michel&lt;/td&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Buffa&lt;/td&gt; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;52&lt;/td&gt;</li>
+<li>&nbsp; &nbsp; &lt;/tr&gt;</li>
+<li>&nbsp; &nbsp; &lt;tr&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Dark&lt;/td&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Vador&lt;/td&gt; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Unknown&lt;/td&gt;</li>
+<li>&nbsp; &nbsp; &lt;/tr&gt;</li>
+<li>&nbsp; &nbsp; &lt;tr&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Luke&lt;/td&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Skywalker&lt;/td&gt; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;Unknown&lt;/td&gt;</li>
+<li>&nbsp; &nbsp; &lt;/tr&gt;</li>
+<li>&lt;/table&gt;</li>
 </ol></div>
 
 Most of the time, we add some CSS rules for rendering cell/row/table borders and for adjusting spacing between the text in the cells and the cell borders. Let's look at some examples.
@@ -55,22 +55,22 @@ __Example #1: HTML table with a very light CSS styling__
 This is a static table. You can look at the CSS code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">table {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; width:100%;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; border:1px solid;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">tr, th, td {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; border:1px solid;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; font-family:courier;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">td {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; text-align:center;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; padding:10px;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">table {</li>
+<li>&nbsp; &nbsp; width:100%;</li>
+<li>&nbsp; &nbsp; border:1px solid;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>tr, th, td {</li>
+<li>&nbsp; &nbsp; border:1px solid;</li>
+<li>&nbsp; &nbsp; font-family:courier;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>td {</li>
+<li>&nbsp; &nbsp; text-align:center;</li>
+<li>&nbsp; &nbsp; padding:10px;</li>
+<li> </li>
+<li>}</li>
 </ol></div>
 
 Explanations:
@@ -137,11 +137,11 @@ We've already seen some examples in the course, but we have not completely cover
 When you look for a table using the DOM API or the selector API, or when you create a table using the DOM API, you get a Table object:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var table = document.getElementById("myTable");</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">var table = document.querySelector("#myTable");</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">var table = document.createElement("table"); // creates a new table</li>
+<li value="1">var table = document.getElementById("myTable");</li>
+<li>&nbsp;</li>
+<li>var table = document.querySelector("#myTable");</li>
+<li>&nbsp;</li>
+<li>var table = document.createElement("table"); // creates a new table</li>
 </ol></div>
 
 Like all objects, an instance of Table will have properties and methods:
@@ -234,26 +234,26 @@ When you look for a row using the DOM API or the selector API, or when you creat
 You can also access a row from the rows property of a table:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&gt; var t = document.createElement("table");</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var r1 = t.insertRow(0);</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; r1.innerHTML="&lt;td&gt;Hello&lt;/td&gt;";</li>
-<li style="margin-bottom: 0px;">"&lt;td&gt;Hello&lt;/td&gt;"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; var r2 = t.insertRow();</li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; r2.innerHTML="&lt;td&gt;Hello 2&lt;/td&gt;";</li>
-<li style="margin-bottom: 0px;">"&lt;td&gt;Hello 2&lt;/td&gt;"</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; <strong>var row1 = t.rows[0];</strong></li>
-<li style="margin-bottom: 0px;">undefined</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&gt; row1;</li>
-<li style="margin-bottom: 0px;">&lt;tr&gt;&lt;td&gt;Hello&lt;/td&gt;&lt;/tr&gt;</li>
+<li value="1">&gt; var t = document.createElement("table");</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; var r1 = t.insertRow(0);</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; r1.innerHTML="&lt;td&gt;Hello&lt;/td&gt;";</li>
+<li>"&lt;td&gt;Hello&lt;/td&gt;"</li>
+<li>&nbsp;</li>
+<li>&gt; var r2 = t.insertRow();</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; r2.innerHTML="&lt;td&gt;Hello 2&lt;/td&gt;";</li>
+<li>"&lt;td&gt;Hello 2&lt;/td&gt;"</li>
+<li>&nbsp;</li>
+<li>&gt; <strong>var row1 = t.rows[0];</strong></li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt; row1;</li>
+<li>&lt;tr&gt;&lt;td&gt;Hello&lt;/td&gt;&lt;/tr&gt;</li>
 </ol></div>
 
 Like all objects, a `tableRow` object has properties and methods. Here are the most useful ones:
@@ -304,20 +304,20 @@ Below are new versions of the previous examples, but instead of using the `inner
 Notice how we've created the new row cells:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function insertRow() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var table = document.querySelector("#myTable");</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // without parameters, insert at the end,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // otherwise parameter = index where the row will be inserted</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var row = table.insertRow();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>var</strong><strong> cell1 = row.insertCell();</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cell1.innerHTML = "New cell1";</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>var</strong><strong> cell2 = row.insertCell();</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cell2.innerHTML = "New cell2";</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; var cell3 = row.insertCell();</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cell3.innerHTML = "New cell3";&nbsp;</strong></li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">function insertRow() {</li>
+<li>&nbsp; &nbsp; var table = document.querySelector("#myTable");</li>
+<li> </li>
+<li>&nbsp; &nbsp; // without parameters, insert at the end,</li>
+<li>&nbsp; &nbsp; // otherwise parameter = index where the row will be inserted</li>
+<li>&nbsp; &nbsp; var row = table.insertRow();</li>
+<li> </li>
+<li>&nbsp; &nbsp; <strong>var</strong><strong> cell1 = row.insertCell();</strong></li>
+<li><strong>&nbsp; &nbsp; cell1.innerHTML = "New cell1";</strong></li>
+<li>&nbsp; &nbsp; <strong>var</strong><strong> cell2 = row.insertCell();</strong></li>
+<li><strong>&nbsp; &nbsp; cell2.innerHTML = "New cell2";</strong></li>
+<li><strong>&nbsp; &nbsp; var cell3 = row.insertCell();</strong></li>
+<li><strong>&nbsp; &nbsp; cell3.innerHTML = "New cell3";&nbsp;</strong></li>
+<li>}</li>
 </ol></div>
 
 So should we use `insertCell()` or just `row.innerHTML="<td>...</td>"`?
@@ -438,8 +438,8 @@ Example #1 (click on the label, not on the input field to see the effect):
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;label for="first_name"&gt;Your First Name&lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&lt;input id="first_name" type="text" name="fname"/&gt;</li>
+<li value="1">&lt;label for="first_name"&gt;Your First Name&lt;/label&gt;</li>
+<li>&lt;input id="first_name" type="text" name="fname"/&gt;</li>
 </ol></div>
 
 Alternative example #1:
@@ -449,9 +449,9 @@ Note that you can also include the `<input>` element inside the `<label>...</lab
 Source code (with `<input>` inside the `<label>`):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong>&lt;label for="first_name"&gt;&lt;</strong><strong>span lang=en"&gt;</strong>Your First Name<strong>&lt;/span&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;input id="first_name" type="text" name="fname"/&gt;</li>
-<li style="margin-bottom: 0px;"><strong>&lt;/label&gt;</strong></li>
+<li value="1"><strong>&lt;label for="first_name"&gt;&lt;</strong><strong>span lang=en"&gt;</strong>Your First Name<strong>&lt;/span&gt;</strong></li>
+<li>&nbsp; &nbsp; &lt;input id="first_name" type="text" name="fname"/&gt;</li>
+<li><strong>&lt;/label&gt;</strong></li>
 </ol></div>
 
 Example #2 (click on the label "Subscribe to newsletter" to see the effect):
@@ -463,11 +463,11 @@ Example #2 (click on the label "Subscribe to newsletter" to see the effect):
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;label for="firstname"&gt;First name:&lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&lt;input type="text" name="firstname" id="firstname"&gt;&lt;br&gt;</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&lt;label&nbsp;for="subscribe"&gt;Subscribe to newsletter&lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&lt;input type="checkbox" name="subscribe" id="subscribe"&gt;</li>
+<li value="1">&lt;label for="firstname"&gt;First name:&lt;/label&gt;</li>
+<li>&lt;input type="text" name="firstname" id="firstname"&gt;&lt;br&gt;</li>
+<li></li>
+<li>&lt;label&nbsp;for="subscribe"&gt;Subscribe to newsletter&lt;/label&gt;</li>
+<li>&lt;input type="checkbox" name="subscribe" id="subscribe"&gt;</li>
 </ol></div>
 
 
@@ -484,11 +484,11 @@ Example: `<input type="submit" value="Please submit">`, will be rendered as a bu
 Source code for an example of "Submit" and "Cancel" buttons:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;button type="submit"&gt;Submit&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;">&lt;button type="button"&gt;Cancel&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;input type="submit" value="Submit"&gt;</li>
-<li style="margin-bottom: 0px;">&lt;input type="button" value="Cancel"&gt;</li>
+<li value="1">&lt;button type="submit"&gt;Submit&lt;/button&gt;</li>
+<li>&lt;button type="button"&gt;Cancel&lt;/button&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;input type="submit" value="Submit"&gt;</li>
+<li>&lt;input type="button" value="Cancel"&gt;</li>
 </ol></div>
 
 These will produce the same results:
@@ -502,9 +502,9 @@ These will produce the same results:
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;label for="address"&gt;Enter your address:&lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&lt;br&gt; </li>
-<li style="margin-bottom: 0px;">&lt;textarea id="address" name="addresstext"&gt;&lt;/textarea&gt;</li>
+<li value="1">&lt;label for="address"&gt;Enter your address:&lt;/label&gt;</li>
+<li>&lt;br&gt; </li>
+<li>&lt;textarea id="address" name="addresstext"&gt;&lt;/textarea&gt;</li>
 </ol></div>
 
 
@@ -525,18 +525,18 @@ In the example below, there are three radio buttons that allow the user to choos
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;fieldset&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;legend&gt;Output format&lt;/legend&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;div&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;input type="radio" name="format" id="txt" value="txt" checked&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label for="txt"&gt;Text file&lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;div&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;input type="radio" name="format" id="csv" value="csv"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;label for="csv"&gt;CSV file&lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/div&gt;</li>
-<li style="margin-bottom: 0px;"> […]</li>
-<li style="margin-bottom: 0px;">&lt;/fieldset&gt;</li>
+<li value="1">&lt;fieldset&gt;</li>
+<li>&nbsp; &nbsp;&lt;legend&gt;Output format&lt;/legend&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;div&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;input type="radio" name="format" id="txt" value="txt" checked&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;label for="txt"&gt;Text file&lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;/div&gt;</li>
+<li>&nbsp; &nbsp;&lt;div&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;input type="radio" name="format" id="csv" value="csv"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;label for="csv"&gt;CSV file&lt;/label&gt;</li>
+<li>&nbsp; &nbsp;&lt;/div&gt;</li>
+<li> […]</li>
+<li>&lt;/fieldset&gt;</li>
 </ol></div>
 
 __Example #2: Checkboxes__
@@ -552,14 +552,14 @@ In the example below, there are three checkboxes that are all part of an opt-in 
 Source code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;fieldset&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;legend&gt;I want to receive&lt;/legend&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;div&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;input type="checkbox" name="newsletter" id="check_1"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &lt;label for="check_1"&gt;The weekly newsletter&lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;/div&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;[…]</li>
-<li style="margin-bottom: 0px;">&lt;/fieldset&gt;</li>
+<li value="1">&lt;fieldset&gt;</li>
+<li>&nbsp; &nbsp;&lt;legend&gt;I want to receive&lt;/legend&gt;</li>
+<li>&nbsp; &nbsp;&lt;div&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;input type="checkbox" name="newsletter" id="check_1"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &lt;label for="check_1"&gt;The weekly newsletter&lt;/label&gt;</li>
+<li>&nbsp; &nbsp;&lt;/div&gt;</li>
+<li>&nbsp; &nbsp;[…]</li>
+<li>&lt;/fieldset&gt;</li>
 </ol></div>
 
 
