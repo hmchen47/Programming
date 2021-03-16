@@ -9,22 +9,22 @@
 __Source code for the next 3 questions (1, 2 and 3)__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var persons = [</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; {givenName: 'Michel',&nbsp;familyName: 'Buffa', age:51},</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; {givenName: 'Pig',&nbsp;familyName: 'Bodine', age:20},</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; {givenName: 'Pirate',&nbsp;familyName: 'Prentice', age:32}</li>
-<li style="margin-bottom: 0px;">];</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">function compareByAge(a,b) { // comparison function</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if (a.age &lt; b.age) // compare by age</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; return -1;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if (a.age &gt; b.age)</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; return 1;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; return 0;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"><span color="#666600" style="color: #666600;">console.log(<strong>XXX</strong>);</span></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">persons.sort(compareByAge);</li>
+<li" value="1">var persons = [</li>
+<li">&nbsp; &nbsp; {givenName: 'Michel',&nbsp;familyName: 'Buffa', age:51},</li>
+<li">&nbsp; &nbsp; {givenName: 'Pig',&nbsp;familyName: 'Bodine', age:20},</li>
+<li">&nbsp; &nbsp; {givenName: 'Pirate',&nbsp;familyName: 'Prentice', age:32}</li>
+<li">];</li>
+<li"> </li>
+<li">function compareByAge(a,b) { // comparison function</li>
+<li">&nbsp; &nbsp; if (a.age &lt; b.age) // compare by age</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; return -1;</li>
+<li">&nbsp; &nbsp; if (a.age &gt; b.age)</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; return 1;</li>
+<li">&nbsp; &nbsp; return 0;</li>
+<li">}</li>
+<li"><span color="#666600" style="color: #666600;">console.log(<strong>XXX</strong>);</span></li>
+<li"> </li>
+<li">persons.sort(compareByAge);</li>
 </ol></div>
 
 1. Call me back please!
@@ -122,31 +122,31 @@ __Source code for the next 3 questions (1, 2 and 3)__
 __Source code for the next 3 questions (7, 8 and 9):__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;video id="vid"&nbsp;poster="preview.png"&nbsp;controls&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&nbsp;&lt;source src="http://html5doctor.com/demos/video-canvas-magic/video.mp4"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="video/mp4"&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/video&gt; </li>
-<li style="margin-bottom: 0px;">&lt;p&gt;Example of custom controls :&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;button class="mybutton" onclick="go();"&gt;<span style="line-height: 1.6;">Play</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li style="margin-bottom: 0px;">&lt;button class="mybutton" onclick="haveARest();"&gt;<span style="line-height: 1.6;">Pause</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li style="margin-bottom: 0px;">&lt;button class="mybutton" onclick="rewind();"&gt;<span style="line-height: 1.6;">Start from beginning</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;script&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; vid = document.querySelector("#vid");</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;function go() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; vid.<strong>BBB</strong>();</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; function haveARest() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; vid.<strong>CCC</strong>();</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;function rewind() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; vid.<strong>DDD</strong>&nbsp;= 0;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;}</li>
-<li style="margin-bottom: 0px;">&lt;/script&gt;</li>
+<li" value="1">&lt;video id="vid"&nbsp;poster="preview.png"&nbsp;controls&gt; </li>
+<li">&nbsp; &nbsp;&nbsp;&lt;source src="http://html5doctor.com/demos/video-canvas-magic/video.mp4"</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="video/mp4"&gt;</li>
+<li">&lt;/video&gt; </li>
+<li">&lt;p&gt;Example of custom controls :&lt;/p&gt;</li>
+<li">&nbsp;</li>
+<li">&lt;button class="mybutton" onclick="go();"&gt;<span style="line-height: 1.6;">Play</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li">&lt;button class="mybutton" onclick="haveARest();"&gt;<span style="line-height: 1.6;">Pause</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li">&lt;button class="mybutton" onclick="rewind();"&gt;<span style="line-height: 1.6;">Start from beginning</span><span style="line-height: 1.6;">&lt;/button&gt;</span></li>
+<li">&nbsp;</li>
+<li">&lt;script&gt;</li>
+<li">&nbsp; vid = document.querySelector("#vid");</li>
+<li"> </li>
+<li">&nbsp;&nbsp;function go() {</li>
+<li">&nbsp; &nbsp; vid.<strong>BBB</strong>();</li>
+<li">&nbsp;&nbsp;}</li>
+<li"> </li>
+<li">&nbsp; function haveARest() {</li>
+<li">&nbsp; &nbsp; vid.<strong>CCC</strong>();</li>
+<li">&nbsp;&nbsp;}</li>
+<li"> </li>
+<li">&nbsp;&nbsp;function rewind() {</li>
+<li">&nbsp; &nbsp; vid.<strong>DDD</strong>&nbsp;= 0;</li>
+<li">&nbsp;&nbsp;}</li>
+<li">&lt;/script&gt;</li>
 </ol></div>
 
 7. Which method?
