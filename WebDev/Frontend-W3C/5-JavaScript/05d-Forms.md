@@ -28,35 +28,35 @@ A JavaScript object o in JSON looks a lot like what `o.toString()` returns.
 
 Let's see some examples:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">x</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">"3"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln">&nbsp;simpleObject&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">x</span><span class="pun">:</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">:</span><span class="lit">30</span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(<span style="color: #008888;" color="#008888">simpleObject</span></span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">"{"</span><span class="pln">x</span><span class="str">":12,"</span><span class="pln">y</span><span class="str">":30}"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> anArray&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'Monday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Tuesday'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Wednesday'</span><span class="pun">];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">anArray</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="str">"["</span><span class="typ">Monday</span><span class="str">","</span><span class="typ">Tuesday</span><span class="str">","</span><span class="typ">Wednesday</span><span class="str">"]"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">var</span><span class="pln">&nbsp;complexObject&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'Metallica'</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; albums</span><span class="pun">:[</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; {</span><span class="pln">name</span><span class="pun">:</span><span class="str">"Master of Puppets"</span><span class="pun">,</span><span class="pln"> year</span><span class="pun">:</span><span class="lit">1986</span><span class="pun">},</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; {</span><span class="pln">name</span><span class="pun">:</span><span class="str">"Black Album"</span><span class="pun">,</span><span class="pln"> year</span><span class="pun">:</span><span class="lit">1991</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; ]</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; };</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&gt;</span><strong><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(<span style="color: #008888;" color="#008888">complexObject</span></span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">"{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Metallica</span><span class="str">","</span><span class="pln">albums</span><span class="str">":[{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Master</span><span class="pln"> of </span><span class="typ">Puppets</span><span class="str">","</span><span class="pln">year</span><span class="str">":1986},{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Black</span><span class="pln"> </span><span class="typ">Album</span><span class="str">","</span><span class="pln">year</span><span class="str">":1991}]}"</span></li>
+<div class="source-code"><ol>
+<li value="1">&gt; var x = 3;</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt;<strong> JSON.stringify(x);</strong></li>
+<li>"3"</li>
+<li>&nbsp;</li>
+<li>&gt; var&nbsp;simpleObject&nbsp;= {x:12, y:30};</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt;<strong> JSON.stringify(<span style="color: #008888;" color="#008888">simpleObject);</span></strong></li>
+<li>"{"x":12,"y":30}"</li>
+<li>&nbsp;</li>
+<li>&gt; var anArray&nbsp;= ['Monday', 'Tuesday', 'Wednesday'];</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt;<strong> JSON.stringify(anArray);</strong></li>
+<li>"["Monday","Tuesday","Wednesday"]"</li>
+<li>&nbsp;</li>
+<li>&gt; var&nbsp;complexObject&nbsp;= {name:'Metallica', </li>
+<li>&nbsp; &nbsp; albums:[</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; {name:"Master of Puppets", year:1986}, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; {name:"Black Album", year:1991}</li>
+<li>&nbsp; &nbsp; ]</li>
+<li>&nbsp; };</li>
+<li>undefined</li>
+<li>&nbsp;</li>
+<li>&gt;<strong> JSON.stringify(<span style="color: #008888;" color="#008888">complexObject);</span></strong></li>
+<li>"{"name":"Metallica","albums":[{"name":"Master of Puppets","year":1986},{"name":"Black Album","year":1991}]}"</li>
 </ol></div>
 
 In the above examples, you can see JSON representations of a simple variable of a predefined type, of an array, of a simple object, of an object that contains an array of objects (Metallica example).
@@ -74,27 +74,27 @@ JSON is also very practical for storing objects where strings are expected. Ther
 
 Here is a first example that turns an object into JSON and back into a JavaScript object:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">&gt; var</span><span class="pln"> metallica </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'Metallica'</span><span class="pun">,</span><span class="pln"> albums</span><span class="pun">:[{</span><span class="pln">name</span><span class="pun">:</span><span class="str">"Master of Puppets"</span><span class="pun">,</span><span class="pln"> year</span><span class="pun">:</span><span class="lit">1986</span><span class="pun">},</span><span class="pln"> <br></span><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp;{</span><span class="pln">name</span><span class="pun">:</span><span class="str">"Black Album"</span><span class="pun">,</span><span class="pln"> year</span><span class="pun">:</span><span class="lit">1991</span><span class="pun">}]};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&gt; var</span><span class="pln"> metallicaJSON </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">metallica</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&gt; metallicaJSON</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="str">"{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Metallica</span><span class="str">","</span><span class="pln">albums</span><span class="str">":[{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Master</span><span class="pln"> of </span><span class="typ">Puppets</span><span class="str">","</span><span class="pln">year</span><span class="str">":1986},<br>&nbsp; &nbsp; &nbsp; &nbsp;{"</span><span class="pln">name</span><span class="str">":"</span><span class="typ">Black</span><span class="pln"> </span><span class="typ">Album</span><span class="str">","</span><span class="pln">year</span><span class="str">":1991}]}"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&gt; metallicaJSON</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span><span class="com">// metallicaJSON is not a JavaScript object</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&gt; metallica</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span><span class="com">// metallica is an object</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">"Metallica"</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">&gt; var</span><span class="pln"> obj </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">metallicaJSON</span><span class="pun">);</span><span class="pln"> </span><span class="com">// JSON -&gt; object</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">undefined</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&gt; obj</span><span class="pun">.</span><span class="pln">name</span><span class="pun">; // this is</span>&nbsp;an object</li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">"Metallica"</span></li>
+<div class="source-code"><ol>
+<li value="1">&gt; var metallica = {name:'Metallica', albums:[{name:"Master of Puppets", year:1986}, <br>&nbsp; &nbsp; &nbsp; &nbsp;{name:"Black Album", year:1991}]};</li>
+<li>undefined</li>
+<li></li>
+<li>&gt; var metallicaJSON = JSON.stringify(metallica);</li>
+<li>undefined</li>
+<li></li>
+<li>&gt; metallicaJSON;</li>
+<li>"{"name":"Metallica","albums":[{"name":"Master of Puppets","year":1986},<br>&nbsp; &nbsp; &nbsp; &nbsp;{"name":"Black Album","year":1991}]}"</li>
+<li></li>
+<li>&gt; metallicaJSON.name; // metallicaJSON is not a JavaScript object</li>
+<li>undefined</li>
+<li></li>
+<li>&gt; metallica.name; // metallica is an object</li>
+<li>"Metallica"</li>
+<li></li>
+<li>&gt; var obj = JSON.parse(metallicaJSON); // JSON -&gt; object</li>
+<li>undefined</li>
+<li></li>
+<li>&gt; obj.name; // this is&nbsp;an object</li>
+<li>"Metallica"</li>
 </ol></div>
 
 With the JSON representation of an object you cannot access the original object's properties using the "." operator, nor call its methods. __The JSON format only stores the list of the object properties (name and value) as a string.__ Look at _line 10_: we cannot access the name property of the JSON representation of the `metallica` object defined at line 1.
@@ -229,30 +229,30 @@ __Downloading JSON data using the Xhr2 API__
 
 JavaScript source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> search</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> queryURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://jsonplaceholder.typicode.com/users"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> queryURL</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // called when the response has arrived</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xhr</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>var</strong></span><strong><span class="pln"> jsonResponse </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">response</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; <strong>// turn the response into a JavaScript object</strong></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; <strong>var</strong></span><strong><span class="pln"> users </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">jsonResponse</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; displayUsersAsATable</span><span class="pun">(</span><span class="pln">users</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // in case of error</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xhr</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">err</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Error: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> err</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // sends the request</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<div class="source-code"><ol>
+<li value="1">function search() { </li>
+<li>&nbsp; &nbsp; var queryURL = "https://jsonplaceholder.typicode.com/users";</li>
+<li> </li>
+<li>&nbsp; &nbsp; var xhr = new XMLHttpRequest();</li>
+<li>&nbsp; &nbsp; xhr.open('GET', queryURL, true);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; // called when the response has arrived</li>
+<li>&nbsp; &nbsp; xhr.onload = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>var</strong><strong> jsonResponse = this.response;</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>// turn the response into a JavaScript object</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>var</strong><strong> users = JSON.parse(jsonResponse);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; displayUsersAsATable(users);</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; // in case of error</li>
+<li>&nbsp; &nbsp; xhr.onerror = function(err) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log("Error: " + err);</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; // sends the request</li>
+<li>&nbsp; &nbsp; xhr.send();</li>
+<li>} </li>
 </ol></div>
 
 __Explanations:__
@@ -277,24 +277,24 @@ See [this blog post](https://javascript.info/fetch-api) for a detailed tutorial.
 
 JavaScript source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> search</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> queryURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://jsonplaceholder.typicode.com/users"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; fetch</span><span class="pun">(</span><span class="pln">queryURL</span><span class="pun">)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; .</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>// response is a json string,</strong></span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // convert it to a pure JavaScript object</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return</span><span class="pln"> response</span><span class="pun">.</span><span class="pln">json</span><span class="pun">();</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; })</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; .</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">users</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong> // users is a JavaScript object here</strong></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayUsersAsATable</span><span class="pun">(</span><span class="pln">users</span><span class="pun">)</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; })</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; .</span><span class="kwd">catch</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">error</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'Error during fetch: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> error</span><span class="pun">.</span><span class="pln">message</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; &nbsp; });</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div class="source-code"><ol>
+<li value="1"> function search() { </li>
+<li>&nbsp; &nbsp; var queryURL = "https://jsonplaceholder.typicode.com/users";</li>
+<li> </li>
+<li>&nbsp; &nbsp; fetch(queryURL)</li>
+<li>&nbsp; &nbsp; &nbsp; .then(function(response) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>// response is a json string,</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // convert it to a pure JavaScript object</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return response.json();</strong></li>
+<li>&nbsp; &nbsp; &nbsp; })</li>
+<li>&nbsp; &nbsp; &nbsp; .then(function(users) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong> // users is a JavaScript object here</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayUsersAsATable(users)</li>
+<li>&nbsp; &nbsp; &nbsp; })</li>
+<li>&nbsp; &nbsp; &nbsp; .catch(function(error) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('Error during fetch: ' + error.message);</li>
+<li>&nbsp; &nbsp; &nbsp; });</li>
+<li> }</li>
 </ol></div>
 
 The fetch API will also be covered in an advanced JavaScript course to come. In contrast to XhR2, fetch is based on a concept called "JavaScript promises" (also covered in the advanced course!). You recognize promises when you see ".then..." ".then...".
@@ -376,18 +376,18 @@ __Simple key-value stores, one per domain (following the [same origin policy](ht
 
 Example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" value="1"><span class="com">// Using localStorage</span></li>
-<li class="L1"><span class="pln"></span></li>
-<li class="L2"><span class="com">// store data</span></li>
-<li class="L3"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">lastName&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"Bunny"</span><span class="pun">;</span></li>
-<li class="L4"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">firstName&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"Bugs"</span><span class="pun">;</span></li>
-<li class="L5"><span class="pln">localStorage</span><span class="pun">.</span><span class="pln">location&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="str">"Earth"</span><span class="pun">;</span></li>
-<li class="L6"><span class="pln"></span></li>
-<li class="L7"><span class="com">// retrieve data</span></li>
-<li class="L8"><span class="kwd">var</span><span class="pln">&nbsp;lastName&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;localStorage</span><span class="pun">.</span><span class="pln">lastName</span><span class="pun">;</span></li>
-<li class="L9"><span class="kwd">var</span><span class="pln">&nbsp;firstName&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;localStorage</span><span class="pun">.</span><span class="pln">firstName</span><span class="pun">;</span></li>
-<li class="L0"><span class="kwd">var</span><span class="pln">&nbsp;location&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;localStorage</span><span class="pun">.</span><span class="pln">location</span><span class="pun">;</span></li>
+<div class="source-code"><ol>
+<li value="1">// Using localStorage</li>
+<li></li>
+<li>// store data</li>
+<li>localStorage.lastName&nbsp;=&nbsp;"Bunny";</li>
+<li>localStorage.firstName&nbsp;=&nbsp;"Bugs";</li>
+<li>localStorage.location&nbsp;=&nbsp;"Earth";</li>
+<li></li>
+<li>// retrieve data</li>
+<li>var&nbsp;lastName&nbsp;=&nbsp;localStorage.lastName;</li>
+<li>var&nbsp;firstName&nbsp;=&nbsp;localStorage.firstName;</li>
+<li>var&nbsp;location&nbsp;=&nbsp;localStorage.location;</li>
 </ol></div>
 
 This data is located in a store attached to the origin of the page. We've created a JsBin example in which we've included the above code.
