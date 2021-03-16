@@ -26,27 +26,27 @@
 __Source code for the next question (3):__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;head&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;title&gt;JavaScript and HTML&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;meta charset="utf-8"/&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;script&gt;</li>
-<li style="margin-bottom: 0px;"> function changeTitleCSSStyle() {</li>
-<li style="margin-bottom: 0px;"> var title = document.querySelector("#mainTitle");</li>
-<li style="margin-bottom: 0px;"> title.style.color = 'black';</li>
-<li style="margin-bottom: 0px;"> title.style.backgroundColor = "yellow";</li>
-<li style="margin-bottom: 0px;"> title.style.border = "5px dashed red";</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"> &lt;/script&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/head&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;h1 id="mainTitle"&gt;My home page&lt;/h1&gt; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;This is an example of interactivity between JavaScript and the HTML content of a document.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;button onclick="changeTheTitle();"&gt;Click me&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/html&gt;</li>
+<li" value="1"> &lt;!DOCTYPE html&gt;</li>
+<li"> &lt;html lang="en"&gt;</li>
+<li"> &lt;head&gt;</li>
+<li"> &lt;title&gt;JavaScript and HTML&lt;/title&gt;</li>
+<li"> &lt;meta charset="utf-8"/&gt;</li>
+<li"> &lt;script&gt;</li>
+<li"> function changeTitleCSSStyle() {</li>
+<li"> var title = document.querySelector("#mainTitle");</li>
+<li"> title.style.color = 'black';</li>
+<li"> title.style.backgroundColor = "yellow";</li>
+<li"> title.style.border = "5px dashed red";</li>
+<li"> }</li>
+<li"> &lt;/script&gt;</li>
+<li"> &lt;/head&gt;</li>
+<li"> &lt;body&gt;</li>
+<li"> &lt;h1 id="mainTitle"&gt;My home page&lt;/h1&gt; </li>
+<li"> </li>
+<li"> &lt;p&gt;This is an example of interactivity between JavaScript and the HTML content of a document.&lt;/p&gt;</li>
+<li"> &lt;button onclick="changeTheTitle();"&gt;Click me&lt;/button&gt;</li>
+<li"> &lt;/body&gt;</li>
+<li"> &lt;/html&gt;</li>
 </ol></div>
 
 
@@ -67,19 +67,19 @@ __Source code for the next question (3):__
 __Source code for the next 3 questions (4, 5 and 6)__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var parameters = {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; target: '#myFunction',</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; data: [{</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fn: 'sin(x)', </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: 'red'</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; } </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ],</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; grid: true,</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; yAxis: {domain: [-1, 1]},</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; xAxis: {domain: [0, 2*Math.PI]},</li>
-<li style="margin-bottom: 0px;">};</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">functionPlot(parameters);</li>
+<li" value="1">var parameters = {</li>
+<li">&nbsp; &nbsp; target: '#myFunction',</li>
+<li">&nbsp; &nbsp; data: [{</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fn: 'sin(x)', </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: 'red'</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; } </li>
+<li">&nbsp; &nbsp; ],</li>
+<li">&nbsp; &nbsp; grid: true,</li>
+<li">&nbsp; &nbsp; yAxis: {domain: [-1, 1]},</li>
+<li">&nbsp; &nbsp; xAxis: {domain: [0, 2*Math.PI]},</li>
+<li">};</li>
+<li">&nbsp;</li>
+<li">functionPlot(parameters);</li>
 </ol></div>
 
 
@@ -170,23 +170,23 @@ __Source code for the next 3 questions (4, 5 and 6)__
 __Source code for the next 2 questions (11 and 12)__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var x1 = 10;</li>
-<li style="margin-bottom: 0px;">var x2 = 12;</li>
-<li style="margin-bottom: 0px;">var x3 = 9.5;</li>
-<li style="margin-bottom: 0px;">var x4 = 15;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function compute(x1, x2, x3, x4) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var m = (x1 + x2 + x3 + x4)/5.0;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var n = m*12*m/2.;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var o = n-0.94;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; return o/518;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// Call the above function with x1, x2, x3, x4</li>
-<li style="margin-bottom: 0px;">// What is the result, add here a mean to display </li>
-<li style="margin-bottom: 0px;">// the result in the console</li>
-<li style="margin-bottom: 0px;"><span style="color: brown;">var result = compute(x1, x2, x3, x4);</li>
-<li style="margin-bottom: 0px;"><span style="color: brown;">console.log(result);</li>
+<li" value="1">var x1 = 10;</li>
+<li">var x2 = 12;</li>
+<li">var x3 = 9.5;</li>
+<li">var x4 = 15;</li>
+<li">&nbsp;</li>
+<li">function compute(x1, x2, x3, x4) {</li>
+<li">&nbsp; &nbsp; var m = (x1 + x2 + x3 + x4)/5.0;</li>
+<li">&nbsp; &nbsp; var n = m*12*m/2.;</li>
+<li">&nbsp; &nbsp; var o = n-0.94;</li>
+<li">&nbsp; &nbsp; return o/518;</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">// Call the above function with x1, x2, x3, x4</li>
+<li">// What is the result, add here a mean to display </li>
+<li">// the result in the console</li>
+<li"><span style="color: brown;">var result = compute(x1, x2, x3, x4);</li>
+<li"><span style="color: brown;">console.log(result);</li>
 </ol></div>
 
 11. Get the result!
@@ -257,27 +257,27 @@ __Source code for the next 2 questions (11 and 12)__
 __Source code for the next 3 questions (16, 17 and 18)__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var name = "Zorro"; </li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function displayName() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(name); </li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">displayName();</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function displayName1(name) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(name); </li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">displayName1("Indiana Jones"); </li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// local scope again</li>
-<li style="margin-bottom: 0px;">function displayName2() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;var name = "Batman"; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(name); </li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">displayName2(); </li>
+<li" value="1">var name = "Zorro"; </li>
+<li">&nbsp;</li>
+<li">function displayName() {</li>
+<li">&nbsp; &nbsp;console.log(name); </li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">displayName();</li>
+<li">&nbsp;</li>
+<li">function displayName1(name) {</li>
+<li">&nbsp; &nbsp;console.log(name); </li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">displayName1("Indiana Jones"); </li>
+<li">&nbsp;</li>
+<li">// local scope again</li>
+<li">function displayName2() {</li>
+<li">&nbsp; &nbsp;var name = "Batman"; </li>
+<li">&nbsp; &nbsp;console.log(name); </li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">displayName2(); </li>
 </ol></div>
 
 16. Check my scope (part 1)
