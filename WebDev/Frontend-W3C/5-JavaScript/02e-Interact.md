@@ -29,21 +29,21 @@ So by using this object, we can access and manipulate our page from JavaScript a
 Let's take, for example, a simplified version of the last HTML code we showed you:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;Your first HTML page&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta charset="utf-8"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;h1&gt;My home page&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;p&gt;Hi! Welcome to my Home Page! My name is Michel Buffa,</li>
-<li style="margin-bottom: 0px;"> I'm a professor at the University of Côte d'Azur, in France,</li>
-<li style="margin-bottom: 0px;"> and I'm also the author <br></li>
-<li style="margin-bottom: 0px;">of two other W3CX MOOCS.</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp; &lt;/body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/html&gt;</li>
+<li" value="1">&lt;!DOCTYPE html&gt;</li>
+<li"> &lt;html lang="en"&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &lt;head&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;Your first HTML page&lt;/title&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta charset="utf-8"&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &lt;/head&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &lt;body&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;h1&gt;My home page&lt;/h1&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;p&gt;Hi! Welcome to my Home Page! My name is Michel Buffa,</li>
+<li"> I'm a professor at the University of Côte d'Azur, in France,</li>
+<li"> and I'm also the author <br></li>
+<li">of two other W3CX MOOCS.</li>
+<li">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/p&gt;</li>
+<li">&nbsp;&nbsp;&nbsp; &lt;/body&gt;</li>
+<li"> &lt;/html&gt;</li>
 </ol></div>
 
 Click the red circle next to HTML to unfold this HTML document structure (we can also say "see its DOM structure"):
@@ -184,72 +184,72 @@ Looking for an element in the whole document (the whole HTML page): call the `qu
 HTML part: we have two buttons that will call a JavaScript function (_lines 2 and 6_) where we will manipulate the DOM), and we have four images, the first one with an id equal to "img1" (_lines 11, 14, 16 and 18_).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">...</li>
-<li style="margin-bottom: 0px;"> &lt;button onclick="addBorderToFirstImage();"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; Add a border to the first image</li>
-<li style="margin-bottom: 0px;"> &lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;br&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;button onclick="resizeAllImages();"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; Resize all images</li>
-<li style="margin-bottom: 0px;"> &lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;br&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;p&gt;Click one of the buttons above!&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;img src="https://i.imgur.com/Ntvj5rq.png" </li>
-<li style="margin-bottom: 0px;"><span style="color: #000000;" color="#000000">&nbsp; &nbsp; &nbsp;</span>id="img1"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;width=200&gt;</li>
-<li style="margin-bottom: 0px;">&lt;img src="https://i.imgur.com/yiU59oi.gif" </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;width=200&gt;</li>
-<li style="margin-bottom: 0px;">&lt;img src="https://i.imgur.com/6FstYbc.jpg" </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;width=200&gt;</li>
-<li style="margin-bottom: 0px;">&lt;img src="https://i.imgur.com/L97CyS4.png" </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;width=200&gt;</li>
-<li style="margin-bottom: 0px;">...</li>
+<li" value="1">...</li>
+<li"> &lt;button onclick="addBorderToFirstImage();"&gt;</li>
+<li">&nbsp; &nbsp; Add a border to the first image</li>
+<li"> &lt;/button&gt;</li>
+<li"> &lt;br&gt;</li>
+<li"> &lt;button onclick="resizeAllImages();"&gt;</li>
+<li">&nbsp; &nbsp; Resize all images</li>
+<li"> &lt;/button&gt;</li>
+<li"> &lt;br&gt;</li>
+<li"> &lt;p&gt;Click one of the buttons above!&lt;/p&gt;</li>
+<li">&lt;img src="https://i.imgur.com/Ntvj5rq.png" </li>
+<li"><span style="color: #000000;" color="#000000">&nbsp; &nbsp; &nbsp;</span>id="img1"</li>
+<li">&nbsp; &nbsp; &nbsp;width=200&gt;</li>
+<li">&lt;img src="https://i.imgur.com/yiU59oi.gif" </li>
+<li">&nbsp; &nbsp; &nbsp;width=200&gt;</li>
+<li">&lt;img src="https://i.imgur.com/6FstYbc.jpg" </li>
+<li">&nbsp; &nbsp; &nbsp;width=200&gt;</li>
+<li">&lt;img src="https://i.imgur.com/L97CyS4.png" </li>
+<li">&nbsp; &nbsp; &nbsp;width=200&gt;</li>
+<li">...</li>
 </ol></div>
 
 __JavaScript part:__ the `init` function is executed as soon as the page is loaded (and the DOM is ready), in this function we add a shadow and margins to all images (_lines 3-21_). The two other functions are called when one of the HTML buttons is clicked (_line 23_ and _line 31_).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong>window.onload = init; // run init once the page is loaded</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>function init()</strong> {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // we're sure that the DOM is ready</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // before querying it</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // <strong>this function runs once the page is loaded</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // add a shadow to all images</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // <strong>select all images</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var listImages =<strong> document.querySelectorAll("img");</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // change all their width to 100px</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; listImages.forEach(function(img) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // img = current image</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // add a shadow 5px left, 5 pixel down, 15px blur, 5px spread</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // grey</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; img.style.boxShadow = "5px 5px 15px 5px grey";</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// add a margin 10px on each side</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; img.style.margin = "10px";</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; });</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>function addBorderToFirstImage()</strong> {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // select the first image with id = img1</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var img1 =<strong> document.querySelector('#img1');</strong></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Add a red border, 3px wide</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; img1.style.border = '3px solid red'; </li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>function resizeAllImages()</strong> {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // select all images</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var listImages = document.querySelectorAll("img");</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // change all their width to 100px</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; listImages.forEach(function(img) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // img = current image, we resize it by changing its</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // width attribute</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; img.width = 100;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; });</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1"><strong>window.onload = init; // run init once the page is loaded</strong></li>
+<li">&nbsp;</li>
+<li"><strong>function init()</strong> {</li>
+<li">&nbsp; &nbsp; // we're sure that the DOM is ready</li>
+<li">&nbsp; &nbsp; // before querying it</li>
+<li">&nbsp; &nbsp; // <strong>this function runs once the page is loaded</strong></li>
+<li"> </li>
+<li">&nbsp; &nbsp; // add a shadow to all images</li>
+<li">&nbsp; &nbsp; // <strong>select all images</strong></li>
+<li">&nbsp; &nbsp; var listImages =<strong> document.querySelectorAll("img");</strong></li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp; // change all their width to 100px</li>
+<li">&nbsp; &nbsp; listImages.forEach(function(img) {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // img = current image</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // add a shadow 5px left, 5 pixel down, 15px blur, 5px spread</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // grey</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; img.style.boxShadow = "5px 5px 15px 5px grey";</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// add a margin 10px on each side</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; img.style.margin = "10px";</li>
+<li">&nbsp; &nbsp; });</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li"><strong>function addBorderToFirstImage()</strong> {</li>
+<li">&nbsp; &nbsp; // select the first image with id = img1</li>
+<li">&nbsp; &nbsp; var img1 =<strong> document.querySelector('#img1');</strong></li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp; // Add a red border, 3px wide</li>
+<li">&nbsp; &nbsp; img1.style.border = '3px solid red'; </li>
+<li">}</li>
+<li">&nbsp;</li>
+<li"><strong>function resizeAllImages()</strong> {</li>
+<li">&nbsp; &nbsp; // select all images</li>
+<li">&nbsp; &nbsp; var listImages = document.querySelectorAll("img");</li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp; // change all their width to 100px</li>
+<li">&nbsp; &nbsp; listImages.forEach(function(img) {</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // img = current image, we resize it by changing its</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; // width attribute</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; img.width = 100;</li>
+<li">&nbsp; &nbsp; });</li>
+<li">}</li>
 </ol></div>
 
 
@@ -270,40 +270,40 @@ Source code extracts:
 HTML:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;button onclick="<strong>firstLiClassRedInUl</strong><strong>()</strong>;"&gt;Select first li of class red and color it in red&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;br&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;button onclick="<strong>allLisInUlOfClassNav</strong><strong>()</strong>;"&gt;Underline All li in a ul of class nav&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&lt;ul <strong>class="nav"</strong>&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;li&gt;Home&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;li <strong>class="red"</strong>&gt;Products&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;li&gt;About&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/ul&gt;</li>
-<li style="margin-bottom: 0px;"> Another list:</li>
-<li style="margin-bottom: 0px;"> &lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;li&gt;Apple&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;li <strong>class="red"</strong>&gt;Cherries&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;li&gt;Oranges&lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/ul&gt;</li>
+<li" value="1"> &lt;button onclick="<strong>firstLiClassRedInUl</strong><strong>()</strong>;"&gt;Select first li of class red and color it in red&lt;/button&gt;</li>
+<li"> &lt;br&gt;</li>
+<li"> &lt;button onclick="<strong>allLisInUlOfClassNav</strong><strong>()</strong>;"&gt;Underline All li in a ul of class nav&lt;/button&gt;</li>
+<li"> </li>
+<li">&lt;ul <strong>class="nav"</strong>&gt;</li>
+<li">&nbsp; &nbsp; &lt;li&gt;Home&lt;/li&gt;</li>
+<li">&nbsp; &nbsp; &lt;li <strong>class="red"</strong>&gt;Products&lt;/li&gt;</li>
+<li">&nbsp; &nbsp; &lt;li&gt;About&lt;/li&gt;</li>
+<li">&lt;/ul&gt;</li>
+<li"> Another list:</li>
+<li"> &lt;ul&gt;</li>
+<li">&nbsp; &nbsp; &lt;li&gt;Apple&lt;/li&gt;</li>
+<li">&nbsp; &nbsp; &lt;li <strong>class="red"</strong>&gt;Cherries&lt;/li&gt;</li>
+<li">&nbsp; &nbsp; &lt;li&gt;Oranges&lt;/li&gt;</li>
+<li">&lt;/ul&gt;</li>
 </ol></div>
 
 JavaScript code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><strong>function firstLiClassRedInUl()</strong> {</li>
-<li style="margin-bottom: 0px;">&nbsp; // first li of in a ul</li>
-<li style="margin-bottom: 0px;">&nbsp; var elm =<strong> document.querySelector("ul li.red");</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; elm.style.color = 'red';</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>function allLisInUlOfClassNav()</strong> {</li>
-<li style="margin-bottom: 0px;">&nbsp; // get all li directly in a ul of class nav</li>
-<li style="margin-bottom: 0px;">&nbsp; var list =<strong> document.querySelectorAll("ul.nav &gt; li");</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; list.forEach(function(elm) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; elm.style.textDecoration = "underline";</li>
-<li style="margin-bottom: 0px;">&nbsp; })</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1"><strong>function firstLiClassRedInUl()</strong> {</li>
+<li">&nbsp; // first li of in a ul</li>
+<li">&nbsp; var elm =<strong> document.querySelector("ul li.red");</strong></li>
+<li">&nbsp; elm.style.color = 'red';</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li"><strong>function allLisInUlOfClassNav()</strong> {</li>
+<li">&nbsp; // get all li directly in a ul of class nav</li>
+<li">&nbsp; var list =<strong> document.querySelectorAll("ul.nav &gt; li");</strong></li>
+<li"> </li>
+<li">&nbsp; list.forEach(function(elm) {</li>
+<li">&nbsp; &nbsp; elm.style.textDecoration = "underline";</li>
+<li">&nbsp; })</li>
+<li">}</li>
 </ol></div>
 
 
@@ -319,28 +319,28 @@ Extract from the source code:
 HTML:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;button onclick="<strong>displayListOfCheckedItems();</strong>"&gt;</li>
-<li style="margin-bottom: 0px;" value="1">&nbsp; &nbsp; Show Checked items</li>
-<li style="margin-bottom: 0px;" value="1">&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;br&gt;</li>
-<li style="margin-bottom: 0px;">&lt;ul id="fruits"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;input type="checkbox" name="fruit" value="apples"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; Apples</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;input type="checkbox" name="fruit" value="oranges"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; Oranges</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;input type="checkbox" name="fruit" value="bananas"&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; Bananas</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;input type="checkbox" name="fruit" value="grapes"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; Grapes</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/li&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/ul&gt;</li>
+<li" value="1"> &lt;button onclick="<strong>displayListOfCheckedItems();</strong>"&gt;</li>
+<li" value="1">&nbsp; &nbsp; Show Checked items</li>
+<li" value="1">&lt;/button&gt;</li>
+<li"> &lt;br&gt;</li>
+<li">&lt;ul id="fruits"&gt;</li>
+<li">&nbsp; &lt;li&gt;</li>
+<li">&nbsp; &nbsp; &lt;input type="checkbox" name="fruit" value="apples"&gt;</li>
+<li">&nbsp; &nbsp; Apples</li>
+<li">&nbsp; &lt;/li&gt;</li>
+<li">&nbsp; &lt;li&gt;</li>
+<li">&nbsp; &nbsp; &lt;input type="checkbox" name="fruit" value="oranges"&gt;</li>
+<li">&nbsp; &nbsp; Oranges</li>
+<li">&nbsp; &lt;/li&gt;</li>
+<li">&nbsp; &lt;li&gt;</li>
+<li">&nbsp; &nbsp; &lt;input type="checkbox" name="fruit" value="bananas"&gt; </li>
+<li">&nbsp; &nbsp; Bananas</li>
+<li">&nbsp; &lt;/li&gt;</li>
+<li">&nbsp; &lt;li&gt;</li>
+<li">&nbsp; &nbsp; &lt;input type="checkbox" name="fruit" value="grapes"&gt;</li>
+<li">&nbsp; &nbsp; Grapes</li>
+<li">&nbsp; &lt;/li&gt;</li>
+<li">&lt;/ul&gt;</li>
 </ol></div>
 
 JavaScript code: we select all elements of type `input` that have an attribute `checked` equal to `true`, and located inside an element whose id is "fruits". Notice the use of `document.querySelectorAll`, for selecting more than one element (_line 6_), then, we iterate on the list (__line 8_) and concatenate to the string variable `listOfSelectedValues` the value of each element (located in its `value` attribute). This is done in _line 9_.
@@ -350,21 +350,21 @@ _Lines 9-12_ use the `parentNode` property of the selected nodes in order to cha
 Finally, at the end of the document, _line 14_ adds a message followed by this list:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function displayListOfCheckedItems() {</li>
-<li style="margin-bottom: 0px;">&nbsp; // all inputs that have been checked</li>
-<li style="margin-bottom: 0px;">&nbsp; var listOfSelectedValues="";</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; var list = document.querySelectorAll("#fruits input:checked"); </li>
-<li style="margin-bottom: 0px;">&nbsp; list.forEach(function(elm) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; listOfSelectedValues += elm.value + " ";</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Put the li in red.</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // the li is the parent of the current input elem stored</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // in the elm variable</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; elm.parentNode.style.color = 'green';</li>
-<li style="margin-bottom: 0px;">&nbsp; });</li>
-<li style="margin-bottom: 0px;">&nbsp; document.body.append("You selected: " + listOfSelectedValues);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function displayListOfCheckedItems() {</li>
+<li">&nbsp; // all inputs that have been checked</li>
+<li">&nbsp; var listOfSelectedValues="";</li>
+<li"> </li>
+<li">&nbsp; var list = document.querySelectorAll("#fruits input:checked"); </li>
+<li">&nbsp; list.forEach(function(elm) {</li>
+<li">&nbsp; &nbsp; listOfSelectedValues += elm.value + " ";</li>
+<li"> </li>
+<li">&nbsp; &nbsp; // Put the li in red.</li>
+<li">&nbsp; &nbsp; // the li is the parent of the current input elem stored</li>
+<li">&nbsp; &nbsp; // in the elm variable</li>
+<li">&nbsp; &nbsp; elm.parentNode.style.color = 'green';</li>
+<li">&nbsp; });</li>
+<li">&nbsp; document.body.append("You selected: " + listOfSelectedValues);</li>
+<li">}</li>
 </ol></div>
 
 
@@ -378,12 +378,12 @@ __Example #3: change the background of all paragraphs <p> in an element of a giv
 HTML code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;button onclick="<strong>changeBackGroundOfPs('firstDiv');</strong>"&gt;Change backgrounds of p under a given element known by id&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;br&gt;</li>
-<li style="margin-bottom: 0px;">&lt;div <strong>id="firstDiv"</strong>&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;p&gt;First paragraph.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;p&gt;Second paragraph.&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/div&gt;</li>
+<li" value="1"> &lt;button onclick="<strong>changeBackGroundOfPs('firstDiv');</strong>"&gt;Change backgrounds of p under a given element known by id&lt;/button&gt;</li>
+<li"> &lt;br&gt;</li>
+<li">&lt;div <strong>id="firstDiv"</strong>&gt;</li>
+<li">&nbsp; &lt;p&gt;First paragraph.&lt;/p&gt;</li>
+<li">&nbsp; &lt;p&gt;Second paragraph.&lt;/p&gt;</li>
+<li">&lt;/div&gt;</li>
 </ol></div>
 
 JavaScript code: we build a CSS selector using the id passed as a parameter. In this example, the id is 'firstDiv', the id of the div at _line 3_ in the above code.
@@ -391,14 +391,14 @@ JavaScript code: we build a CSS selector using the id passed as a parameter. In 
 So, the variable CSS selector at _line 2_ in the JavaScript code below will have a value equal to "`#firstDiv p`", that means: select all `<p>` under an element whose `id` is "firstDiv". The `paragraphs` variable is a list that contains the paragraphs selected. Then we iterate on this list (this time using a for loop, which is an alternative method to using the forEach method used in previous examples) (_lines 5-7_), and we change the background of all selected paragraphs (_line 6_).
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function changeBackGroundOfPs(id) {</li>
-<li style="margin-bottom: 0px;">&nbsp; var paragraphs&nbsp;= document.querySelectorAll("#" + id + " p");</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; // Another way to iterate on all elements in a collection</li>
-<li style="margin-bottom: 0px;">&nbsp; for (var i = 0; i &lt; paragraphs.length; i++ ) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;paragraphs[i].style.backgroundColor = "lightGreen";</li>
-<li style="margin-bottom: 0px;">&nbsp; }</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function changeBackGroundOfPs(id) {</li>
+<li">&nbsp; var paragraphs&nbsp;= document.querySelectorAll("#" + id + " p");</li>
+<li">&nbsp;</li>
+<li">&nbsp; // Another way to iterate on all elements in a collection</li>
+<li">&nbsp; for (var i = 0; i &lt; paragraphs.length; i++ ) {</li>
+<li">&nbsp; &nbsp; &nbsp;paragraphs[i].style.backgroundColor = "lightGreen";</li>
+<li">&nbsp; }</li>
+<li">}</li>
 </ol></div>
 
 #### Other examples that use more complex selectors:
@@ -538,11 +538,11 @@ The most common way to modify the CSS style of one of several elements you selec
 Typical use:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">// select the paragraph with id = "paragraph1" </li>
-<li style="margin-bottom: 0px;"> var p = document.querySelector('#paragraph1');</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// change its color</li>
-<li style="margin-bottom: 0px;">p.style.color = 'red';</li>
+<li" value="1">// select the paragraph with id = "paragraph1" </li>
+<li"> var p = document.querySelector('#paragraph1');</li>
+<li">&nbsp;</li>
+<li">// change its color</li>
+<li">p.style.color = 'red';</li>
 </ol></div>
 
 
@@ -592,9 +592,9 @@ The ClassList interface simplifies it all by acting as a container object and by
 The `classList` property applies to an HTML element, and returns a collection of class names:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var elem= document.querySelector("#id1");</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">var allClasses = elem.<strong>classList</strong>;</li>
+<li" value="1">var elem= document.querySelector("#id1");</li>
+<li">&nbsp;</li>
+<li">var allClasses = elem.<strong>classList</strong>;</li>
 </ol></div>
 
 
@@ -603,24 +603,24 @@ The `classList` property applies to an HTML element, and returns a collection of
 The list of methods usable on a classList object are `add()`, `remove()`, `toggle()` and `contains()`.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">// By default, start without a class in the div: &lt;div/&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Set "foo" as the class by adding it to the classList</li>
-<li style="margin-bottom: 0px;">div.classList.add('foo'); // now &lt;div/&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Check that the classList contains the class "foo"</li>
-<li style="margin-bottom: 0px;">div.classList.contains('foo'); // returns true</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Remove the class "foo" from the list</li>
-<li style="margin-bottom: 0px;">div.classList.remove('foo'); // now &lt;div/&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Check if classList contains the class "foo"</li>
-<li style="margin-bottom: 0px;">div.classList.contains('foo'); // returns false: "foo" is gone</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Check if class contains the class "foo",</li>
-<li style="margin-bottom: 0px;">// If it does, "foo" is removed, if it doesn't, it's added</li>
-<li style="margin-bottom: 0px;">div.classList.toggle('foo'); // class set to &lt;div/&gt;</li>
-<li style="margin-bottom: 0px;">div.classList.toggle('foo'); // class set to &lt;div/&gt;</li>
+<li" value="1">// By default, start without a class in the div: &lt;div/&gt;</li>
+<li"> </li>
+<li">// Set "foo" as the class by adding it to the classList</li>
+<li">div.classList.add('foo'); // now &lt;div/&gt;</li>
+<li"> </li>
+<li">// Check that the classList contains the class "foo"</li>
+<li">div.classList.contains('foo'); // returns true</li>
+<li"> </li>
+<li">// Remove the class "foo" from the list</li>
+<li">div.classList.remove('foo'); // now &lt;div/&gt;</li>
+<li"> </li>
+<li">// Check if classList contains the class "foo"</li>
+<li">div.classList.contains('foo'); // returns false: "foo" is gone</li>
+<li"> </li>
+<li">// Check if class contains the class "foo",</li>
+<li">// If it does, "foo" is removed, if it doesn't, it's added</li>
+<li">div.classList.toggle('foo'); // class set to &lt;div/&gt;</li>
+<li">div.classList.toggle('foo'); // class set to &lt;div/&gt;</li>
 </ol></div>
 
 
@@ -636,11 +636,11 @@ This is a variation of an example from a previous section. This time, when the `
 CSS code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">.checked {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; border: 2px dashed #000;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; background-color: green;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; color:yellow;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">.checked {</li>
+<li">&nbsp; &nbsp; border: 2px dashed #000;</li>
+<li">&nbsp; &nbsp; background-color: green;</li>
+<li">&nbsp; &nbsp; color:yellow;</li>
+<li">}</li>
 </ol></div>
 
 ... and the `classList.add(CSS_class)` and `classList.remove(CSS_class)` methods on the `<li>` elements:
@@ -648,33 +648,33 @@ CSS code:
 JavaScript code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function displayListOfCheckedItems() {</li>
-<li style="margin-bottom: 0px;">&nbsp; // all inputs that have been checked</li>
-<li style="margin-bottom: 0px;">&nbsp; var listOfSelectedValues="";</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; var list = document.querySelectorAll("#fruits input:checked"); </li>
-<li style="margin-bottom: 0px;">&nbsp; list.forEach(function(elm) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; listOfSelectedValues += elm.value + " ";</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>// get the li parent of the current selected input</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; var liParent = elm.parentNode;</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; // add the CSS class .checked</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; liParent.classList.add("checked");</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; });</li>
-<li style="margin-bottom: 0px;">&nbsp; document.body.append("You selected: " + listOfSelectedValues);</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function reset() {</li>
-<li style="margin-bottom: 0px;">&nbsp; var list = document.querySelectorAll("#fruits input"); </li>
-<li style="margin-bottom: 0px;">&nbsp; list.forEach(function(elm) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // uncheck</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; elm.checked = false;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>// remove CSS decoration</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; var liParent = elm.parentNode;</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; liParent.classList.remove("checked");</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; });</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function displayListOfCheckedItems() {</li>
+<li">&nbsp; // all inputs that have been checked</li>
+<li">&nbsp; var listOfSelectedValues="";</li>
+<li"> </li>
+<li">&nbsp; var list = document.querySelectorAll("#fruits input:checked"); </li>
+<li">&nbsp; list.forEach(function(elm) {</li>
+<li">&nbsp; &nbsp; listOfSelectedValues += elm.value + " ";</li>
+<li"> </li>
+<li">&nbsp; &nbsp; <strong>// get the li parent of the current selected input</strong></li>
+<li"><strong>&nbsp; &nbsp; var liParent = elm.parentNode;</strong></li>
+<li"><strong>&nbsp; &nbsp; // add the CSS class .checked</strong></li>
+<li"><strong>&nbsp; &nbsp; liParent.classList.add("checked");</strong></li>
+<li">&nbsp; });</li>
+<li">&nbsp; document.body.append("You selected: " + listOfSelectedValues);</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">function reset() {</li>
+<li">&nbsp; var list = document.querySelectorAll("#fruits input"); </li>
+<li">&nbsp; list.forEach(function(elm) {</li>
+<li">&nbsp; &nbsp; // uncheck</li>
+<li">&nbsp; &nbsp; elm.checked = false;</li>
+<li"> </li>
+<li">&nbsp; &nbsp; <strong>// remove CSS decoration</strong></li>
+<li"><strong>&nbsp; &nbsp; var liParent = elm.parentNode;</strong></li>
+<li"><strong>&nbsp; &nbsp; liParent.classList.remove("checked");</strong></li>
+<li">&nbsp; });</li>
+<li">}</li>
 </ol></div>
 
 
@@ -748,17 +748,17 @@ This property is useful when you want to change all the children of a given elem
 Typical use:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var elem = document.querySelector('#myElem');</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">elem.innerHTML = 'Hello '; // replace content by Hello</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">elem.innerHTML += '&lt;b&gt;Michel Buffa&lt;/b&gt;', // append at the end </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Michel Buffa in bold</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">elem.innerHTML = 'Welcome' + elem.innerHTML; // insert Welcome </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// at the beginning</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">elem.innerHTML = ''; // empty the elem</li>
+<li" value="1">var elem = document.querySelector('#myElem');</li>
+<li">&nbsp;</li>
+<li">elem.innerHTML = 'Hello '; // replace content by Hello</li>
+<li">&nbsp;</li>
+<li">elem.innerHTML += '&lt;b&gt;Michel Buffa&lt;/b&gt;', // append at the end </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Michel Buffa in bold</li>
+<li">&nbsp;</li>
+<li">elem.innerHTML = 'Welcome' + elem.innerHTML; // insert Welcome </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// at the beginning</li>
+<li">&nbsp;</li>
+<li">elem.innerHTML = ''; // empty the elem</li>
 </ol></div>
 
 #### Using the `textContent` property
@@ -772,34 +772,34 @@ It's also possible, with selected nodes/elements that contain text, to use the t
 Extract from the HTML code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;p id="first"&gt;first paragraph&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;p id="second"&gt;&lt;em&gt;second&lt;/em&gt; paragraph&lt;/p&gt;</li>
+<li" value="1">&lt;p id="first"&gt;first paragraph&lt;/p&gt;</li>
+<li">&lt;p id="second"&gt;&lt;em&gt;second&lt;/em&gt; paragraph&lt;/p&gt;</li>
 </ol></div>
 
 JavaScript code: the comments after lines that start with `console.log` correspond to what is printed in the devtool debug console. Notice the difference between the `textNode` value and the `innerHTML` property values at _lines 13-14_: while `textContent` returns only the text inside the second paragraph, innerHTML also returns the `<em>...</em>` that surrounds it. However, when we modify the `textContent` value, it also replaces the text decoration (the `<em>` is removed), this is done at _lines 16-20_.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">window.onload = init;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function init() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;// DOM is ready</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;var firstP = document.querySelector("#first");</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(firstP.textContent); //&nbsp;"first paragraph"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(firstP.innerHTML); &nbsp;&nbsp;//&nbsp;<span style="background-color: #eeeeee;">"first paragraph"</span></li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;firstP.textContent = "Hello I'm the first paragraph";</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(firstP.textContent); //&nbsp;"Hello I'm the first paragraph"</li>
+<li" value="1">window.onload = init;</li>
+<li">&nbsp;</li>
+<li">function init() {</li>
+<li">&nbsp; &nbsp;// DOM is ready</li>
+<li">&nbsp; &nbsp;var firstP = document.querySelector("#first");</li>
+<li">&nbsp; &nbsp;console.log(firstP.textContent); //&nbsp;"first paragraph"</li>
+<li">&nbsp; &nbsp;console.log(firstP.innerHTML); &nbsp;&nbsp;//&nbsp;<span style="background-color: #eeeeee;">"first paragraph"</span></li>
+<li">&nbsp;</li>
+<li">&nbsp; &nbsp;firstP.textContent = "Hello I'm the first paragraph";</li>
+<li">&nbsp; &nbsp;console.log(firstP.textContent); //&nbsp;"Hello I'm the first paragraph"</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;var secondP = document.querySelector("#second");</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(secondP.textContent); //&nbsp;"second paragraph"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(secondP.innerHTML); &nbsp; //&nbsp;"&lt;em&gt;second&lt;/em&gt; paragraph"</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;secondP.textContent = "Hello I'm the second paragraph";</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(secondP.textContent); //&nbsp;"Hello I'm the second</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// paragraph"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;console.log(secondP.innerHTML); &nbsp;&nbsp;//&nbsp;"Hello I'm the second</li>
+<li">&nbsp; &nbsp;var secondP = document.querySelector("#second");</li>
+<li">&nbsp; &nbsp;console.log(secondP.textContent); //&nbsp;"second paragraph"</li>
+<li">&nbsp; &nbsp;console.log(secondP.innerHTML); &nbsp; //&nbsp;"&lt;em&gt;second&lt;/em&gt; paragraph"</li>
+<li"> </li>
+<li">&nbsp; &nbsp;secondP.textContent = "Hello I'm the second paragraph";</li>
+<li">&nbsp; &nbsp;console.log(secondP.textContent); //&nbsp;"Hello I'm the second</li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// paragraph"</li>
+<li">&nbsp; &nbsp;console.log(secondP.innerHTML); &nbsp;&nbsp;//&nbsp;"Hello I'm the second</li>
 <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// paragraph"</li>
-<li style="margin-bottom: 0px;">}</li>
+<li">}</li>
 </ol></div>
 
 
@@ -845,14 +845,14 @@ In general, to add new nodes to the DOM we follow these steps:
 1. Create a new element by calling the `createElement()` method, using a syntax like:
 
   <div><ol style="list-style: decimal;">
-  <li style="margin-bottom: 0px;" value="1">var elm = document.createElement(name_of_the_element). </li>
+  <li" value="1">var elm = document.createElement(name_of_the_element). </li>
   </ol></div>
 
   Examples:
 
   <div><ol style="list-style: decimal;">
-  <li style="margin-bottom: 0px;" value="1">var li = document.createElement('li'); </li>
-  <li style="margin-bottom: 0px;">var img = document.createElement('img'); etc.</li>
+  <li" value="1">var li = document.createElement('li'); </li>
+  <li">var img = document.createElement('img'); etc.</li>
   </ol></div>
 
 2. Set some attributes / values  / styles for this element.
@@ -860,11 +860,11 @@ In general, to add new nodes to the DOM we follow these steps:
   Examples:
 
   <div><ol style="list-style: decimal;">
-  <li style="margin-bottom: 0px;" value="1">li.innerHTML = '&lt;b&gt;This is a new list item in bold!&lt;/b&gt;'; // can add HTML in it</li>
-  <li style="margin-bottom: 0px;">li.textContent = 'Another new list item';</li>
-  <li style="margin-bottom: 0px;">li.style.color = 'green'; // green text</li>
-  <li style="margin-bottom: 0px;">img.src = "https://..../myImage.jpg"; // url of the image</li>
-  <li style="margin-bottom: 0px;">img.width = 200;</li>
+  <li" value="1">li.innerHTML = '&lt;b&gt;This is a new list item in bold!&lt;/b&gt;'; // can add HTML in it</li>
+  <li">li.textContent = 'Another new list item';</li>
+  <li">li.style.color = 'green'; // green text</li>
+  <li">img.src = "https://..../myImage.jpg"; // url of the image</li>
+  <li">img.width = 200;</li>
   </ol></div>
 
 3. Add the newly created element to another element in the DOM, using `append()`, `appendChild()`, `insertBefore()` or the `innerHTML` property
@@ -872,11 +872,11 @@ In general, to add new nodes to the DOM we follow these steps:
   Examples:
 
   <div><ol style="list-style: decimal;">
-  <li style="margin-bottom: 0px;" value="1">var ul = document.querySelector('#myList');</li>
-  <li style="margin-bottom: 0px;">ul.append(li); // insert at the end, appendChild() could also be used (old)</li>
-  <li style="margin-bottom: 0px;">ul.prepend(li); // insert at the beginning</li>
-  <li style="margin-bottom: 0px;">ul.insertBefore(li, another_element_child_of_ul);// insert in the middle</li>
-  <li style="margin-bottom: 0px;">document.body.append(img); // adds the image at the end of the document</li>
+  <li" value="1">var ul = document.querySelector('#myList');</li>
+  <li">ul.append(li); // insert at the end, appendChild() could also be used (old)</li>
+  <li">ul.prepend(li); // insert at the beginning</li>
+  <li">ul.insertBefore(li, another_element_child_of_ul);// insert in the middle</li>
+  <li">document.body.append(img); // adds the image at the end of the document</li>
   </ol></div>
 
 
@@ -891,45 +891,45 @@ __Example #1: use of the `createElement()`, `append()` methods and of the textCo
 HTML code extract: we use an `<input type="number">` for entering a number (_line 2_). Then if one clicks on the "Add to the list" button, the `add()` JavaScript function is called (_line 3_), this will add the typed number to the empty list at _line 7_. If one presses the "reset" button, it will empty this same list by calling the `reset()` JavaScript function.
 
 <div><ol style="list-style: decimal;">
-<li style="margin-bottom: 0px;" value="1"> &lt;label for="newNumber"&gt;Please enter a number&lt;/label&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;input type="number" id="newNumber" value=0&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;button onclick="<strong>add();</strong>"&gt;Add to the list&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;br&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;button onclick="<strong>reset();</strong>"&gt;Reset list&lt;/button&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;p&gt;You entered:&lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;ul id="numbers"&gt;&lt;/ul&gt;</li>
+<li" value="1"> &lt;label for="newNumber"&gt;Please enter a number&lt;/label&gt;</li>
+<li"> &lt;input type="number" id="newNumber" value=0&gt;</li>
+<li"> &lt;button onclick="<strong>add();</strong>"&gt;Add to the list&lt;/button&gt;</li>
+<li"> &lt;br&gt;</li>
+<li"> &lt;button onclick="<strong>reset();</strong>"&gt;Reset list&lt;/button&gt;</li>
+<li">&nbsp;</li>
+<li">&lt;p&gt;You entered:&lt;/p&gt;</li>
+<li">&lt;ul id="numbers"&gt;&lt;/ul&gt;</li>
 </ol></div>
 
 JavaScript code extract: notice at _line 25_ the use of the innerHTML property for resetting the content of the `<ul>` list. innerHTML corresponds to all the sub DOM contained inside the `<ul>...</ul>`. InnerHTML can be used for adding/deleting/modifying a DOM node's content.
 
 <div><ol style="list-style: decimal;">
-<li style="margin-bottom: 0px;" value="1">function add() {</li>
-<li style="margin-bottom: 0px;">&nbsp; // get the current value of the input field</li>
-<li style="margin-bottom: 0px;">&nbsp; var val = document.querySelector('#newNumber').value;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; if((val !== undefined) &amp;&amp; (val !== "")) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // val exists and non empty</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // get the list of numbers. It's a &lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var ul = document.querySelector("#numbers");</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // add it to the list as a new &lt;li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var newNumber =<strong> document.createElement("li");</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>newNumber</strong><strong>.textContent = val;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // or newNumber.innerHTML = val</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>ul</strong><strong>.append(newNumber);</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; }</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">function reset() {</li>
-<li style="margin-bottom: 0px;">&nbsp; // get the list of numbers. It's a &lt;ul&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; var ul = document.querySelector("#numbers");</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; // reset it: no children</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>ul</strong><strong>.innerHTML = ""</strong><strong>;</strong> &nbsp;</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function add() {</li>
+<li">&nbsp; // get the current value of the input field</li>
+<li">&nbsp; var val = document.querySelector('#newNumber').value;</li>
+<li"> </li>
+<li">&nbsp; if((val !== undefined) &amp;&amp; (val !== "")) {</li>
+<li">&nbsp; &nbsp; // val exists and non empty</li>
+<li"> </li>
+<li">&nbsp; &nbsp; // get the list of numbers. It's a &lt;ul&gt;</li>
+<li">&nbsp; &nbsp; var ul = document.querySelector("#numbers");</li>
+<li"> </li>
+<li">&nbsp; &nbsp; // add it to the list as a new &lt;li&gt;</li>
+<li">&nbsp; &nbsp; var newNumber =<strong> document.createElement("li");</strong></li>
+<li">&nbsp; &nbsp; <strong>newNumber</strong><strong>.textContent = val;</strong></li>
+<li">&nbsp; &nbsp; // or newNumber.innerHTML = val</li>
+<li"> </li>
+<li">&nbsp; &nbsp; <strong>ul</strong><strong>.append(newNumber);</strong></li>
+<li">&nbsp; }</li>
+<li">}</li>
+<li">&nbsp;</li>
+<li">function reset() {</li>
+<li">&nbsp; // get the list of numbers. It's a &lt;ul&gt;</li>
+<li">&nbsp; var ul = document.querySelector("#numbers");</li>
+<li"> </li>
+<li">&nbsp; // reset it: no children</li>
+<li">&nbsp; <strong>ul</strong><strong>.innerHTML = ""</strong><strong>;</strong> &nbsp;</li>
+<li">}</li>
 </ol></div>
 
 
@@ -966,8 +966,8 @@ This is the same example, but in an abbreviated form, using the `innerHTML` prop
 The `append()`, `appendChild()` methods normally adds  a new element to an existing one, as shown in this example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var li = createElement('li');</li>
-<li style="margin-bottom: 0px;">ul.append(li); // adds the new li to the ul element</li>
+<li" value="1">var li = createElement('li');</li>
+<li">ul.append(li); // adds the new li to the ul element</li>
 </ol></div>
 
 One interesting thing to know is that if we do not create the new element, but rather get it from somewhere else in the document, it is then removed from its parents and added to the new parent.
@@ -1038,19 +1038,19 @@ Let's take an example that we've already encountered. This time, you will check 
 JavaScript code extract: we need to get the `<ul>` that contains all the `<li><input type="checkbox"></li>` elements (_line 3_). This is the element we will use for calling `removeChild(...)`. The loop on the checked element (_lines 5-12_) iterates on a list of checked input elements. In order to make both the text (Apples, Oranges, etc.) AND the checkbox disappear, we need to access the different `<li>` elements that contain the selected checkboxes. This is done in line 10. Then, we can call ul.removeChild(li) on the `<ul>` for removing the `<li>` that contains the selected element (_line 11_). 
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function removeSelected() { </li>
-<li style="margin-bottom: 0px;">&nbsp; var list = document.querySelectorAll("#fruits input:checked"); </li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>var</strong><strong> ul = document.querySelector("#fruits");</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; list.forEach(function(elm) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // elm is an &lt;input type="checkbox"&gt;, its parent is a li</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // we want to remove from the &lt;ul&gt; list</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // when we remove the &lt;li&gt;, the &lt;input&gt; will also</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // be removed, as it's a child of the &lt;li&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>var</strong><strong> li = elm.parentNode;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>ul</strong><strong>.removeChild(li);</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; });</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function removeSelected() { </li>
+<li">&nbsp; var list = document.querySelectorAll("#fruits input:checked"); </li>
+<li">&nbsp; <strong>var</strong><strong> ul = document.querySelector("#fruits");</strong></li>
+<li"> </li>
+<li">&nbsp; list.forEach(function(elm) {</li>
+<li">&nbsp; &nbsp; // elm is an &lt;input type="checkbox"&gt;, its parent is a li</li>
+<li">&nbsp; &nbsp; // we want to remove from the &lt;ul&gt; list</li>
+<li">&nbsp; &nbsp; // when we remove the &lt;li&gt;, the &lt;input&gt; will also</li>
+<li">&nbsp; &nbsp; // be removed, as it's a child of the &lt;li&gt;</li>
+<li">&nbsp; &nbsp; <strong>var</strong><strong> li = elm.parentNode;</strong></li>
+<li">&nbsp; &nbsp; <strong>ul</strong><strong>.removeChild(li);</strong></li>
+<li">&nbsp; });</li>
+<li">}</li>
 </ol></div>
 
 
@@ -1059,23 +1059,23 @@ JavaScript code extract: we need to get the `<ul>` that contains all the `<li><i
 In the same example, if you look at the `reset()` JavaScript function, we use the ul's innerHTML property both for emptying the list (_lines 3-4_) and for appending to it all the initial HTML code (_lines 6-17_):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function reset() {</li>
-<li style="margin-bottom: 0px;">&nbsp; var ul = document.querySelector("#fruits");</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>// Empty the &lt;ul&gt;</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; ul.innerHTML = "";</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; // Adds each list item to the &lt;ul&gt; using innerHTML += ...</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>ul</strong><strong>.innerHTML +=</strong> "&lt;li&gt;&lt;input type='checkbox' name='fruit' &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='apples'&gt;Apples&lt;/li&gt;";</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>ul</strong><strong>.innerHTML +=</strong> "&lt;input type='checkbox' name='fruit' <br></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='oranges'&gt;Oranges&lt;/li&gt;&lt;br&gt;";</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong>ul</strong><strong>.innerHTML +=</strong> "&lt;input type='checkbox' name='fruit' </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='bananas'&gt;Bananas&lt;/li&gt;&lt;br&gt;";</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; ul.innerHTML +=</strong> "&lt;input type='checkbox' name='fruit' </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='grapes'&gt;Grapes&lt;/li&gt;";</li>
-<li style="margin-bottom: 0px;">}</li>
+<li" value="1">function reset() {</li>
+<li">&nbsp; var ul = document.querySelector("#fruits");</li>
+<li">&nbsp; <strong>// Empty the &lt;ul&gt;</strong></li>
+<li"><strong>&nbsp; ul.innerHTML = "";</strong></li>
+<li"> </li>
+<li">&nbsp; // Adds each list item to the &lt;ul&gt; using innerHTML += ...</li>
+<li">&nbsp; <strong>ul</strong><strong>.innerHTML +=</strong> "&lt;li&gt;&lt;input type='checkbox' name='fruit' &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='apples'&gt;Apples&lt;/li&gt;";</li>
+<li">&nbsp;</li>
+<li">&nbsp; <strong>ul</strong><strong>.innerHTML +=</strong> "&lt;input type='checkbox' name='fruit' <br></li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='oranges'&gt;Oranges&lt;/li&gt;&lt;br&gt;";</li>
+<li">&nbsp;</li>
+<li">&nbsp; <strong>ul</strong><strong>.innerHTML +=</strong> "&lt;input type='checkbox' name='fruit' </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='bananas'&gt;Bananas&lt;/li&gt;&lt;br&gt;";</li>
+<li">&nbsp;</li>
+<li"><strong>&nbsp; ul.innerHTML +=</strong> "&lt;input type='checkbox' name='fruit' </li>
+<li">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value='grapes'&gt;Grapes&lt;/li&gt;";</li>
+<li">}</li>
 </ol></div>
 
 
