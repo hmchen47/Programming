@@ -583,4 +583,141 @@
 + Example: [validate input on the fly](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#534-html-forms-and-javascript)
 
 
+## Example: A Contact Manager
+
++ [`Contact` and `ContactManager` classes](../WebDev/Frontend-W3C/5-JavaScript/05e-Forms.md#551-a-contact-manager-part-1)
+  + `Contact` class: a person w/ a name and an email
+
+    ```js
+    class Contact {
+      constructor(name, email) {
+        this.name = name;
+        this.email = email;
+      }
+    }
+    ```
+
+  + `ContactManager` class:
+    + a minimal ES6 class to build a contact manager
+    + only one property: the list of contacts
+    + two methods: add and remove contact
+
+    ```js
+    class ContactManager {
+      constructor() {   // built the contact manager w/ empty list of contacts
+        this.listOfContacts = [];
+      }
+
+      add(contact) {
+        this.listOfContacts.push(contact);
+      }
+
+      remove(contact) {
+        for (let i = 0; i < this.listOfContacts.length; i++) {
+          var c = this.listOfContacts[i];
+
+          if (c.email === c.email) {
+            this.listOfContacts.splice(i, i);
+            break;
+          }
+        }
+      }
+
+      printContactsToConsole() {
+        this.listOfContacts.forEach(function(c) {
+          console.log(c.name);
+        });
+      }
+    }
+    ```
+
++ [`Contact` and `ContactManager` verification](../WebDev/Frontend-W3C/5-JavaScript/05e-Forms.md#551-a-contact-manager-part-1)
+  + create contacts: `var cm = new ContactManager(); var c1 = new Contact("Jimi Hendrix", "jimi@rip.com"); var c2 = new Contact("Robert Fripp", "robert.fripp@kingcrimson.com"); var c3 = new Contact("Angus Young", "angus@acdc.com"); var c4 = new Contact("Arnold Schwarzenneger", "T2@terminator.com");`
+  + add contacts into contact manager: `cm.add(c1); cm.add(c2); cm.add(c3); cm.add(c4);`
+  + display to verify: `cm.printContactsToConsole();`
+  + delete a contact: `cm.remove(c2);`
+  + display to verify: `cm.printContactsToConsole();`
+
++ [Sorting contacts in manager](../WebDev/Frontend-W3C/5-JavaScript/05e-Forms.md#551-a-contact-manager-part-1)
+  + define `sort` method in `ContactManager`: `sort() { this.listOfContacts(ContactManager.compareByName); }`
+  + class method for comparing two contacts by name: 
+  
+    ```js
+    static compareName(c1, c2) {
+      if (c1.name < c2.name>)
+        return -1;
+      
+      if (c.name > c2.name)
+        return 1;
+      
+      return 0;
+    }
+    ```
+
++ [Load and save w/ Local Storage](../WebDev/Frontend-W3C/5-JavaScript/05e-Forms.md#552-persistence-part-2)
+  + loading / saving from a key/value pair database located in hard disk
+  + associated to the domain of Web application
+  + add `load` and `save` methods for constructor
+  + convert array of contacts to JSON and save into local storage: `save() { localStorage.contacts = JSON.stringify(this.lostOfContacts); }`
+  + verify `LocalStorage` w/ devtool:
+    + Chrome: devtool > Application > Local Storage (left panel) > `https://js.codepen.io` > Key/Value pair (right panel)
+    + Firefox: devtool > setting icon on top-right corner > Storage (left panel)
+    + Safari: devtool > Storage (top banner) > Local Storage > `https://js.codepen.io` > key/value pair
+  + empty list of contacts: `empty() { this.listOfContacts = []; }`
+  + load contacts from `LocalStorage` and convert JSON back into JS object: `load() { if (localStorage.contact != undefined) { this.listOfContacts = JSON.parse(localStorage.contacts); }}`
+  + verify `save()`, `empty()` and `load()` w/ printing in console
+    + `console.log("---Saving contacts to local storage---"); cm.save();`
+    + `console.log("---Empty the list of contacts---"); cm.empty(); cm.printContactsToConsole();`
+    + `console.log("---Loading contacts from local storage---); cm.load(); cm.printContactsColsole();`
+
++ [Display contacts in HTML5 table w/ Xhr2](../WebDev/Frontend-W3C/5-JavaScript/05e-Forms.md#553-display-contacts-in-an-html5-table-part-3)
+  + Refer to Xhr2 of [JSON data from a REST Web Service](../WebDev/Frontend-W3C/5-JavaScript/05d-Forms.md#examples)
+  + add container to display contact table: `<div id="contacts"></div>`
+  + add function to display users in table: `function displayUsersAsTable(users) {...}`
+    + empty the container: `var usersDiv = document.querySelector("#users"); usersDiv.innerHTML = "";`
+    + create and populate the table w/ users: `var table = document.createElement("table");`
+    + iterate to display users of array: `usersDiv.forEach(function(currentUser) {...});`
+      + create a row: `var row = table.insertRow();`
+      + insert cells in the row: `var nameCell = row.insertCell(); nameCell.innerHTML = currentUser.name; var cityCell = row.insertCell(); cityCell.innerHTML = currentuser.address.city;`
+    + add the table to the container: `usersDiv.appendChild(table);`
+
++ [Display contacts in HTML5 table](../WebDev/Frontend-W3C/5-JavaScript/05e-Forms.md#553-display-contacts-in-an-html5-table-part-3)
+  + implementation w/ `class ContactManager` 
+  + add button element: `<button onclick="search();">Get a remote list of users' names and emails</button>`
+  + add empty container for table: `<div id="users"></div>`
+  + specify table styles: `table { margin-top: 20px; }` & `table, tr, td { border: 1px solid; }`
+  + add method to display contacts in table: `displayContactsAsTable(idOfContainer) {...}`
+    + empty the container: `let container = document.querySelector('#' + idOfContainer); container.innerHTML = "";`
+    + no contact: `if (this.listOfContacts.length === 0) { container.innerHTML = "<p>No contacts to sdisplay!>/p>"; return; }`
+    + create and populate the table w/ users: `let table = document.createElement("table");`
+    + iterate the users of the array: `this.listOfContacts.forEach(function(currentContact) {...});`
+      + create row: `let row = table.insertRow();`
+      + add data of the row: `row.innerHTML = "<td>" + currentContact.name + "</td>" + "<td>" + currentComtact.email + "</td>";`
+    + add table to the div container: `container.appendChild(table);`
+
++ [Input form to add new contact](../WebDev/Frontend-W3C/5-JavaScript/05e-Forms.md#554-use-a-form-to-enter-new-contacts-part-4)
+  + event listener: `<form onsubmit="return formSubmitted();">...</form>`
+  + grouping inputs fields and submit button: `<fieldset>...</field>`
+    + legend of group: `<legend>Personal information</legend>`
+    + name input form: `<label> Name : <input type="text" id="name" required> </label>`
+    + email input form: `<label> Email : <input type="email" id="email" required> </label>`
+    + submit button: `<button>Add new Contact</button>`
+  + add buttons for table displaying: `<div id="contacts"></div>`
+    + empty button: `<button onclick="emptyList();">Empty</button>`
+    + save button: `<button onclick="cm.save();">Save</button>`
+    + reload button: `<button onclick="loadList();"></button>`
+  + callback function once button clicked: `function formSubmitted() {...}`
+    + access elements: `let name = document.querySelector("#name"); let email = document.querySelector("#email");`
+    + assign values in a new contact: `let newContact = new Contact(name.value, email.value); cm.add(newContact);`
+    + empty the input fields: `name.value = ""; email.value = "";`
+    + refresh the table: `cm.displayContactsAsATable("contacts");`
+    + prevent from submitting by the browser to reload the HTTP page: `return false;`
+  + empty list: `function emptyList() { cm.empty(); cm.displayContactsAsATable("contacts"); }`
+  + load list: `function loadList() { cm.load(); cm.displayContactsAsATable("contacts"); }`
+  + save strings in Local Storage: `localStorage.contacts = JSON.stringify(this.listOfContacts);`
+
+
+
+
+
 
